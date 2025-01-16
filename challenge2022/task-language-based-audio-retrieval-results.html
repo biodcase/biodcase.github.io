@@ -1,0 +1,3475 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Language-Based Audio Retrieval - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Language-Based Audio Retrieval - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2022/task-language-based-audio-retrieval-results">
+    <meta property="og:url" content="https://dcase.community/challenge2022/task-language-based-audio-retrieval-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="Task description Language-based audio retrieval is the task of retrieving audio signals using their sound content textual descriptions (i.e., audio captions). Human written audio captions are used as text queries. For each text query, the goal of this task is to retrieve 10 audio files from a given dataset …" />
+    <meta name="og:description" content="Task description Language-based audio retrieval is the..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btex.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2022</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2022/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2022/task-low-complexity-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2022/task-low-complexity-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2022/task-low-complexity-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2022/task-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2022/task-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2022/task-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2022/task-sound-event-localization-and-detection-evaluated-in-real-spatial-sound-scenes" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2022/task-sound-event-localization-and-detection-evaluated-in-real-spatial-sound-scenes"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2022/task-sound-event-localization-and-detection-evaluated-in-real-spatial-sound-scenes-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2022/task-sound-event-detection-in-domestic-environments" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2022/task-sound-event-detection-in-domestic-environments"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2022/task-sound-event-detection-in-domestic-environments-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2022/task-few-shot-bioacoustic-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-bird text-danger"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2022/task-few-shot-bioacoustic-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2022/task-few-shot-bioacoustic-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2022/task-automatic-audio-captioning-and-language-based-audio-retrieval" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-captioning text-task1"></i>&nbsp;Task6&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2022/task-automatic-audio-captioning-and-language-based-audio-retrieval"><i class="fa fa-info-circle fa-fw"></i>&nbsp;Introduction</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>Automatic audio-captioning</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2022/task-automatic-audio-captioning"><i class="fa dc-captioning fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2022/task-automatic-audio-captioning-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>Language-Based Audio Retrieval</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2022/task-language-based-audio-retrieval"><i class="fa fa-file-text fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2022/task-language-based-audio-retrieval-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2022/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2022/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/stones-03.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-task1"></i><strong class="fa-stack-1x icon-text">B</strong><strong class="fa-stack-1x dcase-icon-top-text">Retrieval</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 6</span></span><img src="../images/logos/dcase/dcase2022_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Language-Based Audio Retrieval</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Challenge results</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#task-description">Task description</a></li>
+<li><a href="#teams-ranking">Teams ranking</a></li>
+<li><a href="#systems-ranking">Systems ranking</a></li>
+<li><a href="#system-characteristics">System characteristics</a>
+<ul>
+<li><a href="#overview-of-characteristics">Overview of characteristics</a></li>
+<li><a href="#detailed-characteristics">Detailed characteristics</a></li>
+</ul>
+</li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h1 id="task-description">Task description</h1>
+<p>Language-based audio retrieval is the task of retrieving audio signals using their sound content textual descriptions (i.e., audio captions).
+Human written audio captions are used as text queries.
+For each text query, the goal of this task is to retrieve 10 audio files from a given dataset and sort them based their match with the query.
+Through this subtask, we aim to inspire further research into language-based audio retrieval with unconstrained textual descriptions.</p>
+<p>The Clotho v2 is provided as the development dataset, which includes both audio and corresponding captions.
+Participants are also allowed using pre-trained models and external data for training their systems.
+This includes pre-trained models for feature extraction from audio and/or captions, and pre-optimized methods for natural language processing like <em>part-of-speech (POS) tagging</em>.
+Additionally, participants can use <strong>external audio and/or textual data</strong>, e.g., external text corpus for learning a language model or additional audio data like <em>AudioSet</em>, <em>Freesound</em>.
+More information about Task 6B: Language-based Audio Retrieval can be found at the
+<a class="btn btn-primary" href="http://localhost:3000/challenge2022/task-language-based-audio-retrieval" style="">task description page.</a></p>
+<h1 id="teams-ranking">Teams ranking</h1>
+<p>Here are listed the best systems all from all teams.
+The ranking is based on the achieved mAP@10 metric.
+For more elaborated exploration of the performance of different systems, at the same table are listed the values achieved for all the metrics employed in the task.
+The metric values are for the development-testing split and the evaluation dataset.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar" data-id-field="abbreviation" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="false" data-show-rank="true" data-sort-name="tes_mAP10" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Selected<br/> metric<br/>rank</th>
+<th class="sep-left-cell text-center" colspan="4">Submission Information</th>
+<th class="sep-left-cell text-center" colspan="4">Evaluation dataset</th>
+<th class="sep-left-cell text-center" colspan="4">Development-testing split</th>
+</tr>
+<tr>
+<th data-field="abbreviation" data-sortable="true">
+              Submission code
+            </th>
+<th class="text-center" data-chartable="true" data-field="anchor_sys_rank" data-sortable="true" data-value-type="int">
+              Best official <br/>system rank
+            </th>
+<th data-field="corresponding_author" data-sortable="false">
+              Corresponding author
+            </th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+              Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="tes_mAP10" data-reversed="true" data-sortable="true" data-value-type="float3">
+              mAP@10
+            </th>
+<th class="text-center" data-chartable="true" data-field="tes_R1" data-reversed="true" data-sortable="true" data-value-type="float3">
+              R@1
+            </th>
+<th class="text-center" data-chartable="true" data-field="tes_R5" data-reversed="true" data-sortable="true" data-value-type="float3">
+              R@5
+            </th>
+<th class="text-center" data-chartable="true" data-field="tes_R10" data-reversed="true" data-sortable="true" data-value-type="float3">
+              R@10
+            </th>
+<th class="text-center sep-left-cell" data-chartable="true" data-field="eva_mAP10" data-reversed="true" data-sortable="true" data-value-type="float3">
+              mAP@10
+            </th>
+<th class="text-center" data-chartable="true" data-field="eva_R1" data-reversed="true" data-sortable="true" data-value-type="float3">
+              R@1
+            </th>
+<th class="text-center" data-chartable="true" data-field="eva_R5" data-reversed="true" data-sortable="true" data-value-type="float3">
+              R@5
+            </th>
+<th class="text-center" data-chartable="true" data-field="eva_R10" data-reversed="true" data-sortable="true" data-value-type="float3">
+              R@10
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>ensmbl_5</td>
+<td>1</td>
+<td>Xuenan Xu</td>
+<td>xu2022_t6b</td>
+<td>0.276</td>
+<td>0.176</td>
+<td>0.416</td>
+<td>0.536</td>
+<td>0.299</td>
+<td>0.188</td>
+<td>0.447</td>
+<td>0.587</td>
+</tr>
+<tr>
+<td></td>
+<td>Mei_Surrey_1</td>
+<td>2</td>
+<td>Xinhao Mei</td>
+<td>mei2022_t6b</td>
+<td>0.251</td>
+<td>0.153</td>
+<td>0.387</td>
+<td>0.504</td>
+<td>0.260</td>
+<td>0.150</td>
+<td>0.400</td>
+<td>0.530</td>
+</tr>
+<tr>
+<td></td>
+<td>RELAX_4</td>
+<td>3</td>
+<td>Theodore Lamort de Gail</td>
+<td>lamort2022_t6b</td>
+<td>0.221</td>
+<td>0.131</td>
+<td>0.343</td>
+<td>0.466</td>
+<td>0.226</td>
+<td>0.132</td>
+<td>0.350</td>
+<td>0.478</td>
+</tr>
+<tr>
+<td></td>
+<td>wtagsACens</td>
+<td>4</td>
+<td>Thomas Pellegrini</td>
+<td>pellegrini2022_t6b</td>
+<td>0.216</td>
+<td>0.127</td>
+<td>0.321</td>
+<td>0.463</td>
+<td>0.243</td>
+<td>0.148</td>
+<td>0.369</td>
+<td>0.498</td>
+</tr>
+<tr>
+<td></td>
+<td>lai_pa_4</td>
+<td>5</td>
+<td>Yongquan Lai</td>
+<td>lai2022_t6b</td>
+<td>0.215</td>
+<td>0.122</td>
+<td>0.328</td>
+<td>0.478</td>
+<td>0.510</td>
+<td>0.350</td>
+<td>0.750</td>
+<td>0.890</td>
+</tr>
+<tr>
+<td></td>
+<td>CLAP_4</td>
+<td>6</td>
+<td>Yusong Wu</td>
+<td>wu2022_t6b</td>
+<td>0.188</td>
+<td>0.107</td>
+<td>0.303</td>
+<td>0.413</td>
+<td>0.212</td>
+<td>0.124</td>
+<td>0.327</td>
+<td>0.455</td>
+</tr>
+<tr>
+<td></td>
+<td>ATAE-NP-F</td>
+<td>7</td>
+<td>Benno Weck</td>
+<td>weck2022_t6b</td>
+<td>0.128</td>
+<td>0.077</td>
+<td>0.188</td>
+<td>0.284</td>
+<td>0.140</td>
+<td>0.075</td>
+<td>0.225</td>
+<td>0.324</td>
+</tr>
+<tr>
+<td></td>
+<td>P-GAT</td>
+<td>8</td>
+<td>Feiyang Xiao</td>
+<td>xiao2022_t6b</td>
+<td>0.097</td>
+<td>0.043</td>
+<td>0.162</td>
+<td>0.267</td>
+<td>0.130</td>
+<td>0.070</td>
+<td>0.210</td>
+<td>0.330</td>
+</tr>
+<tr>
+<td></td>
+<td>park_cau_1</td>
+<td>9</td>
+<td>Jiwon Park</td>
+<td>park2022_t6b</td>
+<td>0.075</td>
+<td>0.033</td>
+<td>0.127</td>
+<td>0.208</td>
+<td>0.090</td>
+<td>0.050</td>
+<td>0.150</td>
+<td>0.230</td>
+</tr>
+<tr>
+<td></td>
+<td>Baseline</td>
+<td>10</td>
+<td>Huang Xie</td>
+<td>xie2022_t6b</td>
+<td>0.061</td>
+<td>0.026</td>
+<td>0.102</td>
+<td>0.176</td>
+<td>0.068</td>
+<td>0.032</td>
+<td>0.109</td>
+<td>0.188</td>
+</tr>
+</tbody>
+</table>
+<h1 id="systems-ranking">Systems ranking</h1>
+<p>Here are listed all systems and their ranking according to the different metrics.
+Detailed information of each system is at the next section.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar" data-id-field="abbreviation" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="tes_mAP10" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Selected<br/> metric<br/>rank</th>
+<th class="sep-left-cell text-center" colspan="3">Submission Information</th>
+<th class="sep-left-cell text-center" colspan="4">Evaluation dataset</th>
+<th class="sep-left-cell text-center" colspan="4">Development-testing split</th>
+</tr>
+<tr>
+<th data-field="abbreviation" data-sortable="true">
+              Submission code
+            </th>
+<th class="text-center" data-chartable="true" data-field="anchor_sys_rank" data-sortable="true" data-value-type="int">
+              Best official <br/>system rank
+            </th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+              Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="tes_mAP10" data-reversed="true" data-sortable="true" data-value-type="float3">
+              mAP@10
+            </th>
+<th class="text-center" data-chartable="true" data-field="tes_R1" data-reversed="true" data-sortable="true" data-value-type="float3">
+              R@1
+            </th>
+<th class="text-center" data-chartable="true" data-field="tes_R5" data-reversed="true" data-sortable="true" data-value-type="float3">
+              R@5
+            </th>
+<th class="text-center" data-chartable="true" data-field="tes_R10" data-reversed="true" data-sortable="true" data-value-type="float3">
+              R@10
+            </th>
+<th class="text-center sep-left-cell" data-chartable="true" data-field="eva_mAP10" data-reversed="true" data-sortable="true" data-value-type="float3">
+              mAP@10
+            </th>
+<th class="text-center" data-chartable="true" data-field="eva_R1" data-reversed="true" data-sortable="true" data-value-type="float3">
+              R@1
+            </th>
+<th class="text-center" data-chartable="true" data-field="eva_R5" data-reversed="true" data-sortable="true" data-value-type="float3">
+              R@5
+            </th>
+<th class="text-center" data-chartable="true" data-field="eva_R10" data-reversed="true" data-sortable="true" data-value-type="float3">
+              R@10
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>wotags</td>
+<td>14</td>
+<td>pellegrini2022_t6b</td>
+<td>0.212</td>
+<td>0.124</td>
+<td>0.319</td>
+<td>0.448</td>
+<td>0.229</td>
+<td>0.135</td>
+<td>0.355</td>
+<td>0.482</td>
+</tr>
+<tr>
+<td></td>
+<td>wtags</td>
+<td>12</td>
+<td>pellegrini2022_t6b</td>
+<td>0.214</td>
+<td>0.128</td>
+<td>0.332</td>
+<td>0.445</td>
+<td>0.234</td>
+<td>0.138</td>
+<td>0.364</td>
+<td>0.485</td>
+</tr>
+<tr>
+<td></td>
+<td>wtagsAC</td>
+<td>13</td>
+<td>pellegrini2022_t6b</td>
+<td>0.213</td>
+<td>0.125</td>
+<td>0.322</td>
+<td>0.454</td>
+<td>0.240</td>
+<td>0.145</td>
+<td>0.365</td>
+<td>0.500</td>
+</tr>
+<tr>
+<td></td>
+<td>wtagsACens</td>
+<td>10</td>
+<td>pellegrini2022_t6b</td>
+<td>0.216</td>
+<td>0.127</td>
+<td>0.321</td>
+<td>0.463</td>
+<td>0.243</td>
+<td>0.148</td>
+<td>0.369</td>
+<td>0.498</td>
+</tr>
+<tr>
+<td></td>
+<td>ATAE</td>
+<td>23</td>
+<td>weck2022_t6b</td>
+<td>0.114</td>
+<td>0.057</td>
+<td>0.179</td>
+<td>0.279</td>
+<td>0.136</td>
+<td>0.072</td>
+<td>0.219</td>
+<td>0.325</td>
+</tr>
+<tr>
+<td></td>
+<td>ATAE-ET</td>
+<td>24</td>
+<td>weck2022_t6b</td>
+<td>0.113</td>
+<td>0.066</td>
+<td>0.168</td>
+<td>0.267</td>
+<td>0.122</td>
+<td>0.064</td>
+<td>0.194</td>
+<td>0.288</td>
+</tr>
+<tr>
+<td></td>
+<td>ATAE-EP-F</td>
+<td>22</td>
+<td>weck2022_t6b</td>
+<td>0.121</td>
+<td>0.069</td>
+<td>0.178</td>
+<td>0.281</td>
+<td>0.127</td>
+<td>0.068</td>
+<td>0.202</td>
+<td>0.299</td>
+</tr>
+<tr>
+<td></td>
+<td>ATAE-NP-F</td>
+<td>21</td>
+<td>weck2022_t6b</td>
+<td>0.128</td>
+<td>0.077</td>
+<td>0.188</td>
+<td>0.284</td>
+<td>0.140</td>
+<td>0.075</td>
+<td>0.225</td>
+<td>0.324</td>
+</tr>
+<tr>
+<td></td>
+<td>P-GAT</td>
+<td>25</td>
+<td>xiao2022_t6b</td>
+<td>0.097</td>
+<td>0.043</td>
+<td>0.162</td>
+<td>0.267</td>
+<td>0.130</td>
+<td>0.070</td>
+<td>0.210</td>
+<td>0.330</td>
+</tr>
+<tr>
+<td></td>
+<td>lai_pa_1</td>
+<td>12</td>
+<td>lai2022_t6b</td>
+<td>0.214</td>
+<td>0.125</td>
+<td>0.328</td>
+<td>0.469</td>
+<td>0.510</td>
+<td>0.350</td>
+<td>0.750</td>
+<td>0.890</td>
+</tr>
+<tr>
+<td></td>
+<td>lai_pa_2</td>
+<td>16</td>
+<td>lai2022_t6b</td>
+<td>0.209</td>
+<td>0.118</td>
+<td>0.326</td>
+<td>0.462</td>
+<td>0.510</td>
+<td>0.340</td>
+<td>0.750</td>
+<td>0.890</td>
+</tr>
+<tr>
+<td></td>
+<td>lai_pa_3</td>
+<td>15</td>
+<td>lai2022_t6b</td>
+<td>0.210</td>
+<td>0.115</td>
+<td>0.331</td>
+<td>0.484</td>
+<td>0.510</td>
+<td>0.340</td>
+<td>0.750</td>
+<td>0.890</td>
+</tr>
+<tr>
+<td></td>
+<td>lai_pa_4</td>
+<td>11</td>
+<td>lai2022_t6b</td>
+<td>0.215</td>
+<td>0.122</td>
+<td>0.328</td>
+<td>0.478</td>
+<td>0.510</td>
+<td>0.350</td>
+<td>0.750</td>
+<td>0.890</td>
+</tr>
+<tr>
+<td></td>
+<td>RELAX_1</td>
+<td>9</td>
+<td>lamort2022_t6b</td>
+<td>0.218</td>
+<td>0.128</td>
+<td>0.337</td>
+<td>0.467</td>
+<td>0.231</td>
+<td>0.137</td>
+<td>0.354</td>
+<td>0.484</td>
+</tr>
+<tr>
+<td></td>
+<td>RELAX_2</td>
+<td>14</td>
+<td>lamort2022_t6b</td>
+<td>0.212</td>
+<td>0.118</td>
+<td>0.327</td>
+<td>0.464</td>
+<td>0.229</td>
+<td>0.137</td>
+<td>0.351</td>
+<td>0.469</td>
+</tr>
+<tr>
+<td></td>
+<td>RELAX_3</td>
+<td>10</td>
+<td>lamort2022_t6b</td>
+<td>0.216</td>
+<td>0.129</td>
+<td>0.336</td>
+<td>0.458</td>
+<td>0.228</td>
+<td>0.137</td>
+<td>0.354</td>
+<td>0.470</td>
+</tr>
+<tr>
+<td></td>
+<td>RELAX_4</td>
+<td>8</td>
+<td>lamort2022_t6b</td>
+<td>0.221</td>
+<td>0.131</td>
+<td>0.343</td>
+<td>0.466</td>
+<td>0.226</td>
+<td>0.132</td>
+<td>0.350</td>
+<td>0.478</td>
+</tr>
+<tr>
+<td></td>
+<td>CLAP_1</td>
+<td>19</td>
+<td>wu2022_t6b</td>
+<td>0.182</td>
+<td>0.104</td>
+<td>0.295</td>
+<td>0.388</td>
+<td>0.214</td>
+<td>0.126</td>
+<td>0.335</td>
+<td>0.452</td>
+</tr>
+<tr>
+<td></td>
+<td>CLAP_2</td>
+<td>20</td>
+<td>wu2022_t6b</td>
+<td>0.180</td>
+<td>0.100</td>
+<td>0.284</td>
+<td>0.385</td>
+<td>0.211</td>
+<td>0.124</td>
+<td>0.326</td>
+<td>0.451</td>
+</tr>
+<tr>
+<td></td>
+<td>CLAP_3</td>
+<td>18</td>
+<td>wu2022_t6b</td>
+<td>0.183</td>
+<td>0.102</td>
+<td>0.289</td>
+<td>0.401</td>
+<td>0.212</td>
+<td>0.124</td>
+<td>0.331</td>
+<td>0.451</td>
+</tr>
+<tr>
+<td></td>
+<td>CLAP_4</td>
+<td>17</td>
+<td>wu2022_t6b</td>
+<td>0.188</td>
+<td>0.107</td>
+<td>0.303</td>
+<td>0.413</td>
+<td>0.212</td>
+<td>0.124</td>
+<td>0.327</td>
+<td>0.455</td>
+</tr>
+<tr>
+<td></td>
+<td>ensmbl_5</td>
+<td>1</td>
+<td>xu2022_t6b</td>
+<td>0.276</td>
+<td>0.176</td>
+<td>0.416</td>
+<td>0.536</td>
+<td>0.299</td>
+<td>0.188</td>
+<td>0.447</td>
+<td>0.587</td>
+</tr>
+<tr>
+<td></td>
+<td>ensmbl_4</td>
+<td>2</td>
+<td>xu2022_t6b</td>
+<td>0.269</td>
+<td>0.177</td>
+<td>0.397</td>
+<td>0.517</td>
+<td>0.288</td>
+<td>0.182</td>
+<td>0.427</td>
+<td>0.568</td>
+</tr>
+<tr>
+<td></td>
+<td>ensmbl_3_1</td>
+<td>3</td>
+<td>xu2022_t6b</td>
+<td>0.265</td>
+<td>0.174</td>
+<td>0.395</td>
+<td>0.514</td>
+<td>0.283</td>
+<td>0.179</td>
+<td>0.424</td>
+<td>0.558</td>
+</tr>
+<tr>
+<td></td>
+<td>ensmbl_3_2</td>
+<td>4</td>
+<td>xu2022_t6b</td>
+<td>0.259</td>
+<td>0.168</td>
+<td>0.379</td>
+<td>0.508</td>
+<td>0.282</td>
+<td>0.175</td>
+<td>0.417</td>
+<td>0.565</td>
+</tr>
+<tr>
+<td></td>
+<td>park_cau_1</td>
+<td>26</td>
+<td>park2022_t6b</td>
+<td>0.075</td>
+<td>0.033</td>
+<td>0.127</td>
+<td>0.208</td>
+<td>0.090</td>
+<td>0.050</td>
+<td>0.150</td>
+<td>0.230</td>
+</tr>
+<tr>
+<td></td>
+<td>park_cau_2</td>
+<td>26</td>
+<td>park2022_t6b</td>
+<td>0.075</td>
+<td>0.037</td>
+<td>0.117</td>
+<td>0.204</td>
+<td>0.090</td>
+<td>0.050</td>
+<td>0.150</td>
+<td>0.230</td>
+</tr>
+<tr>
+<td></td>
+<td>Mei_Surrey_1</td>
+<td>5</td>
+<td>mei2022_t6b</td>
+<td>0.251</td>
+<td>0.153</td>
+<td>0.387</td>
+<td>0.504</td>
+<td>0.260</td>
+<td>0.150</td>
+<td>0.400</td>
+<td>0.530</td>
+</tr>
+<tr>
+<td></td>
+<td>Mei_Surrey_2</td>
+<td>6</td>
+<td>mei2022_t6b</td>
+<td>0.250</td>
+<td>0.151</td>
+<td>0.388</td>
+<td>0.507</td>
+<td>0.260</td>
+<td>0.150</td>
+<td>0.400</td>
+<td>0.530</td>
+</tr>
+<tr>
+<td></td>
+<td>Mei_Surrey_3</td>
+<td>7</td>
+<td>mei2022_t6b</td>
+<td>0.244</td>
+<td>0.150</td>
+<td>0.382</td>
+<td>0.497</td>
+<td>0.240</td>
+<td>0.140</td>
+<td>0.370</td>
+<td>0.500</td>
+</tr>
+<tr>
+<td></td>
+<td>Mei_Surrey_4</td>
+<td>5</td>
+<td>mei2022_t6b</td>
+<td>0.251</td>
+<td>0.162</td>
+<td>0.378</td>
+<td>0.496</td>
+<td>0.260</td>
+<td>0.150</td>
+<td>0.400</td>
+<td>0.530</td>
+</tr>
+<tr>
+<td></td>
+<td>Baseline</td>
+<td>27</td>
+<td>xie2022_t6b</td>
+<td>0.061</td>
+<td>0.026</td>
+<td>0.102</td>
+<td>0.176</td>
+<td>0.068</td>
+<td>0.032</td>
+<td>0.109</td>
+<td>0.188</td>
+</tr>
+</tbody>
+</table>
+<h1 id="system-characteristics">System characteristics</h1>
+<p>In this section you can find the characteristics of the submitted systems.
+There are two tables for easy reference, in the corresponding subsections.
+The first table has an overview of the systems and the second has a detailed presentation of each system.</p>
+<h2 id="overview-of-characteristics">Overview of characteristics</h2>
+<table class="datatable table table-hover table-condensed" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-chart-tooltip-fields="abbreviation" data-filter-control="true" data-filter-show-clear="true" data-id-field="abbreviation" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="total_parameters" data-scatter-y="tes_mAP10" data-show-bar-chart-xaxis="false" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="anchor_sys_rank" data-sort-order="asc" data-striped="true" data-tag-mode="column">
+<thead>
+<tr>
+<th data-field="anchor_sys_rank" data-sortable="true" data-value-type="int">
+            Rank
+            </th>
+<th class="sm-cell" data-field="abbreviation" data-sortable="true">
+              Submission<br/>code
+            </th>
+<th class="text-center" data-chartable="true" data-field="tes_mAP10" data-reversed="false" data-sortable="true" data-value-type="float3">
+              mAP@10
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+              Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="machine_learning_method" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Method scheme/architecture
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-axis-scale="log10_unit" data-chartable="true" data-field="total_parameters" data-sortable="true" data-value-type="numeric-unit">
+              Amount of parameters
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="audio_modelling" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Audio modelling
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="word_modelling" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Word modelling
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="data_augmentation" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Data<br/>augmentation
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14</td>
+<td>wotags</td>
+<td>0.212</td>
+<td>pellegrini2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>196046781</td>
+<td>PaSST</td>
+<td>Transformer</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>wtags</td>
+<td>0.214</td>
+<td>pellegrini2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>196046781</td>
+<td>PaSST</td>
+<td>Transformer</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>wtagsAC</td>
+<td>0.213</td>
+<td>pellegrini2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>196046781</td>
+<td>PaSST</td>
+<td>Transformer</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>wtagsACens</td>
+<td>0.216</td>
+<td>pellegrini2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>196453339</td>
+<td>PaSST</td>
+<td>Transformer</td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td>ATAE</td>
+<td>0.114</td>
+<td>weck2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>165000000</td>
+<td>PANNs</td>
+<td>DistilRoBERTa</td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>ATAE-ET</td>
+<td>0.113</td>
+<td>weck2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>165000000</td>
+<td>PANNs</td>
+<td>DistilRoBERTa</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>ATAE-EP-F</td>
+<td>0.121</td>
+<td>weck2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>165000000</td>
+<td>PANNs</td>
+<td>DistilRoBERTa</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>ATAE-NP-F</td>
+<td>0.128</td>
+<td>weck2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>165000000</td>
+<td>PANNs</td>
+<td>DistilRoBERTa</td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td>P-GAT</td>
+<td>0.097</td>
+<td>xiao2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>6799328</td>
+<td>PANNs, GAT</td>
+<td>Word2vec</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>lai_pa_1</td>
+<td>0.214</td>
+<td>lai2022_t6b</td>
+<td>supervised learning</td>
+<td>134111910</td>
+<td>ESResNeXt</td>
+<td>CLIP</td>
+<td>audio cropping</td>
+</tr>
+<tr>
+<td>16</td>
+<td>lai_pa_2</td>
+<td>0.209</td>
+<td>lai2022_t6b</td>
+<td>supervised learning</td>
+<td>134111910</td>
+<td>ESResNeXt</td>
+<td>CLIP</td>
+<td>audio cropping</td>
+</tr>
+<tr>
+<td>15</td>
+<td>lai_pa_3</td>
+<td>0.210</td>
+<td>lai2022_t6b</td>
+<td>supervised learning</td>
+<td>134111910</td>
+<td>ESResNeXt</td>
+<td>CLIP</td>
+<td>audio cropping</td>
+</tr>
+<tr>
+<td>11</td>
+<td>lai_pa_4</td>
+<td>0.215</td>
+<td>lai2022_t6b</td>
+<td>supervised learning</td>
+<td>134111910</td>
+<td>ESResNeXt</td>
+<td>CLIP</td>
+<td>audio cropping</td>
+</tr>
+<tr>
+<td>9</td>
+<td>RELAX_1</td>
+<td>0.218</td>
+<td>lamort2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>401606726</td>
+<td>several audio experts, Transformer heads</td>
+<td>BERT</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>RELAX_2</td>
+<td>0.212</td>
+<td>lamort2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>401606726</td>
+<td>several audio experts, Transformer heads</td>
+<td>BERT</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>RELAX_3</td>
+<td>0.216</td>
+<td>lamort2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>401606726</td>
+<td>several audio experts, Transformer heads</td>
+<td>BERT</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>RELAX_4</td>
+<td>0.221</td>
+<td>lamort2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>401606726</td>
+<td>several audio experts, Transformer heads</td>
+<td>BERT</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>CLAP_1</td>
+<td>0.182</td>
+<td>wu2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>244087786</td>
+<td>HTSAT-tiny, PANN-14</td>
+<td>Transformer</td>
+<td>Spec-Augment</td>
+</tr>
+<tr>
+<td>20</td>
+<td>CLAP_2</td>
+<td>0.180</td>
+<td>wu2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>96460249</td>
+<td>HTSAT-tiny</td>
+<td>Transformer</td>
+<td>Spec-Augment</td>
+</tr>
+<tr>
+<td>18</td>
+<td>CLAP_3</td>
+<td>0.183</td>
+<td>wu2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>244087786</td>
+<td>HTSAT-tiny, PANN-14</td>
+<td>Transformer</td>
+<td>Spec-Augment</td>
+</tr>
+<tr>
+<td>17</td>
+<td>CLAP_4</td>
+<td>0.188</td>
+<td>wu2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>244087786</td>
+<td>HTSAT-tiny, PANN-14</td>
+<td>Transformer</td>
+<td>Spec-Augment</td>
+</tr>
+<tr>
+<td>1</td>
+<td>ensmbl_5</td>
+<td>0.276</td>
+<td>xu2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>911895813</td>
+<td>CNN</td>
+<td>Transformer</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>ensmbl_4</td>
+<td>0.269</td>
+<td>xu2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>715582596</td>
+<td>CNN</td>
+<td>Transformer</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>ensmbl_3_1</td>
+<td>0.265</td>
+<td>xu2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>591600259</td>
+<td>CNN</td>
+<td>Transformer</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>ensmbl_3_2</td>
+<td>0.259</td>
+<td>xu2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>508377539</td>
+<td>CNN</td>
+<td>Transformer</td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td>park_cau_1</td>
+<td>0.075</td>
+<td>park2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>732354</td>
+<td>CNN10(pretrained-learning)+gru</td>
+<td>Word2vec</td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td>park_cau_2</td>
+<td>0.075</td>
+<td>park2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>732354</td>
+<td>CNN10(pretrained-learning)+gru</td>
+<td>Word2vec</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Mei_Surrey_1</td>
+<td>0.251</td>
+<td>mei2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>195420160</td>
+<td>CNN</td>
+<td>Transformer</td>
+<td>Spec-Augment</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Mei_Surrey_2</td>
+<td>0.250</td>
+<td>mei2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>195420160</td>
+<td>CNN</td>
+<td>Transformer</td>
+<td>Spec-Augment</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Mei_Surrey_3</td>
+<td>0.244</td>
+<td>mei2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>188449792</td>
+<td>CNN</td>
+<td>Transformer</td>
+<td>Spec-Augment</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Mei_Surrey_4</td>
+<td>0.251</td>
+<td>mei2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>195420160</td>
+<td>CNN</td>
+<td>Transformer</td>
+<td>Spec-Augment</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Baseline</td>
+<td>0.061</td>
+<td>xie2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>732354</td>
+<td>CRNN</td>
+<td>Word2vec</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br/>
+<br/></p>
+<h2 id="detailed-characteristics">Detailed characteristics</h2>
+<table class="datatable table table-hover table-condensed" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-chart-tooltip-fields="abbreviation" data-filter-control="true" data-filter-show-clear="true" data-id-field="abbreviation" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="total_parameters" data-scatter-y="tes_mAP10" data-show-bar-chart-xaxis="false" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="anchor_sys_rank" data-sort-order="asc" data-striped="true" data-tag-mode="column">
+<thead>
+<tr>
+<th data-field="anchor_sys_rank" data-sortable="true" data-value-type="int">
+            Rank
+            </th>
+<th class="sm-cell" data-field="abbreviation" data-sortable="true">
+              Submission<br/>code
+            </th>
+<th class="text-center" data-chartable="true" data-field="tes_mAP10" data-reversed="false" data-sortable="true" data-value-type="float3">
+              mAP@10
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+              Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="machine_learning_method" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Method scheme/architecture
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-axis-scale="log10_unit" data-chartable="true" data-field="total_parameters" data-sortable="true" data-value-type="numeric-unit">
+              Amount of parameters
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="audio_modelling" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Audio modelling
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="acoustic_features" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Acoustic<br/>features
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="word_modelling" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Word modelling
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="word_embeddings" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Word<br/>embeddings
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="data_augmentation" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Data<br/>augmentation
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="input_sampling_rate" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Sampling <br/>rate
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="learning_scheme" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Learning set-up
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="ensemble" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Ensemble method
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="loss_function" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Loss function
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="optimizer" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Optimizer
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="learning_rate" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Learning rate
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="gradient_clipping" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Gradient clipping 
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="gradient_norm" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Gradient norm for clipping
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="metric_monitored" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Metric monitored for training
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="dataset_audio_modelling" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Dataset(s) used for audio modelling
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="dataset_word_modelling" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Dataset(s) used for word modelling
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14</td>
+<td>wotags</td>
+<td>0.212</td>
+<td>pellegrini2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>196046781</td>
+<td>PaSST</td>
+<td>PaSST scene embeddings</td>
+<td>Transformer</td>
+<td>all-mpnet-base-v2</td>
+<td></td>
+<td>32.0kHz</td>
+<td>supervised</td>
+<td></td>
+<td>Triplet Loss</td>
+<td>Adam</td>
+<td>1e-3</td>
+<td></td>
+<td></td>
+<td>validation_loss</td>
+<td>Clotho</td>
+<td>Clotho</td>
+</tr>
+<tr>
+<td>12</td>
+<td>wtags</td>
+<td>0.214</td>
+<td>pellegrini2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>196046781</td>
+<td>PaSST</td>
+<td>PaSST scene embeddings</td>
+<td>Transformer</td>
+<td>all-mpnet-base-v2</td>
+<td></td>
+<td>32.0kHz</td>
+<td>supervised</td>
+<td></td>
+<td>Triplet Loss</td>
+<td>Adam</td>
+<td>1e-3</td>
+<td></td>
+<td></td>
+<td>validation_loss</td>
+<td>Clotho</td>
+<td>Clotho</td>
+</tr>
+<tr>
+<td>13</td>
+<td>wtagsAC</td>
+<td>0.213</td>
+<td>pellegrini2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>196046781</td>
+<td>PaSST</td>
+<td>PaSST scene embeddings</td>
+<td>Transformer</td>
+<td>all-mpnet-base-v2</td>
+<td></td>
+<td>32.0kHz</td>
+<td>supervised</td>
+<td></td>
+<td>Triplet Loss</td>
+<td>Adam</td>
+<td>1e-3</td>
+<td></td>
+<td></td>
+<td>validation_loss</td>
+<td>Clotho, AudioCaps</td>
+<td>Clotho, AudioCaps</td>
+</tr>
+<tr>
+<td>10</td>
+<td>wtagsACens</td>
+<td>0.216</td>
+<td>pellegrini2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>196453339</td>
+<td>PaSST</td>
+<td>PaSST scene embeddings</td>
+<td>Transformer</td>
+<td>all-mpnet-base-v2</td>
+<td></td>
+<td>32.0kHz</td>
+<td>supervised</td>
+<td></td>
+<td>Triplet Loss</td>
+<td>Adam</td>
+<td>1e-3</td>
+<td></td>
+<td></td>
+<td>validation_loss</td>
+<td>Clotho, AudioCaps</td>
+<td>Clotho, AudioCaps</td>
+</tr>
+<tr>
+<td>23</td>
+<td>ATAE</td>
+<td>0.114</td>
+<td>weck2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>165000000</td>
+<td>PANNs</td>
+<td>PANNs</td>
+<td>DistilRoBERTa</td>
+<td>DistilRoBERTa</td>
+<td></td>
+<td>32.0kHz</td>
+<td>metric learning</td>
+<td></td>
+<td>Contrastive loss</td>
+<td>Adam</td>
+<td>1e-4</td>
+<td></td>
+<td></td>
+<td>validation_mAP@10</td>
+<td>Clotho</td>
+<td>Clotho</td>
+</tr>
+<tr>
+<td>24</td>
+<td>ATAE-ET</td>
+<td>0.113</td>
+<td>weck2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>165000000</td>
+<td>PANNs</td>
+<td>PANNs</td>
+<td>DistilRoBERTa</td>
+<td>DistilRoBERTa</td>
+<td></td>
+<td>32.0kHz</td>
+<td>metric learning</td>
+<td></td>
+<td>Contrastive loss</td>
+<td>Adam</td>
+<td>1e-4</td>
+<td></td>
+<td></td>
+<td>validation_mAP@10</td>
+<td>Clotho, FSD50K</td>
+<td>Clotho, FSD50K</td>
+</tr>
+<tr>
+<td>22</td>
+<td>ATAE-EP-F</td>
+<td>0.121</td>
+<td>weck2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>165000000</td>
+<td>PANNs</td>
+<td>PANNs</td>
+<td>DistilRoBERTa</td>
+<td>DistilRoBERTa</td>
+<td></td>
+<td>32.0kHz</td>
+<td>metric learning</td>
+<td></td>
+<td>Contrastive loss</td>
+<td>Adam</td>
+<td>1e-4</td>
+<td></td>
+<td></td>
+<td>validation_mAP@10</td>
+<td>Clotho, FSD50K</td>
+<td>Clotho, FSD50K</td>
+</tr>
+<tr>
+<td>21</td>
+<td>ATAE-NP-F</td>
+<td>0.128</td>
+<td>weck2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>165000000</td>
+<td>PANNs</td>
+<td>PANNs</td>
+<td>DistilRoBERTa</td>
+<td>DistilRoBERTa</td>
+<td></td>
+<td>32.0kHz</td>
+<td>metric learning</td>
+<td></td>
+<td>Contrastive loss</td>
+<td>Adam</td>
+<td>1e-4</td>
+<td></td>
+<td></td>
+<td>validation_mAP@10</td>
+<td>Clotho, FSD50K</td>
+<td>Clotho, FSD50K</td>
+</tr>
+<tr>
+<td>25</td>
+<td>P-GAT</td>
+<td>0.097</td>
+<td>xiao2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>6799328</td>
+<td>PANNs, GAT</td>
+<td>log-mel energies</td>
+<td>Word2vec</td>
+<td>Word2Vec</td>
+<td></td>
+<td>44.1kHz</td>
+<td>self-supervised</td>
+<td></td>
+<td>Triplet Loss</td>
+<td>Adam</td>
+<td>1e-4</td>
+<td></td>
+<td></td>
+<td>validation_loss</td>
+<td>Clotho</td>
+<td>Clotho</td>
+</tr>
+<tr>
+<td>12</td>
+<td>lai_pa_1</td>
+<td>0.214</td>
+<td>lai2022_t6b</td>
+<td>supervised learning</td>
+<td>134111910</td>
+<td>ESResNeXt</td>
+<td>waveform</td>
+<td>CLIP</td>
+<td>Transformer</td>
+<td>audio cropping</td>
+<td>44.1kHz</td>
+<td>supervised</td>
+<td></td>
+<td>symmetric cross entropy loss</td>
+<td>Adam</td>
+<td>1e-5</td>
+<td></td>
+<td>clip grad norm</td>
+<td>training_loss</td>
+<td>Clotho</td>
+<td>Clotho</td>
+</tr>
+<tr>
+<td>16</td>
+<td>lai_pa_2</td>
+<td>0.209</td>
+<td>lai2022_t6b</td>
+<td>supervised learning</td>
+<td>134111910</td>
+<td>ESResNeXt</td>
+<td>waveform</td>
+<td>CLIP</td>
+<td>Transformer</td>
+<td>audio cropping</td>
+<td>44.1kHz</td>
+<td>supervised</td>
+<td></td>
+<td>symmetric cross entropy loss</td>
+<td>Adam</td>
+<td>1e-5</td>
+<td></td>
+<td>clip grad norm</td>
+<td>training_loss</td>
+<td>Clotho</td>
+<td>Clotho</td>
+</tr>
+<tr>
+<td>15</td>
+<td>lai_pa_3</td>
+<td>0.210</td>
+<td>lai2022_t6b</td>
+<td>supervised learning</td>
+<td>134111910</td>
+<td>ESResNeXt</td>
+<td>waveform</td>
+<td>CLIP</td>
+<td>Transformer</td>
+<td>audio cropping</td>
+<td>44.1kHz</td>
+<td>supervised</td>
+<td></td>
+<td>symmetric cross entropy loss</td>
+<td>Adam</td>
+<td>1e-5</td>
+<td></td>
+<td>clip grad norm</td>
+<td>training_loss</td>
+<td>Clotho</td>
+<td>Clotho</td>
+</tr>
+<tr>
+<td>11</td>
+<td>lai_pa_4</td>
+<td>0.215</td>
+<td>lai2022_t6b</td>
+<td>supervised learning</td>
+<td>134111910</td>
+<td>ESResNeXt</td>
+<td>waveform</td>
+<td>CLIP</td>
+<td>Transformer</td>
+<td>audio cropping</td>
+<td>44.1kHz</td>
+<td>supervised</td>
+<td></td>
+<td>symmetric cross entropy loss</td>
+<td>Adam</td>
+<td>1e-5</td>
+<td></td>
+<td>clip grad norm</td>
+<td>training_loss</td>
+<td>Clotho</td>
+<td>Clotho</td>
+</tr>
+<tr>
+<td>9</td>
+<td>RELAX_1</td>
+<td>0.218</td>
+<td>lamort2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>401606726</td>
+<td>several audio experts, Transformer heads</td>
+<td>several audio experts</td>
+<td>BERT</td>
+<td>BERT</td>
+<td></td>
+<td>several sampling rates</td>
+<td>supervised</td>
+<td></td>
+<td>contrastive ranking loss</td>
+<td>AdamW</td>
+<td>1e-4</td>
+<td></td>
+<td></td>
+<td>validation_loss, validation_ranking_accuracy</td>
+<td>Clotho, AudioCaps, Freesound</td>
+<td>Clotho, AudioCaps</td>
+</tr>
+<tr>
+<td>14</td>
+<td>RELAX_2</td>
+<td>0.212</td>
+<td>lamort2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>401606726</td>
+<td>several audio experts, Transformer heads</td>
+<td>several audio experts</td>
+<td>BERT</td>
+<td>BERT</td>
+<td></td>
+<td>several sampling rates</td>
+<td>supervised</td>
+<td></td>
+<td>contrastive ranking loss</td>
+<td>AdamW</td>
+<td>1e-4</td>
+<td></td>
+<td></td>
+<td>validation_loss, validation_ranking_accuracy</td>
+<td>Clotho, AudioCaps, Freesound</td>
+<td>Clotho, AudioCaps</td>
+</tr>
+<tr>
+<td>10</td>
+<td>RELAX_3</td>
+<td>0.216</td>
+<td>lamort2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>401606726</td>
+<td>several audio experts, Transformer heads</td>
+<td>several audio experts</td>
+<td>BERT</td>
+<td>BERT</td>
+<td></td>
+<td>several sampling rates</td>
+<td>supervised</td>
+<td></td>
+<td>contrastive ranking loss</td>
+<td>AdamW</td>
+<td>1e-4</td>
+<td></td>
+<td></td>
+<td>validation_loss, validation_ranking_accuracy</td>
+<td>Clotho, AudioCaps, Freesound</td>
+<td>Clotho, AudioCaps</td>
+</tr>
+<tr>
+<td>8</td>
+<td>RELAX_4</td>
+<td>0.221</td>
+<td>lamort2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>401606726</td>
+<td>several audio experts, Transformer heads</td>
+<td>several audio experts</td>
+<td>BERT</td>
+<td>BERT</td>
+<td></td>
+<td>several sampling rates</td>
+<td>supervised</td>
+<td></td>
+<td>contrastive ranking loss</td>
+<td>AdamW</td>
+<td>1e-4</td>
+<td></td>
+<td></td>
+<td>validation_loss, validation_ranking_accuracy</td>
+<td>Clotho, AudioCaps, Freesound</td>
+<td>Clotho, AudioCaps</td>
+</tr>
+<tr>
+<td>19</td>
+<td>CLAP_1</td>
+<td>0.182</td>
+<td>wu2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>244087786</td>
+<td>HTSAT-tiny, PANN-14</td>
+<td>log-mel energies</td>
+<td>Transformer</td>
+<td>learned</td>
+<td>Spec-Augment</td>
+<td>48.0kHz</td>
+<td>self-supervised</td>
+<td></td>
+<td>Contrastive loss</td>
+<td>AdamW</td>
+<td>1e-3</td>
+<td></td>
+<td></td>
+<td>text-to-audio-mAP@10</td>
+<td>BBC_Sound_Effects, Clotho, AudioCaps, AudioSet, Free_To_Use_Sounds, We_Sound_Effects, Sonniss_Game_Audio_Effects</td>
+<td>BBC_Sound_Effects, Clotho, AudioCaps, AudioSet, Free_To_Use_Sounds, We_Sound_Effects, Sonniss_Game_Audio_Effects</td>
+</tr>
+<tr>
+<td>20</td>
+<td>CLAP_2</td>
+<td>0.180</td>
+<td>wu2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>96460249</td>
+<td>HTSAT-tiny</td>
+<td>log-mel energies</td>
+<td>Transformer</td>
+<td>learned</td>
+<td>Spec-Augment</td>
+<td>48.0kHz</td>
+<td>self-supervised</td>
+<td></td>
+<td>Contrastive loss</td>
+<td>AdamW</td>
+<td>1e-3</td>
+<td></td>
+<td></td>
+<td>text-to-audio-mAP@10</td>
+<td>BBC_Sound_Effects, Clotho, AudioCaps, AudioSet, Free_To_Use_Sounds, We_Sound_Effects, We_Sound_Effects, Sonniss_Game_Audio_Effects</td>
+<td>BBC_Sound_Effects, Clotho, AudioCaps, AudioSet, Free_To_Use_Sounds, We_Sound_Effects, We_Sound_Effects, Sonniss_Game_Audio_Effects</td>
+</tr>
+<tr>
+<td>18</td>
+<td>CLAP_3</td>
+<td>0.183</td>
+<td>wu2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>244087786</td>
+<td>HTSAT-tiny, PANN-14</td>
+<td>log-mel energies</td>
+<td>Transformer</td>
+<td>learned</td>
+<td>Spec-Augment</td>
+<td>48.0kHz</td>
+<td>self-supervised</td>
+<td></td>
+<td>Contrastive loss</td>
+<td>AdamW</td>
+<td>1e-3</td>
+<td></td>
+<td></td>
+<td>text-to-audio-mAP@10</td>
+<td>BBC_Sound_Effects, Clotho, AudioCaps, AudioSet, Free_To_Use_Sounds, We_Sound_Effects, We_Sound_Effects, Sonniss_Game_Audio_Effects</td>
+<td>BBC_Sound_Effects, Clotho, AudioCaps, AudioSet, Free_To_Use_Sounds, We_Sound_Effects, We_Sound_Effects, Sonniss_Game_Audio_Effects</td>
+</tr>
+<tr>
+<td>17</td>
+<td>CLAP_4</td>
+<td>0.188</td>
+<td>wu2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>244087786</td>
+<td>HTSAT-tiny, PANN-14</td>
+<td>log-mel energies</td>
+<td>Transformer</td>
+<td>learned</td>
+<td>Spec-Augment</td>
+<td>48.0kHz</td>
+<td>self-supervised</td>
+<td></td>
+<td>Contrastive loss</td>
+<td>AdamW</td>
+<td>1e-3</td>
+<td></td>
+<td></td>
+<td>text-to-audio-mAP@10</td>
+<td>BBC_Sound_Effects, Clotho, AudioCaps, AudioSet, Free_To_Use_Sounds, We_Sound_Effects, We_Sound_Effects, Sonniss_Game_Audio_Effects</td>
+<td>BBC_Sound_Effects, Clotho, AudioCaps, AudioSet, Free_To_Use_Sounds, We_Sound_Effects, We_Sound_Effects, Sonniss_Game_Audio_Effects</td>
+</tr>
+<tr>
+<td>1</td>
+<td>ensmbl_5</td>
+<td>0.276</td>
+<td>xu2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>911895813</td>
+<td>CNN</td>
+<td>waveform</td>
+<td>Transformer</td>
+<td>learned</td>
+<td></td>
+<td>32.0kHz</td>
+<td>self-supervised</td>
+<td></td>
+<td>InfoNCE loss</td>
+<td>Adam</td>
+<td>2e-5</td>
+<td></td>
+<td></td>
+<td>validation_t2a_R1_R5_R10_mean</td>
+<td>Clotho, AudioCaps</td>
+<td>Clotho, AudioCaps</td>
+</tr>
+<tr>
+<td>2</td>
+<td>ensmbl_4</td>
+<td>0.269</td>
+<td>xu2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>715582596</td>
+<td>CNN</td>
+<td>waveform</td>
+<td>Transformer</td>
+<td>learned</td>
+<td></td>
+<td>32.0kHz</td>
+<td>self-supervised</td>
+<td></td>
+<td>InfoNCE loss</td>
+<td>Adam</td>
+<td>2e-5</td>
+<td></td>
+<td></td>
+<td>validation_t2a_R1_R5_R10_mean</td>
+<td>Clotho, AudioCaps</td>
+<td>Clotho, AudioCaps</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ensmbl_3_1</td>
+<td>0.265</td>
+<td>xu2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>591600259</td>
+<td>CNN</td>
+<td>waveform</td>
+<td>Transformer</td>
+<td>learned</td>
+<td></td>
+<td>32.0kHz</td>
+<td>self-supervised</td>
+<td></td>
+<td>InfoNCE loss</td>
+<td>Adam</td>
+<td>2e-5</td>
+<td></td>
+<td></td>
+<td>validation_t2a_R1_R5_R10_mean</td>
+<td>Clotho, AudioCaps</td>
+<td>Clotho, AudioCaps</td>
+</tr>
+<tr>
+<td>4</td>
+<td>ensmbl_3_2</td>
+<td>0.259</td>
+<td>xu2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>508377539</td>
+<td>CNN</td>
+<td>waveform</td>
+<td>Transformer</td>
+<td>learned</td>
+<td></td>
+<td>32.0kHz</td>
+<td>self-supervised</td>
+<td></td>
+<td>InfoNCE loss</td>
+<td>Adam</td>
+<td>2e-5</td>
+<td></td>
+<td></td>
+<td>validation_t2a_R1_R5_R10_mean</td>
+<td>Clotho, AudioCaps</td>
+<td>Clotho, AudioCaps</td>
+</tr>
+<tr>
+<td>26</td>
+<td>park_cau_1</td>
+<td>0.075</td>
+<td>park2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>732354</td>
+<td>CNN10(pretrained-learning)+gru</td>
+<td>log-mel energies</td>
+<td>Word2vec</td>
+<td>Word2Vec</td>
+<td></td>
+<td>44.1kHz</td>
+<td>self-supervised</td>
+<td></td>
+<td>Triplet Loss</td>
+<td>Adam</td>
+<td>1e-3</td>
+<td></td>
+<td></td>
+<td>validation_loss</td>
+<td>Clotho</td>
+<td>Clotho</td>
+</tr>
+<tr>
+<td>26</td>
+<td>park_cau_2</td>
+<td>0.075</td>
+<td>park2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>732354</td>
+<td>CNN10(pretrained-learning)+gru</td>
+<td>log-mel energies</td>
+<td>Word2vec</td>
+<td>Word2Vec</td>
+<td></td>
+<td>44.1kHz</td>
+<td>self-supervised</td>
+<td></td>
+<td>Triplet Loss</td>
+<td>Adam</td>
+<td>1e-3</td>
+<td></td>
+<td></td>
+<td>validation_loss</td>
+<td>Clotho</td>
+<td>Clotho</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Mei_Surrey_1</td>
+<td>0.251</td>
+<td>mei2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>195420160</td>
+<td>CNN</td>
+<td>PANNs</td>
+<td>Transformer</td>
+<td>BERT</td>
+<td>Spec-Augment</td>
+<td>44.1kHz</td>
+<td>supervised</td>
+<td></td>
+<td>NTXent loss</td>
+<td>AdamW</td>
+<td>1e-4</td>
+<td></td>
+<td></td>
+<td>validation_recall</td>
+<td>Clotho</td>
+<td>Clotho</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Mei_Surrey_2</td>
+<td>0.250</td>
+<td>mei2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>195420160</td>
+<td>CNN</td>
+<td>PANNs</td>
+<td>Transformer</td>
+<td>BERT</td>
+<td>Spec-Augment</td>
+<td>44.1kHz</td>
+<td>supervised</td>
+<td></td>
+<td>NTXent loss</td>
+<td>AdamW</td>
+<td>1e-4</td>
+<td></td>
+<td></td>
+<td>validation_recall</td>
+<td>Clotho</td>
+<td>Clotho</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Mei_Surrey_3</td>
+<td>0.244</td>
+<td>mei2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>188449792</td>
+<td>CNN</td>
+<td>PANNs</td>
+<td>Transformer</td>
+<td>BERT</td>
+<td>Spec-Augment</td>
+<td>44.1kHz</td>
+<td>supervised</td>
+<td></td>
+<td>NTXent loss</td>
+<td>AdamW</td>
+<td>1e-4</td>
+<td></td>
+<td></td>
+<td>validation_recall</td>
+<td>Clotho</td>
+<td>Clotho</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Mei_Surrey_4</td>
+<td>0.251</td>
+<td>mei2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>195420160</td>
+<td>CNN</td>
+<td>PANNs</td>
+<td>Transformer</td>
+<td>BERT</td>
+<td>Spec-Augment</td>
+<td>44.1kHz</td>
+<td>supervised</td>
+<td></td>
+<td>NTXent loss</td>
+<td>AdamW</td>
+<td>1e-4</td>
+<td></td>
+<td></td>
+<td>validation_recall</td>
+<td>Clotho</td>
+<td>Clotho</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Baseline</td>
+<td>0.061</td>
+<td>xie2022_t6b</td>
+<td>cross-modal alignment</td>
+<td>732354</td>
+<td>CRNN</td>
+<td>log-mel energies</td>
+<td>Word2vec</td>
+<td>Word2Vec</td>
+<td></td>
+<td>44.1kHz</td>
+<td>self-supervised</td>
+<td></td>
+<td>Triplet Loss</td>
+<td>Adam</td>
+<td>1e-3</td>
+<td></td>
+<td></td>
+<td>validation_loss</td>
+<td>Clotho</td>
+<td>Clotho</td>
+</tr>
+</tbody>
+</table>
+<p><br/>
+<br/></p>
+<h1 id="technical-reports">Technical reports</h1>
+<div class="btex" data-source="content/data/challenge2022/technical_reports_task6b.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="lai2022_t6b" style="box-shadow: none">
+<div class="panel-heading" id="heading-lai2022_t6b" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        A ResNet-Based Clip Text-to-Audio Retrieval System for DCASE Challenge 2022 Task
+       </h4>
+<p style="text-align:left">
+        Yongquan Lai, Jinsong Pan, Buxian Chen
+       </p>
+<p style="text-align:left">
+<em>
+         Ping An Property &amp; Casualty Insurance Company of China, Ltd., China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">lai_pa_task6b_1</span> <span class="label label-primary">lai_pa_task6b_2</span> <span class="label label-primary">lai_pa_task6b_3</span> <span class="label label-primary">lai_pa_task6b_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-lai2022_t6b" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-lai2022_t6b" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-lai2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Lai_50_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-lai2022_t6b" class="panel-collapse collapse" id="collapse-lai2022_t6b" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       A ResNet-Based Clip Text-to-Audio Retrieval System for DCASE Challenge 2022 Task
+      </h4>
+<p style="text-align:left">
+<small>
+        Yongquan Lai, Jinsong Pan, Buxian Chen
+       </small>
+<br/>
+<small>
+<em>
+         Ping An Property &amp; Casualty Insurance Company of China, Ltd., China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       Language-based audio retrieval aim to use language to retrieval audios in a given dataset. This technical report presents an text-to-audio retrieval system submitted to Task 6b of the DCASE 2022 challenge. The proposed system is based on AudioCLIP, which incorporates the ESResNeXt audio-model into the CLIP framework using the AudioSet and clothe V2 datasets and introduces a pre-training method to perform bimodal querying. the original AudioCLIP acquired poor retrieval performance on the clothe V2 dataset in a zero-shot inference fashion. So we used AudioCLIP’s model as a weight initializer, and finetuned audio encoder and text encoder using symmetric cross entropy loss over similarity measure among the mini-batch (audio, text) pairs. Through pre-training and data augmentation methods, our model achieved R1 score of 0.35 and mAP10 score of 0.51 on Clotho V2 evaluation set.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         audio cropping
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-lai2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Lai_50_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-lai2022_t6blabel" class="modal fade" id="bibtex-lai2022_t6b" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexlai2022_t6blabel">
+        A ResNet-Based Clip Text-to-Audio Retrieval System for DCASE Challenge 2022 Task
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{lai2022_t6b,
+    Author = "Lai, Yongquan and Pan, Jinsong and Chen, Buxian",
+    title = "A {ResNet-Based} Clip Text-to-Audio Retrieval System for {DCASE} Challenge 2022 Task",
+    institution = "DCASE2022 Challenge",
+    year = "2022",
+    month = "July",
+    abstract = "Language-based audio retrieval aim to use language to retrieval audios in a given dataset. This technical report presents an text-to-audio retrieval system submitted to Task 6b of the DCASE 2022 challenge. The proposed system is based on AudioCLIP, which incorporates the ESResNeXt audio-model into the CLIP framework using the AudioSet and clothe V2 datasets and introduces a pre-training method to perform bimodal querying. the original AudioCLIP acquired poor retrieval performance on the clothe V2 dataset in a zero-shot inference fashion. So we used AudioCLIP’s model as a weight initializer, and finetuned audio encoder and text encoder using symmetric cross entropy loss over similarity measure among the mini-batch (audio, text) pairs. Through pre-training and data augmentation methods, our model achieved R1 score of 0.35 and mAP10 score of 0.51 on Clotho V2 evaluation set."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="lamort2022_t6b" style="box-shadow: none">
+<div class="panel-heading" id="heading-lamort2022_t6b" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Take It Easy: Relaxing Contrastive Ranking Loss with CIDEr
+       </h4>
+<p style="text-align:left">
+        Theodore Lamort de Gail, Dawid Kicinski
+       </p>
+<p style="text-align:left">
+<em>
+         Samsung R&amp;D Institute Poland, Warsaw, Poland
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">lamort_srpol_task6b_1</span> <span class="label label-primary">lamort_srpol_task6b_2</span> <span class="label label-primary">lamort_srpol_task6b_3</span> <span class="label label-primary">lamort_srpol_task6b_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-lamort2022_t6b" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-lamort2022_t6b" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-lamort2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Lamort_72_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-lamort2022_t6b" class="panel-collapse collapse" id="collapse-lamort2022_t6b" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Take It Easy: Relaxing Contrastive Ranking Loss with CIDEr
+      </h4>
+<p style="text-align:left">
+<small>
+        Theodore Lamort de Gail, Dawid Kicinski
+       </small>
+<br/>
+<small>
+<em>
+         Samsung R&amp;D Institute Poland, Warsaw, Poland
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This report presents our approach and results for task 6B of the DCASE2022 challenge concerning natural-language-based audio retrieval. To match the audio-text pairs, we learn cross-modal embeddings. The audio samples are encoded by an ensemble of four frozen expert models with transformer heads for time aggregation. Captions are encoded using a pre-trained language model. The model is trained with a modified contrastive ranking loss, enhanced with a heuristic caption similarity prior based on the CIDEr metric. We train the system on the AudioCaps and Clotho audio captioning datasets. Furthermore, we use an NLP classifier to gather additional useful audio-caption pairs from Freesound. We achieve 0.48 R10 and 0.23 mAP10 on the Clotho evaluation split (vs. 0.19 and 0.07 respectively for the challenge baseline).
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         None
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-lamort2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Lamort_72_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-lamort2022_t6blabel" class="modal fade" id="bibtex-lamort2022_t6b" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexlamort2022_t6blabel">
+        Take It Easy: Relaxing Contrastive Ranking Loss with CIDEr
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{lamort2022_t6b,
+    Author = "de Gail, Theodore Lamort and Kicinski, Dawid",
+    title = "Take It Easy: Relaxing Contrastive Ranking Loss with {CIDEr}",
+    institution = "DCASE2022 Challenge",
+    year = "2022",
+    month = "July",
+    abstract = "This report presents our approach and results for task 6B of the DCASE2022 challenge concerning natural-language-based audio retrieval. To match the audio-text pairs, we learn cross-modal embeddings. The audio samples are encoded by an ensemble of four frozen expert models with transformer heads for time aggregation. Captions are encoded using a pre-trained language model. The model is trained with a modified contrastive ranking loss, enhanced with a heuristic caption similarity prior based on the CIDEr metric. We train the system on the AudioCaps and Clotho audio captioning datasets. Furthermore, we use an NLP classifier to gather additional useful audio-caption pairs from Freesound. We achieve 0.48 R10 and 0.23 mAP10 on the Clotho evaluation split (vs. 0.19 and 0.07 respectively for the challenge baseline)."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="mei2022_t6b" style="box-shadow: none">
+<div class="panel-heading" id="heading-mei2022_t6b" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Language-Based Audio Retrieval with Pre-trained Models
+       </h4>
+<p style="text-align:left">
+        Xinhao Mei, Xubo Liu, Haohe Liu, Jianyuan Sun, Mark D. Plumbley, Wenwu Wang
+       </p>
+<p style="text-align:left">
+<em>
+         Centre for Vision, Speech, and Signal Processing (CVSSP), University of Surrey, UK
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Mei_Surrey_task6b_1</span> <span class="label label-primary">Mei_Surrey_task6b_2</span> <span class="label label-primary">Mei_Surrey_task6b_3</span> <span class="label label-primary">Mei_Surrey_task6b_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-mei2022_t6b" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-mei2022_t6b" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-mei2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Mei_118_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-mei2022_t6b').collapse('show');window.location.hash='#mei2022_t6b';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-mei2022_t6b" class="panel-collapse collapse" id="collapse-mei2022_t6b" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Language-Based Audio Retrieval with Pre-trained Models
+      </h4>
+<p style="text-align:left">
+<small>
+        Xinhao Mei, Xubo Liu, Haohe Liu, Jianyuan Sun, Mark D. Plumbley, Wenwu Wang
+       </small>
+<br/>
+<small>
+<em>
+         Centre for Vision, Speech, and Signal Processing (CVSSP), University of Surrey, UK
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report presents a language-based audio retrieval system that we submitted to Detection and Classification of Acoustic Scenes and Events (DCASE) Challenge 2022 Task 6b. Language-based audio retrieval is a cross-modal task aiming at retrieving a matched audio clip from a pool of candidates given a language query such as a sentence. Cross-modal retrieval tasks are often solved by using deep learning models where the features from different modalities are extracted and then mapped to a joint embedding space. These models usually require a large amount of training data to obtain reasonable performance. However, the audio captioning dataset employed in this audio retrieval task is limited in size. In this work, we propose to use large-scale pre-trained models as both audio and text encoders to mitigate the data scarcity problem and learn the acoustic semantic embeddings. Results on the Clotho dataset show that our proposed system significantly improves the scores of all the evaluation metrics as compared to the baseline system
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         SpecAugment
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-mei2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Mei_118_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/XinhaoMei/audio-text_retrieval" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-mei2022_t6blabel" class="modal fade" id="bibtex-mei2022_t6b" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexmei2022_t6blabel">
+        Language-Based Audio Retrieval with Pre-trained Models
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{mei2022_t6b,
+    Author = "Mei, Xinhao and Liu, Xubo and Liu, Haohe and Sun, Jianyuan and Plumbley, Mark D. and Wang, Wenwu",
+    title = "Language-Based Audio Retrieval with Pre-trained Models",
+    institution = "DCASE2022 Challenge",
+    year = "2022",
+    month = "July",
+    abstract = "This technical report presents a language-based audio retrieval system that we submitted to Detection and Classification of Acoustic Scenes and Events (DCASE) Challenge 2022 Task 6b. Language-based audio retrieval is a cross-modal task aiming at retrieving a matched audio clip from a pool of candidates given a language query such as a sentence. Cross-modal retrieval tasks are often solved by using deep learning models where the features from different modalities are extracted and then mapped to a joint embedding space. These models usually require a large amount of training data to obtain reasonable performance. However, the audio captioning dataset employed in this audio retrieval task is limited in size. In this work, we propose to use large-scale pre-trained models as both audio and text encoders to mitigate the data scarcity problem and learn the acoustic semantic embeddings. Results on the Clotho dataset show that our proposed system significantly improves the scores of all the evaluation metrics as compared to the baseline system"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="park2022_t6b" style="box-shadow: none">
+<div class="panel-heading" id="heading-park2022_t6b" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        CAU Submission to DCASE 2022 Task6B: Language-Based Audio Retrieval using Transfer Learning
+       </h4>
+<p style="text-align:left">
+        Jiwon Park, Chaewon Hwang, Il-Youp Kwak, Changwon Lim
+       </p>
+<p style="text-align:left">
+<em>
+         Chung-Ang University, Department of Applied Statistics, Seoul, South Korea
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">park_cau_task6b_1</span> <span class="label label-primary">park_cau_task6b_2</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-park2022_t6b" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-park2022_t6b" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-park2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Park_113_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-park2022_t6b" class="panel-collapse collapse" id="collapse-park2022_t6b" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       CAU Submission to DCASE 2022 Task6B: Language-Based Audio Retrieval using Transfer Learning
+      </h4>
+<p style="text-align:left">
+<small>
+        Jiwon Park, Chaewon Hwang, Il-Youp Kwak, Changwon Lim
+       </small>
+<br/>
+<small>
+<em>
+         Chung-Ang University, Department of Applied Statistics, Seoul, South Korea
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This report proposes a language-based audio retrieval model for the 2022 DCASE audio retrieval challenge. In this challenge, to make use of the learned feature from AudioSet data, we utilized CNN10 network pre-trained on AudioSet data. With the transfer learning, our proposed model took 10-layers CNN and adding GRU after CNN Module. We used pre-trained Word2Vec as text encoder[1]. Experiments show that the proposed model achieved mAP score of 0.091 and showed better performance compared to baseline mAP score of 0.067.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         None
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-park2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Park_113_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-park2022_t6blabel" class="modal fade" id="bibtex-park2022_t6b" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexpark2022_t6blabel">
+        CAU Submission to DCASE 2022 Task6B: Language-Based Audio Retrieval using Transfer Learning
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{park2022_t6b,
+    Author = "Park, Jiwon and Hwang, Chaewon and Kwak, Il-Youp and Lim, Changwon",
+    title = "{CAU} Submission to {DCASE} 2022 Task6B: Language-Based Audio Retrieval using Transfer Learning",
+    institution = "DCASE2022 Challenge",
+    year = "2022",
+    month = "July",
+    abstract = "This report proposes a language-based audio retrieval model for the 2022 DCASE audio retrieval challenge. In this challenge, to make use of the learned feature from AudioSet data, we utilized CNN10 network pre-trained on AudioSet data. With the transfer learning, our proposed model took 10-layers CNN and adding GRU after CNN Module. We used pre-trained Word2Vec as text encoder[1]. Experiments show that the proposed model achieved mAP score of 0.091 and showed better performance compared to baseline mAP score of 0.067."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="pellegrini2022_t6b" style="box-shadow: none">
+<div class="panel-heading" id="heading-pellegrini2022_t6b" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        IRIT-UPS DCASE 2022 Language-Based Audio Retrieval System
+       </h4>
+<p style="text-align:left">
+        Thomas Pellegrini
+       </p>
+<p style="text-align:left">
+<em>
+         Computing Sciences, University Toulouse III, Toulouse, France
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Pellegrini_IRIT_task6b_1</span> <span class="label label-primary">Pellegrini_IRIT_task6b_2</span> <span class="label label-primary">Pellegrini_IRIT_task6b_3</span> <span class="label label-primary">Pellegrini_IRIT_task6b_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-pellegrini2022_t6b" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-pellegrini2022_t6b" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-pellegrini2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Pellegrini_3_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-pellegrini2022_t6b').collapse('show');window.location.hash='#pellegrini2022_t6b';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-pellegrini2022_t6b" class="panel-collapse collapse" id="collapse-pellegrini2022_t6b" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       IRIT-UPS DCASE 2022 Language-Based Audio Retrieval System
+      </h4>
+<p style="text-align:left">
+<small>
+        Thomas Pellegrini
+       </small>
+<br/>
+<small>
+<em>
+         Computing Sciences, University Toulouse III, Toulouse, France
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report is a short description of the IRIT-UPS systems used in the DCASE 2022 task 6b dedicated to audio captioning. Four submissions were made: i) a baseline one using pretrained representations for both the audio signal (scene embeddings extracted with PaSST), and for the caption queries (using a large pretrained sentence transformer called all-MPNet), ii) the same baseline system but adding information from AudioSet tags in the audio encoder part, iii) the same as ii) but pretrained on an external dataset (AudioCaps), iv) an ensemble of two systems iii).
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         None
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-pellegrini2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Pellegrini_3_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/topel/IRIT-audio-retrieval-system-dcase2022" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-pellegrini2022_t6blabel" class="modal fade" id="bibtex-pellegrini2022_t6b" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexpellegrini2022_t6blabel">
+        IRIT-UPS DCASE 2022 Language-Based Audio Retrieval System
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{pellegrini2022_t6b,
+    Author = "Pellegrini, Thomas",
+    title = "{IRIT-UPS} {DCASE} 2022 Language-Based Audio Retrieval System",
+    institution = "DCASE2022 Challenge",
+    year = "2022",
+    month = "July",
+    abstract = "This technical report is a short description of the IRIT-UPS systems used in the DCASE 2022 task 6b dedicated to audio captioning. Four submissions were made: i) a baseline one using pretrained representations for both the audio signal (scene embeddings extracted with PaSST), and for the caption queries (using a large pretrained sentence transformer called all-MPNet), ii) the same baseline system but adding information from AudioSet tags in the audio encoder part, iii) the same as ii) but pretrained on an external dataset (AudioCaps), iv) an ensemble of two systems iii)."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="weck2022_t6b" style="box-shadow: none">
+<div class="panel-heading" id="heading-weck2022_t6b" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Aligning Audio and Text Embeddings for the Language-Based Audio Retrieval Task of the DCASE Challenge 2022
+       </h4>
+<p style="text-align:left">
+        Benno Weck<sup>1,2</sup>, Miguel Pérez Fernández<sup>1,2</sup>, Holger Kirchhoff<sup>1</sup>, Xavier Serra<sup>2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Huawei Technologies, Munich Research Center, Germany, <sup>2</sup>Universitat Pompeu Fabra, Music Technology Group, Spain
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Weck_Huawei_task6b_1</span> <span class="label label-primary">Weck_Huawei_task6b_2</span> <span class="label label-primary">Weck_Huawei_task6b_3</span> <span class="label label-primary">Weck_Huawei_task6b_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-weck2022_t6b" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-weck2022_t6b" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-weck2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Weck_21_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-weck2022_t6b" class="panel-collapse collapse" id="collapse-weck2022_t6b" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Aligning Audio and Text Embeddings for the Language-Based Audio Retrieval Task of the DCASE Challenge 2022
+      </h4>
+<p style="text-align:left">
+<small>
+        Benno Weck<sup>1,2</sup>, Miguel Pérez Fernández<sup>1,2</sup>, Holger Kirchhoff<sup>1</sup>, Xavier Serra<sup>2</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Huawei Technologies, Munich Research Center, Germany, <sup>2</sup>Universitat Pompeu Fabra, Music Technology Group, Spain
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       Our challenge submission shows how large-scale pretrained deep learning models can serve as a strong basis for a cross-modal (text-to-audio) retrieval system. Our system uses embeddings extracted by these models in a general alignment framework to connect matching pairs of audio and text. It processes audio and text separately through different pretrained models, each returning an embedding. Shallow neural networks map the embeddings to a common dimensionality. The cross-modal alignment of the individual embeddings is optimised using a contrastive loss. We employ the RoBERTa foundation model as the text embedding extractor. A pretrained PANNs model extracts the audio embeddings. The embedding extractor model weights remain frozen. To improve the generalisation of our model, we investigate how pretraining with audio and associated noisy text collected from the online platform Freesound improves the performance of our method. We find that a two-stage training process consisting of pretraining with noisy data and fine-tuning with the challenge datasets gives the best results for our approach. Our system showcases a simple yet effective method which is superior to the challenge baseline.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         None
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-weck2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Weck_21_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-weck2022_t6blabel" class="modal fade" id="bibtex-weck2022_t6b" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexweck2022_t6blabel">
+        Aligning Audio and Text Embeddings for the Language-Based Audio Retrieval Task of the DCASE Challenge 2022
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{weck2022_t6b,
+    Author = "Benno Weck<sup>1, 2</sup> and Miguel P\'{e}rez Fern\'{a}ndez<sup>1, 2</sup> and Kirchhoff<sup>1</sup>, Holger and Serra<sup>2</sup>, Xavier",
+    title = "Aligning Audio and Text Embeddings for the Language-Based Audio Retrieval Task of the {DCASE} Challenge 2022",
+    institution = "DCASE2022 Challenge",
+    year = "2022",
+    month = "July",
+    abstract = "Our challenge submission shows how large-scale pretrained deep learning models can serve as a strong basis for a cross-modal (text-to-audio) retrieval system. Our system uses embeddings extracted by these models in a general alignment framework to connect matching pairs of audio and text. It processes audio and text separately through different pretrained models, each returning an embedding. Shallow neural networks map the embeddings to a common dimensionality. The cross-modal alignment of the individual embeddings is optimised using a contrastive loss. We employ the RoBERTa foundation model as the text embedding extractor. A pretrained PANNs model extracts the audio embeddings. The embedding extractor model weights remain frozen. To improve the generalisation of our model, we investigate how pretraining with audio and associated noisy text collected from the online platform Freesound improves the performance of our method. We find that a two-stage training process consisting of pretraining with noisy data and fine-tuning with the challenge datasets gives the best results for our approach. Our system showcases a simple yet effective method which is superior to the challenge baseline."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="wu2022_t6b" style="box-shadow: none">
+<div class="panel-heading" id="heading-wu2022_t6b" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Text-to-Audio Retrieval via Large-Scale Contrastive Training
+       </h4>
+<p style="text-align:left">
+        Yusong Wu<sup>1,2</sup>, Tianyu Zhang<sup>1,2</sup>, Ke Chen<sup>3</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>University of Montreal, Quebec, Canada, <sup>2</sup>Mila, Quebec, Canada, <sup>2</sup>University of California San Diego, San Diego, United States
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Wu_Mila_task6b_1</span> <span class="label label-primary">Wu_Mila_task6b_2</span> <span class="label label-primary">Wu_Mila_task6b_3</span> <span class="label label-primary">Wu_Mila_task6b_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-wu2022_t6b" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-wu2022_t6b" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-wu2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Wu_100_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-wu2022_t6b').collapse('show');window.location.hash='#wu2022_t6b';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-wu2022_t6b" class="panel-collapse collapse" id="collapse-wu2022_t6b" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Text-to-Audio Retrieval via Large-Scale Contrastive Training
+      </h4>
+<p style="text-align:left">
+<small>
+        Yusong Wu<sup>1,2</sup>, Tianyu Zhang<sup>1,2</sup>, Ke Chen<sup>3</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>University of Montreal, Quebec, Canada, <sup>2</sup>Mila, Quebec, Canada, <sup>2</sup>University of California San Diego, San Diego, United States
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       Although there is an abundance of data available on the internet, audio data is still limited in terms of dataset size and label precision. Scaling the size of audio datasets would therefore be one of the most valuable ways to develop models for better audio understanding. In this report, we propose a pipeline to better learn the audio understanding mechanism by combining audio data with more abundantly available natural language descriptions. We collected a mixed dataset consisting of over 2 million data pairs and trained a contrastive model based on Contrastive Language–Image Pre-training (CLIP) in order to discover correspondence between audio and text. As an audio encoder, we use HTS-AT as a transformer-based model and PANN and a CNN-based model, and as a text encoder, we employ the frozen pre-trained CLIP text encoder. The resulting models are submitted to Task 6B of the DCASE 2022 challenge and achieve a mAP@10 score of at least 0.214.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         SpecAugment
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-wu2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Wu_100_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/LAION-AI/CLAP" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-wu2022_t6blabel" class="modal fade" id="bibtex-wu2022_t6b" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexwu2022_t6blabel">
+        Text-to-Audio Retrieval via Large-Scale Contrastive Training
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{wu2022_t6b,
+    Author = "Yusong Wu<sup>1, 2, ∗</sup> and Tianyu Zhang<sup>1, 2, ∗</sup> and Ke Chen<sup>3, ∗</sup>",
+    title = "Text-to-Audio Retrieval via Large-Scale Contrastive Training",
+    institution = "DCASE2022 Challenge",
+    year = "2022",
+    month = "July",
+    abstract = "Although there is an abundance of data available on the internet, audio data is still limited in terms of dataset size and label precision. Scaling the size of audio datasets would therefore be one of the most valuable ways to develop models for better audio understanding. In this report, we propose a pipeline to better learn the audio understanding mechanism by combining audio data with more abundantly available natural language descriptions. We collected a mixed dataset consisting of over 2 million data pairs and trained a contrastive model based on Contrastive Language–Image Pre-training (CLIP) in order to discover correspondence between audio and text. As an audio encoder, we use HTS-AT as a transformer-based model and PANN and a CNN-based model, and as a text encoder, we employ the frozen pre-trained CLIP text encoder. The resulting models are submitted to Task 6B of the DCASE 2022 challenge and achieve a mAP@10 score of at least 0.214."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="xiao2022_t6b" style="box-shadow: none">
+<div class="panel-heading" id="heading-xiao2022_t6b" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Language-Based Audio Retrieval with Pretrained CNN and Graph Attention
+       </h4>
+<p style="text-align:left">
+        Feiyang Xiao<sup>1</sup>, Jian Guan<sup>1∗</sup>, Haiyan Lan<sup>1</sup>, Qiaoxi Zhu<sup>2</sup>, and Wenwu Wang<sup>3</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Group of Intelligent Signal Processing, College of Computer Science and Technology, Harbin Engineering University, Harbin, China, <sup>2</sup>Centre for Audio, Acoustic and Vibration, University of Technology Sydney, Ultimo, Australia, <sup>3</sup>Centre for Vision, Speech and Signal Processing, University of Surrey, Guildford, UK
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Guan_HEU_task6b_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-xiao2022_t6b" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-xiao2022_t6b" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-xiao2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Xiao_25_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-xiao2022_t6b" class="panel-collapse collapse" id="collapse-xiao2022_t6b" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Language-Based Audio Retrieval with Pretrained CNN and Graph Attention
+      </h4>
+<p style="text-align:left">
+<small>
+        Feiyang Xiao<sup>1</sup>, Jian Guan<sup>1∗</sup>, Haiyan Lan<sup>1</sup>, Qiaoxi Zhu<sup>2</sup>, and Wenwu Wang<sup>3</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Group of Intelligent Signal Processing, College of Computer Science and Technology, Harbin Engineering University, Harbin, China, <sup>2</sup>Centre for Audio, Acoustic and Vibration, University of Technology Sydney, Ultimo, Australia, <sup>3</sup>Centre for Vision, Speech and Signal Processing, University of Surrey, Guildford, UK
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report describes our submission for Task 6B of the DCASE2022 Challenge (language-based audio retrieval). Our audio retrieval system has an audio encoder composed of a pretrained CNN module (i.e., pretrained audio neural network, PANNs) and a novel graph attention module. Its text encoder is the pretrained word2vec model, the same as the baseline system of Task 6B. Experiments show that our audio retrieval system can achieve the mAP10 metric (used for ranking) of 13% on the development-testing dataset of Task 6B.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         None
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-xiao2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Xiao_25_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-xiao2022_t6blabel" class="modal fade" id="bibtex-xiao2022_t6b" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexxiao2022_t6blabel">
+        Language-Based Audio Retrieval with Pretrained CNN and Graph Attention
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{xiao2022_t6b,
+    Author = "Xiao<sup>1</sup>, Feiyang and Guan<sup>1∗</sup>, Jian and Lan<sup>1</sup>, Haiyan and Zhu<sup>2</sup>, Qiaoxi and Wang<sup>3</sup>, Wenwu",
+    title = "Language-Based Audio Retrieval with Pretrained {CNN} and Graph Attention",
+    institution = "DCASE2022 Challenge",
+    year = "2022",
+    month = "July",
+    abstract = "This technical report describes our submission for Task 6B of the DCASE2022 Challenge (language-based audio retrieval). Our audio retrieval system has an audio encoder composed of a pretrained CNN module (i.e., pretrained audio neural network, PANNs) and a novel graph attention module. Its text encoder is the pretrained word2vec model, the same as the baseline system of Task 6B. Experiments show that our audio retrieval system can achieve the mAP10 metric (used for ranking) of 13\% on the development-testing dataset of Task 6B."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="xu2022_t6b" style="box-shadow: none">
+<div class="panel-heading" id="heading-xu2022_t6b" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        The SJTU System for DCASE2022 Challenge Task 6: Audio Captioning with Audio-Text Retrieval Pre-training
+       </h4>
+<p style="text-align:left">
+        Xuenan Xu, Zeyu Xie, Mengyue Wu, Kai Yu
+       </p>
+<p style="text-align:left">
+<em>
+         MoE Key Lab of Artificial Intelligence X-LANCE Lab, Department of Computer Science and Engineering AI Institute, Shanghai Jiao Tong University, Shanghai, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">xu_sjtu_task6b_1</span> <span class="label label-primary">xu_sjtu_task6b_2</span> <span class="label label-primary">xu_sjtu_task6b_3</span> <span class="label label-primary">xu_sjtu_task6b_4</span>
+</p>
+<p style="text-align:left">
+<span class="label label-success">
+         Judges’ award
+        </span>
+</p>
+<button aria-controls="collapse-xu2022_t6b" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-xu2022_t6b" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-xu2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Xu_106_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-xu2022_t6b" class="panel-collapse collapse" id="collapse-xu2022_t6b" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       The SJTU System for DCASE2022 Challenge Task 6: Audio Captioning with Audio-Text Retrieval Pre-training
+      </h4>
+<p style="text-align:left">
+<small>
+        Xuenan Xu, Zeyu Xie, Mengyue Wu, Kai Yu
+       </small>
+<br/>
+<small>
+<em>
+         MoE Key Lab of Artificial Intelligence X-LANCE Lab, Department of Computer Science and Engineering AI Institute, Shanghai Jiao Tong University, Shanghai, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report describes the system submitted to the Detection and Classification of Acoustic Scenes and Events (DCASE) 2022 challenge Task 6. There are two involving subtasks: text-to-audio retrieval and automated audio captioning. The text-to-audio retrieval system adopts a bi-encoder architecture using pre-trained audio and text encoders. The system is first pre-trained on AudioCaps and then fine-tuned on the challenge dataset Clotho. For the audio captioning system, we first train a retrieval model on all public captioning data and then take the audio encoder as the feature extractor. Then a standard sequence-to-sequence model is trained on Clotho based on the pre-trained feature extractor. The captioning model is first trained by word-level cross entropy loss and then finetuned using self-critical sequence training. Our system achieves a SPIDEr of 32.5 on captioning and an mAP of 29.9 on text-to-audio retrieval.
+      </p>
+<p>
+<strong>
+        Awards:
+       </strong>
+       Judges’ award
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         None
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-xu2022_t6b" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2022/technical_reports/DCASE2022_Xu_106_t6b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-xu2022_t6blabel" class="modal fade" id="bibtex-xu2022_t6b" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexxu2022_t6blabel">
+        The SJTU System for DCASE2022 Challenge Task 6: Audio Captioning with Audio-Text Retrieval Pre-training
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{xu2022_t6b,
+    Author = "Xu, Xuenan and Xie, Zeyu and Wu, Mengyue and Yu, Kai",
+    title = "The {SJTU} System for {DCASE2022} Challenge Task 6: Audio Captioning with Audio-Text Retrieval Pre-training",
+    institution = "DCASE2022 Challenge",
+    year = "2022",
+    month = "July",
+    abstract = "This technical report describes the system submitted to the Detection and Classification of Acoustic Scenes and Events (DCASE) 2022 challenge Task 6. There are two involving subtasks: text-to-audio retrieval and automated audio captioning. The text-to-audio retrieval system adopts a bi-encoder architecture using pre-trained audio and text encoders. The system is first pre-trained on AudioCaps and then fine-tuned on the challenge dataset Clotho. For the audio captioning system, we first train a retrieval model on all public captioning data and then take the audio encoder as the feature extractor. Then a standard sequence-to-sequence model is trained on Clotho based on the pre-trained feature extractor. The captioning model is first trained by word-level cross entropy loss and then finetuned using self-critical sequence training. Our system achieves a SPIDEr of 32.5 on captioning and an mAP of 29.9 on text-to-audio retrieval."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script>
+(function($) {
+    $(document).ready(function() {
+        var hash = window.location.hash.substr(1);
+        var anchor = window.location.hash;
+
+        var shiftWindow = function() {
+            var hash = window.location.hash.substr(1);
+            if($('#collapse-'+hash).length){
+                scrollBy(0, -100);
+            }
+        };
+        window.addEventListener("hashchange", shiftWindow);
+
+        if (window.location.hash){
+            window.scrollTo(0, 0);
+            history.replaceState(null, document.title, "#");
+            $('#collapse-'+hash).collapse('show');
+            setTimeout(function(){
+                window.location.hash = anchor;
+                shiftWindow();
+            }, 2000);
+        }
+    });
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

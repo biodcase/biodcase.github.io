@@ -1,0 +1,3752 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Urban Sound Tagging - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Urban Sound Tagging - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2019/task-urban-sound-tagging-results">
+    <meta property="og:url" content="https://dcase.community/challenge2019/task-urban-sound-tagging-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="Task description The goal of urban sound tagging (UST) is to predict whether each of 23 sources of noise pollution is present or absent in a 10-second scene. These sources of noise are also grouped into 8 coarse-level categories. All of the recordings are from an urban acoustic sensor network …" />
+    <meta name="og:description" content="Task description The goal of urban sound tagging (UST) is..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btex.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2019</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2019/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2019/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>Results</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-acoustic-scene-classification-results-a"><i class="fa fa-bar-chart"></i>&nbsp;Subtask A</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-acoustic-scene-classification-results-b"><i class="fa fa-bar-chart"></i>&nbsp;Subtask B</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-acoustic-scene-classification-results-c"><i class="fa fa-bar-chart"></i>&nbsp;Subtask C</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2019/task-audio-tagging" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-tags text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-audio-tagging"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-audio-tagging-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-localization-and-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-localization-and-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-localization-and-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-detection-in-domestic-environments" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-detection-in-domestic-environments"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-detection-in-domestic-environments-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2019/task-urban-sound-tagging" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-urban text-danger"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-urban-sound-tagging"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-urban-sound-tagging-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2019/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2019/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge awards">
+        <a href="http://localhost:3000/challenge2019/awards"><i class="fa fa-trophy"></i>&nbsp;Awards</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/metal-14.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-danger"></i><i class="fa dc-urban fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text dcase-icon-top-text-sm">Urban</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 5</span></span><img src="../images/logos/dcase/dcase2019_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Urban Sound Tagging</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Challenge results</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#task-description">Task description</a></li>
+<li><a href="#coarse-level-prediction">Coarse-level prediction</a>
+<ul>
+<li><a href="#system-ranking">System ranking</a></li>
+<li><a href="#teams-ranking">Teams ranking</a></li>
+<li><a href="#class-wise-performance">Class-wise performance</a></li>
+</ul>
+</li>
+<li><a href="#fine-level-prediction">Fine-level prediction</a>
+<ul>
+<li><a href="#system-ranking-1">System ranking</a></li>
+<li><a href="#teams-ranking-1">Teams ranking</a></li>
+<li><a href="#class-wise-performance-1">Class-wise performance</a></li>
+</ul>
+</li>
+<li><a href="#system-characteristics">System characteristics</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h1 id="task-description">Task description</h1>
+<p>The goal of urban sound tagging (UST) is to predict whether each of 23 sources of noise pollution is present or absent in a 10-second scene. These sources of noise are also grouped into 8 coarse-level categories. All of the recordings are from an urban acoustic sensor network in New York City. The training set was annotated by volunteers on the Zooniverse citizen-science platform, and the validation and test sets were annotated by the task organizers.</p>
+<p>More detailed task description can be found in the <a class="btn btn-primary" href="http://localhost:3000/challenge2019/task-urban-sound-tagging" style="">task description page</a></p>
+<p>Note that only teams which have open sourced their systems are included in the system and team rankings.</p>
+<h1 id="coarse-level-prediction">Coarse-level prediction</h1>
+<h2 id="system-ranking">System ranking</h2>
+<p>These results only include systems for which the source code has been release.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="coarse_macro_auprc" data-scatter-y="coarse_micro_auprc" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="coarse_micro_auprc" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true">Rank</th>
+<th data-field="code" data-sortable="true">
+                Submission <br/>code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Submission <br/>name
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="coarse_macro_auprc" data-sortable="true" data-value-type="float3">
+                Macro-AUPRC
+            </th>
+<th class="text-center" data-chartable="true" data-field="coarse_micro_f_score" data-sortable="true" data-value-type="float3">
+                Micro-F1
+            </th>
+<th class="text-center" data-chartable="true" data-field="coarse_micro_auprc" data-sortable="true" data-value-type="float3">
+                Micro-AUPRC
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adapa_FH_task5_1</td>
+<td>MNv2_1</td>
+<td>Adapa2019</td>
+<td>0.718</td>
+<td>0.631</td>
+<td>0.860</td>
+</tr>
+<tr>
+<td></td>
+<td>Adapa_FH_task5_2</td>
+<td>MNv2_2</td>
+<td>Adapa2019</td>
+<td>0.723</td>
+<td>0.745</td>
+<td>0.847</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_1</td>
+<td>multifeat1</td>
+<td>Bai2019</td>
+<td>0.618</td>
+<td>0.696</td>
+<td>0.763</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_2</td>
+<td>multifeat2</td>
+<td>Bai2019</td>
+<td>0.649</td>
+<td>0.701</td>
+<td>0.769</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_3</td>
+<td>multifeat3</td>
+<td>Bai2019</td>
+<td>0.558</td>
+<td>0.631</td>
+<td>0.680</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_4</td>
+<td>multifeat4</td>
+<td>Bai2019</td>
+<td>0.647</td>
+<td>0.709</td>
+<td>0.782</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2019 baseline</td>
+<td>Baseline</td>
+<td>Cartwright2019</td>
+<td>0.619</td>
+<td>0.664</td>
+<td>0.742</td>
+</tr>
+<tr>
+<td></td>
+<td>Cui_YSU_task5_1</td>
+<td>YSU_TFSANN</td>
+<td>Cui2019</td>
+<td>0.674</td>
+<td>0.525</td>
+<td>0.807</td>
+</tr>
+<tr>
+<td></td>
+<td>Gousseau_OL_task5_1</td>
+<td>Gousseau1</td>
+<td>Gousseau2019</td>
+<td>0.650</td>
+<td>0.667</td>
+<td>0.745</td>
+</tr>
+<tr>
+<td></td>
+<td>Gousseau_OL_task5_2</td>
+<td>Gousseau2</td>
+<td>Gousseau2019</td>
+<td>0.612</td>
+<td>0.639</td>
+<td>0.748</td>
+</tr>
+<tr>
+<td></td>
+<td>Kim_NU_task5_1</td>
+<td>BK_CNN1</td>
+<td>Kim2019</td>
+<td>0.653</td>
+<td>0.686</td>
+<td>0.761</td>
+</tr>
+<tr>
+<td></td>
+<td>Kim_NU_task5_2</td>
+<td>BK_CNN2</td>
+<td>Kim2019</td>
+<td>0.696</td>
+<td>0.734</td>
+<td>0.825</td>
+</tr>
+<tr>
+<td></td>
+<td>Kim_NU_task5_3</td>
+<td>BK_CNN3</td>
+<td>Kim2019</td>
+<td>0.697</td>
+<td>0.730</td>
+<td>0.809</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_SURREY_task5_1</td>
+<td>cvssp_cnn9</td>
+<td>Kong2019</td>
+<td>0.567</td>
+<td>0.467</td>
+<td>0.674</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_SURREY_task5_2</td>
+<td>cvssp_plus</td>
+<td>Kong2019</td>
+<td>0.613</td>
+<td>0.516</td>
+<td>0.777</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_1</td>
+<td>Ng_1</td>
+<td>Ng2019</td>
+<td>0.657</td>
+<td>0.670</td>
+<td>0.759</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_2</td>
+<td>Ng_2</td>
+<td>Ng2019</td>
+<td>0.666</td>
+<td>0.677</td>
+<td>0.767</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_3</td>
+<td>Ng_3</td>
+<td>Ng2019</td>
+<td>0.660</td>
+<td>0.671</td>
+<td>0.762</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_4</td>
+<td>Ng_4</td>
+<td>Ng2019</td>
+<td>0.660</td>
+<td>0.666</td>
+<td>0.770</td>
+</tr>
+<tr>
+<td></td>
+<td>Orga_URL_task5_1</td>
+<td>AugNet</td>
+<td>Orga2019</td>
+<td>0.501</td>
+<td>0.557</td>
+<td>0.562</td>
+</tr>
+<tr>
+<td></td>
+<td>Tompkins_MS_task5_1</td>
+<td>MS D365 AI 1</td>
+<td>Tompkins2019</td>
+<td>0.646</td>
+<td>0.631</td>
+<td>0.779</td>
+</tr>
+<tr>
+<td></td>
+<td>Tompkins_MS_task5_2</td>
+<td>MS D365 AI 2</td>
+<td>Tompkins2019</td>
+<td>0.666</td>
+<td>0.552</td>
+<td>0.788</td>
+</tr>
+<tr>
+<td></td>
+<td>Tompkins_MS_task5_3</td>
+<td>MS D365 AI 3</td>
+<td>Tompkins2019</td>
+<td>0.646</td>
+<td>0.631</td>
+<td>0.779</td>
+</tr>
+</tbody>
+</table>
+<h2 id="teams-ranking">Teams ranking</h2>
+<p>Table including only the best performing reproducible system per submitting team.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="coarse_macro_auprc" data-scatter-y="coarse_micro_auprc" data-show-chart="true" data-show-pagination-switch="false" data-show-rank="true" data-sort-name="coarse_micro_auprc" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true">Rank</th>
+<th data-field="code" data-sortable="true">
+                Submission <br/>code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Submission <br/>name
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="coarse_macro_auprc" data-sortable="true" data-value-type="float3">
+                Macro-AUPRC
+            </th>
+<th class="text-center" data-chartable="true" data-field="coarse_micro_f_score" data-sortable="true" data-value-type="float3">
+                Micro-F1
+            </th>
+<th class="text-center" data-chartable="true" data-field="coarse_micro_auprc" data-sortable="true" data-value-type="float3">
+                Micro-AUPRC
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adapa_FH_task5_1</td>
+<td>MNv2_1</td>
+<td>Adapa2019</td>
+<td>0.718</td>
+<td>0.631</td>
+<td>0.860</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_4</td>
+<td>multifeat4</td>
+<td>Bai2019</td>
+<td>0.647</td>
+<td>0.709</td>
+<td>0.782</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2019 baseline</td>
+<td>Baseline</td>
+<td>Cartwright2019</td>
+<td>0.619</td>
+<td>0.664</td>
+<td>0.742</td>
+</tr>
+<tr>
+<td></td>
+<td>Cui_YSU_task5_1</td>
+<td>YSU_TFSANN</td>
+<td>Cui2019</td>
+<td>0.674</td>
+<td>0.525</td>
+<td>0.807</td>
+</tr>
+<tr>
+<td></td>
+<td>Gousseau_OL_task5_2</td>
+<td>Gousseau2</td>
+<td>Gousseau2019</td>
+<td>0.612</td>
+<td>0.639</td>
+<td>0.748</td>
+</tr>
+<tr>
+<td></td>
+<td>Kim_NU_task5_2</td>
+<td>BK_CNN2</td>
+<td>Kim2019</td>
+<td>0.696</td>
+<td>0.734</td>
+<td>0.825</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_SURREY_task5_2</td>
+<td>cvssp_plus</td>
+<td>Kong2019</td>
+<td>0.613</td>
+<td>0.516</td>
+<td>0.777</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_4</td>
+<td>Ng_4</td>
+<td>Ng2019</td>
+<td>0.660</td>
+<td>0.666</td>
+<td>0.770</td>
+</tr>
+<tr>
+<td></td>
+<td>Orga_URL_task5_1</td>
+<td>AugNet</td>
+<td>Orga2019</td>
+<td>0.501</td>
+<td>0.557</td>
+<td>0.562</td>
+</tr>
+<tr>
+<td></td>
+<td>Tompkins_MS_task5_2</td>
+<td>MS D365 AI 2</td>
+<td>Tompkins2019</td>
+<td>0.666</td>
+<td>0.552</td>
+<td>0.788</td>
+</tr>
+</tbody>
+</table>
+<h2 id="class-wise-performance">Class-wise performance</h2>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="comparison" data-chart-modes="bar,scatter,comparison" data-chart-tooltip-fields="code" data-comparison-a-row="DCASE2019 baseline" data-comparison-active-set="Class-wise performance (all)" data-comparison-b-row="Adapa_FH_task5_1" data-comparison-row-id-field="code" data-comparison-sets-json='[
+        {"title": "Class-wise performance (all)",
+        "data_axis_title": "AUPRC",
+        "fields": ["coarse_class_auprc_engine", "coarse_class_auprc_machinery-impact", "coarse_class_auprc_non-machinery-impact", "coarse_class_auprc_powered-saw", "coarse_class_auprc_alert-signal", "coarse_class_auprc_music", "coarse_class_auprc_human-voice", "coarse_class_auprc_dog"]
+        }]' data-filter-control="false" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="yes" data-show-rank="false" data-sort-name="code" data-sort-order="asc">
+<thead>
+<tr>
+<th data-field="code" data-sortable="true">
+                Submission<br/>code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Submission<br/>name
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="coarse_micro_auprc" data-sortable="true" data-value-type="float3">
+                Micro-AUPRC
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="coarse_class_auprc_engine" data-sortable="true" data-value-type="float3">
+                Engine
+            </th>
+<th class="text-center" data-chartable="true" data-field="coarse_class_auprc_machinery-impact" data-sortable="true" data-value-type="float3">
+                Machinery <br/>impact
+            </th>
+<th class="text-center" data-chartable="true" data-field="coarse_class_auprc_non-machinery-impact" data-sortable="true" data-value-type="float3">
+                Non-machinery <br/>impact
+            </th>
+<th class="text-center" data-chartable="true" data-field="coarse_class_auprc_powered-saw" data-sortable="true" data-value-type="float3">
+                Powered <br/>saw
+            </th>
+<th class="text-center" data-chartable="true" data-field="coarse_class_auprc_alert-signal" data-sortable="true" data-value-type="float3">
+                Alert <br/>signal
+            </th>
+<th class="text-center" data-chartable="true" data-field="coarse_class_auprc_music" data-sortable="true" data-value-type="float3">
+                Music
+            </th>
+<th class="text-center" data-chartable="true" data-field="coarse_class_auprc_human-voice" data-sortable="true" data-value-type="float3">
+                Human <br/>voice
+            </th>
+<th class="text-center" data-chartable="true" data-field="coarse_class_auprc_dog" data-sortable="true" data-value-type="float3">
+                Dog
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adapa_FH_task5_1</td>
+<td>MNv2_1</td>
+<td>Adapa2019</td>
+<td>0.860</td>
+<td>0.888</td>
+<td>0.627</td>
+<td>0.361</td>
+<td>0.684</td>
+<td>0.897</td>
+<td>0.404</td>
+<td>0.947</td>
+<td>0.937</td>
+</tr>
+<tr>
+<td>Adapa_FH_task5_2</td>
+<td>MNv2_2</td>
+<td>Adapa2019</td>
+<td>0.847</td>
+<td>0.878</td>
+<td>0.578</td>
+<td>0.344</td>
+<td>0.643</td>
+<td>0.875</td>
+<td>0.586</td>
+<td>0.949</td>
+<td>0.931</td>
+</tr>
+<tr>
+<td>Bai_NPU_task5_1</td>
+<td>multifeat1</td>
+<td>Bai2019</td>
+<td>0.763</td>
+<td>0.787</td>
+<td>0.632</td>
+<td>0.287</td>
+<td>0.578</td>
+<td>0.732</td>
+<td>0.105</td>
+<td>0.907</td>
+<td>0.918</td>
+</tr>
+<tr>
+<td>Bai_NPU_task5_2</td>
+<td>multifeat2</td>
+<td>Bai2019</td>
+<td>0.769</td>
+<td>0.792</td>
+<td>0.602</td>
+<td>0.363</td>
+<td>0.658</td>
+<td>0.804</td>
+<td>0.171</td>
+<td>0.909</td>
+<td>0.896</td>
+</tr>
+<tr>
+<td>Bai_NPU_task5_3</td>
+<td>multifeat3</td>
+<td>Bai2019</td>
+<td>0.680</td>
+<td>0.792</td>
+<td>0.111</td>
+<td>0.071</td>
+<td>0.658</td>
+<td>0.771</td>
+<td>0.225</td>
+<td>0.922</td>
+<td>0.911</td>
+</tr>
+<tr>
+<td>Bai_NPU_task5_4</td>
+<td>multifeat4</td>
+<td>Bai2019</td>
+<td>0.782</td>
+<td>0.809</td>
+<td>0.637</td>
+<td>0.347</td>
+<td>0.628</td>
+<td>0.781</td>
+<td>0.151</td>
+<td>0.916</td>
+<td>0.912</td>
+</tr>
+<tr class="info" data-hline="true">
+<td>DCASE2019 baseline</td>
+<td>Baseline</td>
+<td>Cartwright2019</td>
+<td>0.742</td>
+<td>0.832</td>
+<td>0.454</td>
+<td>0.170</td>
+<td>0.709</td>
+<td>0.727</td>
+<td>0.246</td>
+<td>0.886</td>
+<td>0.929</td>
+</tr>
+<tr>
+<td>Cui_YSU_task5_1</td>
+<td>YSU_TFSANN</td>
+<td>Cui2019</td>
+<td>0.807</td>
+<td>0.859</td>
+<td>0.598</td>
+<td>0.405</td>
+<td>0.739</td>
+<td>0.773</td>
+<td>0.268</td>
+<td>0.883</td>
+<td>0.863</td>
+</tr>
+<tr>
+<td>Gousseau_OL_task5_1</td>
+<td>Gousseau1</td>
+<td>Gousseau2019</td>
+<td>0.745</td>
+<td>0.793</td>
+<td>0.598</td>
+<td>0.282</td>
+<td>0.703</td>
+<td>0.802</td>
+<td>0.218</td>
+<td>0.867</td>
+<td>0.934</td>
+</tr>
+<tr>
+<td>Gousseau_OL_task5_2</td>
+<td>Gousseau2</td>
+<td>Gousseau2019</td>
+<td>0.748</td>
+<td>0.813</td>
+<td>0.403</td>
+<td>0.253</td>
+<td>0.698</td>
+<td>0.778</td>
+<td>0.166</td>
+<td>0.871</td>
+<td>0.916</td>
+</tr>
+<tr>
+<td>Kim_NU_task5_1</td>
+<td>BK_CNN1</td>
+<td>Kim2019</td>
+<td>0.761</td>
+<td>0.863</td>
+<td>0.548</td>
+<td>0.202</td>
+<td>0.717</td>
+<td>0.791</td>
+<td>0.276</td>
+<td>0.910</td>
+<td>0.918</td>
+</tr>
+<tr>
+<td>Kim_NU_task5_2</td>
+<td>BK_CNN2</td>
+<td>Kim2019</td>
+<td>0.825</td>
+<td>0.849</td>
+<td>0.643</td>
+<td>0.308</td>
+<td>0.686</td>
+<td>0.850</td>
+<td>0.358</td>
+<td>0.944</td>
+<td>0.931</td>
+</tr>
+<tr>
+<td>Kim_NU_task5_3</td>
+<td>BK_CNN3</td>
+<td>Kim2019</td>
+<td>0.809</td>
+<td>0.831</td>
+<td>0.650</td>
+<td>0.290</td>
+<td>0.674</td>
+<td>0.856</td>
+<td>0.402</td>
+<td>0.934</td>
+<td>0.941</td>
+</tr>
+<tr>
+<td>Kong_SURREY_task5_1</td>
+<td>cvssp_cnn9</td>
+<td>Kong2019</td>
+<td>0.674</td>
+<td>0.786</td>
+<td>0.455</td>
+<td>0.272</td>
+<td>0.640</td>
+<td>0.552</td>
+<td>0.181</td>
+<td>0.765</td>
+<td>0.883</td>
+</tr>
+<tr>
+<td>Kong_SURREY_task5_2</td>
+<td>cvssp_plus</td>
+<td>Kong2019</td>
+<td>0.777</td>
+<td>0.824</td>
+<td>0.526</td>
+<td>0.172</td>
+<td>0.722</td>
+<td>0.785</td>
+<td>0.057</td>
+<td>0.893</td>
+<td>0.926</td>
+</tr>
+<tr>
+<td>Liu_CU_task5_1</td>
+<td>Liu_CU_1</td>
+<td>Liu2019</td>
+<td>0.700</td>
+<td>0.746</td>
+<td>0.528</td>
+<td>0.318</td>
+<td>0.742</td>
+<td>0.826</td>
+<td>0.000</td>
+<td>0.772</td>
+<td>0.898</td>
+</tr>
+<tr>
+<td>Ng_NTU_task5_1</td>
+<td>Ng_1</td>
+<td>Ng2019</td>
+<td>0.759</td>
+<td>0.832</td>
+<td>0.525</td>
+<td>0.268</td>
+<td>0.693</td>
+<td>0.786</td>
+<td>0.403</td>
+<td>0.874</td>
+<td>0.877</td>
+</tr>
+<tr>
+<td>Ng_NTU_task5_2</td>
+<td>Ng_2</td>
+<td>Ng2019</td>
+<td>0.767</td>
+<td>0.843</td>
+<td>0.535</td>
+<td>0.249</td>
+<td>0.739</td>
+<td>0.760</td>
+<td>0.425</td>
+<td>0.882</td>
+<td>0.895</td>
+</tr>
+<tr>
+<td>Ng_NTU_task5_3</td>
+<td>Ng_3</td>
+<td>Ng2019</td>
+<td>0.762</td>
+<td>0.852</td>
+<td>0.529</td>
+<td>0.197</td>
+<td>0.767</td>
+<td>0.775</td>
+<td>0.399</td>
+<td>0.875</td>
+<td>0.888</td>
+</tr>
+<tr>
+<td>Ng_NTU_task5_4</td>
+<td>Ng_4</td>
+<td>Ng2019</td>
+<td>0.770</td>
+<td>0.854</td>
+<td>0.545</td>
+<td>0.209</td>
+<td>0.749</td>
+<td>0.764</td>
+<td>0.412</td>
+<td>0.878</td>
+<td>0.867</td>
+</tr>
+<tr>
+<td>Orga_URL_task5_1</td>
+<td>AugNet</td>
+<td>Orga2019</td>
+<td>0.562</td>
+<td>0.653</td>
+<td>0.411</td>
+<td>0.131</td>
+<td>0.704</td>
+<td>0.544</td>
+<td>0.223</td>
+<td>0.672</td>
+<td>0.668</td>
+</tr>
+<tr>
+<td>Tompkins_MS_task5_1</td>
+<td>MS D365 AI 1</td>
+<td>Tompkins2019</td>
+<td>0.779</td>
+<td>0.844</td>
+<td>0.519</td>
+<td>0.227</td>
+<td>0.730</td>
+<td>0.770</td>
+<td>0.316</td>
+<td>0.883</td>
+<td>0.877</td>
+</tr>
+<tr>
+<td>Tompkins_MS_task5_2</td>
+<td>MS D365 AI 2</td>
+<td>Tompkins2019</td>
+<td>0.788</td>
+<td>0.855</td>
+<td>0.538</td>
+<td>0.188</td>
+<td>0.744</td>
+<td>0.812</td>
+<td>0.418</td>
+<td>0.886</td>
+<td>0.886</td>
+</tr>
+<tr>
+<td>Tompkins_MS_task5_3</td>
+<td>MS D365 AI 3</td>
+<td>Tompkins2019</td>
+<td>0.779</td>
+<td>0.844</td>
+<td>0.519</td>
+<td>0.227</td>
+<td>0.730</td>
+<td>0.770</td>
+<td>0.316</td>
+<td>0.883</td>
+<td>0.877</td>
+</tr>
+</tbody>
+</table>
+<h1 id="fine-level-prediction">Fine-level prediction</h1>
+<h2 id="system-ranking-1">System ranking</h2>
+<p>These results only include systems for which the source code has been release.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="fine_macro_auprc" data-scatter-y="fine_micro_auprc" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="fine_micro_auprc" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true">Rank</th>
+<th data-field="code" data-sortable="true">
+                Submission <br/>code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Submission <br/>name
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="fine_macro_auprc" data-sortable="true" data-value-type="float3">
+                Macro-AUPRC
+            </th>
+<th class="text-center" data-chartable="true" data-field="fine_micro_f_score" data-sortable="true" data-value-type="float3">
+                Micro-F1
+            </th>
+<th class="text-center" data-chartable="true" data-field="fine_micro_auprc" data-sortable="true" data-value-type="float3">
+                Micro-AUPRC
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adapa_FH_task5_1</td>
+<td>MNv2_1</td>
+<td>Adapa2019</td>
+<td>0.645</td>
+<td>0.484</td>
+<td>0.751</td>
+</tr>
+<tr>
+<td></td>
+<td>Adapa_FH_task5_2</td>
+<td>MNv2_2</td>
+<td>Adapa2019</td>
+<td>0.622</td>
+<td>0.575</td>
+<td>0.721</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_1</td>
+<td>multifeat1</td>
+<td>Bai2019</td>
+<td>0.534</td>
+<td>0.514</td>
+<td>0.572</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_2</td>
+<td>multifeat2</td>
+<td>Bai2019</td>
+<td>0.523</td>
+<td>0.594</td>
+<td>0.615</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_3</td>
+<td>multifeat3</td>
+<td>Bai2019</td>
+<td>0.553</td>
+<td>0.600</td>
+<td>0.639</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_4</td>
+<td>multifeat4</td>
+<td>Bai2019</td>
+<td>0.554</td>
+<td>0.571</td>
+<td>0.623</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2019 baseline</td>
+<td>Baseline</td>
+<td>Cartwright2019</td>
+<td>0.531</td>
+<td>0.450</td>
+<td>0.619</td>
+</tr>
+<tr>
+<td></td>
+<td>Cui_YSU_task5_1</td>
+<td>YSU_TFSANN</td>
+<td>Cui2019</td>
+<td>0.552</td>
+<td>0.286</td>
+<td>0.637</td>
+</tr>
+<tr>
+<td></td>
+<td>Gousseau_OL_task5_1</td>
+<td>Gousseau1</td>
+<td>Gousseau2019</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td></td>
+<td>Gousseau_OL_task5_2</td>
+<td>Gousseau2</td>
+<td>Gousseau2019</td>
+<td>0.500</td>
+<td>0.560</td>
+<td>0.621</td>
+</tr>
+<tr>
+<td></td>
+<td>Kim_NU_task5_1</td>
+<td>BK_CNN1</td>
+<td>Kim2019</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td></td>
+<td>Kim_NU_task5_2</td>
+<td>BK_CNN2</td>
+<td>Kim2019</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td></td>
+<td>Kim_NU_task5_3</td>
+<td>BK_CNN3</td>
+<td>Kim2019</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_SURREY_task5_1</td>
+<td>cvssp_cnn9</td>
+<td>Kong2019</td>
+<td>0.378</td>
+<td>0.391</td>
+<td>0.496</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_SURREY_task5_2</td>
+<td>cvssp_plus</td>
+<td>Kong2019</td>
+<td>0.462</td>
+<td>0.206</td>
+<td>0.584</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_1</td>
+<td>Ng_1</td>
+<td>Ng2019</td>
+<td>0.560</td>
+<td>0.551</td>
+<td>0.639</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_2</td>
+<td>Ng_2</td>
+<td>Ng2019</td>
+<td>0.564</td>
+<td>0.540</td>
+<td>0.638</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_3</td>
+<td>Ng_3</td>
+<td>Ng2019</td>
+<td>0.564</td>
+<td>0.521</td>
+<td>0.632</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_4</td>
+<td>Ng_4</td>
+<td>Ng2019</td>
+<td>0.571</td>
+<td>0.534</td>
+<td>0.646</td>
+</tr>
+<tr>
+<td></td>
+<td>Orga_URL_task5_1</td>
+<td>AugNet</td>
+<td>Orga2019</td>
+<td>0.391</td>
+<td>0.457</td>
+<td>0.428</td>
+</tr>
+<tr>
+<td></td>
+<td>Tompkins_MS_task5_1</td>
+<td>MS D365 AI 1</td>
+<td>Tompkins2019</td>
+<td>0.521</td>
+<td>0.444</td>
+<td>0.618</td>
+</tr>
+<tr>
+<td></td>
+<td>Tompkins_MS_task5_2</td>
+<td>MS D365 AI 2</td>
+<td>Tompkins2019</td>
+<td>0.555</td>
+<td>0.381</td>
+<td>0.649</td>
+</tr>
+<tr>
+<td></td>
+<td>Tompkins_MS_task5_3</td>
+<td>MS D365 AI 3</td>
+<td>Tompkins2019</td>
+<td>0.522</td>
+<td>0.461</td>
+<td>0.599</td>
+</tr>
+</tbody>
+</table>
+<h2 id="teams-ranking-1">Teams ranking</h2>
+<p>Table including only the best performing reproducible system per submitting team.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="fine_macro_auprc" data-scatter-y="fine_micro_auprc" data-show-chart="true" data-show-pagination-switch="false" data-show-rank="true" data-sort-name="fine_micro_auprc" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true">Rank</th>
+<th data-field="code" data-sortable="true">
+                Submission <br/>code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Submission <br/>name
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="fine_macro_auprc" data-sortable="true" data-value-type="float3">
+                Macro-AUPRC
+            </th>
+<th class="text-center" data-chartable="true" data-field="fine_micro_f_score" data-sortable="true" data-value-type="float3">
+                Micro-F1
+            </th>
+<th class="text-center" data-chartable="true" data-field="fine_micro_auprc" data-sortable="true" data-value-type="float3">
+                Micro-AUPRC
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adapa_FH_task5_1</td>
+<td>MNv2_1</td>
+<td>Adapa2019</td>
+<td>0.645</td>
+<td>0.484</td>
+<td>0.751</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_3</td>
+<td>multifeat3</td>
+<td>Bai2019</td>
+<td>0.553</td>
+<td>0.600</td>
+<td>0.639</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2019 baseline</td>
+<td>Baseline</td>
+<td>Cartwright2019</td>
+<td>0.531</td>
+<td>0.450</td>
+<td>0.619</td>
+</tr>
+<tr>
+<td></td>
+<td>Cui_YSU_task5_1</td>
+<td>YSU_TFSANN</td>
+<td>Cui2019</td>
+<td>0.552</td>
+<td>0.286</td>
+<td>0.637</td>
+</tr>
+<tr>
+<td></td>
+<td>Gousseau_OL_task5_2</td>
+<td>Gousseau2</td>
+<td>Gousseau2019</td>
+<td>0.500</td>
+<td>0.560</td>
+<td>0.621</td>
+</tr>
+<tr>
+<td></td>
+<td>Kim_NU_task5_1</td>
+<td>BK_CNN1</td>
+<td>Kim2019</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_SURREY_task5_2</td>
+<td>cvssp_plus</td>
+<td>Kong2019</td>
+<td>0.462</td>
+<td>0.206</td>
+<td>0.584</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_4</td>
+<td>Ng_4</td>
+<td>Ng2019</td>
+<td>0.571</td>
+<td>0.534</td>
+<td>0.646</td>
+</tr>
+<tr>
+<td></td>
+<td>Orga_URL_task5_1</td>
+<td>AugNet</td>
+<td>Orga2019</td>
+<td>0.391</td>
+<td>0.457</td>
+<td>0.428</td>
+</tr>
+<tr>
+<td></td>
+<td>Tompkins_MS_task5_2</td>
+<td>MS D365 AI 2</td>
+<td>Tompkins2019</td>
+<td>0.555</td>
+<td>0.381</td>
+<td>0.649</td>
+</tr>
+</tbody>
+</table>
+<h2 id="class-wise-performance-1">Class-wise performance</h2>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="comparison" data-chart-modes="bar,scatter,comparison" data-chart-tooltip-fields="code" data-comparison-a-row="DCASE2019 baseline" data-comparison-active-set="Class-wise performance (all)" data-comparison-b-row="Adapa_FH_task5_1" data-comparison-row-id-field="code" data-comparison-sets-json='[
+        {"title": "Class-wise performance (all)",
+        "data_axis_title": "AUPRC",
+        "fields": ["fine_class_auprc_engine", "fine_class_auprc_machinery-impact", "fine_class_auprc_non-machinery-impact", "fine_class_auprc_powered-saw", "fine_class_auprc_alert-signal", "fine_class_auprc_music", "fine_class_auprc_human-voice", "fine_class_auprc_dog"]
+        }]' data-filter-control="false" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="yes" data-show-rank="false" data-sort-name="code" data-sort-order="asc">
+<thead>
+<tr>
+<th data-field="code" data-sortable="true">
+                Submission<br/>code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Submission<br/>name
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="fine_micro_auprc" data-sortable="true" data-value-type="float3">
+                Micro-AUPRC
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="fine_class_auprc_engine" data-sortable="true" data-value-type="float3">
+                Engine
+            </th>
+<th class="text-center" data-chartable="true" data-field="fine_class_auprc_machinery-impact" data-sortable="true" data-value-type="float3">
+                Machinery <br/>impact
+            </th>
+<th class="text-center" data-chartable="true" data-field="fine_class_auprc_non-machinery-impact" data-sortable="true" data-value-type="float3">
+                Non-machinery <br/>impact
+            </th>
+<th class="text-center" data-chartable="true" data-field="fine_class_auprc_powered-saw" data-sortable="true" data-value-type="float3">
+                Powered <br/>saw
+            </th>
+<th class="text-center" data-chartable="true" data-field="fine_class_auprc_alert-signal" data-sortable="true" data-value-type="float3">
+                Alert <br/>signal
+            </th>
+<th class="text-center" data-chartable="true" data-field="fine_class_auprc_music" data-sortable="true" data-value-type="float3">
+                Music
+            </th>
+<th class="text-center" data-chartable="true" data-field="fine_class_auprc_human-voice" data-sortable="true" data-value-type="float3">
+                Human <br/>voice
+            </th>
+<th class="text-center" data-chartable="true" data-field="fine_class_auprc_dog" data-sortable="true" data-value-type="float3">
+                Dog
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adapa_FH_task5_1</td>
+<td>MNv2_1</td>
+<td>Adapa2019</td>
+<td>0.751</td>
+<td>0.665</td>
+<td>0.718</td>
+<td>0.362</td>
+<td>0.486</td>
+<td>0.858</td>
+<td>0.289</td>
+<td>0.841</td>
+<td>0.936</td>
+</tr>
+<tr>
+<td>Adapa_FH_task5_2</td>
+<td>MNv2_2</td>
+<td>Adapa2019</td>
+<td>0.721</td>
+<td>0.673</td>
+<td>0.604</td>
+<td>0.374</td>
+<td>0.378</td>
+<td>0.832</td>
+<td>0.351</td>
+<td>0.833</td>
+<td>0.931</td>
+</tr>
+<tr>
+<td>Bai_NPU_task5_1</td>
+<td>multifeat1</td>
+<td>Bai2019</td>
+<td>0.572</td>
+<td>0.394</td>
+<td>0.560</td>
+<td>0.470</td>
+<td>0.351</td>
+<td>0.648</td>
+<td>0.129</td>
+<td>0.735</td>
+<td>0.981</td>
+</tr>
+<tr>
+<td>Bai_NPU_task5_2</td>
+<td>multifeat2</td>
+<td>Bai2019</td>
+<td>0.615</td>
+<td>0.524</td>
+<td>0.517</td>
+<td>0.346</td>
+<td>0.364</td>
+<td>0.687</td>
+<td>0.083</td>
+<td>0.720</td>
+<td>0.944</td>
+</tr>
+<tr>
+<td>Bai_NPU_task5_3</td>
+<td>multifeat3</td>
+<td>Bai2019</td>
+<td>0.639</td>
+<td>0.545</td>
+<td>0.536</td>
+<td>0.489</td>
+<td>0.418</td>
+<td>0.679</td>
+<td>0.082</td>
+<td>0.763</td>
+<td>0.911</td>
+</tr>
+<tr>
+<td>Bai_NPU_task5_4</td>
+<td>multifeat4</td>
+<td>Bai2019</td>
+<td>0.623</td>
+<td>0.511</td>
+<td>0.565</td>
+<td>0.430</td>
+<td>0.407</td>
+<td>0.696</td>
+<td>0.115</td>
+<td>0.739</td>
+<td>0.973</td>
+</tr>
+<tr class="info" data-hline="true">
+<td>DCASE2019 baseline</td>
+<td>Baseline</td>
+<td>Cartwright2019</td>
+<td>0.619</td>
+<td>0.638</td>
+<td>0.539</td>
+<td>0.182</td>
+<td>0.478</td>
+<td>0.543</td>
+<td>0.168</td>
+<td>0.777</td>
+<td>0.922</td>
+</tr>
+<tr>
+<td>Cui_YSU_task5_1</td>
+<td>YSU_TFSANN</td>
+<td>Cui2019</td>
+<td>0.637</td>
+<td>0.632</td>
+<td>0.566</td>
+<td>0.359</td>
+<td>0.444</td>
+<td>0.652</td>
+<td>0.116</td>
+<td>0.731</td>
+<td>0.913</td>
+</tr>
+<tr>
+<td>Gousseau_OL_task5_1</td>
+<td>Gousseau1</td>
+<td>Gousseau2019</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td>Gousseau_OL_task5_2</td>
+<td>Gousseau2</td>
+<td>Gousseau2019</td>
+<td>0.621</td>
+<td>0.606</td>
+<td>0.270</td>
+<td>0.253</td>
+<td>0.398</td>
+<td>0.694</td>
+<td>0.103</td>
+<td>0.756</td>
+<td>0.916</td>
+</tr>
+<tr>
+<td>Kim_NU_task5_1</td>
+<td>BK_CNN1</td>
+<td>Kim2019</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td>Kim_NU_task5_2</td>
+<td>BK_CNN2</td>
+<td>Kim2019</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td>Kim_NU_task5_3</td>
+<td>BK_CNN3</td>
+<td>Kim2019</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td>Kong_SURREY_task5_1</td>
+<td>cvssp_cnn9</td>
+<td>Kong2019</td>
+<td>0.496</td>
+<td>0.506</td>
+<td>0.279</td>
+<td>0.230</td>
+<td>0.239</td>
+<td>0.464</td>
+<td>0.015</td>
+<td>0.638</td>
+<td>0.652</td>
+</tr>
+<tr>
+<td>Kong_SURREY_task5_2</td>
+<td>cvssp_plus</td>
+<td>Kong2019</td>
+<td>0.584</td>
+<td>0.534</td>
+<td>0.440</td>
+<td>0.089</td>
+<td>0.437</td>
+<td>0.535</td>
+<td>0.009</td>
+<td>0.738</td>
+<td>0.913</td>
+</tr>
+<tr>
+<td>Liu_CU_task5_1</td>
+<td>Liu_CU_1</td>
+<td>Liu2019</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td>Ng_NTU_task5_1</td>
+<td>Ng_1</td>
+<td>Ng2019</td>
+<td>0.639</td>
+<td>0.668</td>
+<td>0.576</td>
+<td>0.235</td>
+<td>0.557</td>
+<td>0.583</td>
+<td>0.221</td>
+<td>0.765</td>
+<td>0.873</td>
+</tr>
+<tr>
+<td>Ng_NTU_task5_2</td>
+<td>Ng_2</td>
+<td>Ng2019</td>
+<td>0.638</td>
+<td>0.667</td>
+<td>0.562</td>
+<td>0.265</td>
+<td>0.535</td>
+<td>0.627</td>
+<td>0.213</td>
+<td>0.760</td>
+<td>0.881</td>
+</tr>
+<tr>
+<td>Ng_NTU_task5_3</td>
+<td>Ng_3</td>
+<td>Ng2019</td>
+<td>0.632</td>
+<td>0.666</td>
+<td>0.513</td>
+<td>0.267</td>
+<td>0.532</td>
+<td>0.632</td>
+<td>0.258</td>
+<td>0.757</td>
+<td>0.890</td>
+</tr>
+<tr>
+<td>Ng_NTU_task5_4</td>
+<td>Ng_4</td>
+<td>Ng2019</td>
+<td>0.646</td>
+<td>0.665</td>
+<td>0.538</td>
+<td>0.280</td>
+<td>0.545</td>
+<td>0.666</td>
+<td>0.222</td>
+<td>0.764</td>
+<td>0.886</td>
+</tr>
+<tr>
+<td>Orga_URL_task5_1</td>
+<td>AugNet</td>
+<td>Orga2019</td>
+<td>0.428</td>
+<td>0.417</td>
+<td>0.396</td>
+<td>0.137</td>
+<td>0.536</td>
+<td>0.346</td>
+<td>0.083</td>
+<td>0.566</td>
+<td>0.644</td>
+</tr>
+<tr>
+<td>Tompkins_MS_task5_1</td>
+<td>MS D365 AI 1</td>
+<td>Tompkins2019</td>
+<td>0.618</td>
+<td>0.621</td>
+<td>0.531</td>
+<td>0.225</td>
+<td>0.351</td>
+<td>0.620</td>
+<td>0.190</td>
+<td>0.755</td>
+<td>0.877</td>
+</tr>
+<tr>
+<td>Tompkins_MS_task5_2</td>
+<td>MS D365 AI 2</td>
+<td>Tompkins2019</td>
+<td>0.649</td>
+<td>0.638</td>
+<td>0.552</td>
+<td>0.189</td>
+<td>0.466</td>
+<td>0.680</td>
+<td>0.266</td>
+<td>0.759</td>
+<td>0.886</td>
+</tr>
+<tr>
+<td>Tompkins_MS_task5_3</td>
+<td>MS D365 AI 3</td>
+<td>Tompkins2019</td>
+<td>0.599</td>
+<td>0.553</td>
+<td>0.458</td>
+<td>0.225</td>
+<td>0.572</td>
+<td>0.608</td>
+<td>0.199</td>
+<td>0.683</td>
+<td>0.877</td>
+</tr>
+</tbody>
+</table>
+<h1 id="system-characteristics">System characteristics</h1>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-chart-tooltip-fields="code" data-filter-control="true" data-filter-show-clear="true" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="coarse_micro_auprc" data-scatter-y="system_complexity" data-show-bar-chart-xaxis="false" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="false" data-sort-name="code" data-sort-order="asc" data-striped="true" data-tag-mode="column">
+<thead>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="coarse_micro_auprc" data-sortable="true" data-value-type="float3">
+                Coarse <br/>Micro-AUPRC
+            </th>
+<th class="text-center" data-chartable="true" data-field="fine_micro_auprc" data-sortable="true" data-value-type="float3">
+                Fine <br/>Micro-AUPRC
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_input" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Input
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_sampling_rate" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Sampling <br/>rate
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_data_augmentation" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Data <br/>augmentation
+            </th>
+<th class="text-center narrow-col" data-field="system_features" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Features
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_external_data" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                External <br/>data
+            </th>
+<th class="text-center narrow-col" data-field="system_external_data_sources" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                External <br/>data sources
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-axis-scale="log10_unit" data-chartable="true" data-field="system_complexity" data-sortable="true" data-value-type="numeric-unit">
+                Model <br/>complexity
+            </th>
+<th class="text-center narrow-col" data-field="system_classifier" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Classifier
+            </th>
+<th class="text-center narrow-col" data-chartable="true" data-field="system_ensemble_method_subsystem_count" data-sortable="true" data-value-type="int">
+                Ensemble <br/>subsystems
+            </th>
+<th class="text-center narrow-col" data-field="system_used_annotator_id" data-filter-control="select" data-filter-strict-search="true" data-sortable="true">
+                Used annotator ID
+            </th>
+<th class="text-center narrow-col" data-field="system_used_proximity" data-filter-control="select" data-filter-strict-search="true" data-sortable="true">
+                Used proximity
+            </th>
+<th class="text-center narrow-col" data-field="system_used_sensor_id" data-filter-control="select" data-filter-strict-search="true" data-sortable="true">
+                Used sensor ID
+            </th>
+<th class="text-center narrow-col" data-field="system_aggregation_method" data-filter-control="select" data-filter-strict-search="true" data-sortable="true">
+                Aggregation <br/>method
+            </th>
+<th class="text-center narrow-col" data-field="system_target_level" data-filter-control="select" data-filter-strict-search="true" data-sortable="true">
+                Target <br/>level
+            </th>
+<th class="text-center narrow-col" data-field="system_target_method" data-filter-control="select" data-filter-strict-search="true" data-sortable="true">
+                Target <br/>method
+            </th>
+<th class="text-center narrow-col" data-field="system_relabeling" data-filter-control="select" data-filter-strict-search="true" data-sortable="true">
+                System <br/>relabeling
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adapa_FH_task5_1</td>
+<td>Adapa2019</td>
+<td>0.860</td>
+<td>0.751</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixup, random erase, scaling, shifting</td>
+<td>log-mel energies</td>
+<td>pre-trained model</td>
+<td>ImageNet based trained weights of MobileNetV2</td>
+<td>2896726</td>
+<td>CNN</td>
+<td></td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>mean</td>
+<td>both</td>
+<td>average</td>
+<td>manual</td>
+</tr>
+<tr>
+<td>Adapa_FH_task5_2</td>
+<td>Adapa2019</td>
+<td>0.847</td>
+<td>0.721</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixup, random erase, scaling, shifting</td>
+<td>log-mel energies</td>
+<td>pre-trained model</td>
+<td>ImageNet based trained weights of MobileNetV2</td>
+<td>2899804</td>
+<td>CNN</td>
+<td></td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>mean</td>
+<td>both</td>
+<td>average</td>
+<td>automatic</td>
+</tr>
+<tr>
+<td>Bai_NPU_task5_1</td>
+<td>Bai2019</td>
+<td>0.763</td>
+<td>0.572</td>
+<td>mono</td>
+<td>16kHz</td>
+<td></td>
+<td>MFCC, log-mel, STFT, HPSS</td>
+<td></td>
+<td></td>
+<td></td>
+<td>CNN</td>
+<td></td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td></td>
+<td>fine</td>
+<td>fusion</td>
+<td></td>
+</tr>
+<tr>
+<td>Bai_NPU_task5_2</td>
+<td>Bai2019</td>
+<td>0.769</td>
+<td>0.615</td>
+<td>mono</td>
+<td>16kHz</td>
+<td></td>
+<td>MFCC, log-mel, STFT, HPSS</td>
+<td></td>
+<td></td>
+<td></td>
+<td>CNN</td>
+<td></td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td></td>
+<td>fine</td>
+<td>fusion</td>
+<td></td>
+</tr>
+<tr>
+<td>Bai_NPU_task5_3</td>
+<td>Bai2019</td>
+<td>0.680</td>
+<td>0.639</td>
+<td>mono</td>
+<td>16kHz</td>
+<td></td>
+<td>MFCC, log-mel, STFT, HPSS</td>
+<td></td>
+<td></td>
+<td></td>
+<td>CNN</td>
+<td></td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td></td>
+<td>fine</td>
+<td>fusion</td>
+<td></td>
+</tr>
+<tr>
+<td>Bai_NPU_task5_4</td>
+<td>Bai2019</td>
+<td>0.782</td>
+<td>0.623</td>
+<td>mono</td>
+<td>16kHz</td>
+<td></td>
+<td>MFCC, log-mel, STFT, HPSS</td>
+<td></td>
+<td></td>
+<td></td>
+<td>CNN</td>
+<td></td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td></td>
+<td>fine</td>
+<td>fusion</td>
+<td></td>
+</tr>
+<tr class="info" data-hline="true">
+<td>DCASE2019 baseline</td>
+<td>Cartwright2019</td>
+<td>0.742</td>
+<td>0.619</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>vggish</td>
+<td></td>
+<td></td>
+<td>2967</td>
+<td>logistic regression</td>
+<td></td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td></td>
+<td>fine</td>
+<td>minority vote</td>
+<td></td>
+</tr>
+<tr>
+<td>Cui_YSU_task5_1</td>
+<td>Cui2019</td>
+<td>0.807</td>
+<td>0.637</td>
+<td>mono</td>
+<td>32kHz</td>
+<td></td>
+<td>log-mel spectrogram</td>
+<td></td>
+<td></td>
+<td>583336</td>
+<td>CNN</td>
+<td></td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td></td>
+<td>both</td>
+<td>minority vote</td>
+<td></td>
+</tr>
+<tr>
+<td>Gousseau_OL_task5_1</td>
+<td>Gousseau2019</td>
+<td>0.745</td>
+<td>0.000</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixup</td>
+<td>log-mel energies</td>
+<td></td>
+<td></td>
+<td>120753440</td>
+<td>CNN</td>
+<td>4</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td></td>
+<td>coarse</td>
+<td>minority vote</td>
+<td></td>
+</tr>
+<tr>
+<td>Gousseau_OL_task5_2</td>
+<td>Gousseau2019</td>
+<td>0.748</td>
+<td>0.621</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixup</td>
+<td>log-mel energies</td>
+<td></td>
+<td></td>
+<td>120753440</td>
+<td>CNN</td>
+<td>4</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td></td>
+<td>coarse</td>
+<td>minority vote</td>
+<td></td>
+</tr>
+<tr>
+<td>Kim_NU_task5_1</td>
+<td>Kim2019</td>
+<td>0.761</td>
+<td>0.000</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>mel spectrogram</td>
+<td>pre-trained model</td>
+<td>vggish</td>
+<td>12193928</td>
+<td>CNN</td>
+<td></td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>max</td>
+<td>coarse</td>
+<td>minority vote</td>
+<td></td>
+</tr>
+<tr>
+<td>Kim_NU_task5_2</td>
+<td>Kim2019</td>
+<td>0.825</td>
+<td>0.000</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>mel spectrogram</td>
+<td>pre-trained model</td>
+<td>vggish</td>
+<td>24387856</td>
+<td>CNN, ensemble</td>
+<td></td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>max</td>
+<td>coarse</td>
+<td>minority vote</td>
+<td></td>
+</tr>
+<tr>
+<td>Kim_NU_task5_3</td>
+<td>Kim2019</td>
+<td>0.809</td>
+<td>0.000</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>mel spectrogram</td>
+<td>pre-trained model</td>
+<td>vggish</td>
+<td>12193928</td>
+<td>CNN</td>
+<td></td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>max</td>
+<td>coarse</td>
+<td>minority vote</td>
+<td></td>
+</tr>
+<tr>
+<td>Kong_SURREY_task5_1</td>
+<td>Kong2019</td>
+<td>0.674</td>
+<td>0.496</td>
+<td>mono</td>
+<td>32kHz</td>
+<td></td>
+<td>log-mel</td>
+<td></td>
+<td></td>
+<td>4686144</td>
+<td>CNN</td>
+<td></td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td></td>
+<td>both</td>
+<td>minority vote</td>
+<td></td>
+</tr>
+<tr>
+<td>Kong_SURREY_task5_2</td>
+<td>Kong2019</td>
+<td>0.777</td>
+<td>0.584</td>
+<td>mono</td>
+<td>32kHz</td>
+<td></td>
+<td>log-mel</td>
+<td>AudioSet pretrained model</td>
+<td>AudioSet</td>
+<td>4686144</td>
+<td>CNN</td>
+<td></td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td></td>
+<td>both</td>
+<td>minority vote</td>
+<td></td>
+</tr>
+<tr>
+<td>Liu_CU_task5_1</td>
+<td>Liu2019</td>
+<td>0.700</td>
+<td>0.000</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel spectrogram</td>
+<td>pre-trained model</td>
+<td>pre-trained model</td>
+<td>2967</td>
+<td>CNN</td>
+<td></td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>mean</td>
+<td>coarse</td>
+<td>minority vote</td>
+<td></td>
+</tr>
+<tr>
+<td>Ng_NTU_task5_1</td>
+<td>Ng2019</td>
+<td>0.759</td>
+<td>0.639</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>openl3</td>
+<td></td>
+<td></td>
+<td>120215</td>
+<td>logistic regression, neural network</td>
+<td></td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td></td>
+<td>both</td>
+<td>minority vote</td>
+<td>manual</td>
+</tr>
+<tr>
+<td>Ng_NTU_task5_2</td>
+<td>Ng2019</td>
+<td>0.767</td>
+<td>0.638</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>openl3</td>
+<td>audio data</td>
+<td>Urban-SED, FSDKaggle2018</td>
+<td>103191</td>
+<td>logistic regression, neural network</td>
+<td></td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+<td></td>
+<td>both</td>
+<td>minority vote</td>
+<td>manual</td>
+</tr>
+<tr>
+<td>Ng_NTU_task5_3</td>
+<td>Ng2019</td>
+<td>0.762</td>
+<td>0.632</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>openl3</td>
+<td>audio data</td>
+<td>Urban-SED, FSDKaggle2018, UrbanSound8k, FSDnoisy18k, ESC-50-master</td>
+<td>103191</td>
+<td>logistic regression, neural network</td>
+<td></td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+<td></td>
+<td>both</td>
+<td>minority vote</td>
+<td>automatic, manual</td>
+</tr>
+<tr>
+<td>Ng_NTU_task5_4</td>
+<td>Ng2019</td>
+<td>0.770</td>
+<td>0.646</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>openl3</td>
+<td>audio data</td>
+<td>Urban-SED, FSDKaggle2018, UrbanSound8k, FSDnoisy18k, ESC-50-master</td>
+<td>271895</td>
+<td>logistic regression, neural network</td>
+<td></td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+<td></td>
+<td>both</td>
+<td>minority vote</td>
+<td>automatic, manual</td>
+</tr>
+<tr>
+<td>Orga_URL_task5_1</td>
+<td>Orga2019</td>
+<td>0.562</td>
+<td>0.428</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>emphasis, compression, mixing</td>
+<td>vggish</td>
+<td></td>
+<td></td>
+<td>286208677</td>
+<td>CNN</td>
+<td></td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>mean</td>
+<td>both</td>
+<td>minority vote</td>
+<td></td>
+</tr>
+<tr>
+<td>Tompkins_MS_task5_1</td>
+<td>Tompkins2019</td>
+<td>0.779</td>
+<td>0.618</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>pitch shifting, volume, white noise addition</td>
+<td>log-mel spectrogram, vggish</td>
+<td>pre-trained model</td>
+<td>vggish</td>
+<td>169518141</td>
+<td>CNN</td>
+<td></td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td></td>
+<td>both</td>
+<td>majority vote</td>
+<td></td>
+</tr>
+<tr>
+<td>Tompkins_MS_task5_2</td>
+<td>Tompkins2019</td>
+<td>0.788</td>
+<td>0.649</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>pitch shifting, volume, white noise addition</td>
+<td>log-mel spectrogram, vggish</td>
+<td>pre-trained model</td>
+<td>vggish</td>
+<td>169518141</td>
+<td>CNN</td>
+<td></td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td></td>
+<td>both</td>
+<td>majority vote</td>
+<td></td>
+</tr>
+<tr>
+<td>Tompkins_MS_task5_3</td>
+<td>Tompkins2019</td>
+<td>0.779</td>
+<td>0.599</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>pitch shifting, volume, white noise addition</td>
+<td>log-mel spectrogram, vggish</td>
+<td>pre-trained model</td>
+<td>vggish</td>
+<td>1186626987</td>
+<td>CNN, ensemble</td>
+<td>7</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td></td>
+<td>both</td>
+<td>majority vote</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="technical-reports">Technical reports</h1>
+<div class="btex" data-source="content/data/challenge2019/technical_reports_task5.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="Adapa2019" style="box-shadow: none">
+<div class="panel-heading" id="heading-Adapa2019" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Urban Sound Tagging Using Convolutional Neural Networks
+       </h4>
+<p style="text-align:left">
+        Sainath Adapa
+       </p>
+<p style="text-align:left">
+<em>
+         Customer Acquisition, FindHotel, Amsterdam, Netherlands
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Adapa_FH_task5_1</span> <span class="label label-primary">Adapa_FH_task5_2</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Adapa2019" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Adapa2019" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Adapa2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Adapa_80.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Adapa2019').collapse('show');window.location.hash='#Adapa2019';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Adapa2019" class="panel-collapse collapse" id="collapse-Adapa2019" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Urban Sound Tagging Using Convolutional Neural Networks
+      </h4>
+<p style="text-align:left">
+<small>
+        Sainath Adapa
+       </small>
+<br/>
+<small>
+<em>
+         Customer Acquisition, FindHotel, Amsterdam, Netherlands
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report outlines our solution to Task 5 of the DCASE 2019 challenge, titled Urban Sound Tagging. The objective of the task is to label different sources of noise from raw audio data. A modified form of MobileNetv2, a convolutional neural network (CNN) model was trained to label both coarse and fine tags jointly. The proposed model uses log-scaled Mel-spectrogram as the representation format for the audio data. Mixup, Random erasing, scaling, and shifting are used as data augmentation techniques. A second model that uses scaled labels was built to account for human errors in the annotations. The solution code is available on GitHub.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Adapa2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Adapa_80.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/sainathadapa/urban-sound-tagging" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Adapa2019label" class="modal fade" id="bibtex-Adapa2019" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexAdapa2019label">
+        Urban Sound Tagging Using Convolutional Neural Networks
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Adapa2019,
+    Author = "Adapa, Sainath",
+    title = "Urban Sound Tagging Using Convolutional Neural Networks",
+    institution = "DCASE2019 Challenge",
+    year = "2019",
+    month = "September",
+    abstract = "This technical report outlines our solution to Task 5 of the DCASE 2019 challenge, titled Urban Sound Tagging. The objective of the task is to label different sources of noise from raw audio data. A modified form of MobileNetv2, a convolutional neural network (CNN) model was trained to label both coarse and fine tags jointly. The proposed model uses log-scaled Mel-spectrogram as the representation format for the audio data. Mixup, Random erasing, scaling, and shifting are used as data augmentation techniques. A second model that uses scaled labels was built to account for human errors in the annotations. The solution code is available on GitHub."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Bai2019" style="box-shadow: none">
+<div class="panel-heading" id="heading-Bai2019" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Urban Sound Tagging with Multi-Feature Fusion System
+       </h4>
+<p style="text-align:left">
+        Jisheng Bai and Chen Chen
+       </p>
+<p style="text-align:left">
+<em>
+         School of Marine science, Northwestern Polytechnical University, Xi'an, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Bai_NPU_task5_1</span> <span class="label label-primary">Bai_NPU_task5_2</span> <span class="label label-primary">Bai_NPU_task5_3</span> <span class="label label-primary">Bai_NPU_task5_4</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Bai2019" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Bai2019" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Bai2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Bai_41.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Bai2019').collapse('show');window.location.hash='#Bai2019';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Bai2019" class="panel-collapse collapse" id="collapse-Bai2019" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Urban Sound Tagging with Multi-Feature Fusion System
+      </h4>
+<p style="text-align:left">
+<small>
+        Jisheng Bai and Chen Chen
+       </small>
+<br/>
+<small>
+<em>
+         School of Marine science, Northwestern Polytechnical University, Xi'an, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This paper presents a multi-feature fusion system for the DCASE 2019 Task5 Urban Sound Tagging(UST). It focus on predicting whether each of 23 sources of noise pollution is pre-sent or absent in a 10-second scene [1]. There are coarse-level and fine -level taxonomies to train model. We mainly focus on coarse-level and use best coarse-level model architecture to train fine-level model. Various features are extracted from original urban sound and Convolutional Neural Networks(CNNs) are applied in this system. Log-Mel, harmonic, short time Fourier transform (STFT) and Mel Frequency Cepstral Coefficents (MFCC) spectrograms are fed into a 5-layer or 9-layer CNN, and a type of gated activation [2] is also used in CNN. Different feature is adapted for different urban sound classification ac-cording to the results of our experiment. We get at least 0.14 macro-auprc score improvement compared to baseline system on coarse-level. Finally, we make a fusion of some models and evaluate on evaluation dataset.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Bai2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Bai_41.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/CN-BOTK/dcase2019-task5" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Bai2019label" class="modal fade" id="bibtex-Bai2019" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexBai2019label">
+        Urban Sound Tagging with Multi-Feature Fusion System
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Bai2019,
+    Author = "Bai, Jisheng and Chen, Chen",
+    title = "Urban Sound Tagging with Multi-Feature Fusion System",
+    institution = "DCASE2019 Challenge",
+    year = "2019",
+    month = "September",
+    abstract = "This paper presents a multi-feature fusion system for the DCASE 2019 Task5 Urban Sound Tagging(UST). It focus on predicting whether each of 23 sources of noise pollution is pre-sent or absent in a 10-second scene [1]. There are coarse-level and fine -level taxonomies to train model. We mainly focus on coarse-level and use best coarse-level model architecture to train fine-level model. Various features are extracted from original urban sound and Convolutional Neural Networks(CNNs) are applied in this system. Log-Mel, harmonic, short time Fourier transform (STFT) and Mel Frequency Cepstral Coefficents (MFCC) spectrograms are fed into a 5-layer or 9-layer CNN, and a type of gated activation [2] is also used in CNN. Different feature is adapted for different urban sound classification ac-cording to the results of our experiment. We get at least 0.14 macro-auprc score improvement compared to baseline system on coarse-level. Finally, we make a fusion of some models and evaluate on evaluation dataset."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Cartwright2019" style="box-shadow: none">
+<div class="panel-heading" id="heading-Cartwright2019" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Sonyc Urban Sound Tagging: A Multilabel Dataset From an Urban Acoustic Sensor Network
+       </h4>
+<p style="text-align:left">
+        Mark Cartwright<sup>1</sup>, Jason Cramer<sup>2</sup>, Ana Elisa Mendez Mendez<sup>3</sup>, Ho-Hsiang Wu<sup>3</sup>, Vincent Lostanlen<sup>4</sup>, Juan P. Bello<sup>1</sup> and Justin Salamon<sup>5</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Music and Audio Research Laboratory, Department of Computer Science and Engineering, Center for Urban Science and Progress, New York University, New York, New York, USA, <sup>2</sup>Music and Audio Research Laboratory, Department of Electrical and Computer Engineering, New York University, New York, New York, USA, <sup>3</sup>Music and Audio Research Laboratory, Department of Music and Performing Arts Professions, New York University, New York, New York, USA, <sup>4</sup>Cornell Lab of Ornithology, Cornell University, Ithaca, New York, USA, <sup>5</sup>Machine Perception Team, Adobe Research, San Francisco, CA, USA
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Cartwright_NYU_task5_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Cartwright2019" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Cartwright2019" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Cartwright2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Cartwright2019').collapse('show');window.location.hash='#Cartwright2019';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Cartwright2019" class="panel-collapse collapse" id="collapse-Cartwright2019" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Sonyc Urban Sound Tagging: A Multilabel Dataset From an Urban Acoustic Sensor Network
+      </h4>
+<p style="text-align:left">
+<small>
+        Mark Cartwright<sup>1</sup>, Jason Cramer<sup>2</sup>, Ana Elisa Mendez Mendez<sup>3</sup>, Ho-Hsiang Wu<sup>3</sup>, Vincent Lostanlen<sup>4</sup>, Juan P. Bello<sup>1</sup> and Justin Salamon<sup>5</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Music and Audio Research Laboratory, Department of Computer Science and Engineering, Center for Urban Science and Progress, New York University, New York, New York, USA, <sup>2</sup>Music and Audio Research Laboratory, Department of Electrical and Computer Engineering, New York University, New York, New York, USA, <sup>3</sup>Music and Audio Research Laboratory, Department of Music and Performing Arts Professions, New York University, New York, New York, USA, <sup>4</sup>Cornell Lab of Ornithology, Cornell University, Ithaca, New York, USA, <sup>5</sup>Machine Perception Team, Adobe Research, San Francisco, CA, USA
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       SONYC Urban Sound Tagging (SONYC-UST) is a dataset for the development and evaluation of machine listening systems for realistic urban noise monitoring. The audio was recorded from an acoustic sensor network named ``Sounds of New York City'' (SONYC). Via the Zooniverse citizen science platform, volunteers tagged the presence of 23 classes that were priorly chosen in consultation with the New York City Department of Environmental Protection. These 23 fine-grained classes can be grouped into eight coarse-grained classes.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Cartwright2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/sonyc-project/urban-sound-tagging-baseline" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Cartwright2019label" class="modal fade" id="bibtex-Cartwright2019" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexCartwright2019label">
+        Sonyc Urban Sound Tagging: A Multilabel Dataset From an Urban Acoustic Sensor Network
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Cartwright2019,
+    Author = "Cartwright, Mark and Cramer, Jason and Mendez Mendez, Ana Elisa and Wu, Ho-Hsiang and Lostanlen, Vincent and Bello, Juan P. and Salamon, Justin",
+    title = "Sonyc Urban Sound Tagging: A Multilabel Dataset From an Urban Acoustic Sensor Network",
+    institution = "DCASE2019 Challenge",
+    year = "2019",
+    month = "September",
+    abstract = "SONYC Urban Sound Tagging (SONYC-UST) is a dataset for the development and evaluation of machine listening systems for realistic urban noise monitoring. The audio was recorded from an acoustic sensor network named ``Sounds of New York City'' (SONYC). Via the Zooniverse citizen science platform, volunteers tagged the presence of 23 classes that were priorly chosen in consultation with the New York City Department of Environmental Protection. These 23 fine-grained classes can be grouped into eight coarse-grained classes."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Cui2019" style="box-shadow: none">
+<div class="panel-heading" id="heading-Cui2019" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Time-Frequency Segmenation Attention Neural Network for Urban Sound Tagging
+       </h4>
+<p style="text-align:left">
+        Lin Cui, Shaonan Ji, Xinyuan Han and Jinjia Wang
+       </p>
+<p style="text-align:left">
+<em>
+         school of Information Science and Engineering, department of Electronic communication, Yanshan University, Qin Huangdao, Hebei, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Cui_YSU_task5_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Cui2019" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Cui2019" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Cui2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Cui_8.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Cui2019').collapse('show');window.location.hash='#Cui2019';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Cui2019" class="panel-collapse collapse" id="collapse-Cui2019" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Time-Frequency Segmenation Attention Neural Network for Urban Sound Tagging
+      </h4>
+<p style="text-align:left">
+<small>
+        Lin Cui, Shaonan Ji, Xinyuan Han and Jinjia Wang
+       </small>
+<br/>
+<small>
+<em>
+         school of Information Science and Engineering, department of Electronic communication, Yanshan University, Qin Huangdao, Hebei, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       Audio tagging aims to assign one or more labels to the audio clip. In this task, we used the Time-Frequency Segmentation Attention Network (TFSANN) for urban sound tagging. In the training, the log mel spectrogram of the audio clip is used as input feature, and the time-frequency segmentation mask is obtained by the timefrequency segmentation network. The time-frequency segmentation mask can be used to separate the time-frequency domain sound event from the background scene, and enhance the sound event that occurred in the audio clip. Global Weighted Rank Pooling (GWRP) allows existing event categories to occupy significant part of the spectrogram, allowing the network to focus on more significant features, and it can also estimate the probability of existence of sound event. In this paper, the proposed TFSANN model is validated on the development dataset of DCASE2019 task 5. Finally, the coarsegrained and fine-grained taxonomy results are obtained on the Micro Area under precision-recall curve (AUPRC), Micro F1 score and Macro Area under precision-recall curve (AUPRC).
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Cui2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Cui_8.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/wangjinjia1/dcase2019task5_YSU" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Cui2019label" class="modal fade" id="bibtex-Cui2019" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexCui2019label">
+        Time-Frequency Segmenation Attention Neural Network for Urban Sound Tagging
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Cui2019,
+    Author = "Cui, Lin and Ji, Shaonan and Han, Xinyuan and Wang, Jinjia",
+    title = "Time-Frequency Segmenation Attention Neural Network for Urban Sound Tagging",
+    institution = "DCASE2019 Challenge",
+    year = "2019",
+    month = "September",
+    abstract = "Audio tagging aims to assign one or more labels to the audio clip. In this task, we used the Time-Frequency Segmentation Attention Network (TFSANN) for urban sound tagging. In the training, the log mel spectrogram of the audio clip is used as input feature, and the time-frequency segmentation mask is obtained by the timefrequency segmentation network. The time-frequency segmentation mask can be used to separate the time-frequency domain sound event from the background scene, and enhance the sound event that occurred in the audio clip. Global Weighted Rank Pooling (GWRP) allows existing event categories to occupy significant part of the spectrogram, allowing the network to focus on more significant features, and it can also estimate the probability of existence of sound event. In this paper, the proposed TFSANN model is validated on the development dataset of DCASE2019 task 5. Finally, the coarsegrained and fine-grained taxonomy results are obtained on the Micro Area under precision-recall curve (AUPRC), Micro F1 score and Macro Area under precision-recall curve (AUPRC)."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Gousseau2019" style="box-shadow: none">
+<div class="panel-heading" id="heading-Gousseau2019" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        VGG CNN for Urban Sound Tagging
+       </h4>
+<p style="text-align:left">
+        Clément Gousseau
+       </p>
+<p style="text-align:left">
+<em>
+         Ambient Intelligence and Mobility, Orange Labs (company where I do my master thesis internship), Lannion, France
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Gousseau_OL_task5_1</span> <span class="label label-primary">Gousseau_OL_task5_2</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Gousseau2019" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Gousseau2019" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Gousseau2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Gousseau_14.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Gousseau2019').collapse('show');window.location.hash='#Gousseau2019';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Gousseau2019" class="panel-collapse collapse" id="collapse-Gousseau2019" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       VGG CNN for Urban Sound Tagging
+      </h4>
+<p style="text-align:left">
+<small>
+        Clément Gousseau
+       </small>
+<br/>
+<small>
+<em>
+         Ambient Intelligence and Mobility, Orange Labs (company where I do my master thesis internship), Lannion, France
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       A model of urban sound tagging is presented (Task 5 of DCASE 2019 [1][2]). The task is to detect activities from 10-seconds audio segments recorded in the streets of New York City (SONYC dataset). The model is based on the model presented in the book Hands-On Transfer Learning with Python [3] which does urban sound classification for the UrbanSound dataset. This model has been adapted and optimized to address the task 5 of DCASE2019. It achieved a AUPRC of 82.6 for the coarse-grained model where the baseline achieves an AUPRC of 76.2.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Gousseau2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Gousseau_14.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/cgousseau/dcase_task5" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Gousseau2019label" class="modal fade" id="bibtex-Gousseau2019" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexGousseau2019label">
+        VGG CNN for Urban Sound Tagging
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Gousseau2019,
+    Author = "Gousseau, Clément",
+    title = "{VGG} {CNN} for Urban Sound Tagging",
+    institution = "DCASE2019 Challenge",
+    year = "2019",
+    month = "September",
+    abstract = "A model of urban sound tagging is presented (Task 5 of DCASE 2019 [1][2]). The task is to detect activities from 10-seconds audio segments recorded in the streets of New York City (SONYC dataset). The model is based on the model presented in the book Hands-On Transfer Learning with Python [3] which does urban sound classification for the UrbanSound dataset. This model has been adapted and optimized to address the task 5 of DCASE2019. It achieved a AUPRC of 82.6 for the coarse-grained model where the baseline achieves an AUPRC of 76.2."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Kim2019" style="box-shadow: none">
+<div class="panel-heading" id="heading-Kim2019" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Convolutional Neural Networks with Transfer Learning for Urban Sound Tagging
+       </h4>
+<p style="text-align:left">
+        Bongjun Kim
+       </p>
+<p style="text-align:left">
+<em>
+         Department of Computer Science, Northwestern University, Evnaston, Illinois, USA
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Kim_NU_task5_1</span> <span class="label label-primary">Kim_NU_task5_2</span> <span class="label label-primary">Kim_NU_task5_3</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Kim2019" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Kim2019" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Kim2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Kim_107.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Kim2019').collapse('show');window.location.hash='#Kim2019';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Kim2019" class="panel-collapse collapse" id="collapse-Kim2019" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Convolutional Neural Networks with Transfer Learning for Urban Sound Tagging
+      </h4>
+<p style="text-align:left">
+<small>
+        Bongjun Kim
+       </small>
+<br/>
+<small>
+<em>
+         Department of Computer Science, Northwestern University, Evnaston, Illinois, USA
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report describes sound classification models from our submissions for DCASE challenge 2019-task5. The task is to build a system to perform audio tagging on urban sound. The dataset has 23 fine-grained tags and 8 coarse-grained tags. In this report, we only present a model for coarse-grained tagging. Our model is a Convolutional Neural network (CNN)-based model which consists of 6 convolutional layers and 3 fully-connected layers. We apply transfer learning to the model training by utilizing VGGish model that has been pre-trained on a large scale of a dataset. We also apply an ensemble technique to boost the performance of a single model. We compare the performance of our models and the baseline approach on the provided validation dataset. The results show that our models outperform the baseline system.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Kim2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Kim_107.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/bongjun/dcase2019-task5" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Kim2019label" class="modal fade" id="bibtex-Kim2019" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexKim2019label">
+        Convolutional Neural Networks with Transfer Learning for Urban Sound Tagging
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Kim2019,
+    Author = "Kim, Bongjun",
+    title = "Convolutional Neural Networks with Transfer Learning for Urban Sound Tagging",
+    institution = "DCASE2019 Challenge",
+    year = "2019",
+    month = "September",
+    abstract = "This technical report describes sound classification models from our submissions for DCASE challenge 2019-task5. The task is to build a system to perform audio tagging on urban sound. The dataset has 23 fine-grained tags and 8 coarse-grained tags. In this report, we only present a model for coarse-grained tagging. Our model is a Convolutional Neural network (CNN)-based model which consists of 6 convolutional layers and 3 fully-connected layers. We apply transfer learning to the model training by utilizing VGGish model that has been pre-trained on a large scale of a dataset. We also apply an ensemble technique to boost the performance of a single model. We compare the performance of our models and the baseline approach on the provided validation dataset. The results show that our models outperform the baseline system."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Kong2019" style="box-shadow: none">
+<div class="panel-heading" id="heading-Kong2019" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Cross-Talk Learning for Audio Tagging, Sound Event Detection and Spatial Localization: DCASE 2019 Baseline Systems
+       </h4>
+<p style="text-align:left">
+        Qiuqiang Kong, Yin Cao, Turab Iqbal, Wenwu Wang and Mark D. Plumbley
+       </p>
+<p style="text-align:left">
+<em>
+         Centre for Vision, Speech and Signal Processing (CVSSP), University of Surrey, Guildford, England
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Kong_SURREY_task5_1</span> <span class="label label-primary">Kong_SURREY_task5_2</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Kong2019" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Kong2019" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Kong2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Kong_20.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Kong2019').collapse('show');window.location.hash='#Kong2019';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Kong2019" class="panel-collapse collapse" id="collapse-Kong2019" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Cross-Talk Learning for Audio Tagging, Sound Event Detection and Spatial Localization: DCASE 2019 Baseline Systems
+      </h4>
+<p style="text-align:left">
+<small>
+        Qiuqiang Kong, Yin Cao, Turab Iqbal, Wenwu Wang and Mark D. Plumbley
+       </small>
+<br/>
+<small>
+<em>
+         Centre for Vision, Speech and Signal Processing (CVSSP), University of Surrey, Guildford, England
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       The Detection and Classification of Acoustic Scenes and Events (DCASE) 2019 challenge focuses on audio tagging, sound event detection and spatial localisation. DCASE 2019 consists of five tasks: 1) acoustic scene classification, 2) audio tagging with noisy labels and minimal supervision, 3) sound event localisation and detection, 4) sound event detection in domestic environments, and 5) urban sound tagging. In this paper, we propose generic cross-task baseline systems based on convolutional neural networks (CNNs). The motivation is to investigate the performance of a variety of models across several audio recognition tasks without exploiting the specific characteristics of the tasks. We looked at CNNs with 5, 9, and 13 layers, and found that the optimal architecture is taskdependent. For the systems we considered, we found that the 9-layer CNN with average pooling after convolutional layers is a good model for a majority of the DCASE 2019 tasks.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Kong2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Kong_20.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/qiuqiangkong/dcase2019_task5" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Kong2019label" class="modal fade" id="bibtex-Kong2019" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexKong2019label">
+        Cross-Talk Learning for Audio Tagging, Sound Event Detection and Spatial Localization: DCASE 2019 Baseline Systems
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Kong2019,
+    Author = "Kong, Qiuqiang and Cao, Yin and Iqbal, Turab and Wang, Wenwu and Plumbley, Mark D.",
+    title = "Cross-Talk Learning for Audio Tagging, Sound Event Detection and Spatial Localization: {DCASE} 2019 Baseline Systems",
+    institution = "DCASE2019 Challenge",
+    year = "2019",
+    month = "September",
+    abstract = "The Detection and Classification of Acoustic Scenes and Events (DCASE) 2019 challenge focuses on audio tagging, sound event detection and spatial localisation. DCASE 2019 consists of five tasks: 1) acoustic scene classification, 2) audio tagging with noisy labels and minimal supervision, 3) sound event localisation and detection, 4) sound event detection in domestic environments, and 5) urban sound tagging. In this paper, we propose generic cross-task baseline systems based on convolutional neural networks (CNNs). The motivation is to investigate the performance of a variety of models across several audio recognition tasks without exploiting the specific characteristics of the tasks. We looked at CNNs with 5, 9, and 13 layers, and found that the optimal architecture is taskdependent. For the systems we considered, we found that the 9-layer CNN with average pooling after convolutional layers is a good model for a majority of the DCASE 2019 tasks."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Liu2019" style="box-shadow: none">
+<div class="panel-heading" id="heading-Liu2019" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Improved Residual Network Based on Deformable Convolution for Urban Sound Tagging
+       </h4>
+<p style="text-align:left">
+        Fuling Liu
+       </p>
+<p style="text-align:left">
+<em>
+         College of Photoelectric Engineering, Chongqing University, 174 Shazhengjie, Shapingba, Chongqing, 400030, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Liu_CU_task5_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Liu2019" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Liu2019" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Liu2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Liu_49.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Liu2019" class="panel-collapse collapse" id="collapse-Liu2019" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Improved Residual Network Based on Deformable Convolution for Urban Sound Tagging
+      </h4>
+<p style="text-align:left">
+<small>
+        Fuling Liu
+       </small>
+<br/>
+<small>
+<em>
+         College of Photoelectric Engineering, Chongqing University, 174 Shazhengjie, Shapingba, Chongqing, 400030, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       In order to solve the problem of Urban Sound Tagging, we use deformable convolution to improve the residual module, add offset variables to the input feature map of the residual module, and use the improved residual module to form a new residual network. Compared with the general method of adding deformable convolution, the improved method in this paper has better results.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Liu2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Liu_49.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Liu2019label" class="modal fade" id="bibtex-Liu2019" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexLiu2019label">
+        Improved Residual Network Based on Deformable Convolution for Urban Sound Tagging
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Liu2019,
+    Author = "Liu, Fuling",
+    title = "Improved Residual Network Based on Deformable Convolution for Urban Sound Tagging",
+    institution = "DCASE2019 Challenge",
+    year = "2019",
+    month = "September",
+    abstract = "In order to solve the problem of Urban Sound Tagging, we use deformable convolution to improve the residual module, add offset variables to the input feature map of the residual module, and use the improved residual module to form a new residual network. Compared with the general method of adding deformable convolution, the improved method in this paper has better results."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Ng2019" style="box-shadow: none">
+<div class="panel-heading" id="heading-Ng2019" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Urban Sound Tagging DCASE 2019 Chalelnge Task 5
+       </h4>
+<p style="text-align:left">
+        Linus Ng and Kenneth Ooi
+       </p>
+<p style="text-align:left">
+<em>
+         Smart Nation Translational Lab, Centre for Infocomm Technology (INFINITUS), School of Electrical and Electronic Engineering, Nanyang Technological University, Nanyang Technological University, Singapore
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Ng_NTU_task5_1</span> <span class="label label-primary">Ng_NTU_task5_2</span> <span class="label label-primary">Ng_NTU_task5_3</span> <span class="label label-primary">Ng_NTU_task5_4</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Ng2019" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Ng2019" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Ng2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Ng_68.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Ng2019').collapse('show');window.location.hash='#Ng2019';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Ng2019" class="panel-collapse collapse" id="collapse-Ng2019" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Urban Sound Tagging DCASE 2019 Chalelnge Task 5
+      </h4>
+<p style="text-align:left">
+<small>
+        Linus Ng and Kenneth Ooi
+       </small>
+<br/>
+<small>
+<em>
+         Smart Nation Translational Lab, Centre for Infocomm Technology (INFINITUS), School of Electrical and Electronic Engineering, Nanyang Technological University, Nanyang Technological University, Singapore
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       Identifying urban noises and sounds is a challenging but important problem in the field of machine listening [1]. It enables and provides a realistic use case for detecting noises in an urbanised city - from noise complaints to detecting sounds or unusual noises that may indicate possible emergencies. The Urban Sound Tagging challenge as part of the DCASE 2019 challenge [2] [3] addresses the problem statement of urban noise control [1]. For this challenge, we are tasked to build a audio classifier to predict whether each of 23 sources of noise pollution is present or absent in a 10-second scene, as recorded by an acoustic sensor network. In this technical report, we will examine in some detail the performance of the audio classification models trained with different open external datasets.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Ng2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Ng_68.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/linusng/sonyc-ust-challenge-2019/" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Ng2019label" class="modal fade" id="bibtex-Ng2019" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexNg2019label">
+        Urban Sound Tagging DCASE 2019 Chalelnge Task 5
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Ng2019,
+    Author = "Ng, Linus and Ooi, Kenneth",
+    title = "Urban Sound Tagging {DCASE} 2019 Chalelnge Task 5",
+    institution = "DCASE2019 Challenge",
+    year = "2019",
+    month = "September",
+    abstract = "Identifying urban noises and sounds is a challenging but important problem in the field of machine listening [1]. It enables and provides a realistic use case for detecting noises in an urbanised city - from noise complaints to detecting sounds or unusual noises that may indicate possible emergencies. The Urban Sound Tagging challenge as part of the DCASE 2019 challenge [2] [3] addresses the problem statement of urban noise control [1]. For this challenge, we are tasked to build a audio classifier to predict whether each of 23 sources of noise pollution is present or absent in a 10-second scene, as recorded by an acoustic sensor network. In this technical report, we will examine in some detail the performance of the audio classification models trained with different open external datasets."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Orga2019" style="box-shadow: none">
+<div class="panel-heading" id="heading-Orga2019" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        An Augmented Neural Network for the DCASE 2019 Urban Sound Tagging Challenge
+       </h4>
+<p style="text-align:left">
+        Ferran Orga<sup>1</sup>, Joan Serrà<sup>2</sup> and Carlos Segura Perales<sup>2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>GTM - Grup de recerca en Tecnologies Mèdia, La Salle - Universitat Ramon Llull (URL), C/Quatre Camins, 30, 08022 Barcelona (Spain), <sup>2</sup>Telefónica Research, Barcelona (Spain)
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Orga_URL_task5_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Orga2019" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Orga2019" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Orga2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Orga_64.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Orga2019').collapse('show');window.location.hash='#Orga2019';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Orga2019" class="panel-collapse collapse" id="collapse-Orga2019" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       An Augmented Neural Network for the DCASE 2019 Urban Sound Tagging Challenge
+      </h4>
+<p style="text-align:left">
+<small>
+        Ferran Orga<sup>1</sup>, Joan Serrà<sup>2</sup> and Carlos Segura Perales<sup>2</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>GTM - Grup de recerca en Tecnologies Mèdia, La Salle - Universitat Ramon Llull (URL), C/Quatre Camins, 30, 08022 Barcelona (Spain), <sup>2</sup>Telefónica Research, Barcelona (Spain)
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       The Sounds of New York City (SONYC) research project aims to mitigate urban noise pollution in the context of a megacity. This project has deployed 50 different sensors in various areas of the New York City installed back in 2015 to monitor the overall sound pressure level. However, this is not enough to determine the noise sources, needed to detect noise code violations. Within the Task 5 of DCASE2019 challenge, an urban sound tagging challenge is proposed where the participants are asked to develop a machine listening system that distinguishes between 23 sources of noise pollution. The system is asked to predict whether the source is present or absent in 10-second scenes recorded by the SONYC. Moreover, annotations are also provided at a higher level, classifying the 23 fine labels in 8 coarser labels. In this report, the authors present a machine listening approach based on an augmented neural network where both coarse and fine-level annotations are used to predict the event presence in the same network. This approach obtains a classification accuracy on the validation split of 87% at the coarse level and 92% at the fine level.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Orga2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Orga_64.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://bitbucket.org/ferranorga/dcase19/" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Orga2019label" class="modal fade" id="bibtex-Orga2019" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexOrga2019label">
+        An Augmented Neural Network for the DCASE 2019 Urban Sound Tagging Challenge
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Orga2019,
+    Author = "Orga, Ferran and Serrà, Joan and Segura Perales, Carlos",
+    title = "An Augmented Neural Network for the {DCASE} 2019 Urban Sound Tagging Challenge",
+    institution = "DCASE2019 Challenge",
+    year = "2019",
+    month = "September",
+    abstract = "The Sounds of New York City (SONYC) research project aims to mitigate urban noise pollution in the context of a megacity. This project has deployed 50 different sensors in various areas of the New York City installed back in 2015 to monitor the overall sound pressure level. However, this is not enough to determine the noise sources, needed to detect noise code violations. Within the Task 5 of DCASE2019 challenge, an urban sound tagging challenge is proposed where the participants are asked to develop a machine listening system that distinguishes between 23 sources of noise pollution. The system is asked to predict whether the source is present or absent in 10-second scenes recorded by the SONYC. Moreover, annotations are also provided at a higher level, classifying the 23 fine labels in 8 coarser labels. In this report, the authors present a machine listening approach based on an augmented neural network where both coarse and fine-level annotations are used to predict the event presence in the same network. This approach obtains a classification accuracy on the validation split of 87\% at the coarse level and 92\% at the fine level."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Tompkins2019" style="box-shadow: none">
+<div class="panel-heading" id="heading-Tompkins2019" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DCASE 2019 Challenge Task 5: Cnn+vggish
+       </h4>
+<p style="text-align:left">
+        Daniel Tompkins and Eric Nichols
+       </p>
+<p style="text-align:left">
+<em>
+         Dynamics 365 AI Research, Microsoft, Redmond, WA
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Tompkins_MS_task5_1</span> <span class="label label-primary">Tompkins_MS_task5_2</span> <span class="label label-primary">Tompkins_MS_task5_3</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Tompkins2019" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Tompkins2019" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Tompkins2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Tompkins_85.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Tompkins2019').collapse('show');window.location.hash='#Tompkins2019';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Tompkins2019" class="panel-collapse collapse" id="collapse-Tompkins2019" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DCASE 2019 Challenge Task 5: Cnn+vggish
+      </h4>
+<p style="text-align:left">
+<small>
+        Daniel Tompkins and Eric Nichols
+       </small>
+<br/>
+<small>
+<em>
+         Dynamics 365 AI Research, Microsoft, Redmond, WA
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       We trained a model for multi-label audio classification on Task 5 of the DCASE 2019 Challenge [1]. The model is composed of a preprocessing layer that converts audio to a log-mel spectrogram, a VGG-inspired Convolutional Neural Network (CNN) that generates an embedding for the spectrogram, the pre-trained VGGish network [2] that generates a separate audio embedding, and finally a series of fully-connected layers that converts these two embeddings (concatenated) into a multi-label classification. This model directly outputs both fine and coarse labels; it treats the task as a 37-way multi-label classification problem. One version of this network did better at the coarse labels (submission 1); another did better with fine labels on Micro AUPRC (submission 2). A separate family of CNNs models, one per coarse label, was also trained to take into account the hierarchical nature of the labels (submission 3), but the single model solution performed slightly better.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Tompkins2019" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2019/technical_reports/DCASE2019_Tompkins_85.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/microsoft/dcase-2019" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Tompkins2019label" class="modal fade" id="bibtex-Tompkins2019" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexTompkins2019label">
+        DCASE 2019 Challenge Task 5: Cnn+vggish
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Tompkins2019,
+    Author = "Tompkins, Daniel and Nichols, Eric",
+    title = "{DCASE} 2019 Challenge Task 5: Cnn+vggish",
+    institution = "DCASE2019 Challenge",
+    year = "2019",
+    month = "September",
+    abstract = "We trained a model for multi-label audio classification on Task 5 of the DCASE 2019 Challenge [1]. The model is composed of a preprocessing layer that converts audio to a log-mel spectrogram, a VGG-inspired Convolutional Neural Network (CNN) that generates an embedding for the spectrogram, the pre-trained VGGish network [2] that generates a separate audio embedding, and finally a series of fully-connected layers that converts these two embeddings (concatenated) into a multi-label classification. This model directly outputs both fine and coarse labels; it treats the task as a 37-way multi-label classification problem. One version of this network did better at the coarse labels (submission 1); another did better with fine labels on Micro AUPRC (submission 2). A separate family of CNNs models, one per coarse label, was also trained to take into account the hierarchical nature of the labels (submission 3), but the single model solution performed slightly better."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script>
+(function($) {
+    $(document).ready(function() {
+        var hash = window.location.hash.substr(1);
+        var anchor = window.location.hash;
+
+        var shiftWindow = function() {
+            var hash = window.location.hash.substr(1);
+            if($('#collapse-'+hash).length){
+                scrollBy(0, -100);
+            }
+        };
+        window.addEventListener("hashchange", shiftWindow);
+
+        if (window.location.hash){
+            window.scrollTo(0, 0);
+            history.replaceState(null, document.title, "#");
+            $('#collapse-'+hash).collapse('show');
+            setTimeout(function(){
+                window.location.hash = anchor;
+                shiftWindow();
+            }, 2000);
+        }
+    });
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

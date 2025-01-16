@@ -1,0 +1,2514 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Data-Efficient Low-Complexity Acoustic Scene Classification - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Data-Efficient Low-Complexity Acoustic Scene Classification - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification">
+    <meta property="og:url" content="https://dcase.community/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="The goal of the acoustic scene classification task is to classify recordings into one of the ten predefined acoustic scene classes. This task continues the Acoustic Scene Classification tasks from previous editions of the DCASE Challenge, with a slight shift of focus. This year, the task concentrates on three challenging …" />
+    <meta name="og:description" content="The goal of the acoustic scene classification task is to..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right navbar-tighter" id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2024</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2024/"><i class="fa fa-home"></i>&nbsp;Intro</a>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-t1"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-t2"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-t3"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-t4"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-bird text-t5"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-captioning text-t6"></i>&nbsp;Task6&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-synthesis text-t7"></i>&nbsp;Task7&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-retrieval text-t8"></i>&nbsp;Task8&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-separation text-t9"></i>&nbsp;Task9&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-traffic text-t10"></i>&nbsp;Task10&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2024/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2024/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/tiles-18.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-primary"></i><i class="fa dc-scene fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text">Scenes</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 1</span></span><img src="../images/logos/dcase/dcase2024_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Data-Efficient Low-Complexity Acoustic Scene Classification</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Task description</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Coordinators</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Florian Schmid" class="img img-circle" src="http://localhost:3000/images/person/florian_schmid.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Florian Schmid</strong>
+<a class="icon" href="mailto:florian.schmid@jku.at"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.jku.at/en/institute-of-computational-perception/">
+                                Johannes Kepler University Linz
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Paul Primus" class="img img-circle" src="http://localhost:3000/images/person/paul_primus.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Paul Primus</strong>
+<a class="icon" href="mailto:paul.primus@jku.at"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.jku.at/en/institute-of-computational-perception/">
+                                Johannes Kepler University Linz
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Irene Martin Morato" class="img img-circle" src="http://localhost:3000/images/person/irene_martin_morato.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Irene Martin Morato</strong>
+<a class="icon" href="mailto:irene.martinmorato@tuni.fi"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                Tampere University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Toni Heittola" class="img img-circle" src="http://localhost:3000/images/person/toni_heittola.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Toni Heittola</strong>
+<a class="icon" href="mailto:toni.heittola@tuni.fi"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                Tampere University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Khaled Koutini" class="img img-circle" src="http://localhost:3000/images/person/khaled_koutini.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Khaled Koutini</strong>
+<a class="icon" href="mailto:khaled.koutini@jku.at"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.jku.at/en/institute-of-computational-perception/">
+                                Johannes Kepler University Linz
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Gerhard Widmer" class="img img-circle" src="http://localhost:3000/images/person/gerhard_widmer.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Gerhard Widmer</strong>
+<a class="icon" href="mailto:gerhard.widmer@jku.at"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.jku.at/en/institute-of-computational-perception/">
+                                Johannes Kepler University Linz
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Annamaria Mesaros" class="img img-circle" src="http://localhost:3000/images/person/annamaria_mesaros.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Annamaria Mesaros</strong>
+<a class="icon" href="mailto:annamaria.mesaros@tuni.fi"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                Tampere University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#description">Description</a>
+<ul>
+<li><a href="#novelties-and-research-focus-for-2024-edition">Novelties and Research Focus for 2024 Edition</a></li>
+</ul>
+</li>
+<li><a href="#audio-dataset">Audio dataset</a>
+<ul>
+<li><a href="#download">Download</a></li>
+</ul>
+</li>
+<li><a href="#task-setup">Task Setup</a>
+<ul>
+<li><a href="#development-dataset">Development Dataset</a></li>
+<li><a href="#evaluation-dataset">Evaluation Dataset</a></li>
+<li><a href="#system-complexity-limitations">System Complexity Limitations</a></li>
+</ul>
+</li>
+<li><a href="#external-data-resources">External Data Resources</a></li>
+<li><a href="#task-rules">Task Rules</a></li>
+<li><a href="#evaluation">Evaluation</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#baseline-system">Baseline System</a>
+<ul>
+<li><a href="#baseline-complexity">Baseline Complexity</a></li>
+<li><a href="#baseline-results">Baseline Results</a></li>
+</ul>
+</li>
+<li><a href="#submission">Submission</a>
+<ul>
+<li><a href="#system-output-file">System output file</a></li>
+<li><a href="#metadata-file">Metadata file</a></li>
+<li><a href="#package-validator">Package validator</a></li>
+</ul>
+</li>
+<li><a href="#tools">Tools</a>
+<ul>
+<li><a href="#nessi---calculating-memory-size-of-the-model-parameters-and-macs">NeSsi - Calculating memory size of the model parameters and MACS</a></li>
+<li><a href="#package-validator-1">Package validator</a></li>
+</ul>
+</li>
+<li><a href="#citation">Citation</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p class="lead">The goal of the acoustic scene classification task is to classify recordings into one of the ten predefined acoustic scene classes. This task continues the Acoustic Scene Classification tasks from previous editions of the DCASE Challenge, with a slight shift of focus. This year, the task concentrates on three challenging aspects: (1) a recording device mismatch, (2) low-complexity constraints, and (3) the limited availability of labeled data for training.</p>
+<p class="alert alert-info">
+<strong>Challenge has ended.</strong> Full results for this task can be found in the <a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification-results">Results <i class="fa fa-caret-right"></i></a> page.
+</p>
+<div class="alert alert-info">
+    If you are interested in the task, you can join us on the <strong><a href="https://dcase.slack.com/archives/C01Q1SK5Q73">dedicated slack channel</a></strong>
+</div>
+<h1 id="description">Description</h1>
+<p>Acoustic scene classification systems categorize recordings into one of multiple predefined acoustic scene classes (Figure 1). 
+The previous editions of the challenge focused on two important problems: (1) recording device mismatch and (2) low-complexity constraints. 
+This year, we want to tackle an additional challenging real-world situation: the limited availability of labeled data. 
+We encourage participants to design systems that maintain high prediction accuracy while using as little labeled data as possible. 
+To this end, participants must develop systems for five increasingly challenging scenarios that progressively limit the available training data. 
+The largest subset corresponds to the full train split used in previous editions of the challenge, and the smallest subset only contains 5% of audio snippets in the full train dataset.</p>
+<figure>
+<div class="row row-centered">
+<div class="col-xs-10 col-md-8 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2020/task1_acoustic_scene_classification.png"/>
+<figcaption>Figure 1: Overview of acoustic scene classification system.</figcaption>
+</div>
+</div>
+</figure>
+<p><br/></p>
+<h2 id="novelties-and-research-focus-for-2024-edition">Novelties and Research Focus for 2024 Edition</h2>
+<p>Compared to Task 1 in the DCASE 2023 Challenge, the following aspects change in the 2024 edition:</p>
+<ul>
+<li><strong>Training sets of different sizes are provided</strong>. These train subsets contain approximately 5%, 10%, 25%, 50%, and 100% of the audio snippets in the train split provided in Task 1 of the DCASE 2023 challenge. <strong>A system must only be trained on the specified subset and the explicitly allowed external resources.</strong></li>
+<li>The final ranking takes into account the evaluation set performances of systems trained on all of the subsets. However, individual ranking lists for the subsets will be provided.</li>
+<li>All submitted systems must be trained on all subsets. Test split performances and evaluation set predictions must be provided for all systems and all subsets. A maximum of <strong>three different systems</strong> (see <a href="#evaluation-setup">evaluation setup</a>) can be submitted.</li>
+<li>The model complexity is not part of the ranking system. The model's complexity is limited in terms of hard constraints. To this end, the memory requirement for model parameters is restricted to 128 kB, and the maximum number of multiply-accumulate operations (MACs) is restricted to 30 million for the inference of a 1-second audio snippet.</li>
+</ul>
+<p>This new task setup highlights the following scientific questions:</p>
+<ul>
+<li>How does the performance of systems vary with the number of available labeled training samples?</li>
+<li>What changes are necessary in a system as the number of available data points varies?</li>
+<li>Can pre-training of low-complexity models on general-purpose audio datasets effectively mitigate the need for larger amounts of acoustic scenes? </li>
+</ul>
+<h1 id="audio-dataset">Audio dataset</h1>
+<p><a name="dataset"></a></p>
+<p>The development dataset for this task is the <strong>TAU Urban Acoustic Scenes 2022 Mobile development dataset</strong>. The dataset contains recordings from 12 European cities in 10 different acoustic scenes using 4 devices. Additionally, synthetic data for 11 mobile devices was created based on the original recordings. Of the 12 cities, only two are present in the evaluation set. The dataset has exactly the same content as the TAU Urban Acoustic Scenes 2020 Mobile development dataset, but the audio files have a length of 1 second (therefore, there are ten times more files than in the 2020 version).</p>
+<p>Recordings were made using four devices that captured audio simultaneously. The primary recording device, referred to as device A, consists of a Soundman OKM II Klassik/studio A3, an electret binaural microphone, and a Zoom F8 audio recorder using a 48kHz sampling rate and 24-bit resolution. The other devices are commonly available consumer devices: device B is a Samsung Galaxy S7, device C is an iPhone SE, and device D is a GoPro Hero5 Session.</p>
+<p>Audio data was recorded in Amsterdam, Barcelona, Helsinki, Lisbon, London, Lyon, Madrid, Milan, Prague, Paris, Stockholm, and Vienna. The dataset was collected by Tampere University of Technology between 05/2018 - 11/2018. The data collection received funding from the European Research Council, grant agreement 637422 EVERYSOUND.</p>
+<p><a href="https://erc.europa.eu/"><img alt="ERC" src="../images/sponsors/erc.jpg" title="ERC"/></a></p>
+<p>For complete details on the data recording and processing, see:</p>
+<div class="btex-item" data-item="Mesaros2018_DCASE" data-source="content/data/challenge2022/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Mesaros2018_DCASE"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Annamaria Mesaros, Toni Heittola, and Tuomas Virtanen.
+<em>A multi-device dataset for urban acoustic scene classification.</em>
+In Proceedings of the Detection and Classification of Acoustic Scenes and Events 2018 Workshop (DCASE2018), 9–13. November 2018.
+URL: <a href="https://dcase.community/documents/workshop2018/proceedings/DCASE2018Workshop_Mesaros_8.pdf">https://dcase.community/documents/workshop2018/proceedings/DCASE2018Workshop_Mesaros_8.pdf</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexMesaros2018_DCASE327d78d92e3b4fe097b937d46f02f85b" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://dcase.community/documents/workshop2018/proceedings/DCASE2018Workshop_Mesaros_8.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseMesaros2018_DCASE327d78d92e3b4fe097b937d46f02f85b" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseMesaros2018_DCASE327d78d92e3b4fe097b937d46f02f85b" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingMesaros2018_DCASE327d78d92e3b4fe097b937d46f02f85b" class="panel-collapse collapse" id="collapseMesaros2018_DCASE327d78d92e3b4fe097b937d46f02f85b" role="tabpanel">
+<h4>A multi-device dataset for urban acoustic scene classification</h4>
+<h5>Abstract</h5>
+<p class="text-justify">This paper introduces the acoustic scene classification task of DCASE 2018 Challenge and the TUT Urban Acoustic Scenes 2018 dataset provided for the task, and evaluates the performance of a baseline system in the task. As in previous years of the challenge, the task is defined for classification of short audio samples into one of predefined acoustic scene classes, using a supervised, closed-set classification setup. The newly recorded TUT Urban Acoustic Scenes 2018 dataset consists of ten different acoustic scenes and was recorded in six large European cities, therefore it has a higher acoustic variability than the previous datasets used for this task, and in addition to high-quality binaural recordings, it also includes data recorded with mobile devices. We also present the baseline system consisting of a convolutional neural network and its performance in the subtasks using the recommended cross-validation setup.</p>
+<h5>Keywords</h5>
+<p class="text-justify">Acoustic scene classification, DCASE challenge, public datasets, multi-device data</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexMesaros2018_DCASE327d78d92e3b4fe097b937d46f02f85b" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://dcase.community/documents/workshop2018/proceedings/DCASE2018Workshop_Mesaros_8.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexMesaros2018_DCASE327d78d92e3b4fe097b937d46f02f85blabel" class="modal fade" id="bibtexMesaros2018_DCASE327d78d92e3b4fe097b937d46f02f85b" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexMesaros2018_DCASE327d78d92e3b4fe097b937d46f02f85blabel">A multi-device dataset for urban acoustic scene classification</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Mesaros2018_DCASE,
+    Author = "Mesaros, Annamaria and Heittola, Toni and Virtanen, Tuomas",
+    title = "A multi-device dataset for urban acoustic scene classification",
+    year = "2018",
+    booktitle = "Proceedings of the Detection and Classification of Acoustic Scenes and Events 2018 Workshop (DCASE2018)",
+    month = "November",
+    pages = "9--13",
+    keywords = "Acoustic scene classification, DCASE challenge, public datasets, multi-device data",
+    abstract = "This paper introduces the acoustic scene classification task of DCASE 2018 Challenge and the TUT Urban Acoustic Scenes 2018 dataset provided for the task, and evaluates the performance of a baseline system in the task. As in previous years of the challenge, the task is defined for classification of short audio samples into one of predefined acoustic scene classes, using a supervised, closed-set classification setup. The newly recorded TUT Urban Acoustic Scenes 2018 dataset consists of ten different acoustic scenes and was recorded in six large European cities, therefore it has a higher acoustic variability than the previous datasets used for this task, and in addition to high-quality binaural recordings, it also includes data recorded with mobile devices. We also present the baseline system consisting of a convolutional neural network and its performance in the subtasks using the recommended cross-validation setup.",
+    url = "https://dcase.community/documents/workshop2018/proceedings/DCASE2018Workshop\_Mesaros\_8.pdf"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Additionally, 10 mobile devices S1-S10 are simulated using the audio recorded with device A, impulse responses recorded with real devices, and additional dynamic range compression, in order to simulate realistic recordings. A recording from device A is processed through convolution with the selected impulse response, then processed with a selected set of parameters for dynamic range compression (device-specific). The impulse responses are proprietary data and will not be published.</p>
+<p>The development dataset comprises 40 hours of data from device A and smaller amounts from the other devices. Audio is provided in a single-channel, 44.1 kHz, 24-bit format.</p>
+<p>Acoustic scenes (10):</p>
+<ul>
+<li>Airport - <code>airport</code></li>
+<li>Indoor shopping mall - <code>shopping_mall</code></li>
+<li>Metro station - <code>metro_station</code></li>
+<li>Pedestrian street - <code>street_pedestrian</code></li>
+<li>Public square - <code>public_square</code></li>
+<li>Street with medium level of traffic - <code>street_traffic</code></li>
+<li>Travelling by a tram - <code>tram</code></li>
+<li>Travelling by a bus - <code>bus</code></li>
+<li>Travelling by an underground metro - <code>metro</code></li>
+<li>Urban park - <code>park</code></li>
+</ul>
+<h2 id="download">Download</h2>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://doi.org/10.5281/zenodo.6337421" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://doi.org/10.5281/zenodo.6337421" target="_blank">
+<span style="font-size:20px;">TAU Urban Acoustic Scenes 2022 Mobile, Development dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(30.5 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.6337421">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.6337421.svg"/>
+</a>
+</div>
+</div>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/CPJKU/dcase2024_task1_baseline/releases/tag/files" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-database fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/CPJKU/dcase2024_task1_baseline/releases/tag/files" target="_blank">
+<span style="font-size:20px;">Task 1 Development-train splits <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(15.0 MB)</span>
+<br/>
+</div>
+</div>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://doi.org/10.5281/zenodo.11366913" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://doi.org/10.5281/zenodo.11366913" target="_blank">
+<span style="font-size:20px;">TAU Urban Acoustic Scenes 2024 Mobile, Evaluation dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(15.7 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.11366913">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.11366913.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<h1 id="task-setup">Task Setup</h1>
+<p><a name="task-setup"></a></p>
+<h2 id="development-dataset">Development Dataset</h2>
+<p>The development set contains data from 10 cities and 9 devices: 3 real devices (A, B, and C) and 6 simulated devices (S1-S6). Data from devices B, C, and S1-S6 consists of randomly selected segments from the simultaneous recordings; therefore, all overlap with the data from device A, but not necessarily with each other. The total amount of audio in the development set is 64 hours.</p>
+<p>Aligned with the data splits in the 2023 edition of Task 1, the development data comes with the same predefined train/test split in which 70% of the data for each device is included for training, and 30% for testing. As described in detail in the next section, the train segments will be further split into subsets of different sizes for data-efficient evaluation of systems.</p>
+<p>Some devices appear only in the test subset. In order to create a perfectly balanced test set, a number of segments from various devices are not included in this split. Complete details on the development set and train/test split are provided in the following table.</p>
+<table class="table">
+<thead>
+<tr class="active">
+<td class="text-left" colspan="2"><strong>Devices</strong></td>
+<td class="text-left" colspan="2"><strong>Dataset</strong></td>
+<td class="text-left" colspan="3"><strong>Cross-validation setup</strong></td>
+</tr>
+<tr class="active">
+<td class="col-md-2"><strong>Name</strong></td>
+<td><strong>Type</strong></td>
+<td><strong>Total<br/>duration</strong></td>
+<td><strong>Total<br/>segments</strong></td>
+<td><strong>Train<br/>segments</strong></td>
+<td><strong>Test<br/>segments</strong></td>
+<td class="col-md-3"><strong>Notes</strong></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="label label-success">A</span></td>
+<td>Real</td>
+<td>40h</td>
+<td>144,000</td>
+<td>102,150</td>
+<td>3,300</td>
+<td>38,550 segments not used in train/test split</td>
+</tr>
+<tr>
+<td><span class="label label-success">B</span></td>
+<td>Real</td>
+<td>3h each</td>
+<td>10,780</td>
+<td>7,490</td>
+<td>3,290</td>
+<td></td>
+</tr>
+<tr>
+<td><span class="label label-success">C</span></td>
+<td>Real</td>
+<td>3h each</td>
+<td>10,770</td>
+<td>7,480</td>
+<td>3,290</td>
+<td></td>
+</tr>
+<tr class="warning">
+<td><span class="label label-warning">S1</span> <span class="label label-warning">S2</span> <span class="label label-warning">S3</span></td>
+<td>Simulated</td>
+<td>3h each</td>
+<td>3 * 10,800</td>
+<td>3 * 7,500</td>
+<td>3 * 3,300</td>
+<td></td>
+</tr>
+<tr class="warning">
+<td><span class="label label-warning">S4</span> <span class="label label-warning">S5</span> <span class="label label-warning">S6</span></td>
+<td>Simulated</td>
+<td>3h each</td>
+<td>3 * 10,800</td>
+<td>-</td>
+<td>3 * 3,300</td>
+<td>3 * 7,500 segments not used in train/test split</td>
+</tr>
+</tbody>
+<tfoot>
+<tr class="active">
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>64h</strong></td>
+<td><strong>230,350</strong></td>
+<td><strong>139,620</strong></td>
+<td><strong>29,680</strong></td>
+<td>61,050 segments not use in train/test split</td>
+</tr>
+</tfoot>
+</table>
+<p>The development data is available for download:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://doi.org/10.5281/zenodo.6337421" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://doi.org/10.5281/zenodo.6337421" target="_blank">
+<span style="font-size:20px;">TAU Urban Acoustic Scenes 2022 Mobile, Development dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(30.5 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.6337421">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.6337421.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<h3>Subsets for Data-Efficient Evaluation</h3>
+<p><a name="evaluation-setup"></a>
+This year, participants are supposed to develop up to <strong>three systems</strong> for five increasingly challenging scenarios that progressively limit the available training data.
+To this end, we provide five pre-defined subsets/splits of the development-train dataset that are 100%, 50%, 25%, 10%, and 5% of the original development-train set's size. The 100% subset contains all segments (139,620) of the development-train split. Smaller subsets (50%, 25%, 10%, 5%) are created in such a way that they have the following properties:</p>
+<ul>
+<li>Smaller splits are subsets of larger ones; e.g., all segments of the 5% split are included in the 10% split, and all samples of the 25% split are included in the 50% split. This corresponds to the idea of collecting more data from subset to subset. </li>
+<li>As many different recording locations as possible are included in subsets to ensure high diversity in audio segments.</li>
+<li>The distribution of acoustic scenes is kept similar to that in the 100% subset (i.e., approximately uniform).</li>
+<li>The distribution of recording devices is kept similar to that in the 100% subset (i.e., as shown in the table below).</li>
+<li>All 1-second audio snippets of a 10-second recording (see <a href="#dataset">audio dataset</a>) are either fully included or not included in a subset.</li>
+</ul>
+<p>The table below summarizes the number of segments included in the subsets for each device. Participants are required to train their systems on each of these subsets/splits and submit corresponding predictions on the <a href="#eval-set">evaluation set</a> for the <a href="#ranking">final ranking</a>.</p>
+<table class="table">
+<thead>
+<tr class="active">
+<td class="text-left" colspan="7"><strong>Development-train Subsets</strong></td>
+</tr>
+<tr class="active">
+<td class="col-md-2"><strong>Name</strong></td>
+<td><strong>Type</strong></td>
+<td><strong>Train segments<br/>(100% Subset)</strong></td>
+<td><strong>50%<br/>Subset</strong></td>
+<td><strong>25%<br/>Subset</strong></td>
+<td><strong>10%<br/>Subset</strong></td>
+<td><strong>5%<br/>Subset</strong></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="label label-success">A</span></td>
+<td>Real</td>
+<td>102,150</td>
+<td>51,100</td>
+<td>25,520</td>
+<td>10,190</td>
+<td>5,080</td>
+</tr>
+<tr>
+<td><span class="label label-success">B</span></td>
+<td>Real</td>
+<td>7,490</td>
+<td>3,780</td>
+<td>1,900</td>
+<td>730</td>
+<td>380</td>
+</tr>
+<tr>
+<td><span class="label label-success">C</span></td>
+<td>Real</td>
+<td>7,480</td>
+<td>3,780</td>
+<td>1,920</td>
+<td>790</td>
+<td>380</td>
+</tr>
+<tr class="warning">
+<td><span class="label label-warning">S1</span></td>
+<td>Simulated</td>
+<td>7,500</td>
+<td>3,720</td>
+<td>1,840</td>
+<td>740</td>
+<td>380</td>
+</tr>
+<tr class="warning">
+<td><span class="label label-warning">S2</span></td>
+<td>Simulated</td>
+<td>7,500</td>
+<td>3,700</td>
+<td>1,850</td>
+<td>750</td>
+<td>380</td>
+</tr>
+<tr class="warning">
+<td><span class="label label-warning">S3</span></td>
+<td>Simulated</td>
+<td>7,500</td>
+<td>3,720</td>
+<td>1,870</td>
+<td>760</td>
+<td>380</td>
+</tr>
+</tbody>
+<tfoot>
+<tr class="active">
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>139,620</strong></td>
+<td><strong>69,800</strong></td>
+<td><strong>34,900</strong></td>
+<td><strong>13,960</strong></td>
+<td><strong>6,980</strong></td>
+</tr>
+</tfoot>
+</table>
+<p>Figure 2 illustrates the setup for the five scenarios: Systems are trained on various proportions of the development-train split (the provided subsets), validated on the specified development-test split, which is fixed for all five scenarios, and evaluated on the evaluation set, which will be released on the 1st of June without corresponding scene labels. </p>
+<p>The definition of the x% training subsets is provided in the <code>split{x}.csv</code> files. Models for the x% case should be trained on the development-train subset (green) that is specified in <code>split{x}.csv</code>; only the samples specified in <code>split{x}.csv</code> (green) and explicitly allowed external resources can be used for training the system. For example, data from the test split (yellow) <strong>must not</strong> be used to train the models before generating predictions on the evaluation data.</p>
+<p>The development-test split (yellow) remains the same for all five scenarios and is available in <code>test.csv</code>; this split can only be used for validation and model selection.</p>
+<p>The remaining samples in the development set that are not included in the development-train and the development-test splits <strong>must not</strong> be used.</p>
+<figure>
+<div class="row row-centered">
+<div class="col-xs-10 col-md-8 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2024/task1_splits.png"/>
+<figcaption>Figure 2: Overview of the five development splits. Participants need to train each submitted system on all five splits.</figcaption>
+</div>
+</div>
+</figure>
+<p><br/>
+The definition of train subsets (<code>split{x}.csv</code> files) and the test split (<code>test.csv</code> file) can be downloaded from the link below. The <code>csv</code> files contain two columns: <strong>filenames</strong> of audio snippets included in the respective split and the corresponding <strong>scene label</strong>.</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/CPJKU/dcase2024_task1_baseline/releases/tag/files" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-database fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/CPJKU/dcase2024_task1_baseline/releases/tag/files" target="_blank">
+<span style="font-size:20px;">Task 1 Development-train splits <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(15.0 MB)</span>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<p>Each team is allowed to submit up to <strong>three different systems</strong>. Each of these submitted systems has to be <strong>trained on all five development-train splits</strong>. A system is considered to be the same if architecture and design choices (such as building blocks, features, data augmentation techniques, decision-making, etc.) remain the same. However, basic hyperparameters like the number of update steps, learning rate, batch size, or regularization strength may vary for training on the different development-train splits.
+The technical report must highlight the differences between the three submitted systems. It must also state if and how the basic hyperparameter configuration was adapted for the different development-train splits.</p>
+<p>For example, for a single system, it is allowed to reduce the total number of update steps when training on the 5% subset. 
+Those changes need to be documented in the technical report. However, for instance, if the number of model parameters changes, the system counts as different. If you have doubts about which category a system modification falls into, please contact the task organizers.</p>
+<h2 id="evaluation-dataset">Evaluation Dataset</h2>
+<p><a name="eval-set"></a>
+The evaluation dataset is used for ranking submissions. It contains data from 12 cities, 10 acoustic scenes, and 11 devices. There are five new devices compared to the development set: a real device D and simulated devices S7-S10. The evaluation data contains approximately 37 hours of audio. The evaluation data contains audio recorded at different locations than the development data. Recording device and city information is not provided in the evaluation set. The systems are expected to be robust to different recording devices.</p>
+<p>Reference labels are provided only for the development datasets. <strong>Reference labels for the evaluation dataset will not be released</strong> because the evaluation set is used to rank submitted systems. For publications based on the DCASE challenge data, please use the provided splits of the development set to allow comparisons. After the challenge, if you want to evaluate your proposed system with the official challenge evaluation setup, contact the task coordinators. Task coordinators can provide unofficial scoring for a limited number of system outputs.</p>
+<p>The evaluation data is available for download:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://doi.org/10.5281/zenodo.11366913" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://doi.org/10.5281/zenodo.11366913" target="_blank">
+<span style="font-size:20px;">TAU Urban Acoustic Scenes 2024 Mobile, Evaluation dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(15.7 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.11366913">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.11366913.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<h2 id="system-complexity-limitations">System Complexity Limitations</h2>
+<p><a name="complexity-requirements"></a></p>
+<p>The computational complexity is limited in terms of <strong>model size</strong> and <strong>MMACs</strong> (million multiply-accumulate operations). The limits are modeled after Cortex-M4 devices (e.g., STM32L496@80MHz or Arduino Nano 33@64MHz); the maximum allowed limits are as follows:</p>
+<ul>
+<li><strong>Maximum memory allowance for model parameters: 128 kB (Kilobyte)</strong>, counting <strong>ALL parameters</strong> (including the zero-valued ones), and no requirement on the numerical representation. This allows participants better control over the tradeoff between the number of parameters and their numerical representation. The memory limit translates into 128K parameters when using <code>int8</code> (signed 8-bit integer) (128,000 parameters * 8 bits per parameter / 8 bits per byte = 128 kB), 64K parameters when using <code>float16</code> (16-bit float) (64,000 * 16 bits per parameter / 8 bits per byte = 128 kB), or 32K parameters when using <code>float32</code> (32-bit float) (32,000 * 32 bits per parameter / 8 bits per byte = 128 kB).</li>
+<li><strong>Maximum number of MACS per inference: 30 MMACs (million MACs)</strong>. The limit is approximated based on the computing power of the target device class. The analysis segment length for the inference is 1 s. The limit of 30 MMACs mimics the fitting of audio buffers into SRAM (fast access internal memory) on the target device and allows some head space for feature calculation (e.g., FFT), assuming that the most commonly used features fit under this. </li>
+</ul>
+<p><strong>In case of using a feature extractor (after approval!) during inference, the network used to generate the embeddings counts in the calculated model size and complexity!</strong></p>
+<p>Full information about the number of parameters, their numerical representation, and the computational complexity must be provided in the submitted technical report.</p>
+<p><br/></p>
+<h1 id="external-data-resources">External Data Resources</h1>
+<p><a name="external-resources"></a></p>
+<p>The use of external resources (data sets, pretrained models) is allowed under the following conditions:</p>
+<ul>
+<li>The task coordinators have to approve the resource. To this end, please send an email to the task coordinators; if approved, we will update the list of external resources on the webpage accordingly. The list of allowed external resources will be locked on May 18th (no further external sources allowed).</li>
+<li>The external resource must be freely accessible to any other research group in the world. <strong>The resource must be public and freely available before May 18th 2024.</strong></li>
+<li>The list of external resources used in training must be clearly indicated in the technical report.</li>
+<li>Datasets specific to acoustic scenes, such as <a href="https://zenodo.org/record/1228142">TUT Urban Acoustic Scenes 2018</a>, <a href="https://zenodo.org/record/1228235">TUT Urban Acoustic Scenes 2018 Mobile</a>, <a href="https://zenodo.org/record/2589280">TAU Urban Acoustic Scenes 2019</a>, <a href="https://zenodo.org/record/2589332">TAU Urban Acoustic Scenes 2019 Mobile</a>, <a href="https://zenodo.org/record/3819968">TAU Urban Acoustic Scenes 2020 Mobile</a>, or <a href="https://zenodo.org/record/3670185">TAU Urban Acoustic Scenes 2020 3Class</a>, will <strong>not</strong> be approved.</li>
+</ul>
+<p>List of external data resources allowed:</p>
+<table class="datatable table table-hover table-condensed" data-filter-control="false" data-filter-show-clear="false" data-id-field="name" data-pagination="true" data-show-pagination-switch="true" data-sort-name="name" data-sort-order="asc">
+<thead>
+<tr>
+<th data-field="name" data-sortable="true">Resource name</th>
+<th data-field="type" data-filter-control="select" data-sortable="true" data-tag="true">Type</th>
+<th data-field="date" data-sortable="true">Added</th>
+<th data-field="link" data-value-type="url">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AudioSet</td>
+<td>audio, video</td>
+<td>04.03.2019</td>
+<td>https://research.google.com/audioset/</td>
+</tr>
+<tr>
+<td>MicIRP</td>
+<td>IR</td>
+<td>28.03.2023</td>
+<td>http://micirp.blogspot.com/?m=1</td>
+</tr>
+<tr>
+<td>FSD50K</td>
+<td>audio</td>
+<td>10.03.2022</td>
+<td>https://zenodo.org/record/4060432</td>
+</tr>
+<tr>
+<td>Multi-Angle, Multi-Distance Microphone IR Dataset</td>
+<td>IR</td>
+<td>17.05.2024</td>
+<td>https://zenodo.org/records/4633508</td>
+</tr>
+<tr>
+<td>EfficientAT</td>
+<td>model</td>
+<td>17.05.2024</td>
+<td>https://github.com/fschmid56/EfficientAT</td>
+</tr>
+<tr>
+<td>PaSST</td>
+<td>model</td>
+<td>17.05.2024</td>
+<td>https://github.com/kkoutini/PaSST</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<h1 id="task-rules">Task Rules</h1>
+<p><a name="task-rules"></a>
+There are general rules valid for all tasks; these, along with information on technical report and submission requirements, can be found <a href="rules">here</a>.</p>
+<p>Task-specific rules:</p>
+<ul>
+<li>Participants may submit predictions for up to <strong>three systems</strong>.</li>
+<li>Participants have to train each submitted system on <strong>all five development-train splits</strong>.</li>
+<li>The models' performance on the development-test set for all five development-train splits must be included in the submission.</li>
+<li>The models' predictions on the evaluation set for all five development-train splits must be included in the submission. </li>
+<li>Depending on the number of submitted systems (1, 2, or 3), participants will either submit 5, 10, or 15 evaluation set prediction files. This means at least five evaluation set prediction files (one system trained on the five different development-train subsets) are necessary to be included in the final ranking. </li>
+<li>A submitted system is considered the same if only basic hyperparameters like the number of update steps, learning rate, batch size, or regularization strength vary; see <a href="#evaluation-setup">here</a>. </li>
+<li>The model complexity limits apply. See conditions for the model complexity <a href="#complexity-requirements">here</a>.</li>
+</ul>
+<p>Rules regarding the usage of data and inference:</p>
+<ul>
+<li>Participants can only use the audio segments specified in each subset and the explicitly allowed external resources for training. For example, <strong>it is strictly forbidden to use other parts of the development dataset (besides the filenames specified in the <code>split{x}.csv</code> files) to train the system</strong>.</li>
+<li>The previous statement includes both <strong>direct</strong> and <strong>indirect</strong> training data usage. For example, in the case of Knowledge Distillation, not only the student but also the teacher model must obey the previous statement. That is, participants cannot use the model trained on <code>split{100}.csv</code> as a teacher for the model that is trained on <code>split{5}.csv</code>. This would allow the student model to indirectly access knowledge gained from the <code>split{100}.csv</code> data and is therefore <strong>strictly forbidden</strong>.</li>
+<li>Use of external data is allowed under some conditions; see <a href="#external-data-resources">here</a>.</li>
+<li>Participants are not allowed to make subjective judgments of the evaluation data, nor to annotate it. The evaluation dataset cannot be used to train the submitted system; the use of statistics about the evaluation data in the decision-making is also forbidden.</li>
+<li>Classification decisions must be made independently for each test sample.</li>
+</ul>
+<p><br/></p>
+<h1 id="evaluation">Evaluation</h1>
+<p><a name="ranking"></a></p>
+<p>Participants can submit up to three systems; however, for each training set size, <span class="math">\(p \in \{5, 10, 25, 50, 100 \}\)</span>, only the best-performing system will be used for ranking. This is to encourage participants to develop specialized systems for different development set sizes.</p>
+<p>The leaderboard ranking score is computed as follows: first, the class-wise macro-averaged accuracies for all <span class="math">\(P=5\)</span> development subsets and all <span class="math">\(N\)</span> submissions are computed. The accuracy of the n-th submission on the p% subset is denoted as <span class="math">\(ACC_{n,p}\)</span>. 
+The scores are then aggregated by choosing the best-performing system for each subset and averaging the resulting accuracies. </p>
+<div class="math">$$\textrm{score} := \frac{1}{P}\sum_{p \in \{5, 10, 25, 50, 100\}} \textrm{max}_{n \in \{1, \dots, N \}} ACC_{n, p}$$</div>
+<p>Besides the final leaderboard (based on the score defined above), we will also provide individual ranking lists for the five different subsets. </p>
+<p>We will also calculate multi-class cross-entropy (Log loss). The metric is independent of the operating point (see Python implementation <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html">here</a>). The multi-class cross-entropy will not be used in the official rankings.</p>
+<p><br/></p>
+<h1 id="results">Results</h1>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="false" data-show-rank="false" data-sort-name="rank_score" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-axis-label="Official rank" data-chartable="true" data-field="rank_team" data-sortable="true" data-value-type="int" rowspan="2">
+                Official<br/>rank
+            </th>
+<th class="sep-left-cell" colspan="4">Submission Information</th>
+<th class="sep-left-cell" colspan="1"></th>
+</tr>
+<tr>
+<th class="sm-cell" data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sep-left-cell" data-field="corresponding_author" data-sortable="false">
+                Author
+            </th>
+<th class="sm-cell" data-field="corresponding_affiliation" data-sortable="false">
+                Affiliation
+            </th>
+<th class="sep-left-cell text-center" data-field="external_anchor" data-sortable="false" data-value-type="url">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Rank score" data-chartable="true" data-field="rank_score" data-sortable="true" data-value-type="float2">
+                Rank Score
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>18</td>
+<td>Auzanneau_CEA</td>
+<td>Fabrice Auzanneau</td>
+<td>CEA List, Palaiseau, France</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#Auzanneau2024</td>
+<td>37.38</td>
+</tr>
+<tr>
+<td>14</td>
+<td>BAI_JLESS</td>
+<td>Jisheng Bai</td>
+<td>School of Marine Science and Technology, Northwestern Polytechnical University, Xi'an, China</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#Bai2024</td>
+<td>52.39</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Cai_XJTLU</td>
+<td>Yiqiang Cai</td>
+<td>School of Advanced Technology, Xi'an Jiaotong-Liverpool University, Suzhou, China</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#Cai2024</td>
+<td>56.35</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Chen_GXU</td>
+<td>Xuanyan Chen</td>
+<td>School of Computer and Electronic Information, Guangxi University (GXU) Guangxi, Guangxi, China</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#Chen2024</td>
+<td>52.12</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Chen_SCUT</td>
+<td>Guoqing Chen</td>
+<td>School of Electronic and Information Engineering, South China University of Technology, Guangzhou, China</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#Chen2024a</td>
+<td>52.74</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Gao_UniSA</td>
+<td>Wei Gao</td>
+<td>UniSA STEM, University of South Australia, Adelaide, Australia</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#Gao2024</td>
+<td>52.82</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Han_SJTUTHU</td>
+<td>Han Bing</td>
+<td>Shanghai Jiao Tong University, Shanghai, China</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#Bing2024</td>
+<td>58.46</td>
+</tr>
+<tr>
+<td>2</td>
+<td>MALACH24_JKU</td>
+<td>Nadrchal David</td>
+<td>Johannes Kepler University (JKU) Linz, Linz, Austria</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#David2024</td>
+<td>57.19</td>
+</tr>
+<tr>
+<td>7</td>
+<td>OO_NTUPRDCSG</td>
+<td>Yifei Oo</td>
+<td>Nanyang Technological University, Singapore</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#Oo2024</td>
+<td>54.83</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Park_KT</td>
+<td>JaeHan Park</td>
+<td>AI Tech Lab, Korea Telecom Corporation, Seoul, South Korea</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#Park2024</td>
+<td>55.40</td>
+</tr>
+<tr class="info" data-hline="true">
+<td>17</td>
+<td>DCASE2024 baseline</td>
+<td>Florian Schmid</td>
+<td>Institute of Computational Perception (CP), Johannes Kepler University (JKU) Linz, Linz, Austria</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#Schmid2024</td>
+<td>50.73</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Shao_NEPUMSE</td>
+<td>Yun-Fei Shao</td>
+<td>The School of Mechanical Science and Engineering, Northeast Petroleum University, Daqing, China</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#Shao2024</td>
+<td>57.15</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Surkov_ITMO</td>
+<td>Maxim Surkov</td>
+<td>ITMO University, Saint Petersburg, Russia</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#Surkov2024</td>
+<td>52.65</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Tan_CISS</td>
+<td>Ee-Leng Tan</td>
+<td>EEE, Nanyang Technological University, Singapore</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#Tan2024</td>
+<td>51.71</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Truchan_LUH</td>
+<td>Hubert Truchan</td>
+<td>L3S Research Center, Leibniz University Hannover, Hanover, Germany</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#Truchan2024</td>
+<td>53.52</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Werning_UPBNT</td>
+<td>Alexander Werning</td>
+<td>Department of Communications Engineering (NT), Paderborn University (UPB), Paderborn, Germany</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#Werning2024</td>
+<td>54.35</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Yan_NPU</td>
+<td>Chenhong Yan</td>
+<td>School of Marine Science and Technology, Northwestern Polytechnical Universi University, Xiâ€™an, China</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#Yan2024</td>
+<td>52.94</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Yeo_NTU</td>
+<td>Sean Yeo</td>
+<td>Smart Nation TRANS Lab (SNTL), Nanyang Technological University, Singapore</td>
+<td>task-data-efficient-low-complexity-acoustic-scene-classification-results#Yeo2024</td>
+<td>56.12</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<p>Complete results and technical reports can be found at <a class="btn btn-primary" href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification-results">results page</a></p>
+<h1 id="baseline-system">Baseline System</h1>
+<p>The baseline model is based on a simplified version of the CNN classifier used in the top-ranked <a href="https://dcase.community/documents/challenge2023/technical_reports/DCASE2023_Schmid_28_t1.pdf">approach</a> in Task 1 of the DCASE Challenge 2023. 
+The baseline system uses Frequency-MixStyle to cope with device generalization. 
+No quantization is used, but inference will be done using floating-point 16-bit precision, allowing a maximum number of 64,000 parameters.</p>
+<p>This repository contains the code for the baseline system of the DCASE 2024 Challenge Task 1:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/CPJKU/dcase2024_task1_baseline" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/CPJKU/dcase2024_task1_baseline" target="_blank">
+<span style="font-size:20px;">DCASE2024 Task 1 Baseline <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<p>Some details about the baseline:</p>
+<ul>
+<li>The training loop is implemented using <a href="https://pytorch.org/">PyTorch</a> and <a href="https://lightning.ai/">PyTorch Lightning</a>. </li>
+<li>Logging is implemented using <a href="https://wandb.ai/site">Weights and Biases</a>. </li>
+<li>The neural network architecture is a simplified version of <a href="https://dcase.community/documents/workshop2023/proceedings/DCASE2023Workshop_Schmid_1.pdf">CP-Mobile</a>, the architecture used in the top-ranked system of Task 1 in the DCASE 2023 challenge.</li>
+<li>The model has 61,148 parameters and consumes 29.42 million MACs for the inference of a 1-second audio snippet. These numbers are counted using <a href="https://github.com/AlbertoAncilotto/NeSsi/blob/main/nessi.py">NeSsi</a>. The model's test step converts model parameters to 16-bit floats to meet the memory complexity constraint of 128 kB for model parameters.</li>
+<li>The baseline implements simple data augmentation mechanisms: time rolling of the waveform and masking of frequency bins and time frames.</li>
+<li>To enhance the generalization across different recording devices, the baseline implements <a href="https://dcase.community/documents/workshop2022/proceedings/DCASE2022Workshop_Schmid_27.pdf">Frequency-MixStyle</a>. </li>
+</ul>
+<h2 id="baseline-complexity">Baseline Complexity</h2>
+<p>The baseline system has a complexity of 61,148 parameters and 29,419,156 MACs. The table below lists how the parameters
+and MACs are distributed across the different layers in the network.</p>
+<p><strong>According to the challenge rules, the following complexity limits apply</strong>:</p>
+<ul>
+<li>max memory for model parameters: 128 kB (Kilobyte)</li>
+<li>max number of MACs for inference of a 1-second audio snippet: 30 MMACs (million MACs)</li>
+</ul>
+<p>Model parameters of the baseline must therefore be converted to 16-bit precision before inference of the test/evaluation set to stick to the complexity limits (61,148 * 16 bits = 61,148 * 2 B = 122,296 B &lt;= 128 kB).</p>
+<p>In previous years of the challenge, top-ranked teams used a technique called <strong>quantization</strong> that converts model parameters to 8-bit precision. In this case,
+the maximum number of allowed parameters would be 128,000.</p>
+<table class="table">
+<thead>
+<tr class="active">
+<td><strong>Description</strong></td>
+<td><strong>Layer</strong></td>
+<td><strong>Input Shape</strong></td>
+<td><strong>Params</strong></td>
+<td><strong>MACs</strong></td>
+<td></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>in_c[0]</td>
+<td>Conv2dNormActivation</td>
+<td>[1, 1, 256, 65]</td>
+<td>88</td><td>304,144</td>
+<td></td>
+</tr>
+<tr>
+<td>in_c[1]</td>
+<td>Conv2dNormActivation</td>
+<td>[1, 8, 128, 33]</td>
+<td>2,368</td>
+<td>2,506,816</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[0].b1.block[0]</td>
+<td>Conv2dNormActivation (pointwise)</td>
+<td>[1, 32, 64, 17]</td>
+<td>2,176</td>
+<td>2,228,352</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[0].b1.block[1]</td>
+<td>Conv2dNormActivation (depthwise)</td>
+<td>[1, 64, 64, 17]</td>
+<td>704</td>
+<td>626,816</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[0].b1.block[2]</td>
+<td>Conv2dNormActivation (pointwise)</td>
+<td>[1, 64, 64, 17]</td>
+<td>2,112</td>
+<td>2,228,288</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[0].b2.block[0]</td>
+<td>Conv2dNormActivation (pointwise)</td>
+<td>[1, 32, 64, 17]</td>
+<td>2,176</td>
+<td>2,228,352</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[0].b2.block[1]</td>
+<td>Conv2dNormActivation (depthwise)</td>
+<td>[1, 64, 64, 17]</td>
+<td>704</td>
+<td>626,816</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[0].b2.block[2]</td>
+<td>Conv2dNormActivation (pointwise)</td>
+<td>[1, 64, 64, 17]</td>
+<td>2,112</td>
+<td>2,228,288</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[0].b3.block[0]</td>
+<td>Conv2dNormActivation (pointwise)</td>
+<td>[1, 32, 64, 17]</td>
+<td>2,176</td>
+<td>2,228,352</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[0].b3.block[1]</td>
+<td>Conv2dNormActivation (depthwise)</td>
+<td>[1, 64, 64, 17]</td>
+<td>704</td>
+<td>331,904</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[0].b3.block[2]</td>
+<td>Conv2dNormActivation (pointwise)</td>
+<td>[1, 64, 64, 9]</td>
+<td>2,112</td>
+<td>1,179,712</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[1].b4.block[0]</td>
+<td>Conv2dNormActivation (pointwise)</td>
+<td>[1, 32, 64, 9]</td>
+<td>2,176</td>
+<td>1,179,776</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[1].b4.block[1]</td>
+<td>Conv2dNormActivation (depthwise)</td>
+<td>[1, 64, 64, 9]</td>
+<td>704</td>
+<td>166,016</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[1].b4.block[2]</td>
+<td>Conv2dNormActivation (pointwise)</td>
+<td>[1, 64, 32, 9]</td>
+<td>3,696</td>
+<td>1,032,304</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[1].b5.block[0]</td>
+<td>Conv2dNormActivation (pointwise)</td>
+<td>[1, 56, 32, 9]</td>
+<td>6,960</td>
+<td>1,935,600</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[1].b5.block[1]</td>
+<td>Conv2dNormActivation (depthwise)</td>
+<td>[1, 120, 32, 9]</td>
+<td>1,320</td>
+<td>311,280</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[1].b5.block[2]</td>
+<td>Conv2dNormActivation (pointwise)</td>
+<td>[1, 120, 32, 9]</td>
+<td>6,832</td>
+<td>1,935,472</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[2].b6.block[0]</td>
+<td>Conv2dNormActivation (pointwise)</td>
+<td>[1, 56, 32, 9]</td>
+<td>6,960</td>
+<td>1,935,600</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[2].b6.block[1]</td>
+<td>Conv2dNormActivation (depthwise)</td>
+<td>[1, 120, 32, 9]</td>
+<td>1,320</td>
+<td>311,280</td>
+<td></td>
+</tr>
+<tr>
+<td>stages[2].b6.block[2]</td>
+<td>Conv2dNormActivation (pointwise)</td>
+<td>[1, 120, 32, 9]</td>
+<td>12,688</td>
+<td>3,594,448</td>
+<td></td>
+</tr>
+<tr>
+<td>ff_list[0]</td>
+<td>Conv2d</td>
+<td>[1, 104, 32, 9]</td>
+<td>1,040</td>
+<td>299,520</td>
+<td></td>
+</tr>
+<tr>
+<td>ff_list[1]</td>
+<td>BatchNorm2d</td>
+<td>[1, 10, 32, 9]</td>
+<td>20</td>
+<td>20</td>
+<td></td>
+</tr>
+<tr>
+<td>ff_list[2]</td>
+<td>AdaptiveAvgPool2d</td>
+<td>[1, 10, 32, 9]</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+<tfoot>
+<tr class="active">
+<td><strong>Sum</strong></td>
+<td>-</td>
+<td>-</td>
+<td><strong>61,148</strong></td>
+<td><strong>29,419,156</strong></td>
+<td></td>
+</tr>
+</tfoot>
+</table>
+<p>To give an example of how MACs and parameters are calculated, let's look in detail at the module <strong>stages[0].b3.block[1]</strong>.
+It consists of a conv2d, a batch norm, and a ReLU activation function. </p>
+<p><strong>Parameters</strong>: The conv2d parameters are calculated as <em>input_channels * output_channels * kernel_size * kernel_size</em>, resulting in 
+1 * 64 * 3 * 3 = 576 parametes. Note that <em>input_channels=1</em> since it is a depth-wise convolution with 64 groups. The batch norm adds 64 * 2 = 128 parameters
+on top, resulting in a total of 704 parameters for this <em>Conv2dNormActivation</em> module.</p>
+<p><strong>MACs</strong>: The MACs of the conv2d are calculated as <em>input_channels * output_channels * kernel_size * kernel_size * output_frequency_bands * output_time_frames</em>, resulting in 1 * 64 * 3 * 3 * 64 * 9 = 331,776 MACs. <br/>
+Note that <em>input_channels=1</em> since it is a depth-wise convolution with 64 groups. The batch norm adds 128 MACs
+on top, resulting in a total of 331,904 MACs for this <em>Conv2dNormActivation</em> module.</p>
+<h2 id="baseline-results">Baseline Results</h2>
+<p>The two tables below present the results obtained with the baseline system. The system was trained five times on each subset and tested on the development-test split, and the mean and
+standard deviation of the performance from these five independent trials are shown.</p>
+<p><strong>Note:</strong> The reported baseline system performance is not exactly reproducible due to varying setups. However, you should be able to obtain very similar results.</p>
+<h3>Class-wise Results</h3>
+<p>The class-wise accuracies take into account only the test items belonging to the considered class.</p>
+<div class="table-responsive col-md-12">
+<table class="table">
+<thead>
+<tr class="active">
+<th>Subset</th>
+<th class="sep-left" colspan="10">Class-wise Accuracies</th>
+<th class="sep-left">Macro-Avg.<br/>Accuracy</th>
+</tr>
+<tr class="active">
+<th></th>
+<th class="sep-left"><span>Airport</span></th>
+<th><span>Bus</span></th>
+<th><span>Metro</span></th>
+<th><span>Metro<br/>Station</span></th>
+<th><span>Park</span></th>
+<th><span>Public<br/>Square</span></th>
+<th><span>Shopping<br/>Mall</span></th>
+<th><span>Street<br/>Pedestrian</span></th>
+<th><span>Street<br/>Traffic</span></th>
+<th><span>Tram</span></th>
+<th class="sep-left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>5%</strong></td>
+<td class="sep-left">34.77</td>
+<td>45.21</td>
+<td>30.79</td>
+<td>40.03</td>
+<td>62.06</td>
+<td>22.28</td>
+<td>52.07</td>
+<td>31.32</td>
+<td>70.23</td>
+<td>35.20</td>
+<td class="sep-left">42.40 ± 0.42</td>
+</tr>
+<tr>
+<td><strong>10%</strong></td>
+<td class="sep-left">38.50</td>
+<td>47.99</td>
+<td>36.93</td>
+<td>43.71</td>
+<td>65.43</td>
+<td>27.05</td>
+<td>52.46</td>
+<td>31.82</td>
+<td>72.64</td>
+<td>36.41</td>
+<td class="sep-left">45.29 ± 1.01</td>
+</tr>
+<tr>
+<td><strong>25%</strong></td>
+<td class="sep-left">41.81</td>
+<td>61.19</td>
+<td>38.88</td>
+<td>40.84</td>
+<td>69.74</td>
+<td>33.54</td>
+<td>58.84</td>
+<td>30.31</td>
+<td>75.93</td>
+<td>51.77</td>
+<td class="sep-left">50.29 ± 0.87</td>
+</tr>
+<tr>
+<td><strong>50%</strong></td>
+<td class="sep-left">41.51</td>
+<td>63.23</td>
+<td>43.37</td>
+<td>48.71</td>
+<td>72.55</td>
+<td>34.25</td>
+<td>60.09</td>
+<td>37.26</td>
+<td>79.71</td>
+<td>51.16</td>
+<td class="sep-left">53.19 ± 0.68</td>
+</tr>
+<tr>
+<td><strong>100%</strong></td>
+<td class="sep-left">46.45</td>
+<td>72.95</td>
+<td>52.86</td>
+<td>41.56</td>
+<td>76.11</td>
+<td>37.07</td>
+<td>66.91</td>
+<td>38.73</td>
+<td>80.66</td>
+<td>56.58</td>
+<td class="sep-left">56.99 ± 1.11</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="clearfix"></div>
+<h3>Device-wise Results</h3>
+<p>The device-wise accuracies take into account only the test items recorded by the specific device. As discussed <a href="#task-setup">here</a>, devices S4-S6 are used only for testing and not for training the system.</p>
+<div class="table-responsive col-md-12">
+<table class="table">
+<thead>
+<tr class="active">
+<th>Subset</th>
+<th class="sep-left" colspan="9">Device-wise Accuracies</th>
+<th class="sep-left">Macro-Avg.<br/>Accuracy</th>
+</tr>
+<tr class="active">
+<th></th>
+<th class="sep-left"><span class="label label-success">A</span></th>
+<th><span class="label label-success">B</span></th>
+<th><span class="label label-success">C</span></th>
+<th><span class="label label-warning">S1</span></th>
+<th><span class="label label-warning">S2</span></th>
+<th><span class="label label-warning">S3</span></th>
+<th><span class="label label-warning">S4</span></th>
+<th><span class="label label-warning">S5</span></th>
+<th><span class="label label-warning">S6</span></th>
+<th class="sep-left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>5%</strong></td>
+<td class="sep-left">54.45</td>
+<td>45.73</td>
+<td>48.42</td>
+<td>39.66</td>
+<td>36.13</td>
+<td>44.30</td>
+<td>38.90</td>
+<td>40.47</td>
+<td>33.58</td>
+<td class="sep-left">42.40 ± 0.42</td>
+</tr>
+<tr>
+<td><strong>10%</strong></td>
+<td class="sep-left">57.84</td>
+<td>48.60</td>
+<td>51.13</td>
+<td>42.16</td>
+<td>40.30</td>
+<td>46.00</td>
+<td>43.13</td>
+<td>41.30</td>
+<td>37.26</td>
+<td class="sep-left">45.29 ± 1.01</td>
+</tr>
+<tr>
+<td><strong>25%</strong></td>
+<td class="sep-left">62.27</td>
+<td>53.27</td>
+<td>55.39</td>
+<td>47.52</td>
+<td>46.68</td>
+<td>51.59</td>
+<td>47.39</td>
+<td>46.75</td>
+<td>41.75</td>
+<td class="sep-left">50.29 ± 0.87</td>
+</tr>
+<tr>
+<td><strong>50%</strong></td>
+<td class="sep-left">65.39</td>
+<td>56.30</td>
+<td>57.23</td>
+<td>52.99</td>
+<td>50.85</td>
+<td>54.78</td>
+<td>48.35</td>
+<td>47.93</td>
+<td>44.90</td>
+<td class="sep-left">53.19 ± 0.68</td>
+</tr>
+<tr>
+<td><strong>100%</strong></td>
+<td class="sep-left">67.17</td>
+<td>59.67</td>
+<td>61.99</td>
+<td>56.28</td>
+<td>55.69</td>
+<td>58.16</td>
+<td>53.05</td>
+<td>52.35</td>
+<td>48.58</td>
+<td class="sep-left">56.99 ± 1.11</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="clearfix"></div>
+<p><br/></p>
+<h1 id="submission">Submission</h1>
+<p><a name="submission"></a>
+Official challenge submission consists of the following:</p>
+<ul>
+<li>System output files (<code>*.csv</code>) (5 in total, one per training split)</li>
+<li>Metadata file(s) (<code>*.yaml</code>)</li>
+<li>A technical report explaining in sufficient detail the method (<code>*.pdf</code>)</li>
+</ul>
+<p>Each submission entry should contain system output for each provided training split (5 files). The system output per split should be presented as a single text file (in CSV format, with a header row) containing a classification result for each audio file in the evaluation set. In addition, the results file should contain probabilities for each scene class. Result items can be in any order. Multiple system entries can be submitted (maximum 4 per participant).</p>
+<p>For each system entry, it is crucial to provide meta information in a separate file containing the task-specific information. This meta information is essential for fast processing of the submissions and analysis of submitted systems. Participants are strongly advised to fill in the meta information carefully, ensuring all information is correctly provided.</p>
+<p>All files should be packaged into a zip file for submission. Please ensure a clear connection between the system name in the submitted yaml, submitted system output, and the technical report! Instead of system name, you can use a submission label too.
+See instructions on how to <a href="http://localhost:3000/challenge2024/submission#submission-label">form your submission label</a>. The submission label's index field should be used to differentiate your submissions in case that you have multiple submissions.</p>
+<p>Package structure:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">submission_label</span><span class="o">]/[</span><span class="n">submission_label</span><span class="o">]</span><span class="p">.</span><span class="k">output</span><span class="p">.</span><span class="n">split_5</span><span class="p">.</span><span class="n">csv</span>
+<span class="o">[</span><span class="n">submission_label</span><span class="o">]/[</span><span class="n">submission_label</span><span class="o">]</span><span class="p">.</span><span class="k">output</span><span class="p">.</span><span class="n">split_10</span><span class="p">.</span><span class="n">csv</span>
+<span class="o">[</span><span class="n">submission_label</span><span class="o">]/[</span><span class="n">submission_label</span><span class="o">]</span><span class="p">.</span><span class="k">output</span><span class="p">.</span><span class="n">split_25</span><span class="p">.</span><span class="n">csv</span>
+<span class="o">[</span><span class="n">submission_label</span><span class="o">]/[</span><span class="n">submission_label</span><span class="o">]</span><span class="p">.</span><span class="k">output</span><span class="p">.</span><span class="n">split_50</span><span class="p">.</span><span class="n">csv</span>
+<span class="o">[</span><span class="n">submission_label</span><span class="o">]/[</span><span class="n">submission_label</span><span class="o">]</span><span class="p">.</span><span class="k">output</span><span class="p">.</span><span class="n">split_100</span><span class="p">.</span><span class="n">csv</span>
+<span class="o">[</span><span class="n">submission_label</span><span class="o">]/[</span><span class="n">submission_label</span><span class="o">]</span><span class="p">.</span><span class="k">output</span><span class="p">.</span><span class="n">split_100</span><span class="p">.</span><span class="n">csv</span>
+<span class="o">[</span><span class="n">submission_label</span><span class="o">]/[</span><span class="n">submission_label</span><span class="o">]</span><span class="p">.</span><span class="n">meta</span><span class="p">.</span><span class="n">yaml</span>
+<span class="o">[</span><span class="n">submission_label</span><span class="o">]</span><span class="p">.</span><span class="n">technical_report</span><span class="p">.</span><span class="n">pdf</span>
+</code></pre></div>
+<h2 id="system-output-file">System output file</h2>
+<p>The system output should have the following format for each row: </p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">filename (string)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">scene label (string)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">airport probability (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">bus probability (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">metro probability (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">metro_station probability (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">park probability (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">public_square probability (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">shopping_mall probability (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">street_pedestrian probability (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">street_traffic probability (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">tram probability (float)</span><span class="o">]</span>
+</code></pre></div>
+<p>Example output:</p>
+<pre class="tab18">filename	scene_label	airport	bus	metro	metro_station	park	public_square	shopping_mall	street_pedestrian	street_traffic	tram
+0.wav	bus	0.2512	0.9931	0.1211	0.3211	0.4122	0.4233	0.2344	0.3455	0.1266	0.4577
+1.wav	tram	0.2521	0.194	0.1211	0.3211	0.4122	0.4233	0.2344	0.3455	0.1266	0.8577
+</pre>
+<h2 id="metadata-file">Metadata file</h2>
+<p>Example meta information file baseline system <code>task1/Schmid_CPJKU_task1_1/Schmid_CPJKU_task1_1.meta.yaml</code>:</p>
+<div aria-multiselectable="true" class="panel-group" id="metadata-accordion" role="tablist">
+<div class="panel panel-default">
+<div class="panel-heading" id="task1a-example-header" role="tab">
+<h4 class="panel-title">
+<a aria-controls="collapseOne" aria-expanded="true" class="collapsed accordion-toggle" data-parent="#metadata-accordion" data-toggle="collapse" href="#task1-example-collapse" role="button">               
+                   Metadata
+                </a>
+</h4>
+</div>
+<div aria-labelledby="task1-example-header" class="panel-collapse collapse" id="task1-example-collapse" role="tabpanel">
+<div class="panel-body" style="padding: 0px">
+<pre class="font110" style="padding:0;border:0;border-radius:0;"><code class="yaml"># Submission information
+submission:
+  # Submission label
+  # Label is used to index submissions.
+  # Generate your label following way to avoid
+  # overlapping codes among submissions:
+  # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number]_[index number of your submission (1-3)]
+  label: Schmid_CPJKU_task1_1
+
+  # Submission name
+  # This name will be used in the results tables when space permits
+  name: DCASE2024 baseline system
+
+  # Submission name abbreviated
+  # This abbreviated name will be used in the results table when space is tight.
+  # Use maximum 10 characters.
+  abbreviation: Baseline
+
+  # Authors of the submitted system. Mark authors in
+  # the order you want them to appear in submission lists.
+  # One of the authors has to be marked as corresponding author,
+  # this will be listed next to the submission in the results tables.
+  authors:
+    # First author
+    - lastname: Schmid
+      firstname: Florian
+      email: florian.schmid@jku.at           # Contact email address
+      corresponding: true                    # Mark true for one of the authors
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: JKU
+        institute: Johannes Kepler University (JKU) Linz
+        department: Institute of Computational Perception (CP)   # Optional
+        location: Linz, Austria
+
+    # Second author
+    - lastname: Primus
+      firstname: Paul
+      email: paul.primus@jku.at   
+      affiliation:
+        abbreviation: JKU
+        institute: Johannes Kepler University (JKU) Linz
+        department: Institute of Computational Perception (CP)  
+        location: Linz, Austria      
+
+    # Third author
+    - lastname: Heittola
+      firstname: Toni
+      email: toni.heittola@tuni.fi
+      affiliation:
+        abbreviation: TAU
+        institute: Tampere University
+        department: Computing Sciences            
+        location: Tampere, Finland
+    
+    # Fourth author
+    - lastname: Mesaros
+      firstname: Annamaria
+      email: annamaria.mesaros@tuni.fi
+      affiliation:
+        abbreviation: TAU
+        institute: Tampere University
+        department: Computing Sciences            
+        location: Tampere, Finland
+    
+    # Fifth author
+    - lastname: MartÃ­n MoratÃ³
+      firstname: Irene
+      email: irene.martinmorato@tuni.fi
+      affiliation:
+        abbreviation: TAU
+        institute: Tampere University
+        department: Computing Sciences           
+        location: Tampere, Finland
+
+    # Sixth author
+    - lastname: Koutini
+      firstname: Khaled
+      email: khaled.koutini@jku.at     
+      affiliation:
+        abbreviation: JKU
+        institute: Johannes Kepler University (JKU) Linz
+        department: Institute of Computational Perception (CP)  
+        location: Linz, Austria
+
+    # Seventh author
+    - lastname: Widmer
+      firstname: Gerhard
+      email: gerhard.widmer@jku.at
+      affiliation:
+        abbreviation: JKU
+        institute: Johannes Kepler University (JKU) Linz
+        department: Institute of Computational Perception (CP)  
+        location: Linz, Austria           
+
+# System information
+system:
+  # System description, meta data provided here will be used to do
+  # meta analysis of the submitted system.
+  # Use general level tags, when possible use the tags provided in comments.
+  # If information field is not applicable to the system, use "!!null".
+  description:
+
+    # Audio input / sampling rate
+    # e.g. 16kHz, 22.05kHz, 32kHz, 44.1kHz, 48.0kHz
+    input_sampling_rate: 32kHz
+
+    # Acoustic representation
+    # one or multiple labels, e.g. MFCC, log-mel energies, spectrogram, CQT, raw waveform, ...
+    acoustic_features: log-mel energies
+
+    # Data augmentation methods
+    # e.g. mixup, freq-mixstyle, dir augmentation, pitch shifting, time rolling, frequency masking, time masking, frequency warping, ...
+    data_augmentation: freq-mixstyle, pitch shifting, time rolling
+
+    # Machine learning
+    # e.g., (RF-regularized) CNN, RNN, CRNN, Transformer, ...
+    machine_learning_method: RF-regularized CNN
+
+    # External data usage method
+    # e.g. "dataset", "embeddings", "pre-trained model", ...
+    external_data_usage: !!null
+
+    # Method for handling the complexity restrictions
+    # e.g. "knowledge distillation", "pruning", "precision_16", "weight quantization", "network design", ...
+    complexity_management: precision_16, network design
+
+    # System training/processing pipeline stages
+    # e.g. "train teachers", "ensemble teachers", "train student using knowledge distillation", "quantization-aware training"
+    pipeline: training
+
+    # Machine learning framework
+    # e.g. keras/tensorflow, pytorch, ...
+    framework: pytorch
+
+    # List all basic hyperparameters that were adapted for the different subsets (or leave !!null in case no adaptations were made)
+    # e.g. "lr", "epochs", "batch size", "weight decay", "freq-mixstyle probability", "frequency mask size", "time mask size", 
+    #      "time rolling range", "dir augmentation probability", ...
+    split_adaptations: !!null
+
+    # List most important properties that make this system different from other submitted systems (or leave !!null if you submit only one system)
+    # e.g. "architecture", "model size", "input resolution", "data augmentation techniques", "pre-training", "knowledge distillation", ...
+    system_adaptations: !!null
+
+  # System complexity
+  complexity:
+    # Total model size in bytes. Calculated as [parameter count]*[bit per parameter]/8
+    total_model_size: 122296  # 61,148 * 16 bits = 61,148 * 2 B = 122,296 B for the baseline system
+
+    # Total amount of parameters used in the acoustic model.
+    # For neural networks, this information is usually given before training process
+    # in the network summary.
+    # For other than neural networks, if parameter count information is not directly
+    # available, try estimating the count as accurately as possible.
+    # In case of ensemble approaches, add up parameters for all subsystems.
+    # In case embeddings are used, add up parameter count of the embedding
+    # extraction networks and classification network
+    # Use numerical value.
+    total_parameters: 61148 
+
+    # MACS - as calculated by NeSsi
+    macs: 29419156
+
+  # List of external datasets used in the submission.
+  external_datasets:
+    # Below are two examples (NOT used in the baseline system)
+    #- name: EfficientAT
+    #  url: https://github.com/fschmid56/EfficientAT
+    #  total_audio_length: !!null
+    #- name: MicIRP
+    #  url: http://micirp.blogspot.com/?m=1
+    #  total_audio_length: 2   # specify in minutes
+
+  # URL to the source code of the system [optional]
+  source_code: https://github.com/CPJKU/dcase2024_task1_baseline
+
+# System results
+results:
+  development_dataset:
+    # System results on the development-test set for all provided data splits (5%, 10%, 25%, 50%, 100%).
+    # Full results are not mandatory, however, they are highly recommended
+    # as they are needed for through analysis of the challenge submissions.
+    # If you are unable to provide all results, also incomplete
+    # results can be reported.
+
+    split_5:  # results on 5% subset
+      # Overall metrics
+      overall:
+        logloss: !!null   # !!null, if you don't have the corresponding result
+        accuracy: 42.4    # mean of class-wise accuracies
+
+      # Class-wise metrics
+      class_wise:
+        airport:
+          logloss: !!null  # !!null, if you don't have the corresponding result
+          accuracy: 34.77
+        bus:
+          logloss: !!null
+          accuracy: 45.21
+        metro:
+          logloss: !!null
+          accuracy: 30.79
+        metro_station:
+          logloss: !!null
+          accuracy: 40.03
+        park:
+          logloss: !!null
+          accuracy: 62.06
+        public_square:
+          logloss: !!null
+          accuracy: 22.28
+        shopping_mall:
+          logloss: !!null
+          accuracy: 52.07
+        street_pedestrian:
+          logloss: !!null
+          accuracy: 31.32
+        street_traffic:
+          logloss: !!null
+          accuracy: 70.23
+        tram:
+          logloss: !!null
+          accuracy: 35.20
+
+      # Device-wise
+      device_wise:
+        a:
+          logloss: !!null
+          accuracy: 54.45
+        b:
+          logloss: !!null
+          accuracy: 45.73
+        c:
+          logloss: !!null
+          accuracy: 48.42
+        s1:
+          logloss: !!null
+          accuracy: 39.66
+        s2:
+          logloss: !!null
+          accuracy: 36.13
+        s3:
+          logloss: !!null
+          accuracy: 44.30
+        s4:
+          logloss: !!null
+          accuracy: 38.90
+        s5:
+          logloss: !!null
+          accuracy: 40.47
+        s6:
+          logloss: !!null
+          accuracy: 33.58
+
+    split_10: # results on 10% subset
+      # Overall metrics
+      overall:
+        logloss: !!null
+        accuracy: 45.29    # mean of class-wise accuracies
+
+      # Class-wise metrics
+      class_wise:
+        airport:
+          logloss: !!null
+          accuracy: 38.50
+        bus:
+          logloss: !!null
+          accuracy: 47.99
+        metro:
+          logloss: !!null
+          accuracy: 36.93
+        metro_station:
+          logloss: !!null
+          accuracy: 43.71
+        park:
+          logloss: !!null
+          accuracy: 65.43
+        public_square:
+          logloss: !!null
+          accuracy: 27.05
+        shopping_mall:
+          logloss: !!null
+          accuracy: 52.46
+        street_pedestrian:
+          logloss: !!null
+          accuracy: 31.82
+        street_traffic:
+          logloss: !!null
+          accuracy: 72.64
+        tram:
+          logloss: !!null
+          accuracy: 36.41
+
+      # Device-wise
+      device_wise:
+        a:
+          logloss: !!null
+          accuracy: 57.84                        
+        b:
+          logloss: !!null
+          accuracy: 48.60
+        c:
+          logloss: !!null
+          accuracy: 51.13
+        s1:
+          logloss: !!null
+          accuracy: 42.16
+        s2:
+          logloss: !!null
+          accuracy: 40.30
+        s3:
+          logloss: !!null
+          accuracy: 46.00
+        s4:
+          logloss: !!null
+          accuracy: 43.13
+        s5:
+          logloss: !!null
+          accuracy: 41.30
+        s6:
+          logloss: !!null
+          accuracy: 37.26
+
+    split_25:  # results on 25% subset
+      # Overall metrics
+      overall:
+        logloss: !!null
+        accuracy: 50.29    # mean of class-wise accuracies
+
+      # Class-wise metrics
+      class_wise:
+        airport:
+          logloss: !!null
+          accuracy: 41.81                           
+        bus:
+          logloss: !!null
+          accuracy: 61.19
+        metro:
+          logloss: !!null
+          accuracy: 38.88
+        metro_station:
+          logloss: !!null
+          accuracy: 40.84
+        park:
+          logloss: !!null
+          accuracy: 69.74
+        public_square:
+          logloss: !!null
+          accuracy: 33.54
+        shopping_mall:
+          logloss: !!null
+          accuracy: 58.84
+        street_pedestrian:
+          logloss: !!null
+          accuracy: 30.31
+        street_traffic:
+          logloss: !!null
+          accuracy: 75.93
+        tram:
+          logloss: !!null
+          accuracy: 51.77
+
+      # Device-wise
+      device_wise:
+        a:
+          logloss: !!null
+          accuracy: 62.27                        
+        b:
+          logloss: !!null
+          accuracy: 53.27
+        c:
+          logloss: !!null
+          accuracy: 55.39
+        s1:
+          logloss: !!null
+          accuracy: 47.52
+        s2:
+          logloss: !!null
+          accuracy: 46.68
+        s3:
+          logloss: !!null
+          accuracy: 51.59
+        s4:
+          logloss: !!null
+          accuracy: 47.39
+        s5:
+          logloss: !!null
+          accuracy: 46.75
+        s6:
+          logloss: !!null
+          accuracy: 41.75
+
+    split_50: # results on 50% subset
+      # Overall metrics
+      overall:
+        logloss: !!null
+        accuracy: 53.19    # mean of class-wise accuracies
+
+      # Class-wise metrics
+      class_wise:
+        airport:
+          logloss: !!null
+          accuracy: 41.51                         
+        bus:
+          logloss: !!null
+          accuracy: 63.23
+        metro:
+          logloss: !!null
+          accuracy: 43.37
+        metro_station:
+          logloss: !!null
+          accuracy: 48.71
+        park:
+          logloss: !!null
+          accuracy: 72.55
+        public_square:
+          logloss: !!null
+          accuracy: 34.25
+        shopping_mall:
+          logloss: !!null
+          accuracy: 60.09
+        street_pedestrian:
+          logloss: !!null
+          accuracy: 37.26
+        street_traffic:
+          logloss: !!null
+          accuracy: 79.71
+        tram:
+          logloss: !!null
+          accuracy: 51.16
+
+      # Device-wise
+      device_wise:
+        a:
+          logloss: !!null
+          accuracy: 65.39                        
+        b:
+          logloss: !!null
+          accuracy: 56.30
+        c:
+          logloss: !!null
+          accuracy: 57.23
+        s1:
+          logloss: !!null
+          accuracy: 52.99
+        s2:
+          logloss: !!null
+          accuracy: 50.85
+        s3:
+          logloss: !!null
+          accuracy: 54.78
+        s4:
+          logloss: !!null
+          accuracy: 48.35
+        s5:
+          logloss: !!null
+          accuracy: 47.93
+        s6:
+          logloss: !!null
+          accuracy: 44.90
+
+    split_100:  # results on 100% subset
+      # Overall metrics
+      overall:
+        logloss: !!null
+        accuracy: 56.99    # mean of class-wise accuracies
+
+      # Class-wise metrics
+      class_wise:
+        airport:
+          logloss: !!null
+          accuracy: 46.45
+        bus:
+          logloss: !!null
+          accuracy: 72.95
+        metro:
+          logloss: !!null
+          accuracy: 52.86
+        metro_station:
+          logloss: !!null
+          accuracy: 41.56
+        park:
+          logloss: !!null
+          accuracy: 76.11
+        public_square:
+          logloss: !!null
+          accuracy: 37.07
+        shopping_mall:
+          logloss: !!null
+          accuracy: 66.91
+        street_pedestrian:
+          logloss: !!null
+          accuracy: 38.73
+        street_traffic:
+          logloss: !!null
+          accuracy: 80.66
+        tram:
+          logloss: !!null
+          accuracy: 56.58
+
+      # Device-wise
+      device_wise:
+        a:
+          logloss: !!null
+          accuracy: 67.17                        
+        b:
+          logloss: !!null
+          accuracy: 59.67
+        c:
+          logloss: !!null
+          accuracy: 61.99
+        s1:
+          logloss: !!null
+          accuracy: 56.28
+        s2:
+          logloss: !!null
+          accuracy: 55.69
+        s3:
+          logloss: !!null
+          accuracy: 58.16
+        s4:
+          logloss: !!null
+          accuracy: 53.05
+        s5:
+          logloss: !!null
+          accuracy: 52.35
+        s6:
+          logloss: !!null
+          accuracy: 48.58
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<h2 id="package-validator">Package validator</h2>
+<p>There is an automatic validation tool to help challenge participants to prepare a correctly formatted submission package, which in turn will speed up the submission processing in the challenge evaluation stage. Please use it to make sure your submission package follows the given formatting. </p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/toni-heittola/dcase2024_task1_submission_validator" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/toni-heittola/dcase2024_task1_submission_validator" target="_blank">
+<span style="font-size:20px;">DCASE2024 Task 1 <strong>submission validator</strong> <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<h1 id="tools">Tools</h1>
+<p><a name="tools"></a></p>
+<h2 id="nessi---calculating-memory-size-of-the-model-parameters-and-macs">NeSsi - Calculating memory size of the model parameters and MACS</h2>
+<p><a name="model-size-calculation"></a></p>
+<p>In Pytorch, one can use the <a href="https://github.com/TylerYep/torchinfo">torchinfo</a> tool to get model parameters per layers. In Keras, there is a built-in method <a href="https://www.tensorflow.org/api_docs/python/tf/keras/Model#summary"><code>summary</code></a> for this. Based on the <strong>parameter counts</strong> provided by these tools and taking into account the <strong>variable types</strong> you used in your model you can calculate the memory size of the model parameters (see previous examples).</p>
+<p>The script offers the possibility for calculating the <strong>MACS</strong> and the <strong>model size</strong> for Keras and PyTorch based models. This tool will give the model MACS and parameter count ("memory" field in the NeSsi output) for the inputted model. Based on the parameter count value and the used variable type you can calculate the memory size of the model parameters.</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/AlbertoAncilotto/NeSsi" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/AlbertoAncilotto/NeSsi" target="_blank">
+<span style="font-size:20px;">NeSsi, Keras/Pytorch neural network size, operations and parameters counter <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<p>If you have any issues using NeSsi, please contact Florian Schmid (florian.schmid@jku.at) by email or use the DCASE community forum or Slack channel.</p>
+<p><br/></p>
+<h2 id="package-validator-1">Package validator</h2>
+<p><a name="package-validator"></a></p>
+<p>An automatic submission package validation tool will be made available together with the evaluation data.</p>
+<p><br/></p>
+<h1 id="citation">Citation</h1>
+<p>If you are using the <strong>audio dataset</strong>, please cite the following paper:</p>
+<div class="btex-item" data-item="Heittola2020" data-source="content/data/challenge2023/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Heittola2020"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Toni Heittola, Annamaria Mesaros, and Tuomas Virtanen.
+<em>Acoustic scene classification in dcase 2020 challenge: generalization across devices and low complexity solutions.</em>
+In Proceedings of the Detection and Classification of Acoustic Scenes and Events 2020 Workshop (DCASE2020), 56–60. 2020.
+URL: <a href="https://arxiv.org/abs/2005.14623">https://arxiv.org/abs/2005.14623</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexHeittola2020645d7ac94b8c4a1c86bb22c407202352" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/2005.14623" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseHeittola2020645d7ac94b8c4a1c86bb22c407202352" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseHeittola2020645d7ac94b8c4a1c86bb22c407202352" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingHeittola2020645d7ac94b8c4a1c86bb22c407202352" class="panel-collapse collapse" id="collapseHeittola2020645d7ac94b8c4a1c86bb22c407202352" role="tabpanel">
+<h4>Acoustic scene classification in DCASE 2020 Challenge: generalization across devices and low complexity solutions</h4>
+<h5>Abstract</h5>
+<p class="text-justify">This paper presents the details of Task 1: Acoustic Scene Classification in the DCASE 2020 Challenge. The task consists of two subtasks: classification of data from multiple devices, requiring good generalization properties, and classification using low-complexity solutions. Here we describe the datasets and baseline systems. After the challenge submission deadline, challenge results and analysis of the submissions will be added.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexHeittola2020645d7ac94b8c4a1c86bb22c407202352" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/2005.14623" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexHeittola2020645d7ac94b8c4a1c86bb22c407202352label" class="modal fade" id="bibtexHeittola2020645d7ac94b8c4a1c86bb22c407202352" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexHeittola2020645d7ac94b8c4a1c86bb22c407202352label">Acoustic scene classification in DCASE 2020 Challenge: generalization across devices and low complexity solutions</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Heittola2020,
+    author = "Heittola, Toni and Mesaros, Annamaria and Virtanen, Tuomas",
+    title = "Acoustic scene classification in DCASE 2020 Challenge: generalization across devices and low complexity solutions",
+    booktitle = "Proceedings of the Detection and Classification of Acoustic Scenes and Events 2020 Workshop (DCASE2020)",
+    year = "2020",
+    pages = "56--60",
+    abstract = "This paper presents the details of Task 1: Acoustic Scene Classification in the DCASE 2020 Challenge. The task consists of two subtasks: classification of data from multiple devices, requiring good generalization properties, and classification using low-complexity solutions. Here we describe the datasets and baseline systems. After the challenge submission deadline, challenge results and analysis of the submissions will be added.",
+    url = "https://arxiv.org/abs/2005.14623"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<p>If you are <strong>participating in the task</strong>, please cite the following paper:</p>
+<div class="btex-item" data-item="Schmid2024" data-source="content/data/challenge2024/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Schmid2024"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Florian Schmid, Paul Primus, Toni Heittola, Annamaria Mesaros, Irene Martín-Morató, Khaled Koutini, and Gerhard Widmer.
+<em>Data-efficient low-complexity acoustic scene classification in the dcase 2024 challenge.</em>
+2024.
+URL: <a href="https://arxiv.org/abs/1706.10006">https://arxiv.org/abs/1706.10006</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexSchmid2024f5e94a80697e4bc2bd80f188a2a3a921" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/2405.10018" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseSchmid2024f5e94a80697e4bc2bd80f188a2a3a921" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseSchmid2024f5e94a80697e4bc2bd80f188a2a3a921" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingSchmid2024f5e94a80697e4bc2bd80f188a2a3a921" class="panel-collapse collapse" id="collapseSchmid2024f5e94a80697e4bc2bd80f188a2a3a921" role="tabpanel">
+<h4>Data-Efficient Low-Complexity Acoustic Scene Classification in the DCASE 2024 Challenge</h4>
+<h5>Abstract</h5>
+<p class="text-justify">This article describes the Data-Efficient Low-Complexity Acoustic Scene Classification Task in the DCASE 2024 Challenge and the corresponding baseline system. The task setup is a continuation of previous editions (2022 and 2023), which focused on recording device mismatches and low-complexity constraints. This year's edition introduces an additional real-world problem: participants must develop data-efficient systems for five scenarios, which progressively limit the available training data. The provided baseline system is based on an efficient, factorized CNN architecture constructed from inverted residual blocks and uses Freq-MixStyle to tackle the device mismatch problem. The baseline system's accuracy ranges from 42.40% on the smallest to 56.99% on the largest training set.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexSchmid2024f5e94a80697e4bc2bd80f188a2a3a921" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/2405.10018" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexSchmid2024f5e94a80697e4bc2bd80f188a2a3a921label" class="modal fade" id="bibtexSchmid2024f5e94a80697e4bc2bd80f188a2a3a921" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexSchmid2024f5e94a80697e4bc2bd80f188a2a3a921label">Data-Efficient Low-Complexity Acoustic Scene Classification in the DCASE 2024 Challenge</h4>
+</div>
+<div class="modal-body">
+<pre>@misc{Schmid2024,
+    author = "Schmid, Florian and Primus, Paul and Heittola, Toni and Mesaros, Annamaria and Martín-Morató, Irene and Koutini, Khaled and Widmer, Gerhard",
+    title = "Data-Efficient Low-Complexity Acoustic Scene Classification in the DCASE 2024 Challenge",
+    publisher = "arXiv",
+    year = "2024",
+    abstract = "This article describes the Data-Efficient Low-Complexity Acoustic Scene Classification Task in the DCASE 2024 Challenge and the corresponding baseline system. The task setup is a continuation of previous editions (2022 and 2023), which focused on recording device mismatches and low-complexity constraints. This year's edition introduces an additional real-world problem: participants must develop data-efficient systems for five scenarios, which progressively limit the available training data. The provided baseline system is based on an efficient, factorized CNN architecture constructed from inverted residual blocks and uses Freq-MixStyle to tackle the device mismatch problem. The baseline system's accuracy ranges from 42.40\% on the smallest to 56.99\% on the largest training set.",
+    url = "https://arxiv.org/abs/1706.10006"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<p>If you are using/ referencing the <strong>baseline system</strong>, please cite the following paper:</p>
+<div class="btex-item" data-item="Schmid2023" data-source="content/data/challenge2024/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Schmid2023"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Florian Schmid, Tobias Morocutti, Shahed Masoudian, Khaled Koutini, and Gerhard Widmer.
+<em>Distilling the knowledge of transformers and CNNs with CP-mobile.</em>
+In Proceedings of the Detection and Classification of Acoustic Scenes and Events 2023 Workshop (DCASE2023), 161–165. 2023.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexSchmid2023371b8317833d47718c4bf78b1da7b711" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://dcase.community/documents/workshop2023/proceedings/DCASE2023Workshop_Schmid_1.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseSchmid2023371b8317833d47718c4bf78b1da7b711" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseSchmid2023371b8317833d47718c4bf78b1da7b711" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingSchmid2023371b8317833d47718c4bf78b1da7b711" class="panel-collapse collapse" id="collapseSchmid2023371b8317833d47718c4bf78b1da7b711" role="tabpanel">
+<h4>Distilling the Knowledge of Transformers and CNNs with CP-Mobile</h4>
+<h5>Abstract</h5>
+<p class="text-justify">Designing lightweight models that require limited computational resources and can operate on edge devices is a major trajectory in deep learning research. In the context of Acoustic Scene Classification (ASC), the DCASE community hosts an annual challenge on low-complexity ASC, contributing to the research on Knowledge Distillation (KD), Model Pruning, Quantization and efficient neural network design. In this work, we propose a system that contributes to the latter by introducing CP-Mobile, a lightweight CNN architecture constructed of residual inverted bottleneck blocks and Global Response Normalization. Furthermore, we improve Knowledge Distillation by showing that ensembling CNNs and Audio Spectrogram Transformers form strong teacher ensembles. Our proposed system improves the results on the TAU Urban Acoustic Scenes 2022 Mobile development dataset by around 5 percentage points in accuracy compared to the top-ranked submission for Task 1 of the DCASE 22 challenge and achieves the top rank in the DCASE 23 challenge.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexSchmid2023371b8317833d47718c4bf78b1da7b711" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://dcase.community/documents/workshop2023/proceedings/DCASE2023Workshop_Schmid_1.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexSchmid2023371b8317833d47718c4bf78b1da7b711label" class="modal fade" id="bibtexSchmid2023371b8317833d47718c4bf78b1da7b711" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexSchmid2023371b8317833d47718c4bf78b1da7b711label">Distilling the Knowledge of Transformers and CNNs with CP-Mobile</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Schmid2023,
+    author = "Schmid, Florian and Morocutti, Tobias and Masoudian, Shahed and Koutini, Khaled and Widmer, Gerhard",
+    title = "Distilling the Knowledge of Transformers and {CNNs} with {CP}-Mobile",
+    booktitle = "Proceedings of the Detection and Classification of Acoustic Scenes and Events 2023 Workshop (DCASE2023)",
+    year = "2023",
+    pages = "161--165",
+    abstract = "Designing lightweight models that require limited computational resources and can operate on edge devices is a major trajectory in deep learning research. In the context of Acoustic Scene Classification (ASC), the DCASE community hosts an annual challenge on low-complexity ASC, contributing to the research on Knowledge Distillation (KD), Model Pruning, Quantization and efficient neural network design. In this work, we propose a system that contributes to the latter by introducing CP-Mobile, a lightweight CNN architecture constructed of residual inverted bottleneck blocks and Global Response Normalization. Furthermore, we improve Knowledge Distillation by showing that ensembling CNNs and Audio Spectrogram Transformers form strong teacher ensembles. Our proposed system improves the results on the TAU Urban Acoustic Scenes 2022 Mobile development dataset by around 5 percentage points in accuracy compared to the top-ranked submission for Task 1 of the DCASE 22 challenge and achieves the top rank in the DCASE 23 challenge."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

@@ -1,0 +1,4271 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Sound event detection in real life audio - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Sound event detection in real life audio - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2017/task-sound-event-detection-in-real-life-audio-results">
+    <meta property="og:url" content="https://dcase.community/challenge2017/task-sound-event-detection-in-real-life-audio-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="Toni Heittola" />
+    <meta name="description" content="Task description This task evaluated performance of the sound event detection systems in multisource conditions similar to our everyday life, where the sound sources are rarely heard in isolation. The participants used 1 hour and 32 minutes of audio in 24 recordings to train their systems. The challenge evaluation was …" />
+    <meta name="og:description" content="Task description This task evaluated performance of the..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btex.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2017</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2017/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2017/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2017/task-rare-sound-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-alarm text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-rare-sound-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-rare-sound-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2017/task-sound-event-detection-in-real-life-audio" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-events text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-sound-event-detection-in-real-life-audio"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-sound-event-detection-in-real-life-audio-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2017/task-large-scale-sound-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-large-scale-sound-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-large-scale-sound-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Download data">
+        <a href="http://localhost:3000/challenge2017/download"><i class="fa fa-download"></i>&nbsp;Download</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2017/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2017/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge organizers">
+        <a href="http://localhost:3000/challenge2017/organizers"><i class="fa fa-users"></i>&nbsp;Organizers</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/wall-granada-02.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-warning"></i><i class="fa dc-events fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text">Events</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 3</span></span><img src="../images/logos/dcase/dcase2017_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Sound event detection <br>in real life audio</h1><hr class="small right bold"><span class="subheading">Challenge results</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#task-description">Task description</a></li>
+<li><a href="#challenge-results">Challenge results</a>
+<ul>
+<li><a href="#systems-ranking">Systems ranking</a></li>
+<li><a href="#teams-ranking">Teams ranking</a></li>
+<li><a href="#class-wise-performance">Class-wise performance</a></li>
+</ul>
+</li>
+<li><a href="#system-characteristics">System characteristics</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h2 id="task-description">Task description</h2>
+<p>This task evaluated performance of the sound event detection systems in multisource conditions similar to our everyday life, where the sound sources are rarely heard in isolation. The participants used 1 hour and 32 minutes of audio in 24 recordings to train their systems. The challenge evaluation was done using 29 minutes of audio in 8 recordings.</p>
+<p>More detailed task description can be found in the <a class="btn btn-primary" href="http://localhost:3000/challenge2017/task-sound-event-detection-in-real-life-audio">task description page</a></p>
+<h2 id="challenge-results">Challenge results</h2>
+<p>Detailed description of metrics used can be found <a href="http://localhost:3000/challenge2017/metrics">here</a>.</p>
+<p>System outputs:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/2598364" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/2598364" target="_blank">
+<span style="font-size:20px;">DCASE2017 Challenge Submissions Package <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(28.7 MB)</span>
+<br/>
+<a href="http://dx.doi.org/10.5281/zenodo.2598364">
+<img alt="10.5281/zenodo.2598364" src="https://zenodo.org/badge/doi/10.5281/zenodo.2598364.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<h3 id="systems-ranking">Systems ranking</h3>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="segment_based_ER_overall_eval" data-scatter-y="segment_based_F1_overall_eval" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="segment_based_ER_overall_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="2">Segment-based <br/>(overall / evaluation dataset)</th>
+<th class="sep-left-cell text-center" colspan="2">Segment-based <br/>(overall / development dataset)</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(overall / evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(overall / evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_overall_dev" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(overall / development dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_F1_overall_dev" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(overall / development dataset)</small>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task3_1</td>
+<td>Ash_1</td>
+<td>0.7914</td>
+<td>41.7</td>
+<td>0.2500</td>
+<td>79.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task3_2</td>
+<td>Ash_2</td>
+<td>0.8061</td>
+<td>42.9</td>
+<td>0.2400</td>
+<td>79.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task3_3</td>
+<td>Ash_3</td>
+<td>0.8544</td>
+<td>41.4</td>
+<td>0.2000</td>
+<td>80.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task3_4</td>
+<td>Ash_4</td>
+<td>0.8716</td>
+<td>36.2</td>
+<td>0.2400</td>
+<td>76.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Chen2017</td>
+<td>Chen_UR_task3_1</td>
+<td>Chen</td>
+<td>0.8575</td>
+<td>30.9</td>
+<td>0.8100</td>
+<td>37.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task3_1</td>
+<td>andang3</td>
+<td>0.9529</td>
+<td>42.6</td>
+<td>0.5900</td>
+<td>55.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task3_2</td>
+<td>andang3</td>
+<td>0.9468</td>
+<td>42.8</td>
+<td>0.5900</td>
+<td>55.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task3_3</td>
+<td>andang3</td>
+<td>1.0318</td>
+<td>44.2</td>
+<td>0.5900</td>
+<td>55.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task3_4</td>
+<td>andang3</td>
+<td>1.1028</td>
+<td>43.5</td>
+<td>0.6200</td>
+<td>53.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Feroze2017</td>
+<td>Feroze_IST_task3_1</td>
+<td>Khizer</td>
+<td>1.0942</td>
+<td>42.6</td>
+<td>0.7600</td>
+<td>47.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Feroze2017</td>
+<td>Feroze_IST_task3_2</td>
+<td>Khizer</td>
+<td>1.0312</td>
+<td>39.7</td>
+<td>0.7600</td>
+<td>47.4</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Heittola2017</td>
+<td>DCASE2017 baseline</td>
+<td>Baseline</td>
+<td>0.9358</td>
+<td>42.8</td>
+<td>0.6900</td>
+<td>56.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Hou2017</td>
+<td>Hou_BUPT_task3_1</td>
+<td>MMS_HYB</td>
+<td>1.0446</td>
+<td>29.3</td>
+<td>0.6000</td>
+<td>58.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Hou2017</td>
+<td>Hou_BUPT_task3_2</td>
+<td>BGRU_HYB</td>
+<td>0.9248</td>
+<td>34.1</td>
+<td>0.6600</td>
+<td>53.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Kroos2017</td>
+<td>Kroos_CVSSP_task3_1</td>
+<td>J-NEAT-E</td>
+<td>0.8979</td>
+<td>44.9</td>
+<td>0.7300</td>
+<td>49.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Kroos2017</td>
+<td>Kroos_CVSSP_task3_2</td>
+<td>J-NEAT-P</td>
+<td>0.8911</td>
+<td>41.6</td>
+<td>0.7200</td>
+<td>50.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Kroos2017</td>
+<td>Kroos_CVSSP_task3_3</td>
+<td>SLFFN</td>
+<td>1.0141</td>
+<td>43.8</td>
+<td>0.6900</td>
+<td>56.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Jeong2017</td>
+<td>Lee_SNU_task3_1</td>
+<td>MICNN_1</td>
+<td>0.9260</td>
+<td>42.0</td>
+<td>0.5100</td>
+<td>67.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Jeong2017</td>
+<td>Lee_SNU_task3_2</td>
+<td>MICNN_2</td>
+<td>0.8673</td>
+<td>27.9</td>
+<td>0.5100</td>
+<td>67.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Jeong2017</td>
+<td>Lee_SNU_task3_3</td>
+<td>MICNN_3</td>
+<td>0.8080</td>
+<td>40.8</td>
+<td>0.5100</td>
+<td>67.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Jeong2017</td>
+<td>Lee_SNU_task3_4</td>
+<td>MICNN_4</td>
+<td>0.8985</td>
+<td>43.6</td>
+<td>0.5100</td>
+<td>67.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task3_1</td>
+<td>LiSCUTt3_1</td>
+<td>0.9920</td>
+<td>40.3</td>
+<td>0.7100</td>
+<td>55.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task3_2</td>
+<td>LiSCUTt3_2</td>
+<td>0.9523</td>
+<td>41.0</td>
+<td>0.6900</td>
+<td>54.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task3_3</td>
+<td>LiSCUTt3_3</td>
+<td>1.0043</td>
+<td>43.4</td>
+<td>0.7100</td>
+<td>55.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task3_4</td>
+<td>LiSCUTt3_4</td>
+<td>0.9878</td>
+<td>33.9</td>
+<td>0.7100</td>
+<td>52.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Lu2017</td>
+<td>Lu_THU_task3_1</td>
+<td>bigru_da</td>
+<td>0.8251</td>
+<td>39.6</td>
+<td>0.6100</td>
+<td>56.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Lu2017</td>
+<td>Lu_THU_task3_2</td>
+<td>bigru_da</td>
+<td>0.8306</td>
+<td>39.2</td>
+<td>0.6100</td>
+<td>56.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Lu2017</td>
+<td>Lu_THU_task3_3</td>
+<td>bigru_da</td>
+<td>0.8361</td>
+<td>38.0</td>
+<td>0.6100</td>
+<td>56.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Lu2017</td>
+<td>Lu_THU_task3_4</td>
+<td>bigru_da</td>
+<td>0.8373</td>
+<td>38.3</td>
+<td>0.6100</td>
+<td>56.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang2017</td>
+<td>Wang_NTHU_task3_1</td>
+<td>NTHU_AHG</td>
+<td>0.9749</td>
+<td>40.8</td>
+<td>0.7700</td>
+<td>43.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Xia2017</td>
+<td>Xia_UWA_task3_1</td>
+<td>UWA_T3_1</td>
+<td>0.9523</td>
+<td>43.5</td>
+<td>0.6600</td>
+<td>56.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Xia2017</td>
+<td>Xia_UWA_task3_2</td>
+<td>UWA_T3_1</td>
+<td>0.9437</td>
+<td>41.1</td>
+<td>0.6500</td>
+<td>56.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Xia2017</td>
+<td>Xia_UWA_task3_3</td>
+<td>UWA_T3_1</td>
+<td>0.8740</td>
+<td>41.7</td>
+<td>0.6400</td>
+<td>56.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Yu2017</td>
+<td><a href="javascript:void(0);" title="The system was re-submitted after the deadline. The revised submission yielded substantially lower ER, with the difference in performance attributed to a software bug in the original submission. More details can be found in the technical report.">Yu_FZU_task3_1<sup>*</sup></a></td>
+<td>DRF</td>
+<td>1.1963</td>
+<td>3.9</td>
+<td>0.8200</td>
+<td>38.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhou2017</td>
+<td>Zhou_PKU_task3_1</td>
+<td>MC-LSTM-1</td>
+<td>0.8526</td>
+<td>39.1</td>
+<td>0.6600</td>
+<td>54.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhou2017</td>
+<td>Zhou_PKU_task3_2</td>
+<td>MC-LSTM-2</td>
+<td>0.8526</td>
+<td>37.3</td>
+<td>0.6400</td>
+<td>54.4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="teams-ranking">Teams ranking</h3>
+<p>Table including only the best performing system per submitting team.</p>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="segment_based_ER_overall_eval" data-scatter-y="segment_based_F1_overall_eval" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="segment_based_ER_overall_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="2">Segment-based <br/>(overall / evaluation dataset)</th>
+<th class="sep-left-cell text-center" colspan="2">Segment-based <br/>(overall / development dataset)</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(overall / evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(overall / evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_overall_dev" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(overall / development dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_F1_overall_dev" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(overall / development dataset)</small>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task3_1</td>
+<td>Ash_1</td>
+<td>0.7914</td>
+<td>41.7</td>
+<td>0.2500</td>
+<td>79.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Chen2017</td>
+<td>Chen_UR_task3_1</td>
+<td>Chen</td>
+<td>0.8575</td>
+<td>30.9</td>
+<td>0.8100</td>
+<td>37.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task3_2</td>
+<td>andang3</td>
+<td>0.9468</td>
+<td>42.8</td>
+<td>0.5900</td>
+<td>55.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Feroze2017</td>
+<td>Feroze_IST_task3_2</td>
+<td>Khizer</td>
+<td>1.0312</td>
+<td>39.7</td>
+<td>0.7600</td>
+<td>47.4</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Heittola2017</td>
+<td>DCASE2017 baseline</td>
+<td>Baseline</td>
+<td>0.9358</td>
+<td>42.8</td>
+<td>0.6900</td>
+<td>56.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Hou2017</td>
+<td>Hou_BUPT_task3_2</td>
+<td>BGRU_HYB</td>
+<td>0.9248</td>
+<td>34.1</td>
+<td>0.6600</td>
+<td>53.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Kroos2017</td>
+<td>Kroos_CVSSP_task3_2</td>
+<td>J-NEAT-P</td>
+<td>0.8911</td>
+<td>41.6</td>
+<td>0.7200</td>
+<td>50.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Jeong2017</td>
+<td>Lee_SNU_task3_3</td>
+<td>MICNN_3</td>
+<td>0.8080</td>
+<td>40.8</td>
+<td>0.5100</td>
+<td>67.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task3_2</td>
+<td>LiSCUTt3_2</td>
+<td>0.9523</td>
+<td>41.0</td>
+<td>0.6900</td>
+<td>54.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Lu2017</td>
+<td>Lu_THU_task3_1</td>
+<td>bigru_da</td>
+<td>0.8251</td>
+<td>39.6</td>
+<td>0.6100</td>
+<td>56.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang2017</td>
+<td>Wang_NTHU_task3_1</td>
+<td>NTHU_AHG</td>
+<td>0.9749</td>
+<td>40.8</td>
+<td>0.7700</td>
+<td>43.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Xia2017</td>
+<td>Xia_UWA_task3_3</td>
+<td>UWA_T3_1</td>
+<td>0.8740</td>
+<td>41.7</td>
+<td>0.6400</td>
+<td>56.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Yu2017</td>
+<td><a href="javascript:void(0);" title="The system was re-submitted after the deadline. The revised submission yielded substantially lower ER, with the difference in performance attributed to a software bug in the original submission. More details can be found in the technical report.">Yu_FZU_task3_1<sup>*</sup></a></td>
+<td>DRF</td>
+<td>1.1963</td>
+<td>3.9</td>
+<td>0.8200</td>
+<td>38.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhou2017</td>
+<td>Zhou_PKU_task3_1</td>
+<td>MC-LSTM-1</td>
+<td>0.8526</td>
+<td>39.1</td>
+<td>0.6600</td>
+<td>54.5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="class-wise-performance">Class-wise performance</h3>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="off" data-chart-modes="bar,scatter,comparison" data-comparison-a-row="DCASE2017 baseline" data-comparison-active-set="Class-wise performance (ER)" data-comparison-b-row="Adavanne_TUT_task1_1" data-comparison-row-id-field="code" data-comparison-sets="Class-wise performance (ER):ER:segment_based_ER_class_brakes_squeaking_eval#Brakes squeaking;segment_based_ER_class_car_eval#Car;segment_based_ER_class_children_eval#Children;segment_based_ER_class_large_vehicle_eval#Large vehicle;segment_based_ER_class_people_speaking_eval#People speaking;segment_based_ER_class_people_walking_eval#People walking,
+Class-wise performance (F1):F1:segment_based_F1_class_brakes_squeaking_eval#Brakes squeaking;segment_based_F1_class_car_eval#Car;segment_based_F1_class_children_eval#Children;segment_based_F1_class_large_vehicle_eval#Large vehicle;segment_based_F1_class_people_speaking_eval#People speaking;segment_based_F1_class_people_walking_eval#People walking" data-comparison-sets-json='[
+    {"title": "Class-wise performance (ER)",
+    "data_axis_title": "ER",
+    "fields": ["segment_based_ER_class_brakes_squeaking_eval","segment_based_ER_class_car_eval","segment_based_ER_class_children_eval","segment_based_ER_class_large_vehicle_eval","segment_based_ER_class_people_speaking_eval","segment_based_ER_class_people_walking_eval"],
+    "field_titles": ["Brakes squeaking","Car","Children","Large vehicle","People speaking","People walking"]
+    },
+    {"title": "Class-wise performance (F1)",
+    "data_axis_title": "F1",
+    "fields": ["segment_based_F1_class_brakes_squeaking_eval","segment_based_F1_class_car_eval","segment_based_F1_class_children_eval","segment_based_F1_class_large_vehicle_eval","segment_based_F1_class_people_speaking_eval","segment_based_F1_class_people_walking_eval"],
+    "field_titles": ["Brakes squeaking","Car","Children","Large vehicle","People speaking","People walking"]
+    }]' data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="segment_based_ER_class_car_eval" data-scatter-y="segment_based_F1_class_car_eval" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="segment_based_ER_class_car_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="2">Brakes squeking</th>
+<th class="sep-left-cell text-center" colspan="2">Car</th>
+<th class="sep-left-cell text-center" colspan="2">Children</th>
+<th class="sep-left-cell text-center" colspan="2">Large vehicle</th>
+<th class="sep-left-cell text-center" colspan="2">People speaking</th>
+<th class="sep-left-cell text-center" colspan="2">People walking</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_brakes_squeaking_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Brakes squeaking (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_class_brakes_squeaking_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Brakes squeaking (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_car_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Car (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_class_car_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Car (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_children_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Children (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_class_children_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Children (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_large_vehicle_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Large vehicle (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_class_large_vehicle_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Large vehicle (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_people_speaking_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ People speaking (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_class_people_speaking_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ People speaking (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_people_walking_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ People walking (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_class_people_walking_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ People walking (eval/seg)</small>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task3_1</td>
+<td>Ash_1</td>
+<td>1.0000</td>
+<td></td>
+<td>0.7674</td>
+<td>54.6</td>
+<td>1.2000</td>
+<td>0.0</td>
+<td>1.0678</td>
+<td>49.3</td>
+<td>1.0408</td>
+<td>0.0</td>
+<td>1.0331</td>
+<td>38.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task3_2</td>
+<td>Ash_2</td>
+<td>0.9773</td>
+<td>4.4</td>
+<td>0.7674</td>
+<td>54.7</td>
+<td>2.8000</td>
+<td>0.0</td>
+<td>1.4181</td>
+<td>45.3</td>
+<td>1.2367</td>
+<td>1.9</td>
+<td>0.8398</td>
+<td>52.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task3_3</td>
+<td>Ash_3</td>
+<td>1.0000</td>
+<td></td>
+<td>0.7758</td>
+<td>52.0</td>
+<td>3.2667</td>
+<td>0.0</td>
+<td>1.4576</td>
+<td>48.0</td>
+<td>1.4286</td>
+<td>3.3</td>
+<td>0.9144</td>
+<td>52.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task3_4</td>
+<td>Ash_4</td>
+<td>1.0000</td>
+<td></td>
+<td>0.8496</td>
+<td>51.4</td>
+<td>1.0000</td>
+<td></td>
+<td>1.4011</td>
+<td>37.7</td>
+<td>1.0000</td>
+<td></td>
+<td>1.5580</td>
+<td>28.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Chen2017</td>
+<td>Chen_UR_task3_1</td>
+<td>Chen</td>
+<td>1.0000</td>
+<td></td>
+<td>0.8538</td>
+<td>51.8</td>
+<td>1.0000</td>
+<td></td>
+<td>0.9887</td>
+<td>14.6</td>
+<td>1.0082</td>
+<td>0.0</td>
+<td>1.0663</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task3_1</td>
+<td>andang3</td>
+<td>0.8409</td>
+<td>27.5</td>
+<td>0.8022</td>
+<td>59.1</td>
+<td>1.2667</td>
+<td>6.6</td>
+<td>1.8079</td>
+<td>33.6</td>
+<td>1.0980</td>
+<td>21.1</td>
+<td>1.8287</td>
+<td>35.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task3_2</td>
+<td>andang3</td>
+<td>0.8182</td>
+<td>30.8</td>
+<td>0.8036</td>
+<td>59.0</td>
+<td>1.2000</td>
+<td>6.9</td>
+<td>1.8079</td>
+<td>32.8</td>
+<td>1.1102</td>
+<td>22.3</td>
+<td>1.7928</td>
+<td>35.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task3_3</td>
+<td>andang3</td>
+<td>0.7045</td>
+<td>46.6</td>
+<td>0.8482</td>
+<td>59.4</td>
+<td>1.2000</td>
+<td>18.2</td>
+<td>2.3785</td>
+<td>31.5</td>
+<td>1.1265</td>
+<td>36.4</td>
+<td>1.9503</td>
+<td>34.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task3_4</td>
+<td>andang3</td>
+<td>0.9318</td>
+<td>12.8</td>
+<td>0.7187</td>
+<td>65.2</td>
+<td>2.5111</td>
+<td>1.7</td>
+<td>1.6836</td>
+<td>42.0</td>
+<td>1.9020</td>
+<td>21.8</td>
+<td>2.1381</td>
+<td>34.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Feroze2017</td>
+<td>Feroze_IST_task3_1</td>
+<td>Khizer</td>
+<td>0.7955</td>
+<td>37.5</td>
+<td>0.7479</td>
+<td>61.8</td>
+<td>4.0889</td>
+<td>0.0</td>
+<td>2.0000</td>
+<td>43.3</td>
+<td>1.9592</td>
+<td>14.3</td>
+<td>1.5166</td>
+<td>39.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Feroze2017</td>
+<td>Feroze_IST_task3_2</td>
+<td>Khizer</td>
+<td>0.8750</td>
+<td>25.2</td>
+<td>0.7618</td>
+<td>58.1</td>
+<td>3.6222</td>
+<td>0.0</td>
+<td>1.8023</td>
+<td>43.7</td>
+<td>1.8204</td>
+<td>10.4</td>
+<td>1.4171</td>
+<td>35.1</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Heittola2017</td>
+<td>DCASE2017 baseline</td>
+<td>Baseline</td>
+<td>0.9205</td>
+<td>16.5</td>
+<td>0.7674</td>
+<td>61.5</td>
+<td>2.6667</td>
+<td>0.0</td>
+<td>1.4407</td>
+<td>42.7</td>
+<td>1.2980</td>
+<td>8.6</td>
+<td>1.4448</td>
+<td>33.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Hou2017</td>
+<td>Hou_BUPT_task3_1</td>
+<td>MMS_HYB</td>
+<td>0.9886</td>
+<td>2.2</td>
+<td>0.7507</td>
+<td>50.9</td>
+<td>4.8222</td>
+<td>0.0</td>
+<td>1.7571</td>
+<td>36.9</td>
+<td>1.5020</td>
+<td>0.0</td>
+<td>1.1851</td>
+<td>13.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Hou2017</td>
+<td>Hou_BUPT_task3_2</td>
+<td>BGRU_HYB</td>
+<td>1.0000</td>
+<td></td>
+<td>0.9373</td>
+<td>52.7</td>
+<td>2.8889</td>
+<td>0.0</td>
+<td>1.2712</td>
+<td>32.8</td>
+<td>1.1469</td>
+<td>0.0</td>
+<td>1.1657</td>
+<td>16.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Kroos2017</td>
+<td>Kroos_CVSSP_task3_1</td>
+<td>J-NEAT-E</td>
+<td>1.0000</td>
+<td></td>
+<td>0.8677</td>
+<td>62.4</td>
+<td>4.2222</td>
+<td>0.0</td>
+<td>1.0226</td>
+<td>0.0</td>
+<td>1.4163</td>
+<td>14.7</td>
+<td>0.8508</td>
+<td>51.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Kroos2017</td>
+<td>Kroos_CVSSP_task3_2</td>
+<td>J-NEAT-P</td>
+<td>1.0000</td>
+<td></td>
+<td>0.8621</td>
+<td>47.1</td>
+<td>2.7333</td>
+<td>1.6</td>
+<td>1.4463</td>
+<td>43.1</td>
+<td>1.4041</td>
+<td>33.1</td>
+<td>0.9558</td>
+<td>50.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Kroos2017</td>
+<td>Kroos_CVSSP_task3_3</td>
+<td>SLFFN</td>
+<td>0.9545</td>
+<td>8.7</td>
+<td>0.7939</td>
+<td>58.9</td>
+<td>4.1333</td>
+<td>1.1</td>
+<td>1.7458</td>
+<td>42.0</td>
+<td>1.6163</td>
+<td>16.1</td>
+<td>1.1050</td>
+<td>49.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Jeong2017</td>
+<td>Lee_SNU_task3_1</td>
+<td>MICNN_1</td>
+<td>1.0000</td>
+<td></td>
+<td>0.9234</td>
+<td>61.2</td>
+<td>1.0000</td>
+<td></td>
+<td>2.5311</td>
+<td>41.1</td>
+<td>1.1837</td>
+<td>6.5</td>
+<td>1.0138</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Jeong2017</td>
+<td>Lee_SNU_task3_2</td>
+<td>MICNN_2</td>
+<td>1.0000</td>
+<td></td>
+<td>0.9248</td>
+<td>45.5</td>
+<td>1.0000</td>
+<td></td>
+<td>1.3672</td>
+<td>25.8</td>
+<td>1.0000</td>
+<td></td>
+<td>1.0000</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Jeong2017</td>
+<td>Lee_SNU_task3_3</td>
+<td>MICNN_3</td>
+<td>1.0000</td>
+<td></td>
+<td>0.9234</td>
+<td>61.2</td>
+<td>1.0000</td>
+<td></td>
+<td>1.3672</td>
+<td>25.8</td>
+<td>1.0000</td>
+<td>0.8</td>
+<td>1.0000</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Jeong2017</td>
+<td>Lee_SNU_task3_4</td>
+<td>MICNN_4</td>
+<td>1.1023</td>
+<td>7.6</td>
+<td>0.9234</td>
+<td>61.2</td>
+<td>2.7556</td>
+<td>1.6</td>
+<td>1.8983</td>
+<td>45.3</td>
+<td>1.3020</td>
+<td>30.2</td>
+<td>1.0000</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task3_1</td>
+<td>LiSCUTt3_1</td>
+<td>0.9432</td>
+<td>10.8</td>
+<td>0.7591</td>
+<td>60.2</td>
+<td>4.0222</td>
+<td>0.0</td>
+<td>1.7345</td>
+<td>43.3</td>
+<td>1.5224</td>
+<td>7.4</td>
+<td>1.3343</td>
+<td>32.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task3_2</td>
+<td>LiSCUTt3_2</td>
+<td>1.0000</td>
+<td></td>
+<td>0.7019</td>
+<td>62.2</td>
+<td>3.9111</td>
+<td>0.0</td>
+<td>1.4520</td>
+<td>45.4</td>
+<td>1.4082</td>
+<td>8.0</td>
+<td>1.4613</td>
+<td>31.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task3_3</td>
+<td>LiSCUTt3_3</td>
+<td>1.0568</td>
+<td>0.0</td>
+<td>0.6783</td>
+<td>66.9</td>
+<td>3.4889</td>
+<td>0.0</td>
+<td>1.9322</td>
+<td>37.8</td>
+<td>1.4531</td>
+<td>12.7</td>
+<td>1.6685</td>
+<td>34.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task3_4</td>
+<td>LiSCUTt3_4</td>
+<td>1.0682</td>
+<td>17.5</td>
+<td>0.9109</td>
+<td>27.5</td>
+<td>2.5111</td>
+<td>0.0</td>
+<td>1.6723</td>
+<td>43.9</td>
+<td>1.8653</td>
+<td>15.5</td>
+<td>0.8646</td>
+<td>56.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Lu2017</td>
+<td>Lu_THU_task3_1</td>
+<td>bigru_da</td>
+<td>1.0000</td>
+<td></td>
+<td>0.7855</td>
+<td>45.0</td>
+<td>1.0444</td>
+<td>0.0</td>
+<td>1.5424</td>
+<td>33.6</td>
+<td>1.0980</td>
+<td>8.2</td>
+<td>1.0000</td>
+<td>54.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Lu2017</td>
+<td>Lu_THU_task3_2</td>
+<td>bigru_da</td>
+<td>1.0000</td>
+<td></td>
+<td>0.8008</td>
+<td>44.4</td>
+<td>1.0444</td>
+<td>0.0</td>
+<td>1.5876</td>
+<td>33.6</td>
+<td>1.0735</td>
+<td>7.7</td>
+<td>1.0166</td>
+<td>53.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Lu2017</td>
+<td>Lu_THU_task3_3</td>
+<td>bigru_da</td>
+<td>1.0000</td>
+<td></td>
+<td>0.8120</td>
+<td>41.9</td>
+<td>1.0889</td>
+<td>0.0</td>
+<td>1.5424</td>
+<td>33.9</td>
+<td>1.0612</td>
+<td>8.5</td>
+<td>1.0221</td>
+<td>52.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Lu2017</td>
+<td>Lu_THU_task3_4</td>
+<td>bigru_da</td>
+<td>1.0000</td>
+<td></td>
+<td>0.8273</td>
+<td>40.2</td>
+<td>1.0444</td>
+<td>0.0</td>
+<td>1.4802</td>
+<td>34.8</td>
+<td>1.0776</td>
+<td>9.0</td>
+<td>1.0083</td>
+<td>54.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang2017</td>
+<td>Wang_NTHU_task3_1</td>
+<td>NTHU_AHG</td>
+<td>1.0000</td>
+<td></td>
+<td>0.8315</td>
+<td>58.7</td>
+<td>2.4222</td>
+<td>1.8</td>
+<td>2.0678</td>
+<td>22.8</td>
+<td>1.6367</td>
+<td>17.3</td>
+<td>1.3094</td>
+<td>43.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Xia2017</td>
+<td>Xia_UWA_task3_1</td>
+<td>UWA_T3_1</td>
+<td>1.0000</td>
+<td></td>
+<td>0.7604</td>
+<td>59.1</td>
+<td>1.1556</td>
+<td>18.8</td>
+<td>2.1299</td>
+<td>41.9</td>
+<td>1.2408</td>
+<td>17.8</td>
+<td>1.6022</td>
+<td>38.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Xia2017</td>
+<td>Xia_UWA_task3_2</td>
+<td>UWA_T3_1</td>
+<td>1.0000</td>
+<td></td>
+<td>0.7214</td>
+<td>58.1</td>
+<td>3.8000</td>
+<td>0.0</td>
+<td>1.6497</td>
+<td>42.1</td>
+<td>1.5673</td>
+<td>13.1</td>
+<td>1.2265</td>
+<td>43.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Xia2017</td>
+<td>Xia_UWA_task3_3</td>
+<td>UWA_T3_1</td>
+<td>1.0000</td>
+<td></td>
+<td>0.7242</td>
+<td>57.7</td>
+<td>1.0444</td>
+<td>20.3</td>
+<td>1.7797</td>
+<td>40.7</td>
+<td>1.3755</td>
+<td>6.6</td>
+<td>1.3011</td>
+<td>39.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Yu2017</td>
+<td><a href="javascript:void(0);" title="The system was re-submitted after the deadline. The revised submission yielded substantially lower ER, with the difference in performance attributed to a software bug in the original submission. More details can be found in the technical report.">Yu_FZU_task3_1<sup>*</sup></a></td>
+<td>DRF</td>
+<td>1.2159</td>
+<td>0.0</td>
+<td>1.2925</td>
+<td>6.3</td>
+<td>15.6444</td>
+<td>4.6</td>
+<td>1.2938</td>
+<td>1.7</td>
+<td>1.3306</td>
+<td>1.2</td>
+<td>1.0304</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhou2017</td>
+<td>Zhou_PKU_task3_1</td>
+<td>MC-LSTM-1</td>
+<td>1.0455</td>
+<td>0.0</td>
+<td>0.7674</td>
+<td>54.9</td>
+<td>1.1333</td>
+<td>0.0</td>
+<td>1.7345</td>
+<td>37.2</td>
+<td>1.0694</td>
+<td>6.4</td>
+<td>1.2790</td>
+<td>34.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhou2017</td>
+<td>Zhou_PKU_task3_2</td>
+<td>MC-LSTM-2</td>
+<td>1.0227</td>
+<td>0.0</td>
+<td>0.8245</td>
+<td>47.0</td>
+<td>1.5333</td>
+<td>0.0</td>
+<td>1.3220</td>
+<td>49.8</td>
+<td>1.0163</td>
+<td>10.8</td>
+<td>1.3315</td>
+<td>32.7</td>
+</tr>
+</tbody>
+</table>
+<h2 id="system-characteristics">System characteristics</h2>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="off" data-chart-modes="bar,scatter" data-chart-tooltip-fields="code" data-fields="code:Submission&lt;br&gt;&lt;/br&gt;code:str:visible;sortable;sep-left,
+             name:Submission&lt;br&gt;&lt;/br&gt;name:str:visible;sortable;small,
+             anchor:Tech.&lt;br&gt;&lt;/br&gt;Report:anchor:visible;sep-left;text-center,
+             accuracy_eval:Accuracy &lt;br&gt;&lt;/br&gt;(Eval):float:visible;sortable;chartable;sep-left;text-center:percentage,
+             system_input:Input:tag:visible;sortable;filterable;sep-left,
+             system_features:Features:tag:visible;sortable;filterable,
+             system_classifier:Classifier:tag:visible;sortable;filterable" data-filter-control="true" data-filter-show-clear="true" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="segment_based_ER_overall_eval" data-scatter-y="segment_based_F1_overall_eval" data-show-bar-chart-xaxis="true" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="segment_based_ER_overall_eval" data-sort-order="desc" data-striped="true" data-tag-mode="column">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="2">Segment-based (overall)</th>
+<th class="sep-left-cell text-center" colspan="6">System characteristics</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_input" data-filter-control="select" data-sortable="true" data-tag="true">
+                Input
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_sampling_rate" data-filter-control="select" data-sortable="true" data-tag="true">
+                Sampling <br/>rate
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_data_augmentation" data-filter-control="select" data-sortable="true" data-tag="true">
+                Data <br/>augmentation
+            </th>
+<th class="text-center narrow-col" data-field="system_features" data-filter-control="select" data-sortable="true" data-tag="true">
+                Features
+            </th>
+<th class="text-center narrow-col" data-field="system_classifier" data-filter-control="select" data-sortable="true" data-tag="true">
+                Classifier
+            </th>
+<th class="text-center narrow-col" data-field="system_decision_making" data-filter-control="select" data-sortable="true" data-tag="true">
+                Decision <br/>making
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task3_1</td>
+<td>Ash_1</td>
+<td>0.7914</td>
+<td>41.7</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>threshold</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task3_2</td>
+<td>Ash_2</td>
+<td>0.8061</td>
+<td>42.9</td>
+<td>binaural</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>threshold</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task3_3</td>
+<td>Ash_3</td>
+<td>0.8544</td>
+<td>41.4</td>
+<td>binaural</td>
+<td>44.1kHz</td>
+<td></td>
+<td>multi-scale log-mel energies</td>
+<td>CRNN</td>
+<td>threshold</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task3_4</td>
+<td>Ash_4</td>
+<td>0.8716</td>
+<td>36.2</td>
+<td>binaural</td>
+<td>44.1kHz</td>
+<td></td>
+<td>spectrogram</td>
+<td>CRNN</td>
+<td>threshold</td>
+</tr>
+<tr>
+<td></td>
+<td>Chen2017</td>
+<td>Chen_UR_task3_1</td>
+<td>Chen</td>
+<td>0.8575</td>
+<td>30.9</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CNN</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task3_1</td>
+<td>andang3</td>
+<td>0.9529</td>
+<td>42.6</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>majority vote</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task3_2</td>
+<td>andang3</td>
+<td>0.9468</td>
+<td>42.8</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>majority vote</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task3_3</td>
+<td>andang3</td>
+<td>1.0318</td>
+<td>44.2</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>majority vote</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task3_4</td>
+<td>andang3</td>
+<td>1.1028</td>
+<td>43.5</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>majority vote</td>
+</tr>
+<tr>
+<td></td>
+<td>Feroze2017</td>
+<td>Feroze_IST_task3_1</td>
+<td>Khizer</td>
+<td>1.0942</td>
+<td>42.6</td>
+<td>mixed</td>
+<td>44.1kHz</td>
+<td></td>
+<td>Perceptual Linear Predictive</td>
+<td>NN</td>
+<td>morphological operations</td>
+</tr>
+<tr>
+<td></td>
+<td>Feroze2017</td>
+<td>Feroze_IST_task3_2</td>
+<td>Khizer</td>
+<td>1.0312</td>
+<td>39.7</td>
+<td>mixed</td>
+<td>44.1kHz</td>
+<td></td>
+<td>Perceptual Linear Predictive</td>
+<td>NN</td>
+<td>morphological operations</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Heittola2017</td>
+<td>DCASE2017 baseline</td>
+<td>Baseline</td>
+<td>0.9358</td>
+<td>42.8</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>MLP</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Hou2017</td>
+<td>Hou_BUPT_task3_1</td>
+<td>MMS_HYB</td>
+<td>1.0446</td>
+<td>29.3</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>combination [MLP; BGRU]</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Hou2017</td>
+<td>Hou_BUPT_task3_2</td>
+<td>BGRU_HYB</td>
+<td>0.9248</td>
+<td>34.1</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>raw audio data</td>
+<td>BGRU</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Kroos2017</td>
+<td>Kroos_CVSSP_task3_1</td>
+<td>J-NEAT-E</td>
+<td>0.8979</td>
+<td>44.9</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>scattering transform, clustering</td>
+<td>Neuroevolution</td>
+<td>threshold</td>
+</tr>
+<tr>
+<td></td>
+<td>Kroos2017</td>
+<td>Kroos_CVSSP_task3_2</td>
+<td>J-NEAT-P</td>
+<td>0.8911</td>
+<td>41.6</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>scattering transform, clustering</td>
+<td>Neuroevolution</td>
+<td>threshold</td>
+</tr>
+<tr>
+<td></td>
+<td>Kroos2017</td>
+<td>Kroos_CVSSP_task3_3</td>
+<td>SLFFN</td>
+<td>1.0141</td>
+<td>43.8</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>scattering transform, clustering</td>
+<td>ANN</td>
+<td>threshold</td>
+</tr>
+<tr>
+<td></td>
+<td>Jeong2017</td>
+<td>Lee_SNU_task3_1</td>
+<td>MICNN_1</td>
+<td>0.9260</td>
+<td>42.0</td>
+<td>binaural</td>
+<td>44.1kHz</td>
+<td>channel swapping</td>
+<td>log-mel energies</td>
+<td>CNN</td>
+<td>adaptive thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Jeong2017</td>
+<td>Lee_SNU_task3_2</td>
+<td>MICNN_2</td>
+<td>0.8673</td>
+<td>27.9</td>
+<td>binaural</td>
+<td>44.1kHz</td>
+<td>channel swapping</td>
+<td>log-mel energies</td>
+<td>CNN</td>
+<td>adaptive thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Jeong2017</td>
+<td>Lee_SNU_task3_3</td>
+<td>MICNN_3</td>
+<td>0.8080</td>
+<td>40.8</td>
+<td>binaural</td>
+<td>44.1kHz</td>
+<td>channel swapping</td>
+<td>log-mel energies</td>
+<td>CNN</td>
+<td>adaptive thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Jeong2017</td>
+<td>Lee_SNU_task3_4</td>
+<td>MICNN_4</td>
+<td>0.8985</td>
+<td>43.6</td>
+<td>binaural</td>
+<td>44.1kHz</td>
+<td>channel swapping</td>
+<td>log-mel energies</td>
+<td>CNN</td>
+<td>adaptive thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task3_1</td>
+<td>LiSCUTt3_1</td>
+<td>0.9920</td>
+<td>40.3</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>DNN(MFCC)</td>
+<td>Bi-LSTM</td>
+<td>Top output probability</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task3_2</td>
+<td>LiSCUTt3_2</td>
+<td>0.9523</td>
+<td>41.0</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>DNN(MFCC)</td>
+<td>Bi-LSTM</td>
+<td>Top output probability</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task3_3</td>
+<td>LiSCUTt3_3</td>
+<td>1.0043</td>
+<td>43.4</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>DNN(MFCC)</td>
+<td>DNN</td>
+<td>Top output probability</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task3_4</td>
+<td>LiSCUTt3_4</td>
+<td>0.9878</td>
+<td>33.9</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>DNN(MFCC)</td>
+<td>Bi-LSTM</td>
+<td>Top output probability</td>
+</tr>
+<tr>
+<td></td>
+<td>Lu2017</td>
+<td>Lu_THU_task3_1</td>
+<td>bigru_da</td>
+<td>0.8251</td>
+<td>39.6</td>
+<td>mixed</td>
+<td>44.1kHz</td>
+<td>pitch shifting, time stretching</td>
+<td>MFCC, pitch</td>
+<td>RNN, ensemble</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Lu2017</td>
+<td>Lu_THU_task3_2</td>
+<td>bigru_da</td>
+<td>0.8306</td>
+<td>39.2</td>
+<td>mixed</td>
+<td>44.1kHz</td>
+<td>pitch shifting, time stretching</td>
+<td>MFCC, pitch</td>
+<td>RNN, ensemble</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Lu2017</td>
+<td>Lu_THU_task3_3</td>
+<td>bigru_da</td>
+<td>0.8361</td>
+<td>38.0</td>
+<td>mixed</td>
+<td>44.1kHz</td>
+<td>pitch shifting, time stretching</td>
+<td>MFCC, pitch</td>
+<td>RNN, ensemble</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Lu2017</td>
+<td>Lu_THU_task3_4</td>
+<td>bigru_da</td>
+<td>0.8373</td>
+<td>38.3</td>
+<td>mixed</td>
+<td>44.1kHz</td>
+<td>pitch shifting, time stretching</td>
+<td>MFCC, pitch</td>
+<td>RNN, ensemble</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang2017</td>
+<td>Wang_NTHU_task3_1</td>
+<td>NTHU_AHG</td>
+<td>0.9749</td>
+<td>40.8</td>
+<td>mono, binaural</td>
+<td>44.1kHz</td>
+<td></td>
+<td>MFCC, TDOA</td>
+<td>RNN</td>
+<td>post processing technique</td>
+</tr>
+<tr>
+<td></td>
+<td>Xia2017</td>
+<td>Xia_UWA_task3_1</td>
+<td>UWA_T3_1</td>
+<td>0.9523</td>
+<td>43.5</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>MLP</td>
+<td>Class wise distance evaluation (CW)</td>
+</tr>
+<tr>
+<td></td>
+<td>Xia2017</td>
+<td>Xia_UWA_task3_2</td>
+<td>UWA_T3_1</td>
+<td>0.9437</td>
+<td>41.1</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CNN</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Xia2017</td>
+<td>Xia_UWA_task3_3</td>
+<td>UWA_T3_1</td>
+<td>0.8740</td>
+<td>41.7</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CNN</td>
+<td>Class wise distance evaluation (CW)</td>
+</tr>
+<tr>
+<td></td>
+<td>Yu2017</td>
+<td><a href="javascript:void(0);" title="The system was re-submitted after the deadline. The revised submission yielded substantially lower ER, with the difference in performance attributed to a software bug in the original submission. More details can be found in the technical report.">Yu_FZU_task3_1<sup>*</sup></a></td>
+<td>DRF</td>
+<td>1.1963</td>
+<td>3.9</td>
+<td>mono</td>
+<td>16kHz</td>
+<td></td>
+<td>mel energies</td>
+<td>Deep Random Forest</td>
+<td>sliding median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhou2017</td>
+<td>Zhou_PKU_task3_1</td>
+<td>MC-LSTM-1</td>
+<td>0.8526</td>
+<td>39.1</td>
+<td>right, diff</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>LSTM</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhou2017</td>
+<td>Zhou_PKU_task3_2</td>
+<td>MC-LSTM-2</td>
+<td>0.8526</td>
+<td>37.3</td>
+<td>right, mean, diff</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>LSTM</td>
+<td>median filtering</td>
+</tr>
+</tbody>
+</table>
+<h2 id="technical-reports">Technical reports</h2>
+<div class="btex" data-source="content/data/challenge2017/technical_reports_task3.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="Adavanne2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Adavanne2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        A Report on Sound Event Detection with Different Binaural Features
+       </h4>
+<p style="text-align:left">
+        Sharath Adavanne and Tuomas Virtanen
+       </p>
+<p style="text-align:left">
+<em>
+         Laboratory of Signal Processing, Tampere University of Technology, Tampere, Finland
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Adavanne_TUT_task3_1</span> <span class="label label-primary">Adavanne_TUT_task3_2</span> <span class="label label-primary">Adavanne_TUT_task3_3</span> <span class="label label-primary">Adavanne_TUT_task3_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Adavanne2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Adavanne2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Adavanne2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Adavanne_130.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Adavanne2017" class="panel-collapse collapse" id="collapse-Adavanne2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       A Report on Sound Event Detection with Different Binaural Features
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this paper, we compare the performance of using binaural audio features in place of single channel features for sound event detection. Three different binaural features are studied and evaluated on the publicly available TUT Sound Events 2017 dataset of length 70 minutes. Sound event detection is performed separately with single channel and binaural features using stacked convolutional and recurrent neural network and the evaluation is reported using standard metrics of error rate and F-score. The studied binaural features are seen to consistently perform equal to or better than the single-channel features with respect to error rate metric.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono; binaural
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies; multi-scale log-mel energies; spectrogram
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CRNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         threshold
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Adavanne2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Adavanne_130.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Adavanne2017label" class="modal fade" id="bibtex-Adavanne2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexAdavanne2017label">
+        A Report on Sound Event Detection with Different Binaural Features
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Adavanne2017,
+    Author = "Adavanne, Sharath and Virtanen, Tuomas",
+    title = "A Report on Sound Event Detection with Different Binaural Features",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "In this paper, we compare the performance of using binaural audio features in place of single channel features for sound event detection. Three different binaural features are studied and evaluated on the publicly available TUT Sound Events 2017 dataset of length 70 minutes. Sound event detection is performed separately with single channel and binaural features using stacked convolutional and recurrent neural network and the evaluation is reported using standard metrics of error rate and F-score. The studied binaural features are seen to consistently perform equal to or better than the single-channel features with respect to error rate metric."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Chen2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Chen2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DCASE2017 Sound Event Detection Using Convolutional Neural Network
+       </h4>
+<p style="text-align:left">
+        Yukun Chen, Yichi Zhang and Zhiyao Duan
+       </p>
+<p style="text-align:left">
+<em>
+         Electrical and Computer Engineering, University of Rochester, NY, US
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Chen_UR_task3_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Chen2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Chen2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Chen2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Chen_124.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Chen2017" class="panel-collapse collapse" id="collapse-Chen2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DCASE2017 Sound Event Detection Using Convolutional Neural Network
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       The DCASE2017 Challenge Task 3 is to develop a sound event detection system of real life audio. In our setup, we merge the two channels into one, then use Mel-band energy to calculate the converted spectrum, and train the model based on convolu- tional neural network (CNN). The method we use achieves a 0.81 error rate on average for the four cross-validation folders. It proves the practicability of using CNN for sound event detection.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         median filtering
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Chen2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Chen_124.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Chen2017label" class="modal fade" id="bibtex-Chen2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexChen2017label">
+        DCASE2017 Sound Event Detection Using Convolutional Neural Network
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Chen2017,
+    Author = "Chen, Yukun and Zhang, Yichi and Duan, Zhiyao",
+    title = "{DCASE2017} Sound Event Detection Using Convolutional Neural Network",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "The DCASE2017 Challenge Task 3 is to develop a sound event detection system of real life audio. In our setup, we merge the two channels into one, then use Mel-band energy to calculate the converted spectrum, and train the model based on convolu- tional neural network (CNN). The method we use achieves a 0.81 error rate on average for the four cross-validation folders. It proves the practicability of using CNN for sound event detection."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Dang2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Dang2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Deep Learning for DCASE2017 Challenge
+       </h4>
+<p style="text-align:left">
+        An Dang, Toan Vu and Jia-Ching Wang
+       </p>
+<p style="text-align:left">
+<em>
+         Computer Sciene and Information Engineering, National Central University, Taoyuan, Taiwan
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Dang_NCU_task3_1</span> <span class="label label-primary">Dang_NCU_task3_2</span> <span class="label label-primary">Dang_NCU_task3_3</span> <span class="label label-primary">Dang_NCU_task3_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Dang2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Dang2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Dang2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Dang_209.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Dang2017" class="panel-collapse collapse" id="collapse-Dang2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Deep Learning for DCASE2017 Challenge
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       This paper reports our results on all tasks of DCASE challenge 2017 which are acoustic scene classification, detection of rare sound events, sound event detection in real life audio, and large-scale weakly supervised sound event detection for smart cars. Our proposed methods are developed based on two favorite neural networks which are convolutional neural networks (CNNs) and recurrent neural networks (RNNs). Experiments show that our proposed methods outperform the baseline.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CRNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         majority vote
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Dang2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Dang_209.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Dang2017label" class="modal fade" id="bibtex-Dang2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexDang2017label">
+        Deep Learning for DCASE2017 Challenge
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Dang2017,
+    Author = "Dang, An and Vu, Toan and Wang, Jia-Ching",
+    title = "Deep Learning for {DCASE2017} Challenge",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "This paper reports our results on all tasks of DCASE challenge 2017 which are acoustic scene classification, detection of rare sound events, sound event detection in real life audio, and large-scale weakly supervised sound event detection for smart cars. Our proposed methods are developed based on two favorite neural networks which are convolutional neural networks (CNNs) and recurrent neural networks (RNNs). Experiments show that our proposed methods outperform the baseline."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Feroze2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Feroze2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Comparison of Baseline System with Perceptual Linear Predictive Feature Using Neural Network for Sound Event Detection in Real Life Audio
+       </h4>
+<p style="text-align:left">
+        Khizer Feroze<sup>1</sup> and Abdur-Rehaman Maud<sup>2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Electrical Engineering, Institute of Space Technology, Islamabad, Pakistan, <sup>2</sup>Electrical Engineering, Institue of Space Technology, Islamabad, Pakistan
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Feroze_IST_task3_1</span> <span class="label label-primary">Feroze_IST_task3_2</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Feroze2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Feroze2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Feroze2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Feroze_179.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Feroze2017" class="panel-collapse collapse" id="collapse-Feroze2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Comparison of Baseline System with Perceptual Linear Predictive Feature Using Neural Network for Sound Event Detection in Real Life Audio
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       For sound event detection of polyphonic sounds, we compare the performance of perceptual linear predictive (PLP) feature with Mel frequency cepstral coefficients (MFCC) using neural network classifier. The results are further compared with the performance of the baseline system given by DCASE 2017 (task 3). Our results show that using PLP based classifier, individual error rate (ER) for each event is improved compared to the baseline system. For car event, ER is improved by 10%, for large vehicle event 23%, for people walking event 26% and some improvements are also ob-served in other events.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mixed
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         Perceptual Linear Predictive
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         NN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         morphological operations
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Feroze2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Feroze_179.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Feroze2017label" class="modal fade" id="bibtex-Feroze2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexFeroze2017label">
+        Comparison of Baseline System with Perceptual Linear Predictive Feature Using Neural Network for Sound Event Detection in Real Life Audio
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Feroze2017,
+    Author = "Feroze, Khizer and Maud, Abdur-Rehaman",
+    title = "Comparison of Baseline System with Perceptual Linear Predictive Feature Using Neural Network for Sound Event Detection in Real Life Audio",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "For sound event detection of polyphonic sounds, we compare the performance of perceptual linear predictive (PLP) feature with Mel frequency cepstral coefficients (MFCC) using neural network classifier. The results are further compared with the performance of the baseline system given by DCASE 2017 (task 3). Our results show that using PLP based classifier, individual error rate (ER) for each event is improved compared to the baseline system. For car event, ER is improved by 10\%, for large vehicle event 23\%, for people walking event 26\% and some improvements are also ob-served in other events."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Heittola2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Heittola2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DCASE 2017 Challenge Setup: Tasks, Datasets and Baseline System
+       </h4>
+<p style="text-align:left">
+        Toni Heittola and Annamaria Mesaros
+       </p>
+<p style="text-align:left">
+<em>
+         Laboratory of Signal Processing, Tampere University of Technology, Tampere, Finland
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Heittola_TUT_task3_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Heittola2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Heittola2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Heittola2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/dcase-2017-challenge-paper.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Heittola2017').collapse('show');window.location.hash='#Heittola2017';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Heittola2017" class="panel-collapse collapse" id="collapse-Heittola2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DCASE 2017 Challenge Setup: Tasks, Datasets and Baseline System
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       DCASE 2017 Challenge consists of four tasks: acoustic scene classification, detection of rare sound events, sound event detection in real-life audio, and large-scale weakly supervised sound event detection for smart cars. This paper presents the setup of these tasks: task definition, dataset, experimental setup, and baseline system results on the development dataset. The baseline systems for all tasks rely on the same implementation using multilayer perceptron and log mel-energies, but differ in the structure of the output layer and the decision making process, as well as the evaluation of system output using task specific metrics.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         MLP
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         median filtering
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Heittola2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/dcase-2017-challenge-paper.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/TUT-ARG/DCASE2017-baseline-system" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Heittola2017label" class="modal fade" id="bibtex-Heittola2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexHeittola2017label">
+        DCASE 2017 Challenge Setup: Tasks, Datasets and Baseline System
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Heittola2017,
+    Author = "Heittola, Toni and Mesaros, Annamaria",
+    title = "{DCASE} 2017 Challenge Setup: Tasks, Datasets and Baseline System",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "DCASE 2017 Challenge consists of four tasks: acoustic scene classification, detection of rare sound events, sound event detection in real-life audio, and large-scale weakly supervised sound event detection for smart cars. This paper presents the setup of these tasks: task definition, dataset, experimental setup, and baseline system results on the development dataset. The baseline systems for all tasks rely on the same implementation using multilayer perceptron and log mel-energies, but differ in the structure of the output layer and the decision making process, as well as the evaluation of system output using task specific metrics."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Hou2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Hou2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Sound Event Detection in Real Life Audio Using Multi-Model System
+       </h4>
+<p style="text-align:left">
+        Yuanbo Hou and Shengchen Li
+       </p>
+<p style="text-align:left">
+<em>
+         Embedded Artificial Intelligence Laboratory, Beijing University Of Posts And Telecommunications, Beijing, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Hou_BUPT_task3_1</span> <span class="label label-primary">Hou_BUPT_task3_2</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Hou2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Hou2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Hou2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Hou_155.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Hou2017" class="panel-collapse collapse" id="collapse-Hou2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Sound Event Detection in Real Life Audio Using Multi-Model System
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this paper, we present a polyphonic sound event detection (SED) system based on a multi-model system. In the proposed multi-model system, we use one model based on Deep Neural Networks (DNN) to detect sound events of car, and five models based on Bi-directional Gated Recurrent Units Recurrent Neural Networks (BGRU-RNN) to detect other sound events including: brakes squeaking, children, large vehicle, people speaking and people walking. Since different classes sound events have differ-ent audio characteristics, we use different models to detect each class. The proposed multi-model system is trained and tested based on IEEE DCASE2017 Challenge: Sound Event Detection in Real Life Audio (Task 3) Development Dataset, the result yields up to 58.92% and 0.60 in terms of F-Score and error rate on segment-based metric respectively.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies; raw audio data
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         combination [MLP; BGRU]; BGRU
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         median filtering
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Hou2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Hou_155.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Hou2017label" class="modal fade" id="bibtex-Hou2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexHou2017label">
+        Sound Event Detection in Real Life Audio Using Multi-Model System
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Hou2017,
+    Author = "Hou, Yuanbo and Li, Shengchen",
+    title = "Sound Event Detection in Real Life Audio Using Multi-Model System",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "In this paper, we present a polyphonic sound event detection (SED) system based on a multi-model system. In the proposed multi-model system, we use one model based on Deep Neural Networks (DNN) to detect sound events of car, and five models based on Bi-directional Gated Recurrent Units Recurrent Neural Networks (BGRU-RNN) to detect other sound events including: brakes squeaking, children, large vehicle, people speaking and people walking. Since different classes sound events have differ-ent audio characteristics, we use different models to detect each class. The proposed multi-model system is trained and tested based on IEEE DCASE2017 Challenge: Sound Event Detection in Real Life Audio (Task 3) Development Dataset, the result yields up to 58.92\% and 0.60 in terms of F-Score and error rate on segment-based metric respectively."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Jeong2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Jeong2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Audio Event Detection Using Multiple-Input Convolutional Neural Network
+       </h4>
+<p style="text-align:left">
+        Il-Young Jeong<sup>1,2</sup>, Subin Lee<sup>1,2</sup>, Yoonchang Han<sup>1</sup> and Kyogu Lee<sup>2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Cochlear.ai, Seoul, Korea, <sup>2</sup>Music and Audio Research Group, Seoul National University, Seoul, Korea
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Lee_SNU_task3_1</span> <span class="label label-primary">Lee_SNU_task3_2</span> <span class="label label-primary">Lee_SNU_task3_3</span> <span class="label label-primary">Lee_SNU_task3_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Jeong2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Jeong2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Jeong2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Lee_201.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Jeong2017" class="panel-collapse collapse" id="collapse-Jeong2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Audio Event Detection Using Multiple-Input Convolutional Neural Network
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       This paper describes the model and training framework from our submission for DCASE 2017 task 3: sound event detection in real life audio. Our model basically follows convolutional neural network architecture, yet uses two input data of the short- and long-term audio signal. In the training stage, we calculated validation errors more frequently than one epoch with adaptive thresholds. We also used class-wise early stopping to find the best model for each class. The proposed model shows a meaningful improvements in cross validation experiments compared to the baseline system using the simple neural network.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         binaural
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         channel swapping
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         adaptive thresholding
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Jeong2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Lee_201.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Jeong2017label" class="modal fade" id="bibtex-Jeong2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexJeong2017label">
+        Audio Event Detection Using Multiple-Input Convolutional Neural Network
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Jeong2017,
+    Author = "Jeong, Il-Young and Lee, Subin and Han, Yoonchang and Lee, Kyogu",
+    title = "Audio Event Detection Using Multiple-Input Convolutional Neural Network",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "This paper describes the model and training framework from our submission for DCASE 2017 task 3: sound event detection in real life audio. Our model basically follows convolutional neural network architecture, yet uses two input data of the short- and long-term audio signal. In the training stage, we calculated validation errors more frequently than one epoch with adaptive thresholds. We also used class-wise early stopping to find the best model for each class. The proposed model shows a meaningful improvements in cross validation experiments compared to the baseline system using the simple neural network."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Kroos2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Kroos2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Neuroevolution for Sound Event Detection in Real Life Audio: A Pilot Study
+       </h4>
+<p style="text-align:left">
+        Christian Kroos and Mark D. Plumbley
+       </p>
+<p style="text-align:left">
+<em>
+         Centre for Vision, Speech and Signal Processing, University of Surrey, Guildford, UK
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Kroos_CVSSP_task3_1</span> <span class="label label-primary">Kroos_CVSSP_task3_2</span> <span class="label label-primary">Kroos_CVSSP_task3_3</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Kroos2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Kroos2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Kroos2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Kroos_190.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Kroos2017" class="panel-collapse collapse" id="collapse-Kroos2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Neuroevolution for Sound Event Detection in Real Life Audio: A Pilot Study
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       Neuroevolution techniques combine genetic algorithms with artificial neural networks, some of them evolving network topology along with the network weights. One of these latter techniques is the NeuroEvolution of Augmenting Topologies (NEAT) algorithm. For this pilot study we devised an extended variant (joint NEAT, J-NEAT), introducing co-evolution, and applied it to sound event detection in real life audio (task 3) in the DCASE 2017 challenge. Our research question was whether small networks could be evolved that would be able to compete with the much larger networks now typical for classification and detection tasks. We used the wavelet-based deep scattering transform and k-means clustering across the resulting scales (not across samples) to provide J-NEAT with a compact representation of the acoustic input. Results show that J-NEAT is capable of evolving small networks that match the performance of the baseline system in terms of the segment-based error metrics, while exhibiting a substantially better event-related error rate. The evolved networks were, however, narrowly outperformed by a comparable, experimenter-designed minimal single-layer feed-forward network. We discuss the question of evolving versus learning for supervised tasks.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         scattering transform, clustering
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         Neuroevolution; ANN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         threshold
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Kroos2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Kroos_190.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Kroos2017label" class="modal fade" id="bibtex-Kroos2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexKroos2017label">
+        Neuroevolution for Sound Event Detection in Real Life Audio: A Pilot Study
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Kroos2017,
+    Author = "Kroos, Christian and Plumbley, Mark D.",
+    title = "Neuroevolution for Sound Event Detection in Real Life Audio: A Pilot Study",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "Neuroevolution techniques combine genetic algorithms with artificial neural networks, some of them evolving network topology along with the network weights. One of these latter techniques is the NeuroEvolution of Augmenting Topologies (NEAT) algorithm. For this pilot study we devised an extended variant (joint NEAT, J-NEAT), introducing co-evolution, and applied it to sound event detection in real life audio (task 3) in the DCASE 2017 challenge. Our research question was whether small networks could be evolved that would be able to compete with the much larger networks now typical for classification and detection tasks. We used the wavelet-based deep scattering transform and k-means clustering across the resulting scales (not across samples) to provide J-NEAT with a compact representation of the acoustic input. Results show that J-NEAT is capable of evolving small networks that match the performance of the baseline system in terms of the segment-based error metrics, while exhibiting a substantially better event-related error rate. The evolved networks were, however, narrowly outperformed by a comparable, experimenter-designed minimal single-layer feed-forward network. We discuss the question of evolving versus learning for supervised tasks."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Li2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Li2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        The SEIE-SCUT Systems for IEEE AASP Challenge on DCASE 2017: Deep Learning Techniques for Audio Representation and Classification
+       </h4>
+<p style="text-align:left">
+        Yanxiong Li and Xianku Li
+       </p>
+<p style="text-align:left">
+<em>
+         School of Electronic and Information Engineering, South China University of Technology, Guangzhou, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Li_SCUT_task3_1</span> <span class="label label-primary">Li_SCUT_task3_2</span> <span class="label label-primary">Li_SCUT_task3_3</span> <span class="label label-primary">Li_SCUT_task3_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Li2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Li2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Li2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Li_120.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Li2017" class="panel-collapse collapse" id="collapse-Li2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       The SEIE-SCUT Systems for IEEE AASP Challenge on DCASE 2017: Deep Learning Techniques for Audio Representation and Classification
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this report, we present our works about three tasks of IEEE AASP challenge on DCASE 2017, i.e. task 1: Acoustic Scene Classification (ASC), task 2: detection of rare sound events in artificially created mixtures and task 3: sound event detection in real life recordings. Tasks 2 and 3 belong to the same problem, i.e. Sound Event Detection (SED). We adopt deep learning techniques to extract Deep Audio Feature (DAF) and classify various acoustic scenes or sound events. Specifically, a Deep Neural Network (DNN) is first built for generating the DAF from Mel-Frequency Cepstral Coefficients (MFCCs), and then a Recurrent Neural Network (RNN) of Bi-directional Long Short Term Memory (Bi-LSTM) fed by the DAF is built for ASC and SED. Evaluated on the development datasets of DCASE 2017, our systems are superior to the corresponding baselines for tasks 1 and 2, and our system for task 3 performs as good as the baseline in terms of the predominant metrics.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         DNN(MFCC)
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         Bi-LSTM; DNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         Top output probability
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Li2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Li_120.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Li2017label" class="modal fade" id="bibtex-Li2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexLi2017label">
+        The SEIE-SCUT Systems for IEEE AASP Challenge on DCASE 2017: Deep Learning Techniques for Audio Representation and Classification
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Li2017,
+    Author = "Li, Yanxiong and Li, Xianku",
+    title = "The {SEIE-SCUT} Systems for {IEEE} {AASP} Challenge on {DCASE} 2017: Deep Learning Techniques for Audio Representation and Classification",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "In this report, we present our works about three tasks of IEEE AASP challenge on DCASE 2017, i.e. task 1: Acoustic Scene Classification (ASC), task 2: detection of rare sound events in artificially created mixtures and task 3: sound event detection in real life recordings. Tasks 2 and 3 belong to the same problem, i.e. Sound Event Detection (SED). We adopt deep learning techniques to extract Deep Audio Feature (DAF) and classify various acoustic scenes or sound events. Specifically, a Deep Neural Network (DNN) is first built for generating the DAF from Mel-Frequency Cepstral Coefficients (MFCCs), and then a Recurrent Neural Network (RNN) of Bi-directional Long Short Term Memory (Bi-LSTM) fed by the DAF is built for ASC and SED. Evaluated on the development datasets of DCASE 2017, our systems are superior to the corresponding baselines for tasks 1 and 2, and our system for task 3 performs as good as the baseline in terms of the predominant metrics."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Lu2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Lu2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Bidirectional GRU for Sound Event Detection
+       </h4>
+<p style="text-align:left">
+        Rui Lu<sup>1</sup> and Zhiyao Duan<sup>2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Department of Automation, Tsinghua University, Beijing, China, <sup>2</sup>Department of Electrical and Computer Engineering, University of Rochester, Rochester, NY USA
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Lu_THU_task3_1</span> <span class="label label-primary">Lu_THU_task3_2</span> <span class="label label-primary">Lu_THU_task3_3</span> <span class="label label-primary">Lu_THU_task3_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Lu2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Lu2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Lu2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Lu_137.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Lu2017" class="panel-collapse collapse" id="collapse-Lu2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Bidirectional GRU for Sound Event Detection
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       Sound event detection (SED) aims to detect temporal boundaries of sound events given audio streams. Sound recordings in real life situations typically have many overlapping events, making this detection task much more difficult than classification and non- overlapping detection. Recently, multi-label recurrent neural net- works (RNNs) have become the main stream solutions for this poly- phonic sound event detection problem. However, similar to many other deep learning approaches, the relative scarcity of carefully labeled data has limited the capacity of RNNs. In this paper, we first present a multi label bi-directional recurrent neural network to model the temporal evolution of sound events. Then we propose the use of data augmentation to overcome the problem of data scarcity and explore the appropriate augmentation strategies that achieve better performance. We evaluate our approach on the development subset of the DCASE2017 task3 dataset. Combined with data augmentation and ensemble technique, we reduce the error rate by over 11% compared to the officially published baseline system.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mixed
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         pitch shifting, time stretching
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         MFCC, pitch
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         RNN, ensemble
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         median filtering
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Lu2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Lu_137.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Lu2017label" class="modal fade" id="bibtex-Lu2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexLu2017label">
+        Bidirectional GRU for Sound Event Detection
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Lu2017,
+    Author = "Lu, Rui and Duan, Zhiyao",
+    title = "Bidirectional {GRU} for Sound Event Detection",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "Sound event detection (SED) aims to detect temporal boundaries of sound events given audio streams. Sound recordings in real life situations typically have many overlapping events, making this detection task much more difficult than classification and non- overlapping detection. Recently, multi-label recurrent neural net- works (RNNs) have become the main stream solutions for this poly- phonic sound event detection problem. However, similar to many other deep learning approaches, the relative scarcity of carefully labeled data has limited the capacity of RNNs. In this paper, we first present a multi label bi-directional recurrent neural network to model the temporal evolution of sound events. Then we propose the use of data augmentation to overcome the problem of data scarcity and explore the appropriate augmentation strategies that achieve better performance. We evaluate our approach on the development subset of the DCASE2017 task3 dataset. Combined with data augmentation and ensemble technique, we reduce the error rate by over 11\% compared to the officially published baseline system."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Wang2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Wang2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Sound Event Detection From Real-Life Audio by Training a Long Short-Term Memory Network with Mono and Stereo Features
+       </h4>
+<p style="text-align:left">
+        Chun-Hao Wang, Jun-Kai You and Yi-Wen Liu
+       </p>
+<p style="text-align:left">
+<em>
+         Electrical Engineering, National Tsing Hua University, Hsinchu, Taiwan
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Wang_NTHU_task3_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Wang2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Wang2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Wang2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Wang_168.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Wang2017" class="panel-collapse collapse" id="collapse-Wang2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Sound Event Detection From Real-Life Audio by Training a Long Short-Term Memory Network with Mono and Stereo Features
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this paper, we trained and evaluated an acoustic sound event classifier that uses a combination of stereo and mono features. For stereo features, we treated the time difference of arrival (TDOA) as a random variable and calculated its probability density function. For mono features, Mel-frequency cepstral coefficients (MFCCs) and their 1st and 2nd derivatives were extracted. A recurrent neural network (RNN) with long-short term memory (LSTM) was constructed to perform multi-label classification. Training with the 4-fold validation dataset given by DCASE2017 challenge [5], model parameters were chosen based on the best average performance. The proposed TDOA plus MFCC features combined with the RNN-LSTM model achieved a segment-based error rate of 0.77.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono, binaural
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         MFCC, TDOA
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         RNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         post processing technique
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Wang2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Wang_168.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Wang2017label" class="modal fade" id="bibtex-Wang2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexWang2017label">
+        Sound Event Detection From Real-Life Audio by Training a Long Short-Term Memory Network with Mono and Stereo Features
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Wang2017,
+    Author = "Wang, Chun-Hao and You, Jun-Kai and Liu, Yi-Wen",
+    title = "Sound Event Detection From Real-Life Audio by Training a Long Short-Term Memory Network with Mono and Stereo Features",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "In this paper, we trained and evaluated an acoustic sound event classifier that uses a combination of stereo and mono features. For stereo features, we treated the time difference of arrival (TDOA) as a random variable and calculated its probability density function. For mono features, Mel-frequency cepstral coefficients (MFCCs) and their 1st and 2nd derivatives were extracted. A recurrent neural network (RNN) with long-short term memory (LSTM) was constructed to perform multi-label classification. Training with the 4-fold validation dataset given by DCASE2017 challenge [5], model parameters were chosen based on the best average performance. The proposed TDOA plus MFCC features combined with the RNN-LSTM model achieved a segment-based error rate of 0.77."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Xia2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Xia2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Class Wise Distance Based Acoustic Event Detection
+       </h4>
+<p style="text-align:left">
+        Xianjun Xia<sup>1</sup>, Roberto Togneri<sup>1</sup>, Ferdous Sohel<sup>2</sup> and David Huang<sup>1</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>School of Electrical, Electronic and Computer Engineering, The University of Western Australia, Perth, Australia, <sup>2</sup>School of Engineering and Information Technology, Murdoch University, Perth, Australia
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Xia_UWA_task3_1</span> <span class="label label-primary">Xia_UWA_task3_2</span> <span class="label label-primary">Xia_UWA_task3_3</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Xia2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Xia2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Xia2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Xia_136.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Xia2017" class="panel-collapse collapse" id="collapse-Xia2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Class Wise Distance Based Acoustic Event Detection
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this paper, we propose a class wise distance based approach in a neural network based acoustic event detection system. The neural network output probabilities are updated by calculating the distance between the acoustic features of each frame and the class wise distance of each event class. The detected acoustic segments are re-evaluated segmentally using the class wise distances. Cross-validation detection results on the development set of DCASE2017 show the efficiency of the proposed method by achieving a 4% absolute reduction in segment-based error rate compared to the baseline system.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         MLP; CNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         Class wise distance evaluation (CW); median filtering
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Xia2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Xia_136.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Xia2017label" class="modal fade" id="bibtex-Xia2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexXia2017label">
+        Class Wise Distance Based Acoustic Event Detection
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Xia2017,
+    Author = "Xia, Xianjun and Togneri, Roberto and Sohel, Ferdous and Huang, David",
+    title = "Class Wise Distance Based Acoustic Event Detection",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "In this paper, we propose a class wise distance based approach in a neural network based acoustic event detection system. The neural network output probabilities are updated by calculating the distance between the acoustic features of each frame and the class wise distance of each event class. The detected acoustic segments are re-evaluated segmentally using the class wise distances. Cross-validation detection results on the development set of DCASE2017 show the efficiency of the proposed method by achieving a 4\% absolute reduction in segment-based error rate compared to the baseline system."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Yu2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Yu2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Sound Event Detection Using Deep Random Forest
+       </h4>
+<p style="text-align:left">
+        Chun-Yan Yu, Huang Liu and Zi-Ming Qi
+       </p>
+<p style="text-align:left">
+<em>
+         College of Mathematics and Computer Science, Fuzhou University, Fuzhou 350108, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Yu_FZU_task3_1<sup>a</sup></span>
+</p>
+<p class="text-muted text-justify">
+<sup>a</sup> The system was re-submitted after the deadline. The revised submission yielded substantially lower ER, with the difference in performance attributed to a software bug in the original submission. More details can be found in the technical report.
+       </p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Yu2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Yu2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Yu2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Yu_162.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Yu2017" class="panel-collapse collapse" id="collapse-Yu2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Sound Event Detection Using Deep Random Forest
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this paper, we present our work on Task 3 Sound Event Detection in Real Life Audio [1]. The systems aim at dealing with the detection of overlapping audio events, where the detectors are based on deep random forest, a decision tree ensemble approach. For random forest has natural defect of detecting and classifying polyphonic events, the systems use one-vs-the-rest (OvR) mul-ticlass/multilabel strategy, fitting one deep random forest per event class. On the development data set, the system obtained error rate value of 0.82 and F-score of 38.2%.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         16kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         Deep Random Forest
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         sliding median filtering
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Yu2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Yu_162.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Yu2017label" class="modal fade" id="bibtex-Yu2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexYu2017label">
+        Sound Event Detection Using Deep Random Forest
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Yu2017,
+    Author = "Yu, Chun-Yan and Liu, Huang and Qi, Zi-Ming",
+    title = "Sound Event Detection Using Deep Random Forest",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "In this paper, we present our work on Task 3 Sound Event Detection in Real Life Audio [1]. The systems aim at dealing with the detection of overlapping audio events, where the detectors are based on deep random forest, a decision tree ensemble approach. For random forest has natural defect of detecting and classifying polyphonic events, the systems use one-vs-the-rest (OvR) mul-ticlass/multilabel strategy, fitting one deep random forest per event class. On the development data set, the system obtained error rate value of 0.82 and F-score of 38.2\%."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Zhou2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Zhou2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Sound Event Detection in Multichannel Audio LSTM Network
+       </h4>
+<p style="text-align:left">
+        Jianchao Zhou
+       </p>
+<p style="text-align:left">
+<em>
+         Institute of Computer Science &amp; Technology, Peking University, Beijing, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Zhou_PKU_task3_1</span> <span class="label label-primary">Zhou_PKU_task3_2</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Zhou2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Zhou2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Zhou2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Zhou_151.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Zhou2017" class="panel-collapse collapse" id="collapse-Zhou2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Sound Event Detection in Multichannel Audio LSTM Network
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this paper, a polyphonic sound event detection system is proposed. This system uses log mel-band energy features with long short term memory (LSTM) recurrent neural network. Human listeners have been successfully recognizing overlapping sound events by two ears. Motivated by that we propose to extend the system to use multichannel audio data. The original stereo (multichannel) audio signal has two channels, we construct three different channel data and use different fusion strategies to extend our system. Experiments show that our system achieved superior performances compared with the baselines.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         right, diff; right, mean, diff
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         LSTM
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         median filtering
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Zhou2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Zhou_151.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Zhou2017label" class="modal fade" id="bibtex-Zhou2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexZhou2017label">
+        Sound Event Detection in Multichannel Audio LSTM Network
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Zhou2017,
+    Author = "Zhou, Jianchao",
+    title = "Sound Event Detection in Multichannel Audio {LSTM} Network",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "In this paper, a polyphonic sound event detection system is proposed. This system uses log mel-band energy features with long short term memory (LSTM) recurrent neural network. Human listeners have been successfully recognizing overlapping sound events by two ears. Motivated by that we propose to extend the system to use multichannel audio data. The original stereo (multichannel) audio signal has two channels, we construct three different channel data and use different fusion strategies to extend our system. Experiments show that our system achieved superior performances compared with the baselines."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script>
+(function($) {
+    $(document).ready(function() {
+        var hash = window.location.hash.substr(1);
+        var anchor = window.location.hash;
+
+        var shiftWindow = function() {
+            var hash = window.location.hash.substr(1);
+            if($('#collapse-'+hash).length){
+                scrollBy(0, -100);
+            }
+        };
+        window.addEventListener("hashchange", shiftWindow);
+
+        if (window.location.hash){
+            window.scrollTo(0, 0);
+            history.replaceState(null, document.title, "#");
+
+            $('#collapse-'+hash).collapse('show');
+            setTimeout(function(){
+                window.location.hash = anchor;
+                shiftWindow();
+            }, 2000);
+        }
+    });
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

@@ -1,0 +1,1117 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Detection of rare sound events - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Detection of rare sound events - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2017/task-rare-sound-event-detection">
+    <meta property="og:url" content="https://dcase.community/challenge2017/task-rare-sound-event-detection" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="Toni Heittola" />
+    <meta name="description" content="Challenge has ended. Full results for this task can be found here Description This task will focus on detection of rare sound events in artificially created mixtures. This specific use of data will allow creating mixtures of background everyday audio and sound events of interest at different event-to-background ratio, providing …" />
+    <meta name="og:description" content="Challenge has ended. Full results for this task can be..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2017</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2017/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2017/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2017/task-rare-sound-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-alarm text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-rare-sound-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-rare-sound-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2017/task-sound-event-detection-in-real-life-audio" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-events text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-sound-event-detection-in-real-life-audio"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-sound-event-detection-in-real-life-audio-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2017/task-large-scale-sound-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-large-scale-sound-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-large-scale-sound-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Download data">
+        <a href="http://localhost:3000/challenge2017/download"><i class="fa fa-download"></i>&nbsp;Download</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2017/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2017/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge organizers">
+        <a href="http://localhost:3000/challenge2017/organizers"><i class="fa fa-users"></i>&nbsp;Organizers</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/tiles-01.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-success"></i><i class="fa dc-alarm fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text">Alarms</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 2</span></span><img src="../images/logos/dcase/dcase2017_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Detection of <br>rare sound events</h1><hr class="small right bold"><span class="subheading">Task 2</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Coordinators</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Aleksandr Diment" class="img img-circle" src="http://localhost:3000/images/person/aleksandr_diment.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Aleksandr Diment</strong>
+<a class="icon" href="mailto:aleksandr.diment@tuni.fi"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://arg.cs.tut.fi/">
+                                Tampere Univeristy of Technology
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Annamaria Mesaros" class="img img-circle" src="http://localhost:3000/images/person/annamaria_mesaros.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Annamaria Mesaros</strong>
+<a class="icon" href="mailto:annamaria.mesaros@tuni.fi"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://arg.cs.tut.fi/">
+                                Tampere University of Technology
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Toni Heittola" class="img img-circle" src="http://localhost:3000/images/person/toni_heittola.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Toni Heittola</strong>
+<a class="icon" href="mailto:toni.heittola@tuni.fi"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://arg.cs.tut.fi/">
+                                Tampere University of Technology
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#description">Description</a></li>
+<li><a href="#audio-dataset">Audio dataset</a>
+<ul>
+<li><a href="#recording-and-annotation-procedure">Recording and annotation procedure</a></li>
+<li><a href="#download">Download</a></li>
+</ul>
+</li>
+<li><a href="#task-setup">Task setup</a>
+<ul>
+<li><a href="#development-dataset">Development dataset</a></li>
+<li><a href="#evaluation-dataset">Evaluation dataset</a></li>
+<li><a href="#submission">Submission</a></li>
+</ul>
+</li>
+<li><a href="#task-rules">Task rules</a></li>
+<li><a href="#evaluation">Evaluation</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#baseline-system">Baseline system</a>
+<ul>
+<li><a href="#python-implementation">Python implementation</a></li>
+<li><a href="#results-for-tut-rare-sound-events-2017-development-dataset">Results for TUT Rare sound events 2017, development dataset</a></li>
+</ul>
+</li>
+<li><a href="#citation">Citation</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p class="alert alert-info">
+<strong>Challenge has ended.</strong> Full results for this task can be found <a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2017/task-rare-sound-event-detection-results">here <i class="fa fa-caret-right"></i></a>
+</p>
+<h1 id="description">Description</h1>
+<p>This task will focus on detection of rare sound events in artificially created mixtures. This specific use of data will allow creating mixtures of background everyday audio and sound events of interest at different event-to-background ratio, providing a larger amount of training conditions than would be available in real recordings.</p>
+<figure>
+<div class="row-fluid row-centered">
+<div class="col-xs-10 col-md-5 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2017/task2_overview.png"/>
+<figcaption>Figure 1: Overview of sound event detection system.</figcaption>
+</div>
+</div>
+</figure>
+<h1 id="audio-dataset">Audio dataset</h1>
+<p><strong>TUT Rare Sound Events 2017</strong> consists of isolated sound events for each target class and recordings of everyday acoustic scenes to serve as background. Source code for creating mixtures at different event-to-background will be also provided, along with a set of ready generated mixtures. The participants are allowed to use any combination of the provided data for training their systems (separate sounds, provided mixtures or any other created mixtures). The evaluation set will consist of similar mixtures.</p>
+<p>The target sound event categories are:</p>
+<ul>
+<li>Baby crying</li>
+<li>Glass breaking</li>
+<li>Gunshot</li>
+</ul>
+<p>Target sound event categories will be treated <strong>independently</strong>, therefore it is allowed to use completely different approaches for detection, tailored to the characteristics of each sound category.</p>
+<p>The background audio material consists of recordings from 15 different audio scenes, and is part of TUT Acoustic Scenes 2016 dataset.</p>
+<h2 id="recording-and-annotation-procedure">Recording and annotation procedure</h2>
+<p>The background audio is part of TUT Acoustic Scenes 2016 dataset, and the isolated sound examples were collected from Freesound. Selection of sounds from Freesound was based on the exact label, selecting examples that had sampling frequency 44.1 kHz or higher. Isolated examples in the training set were annotated with start time and end time using an SVM-based semi-supervised segmentation, followed by manual refinement.</p>
+<p>Parameters controlling the synthesized material include the event-to-background ratio (EBR) and the randomly selected positioning for the target sound and event occurrence probability (there may be one or no events per mixture). Isolated sounds and background samples are selected at random. Annotations for the synthetic mixtures are produced automatically by the mixture synthesizer. Annotations contain only the target sound event temporal position, as the task is independent of the background acoustic scene.</p>
+<h2 id="download">Download</h2>
+<p><em>In case you are using the provided baseline system, there is no need to download the dataset as the system will automatically download needed dataset for you.</em></p>
+<p>** Development dataset **</p>
+<p class="bg-danger">
+A minor bug was found in the development dataset after initial release. A few background audio signals were found to contain also target sound events (babycry), affecting the evaluation result minimally.
+Make sure you update your dataset by using the provided <a href="https://github.com/TUT-ARG/TUT_Rare_sound_events_mixture_synthesizer/blob/master/dcase2017_task2_patcher.py">script</a>.
+Detailed instructions how to use the script can be found <a href="https://groups.google.com/forum/#!topic/dcase-discussions/9J_03eYFGNA">here</a>.
+</p>
+<p class="bg-success">
+Below is the most recent, updated version of the development dataset. If you have downloaded it after June 30th 2017, no measures are required from your side.
+</p>
+<p><br/></p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/401395" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/401395" target="_blank">
+<span style="font-size:20px;">TUT Rare sound events 2017, <strong>development dataset</strong> <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(10.7 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.401395">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.401395.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<p>** Evaluation dataset **</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/1160455" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/1160455" target="_blank">
+<span style="font-size:20px;">TUT Rare sound events 2017, <strong>evaluation dataset</strong> <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(3.6 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.1160455">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1160455.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<h1 id="task-setup">Task setup</h1>
+<p>The dataset consists of two subsets: <strong>development dataset</strong> and <strong>evaluation dataset</strong>. The development dataset contains the original background and isolated sound event samples, and a set of generated mixture audio samples. Participants can generate any amount of additional mixtures for use in system training, using the provided dataset.</p>
+<p>The development dataset contains approximately 9 hours of background audio, around 100 isolated sound examples for each target class, and 500 mixture audio examples for each target class, with each mixture containing 0 to 1 target sounds. In addition, 500 mixtures are provided per target class for evaluation of the system during development - these mixtures are created using different background audio and sound examples than the ones available in the development set.
+The evaluation set will be produced the same way, using original audio material not distributed in development set, and will be provided close to the challenge deadline.</p>
+<p>A detailed description of the dataset creation is available in:</p>
+<div class="btex-item" data-item="DCASE2017challenge" data-source="content/data/challenge2017/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="DCASE2017challenge"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            A. Mesaros, T. Heittola, A. Diment, B. Elizalde, A. Shah, E. Vincent, B. Raj, and T. Virtanen.
+<em>DCASE 2017 challenge setup: tasks, datasets and baseline system.</em>
+In Proceedings of the Detection and Classification of Acoustic Scenes and Events 2017 Workshop (DCASE2017), 85–92. November 2017.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexDCASE2017challenge20b8409deb8f4dbf9446be9968d85a0c" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="../documents/workshop2017/proceedings/DCASE2017Workshop_Mesaros_100.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseDCASE2017challenge20b8409deb8f4dbf9446be9968d85a0c" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseDCASE2017challenge20b8409deb8f4dbf9446be9968d85a0c" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingDCASE2017challenge20b8409deb8f4dbf9446be9968d85a0c" class="panel-collapse collapse" id="collapseDCASE2017challenge20b8409deb8f4dbf9446be9968d85a0c" role="tabpanel">
+<h4>DCASE 2017 Challenge Setup: Tasks, Datasets and Baseline System</h4>
+<h5>Abstract</h5>
+<p class="text-justify">DCASE 2017 Challenge consists of four tasks: acoustic scene classification, detection of rare sound events, sound event detection in real-life audio, and large-scale weakly supervised sound event detection for smart cars. This paper presents the setup of these tasks: task definition, dataset, experimental setup, and baseline system results on the development dataset. The baseline systems for all tasks rely on the same implementation using multilayer perceptron and log mel-energies, but differ in the structure of the output layer and the decision making process, as well as the evaluation of system output using task specific metrics.</p>
+<h5>Keywords</h5>
+<p class="text-justify">Sound scene analysis, Acoustic scene classification, Sound event detection, Audio tagging, Rare sound events</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexDCASE2017challenge20b8409deb8f4dbf9446be9968d85a0c" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="../documents/workshop2017/proceedings/DCASE2017Workshop_Mesaros_100.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexDCASE2017challenge20b8409deb8f4dbf9446be9968d85a0clabel" class="modal fade" id="bibtexDCASE2017challenge20b8409deb8f4dbf9446be9968d85a0c" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexDCASE2017challenge20b8409deb8f4dbf9446be9968d85a0clabel">DCASE 2017 Challenge Setup: Tasks, Datasets and Baseline System</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{DCASE2017challenge,
+    Author = "Mesaros, A. and Heittola, T. and Diment, A. and Elizalde, B. and Shah, A. and Vincent, E. and Raj, B. and Virtanen, T.",
+    title = "{DCASE} 2017 Challenge Setup: Tasks, Datasets and Baseline System",
+    booktitle = "Proceedings of the Detection and Classification of Acoustic Scenes and Events 2017 Workshop (DCASE2017)",
+    year = "2017",
+    month = "November",
+    pages = "85--92",
+    abstract = "DCASE 2017 Challenge consists of four tasks: acoustic scene classification, detection of rare sound events, sound event detection in real-life audio, and large-scale weakly supervised sound event detection for smart cars. This paper presents the setup of these tasks: task definition, dataset, experimental setup, and baseline system results on the development dataset. The baseline systems for all tasks rely on the same implementation using multilayer perceptron and log mel-energies, but differ in the structure of the output layer and the decision making process, as well as the evaluation of system output using task specific metrics.",
+    keywords = "Sound scene analysis, Acoustic scene classification, Sound event detection, Audio tagging, Rare sound events"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="development-dataset">Development dataset</h2>
+<p>A set of 500 mixtures per target class is designated and clearly marked as test material during system development. Participants are required to report the performance of the system on this subset for comparison.</p>
+<h2 id="evaluation-dataset">Evaluation dataset</h2>
+<p>Evaluation dataset without ground truth will be released one month before the submission deadline. Full ground truth meta data for it will be published after the DCASE 2017 challenge and workshop are concluded.</p>
+<h2 id="submission">Submission</h2>
+<p>Detailed information for the challenge submission can found on the <a href="http://localhost:3000/challenge2017/submission">submission page</a>.</p>
+<p>System output should be presented as a single text-file (in CSV format) containing a list of detected sound events from each audio file. Events can be in any order. Format for the case if the event is detected in a mixture:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">filename (string)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">event onset time in seconds (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">event offset time in seconds (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">event label (string)</span><span class="o">]</span>
+</code></pre></div>
+<p>and if no event is detected:</p>
+<div class="highlight"><pre><span></span><code>[filename (string)]
+</code></pre></div>
+<p>Multiple submissions are allowed (maximum 4 per participant). In the case of multiple submissions, the individual text-files should be packaged into a zip file for submission. Please carefully mark the connection between the submitted files and the corresponding system or system parameters (for example by naming the text file appropriately).</p>
+<h1 id="task-rules">Task rules</h1>
+<p>These are the general rules valid for all tasks. The same rules and additional information on technical report and submission requirements can be found <a href="http://localhost:3000/challenge2017/rules">here</a>. Task specific rules are highlighted with green.</p>
+<ul>
+<li>Participants are <strong>not allowed</strong> to use external data for system development. Data from another task is considered external data.</li>
+<li><p class="bg-success">It <strong>is allowed</strong> to have different approaches for the specific target classes, i.e. target class can be used as prior knowledge.</p></li>
+<li>Manipulation of provided training and development data <strong>is allowed</strong>.
+    <p class="bg-success">
+    Participants are allowed to use any combination of the training and development datasets for training their systems, and creating a high number of mixtures with various combinations of target sounds and background audio is encouraged.
+    </p>
+</li>
+<li>Participants are <strong>not allowed</strong> to make subjective judgments of the evaluation data, nor to annotate it. The evaluation dataset cannot be used to train the submitted system; the use of statistics about the evaluation data in the decision making is also forbidden.</li>
+</ul>
+<h1 id="evaluation">Evaluation</h1>
+<p>The evaluation metric for the task is <strong>event-based error rate</strong> calculated using onset-only condition with a collar of 500 ms. Additionally, event-based F-score with a 500 ms onset-only collar will be calculated. Ranking of submitted systems will be based on the event-based error rate.</p>
+<p>Detailed information on metrics calculation is available in:</p>
+<div class="btex-item" data-item="Mesaros2016_MDPI" data-source="content/data/challenge2017/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Mesaros2016_MDPI"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Annamaria Mesaros, Toni Heittola, and Tuomas Virtanen.
+<em>Metrics for polyphonic sound event detection.</em>
+<em>Applied Sciences</em>, 6(6):162, 2016.
+URL: <a href="http://www.mdpi.com/2076-3417/6/6/162">http://www.mdpi.com/2076-3417/6/6/162</a>, <a href="https://doi.org/10.3390/app6060162">doi:10.3390/app6060162</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexMesaros2016_MDPI9c227e8b48c04225922a0d7ac8a8ef3c" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="http://www.mdpi.com/2076-3417/6/6/162/pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<a class="btn btn-xs btn-success btn-btex" data-placement="bottom" href="https://github.com/TUT-ARG/sed_eval" rel="tooltip" title="Toolbox"><i class="fa fa-file-code-o"></i></a>
+<button aria-controls="collapseMesaros2016_MDPI9c227e8b48c04225922a0d7ac8a8ef3c" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseMesaros2016_MDPI9c227e8b48c04225922a0d7ac8a8ef3c" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingMesaros2016_MDPI9c227e8b48c04225922a0d7ac8a8ef3c" class="panel-collapse collapse" id="collapseMesaros2016_MDPI9c227e8b48c04225922a0d7ac8a8ef3c" role="tabpanel">
+<h4>Metrics for Polyphonic Sound Event Detection</h4>
+<h5>Abstract</h5>
+<p class="text-justify">This paper presents and discusses various metrics proposed for evaluation of polyphonic sound event detection systems used in realistic situations where there are typically multiple sound sources active simultaneously. The system output in this case contains overlapping events, marked as multiple sounds detected as being active at the same time. The polyphonic system output requires a suitable procedure for evaluation against a reference. Metrics from neighboring fields such as speech recognition and speaker diarization can be used, but they need to be partially redefined to deal with the overlapping events. We present a review of the most common metrics in the field and the way they are adapted and interpreted in the polyphonic case. We discuss segment-based and event-based definitions of each metric and explain the consequences of instance-based and class-based averaging using a case study. In parallel, we provide a toolbox containing implementations of presented metrics.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexMesaros2016_MDPI9c227e8b48c04225922a0d7ac8a8ef3c" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="http://www.mdpi.com/2076-3417/6/6/162/pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<a class="btn btn-sm btn-info btn-btex2" href="http://www.mdpi.com/2076-3417/6/6/162" title="Journal page"><i class="fa fa-book"></i> Web publication</a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success btn-btex2" data-placement="bottom" href="https://github.com/TUT-ARG/sed_eval" rel="tooltip" title="Toolbox"><i class="fa fa-file-code-o"></i> Toolbox</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexMesaros2016_MDPI9c227e8b48c04225922a0d7ac8a8ef3clabel" class="modal fade" id="bibtexMesaros2016_MDPI9c227e8b48c04225922a0d7ac8a8ef3c" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexMesaros2016_MDPI9c227e8b48c04225922a0d7ac8a8ef3clabel">Metrics for Polyphonic Sound Event Detection</h4>
+</div>
+<div class="modal-body">
+<pre>@article{Mesaros2016_MDPI,
+    author = "Mesaros, Annamaria and Heittola, Toni and Virtanen, Tuomas",
+    title = "Metrics for Polyphonic Sound Event Detection",
+    journal = "Applied Sciences",
+    volume = "6",
+    year = "2016",
+    number = "6",
+    pages = "162",
+    url = "http://www.mdpi.com/2076-3417/6/6/162",
+    issn = "2076-3417",
+    abstract = "This paper presents and discusses various metrics proposed for evaluation of polyphonic sound event detection systems used in realistic situations where there are typically multiple sound sources active simultaneously. The system output in this case contains overlapping events, marked as multiple sounds detected as being active at the same time. The polyphonic system output requires a suitable procedure for evaluation against a reference. Metrics from neighboring fields such as speech recognition and speaker diarization can be used, but they need to be partially redefined to deal with the overlapping events. We present a review of the most common metrics in the field and the way they are adapted and interpreted in the polyphonic case. We discuss segment-based and event-based definitions of each metric and explain the consequences of instance-based and class-based averaging using a case study. In parallel, we provide a toolbox containing implementations of presented metrics.",
+    doi = "10.3390/app6060162"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>A short description of metrics can be found <a href="http://localhost:3000/challenge2017/metrics">here</a>.</p>
+<p>The evaluation is done automatically in the baseline system. Evaluation is done using <strong>sed_eval toolbox</strong>.</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/TUT-ARG/sed_eval" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/TUT-ARG/sed_eval" target="_blank">
+<span style="font-size:20px;">sed_eval - Evaluation toolbox for Sound Event Detection <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<p>In case of using the toolbox directly, use the following parameters for <code>sed_eval.EventBasedMetrics</code> evaluator to align it with the baseline system:</p>
+<ul>
+<li>Collar of 500ms or 50% length of the event, <code>t_collar=0.5, percentage_of_length=0.5</code></li>
+<li>Only evaluate onsets, <code>evaluate_onset=True, evaluate_offset=False</code></li>
+</ul>
+<h1 id="results">Results</h1>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="event_based_ER_overall_eval" data-scatter-y="event_based_F1_overall_eval" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="event_based_ER_overall_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="4">Submission Information</th>
+<th class="sep-left-cell" colspan="2">Event-based (overall)</th>
+</tr>
+<tr>
+<th class="sm-cell" data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sep-left-cell" data-field="corresponding_author" data-sortable="false">
+                Author
+            </th>
+<th class="sm-cell" data-field="corresponding_affiliation" data-sortable="false">
+                Affiliation
+            </th>
+<th class="sep-left-cell text-center" data-field="external_anchor" data-sortable="false" data-value-type="url">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Cakir_TUT_task2_1</td>
+<td>Emre Cakir</td>
+<td>Laboratory of Signal Processing, Tampere University of Technology, Tampere, Finland</td>
+<td>task-rare-sound-event-detection-results#Cakir2017</td>
+<td>0.1813</td>
+<td>91.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Cakir_TUT_task2_2</td>
+<td>Emre Cakir</td>
+<td>Laboratory of Signal Processing, Tampere University of Technology, Tampere, Finland</td>
+<td>task-rare-sound-event-detection-results#Cakir2017</td>
+<td>0.1733</td>
+<td>91.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Cakir_TUT_task2_3</td>
+<td>Emre Cakir</td>
+<td>Laboratory of Signal Processing, Tampere University of Technology, Tampere, Finland</td>
+<td>task-rare-sound-event-detection-results#Cakir2017</td>
+<td>0.2920</td>
+<td>86.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Cakir_TUT_task2_4</td>
+<td>Emre Cakir</td>
+<td>Laboratory of Signal Processing, Tampere University of Technology, Tampere, Finland</td>
+<td>task-rare-sound-event-detection-results#Cakir2017</td>
+<td>0.1867</td>
+<td>90.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang_NCU_task2_1</td>
+<td>Jia-Ching Wang</td>
+<td>Computer Sciene and Information Engineering, National Central University, Taoyuan, Taiwan</td>
+<td>task-rare-sound-event-detection-results#Dang2017</td>
+<td>0.4787</td>
+<td>73.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang_NCU_task2_2</td>
+<td>Jia-Ching Wang</td>
+<td>Computer Sciene and Information Engineering, National Central University, Taoyuan, Taiwan</td>
+<td>task-rare-sound-event-detection-results#Dang2017</td>
+<td>0.4107</td>
+<td>79.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang_NCU_task2_3</td>
+<td>Jia-Ching Wang</td>
+<td>Computer Sciene and Information Engineering, National Central University, Taoyuan, Taiwan</td>
+<td>task-rare-sound-event-detection-results#Dang2017</td>
+<td>0.4453</td>
+<td>76.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang_NCU_task2_4</td>
+<td>Jia-Ching Wang</td>
+<td>Computer Sciene and Information Engineering, National Central University, Taoyuan, Taiwan</td>
+<td>task-rare-sound-event-detection-results#Dang2017</td>
+<td>0.4253</td>
+<td>78.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Ghaffarzadegan_BOSCH_task2_1</td>
+<td>Shabnam Ghaffarzadegan</td>
+<td>Human Machine Interaction, Robert Bosch Research and Technology Center, Palo Alto, USA</td>
+<td>task-rare-sound-event-detection-results#Ghaffarzadegan2017</td>
+<td>0.5000</td>
+<td>74.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Ghaffarzadegan_BOSCH_task2_2</td>
+<td>Shabnam Ghaffarzadegan</td>
+<td>Robert Bosch Research and Technology Center, Palo Alto, USA</td>
+<td>task-rare-sound-event-detection-results#Ghaffarzadegan2017</td>
+<td>0.5493</td>
+<td>71.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Ghaffarzadegan_BOSCH_task2_3</td>
+<td>Shabnam Ghaffarzadegan</td>
+<td>Robert Bosch Research and Technology Center, Palo Alto, USA</td>
+<td>task-rare-sound-event-detection-results#Ghaffarzadegan2017</td>
+<td>0.5560</td>
+<td>70.8</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2017 baseline</td>
+<td>Toni Heittola</td>
+<td>Laboratory of Signal Processing, Tampere University of Technology, Tampere, Finland</td>
+<td>task-rare-sound-event-detection-results#Heittola2017</td>
+<td>0.6373</td>
+<td>64.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Jeon_GIST_task2_1</td>
+<td>Hong Kook Kim</td>
+<td>School of Electrical Engineering and Computer Science, Gwangju Institute of Science and Technology, Gwangju, South Korea</td>
+<td>task-rare-sound-event-detection-results#Jeon2017</td>
+<td>0.6773</td>
+<td>65.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_SCUT_task2_1</td>
+<td>Yanxiong Li</td>
+<td>School of Electronic and Information Engineering, South China University of Technology, Guangzhou, China</td>
+<td>task-rare-sound-event-detection-results#Li2017</td>
+<td>0.6333</td>
+<td>65.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_SCUT_task2_2</td>
+<td>Yanxiong Li</td>
+<td>School of Electronic and Information Engineering, South China University of Technology, Guangzhou, China</td>
+<td>task-rare-sound-event-detection-results#Li2017</td>
+<td>0.7373</td>
+<td>57.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_SCUT_task2_3</td>
+<td>Yanxiong Li</td>
+<td>School of Electronic and Information Engineering, South China University of Technology, Guangzhou, China</td>
+<td>task-rare-sound-event-detection-results#Li2017</td>
+<td>0.6213</td>
+<td>66.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_SCUT_task2_4</td>
+<td>Yanxiong Li</td>
+<td>School of Electronic and Information Engineering, South China University of Technology, Guangzhou, China</td>
+<td>task-rare-sound-event-detection-results#Li2017</td>
+<td>0.6000</td>
+<td>69.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Lim_COCAI_task2_1</td>
+<td>Yoonchang Han</td>
+<td>Cochlear.ai, Seoul, Korea</td>
+<td>task-rare-sound-event-detection-results#Lim2017</td>
+<td>0.1307</td>
+<td>93.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Lim_COCAI_task2_2</td>
+<td>Yoonchang Han</td>
+<td>Cochlear.ai, Seoul, Korea</td>
+<td>task-rare-sound-event-detection-results#Lim2017</td>
+<td>0.1347</td>
+<td>93.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Lim_COCAI_task2_3</td>
+<td>Yoonchang Han</td>
+<td>Cochlear.ai, Seoul, Korea</td>
+<td>task-rare-sound-event-detection-results#Lim2017</td>
+<td>0.1520</td>
+<td>92.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Lim_COCAI_task2_4</td>
+<td>Yoonchang Han</td>
+<td>Cochlear.ai, Seoul, Korea</td>
+<td>task-rare-sound-event-detection-results#Lim2017</td>
+<td>0.1720</td>
+<td>91.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Liping_CQU_task2_1</td>
+<td>Yang Liping</td>
+<td>Key Laboratory of Optoelectronic Technology and Systems (Chongqing University), Ministry of Education, ChongQing University, ChongQing, China</td>
+<td>task-rare-sound-event-detection-results#Kaiwu2017</td>
+<td>0.3400</td>
+<td>79.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Liping_CQU_task2_2</td>
+<td>Yang Liping</td>
+<td>Key Laboratory of Optoelectronic Technology and Systems (Chongqing University), Ministry of Education, ChongQing University, ChongQing, China</td>
+<td>task-rare-sound-event-detection-results#Kaiwu2017</td>
+<td>0.3293</td>
+<td>81.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Liping_CQU_task2_3</td>
+<td>Yang Liping</td>
+<td>Key Laboratory of Optoelectronic Technology and Systems (Chongqing University), Ministry of Education, ChongQing University, ChongQing, China</td>
+<td>task-rare-sound-event-detection-results#Kaiwu2017</td>
+<td>0.3173</td>
+<td>82.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Phan_UniLuebeck_task2_1</td>
+<td>Huy Phan</td>
+<td>Institute for Signal Processing, University of Luebeck, Luebeck, Germany</td>
+<td>task-rare-sound-event-detection-results#Phan2017</td>
+<td>0.2773</td>
+<td>85.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Ravichandran_BOSCH_task2_4</td>
+<td>Anravich Ravichandran</td>
+<td>Computer science, University of California, San Diego, USA</td>
+<td>task-rare-sound-event-detection-results#Ravichandran2017</td>
+<td>0.4267</td>
+<td>78.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini_UNIVPM_task2_1</td>
+<td>Fabio Vesperini</td>
+<td>Department of Information Engineering, Università Politecnica delle Marche, Ancona, Italy</td>
+<td>task-rare-sound-event-detection-results#Vesperini2017</td>
+<td>0.3267</td>
+<td>83.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini_UNIVPM_task2_2</td>
+<td>Fabio Vesperini</td>
+<td>Department of Information Engineering, Università Politecnica delle Marche, Ancona, Italy</td>
+<td>task-rare-sound-event-detection-results#Vesperini2017</td>
+<td>0.3440</td>
+<td>82.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini_UNIVPM_task2_3</td>
+<td>Fabio Vesperini</td>
+<td>Department of Information Engineering, Università Politecnica delle Marche, Ancona, Italy</td>
+<td>task-rare-sound-event-detection-results#Vesperini2017</td>
+<td>0.3267</td>
+<td>83.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini_UNIVPM_task2_4</td>
+<td>Fabio Vesperini</td>
+<td>Department of Information Engineering, Università Politecnica delle Marche, Ancona, Italy</td>
+<td>task-rare-sound-event-detection-results#Vesperini2017</td>
+<td>0.3267</td>
+<td>83.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang_BUPT_task2_1</td>
+<td>Jun Wang</td>
+<td>Embedded Artificial Intelligence Laboratory, Beijing University of Posts and Telecommunications, Beijing, China</td>
+<td>task-rare-sound-event-detection-results#Wang2017</td>
+<td>0.4320</td>
+<td>73.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang_THU_task2_1</td>
+<td>Jianfei Wang</td>
+<td>Speech and Audio Technology Laboratory, Tsinghua University, Beijing, China</td>
+<td>task-rare-sound-event-detection-results#Wang2017a</td>
+<td>0.4973</td>
+<td>72.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhou_XJTU_task2_1</td>
+<td>Zuren Feng</td>
+<td>Systems Engineering Institute, Xi'an Jiaotong University, Xi'an, China</td>
+<td>task-rare-sound-event-detection-results#Zhou2017</td>
+<td>0.3133</td>
+<td>84.2</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<p>Complete results and technical reports can be found <a href="http://localhost:3000/challenge2017/task-rare-sound-event-detection-results">here</a>.</p>
+<h1 id="baseline-system">Baseline system</h1>
+<p>The baseline system for the task is provided. The system is meant to implement a basic approach for acoustic scene classification, and provide some comparison point for the participants while developing their systems. The baseline systems for all tasks share the code base, implementing quite similar approach for all tasks. The baseline system will download the needed datasets and produces the results below when ran with the default parameters.</p>
+<p>The baseline system is based on a multilayer perceptron architecture using log mel-band energies as features. A 5-frame context is used, resulting in a feature vector length of 200. Using these features, a neural network containing two dense layers of 50 hidden units per layer and 20% dropout is trained for 200 epochs for each class.  Detection decision is based on a single output neuron of sigmoid type, indicating the target class active or inactive.  A detailed description is available in the baseline system documentation. The baseline system includes evaluation of results using <strong>event-based error rate</strong> and <strong>event-based F-score</strong> as metrics.</p>
+<p>The baseline system is implemented using Python (version 2.7 and 3.6). Participants are allowed to build their system on top of the given baseline system. The system has all needed functionality for dataset handling, storing / accessing features and models, and evaluating the results, making the adaptation for one's needs rather easy. The baseline system is also a good starting point for entry level researchers.</p>
+<h2 id="python-implementation">Python implementation</h2>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/TUT-ARG/DCASE2017-baseline-system" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/TUT-ARG/DCASE2017-baseline-system" target="_blank">
+<span style="font-size:20px;">DCASE2017 Baseline, repository <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<h2 id="results-for-tut-rare-sound-events-2017-development-dataset">Results for TUT Rare sound events 2017, development dataset</h2>
+<p><em>Evaluation setup</em></p>
+<ul>
+<li>three separate binary classifiers (one per class), average error rate over the three classes</li>
+<li>trained and tested using development dataset mixtures (provided train and test sets)</li>
+<li>Python 2.7.13 used</li>
+</ul>
+<p><em>System parameters</em></p>
+<ul>
+<li>Frame size: 40 ms (with 50% hop size)</li>
+<li>Feature vector: 40 log mel-band energies in 5 consecutive frames = 200 values</li>
+<li>MLP: 2 layers x 50 hidden units, 20% dropout, 200 epochs (using early stopping criteria, monitoring started after 100 epoch, 10 epoch patience), learning rate 0.001, one sigmoid unit as output</li>
+<li>Trained only on mixture audio</li>
+</ul>
+<div class="table-responsive col-md-10">
+<table class="table table-striped">
+<caption>Sound event detection results.</caption>
+<thead>
+<tr>
+<th></th>
+<th colspan="2">Event-based overall metrics (onset only,t_collar=500ms)</th>
+</tr>
+<tr>
+<th></th>
+<th class="col-md-4">ER</th>
+<th class="col-md-4">F-score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baby cry</td>
+<td>0.67</td>
+<td>72.0 %</td>
+</tr>
+<tr>
+<td>Glass break</td>
+<td>0.22</td>
+<td>88.5 %</td>
+</tr>
+<tr>
+<td>Gun shot</td>
+<td>0.69</td>
+<td>57.4 %</td>
+</tr>
+<tr class="active">
+<td><strong>Average</strong></td>
+<td><strong>0.53</strong></td>
+<td><strong>72.7 %</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="clearfix"></div>
+<h1 id="citation">Citation</h1>
+<p>If you are using the <strong>dataset</strong> or <strong>baseline</strong> code, or want to refer <strong>challenge task</strong> please cite the following paper:</p>
+<div class="btex-item" data-item="DCASE2017challenge" data-source="content/data/challenge2017/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="DCASE2017challenge"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            A. Mesaros, T. Heittola, A. Diment, B. Elizalde, A. Shah, E. Vincent, B. Raj, and T. Virtanen.
+<em>DCASE 2017 challenge setup: tasks, datasets and baseline system.</em>
+In Proceedings of the Detection and Classification of Acoustic Scenes and Events 2017 Workshop (DCASE2017), 85–92. November 2017.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexDCASE2017challenge890ac356ac184bd2a485f6d21d5bf536" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="../documents/workshop2017/proceedings/DCASE2017Workshop_Mesaros_100.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseDCASE2017challenge890ac356ac184bd2a485f6d21d5bf536" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseDCASE2017challenge890ac356ac184bd2a485f6d21d5bf536" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingDCASE2017challenge890ac356ac184bd2a485f6d21d5bf536" class="panel-collapse collapse" id="collapseDCASE2017challenge890ac356ac184bd2a485f6d21d5bf536" role="tabpanel">
+<h4>DCASE 2017 Challenge Setup: Tasks, Datasets and Baseline System</h4>
+<h5>Abstract</h5>
+<p class="text-justify">DCASE 2017 Challenge consists of four tasks: acoustic scene classification, detection of rare sound events, sound event detection in real-life audio, and large-scale weakly supervised sound event detection for smart cars. This paper presents the setup of these tasks: task definition, dataset, experimental setup, and baseline system results on the development dataset. The baseline systems for all tasks rely on the same implementation using multilayer perceptron and log mel-energies, but differ in the structure of the output layer and the decision making process, as well as the evaluation of system output using task specific metrics.</p>
+<h5>Keywords</h5>
+<p class="text-justify">Sound scene analysis, Acoustic scene classification, Sound event detection, Audio tagging, Rare sound events</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexDCASE2017challenge890ac356ac184bd2a485f6d21d5bf536" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="../documents/workshop2017/proceedings/DCASE2017Workshop_Mesaros_100.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexDCASE2017challenge890ac356ac184bd2a485f6d21d5bf536label" class="modal fade" id="bibtexDCASE2017challenge890ac356ac184bd2a485f6d21d5bf536" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexDCASE2017challenge890ac356ac184bd2a485f6d21d5bf536label">DCASE 2017 Challenge Setup: Tasks, Datasets and Baseline System</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{DCASE2017challenge,
+    Author = "Mesaros, A. and Heittola, T. and Diment, A. and Elizalde, B. and Shah, A. and Vincent, E. and Raj, B. and Virtanen, T.",
+    title = "{DCASE} 2017 Challenge Setup: Tasks, Datasets and Baseline System",
+    booktitle = "Proceedings of the Detection and Classification of Acoustic Scenes and Events 2017 Workshop (DCASE2017)",
+    year = "2017",
+    month = "November",
+    pages = "85--92",
+    abstract = "DCASE 2017 Challenge consists of four tasks: acoustic scene classification, detection of rare sound events, sound event detection in real-life audio, and large-scale weakly supervised sound event detection for smart cars. This paper presents the setup of these tasks: task definition, dataset, experimental setup, and baseline system results on the development dataset. The baseline systems for all tasks rely on the same implementation using multilayer perceptron and log mel-energies, but differ in the structure of the output layer and the decision making process, as well as the evaluation of system output using task specific metrics.",
+    keywords = "Sound scene analysis, Acoustic scene classification, Sound event detection, Audio tagging, Rare sound events"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<p>When citing <strong>challenge task</strong> and <strong>results</strong> please cite the following paper:</p>
+<div class="btex-item" data-item="Mesaros2019_TASLP" data-source="content/data/challenge2017/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Mesaros2019_TASLP"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            A. Mesaros, A. Diment, B. Elizalde, T. Heittola, E. Vincent, B. Raj, and T. Virtanen.
+<em>Sound event detection in the DCASE 2017 challenge.</em>
+<em>IEEE/ACM Transactions on Audio, Speech, and Language Processing</em>, 2019.
+In press.
+<a href="https://doi.org/10.1109/TASLP.2019.2907016">doi:10.1109/TASLP.2019.2907016</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexMesaros2019_TASLP509681d656384f8ababca1bf05b3ad0f" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://hal.inria.fr/hal-02067935/document" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseMesaros2019_TASLP509681d656384f8ababca1bf05b3ad0f" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseMesaros2019_TASLP509681d656384f8ababca1bf05b3ad0f" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingMesaros2019_TASLP509681d656384f8ababca1bf05b3ad0f" class="panel-collapse collapse" id="collapseMesaros2019_TASLP509681d656384f8ababca1bf05b3ad0f" role="tabpanel">
+<h4>Sound event detection in the DCASE 2017 Challenge</h4>
+<h5>Abstract</h5>
+<p class="text-justify">Each edition of the challenge on Detection and Classification of Acoustic Scenes and Events (DCASE) contained several tasks involving sound event detection in different setups. DCASE 2017 presented participants with three such tasks, each having specific datasets and detection requirements: Task 2, in which target sound events were very rare in both training and testing data, Task 3 having overlapping events annotated in real-life audio, and Task 4, in which only weakly-labeled data was available for training. In this paper, we present the three tasks, including the datasets and baseline systems, and analyze the challenge entries for each task. We observe the popularity of methods using deep neural networks, and the still widely used mel frequency based representations, with only few approaches standing out as radically different. Analysis of the systems behavior reveals that task-specific optimization has a big role in producing good performance; however, often this optimization closely follows the ranking metric, and its maximization/minimization does not result in universally good performance. We also introduce the calculation of confidence intervals based on a jackknife resampling procedure, to perform statistical analysis of the challenge results. The analysis indicates that while the 95% confidence intervals for many systems overlap, there are significant difference in performance between the top systems and the baseline for all tasks.</p>
+<h5>Keywords</h5>
+<p class="text-justify">Event detection;Task analysis;Training;Acoustics;Speech processing;Glass;Hidden Markov models;Sound event detection;weak labels;pattern recognition;jackknife estimates;confidence intervals</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexMesaros2019_TASLP509681d656384f8ababca1bf05b3ad0f" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://hal.inria.fr/hal-02067935/document" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexMesaros2019_TASLP509681d656384f8ababca1bf05b3ad0flabel" class="modal fade" id="bibtexMesaros2019_TASLP509681d656384f8ababca1bf05b3ad0f" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexMesaros2019_TASLP509681d656384f8ababca1bf05b3ad0flabel">Sound event detection in the DCASE 2017 Challenge</h4>
+</div>
+<div class="modal-body">
+<pre>@article{Mesaros2019_TASLP,
+    author = "Mesaros, A. and Diment, A. and Elizalde, B. and Heittola, T. and Vincent, E. and Raj, B. and Virtanen, T.",
+    journal = "IEEE/ACM Transactions on Audio, Speech, and Language Processing",
+    title = "Sound event detection in the {DCASE} 2017 Challenge",
+    year = "2019",
+    abstract = "Each edition of the challenge on Detection and Classification of Acoustic Scenes and Events (DCASE) contained several tasks involving sound event detection in different setups. DCASE 2017 presented participants with three such tasks, each having specific datasets and detection requirements: Task 2, in which target sound events were very rare in both training and testing data, Task 3 having overlapping events annotated in real-life audio, and Task 4, in which only weakly-labeled data was available for training. In this paper, we present the three tasks, including the datasets and baseline systems, and analyze the challenge entries for each task. We observe the popularity of methods using deep neural networks, and the still widely used mel frequency based representations, with only few approaches standing out as radically different. Analysis of the systems behavior reveals that task-specific optimization has a big role in producing good performance; however, often this optimization closely follows the ranking metric, and its maximization/minimization does not result in universally good performance. We also introduce the calculation of confidence intervals based on a jackknife resampling procedure, to perform statistical analysis of the challenge results. The analysis indicates that while the 95\% confidence intervals for many systems overlap, there are significant difference in performance between the top systems and the baseline for all tasks.",
+    keywords = "Event detection;Task analysis;Training;Acoustics;Speech processing;Glass;Hidden Markov models;Sound event detection;weak labels;pattern recognition;jackknife estimates;confidence intervals",
+    doi = "10.1109/TASLP.2019.2907016",
+    issn = "2329-9290",
+    note = "In press"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

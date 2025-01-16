@@ -1,0 +1,141 @@
+# Submission information
+submission:
+  # Submission label
+  # Label is used to index submissions.
+  # Generate your label following way to avoid
+  # overlapping codes among submissions:
+  # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number]_[index number of your submission (1-4)]
+  label: Martin_TAU_task4b_1
+
+  # Submission name
+  # This name will be used in the results tables when space permits
+  name: DCASE2023 task4b baseline system
+
+  # Submission name abbreviated
+  # This abbreviated name will be used in the results table when space is tight.
+  # Use maximum 10 characters.
+  abbreviation: Baseline_task4b
+
+  # Authors of the submitted system. Mark authors in
+  # the order you want them to appear in submission lists.
+  # One of the authors has to be marked as corresponding author,
+  # this will be listed next to the submission in the results tables.
+  authors:
+    # First author
+    - lastname: Martín Morató
+      firstname: Irene
+      email: irene.martinmorato@tuni.fi           # Contact email address
+      corresponding: true                         # Mark true for one of the authors
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: TAU
+        institute: Tampere University
+        department: Computing Sciences            # Optional
+        location: Tampere, Finland
+
+    # Second author
+    - lastname: Mesaros
+      firstname: Annamaria
+      email: annamaria.mesaros@tuni.fi
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: TAU
+        institute: Tampere University
+        department: Computing Sciences
+        location: Tampere, Finland
+
+    # Third author
+    - lastname: Heittola
+      firstname: Toni
+      email: toni.heittola@tuni.fi                # Contact email address
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: TAU
+        institute: Tampere University
+        department: Computing Sciences            # Optional
+        location: Tampere, Finland
+
+
+# System information
+system:
+  # System description, meta data provided here will be used to do
+  # meta analysis of the submitted system.
+  # Use general level tags, when possible use the tags provided in comments.
+  # If information field is not applicable to the system, use "!!null".
+  description:
+
+    # Audio input / sampling rate
+    input_channels: mono
+    # e.g. 16kHz, 22.05kHz, 44.1kHz, 48.0kHz
+    input_sampling_rate: 44.1kHz
+
+    # Acoustic representation
+    # one or multiple labels, e.g. MFCC, log-mel energies, spectrogram, CQT, raw waveform, ...
+    acoustic_features: mel energies
+
+    # Data augmentation methods
+    # time stretching, block mixing, pitch shifting, ...
+    data_augmentation: !!null
+
+
+    # Machine learning
+    # In case using ensemble methods, please specify all methods used (comma separated list).
+    # one or multiple, e.g. GMM, HMM, SVM, MLP, CNN, RNN, CRNN, ResNet, ensemble, ...
+    machine_learning_method: CRNN
+
+    # Ensemble method subsystem count
+    # In case ensemble method is not used, mark !!null.
+    # e.g. 2, 3, 4, 5, ...
+    ensemble_method_subsystem_count: !!null
+
+    # Decision making methods
+    # e.g. average, majority vote, maximum likelihood, ...
+    decision_making: !!null
+
+    # Semi-supervised method used to exploit both labelled and unlabelled data
+    # e.g one or multiple [pseudo-labelling, mean-teacher student...]
+    machine_learning_semi_supervised: !!null
+
+    # Segmentation method
+    # E.g. [RBM, attention layers...]
+    segmentation_method: !!null
+
+    # Post-processing, followed by the time span (in ms) in case of smoothing
+    # [median filtering, time aggregation...]
+    post-processing: !!null
+
+
+
+  # The training subsets used to train the model. Followed the amount of data (number of clips) used per subset.
+  # [weak (xx), unlabel_in_domain (xx), synthetic (xx), FUSS (xx)...]
+  subsets: !!null
+
+  #List here the external datasets you used for training
+  #AudioSet, ImageNet...
+  external_datasets: !!null
+
+  #List here the pre-trained models you used
+  #AST, PANNs..
+  pre_trained_models: !!null.
+
+  # URL to the source code of the system [optional]
+  source_code: https://github.com/marmoi/dcase2023_task4b_baseline
+
+# System results
+results:
+  development_dataset:
+    # System results for development dataset with provided the cross-validation setup.
+    # Full results are not mandatory, however, they are highly recommended
+    # as they are needed for through analysis of the challenge submissions.
+    # If you are unable to provide all results, also incomplete
+    # results can be reported.
+
+    # Overall metrics
+    overall:
+      ER_m: 0.487
+      F1_m: 70.34    # segment-based 1 second for all the test folds
+      F1_M: 35.83
+      F1_MO: 42.87

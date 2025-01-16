@@ -1,0 +1,851 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Domestic audio tagging - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Domestic audio tagging - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2016/task-audio-tagging">
+    <meta property="og:url" content="https://dcase.community/challenge2016/task-audio-tagging" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="Toni Heittola" />
+    <meta name="description" content="Challenge has ended. Full results for this task can be found here Description This task is based on audio recordings made in a domestic environment. The objective of the task is to perform multi-label classification on 4-second audio chunks (i.e. assign zero or more labels to each 4-second audio …" />
+    <meta name="og:description" content="Challenge has ended. Full results for this task can be..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2016</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2016/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-synthetic text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-events text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-tags text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Download data">
+        <a href="http://localhost:3000/challenge2016/download"><i class="fa fa-download"></i>&nbsp;Download</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2016/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2016/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge organizers">
+        <a href="http://localhost:3000/challenge2016/organizers"><i class="fa fa-users"></i>&nbsp;Organizers</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/leafs-01.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-info"></i><i class="fa dc-tags fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text">Tags</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 4</span></span><img src="../images/logos/dcase/dcase2016_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Domestic audio tagging</h1><hr class="small right bold"><span class="subheading">Task description</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Coordinators</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Peter Foster" class="img img-circle" src="http://localhost:3000/images/person/peter_foster.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Peter Foster</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://c4dm.eecs.qmul.ac.uk/">
+                                Queen Mary University of London
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Mark D. Plumbley" class="img img-circle" src="http://localhost:3000/images/person/mark_plumbley.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Mark D. Plumbley</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://www.surrey.ac.uk/cvssp/">
+                                University of Surrey
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#description">Description</a></li>
+<li><a href="#audio-dataset">Audio dataset</a>
+<ul>
+<li><a href="#download">Download</a></li>
+<li><a href="#annotations">Annotations</a></li>
+<li><a href="#development-dataset">Development dataset</a></li>
+<li><a href="#prediction-task">Prediction task</a></li>
+</ul>
+</li>
+<li><a href="#evaluation">Evaluation</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#rules">Rules</a></li>
+<li><a href="#baseline-system">Baseline system</a>
+<ul>
+<li><a href="#python-implementation">Python implementation</a></li>
+<li><a href="#results-for-chime-home-development-set">Results for CHiME-Home, development set</a></li>
+</ul>
+</li>
+<li><a href="#submission">Submission</a></li>
+<li><a href="#citation">Citation</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p class="alert alert-info">
+<strong>Challenge has ended.</strong> Full results for this task can be found <a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2016/task-audio-tagging-results">here <i class="fa fa-caret-right"></i></a>
+</p>
+<h1 id="description">Description</h1>
+<p>This task is based on audio recordings made in a domestic environment. The objective of the task is to perform multi-label classification on 4-second audio chunks (i.e. assign zero or more labels to each 4-second audio chunk). We motivate this task for applications such as human activity monitoring, where identifying the precise boundaries of acoustic events is of secondary importance, compared to determining the presence of events in the acoustic scene. Furthermore, when obtaining annotations for this task we observed that manually tagging audio chunks was much less time-consuming compared to manually locating event boundaries within recordings. We believe our chosen approach carries substantial potential for reducing the time cost and thus improving the tractability of obtaining manual annotations for large audio databases.</p>
+<figure>
+<div class="row-fluid row-centered">
+<div class="col-xs-10 col-md-5 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2016/task4_overview.png"/>
+<figcaption>Figure 1: Overview of audio tagging system.</figcaption>
+</div>
+</div>
+</figure>
+<h1 id="audio-dataset">Audio dataset</h1>
+<p>Prominent sound sources in the acoustic environment are two adults and two children, television and electronic gadgets, kitchen appliances, footsteps and knocks produced by human activity, in addition to sound originating from outside the house <a href="#Christensen2010">[Christensen2010]</a>. The audio data are provided as 4-second chunks at two sampling rates (48kHz and 16kHz) with the 48kHz data in stereo and with the 16kHz data in mono. The 16kHz recordings were obtained by downsampling the right-hand channel of the 48kHz recordings. Each audio file corresponds to a single chunk.</p>
+<p><em>All available audio data may be used for system development, however the evaluation will be performed using the monophonic audio data sampled at 16kHz, with the aim of approximating typical recording capabilities of commodity hardware.</em></p>
+<p>Out of 6137 chunks, 4378 chunks are available for system development, based on partitioning at the level of 5-minute recording segments.</p>
+<div class="btex-item" data-item="Christensen2010" data-source="content/data/challenge2016/publications.bib" id="Christensen2010">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Christensen2010"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Heidi Christensen, Jon Barker, Ning Ma, and Phil D. Green.
+<em>The chime corpus: a resource and a challenge for computational hearing in multisource environments.</em>
+In <span class="bibtex-protected">INTERSPEECH</span> 2010, 11th Annual Conference of the International Speech Communication Association, 1918–1921. ISCA, 2010.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexChristensen201001e40f010f28405c94ad22e7e3ec7479" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="http://staffwww.dcs.shef.ac.uk/people/N.Ma/pubs/christensen2010-chime.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseChristensen201001e40f010f28405c94ad22e7e3ec7479" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseChristensen201001e40f010f28405c94ad22e7e3ec7479" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingChristensen201001e40f010f28405c94ad22e7e3ec7479" class="panel-collapse collapse" id="collapseChristensen201001e40f010f28405c94ad22e7e3ec7479" role="tabpanel">
+<h4>The CHiME corpus: a resource and a challenge for computational hearing in multisource environments.</h4>
+<h5>Abstract</h5>
+<p class="text-justify">We present a new corpus designed for noise-robust speech processing research, CHiME. Our goal was to produce material which is both natural (derived from reverberant domestic environments with many simultaneous and unpredictable sound sources) and controlled (providing an enumerated range of SNRs spanning 20 dB). The corpus includes around 40 hours of background recordings from a head and torso simulator positioned in a domestic setting, and a comprehensive set of binaural impulse responses collected in the same environment. These have been used to add target utterances from the Grid speech recognition corpus into the CHiME domestic setting. Data has been mixed in a manner that produces a controlled and yet natural range of SNRs over which speech separation, enhancement and recognition algorithms can be evaluated. The paper motivates the design of the corpus, and describes the collection and post-processing of the data. We also present a set of baseline recognition results.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexChristensen201001e40f010f28405c94ad22e7e3ec7479" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="http://staffwww.dcs.shef.ac.uk/people/N.Ma/pubs/christensen2010-chime.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexChristensen201001e40f010f28405c94ad22e7e3ec7479label" class="modal fade" id="bibtexChristensen201001e40f010f28405c94ad22e7e3ec7479" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexChristensen201001e40f010f28405c94ad22e7e3ec7479label">The CHiME corpus: a resource and a challenge for computational hearing in multisource environments.</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Christensen2010,
+    Author = "Christensen, Heidi and Barker, Jon and Ma, Ning and Green, Phil D.",
+    title = "The CHiME corpus: a resource and a challenge for computational hearing in multisource environments.",
+    booktitle = "{INTERSPEECH} 2010, 11th Annual Conference of the International Speech Communication Association",
+    pages = "1918-1921",
+    year = "2010",
+    publisher = "ISCA",
+    abstract = "We present a new corpus designed for noise-robust speech processing research, CHiME. Our goal was to produce material which is both natural (derived from reverberant domestic environments with many simultaneous and unpredictable sound sources) and controlled (providing an enumerated range of SNRs spanning 20 dB). The corpus includes around 40 hours of background recordings from a head and torso simulator positioned in a domestic setting, and a comprehensive set of binaural impulse responses collected in the same environment. These have been used to add target utterances from the Grid speech recognition corpus into the CHiME domestic setting. Data has been mixed in a manner that produces a controlled and yet natural range of SNRs over which speech separation, enhancement and recognition algorithms can be evaluated. The paper motivates the design of the corpus, and describes the collection and post-processing of the data. We also present a set of baseline recognition results."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="download">Download</h2>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://archive.org/download/chime-home/chime_home.tar.gz" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://archive.org/download/chime-home/chime_home.tar.gz" target="_blank">
+<span style="font-size:20px;">CHiME-Home, <strong>development</strong> &amp; <strong>evaluation dataset</strong> <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(3.9 GB)</span>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<p><strong>PLEASE NOTE</strong>: If you downloaded the CHiME-Home dataset prior to the release of this information, please make sure to use the <a href="https://archive.org/download/chime-home/chime_home.tar.gz">latest version of the development dataset</a>, which includes monophonic audio data sampled at 16kHz.</p>
+<h2 id="annotations">Annotations</h2>
+<p>The annotations are based on a set of 7 label classes, listed in Table 1. For each chunk, multi-label annotations were first obtained for each of 3 annotators. A detailed description of the annotation procedure is provided in</p>
+<div class="btex-item" data-item="Foster2015" data-source="content/data/challenge2016/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Foster2015"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            P. <span class="bibtex-protected">Foster</span>, S. <span class="bibtex-protected">Sigtia</span>, S. <span class="bibtex-protected">Krstulovic</span>, J. <span class="bibtex-protected">Barker</span>, and M. D. <span class="bibtex-protected">Plumbley</span>.
+<em>Chime-home: a dataset for sound source recognition in a domestic environment.</em>
+In 2015 IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA), volume, 1–5. Oct 2015.
+<a href="https://doi.org/10.1109/WASPAA.2015.7336899">doi:10.1109/WASPAA.2015.7336899</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexFoster20151d7a9c9b45ba47368a768e39d04557a3" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="http://epubs.surrey.ac.uk/809719/1/chime_home_waspaa_2015_camera_ready_3.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseFoster20151d7a9c9b45ba47368a768e39d04557a3" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseFoster20151d7a9c9b45ba47368a768e39d04557a3" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingFoster20151d7a9c9b45ba47368a768e39d04557a3" class="panel-collapse collapse" id="collapseFoster20151d7a9c9b45ba47368a768e39d04557a3" role="tabpanel">
+<h4>Chime-home: A dataset for sound source recognition in a domestic environment</h4>
+<h5>Abstract</h5>
+<p class="text-justify">For the task of sound source recognition, we introduce a novel data set based on 6.8 hours of domestic environment audio recordings. We describe our approach of obtaining annotations for the recordings. Further, we quantify agreement between obtained annotations. Finally, we report baseline results for sound source recognition using the obtained dataset. Our annotation approach associates each 4-second excerpt from the audio recordings with multiple labels, based on a set of 7 labels associated with sound sources in the acoustic environment. With the aid of 3 human annotators, we obtain 3 sets of multi-label annotations, for 4378 4-second audio excerpts. We evaluate agreement between annotators by computing Jaccard indices between sets of label assignments. Observing varying levels of agreement across labels, with a view to obtaining a representation of `ground truth' in annotations, we refine our dataset to obtain a set of multi-label annotations for 1946 audio excerpts. For the set of 1946 annotated audio excerpts, we predict binary label assignments using Gaussian mixture models estimated on MFCCs. Evaluated using the area under receiver operating characteristic curves, across considered labels we observe performance scores in the range 0.76 to 0.98.</p>
+<h5>Keywords</h5>
+<p class="text-justify">acoustic radiators;audio recording;audio signal processing;Gaussian processes;mixture models;sensitivity analysis;sound source recognition;domestic environment audio recordings;acoustic environment;multilabel annotation;Jaccard indices computation;binary label assignment prediction;Gaussian mixture model;MFCC;receiver operating characteristic curve;Acoustics;Speech;Speech processing;Audio recording;Conferences;Speech recognition;Computational Auditory Scene analysis;Sound Source Recognition;Datasets</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexFoster20151d7a9c9b45ba47368a768e39d04557a3" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="http://epubs.surrey.ac.uk/809719/1/chime_home_waspaa_2015_camera_ready_3.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexFoster20151d7a9c9b45ba47368a768e39d04557a3label" class="modal fade" id="bibtexFoster20151d7a9c9b45ba47368a768e39d04557a3" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexFoster20151d7a9c9b45ba47368a768e39d04557a3label">Chime-home: A dataset for sound source recognition in a domestic environment</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Foster2015,
+    Author = "{Foster}, P. and {Sigtia}, S. and {Krstulovic}, S. and {Barker}, J. and {Plumbley}, M. D.",
+    booktitle = "2015 IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA)",
+    title = "Chime-home: A dataset for sound source recognition in a domestic environment",
+    year = "2015",
+    volume = "",
+    number = "",
+    pages = "1-5",
+    abstract = "For the task of sound source recognition, we introduce a novel data set based on 6.8 hours of domestic environment audio recordings. We describe our approach of obtaining annotations for the recordings. Further, we quantify agreement between obtained annotations. Finally, we report baseline results for sound source recognition using the obtained dataset. Our annotation approach associates each 4-second excerpt from the audio recordings with multiple labels, based on a set of 7 labels associated with sound sources in the acoustic environment. With the aid of 3 human annotators, we obtain 3 sets of multi-label annotations, for 4378 4-second audio excerpts. We evaluate agreement between annotators by computing Jaccard indices between sets of label assignments. Observing varying levels of agreement across labels, with a view to obtaining a representation of `ground truth' in annotations, we refine our dataset to obtain a set of multi-label annotations for 1946 audio excerpts. For the set of 1946 annotated audio excerpts, we predict binary label assignments using Gaussian mixture models estimated on MFCCs. Evaluated using the area under receiver operating characteristic curves, across considered labels we observe performance scores in the range 0.76 to 0.98.",
+    keywords = "acoustic radiators;audio recording;audio signal processing;Gaussian processes;mixture models;sensitivity analysis;sound source recognition;domestic environment audio recordings;acoustic environment;multilabel annotation;Jaccard indices computation;binary label assignment prediction;Gaussian mixture model;MFCC;receiver operating characteristic curve;Acoustics;Speech;Speech processing;Audio recording;Conferences;Speech recognition;Computational Auditory Scene analysis;Sound Source Recognition;Datasets",
+    doi = "10.1109/WASPAA.2015.7336899",
+    issn = "",
+    month = "Oct"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>In this task, the evaluation is based on those chunks where 2 or more annotators agreed about label presence across label classes. There are 1946 such 'strong agreement' chunks is the development dataset, and 816 such 'strong agreement' chunks in the evaluation dataset. Based on a majority vote, annotations are combined across annotators to form a single multi-label annotation (referred to as <em>CHiME-Home-refine</em> in [Foster2015]).</p>
+<table class="table table-striped">
+<caption>Table 1: Labels used in annotations.</caption>
+<thead>
+<tr>
+<th>Label</th>
+<th>Description</th>
+<th>Number of occurrences<br/>(development dataset strong agreement chunks)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>c</td>
+<td>Child speech</td>
+<td>1214</td>
+</tr>
+<tr>
+<td>m</td>
+<td>Adult male speech</td>
+<td>174</td>
+</tr>
+<tr>
+<td>f</td>
+<td>Adult female speech</td>
+<td>409</td>
+</tr>
+<tr>
+<td>v</td>
+<td>Video game / TV</td>
+<td>1181</td>
+</tr>
+<tr>
+<td>p</td>
+<td>Percussive sounds, e.g. crash, bang, knock, footsteps</td>
+<td>765</td>
+</tr>
+<tr>
+<td>b</td>
+<td>Broadband noise, e.g. household appliances</td>
+<td>19</td>
+</tr>
+<tr>
+<td>o</td>
+<td>Other identifiable sounds</td>
+<td>361</td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-dataset">Development dataset</h2>
+<p>For the 1946 'strong agreement' chunks in the development dataset, label occurrences are summarised in Table 1. These chunks have been partitioned at the level of 5-minute recording segments for 5-fold cross validation (please refer to the file <code>development_chunks_refined_crossval_dcase2016.csv</code> in the updated version of the CHiME-Home dataset). In the partition, the 5-minute  recording constraint was omitted for chunks labelled '<em>b</em>', owing to the low number of associated label occurrences. While not used for evaluation, the remaining 2432 chunks in the development dataset may be used to train models, for example for unsupervised learning.</p>
+<p>Participants are <strong>not allowed</strong> to use external data for system development. Manipulation of provided data <strong>is allowed</strong>.</p>
+<h2 id="prediction-task">Prediction task</h2>
+<p>For each chunk, output a classification score for each of the 7 label classes listed in Table 1.</p>
+<h1 id="evaluation">Evaluation</h1>
+<p>Label prediction performance is quantified using the equal error rate (EER), which is defined as the fixed point of the graph of false negative rate versus false positive rate <a href="#Murphy2012">[Murphy2012, p. 181]</a>, for which Python and Matlab implementations are provided. The EER is computed individually for each label. When using the development data, EERs are computed individually for each cross-validation fold, before averaging the obtained EERs across folds.</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/pafoster/dcase2016_task4/tree/master/evaluation_scripts" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/pafoster/dcase2016_task4/tree/master/evaluation_scripts" target="_blank">
+<span style="font-size:20px;">DCASE2016 Task 4 Python &amp; Matlab, evalution <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<p>Detailed description of the equal error rate can be found in <a href="#" id="Murphy2012"></a></p>
+<div class="btex-item" data-item="Murphy2012" data-source="content/data/challenge2016/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Murphy2012"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Kevin P. Murphy.
+Machine learning : a probabilistic perspective.
+MIT Press, Cambridge, Mass. [u.a.], 2013.
+ISBN 9780262018029 0262018020.
+URL: <a href="https://www.amazon.com/Machine-Learning-Probabilistic-Perspective-Computation/dp/0262018020/ref=sr_1_2?ie=UTF8&amp;qid=1336857747&amp;sr=8-2">https://www.amazon.com/Machine-Learning-Probabilistic-Perspective-Computation/dp/0262018020/ref=sr_1_2?ie=UTF8&amp;qid=1336857747&amp;sr=8-2</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexMurphy20126529f4d7cf4140ad8242514b14cefae7" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<button aria-controls="collapseMurphy20126529f4d7cf4140ad8242514b14cefae7" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseMurphy20126529f4d7cf4140ad8242514b14cefae7" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingMurphy20126529f4d7cf4140ad8242514b14cefae7" class="panel-collapse collapse" id="collapseMurphy20126529f4d7cf4140ad8242514b14cefae7" role="tabpanel">
+<h4>Machine learning : a probabilistic perspective</h4>
+<h5>Keywords</h5>
+<p class="text-justify">Machine learning</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexMurphy20126529f4d7cf4140ad8242514b14cefae7" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexMurphy20126529f4d7cf4140ad8242514b14cefae7label" class="modal fade" id="bibtexMurphy20126529f4d7cf4140ad8242514b14cefae7" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexMurphy20126529f4d7cf4140ad8242514b14cefae7label">Machine learning : a probabilistic perspective</h4>
+</div>
+<div class="modal-body">
+<pre>@book{Murphy2012,
+    Author = "Murphy, Kevin P.",
+    title = "Machine learning : a probabilistic perspective",
+    address = "Cambridge, Mass. [u.a.]",
+    description = "Machine Learning: A Probabilistic Perspective (Adaptive Computation and Machine Learning series): Kevin P. Murphy: 9780262018029: Amazon.com: Books",
+    isbn = "9780262018029 0262018020",
+    keywords = "Machine learning",
+    publisher = "MIT Press",
+    year = "2013",
+    url = "https://www.amazon.com/Machine-Learning-Probabilistic-Perspective-Computation/dp/0262018020/ref=sr\_1\_2?ie=UTF8\&amp;qid=1336857747\&amp;sr=8-2"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h1 id="results">Results</h1>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="false" data-show-rank="true" data-sort-name="eer_mean_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="4">Submission Information</th>
+<th class="sep-left-cell" colspan="1"></th>
+</tr>
+<tr>
+<th class="sm-cell" data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sep-left-cell" data-field="corresponding_author" data-sortable="false">
+                Author
+            </th>
+<th class="sm-cell" data-field="corresponding_affiliation" data-sortable="false">
+                Affiliation
+            </th>
+<th class="sep-left-cell text-center" data-field="external_anchor" data-sortable="false" data-value-type="url">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-beginatzero="true" data-chartable="true" data-field="eer_mean_eval" data-reversed="true" data-sortable="true" data-value-type="float1-percentage">
+                Equal Error Rate
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Cakir_task4_1</td>
+<td>Emre Cakir</td>
+<td>Tampere University of Technology, Tampere, Finland</td>
+<td>task-audio-tagging-results#Cakir2016</td>
+<td>16.8</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2016 baseline</td>
+<td>Peter Foster</td>
+<td>Queen Mary University of London, London, United Kingdom</td>
+<td>task-audio-tagging-results#Foster2016</td>
+<td>20.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Hertel_task4_1</td>
+<td>Lars Hertel</td>
+<td>Institute for Signal Processing, University of Luebeck, Luebeck, Germany</td>
+<td>task-audio-tagging-results#Hertel2016</td>
+<td>22.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_task4_1</td>
+<td>Qiuqiang Kong</td>
+<td>Centre for Vision, Speech and Signal Processing, University of Surrey, Surrey, United Kingdom</td>
+<td>task-audio-tagging-results#Kong2016</td>
+<td>18.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Lidy_task4_1</td>
+<td>Thomas Lidy</td>
+<td>Institute of Software Technology, Vienna University of Technology, Vienna, Austria</td>
+<td>task-audio-tagging-results#Lidy2016</td>
+<td>16.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu_task4_1</td>
+<td>Toan H. Vu</td>
+<td>Department of Computer Science and Information Engineering, National Central University, Taoyuan, Taiwan</td>
+<td>task-audio-tagging-results#Vu2016</td>
+<td>21.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_task4_1</td>
+<td>Yong Xu</td>
+<td>Centre for Vision, Speech and Signal Processing, University of Surrey, Surrey, United Kingdom</td>
+<td>task-audio-tagging-results#Xu2016</td>
+<td>19.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_task4_2</td>
+<td>Yong Xu</td>
+<td>Centre for Vision, Speech and Signal Processing, University of Surrey, Surrey, United Kingdom</td>
+<td>task-audio-tagging-results#Xu2016</td>
+<td>19.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Yun_task4_1</td>
+<td>Sungrack Yun</td>
+<td>Qualcomm Research, Seoul, South Korea</td>
+<td>task-audio-tagging-results#Yun2016</td>
+<td>17.4</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<p>Complete results and technical reports can be found at <a class="btn btn-primary" href="http://localhost:3000/challenge2016/task-audio-tagging-results">Task 4 result page</a>.</p>
+<h1 id="rules">Rules</h1>
+<ul>
+<li>Only the provided development dataset can be used to train the submitted system.</li>
+<li>The development dataset can be augmented only by mixing data sampled from a pdf; use of real recordings is forbidden.</li>
+<li>The evaluation dataset cannot be used to train the submitted system; the use of statistics about the evaluation dataset in the decision making is also forbidden.</li>
+<li>Technical report with sufficient description of the system has to be submitted along with the system outputs.</li>
+</ul>
+<p>More information on <a href="http://localhost:3000/challenge2016/submission">submission process</a>.</p>
+<h1 id="baseline-system">Baseline system</h1>
+<p>A baseline system implemented in Python using <a href="https://en.wikipedia.org/wiki/Mel-frequency_cepstrum">MFCCs</a> as features performs multi-label classification by associating a binary classifier with each label class. Classification scores are obtained as log-likelihood ratios using a pair of <a href="https://en.wikipedia.org/wiki/Mixture_model">GMMs</a>, respectively associated with label presence/absence.</p>
+<h2 id="python-implementation">Python implementation</h2>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/pafoster/dcase2016_task4/tree/master/baseline" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/pafoster/dcase2016_task4/tree/master/baseline" target="_blank">
+<span style="font-size:20px;">DCASE2016 Task 4 Python baseline <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<p><strong>PLEASE NOTE</strong>: The provided baseline system should attempt to download the dataset by default, prior to training and testing models using the provided cross-validation partition. The relevant script for invoking this procedure is <code>task4_audio_tagging.py</code>.</p>
+<h2 id="results-for-chime-home-development-set">Results for CHiME-Home, development set</h2>
+<p><em>Evaluation setup</em></p>
+<ul>
+<li>5-fold cross-validation</li>
+<li>7 classes</li>
+<li>Average EER across folds</li>
+</ul>
+<p><em>System parameters</em></p>
+<ul>
+<li>Frame size: 20 ms (50% hop size)</li>
+<li>Number of Gaussians per audio tag model: 8</li>
+<li>Features: 14 MFCC static coefficients (excluding 0th)</li>
+</ul>
+<div class="table-responsive col-md-8">
+<table class="table table-striped">
+<caption>Audio tagging results over evaluation folds.</caption>
+<thead>
+<tr>
+<th>Audio tag</th>
+<th>EER</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adult female speech</td>
+<td>0.29</td>
+</tr>
+<tr>
+<td>adult male speech</td>
+<td>0.30</td>
+</tr>
+<tr>
+<td>broadband noise</td>
+<td>0.09</td>
+</tr>
+<tr>
+<td>child speech</td>
+<td>0.20</td>
+</tr>
+<tr>
+<td>other</td>
+<td>0.29</td>
+</tr>
+<tr>
+<td>percussive sound</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td>video game/tv</td>
+<td>0.07</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td><strong>Mean error</strong></td>
+<td><strong>0.21</strong></td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div class="clearfix"></div>
+<h1 id="submission">Submission</h1>
+<p>Classification scores should be output to a text file containing the score associated with each (<em>chunk</em>, <em>label</em>) combination. Each line should contain a file name identifying a chunk, followed by a comma-delimited character indicating the label, followed by the classification score, e.g. <code>file1.wav,f,0.8751</code>. (Since there are 7 label classes, there should be 7 lines output for each chunk.) The file should be ASCII-formatted and lines should be terminated by the newline (<code>\n</code>) character. Relative to the baseline script location, example output may be found at <code>data/CHiMeHome-audiotag-development/evaluation_setup</code>.</p>
+<p>Detailed information for the challenge submission can found from <a href="http://localhost:3000/challenge2016/submission">submission page</a>.</p>
+<h1 id="citation">Citation</h1>
+<p>When citing <strong>challenge task</strong> and <strong>results</strong> please cite the following paper:</p>
+<div class="btex-item" data-item="Mesaros2018_TASLP" data-source="content/data/challenge2016/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Mesaros2018_TASLP"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            A. Mesaros, T. Heittola, E. Benetos, P. Foster, M. Lagrange, T. Virtanen, and M. D. Plumbley.
+<em>Detection and classification of acoustic scenes and events: outcome of the DCASE 2016 challenge.</em>
+<em>IEEE/ACM Transactions on Audio, Speech, and Language Processing</em>, 26(2):379–393, Feb 2018.
+<a href="https://doi.org/10.1109/TASLP.2017.2778423">doi:10.1109/TASLP.2017.2778423</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexMesaros2018_TASLP268c599c28d24678badf2d6b5eebf561" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://trepo.tuni.fi//bitstream/handle/10024/126402/dcase2016_taslp.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseMesaros2018_TASLP268c599c28d24678badf2d6b5eebf561" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseMesaros2018_TASLP268c599c28d24678badf2d6b5eebf561" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingMesaros2018_TASLP268c599c28d24678badf2d6b5eebf561" class="panel-collapse collapse" id="collapseMesaros2018_TASLP268c599c28d24678badf2d6b5eebf561" role="tabpanel">
+<h4>Detection and Classification of Acoustic Scenes and Events: Outcome of the DCASE 2016 Challenge</h4>
+<h5>Abstract</h5>
+<p class="text-justify">Public evaluation campaigns and datasets promote active development in target research areas, allowing direct comparison of algorithms. The second edition of the challenge on detection and classification of acoustic scenes and events (DCASE 2016) has offered such an opportunity for development of the state-of-the-art methods, and succeeded in drawing together a large number of participants from academic and industrial backgrounds. In this paper, we report on the tasks and outcomes of the DCASE 2016 challenge. The challenge comprised four tasks: acoustic scene classification, sound event detection in synthetic audio, sound event detection in real-life audio, and domestic audio tagging. We present each task in detail and analyze the submitted systems in terms of design and performance. We observe the emergence of deep learning as the most popular classification method, replacing the traditional approaches based on Gaussian mixture models and support vector machines. By contrast, feature representations have not changed substantially throughout the years, as mel frequency-based representations predominate in all tasks. The datasets created for and used in DCASE 2016 are publicly available and are a valuable resource for further research.</p>
+<h5>Keywords</h5>
+<p class="text-justify">Acoustics;Event detection;Hidden Markov models;Speech;Speech processing;Tagging;Acoustic scene classification;audio datasets;pattern recognition;sound event detection</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexMesaros2018_TASLP268c599c28d24678badf2d6b5eebf561" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://trepo.tuni.fi//bitstream/handle/10024/126402/dcase2016_taslp.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexMesaros2018_TASLP268c599c28d24678badf2d6b5eebf561label" class="modal fade" id="bibtexMesaros2018_TASLP268c599c28d24678badf2d6b5eebf561" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexMesaros2018_TASLP268c599c28d24678badf2d6b5eebf561label">Detection and Classification of Acoustic Scenes and Events: Outcome of the DCASE 2016 Challenge</h4>
+</div>
+<div class="modal-body">
+<pre>@article{Mesaros2018_TASLP,
+    author = "Mesaros, A. and Heittola, T. and Benetos, E. and Foster, P. and Lagrange, M. and Virtanen, T. and Plumbley, M. D.",
+    journal = "IEEE/ACM Transactions on Audio, Speech, and Language Processing",
+    title = "Detection and Classification of Acoustic Scenes and Events: Outcome of the {DCASE} 2016 Challenge",
+    year = "2018",
+    volume = "26",
+    number = "2",
+    pages = "379--393",
+    abstract = "Public evaluation campaigns and datasets promote active development in target research areas, allowing direct comparison of algorithms. The second edition of the challenge on detection and classification of acoustic scenes and events (DCASE 2016) has offered such an opportunity for development of the state-of-the-art methods, and succeeded in drawing together a large number of participants from academic and industrial backgrounds. In this paper, we report on the tasks and outcomes of the DCASE 2016 challenge. The challenge comprised four tasks: acoustic scene classification, sound event detection in synthetic audio, sound event detection in real-life audio, and domestic audio tagging. We present each task in detail and analyze the submitted systems in terms of design and performance. We observe the emergence of deep learning as the most popular classification method, replacing the traditional approaches based on Gaussian mixture models and support vector machines. By contrast, feature representations have not changed substantially throughout the years, as mel frequency-based representations predominate in all tasks. The datasets created for and used in DCASE 2016 are publicly available and are a valuable resource for further research.",
+    keywords = "Acoustics;Event detection;Hidden Markov models;Speech;Speech processing;Tagging;Acoustic scene classification;audio datasets;pattern recognition;sound event detection",
+    doi = "10.1109/TASLP.2017.2778423",
+    issn = "2329-9290",
+    month = "Feb"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

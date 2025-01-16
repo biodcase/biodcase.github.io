@@ -1,0 +1,114 @@
+# Submission information
+submission:
+  # Submission label
+  # Label is used to index submissions, to avoid overlapping codes among submissions
+  # use following way to form your label:
+  # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number]_[index number of your submission (1-4)]
+  label: Politis_TAU_task3_1
+
+  # Submission name
+  # This name will be used in the results tables when space permits
+  name: DCASE2021 MIC example
+
+  # Submission name abbreviated
+  # This abbreviated name will be used in the results table when space is tight, maximum 10 characters
+  abbreviation: MIC_base
+
+  # Submission authors in order, mark one of the authors as corresponding author.
+  authors:
+    # First author
+    - lastname: Politis
+      firstname: Archontis
+      email: archontis.politis@tuni.fi                   # Contact email address
+      corresponding: true                             # Mark true for one of the authors
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: TAU
+        institute: Tampere University
+        department: Audio Research Group
+        location: Tampere, Finland
+
+    # Second author
+    - lastname: Adavanne
+      firstname: Sharath
+      email: sharath.adavanne@tuni.fi                   # Contact email address
+
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: TAU
+        institute: Tampere University
+        department: Audio Research Group
+        location: Tampere, Finland
+
+    # Third author
+    - lastname: Virtanen
+      firstname: Tuomas
+      email: tuomas.virtanen@tuni.fi                   # Contact email address
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: TAU
+        institute: Tampere University
+        department: Audio Research Group
+        location: Tampere, Finland
+
+
+
+# System information
+system:
+  # System description, meta data provided here will be used to do
+  # meta analysis of the submitted system. Use general level tags, if possible use the tags provided in comments.
+  # If information field is not applicable to the system, use "!!null".
+  description:
+
+    # Audio input
+    input_format: Microphone Array                  # e.g. Ambisonic or Microphone Array or both
+    input_sampling_rate: 24kHz          #
+
+    # Acoustic representation
+    acoustic_features: mel spectra, GCC-PHAT   # e.g one or multiple  [phase and magnitude spectra, mel spectra, GCC-PHAT, TDOA, intensity vector ...]
+
+    # Data augmentation methods
+    data_augmentation: !!null             # [time stretching, block mixing, pitch shifting, ...]
+
+    # Machine learning
+    # In case using ensemble methods, please specify all methods used (comma separated list).
+    machine_learning_method: CRNN          # e.g one or multiple [GMM, HMM, SVM, kNN, MLP, CNN, RNN, CRNN, NMF, random forest, ensemble, ...]
+
+
+  # System complexity, meta data provided here will be used to evaluate
+  # submitted systems from the computational load perspective.
+  complexity:
+
+    # Total amount of parameters used in the acoustic model. For neural networks, this
+    # information is usually given before training process in the network summary.
+    # For other than neural networks, if parameter count information is not directly available,
+    # try estimating the count as accurately as possible.
+    # In case of ensemble approaches, add up parameters for all subsystems.
+    total_parameters: 116118
+
+  # URL to the source code of the system [optional]
+  source_code: https://github.com/sharathadavanne/seld-dcase2020
+
+# Evaluation setup used for training your final submitted model
+evaluation_setup:
+  # List the folds used for training and validating your submitted evaluation model. For instance the baseline SELDnet was trained and validated with the following folds from the dataset
+  training_folds: 2, 3, 4, 5, 6
+  validation_folds: 1
+
+# System results
+results:
+
+  development_dataset:
+    # System result for development dataset with the provided evaluation setup.
+
+    # Overall score 
+    overall:
+      ER_20: 0.74
+      F_20: 24.7
+      LE_CD: 30.9
+      LR_CD: 38.2
+
+

@@ -1,0 +1,4961 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Monitoring of domestic activities based on multi-channel acoustics - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Monitoring of domestic activities based on multi-channel acoustics - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2018/task-monitoring-domestic-activities-results">
+    <meta property="og:url" content="https://dcase.community/challenge2018/task-monitoring-domestic-activities-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="Task description This subtask is concerned with the classification of daily activities performed in a home environment (e.g. Cooking). The provided samples are multi-channel audio segments acquired by multiple microphone arrays at different positions. This means that spatial properties can be exploited to serve as input features to the …" />
+    <meta name="og:description" content="Task description This subtask is concerned with the..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btex.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2018</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2018/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2018/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>Results</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-acoustic-scene-classification-results-a"><i class="fa fa-bar-chart"></i>&nbsp;Subtask A</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-acoustic-scene-classification-results-b"><i class="fa fa-bar-chart"></i>&nbsp;Subtask B</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-acoustic-scene-classification-results-c"><i class="fa fa-bar-chart"></i>&nbsp;Subtask C</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2018/task-general-purpose-audio-tagging" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-tags text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-general-purpose-audio-tagging"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-general-purpose-audio-tagging-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2018/task-bird-audio-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-bird text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-bird-audio-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-bird-audio-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2018/task-large-scale-weakly-labeled-semi-supervised-sound-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-large-scale-weakly-labeled-semi-supervised-sound-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-large-scale-weakly-labeled-semi-supervised-sound-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2018/task-monitoring-domestic-activities" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-home text-danger"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-monitoring-domestic-activities"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-monitoring-domestic-activities-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2018/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2018/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/dunes-02.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-danger"></i><i class="fa dc-domestic fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text">Monitor</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 5</span></span><img src="../images/logos/dcase/dcase2018_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Monitoring of domestic activities based on multi-channel acoustics</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Challenge results</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#task-description">Task description</a></li>
+<li><a href="#systems-ranking">Systems ranking</a></li>
+<li><a href="#teams-ranking">Teams ranking</a></li>
+<li><a href="#class-wise-performance">Class-wise performance</a></li>
+<li><a href="#system-characteristics">System characteristics</a>
+<ul>
+<li><a href="#input-characteristics">Input characteristics</a></li>
+<li><a href="#machine-learning-characteristics">Machine learning characteristics</a></li>
+</ul>
+</li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h1 id="task-description">Task description</h1>
+<p>This subtask is concerned with the classification of daily activities performed in a home environment (e.g. Cooking). 
+The provided samples are multi-channel audio segments acquired by multiple microphone arrays at different positions.
+This means that spatial properties can be exploited to serve as input features to the classification problem. 
+However, using absolute localization of sound sources as input for the detection model is doomed to not generalize well to cases where the position of the microphone array is altered. 
+Therefore, in this task the focus is on systems which can exploit spatial cues independent of sensor location using multi-channel audio.</p>
+<p>The development data consists of recording obtained by four microphone arrays at different positions. 
+The evaluation dataset contained data of seven microphone arrays, consisting of the four microphone arrays available in the development set and <strong>three unknown microphone arrays</strong>. 
+The former is used to provide quantative numbers on the spatial overfit while the latter is used to determine the <strong>winner of task 5</strong>. </p>
+<p>More detailed task description can be found on the <a class="btn btn-primary" href="http://localhost:3000/challenge2018/task-monitoring-domestic-activities" style="">task description page</a></p>
+<h1 id="systems-ranking">Systems ranking</h1>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="f1_eval" data-scatter-y="f1_evalof" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="f1_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true">Rank</th>
+<th data-field="code" data-sortable="true">
+                Submission <br/>code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Submission <br/>name
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="F1-score (Eval. set | unknown mic.)" data-chartable="true" data-field="f1_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1-score <br/>on Eval. set <br/>(Unknown mic.)
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="F1-score (Eval. set | dev. set mic.)" data-chartable="true" data-field="f1_evalof" data-sortable="true" data-value-type="float1-percentage">
+                F1-score <br/>on Eval. set <br/>(dev. set mic. arrays)
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="F1-score (Dev. set)" data-chartable="true" data-field="f1_dev" data-sortable="true" data-value-type="float1-percentage">
+                F1-score <br/>on Dev. set
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2018 baseline</td>
+<td>Baseline</td>
+<td>Dekkers2018</td>
+<td>83.1</td>
+<td>85.0</td>
+<td>84.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Delphin_OL_task5_1</td>
+<td>GCNN_PTS</td>
+<td>Delphin-Poulat2018</td>
+<td>80.7</td>
+<td>86.1</td>
+<td>88.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Delphin_OL_task5_2</td>
+<td>GCNN_FTS</td>
+<td>Delphin-Poulat2018</td>
+<td>80.8</td>
+<td>85.0</td>
+<td>88.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Delphin_OL_task5_3</td>
+<td>GCNN_ATS</td>
+<td>Delphin-Poulat2018</td>
+<td>81.6</td>
+<td>84.9</td>
+<td>86.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Delphin_OL_task5_4</td>
+<td>GCNN_F</td>
+<td>Delphin-Poulat2018</td>
+<td>82.5</td>
+<td>86.5</td>
+<td>88.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Inoue_IBM_task5_1</td>
+<td>InouetMilk</td>
+<td>Inoue2018</td>
+<td>88.4</td>
+<td>90.4</td>
+<td>90.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Inoue_IBM_task5_2</td>
+<td>InouetMilk</td>
+<td>Inoue2018</td>
+<td>88.3</td>
+<td>90.5</td>
+<td>90.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_Surrey_task5_1</td>
+<td>SurreyCNN8</td>
+<td>Kong2018</td>
+<td>83.2</td>
+<td>87.6</td>
+<td>87.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_Surrey_task5_2</td>
+<td>SurreyCNN4</td>
+<td>Kong2018</td>
+<td>82.4</td>
+<td>86.2</td>
+<td>87.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_NPU_task5_1</td>
+<td>CIAICSys1</td>
+<td>Li2018</td>
+<td>79.0</td>
+<td>90.7</td>
+<td>89.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_NPU_task5_2</td>
+<td>CIAICSys2</td>
+<td>Li2018</td>
+<td>78.6</td>
+<td>90.4</td>
+<td>89.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_NPU_task5_3</td>
+<td>CIAICSys3</td>
+<td>Li2018</td>
+<td>84.8</td>
+<td>91.3</td>
+<td>90.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_NPU_task5_4</td>
+<td>CIAICSys4</td>
+<td>Li2018</td>
+<td>85.1</td>
+<td>91.4</td>
+<td>90.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Liao_NTHU_task5_1</td>
+<td>NTHU_sub_4</td>
+<td>Liao2018</td>
+<td>86.7</td>
+<td>88.6</td>
+<td>88.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Liao_NTHU_task5_2</td>
+<td>NTHU_sub_MVDR</td>
+<td>Liao2018</td>
+<td>72.1</td>
+<td>87.1</td>
+<td>87.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Liao_NTHU_task5_3</td>
+<td>NTHU_sub_MVDRMMSE</td>
+<td>Liao2018</td>
+<td>76.7</td>
+<td>85.7</td>
+<td>85.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_THU_task5_1</td>
+<td>Liu_THU</td>
+<td>Liu2018</td>
+<td>87.5</td>
+<td>89.4</td>
+<td>89.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_THU_task5_2</td>
+<td>Liu_THU</td>
+<td>Liu2018</td>
+<td>87.4</td>
+<td>89.5</td>
+<td>89.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_THU_task5_3</td>
+<td>Liu_THU</td>
+<td>Liu2018</td>
+<td>86.8</td>
+<td>89.3</td>
+<td>88.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Nakadai_HRI-JP_task5_1</td>
+<td>PS-CNN</td>
+<td>Nakadai2018</td>
+<td>85.4</td>
+<td>89.9</td>
+<td>89.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Raveh_INRC_task5_1</td>
+<td>INRC_1D</td>
+<td>Raveh2018</td>
+<td>80.4</td>
+<td>87.7</td>
+<td>87.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Raveh_INRC_task5_2</td>
+<td>INRC_1DSVD</td>
+<td>Raveh2018</td>
+<td>80.2</td>
+<td>86.3</td>
+<td>85.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Raveh_INRC_task5_3</td>
+<td>INRC_2D</td>
+<td>Raveh2018</td>
+<td>81.7</td>
+<td>87.7</td>
+<td>86.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Raveh_INRC_task5_4</td>
+<td>INRC_2DSVD</td>
+<td>Raveh2018</td>
+<td>81.2</td>
+<td>86.4</td>
+<td>85.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Sun_SUTD_task5_1</td>
+<td>SUTD</td>
+<td>Chew2018</td>
+<td>76.8</td>
+<td>78.5</td>
+<td>92.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Tanabe_HIT_task5_1</td>
+<td>HITavg</td>
+<td>Tanabe2018</td>
+<td>88.4</td>
+<td>89.7</td>
+<td>89.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Tanabe_HIT_task5_2</td>
+<td>HITrf</td>
+<td>Tanabe2018</td>
+<td>82.2</td>
+<td>86.0</td>
+<td>90.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Tanabe_HIT_task5_3</td>
+<td>HITsvm</td>
+<td>Tanabe2018</td>
+<td>86.3</td>
+<td>89.2</td>
+<td>90.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Tanabe_HIT_task5_4</td>
+<td>HITfweight</td>
+<td>Tanabe2018</td>
+<td>88.4</td>
+<td>89.8</td>
+<td>89.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Tiraboschi_UNIMI_task5_1</td>
+<td>TC2DCNN</td>
+<td>Tiraboschi2018</td>
+<td>76.9</td>
+<td>85.8</td>
+<td>85.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_THU_task5_1</td>
+<td>THUEE</td>
+<td>Shen2018</td>
+<td>85.9</td>
+<td>87.6</td>
+<td>89.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_THU_task5_2</td>
+<td>THUEE</td>
+<td>Shen2018</td>
+<td>84.3</td>
+<td>86.2</td>
+<td>91.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_THU_task5_3</td>
+<td>THUEE</td>
+<td>Shen2018</td>
+<td>86.0</td>
+<td>87.5</td>
+<td>90.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_THU_task5_4</td>
+<td>THUEE</td>
+<td>Shen2018</td>
+<td>85.9</td>
+<td>87.6</td>
+<td>90.4</td>
+</tr>
+</tbody>
+</table>
+<h1 id="teams-ranking">Teams ranking</h1>
+<p>Table including only the best performing system per submitting team.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="f1_eval" data-scatter-y="f1_evalof" data-show-chart="true" data-show-pagination-switch="false" data-show-rank="true" data-sort-name="f1_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true">Rank</th>
+<th data-field="code" data-sortable="true">
+                Submission <br/>code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Submission <br/>name
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="F1-score (Eval. set | unknown mic.)" data-chartable="true" data-field="f1_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1-score <br/>on Eval. set <br/>(Unknown mic.)
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="F1-score (Eval. set | dev. set mic.)" data-chartable="true" data-field="f1_evalof" data-sortable="true" data-value-type="float1-percentage">
+                F1-score <br/>on Eval. set <br/>(dev. set mic. arrays)
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="F1-score (Dev. set)" data-chartable="true" data-field="f1_dev" data-sortable="true" data-value-type="float1-percentage">
+                F1-score <br/>(Dev. set)
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2018 baseline</td>
+<td>Baseline</td>
+<td>Dekkers2018</td>
+<td>83.1</td>
+<td>85.0</td>
+<td>84.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Delphin_OL_task5_4</td>
+<td>GCNN_F</td>
+<td>Delphin-Poulat2018</td>
+<td>82.5</td>
+<td>86.5</td>
+<td>88.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Inoue_IBM_task5_1</td>
+<td>InouetMilk</td>
+<td>Inoue2018</td>
+<td>88.4</td>
+<td>90.4</td>
+<td>90.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_Surrey_task5_1</td>
+<td>SurreyCNN8</td>
+<td>Kong2018</td>
+<td>83.2</td>
+<td>87.6</td>
+<td>87.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_NPU_task5_4</td>
+<td>CIAICSys4</td>
+<td>Li2018</td>
+<td>85.1</td>
+<td>91.4</td>
+<td>90.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Liao_NTHU_task5_1</td>
+<td>NTHU_sub_4</td>
+<td>Liao2018</td>
+<td>86.7</td>
+<td>88.6</td>
+<td>88.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_THU_task5_1</td>
+<td>Liu_THU</td>
+<td>Liu2018</td>
+<td>87.5</td>
+<td>89.4</td>
+<td>89.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Nakadai_HRI-JP_task5_1</td>
+<td>PS-CNN</td>
+<td>Nakadai2018</td>
+<td>85.4</td>
+<td>89.9</td>
+<td>89.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Raveh_INRC_task5_3</td>
+<td>INRC_2D</td>
+<td>Raveh2018</td>
+<td>81.7</td>
+<td>87.7</td>
+<td>86.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Sun_SUTD_task5_1</td>
+<td>SUTD</td>
+<td>Chew2018</td>
+<td>76.8</td>
+<td>78.5</td>
+<td>92.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Tanabe_HIT_task5_1</td>
+<td>HITavg</td>
+<td>Tanabe2018</td>
+<td>88.4</td>
+<td>89.7</td>
+<td>89.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Tiraboschi_UNIMI_task5_1</td>
+<td>TC2DCNN</td>
+<td>Tiraboschi2018</td>
+<td>76.9</td>
+<td>85.8</td>
+<td>85.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_THU_task5_3</td>
+<td>THUEE</td>
+<td>Shen2018</td>
+<td>86.0</td>
+<td>87.5</td>
+<td>90.5</td>
+</tr>
+</tbody>
+</table>
+<h1 id="class-wise-performance">Class-wise performance</h1>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="off" data-chart-modes="bar,scatter,comparison" data-chart-tooltip-fields="code" data-comparison-a-row="DCASE2018 baseline" data-comparison-active-set="Class-wise performance (all)" data-comparison-b-row="Inoue_IBM_task5_2" data-comparison-row-id-field="code" data-comparison-sets-json='[
+        {"title": "Class-wise performance (all)",
+        "data_axis_title": "F1-score", 
+        "fields": ["class_f1_eval_absence", "class_f1_eval_cooking", "class_f1_eval_dishwashing", "class_f1_eval_eating", "class_f1_eval_other", "class_f1_eval_social_activity", "class_f1_eval_vacuum_cleaner", "class_f1_eval_watching_tv", "class_f1_eval_working","class_f1_evalof_absence", "class_f1_evalof_cooking", "class_f1_evalof_dishwashing", "class_f1_evalof_eating", "class_f1_evalof_other", "class_f1_evalof_social_activity", "class_f1_evalof_vacuum_cleaner", "class_f1_evalof_watching_tv", "class_f1_evalof_working"]
+        }]' data-filter-control="false" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="f1_eval" data-scatter-y="f1_eval" data-show-chart="true" data-show-pagination-switch="yes" data-show-rank="true" data-sort-name="f1_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th data-rank="true">Rank</th>
+<th data-field="code" data-sortable="true">
+            Submission<br/>code
+        </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+            Submission<br/>name
+        </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+            Technical<br/>Report
+        </th>
+<th class="sep-left-cell text-center" data-axis-label="F1-score (Eval. set | unknown mic.)" data-chartable="true" data-field="f1_eval" data-sortable="true" data-value-type="float1-percentage">
+            F1-score <br/>on Eval. set <br/>(Unknown mic.)
+        </th>
+<th class="sep-both-cell text-center" data-chartable="true" data-field="class_f1_eval_absence" data-sortable="true" data-value-type="float1-percentage">
+            Absence 
+        </th>
+<th class="text-center" data-chartable="true" data-field="class_f1_eval_cooking" data-sortable="true" data-value-type="float1-percentage">
+            Cooking
+        </th>
+<th class="text-center" data-chartable="true" data-field="class_f1_eval_dishwashing" data-sortable="true" data-value-type="float1-percentage">
+            Dishwashing
+        </th>
+<th class="text-center" data-chartable="true" data-field="class_f1_eval_eating" data-sortable="true" data-value-type="float1-percentage">
+            Eating
+        </th>
+<th class="text-center" data-chartable="true" data-field="class_f1_eval_other" data-sortable="true" data-value-type="float1-percentage">
+            Other
+        </th>
+<th class="text-center" data-chartable="true" data-field="class_f1_eval_social_activity" data-sortable="true" data-value-type="float1-percentage">
+            Social <br/>activity
+        </th>
+<th class="text-center" data-chartable="true" data-field="class_f1_eval_vacuum_cleaner" data-sortable="true" data-value-type="float1-percentage">
+            Vacuum <br/>cleaning
+        </th>
+<th class="text-center" data-chartable="true" data-field="class_f1_eval_watching_tv" data-sortable="true" data-value-type="float1-percentage">
+            Watching <br/>TV
+        </th>
+<th class="text-center" data-chartable="true" data-field="class_f1_eval_working" data-sortable="true" data-value-type="float1-percentage">
+            Working
+        </th>
+<th class="sep-left-cell text-center" data-axis-label="F1-score (Eval. set | dev. set mic.)" data-chartable="true" data-field="f1_evalof" data-sortable="true" data-value-type="float1-percentage">
+            F1-score <br/>on Eval. set <br/>(dev. set mic. arrays)
+        </th>
+<th class="sep-both-cell text-center" data-chartable="true" data-field="class_f1_evalof_absence" data-sortable="true" data-value-type="float1-percentage">
+            Absence (2)
+        </th>
+<th class="text-center" data-chartable="true" data-field="class_f1_evalof_cooking" data-sortable="true" data-value-type="float1-percentage">
+            Cooking (2)
+        </th>
+<th class="text-center" data-chartable="true" data-field="class_f1_evalof_dishwashing" data-sortable="true" data-value-type="float1-percentage">
+            Dishwashing (2)
+        </th>
+<th class="text-center" data-chartable="true" data-field="class_f1_evalof_eating" data-sortable="true" data-value-type="float1-percentage">
+            Eating (2)
+        </th>
+<th class="text-center" data-chartable="true" data-field="class_f1_evalof_other" data-sortable="true" data-value-type="float1-percentage">
+            Other (2)
+        </th>
+<th class="text-center" data-chartable="true" data-field="class_f1_evalof_social_activity" data-sortable="true" data-value-type="float1-percentage">
+            Social <br/>activity (2)
+        </th>
+<th class="text-center" data-chartable="true" data-field="class_f1_evalof_vacuum_cleaner" data-sortable="true" data-value-type="float1-percentage">
+            Vacuum <br/>cleaning (2)
+        </th>
+<th class="text-center" data-chartable="true" data-field="class_f1_evalof_watching_tv" data-sortable="true" data-value-type="float1-percentage">
+            Watching <br/>TV (2)
+        </th>
+<th class="text-center" data-chartable="true" data-field="class_f1_evalof_working" data-sortable="true" data-value-type="float1-percentage">
+            Working (2)
+        </th>
+</tr>
+</thead>
+<tbody>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2018 baseline</td>
+<td>Baseline</td>
+<td>Dekkers2018</td>
+<td>83.1</td>
+<td>87.7</td>
+<td>93.0</td>
+<td>77.2</td>
+<td>81.2</td>
+<td>35.0</td>
+<td>96.6</td>
+<td>95.8</td>
+<td>99.9</td>
+<td>81.4</td>
+<td>85.0</td>
+<td>89.4</td>
+<td>96.3</td>
+<td>79.5</td>
+<td>82.0</td>
+<td>44.1</td>
+<td>96.4</td>
+<td>95.9</td>
+<td>99.9</td>
+<td>81.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Delphin_OL_task5_1</td>
+<td>GCNN_PTS</td>
+<td>Delphin-Poulat2018</td>
+<td>80.7</td>
+<td>79.9</td>
+<td>85.5</td>
+<td>70.1</td>
+<td>79.3</td>
+<td>45.5</td>
+<td>96.0</td>
+<td>95.7</td>
+<td>99.9</td>
+<td>74.5</td>
+<td>86.1</td>
+<td>91.0</td>
+<td>96.1</td>
+<td>79.6</td>
+<td>82.5</td>
+<td>48.4</td>
+<td>96.5</td>
+<td>96.4</td>
+<td>99.9</td>
+<td>84.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Delphin_OL_task5_2</td>
+<td>GCNN_FTS</td>
+<td>Delphin-Poulat2018</td>
+<td>80.8</td>
+<td>79.1</td>
+<td>88.5</td>
+<td>71.4</td>
+<td>79.9</td>
+<td>42.7</td>
+<td>94.6</td>
+<td>97.0</td>
+<td>99.9</td>
+<td>74.2</td>
+<td>85.0</td>
+<td>90.5</td>
+<td>96.0</td>
+<td>78.5</td>
+<td>81.0</td>
+<td>44.1</td>
+<td>95.1</td>
+<td>97.0</td>
+<td>99.9</td>
+<td>83.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Delphin_OL_task5_3</td>
+<td>GCNN_ATS</td>
+<td>Delphin-Poulat2018</td>
+<td>81.6</td>
+<td>83.8</td>
+<td>90.5</td>
+<td>71.3</td>
+<td>78.6</td>
+<td>44.0</td>
+<td>94.7</td>
+<td>96.1</td>
+<td>99.9</td>
+<td>76.0</td>
+<td>84.9</td>
+<td>91.3</td>
+<td>95.3</td>
+<td>75.9</td>
+<td>81.8</td>
+<td>45.5</td>
+<td>94.5</td>
+<td>96.5</td>
+<td>99.9</td>
+<td>83.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Delphin_OL_task5_4</td>
+<td>GCNN_F</td>
+<td>Delphin-Poulat2018</td>
+<td>82.5</td>
+<td>82.2</td>
+<td>89.5</td>
+<td>73.8</td>
+<td>81.1</td>
+<td>47.4</td>
+<td>95.5</td>
+<td>96.7</td>
+<td>100.0</td>
+<td>76.2</td>
+<td>86.5</td>
+<td>92.0</td>
+<td>96.2</td>
+<td>80.4</td>
+<td>83.1</td>
+<td>49.3</td>
+<td>95.8</td>
+<td>96.8</td>
+<td>99.9</td>
+<td>85.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Inoue_IBM_task5_1</td>
+<td>InouetMilk</td>
+<td>Inoue2018</td>
+<td>88.4</td>
+<td>93.7</td>
+<td>91.5</td>
+<td>86.5</td>
+<td>87.0</td>
+<td>54.2</td>
+<td>97.0</td>
+<td>97.1</td>
+<td>99.9</td>
+<td>88.7</td>
+<td>90.4</td>
+<td>94.2</td>
+<td>96.8</td>
+<td>88.4</td>
+<td>89.9</td>
+<td>59.7</td>
+<td>97.4</td>
+<td>97.3</td>
+<td>100.0</td>
+<td>90.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Inoue_IBM_task5_2</td>
+<td>InouetMilk</td>
+<td>Inoue2018</td>
+<td>88.3</td>
+<td>93.6</td>
+<td>91.7</td>
+<td>86.1</td>
+<td>87.0</td>
+<td>53.6</td>
+<td>97.0</td>
+<td>97.1</td>
+<td>99.9</td>
+<td>88.7</td>
+<td>90.5</td>
+<td>94.2</td>
+<td>96.9</td>
+<td>89.4</td>
+<td>90.2</td>
+<td>59.5</td>
+<td>97.4</td>
+<td>97.2</td>
+<td>99.9</td>
+<td>90.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_Surrey_task5_1</td>
+<td>SurreyCNN8</td>
+<td>Kong2018</td>
+<td>83.2</td>
+<td>90.4</td>
+<td>82.9</td>
+<td>75.0</td>
+<td>82.4</td>
+<td>42.6</td>
+<td>96.6</td>
+<td>96.4</td>
+<td>99.9</td>
+<td>82.5</td>
+<td>87.6</td>
+<td>92.7</td>
+<td>95.0</td>
+<td>82.7</td>
+<td>85.9</td>
+<td>51.5</td>
+<td>96.7</td>
+<td>97.1</td>
+<td>99.9</td>
+<td>87.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_Surrey_task5_2</td>
+<td>SurreyCNN4</td>
+<td>Kong2018</td>
+<td>82.4</td>
+<td>87.4</td>
+<td>84.2</td>
+<td>74.3</td>
+<td>78.4</td>
+<td>45.4</td>
+<td>96.4</td>
+<td>96.6</td>
+<td>99.9</td>
+<td>79.1</td>
+<td>86.2</td>
+<td>90.7</td>
+<td>94.6</td>
+<td>81.0</td>
+<td>83.0</td>
+<td>48.9</td>
+<td>96.5</td>
+<td>97.5</td>
+<td>99.9</td>
+<td>83.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_NPU_task5_1</td>
+<td>CIAICSys1</td>
+<td>Li2018</td>
+<td>79.0</td>
+<td>79.6</td>
+<td>84.6</td>
+<td>76.4</td>
+<td>80.8</td>
+<td>20.3</td>
+<td>95.6</td>
+<td>96.4</td>
+<td>99.9</td>
+<td>77.3</td>
+<td>90.7</td>
+<td>93.0</td>
+<td>97.3</td>
+<td>91.0</td>
+<td>91.6</td>
+<td>61.1</td>
+<td>96.6</td>
+<td>97.0</td>
+<td>100.0</td>
+<td>89.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_NPU_task5_2</td>
+<td>CIAICSys2</td>
+<td>Li2018</td>
+<td>78.6</td>
+<td>81.5</td>
+<td>85.7</td>
+<td>78.2</td>
+<td>74.1</td>
+<td>24.4</td>
+<td>92.1</td>
+<td>95.4</td>
+<td>99.7</td>
+<td>76.1</td>
+<td>90.4</td>
+<td>92.4</td>
+<td>97.2</td>
+<td>91.3</td>
+<td>92.0</td>
+<td>59.4</td>
+<td>96.2</td>
+<td>96.8</td>
+<td>100.0</td>
+<td>88.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_NPU_task5_3</td>
+<td>CIAICSys3</td>
+<td>Li2018</td>
+<td>84.8</td>
+<td>88.3</td>
+<td>91.0</td>
+<td>81.1</td>
+<td>84.4</td>
+<td>40.5</td>
+<td>97.2</td>
+<td>97.0</td>
+<td>99.9</td>
+<td>83.6</td>
+<td>91.3</td>
+<td>94.4</td>
+<td>97.2</td>
+<td>89.9</td>
+<td>91.6</td>
+<td>62.9</td>
+<td>97.4</td>
+<td>97.4</td>
+<td>100.0</td>
+<td>91.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_NPU_task5_4</td>
+<td>CIAICSys4</td>
+<td>Li2018</td>
+<td>85.1</td>
+<td>88.1</td>
+<td>91.3</td>
+<td>82.9</td>
+<td>84.7</td>
+<td>42.2</td>
+<td>96.6</td>
+<td>97.1</td>
+<td>100.0</td>
+<td>83.3</td>
+<td>91.4</td>
+<td>94.3</td>
+<td>97.4</td>
+<td>90.3</td>
+<td>91.8</td>
+<td>63.1</td>
+<td>97.5</td>
+<td>97.3</td>
+<td>100.0</td>
+<td>90.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Liao_NTHU_task5_1</td>
+<td>NTHU_sub_4</td>
+<td>Liao2018</td>
+<td>86.7</td>
+<td>91.0</td>
+<td>95.1</td>
+<td>81.7</td>
+<td>82.1</td>
+<td>52.3</td>
+<td>97.9</td>
+<td>95.3</td>
+<td>100.0</td>
+<td>85.3</td>
+<td>88.6</td>
+<td>92.6</td>
+<td>96.7</td>
+<td>88.0</td>
+<td>85.3</td>
+<td>55.7</td>
+<td>97.8</td>
+<td>95.0</td>
+<td>100.0</td>
+<td>86.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Liao_NTHU_task5_2</td>
+<td>NTHU_sub_MVDR</td>
+<td>Liao2018</td>
+<td>72.1</td>
+<td>69.8</td>
+<td>64.7</td>
+<td>63.5</td>
+<td>67.1</td>
+<td>17.7</td>
+<td>95.9</td>
+<td>96.9</td>
+<td>99.8</td>
+<td>73.5</td>
+<td>87.1</td>
+<td>91.6</td>
+<td>92.2</td>
+<td>84.3</td>
+<td>84.6</td>
+<td>52.2</td>
+<td>96.5</td>
+<td>97.3</td>
+<td>99.9</td>
+<td>85.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Liao_NTHU_task5_3</td>
+<td>NTHU_sub_MVDRMMSE</td>
+<td>Liao2018</td>
+<td>76.7</td>
+<td>77.4</td>
+<td>68.3</td>
+<td>63.6</td>
+<td>77.2</td>
+<td>38.2</td>
+<td>96.0</td>
+<td>96.0</td>
+<td>99.8</td>
+<td>73.9</td>
+<td>85.7</td>
+<td>91.7</td>
+<td>88.2</td>
+<td>77.4</td>
+<td>84.7</td>
+<td>50.1</td>
+<td>96.6</td>
+<td>96.7</td>
+<td>99.9</td>
+<td>86.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_THU_task5_1</td>
+<td>Liu_THU</td>
+<td>Liu2018</td>
+<td>87.5</td>
+<td>92.7</td>
+<td>89.9</td>
+<td>84.7</td>
+<td>85.6</td>
+<td>53.5</td>
+<td>96.6</td>
+<td>97.4</td>
+<td>100.0</td>
+<td>87.4</td>
+<td>89.4</td>
+<td>93.9</td>
+<td>95.6</td>
+<td>87.4</td>
+<td>86.6</td>
+<td>56.8</td>
+<td>97.1</td>
+<td>97.6</td>
+<td>100.0</td>
+<td>89.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_THU_task5_2</td>
+<td>Liu_THU</td>
+<td>Liu2018</td>
+<td>87.4</td>
+<td>92.9</td>
+<td>90.5</td>
+<td>84.2</td>
+<td>85.0</td>
+<td>52.1</td>
+<td>97.0</td>
+<td>97.3</td>
+<td>100.0</td>
+<td>87.5</td>
+<td>89.5</td>
+<td>93.9</td>
+<td>96.3</td>
+<td>87.3</td>
+<td>86.9</td>
+<td>56.3</td>
+<td>97.4</td>
+<td>97.8</td>
+<td>100.0</td>
+<td>89.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_THU_task5_3</td>
+<td>Liu_THU</td>
+<td>Liu2018</td>
+<td>86.8</td>
+<td>92.1</td>
+<td>90.3</td>
+<td>82.1</td>
+<td>84.2</td>
+<td>51.9</td>
+<td>97.0</td>
+<td>96.7</td>
+<td>100.0</td>
+<td>86.5</td>
+<td>89.3</td>
+<td>93.3</td>
+<td>95.9</td>
+<td>87.5</td>
+<td>87.5</td>
+<td>55.3</td>
+<td>97.6</td>
+<td>97.6</td>
+<td>100.0</td>
+<td>88.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Nakadai_HRI-JP_task5_1</td>
+<td>PS-CNN</td>
+<td>Nakadai2018</td>
+<td>85.4</td>
+<td>84.6</td>
+<td>92.7</td>
+<td>81.6</td>
+<td>84.5</td>
+<td>51.1</td>
+<td>97.3</td>
+<td>97.0</td>
+<td>100.0</td>
+<td>80.0</td>
+<td>89.9</td>
+<td>93.4</td>
+<td>96.8</td>
+<td>88.3</td>
+<td>89.0</td>
+<td>57.7</td>
+<td>97.3</td>
+<td>96.8</td>
+<td>100.0</td>
+<td>89.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Raveh_INRC_task5_1</td>
+<td>INRC_1D</td>
+<td>Raveh2018</td>
+<td>80.4</td>
+<td>74.8</td>
+<td>84.1</td>
+<td>71.9</td>
+<td>81.5</td>
+<td>47.6</td>
+<td>95.1</td>
+<td>97.1</td>
+<td>99.9</td>
+<td>71.5</td>
+<td>87.7</td>
+<td>89.3</td>
+<td>96.0</td>
+<td>85.9</td>
+<td>86.1</td>
+<td>53.5</td>
+<td>97.0</td>
+<td>97.8</td>
+<td>99.9</td>
+<td>84.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Raveh_INRC_task5_2</td>
+<td>INRC_1DSVD</td>
+<td>Raveh2018</td>
+<td>80.2</td>
+<td>69.9</td>
+<td>91.1</td>
+<td>75.6</td>
+<td>79.1</td>
+<td>44.9</td>
+<td>95.2</td>
+<td>97.7</td>
+<td>99.8</td>
+<td>68.6</td>
+<td>86.3</td>
+<td>88.1</td>
+<td>95.1</td>
+<td>81.8</td>
+<td>83.8</td>
+<td>51.6</td>
+<td>96.0</td>
+<td>97.8</td>
+<td>99.9</td>
+<td>82.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Raveh_INRC_task5_3</td>
+<td>INRC_2D</td>
+<td>Raveh2018</td>
+<td>81.7</td>
+<td>79.7</td>
+<td>86.9</td>
+<td>73.8</td>
+<td>82.2</td>
+<td>42.7</td>
+<td>97.1</td>
+<td>97.4</td>
+<td>99.9</td>
+<td>75.5</td>
+<td>87.7</td>
+<td>90.8</td>
+<td>95.3</td>
+<td>82.8</td>
+<td>87.2</td>
+<td>51.4</td>
+<td>97.5</td>
+<td>97.8</td>
+<td>99.9</td>
+<td>86.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Raveh_INRC_task5_4</td>
+<td>INRC_2DSVD</td>
+<td>Raveh2018</td>
+<td>81.2</td>
+<td>75.8</td>
+<td>87.5</td>
+<td>73.2</td>
+<td>80.0</td>
+<td>48.4</td>
+<td>95.9</td>
+<td>96.6</td>
+<td>99.9</td>
+<td>73.4</td>
+<td>86.4</td>
+<td>89.8</td>
+<td>94.1</td>
+<td>78.6</td>
+<td>84.8</td>
+<td>51.9</td>
+<td>96.8</td>
+<td>96.8</td>
+<td>99.9</td>
+<td>84.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Sun_SUTD_task5_1</td>
+<td>SUTD</td>
+<td>Chew2018</td>
+<td>76.8</td>
+<td>74.9</td>
+<td>85.5</td>
+<td>70.5</td>
+<td>68.5</td>
+<td>35.2</td>
+<td>92.9</td>
+<td>94.7</td>
+<td>99.8</td>
+<td>69.5</td>
+<td>78.5</td>
+<td>81.3</td>
+<td>92.7</td>
+<td>72.1</td>
+<td>72.2</td>
+<td>30.5</td>
+<td>93.9</td>
+<td>94.5</td>
+<td>99.7</td>
+<td>69.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Tanabe_HIT_task5_1</td>
+<td>HITavg</td>
+<td>Tanabe2018</td>
+<td>88.4</td>
+<td>91.6</td>
+<td>97.0</td>
+<td>83.0</td>
+<td>84.2</td>
+<td>57.7</td>
+<td>98.2</td>
+<td>97.7</td>
+<td>100.0</td>
+<td>86.1</td>
+<td>89.7</td>
+<td>92.4</td>
+<td>97.2</td>
+<td>86.1</td>
+<td>86.0</td>
+<td>61.6</td>
+<td>98.1</td>
+<td>97.9</td>
+<td>100.0</td>
+<td>87.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Tanabe_HIT_task5_2</td>
+<td>HITrf</td>
+<td>Tanabe2018</td>
+<td>82.2</td>
+<td>59.1</td>
+<td>96.1</td>
+<td>81.5</td>
+<td>85.7</td>
+<td>53.7</td>
+<td>97.7</td>
+<td>97.7</td>
+<td>100.0</td>
+<td>68.6</td>
+<td>86.0</td>
+<td>74.6</td>
+<td>96.9</td>
+<td>85.5</td>
+<td>88.2</td>
+<td>57.9</td>
+<td>97.7</td>
+<td>97.9</td>
+<td>100.0</td>
+<td>75.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Tanabe_HIT_task5_3</td>
+<td>HITsvm</td>
+<td>Tanabe2018</td>
+<td>86.3</td>
+<td>86.1</td>
+<td>95.8</td>
+<td>81.6</td>
+<td>85.2</td>
+<td>54.6</td>
+<td>95.9</td>
+<td>96.7</td>
+<td>100.0</td>
+<td>81.3</td>
+<td>89.2</td>
+<td>92.6</td>
+<td>96.7</td>
+<td>85.4</td>
+<td>88.1</td>
+<td>57.3</td>
+<td>96.6</td>
+<td>97.2</td>
+<td>100.0</td>
+<td>88.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Tanabe_HIT_task5_4</td>
+<td>HITfweight</td>
+<td>Tanabe2018</td>
+<td>88.4</td>
+<td>91.3</td>
+<td>97.0</td>
+<td>83.0</td>
+<td>84.1</td>
+<td>58.3</td>
+<td>98.2</td>
+<td>97.7</td>
+<td>100.0</td>
+<td>85.8</td>
+<td>89.8</td>
+<td>92.6</td>
+<td>97.2</td>
+<td>86.4</td>
+<td>86.1</td>
+<td>62.1</td>
+<td>98.2</td>
+<td>97.9</td>
+<td>100.0</td>
+<td>87.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Tiraboschi_UNIMI_task5_1</td>
+<td>TC2DCNN</td>
+<td>Tiraboschi2018</td>
+<td>76.9</td>
+<td>79.8</td>
+<td>88.7</td>
+<td>71.8</td>
+<td>78.9</td>
+<td>17.6</td>
+<td>96.2</td>
+<td>94.4</td>
+<td>99.7</td>
+<td>64.6</td>
+<td>85.8</td>
+<td>90.8</td>
+<td>93.6</td>
+<td>77.5</td>
+<td>83.2</td>
+<td>50.5</td>
+<td>97.4</td>
+<td>94.1</td>
+<td>100.0</td>
+<td>85.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_THU_task5_1</td>
+<td>THUEE</td>
+<td>Shen2018</td>
+<td>85.9</td>
+<td>92.8</td>
+<td>88.6</td>
+<td>78.7</td>
+<td>81.9</td>
+<td>50.3</td>
+<td>97.5</td>
+<td>96.3</td>
+<td>99.9</td>
+<td>87.5</td>
+<td>87.6</td>
+<td>93.1</td>
+<td>94.6</td>
+<td>80.8</td>
+<td>85.1</td>
+<td>52.8</td>
+<td>97.5</td>
+<td>96.6</td>
+<td>99.9</td>
+<td>88.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_THU_task5_2</td>
+<td>THUEE</td>
+<td>Shen2018</td>
+<td>84.3</td>
+<td>93.6</td>
+<td>85.1</td>
+<td>76.8</td>
+<td>76.6</td>
+<td>46.6</td>
+<td>97.1</td>
+<td>96.5</td>
+<td>99.9</td>
+<td>86.9</td>
+<td>86.2</td>
+<td>94.1</td>
+<td>89.7</td>
+<td>79.0</td>
+<td>80.7</td>
+<td>50.6</td>
+<td>96.7</td>
+<td>97.1</td>
+<td>99.9</td>
+<td>88.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_THU_task5_3</td>
+<td>THUEE</td>
+<td>Shen2018</td>
+<td>86.0</td>
+<td>93.6</td>
+<td>87.4</td>
+<td>79.7</td>
+<td>80.1</td>
+<td>50.8</td>
+<td>97.6</td>
+<td>96.7</td>
+<td>99.9</td>
+<td>87.7</td>
+<td>87.5</td>
+<td>94.2</td>
+<td>92.2</td>
+<td>81.5</td>
+<td>83.2</td>
+<td>53.3</td>
+<td>97.4</td>
+<td>97.1</td>
+<td>100.0</td>
+<td>88.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_THU_task5_4</td>
+<td>THUEE</td>
+<td>Shen2018</td>
+<td>85.9</td>
+<td>93.5</td>
+<td>87.4</td>
+<td>79.0</td>
+<td>79.9</td>
+<td>51.3</td>
+<td>97.6</td>
+<td>96.7</td>
+<td>99.9</td>
+<td>87.7</td>
+<td>87.6</td>
+<td>94.1</td>
+<td>92.4</td>
+<td>81.4</td>
+<td>83.5</td>
+<td>53.7</td>
+<td>97.6</td>
+<td>97.1</td>
+<td>100.0</td>
+<td>88.8</td>
+</tr>
+</tbody>
+</table>
+<h1 id="system-characteristics">System characteristics</h1>
+<h2 id="input-characteristics">Input characteristics</h2>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="off" data-chart-modes="bar" data-chart-tooltip-fields="code" data-filter-control="true" data-filter-show-clear="true" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-bar-chart-xaxis="false" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="f1_eval" data-sort-order="desc" data-striped="true" data-tag-mode="column">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true">Rank</th>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="F1-score (Eval. set | unknown mic.)" data-chartable="true" data-field="f1_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1-score <br/>on Eval. set <br/>(Unknown mic.)
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="F1-score (Eval. set | dev. set mic.)" data-chartable="true" data-field="f1_evalof" data-sortable="true" data-value-type="float1-percentage">
+                F1-score <br/>on Eval. set <br/>(dev. set <br/>mic. arrays)
+            </th>
+<th class="text-center narrow-col" data-field="system_features" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Acoustic <br/>features
+            </th>
+<th class="text-center narrow-col" data-field="spatial_features" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Spatial <br/>features
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_data_augmentation" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Data <br/>augmentation
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="external_model" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Pre-trained <br/>model
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2018 baseline</td>
+<td>Dekkers2018</td>
+<td>83.1</td>
+<td>85.0</td>
+<td>log-mel energies</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Delphin_OL_task5_1</td>
+<td>Delphin-Poulat2018</td>
+<td>80.7</td>
+<td>86.1</td>
+<td>log-mel energies</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Delphin_OL_task5_2</td>
+<td>Delphin-Poulat2018</td>
+<td>80.8</td>
+<td>85.0</td>
+<td>log-mel energies</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Delphin_OL_task5_3</td>
+<td>Delphin-Poulat2018</td>
+<td>81.6</td>
+<td>84.9</td>
+<td>log-mel energies</td>
+<td></td>
+<td>Gaussian Additive Noise</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Delphin_OL_task5_4</td>
+<td>Delphin-Poulat2018</td>
+<td>82.5</td>
+<td>86.5</td>
+<td>log-mel energies</td>
+<td></td>
+<td>Gaussian Additive Noise</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Inoue_IBM_task5_1</td>
+<td>Inoue2018</td>
+<td>88.4</td>
+<td>90.4</td>
+<td>log-mel energies</td>
+<td></td>
+<td>shuffling, mixing</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Inoue_IBM_task5_2</td>
+<td>Inoue2018</td>
+<td>88.3</td>
+<td>90.5</td>
+<td>log-mel energies</td>
+<td></td>
+<td>shuffling, mixing</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_Surrey_task5_1</td>
+<td>Kong2018</td>
+<td>83.2</td>
+<td>87.6</td>
+<td>log-mel energies</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_Surrey_task5_2</td>
+<td>Kong2018</td>
+<td>82.4</td>
+<td>86.2</td>
+<td>log-mel energies</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Li_NPU_task5_1</td>
+<td>Li2018</td>
+<td>79.0</td>
+<td>90.7</td>
+<td>log-mel energies</td>
+<td>coherence</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Li_NPU_task5_2</td>
+<td>Li2018</td>
+<td>78.6</td>
+<td>90.4</td>
+<td>log-mel energies</td>
+<td>coherence</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Li_NPU_task5_3</td>
+<td>Li2018</td>
+<td>84.8</td>
+<td>91.3</td>
+<td>log-mel energies</td>
+<td>coherence</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Li_NPU_task5_4</td>
+<td>Li2018</td>
+<td>85.1</td>
+<td>91.4</td>
+<td>log-mel energies</td>
+<td>coherence</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Liao_NTHU_task5_1</td>
+<td>Liao2018</td>
+<td>86.7</td>
+<td>88.6</td>
+<td>log-mel energies</td>
+<td></td>
+<td>time shifting</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Liao_NTHU_task5_2</td>
+<td>Liao2018</td>
+<td>72.1</td>
+<td>87.1</td>
+<td>log-mel energies</td>
+<td>MVDR</td>
+<td>time shifting</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Liao_NTHU_task5_3</td>
+<td>Liao2018</td>
+<td>76.7</td>
+<td>85.7</td>
+<td>log-mel energies</td>
+<td>MVDR with MMSE</td>
+<td>time shifting</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_THU_task5_1</td>
+<td>Liu2018</td>
+<td>87.5</td>
+<td>89.4</td>
+<td>log-mel energies, MFCC</td>
+<td></td>
+<td></td>
+<td>VGGish</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_THU_task5_2</td>
+<td>Liu2018</td>
+<td>87.4</td>
+<td>89.5</td>
+<td>log-mel energies, MFCC</td>
+<td></td>
+<td></td>
+<td>VGGish</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_THU_task5_3</td>
+<td>Liu2018</td>
+<td>86.8</td>
+<td>89.3</td>
+<td>log-mel energies, MFCC</td>
+<td></td>
+<td></td>
+<td>VGGish</td>
+</tr>
+<tr>
+<td></td>
+<td>Nakadai_HRI-JP_task5_1</td>
+<td>Nakadai2018</td>
+<td>85.4</td>
+<td>89.9</td>
+<td>log-mel energies</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Raveh_INRC_task5_1</td>
+<td>Raveh2018</td>
+<td>80.4</td>
+<td>87.7</td>
+<td>Scattering Transform</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Raveh_INRC_task5_2</td>
+<td>Raveh2018</td>
+<td>80.2</td>
+<td>86.3</td>
+<td>Scattering Transform, SVD</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Raveh_INRC_task5_3</td>
+<td>Raveh2018</td>
+<td>81.7</td>
+<td>87.7</td>
+<td>Scattering Transform</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Raveh_INRC_task5_4</td>
+<td>Raveh2018</td>
+<td>81.2</td>
+<td>86.4</td>
+<td>Scattering Transform, SVD</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Sun_SUTD_task5_1</td>
+<td>Chew2018</td>
+<td>76.8</td>
+<td>78.5</td>
+<td>MFCC, spectrogram</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Tanabe_HIT_task5_1</td>
+<td>Tanabe2018</td>
+<td>88.4</td>
+<td>89.7</td>
+<td>log-mel energies, MFCC</td>
+<td>multi-channel front-end processing</td>
+<td></td>
+<td>VGG16</td>
+</tr>
+<tr>
+<td></td>
+<td>Tanabe_HIT_task5_2</td>
+<td>Tanabe2018</td>
+<td>82.2</td>
+<td>86.0</td>
+<td>log-mel energies, MFCC</td>
+<td>multi-channel front-end processing</td>
+<td></td>
+<td>VGG16</td>
+</tr>
+<tr>
+<td></td>
+<td>Tanabe_HIT_task5_3</td>
+<td>Tanabe2018</td>
+<td>86.3</td>
+<td>89.2</td>
+<td>log-mel energies, MFCC</td>
+<td>Blind Source Seperation, Blind dereverberation, Beamformer</td>
+<td></td>
+<td>VGG16</td>
+</tr>
+<tr>
+<td></td>
+<td>Tanabe_HIT_task5_4</td>
+<td>Tanabe2018</td>
+<td>88.4</td>
+<td>89.8</td>
+<td>log-mel energies, MFCC</td>
+<td>Blind Source Seperation, Blind dereverberation, Beamformer</td>
+<td></td>
+<td>VGG16</td>
+</tr>
+<tr>
+<td></td>
+<td>Tiraboschi_UNIMI_task5_1</td>
+<td>Tiraboschi2018</td>
+<td>76.9</td>
+<td>85.8</td>
+<td>log-mel energies</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_THU_task5_1</td>
+<td>Shen2018</td>
+<td>85.9</td>
+<td>87.6</td>
+<td>log-mel energies, Time-Frequency Cepstral</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_THU_task5_2</td>
+<td>Shen2018</td>
+<td>84.3</td>
+<td>86.2</td>
+<td>log-mel energies, Time-Frequency Cepstral</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_THU_task5_3</td>
+<td>Shen2018</td>
+<td>86.0</td>
+<td>87.5</td>
+<td>log-mel energies, Time-Frequency Cepstral</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_THU_task5_4</td>
+<td>Shen2018</td>
+<td>85.9</td>
+<td>87.6</td>
+<td>log-mel energies, Time-Frequency Cepstral</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br/>
+<br/></p>
+<h2 id="machine-learning-characteristics">Machine learning characteristics</h2>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="off" data-chart-modes="bar,scatter" data-chart-tooltip-fields="code" data-filter-control="true" data-filter-show-clear="true" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="f1_eval" data-scatter-y="f1_evalof" data-show-bar-chart-xaxis="false" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="f1_eval" data-sort-order="desc" data-striped="true" data-tag-mode="column">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true">Rank</th>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="F1-score (Eval. set | unknown mic.)" data-chartable="true" data-field="f1_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1-score <br/>on Eval. set <br/>(Unknown <br/>mic.)
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="F1-score (Eval. set | dev. set mic.)" data-chartable="true" data-field="f1_evalof" data-sortable="true" data-value-type="float1-percentage">
+                F1-score <br/>on Eval. set <br/>(dev. set <br/>mic. arrays)
+            </th>
+<th class="text-center narrow-col" data-field="system_classifier" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Classifier
+            </th>
+<th class="text-center narrow-col" data-field="fusion_level" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Fusion <br/>level
+            </th>
+<th class="text-center narrow-col" data-field="fusion_method" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Fusion <br/>method
+            </th>
+<th class="text-center narrow-col" data-chartable="true" data-field="system_ensemble_method_subsystem_count" data-sortable="true" data-value-type="int">
+                Ensemble <br/>subsystems
+            </th>
+<th class="text-center narrow-col" data-field="system_decision_making" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Decision <br/>making
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2018 baseline</td>
+<td>Dekkers2018</td>
+<td>83.1</td>
+<td>85.0</td>
+<td>CNN</td>
+<td>decision</td>
+<td>average</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Delphin_OL_task5_1</td>
+<td>Delphin-Poulat2018</td>
+<td>80.7</td>
+<td>86.1</td>
+<td>CNN</td>
+<td>decision</td>
+<td>average</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Delphin_OL_task5_2</td>
+<td>Delphin-Poulat2018</td>
+<td>80.8</td>
+<td>85.0</td>
+<td>CNN</td>
+<td>decision</td>
+<td>average</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Delphin_OL_task5_3</td>
+<td>Delphin-Poulat2018</td>
+<td>81.6</td>
+<td>84.9</td>
+<td>CNN</td>
+<td>decision</td>
+<td>average</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Delphin_OL_task5_4</td>
+<td>Delphin-Poulat2018</td>
+<td>82.5</td>
+<td>86.5</td>
+<td>CNN</td>
+<td>decision</td>
+<td>average</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Inoue_IBM_task5_1</td>
+<td>Inoue2018</td>
+<td>88.4</td>
+<td>90.4</td>
+<td>CNN</td>
+<td>decision</td>
+<td>average</td>
+<td>4</td>
+<td>average</td>
+</tr>
+<tr>
+<td></td>
+<td>Inoue_IBM_task5_2</td>
+<td>Inoue2018</td>
+<td>88.3</td>
+<td>90.5</td>
+<td>CNN</td>
+<td>decision</td>
+<td>average</td>
+<td>4</td>
+<td>average</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_Surrey_task5_1</td>
+<td>Kong2018</td>
+<td>83.2</td>
+<td>87.6</td>
+<td>AlexNetish 8 layer CNN with global max pooling</td>
+<td>decision</td>
+<td>average</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_Surrey_task5_2</td>
+<td>Kong2018</td>
+<td>82.4</td>
+<td>86.2</td>
+<td>AlexNetish 4 layer CNN with global max pooling</td>
+<td>decision</td>
+<td>average</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Li_NPU_task5_1</td>
+<td>Li2018</td>
+<td>79.0</td>
+<td>90.7</td>
+<td>CNN, VGG10, ensemble</td>
+<td>decision</td>
+<td>average</td>
+<td>2</td>
+<td>average</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_NPU_task5_2</td>
+<td>Li2018</td>
+<td>78.6</td>
+<td>90.4</td>
+<td>CNN, VGG10, GLU, ensemble</td>
+<td>decision</td>
+<td>average</td>
+<td>2</td>
+<td>average</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_NPU_task5_3</td>
+<td>Li2018</td>
+<td>84.8</td>
+<td>91.3</td>
+<td>CNN, VGG10, ensemble</td>
+<td>decision</td>
+<td>average</td>
+<td>3</td>
+<td>average</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_NPU_task5_4</td>
+<td>Li2018</td>
+<td>85.1</td>
+<td>91.4</td>
+<td>CNN, VGG10, GLU, ensemble</td>
+<td>decision</td>
+<td>average</td>
+<td>3</td>
+<td>average</td>
+</tr>
+<tr>
+<td></td>
+<td>Liao_NTHU_task5_1</td>
+<td>Liao2018</td>
+<td>86.7</td>
+<td>88.6</td>
+<td>CNN</td>
+<td>decision</td>
+<td>average</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Liao_NTHU_task5_2</td>
+<td>Liao2018</td>
+<td>72.1</td>
+<td>87.1</td>
+<td>CNN</td>
+<td>decision</td>
+<td>average</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Liao_NTHU_task5_3</td>
+<td>Liao2018</td>
+<td>76.7</td>
+<td>85.7</td>
+<td>CNN</td>
+<td>decision</td>
+<td>average</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_THU_task5_1</td>
+<td>Liu2018</td>
+<td>87.5</td>
+<td>89.4</td>
+<td>CNN, RNN, ensemble</td>
+<td>decision</td>
+<td>average</td>
+<td>3</td>
+<td>average</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_THU_task5_2</td>
+<td>Liu2018</td>
+<td>87.4</td>
+<td>89.5</td>
+<td>CNN, RNN, ensemble</td>
+<td>decision</td>
+<td>average</td>
+<td>3</td>
+<td>average</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_THU_task5_3</td>
+<td>Liu2018</td>
+<td>86.8</td>
+<td>89.3</td>
+<td>CNN, RNN, ensemble</td>
+<td>decision</td>
+<td>average</td>
+<td>3</td>
+<td>average</td>
+</tr>
+<tr>
+<td></td>
+<td>Nakadai_HRI-JP_task5_1</td>
+<td>Nakadai2018</td>
+<td>85.4</td>
+<td>89.9</td>
+<td>Partially Shared CNN</td>
+<td>decision</td>
+<td>majority vote</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Raveh_INRC_task5_1</td>
+<td>Raveh2018</td>
+<td>80.4</td>
+<td>87.7</td>
+<td>LSTM, CNN, ResNet</td>
+<td>feature</td>
+<td>average</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Raveh_INRC_task5_2</td>
+<td>Raveh2018</td>
+<td>80.2</td>
+<td>86.3</td>
+<td>LSTM, CNN, ResNet</td>
+<td>feature</td>
+<td>average</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Raveh_INRC_task5_3</td>
+<td>Raveh2018</td>
+<td>81.7</td>
+<td>87.7</td>
+<td>LSTM, CNN, ResNet</td>
+<td>feature</td>
+<td>average</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Raveh_INRC_task5_4</td>
+<td>Raveh2018</td>
+<td>81.2</td>
+<td>86.4</td>
+<td>LSTM, CNN, ResNet</td>
+<td>feature</td>
+<td>average</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Sun_SUTD_task5_1</td>
+<td>Chew2018</td>
+<td>76.8</td>
+<td>78.5</td>
+<td>CNN, LSTM, ensemble</td>
+<td>decision</td>
+<td>average</td>
+<td>3</td>
+<td>average</td>
+</tr>
+<tr>
+<td></td>
+<td>Tanabe_HIT_task5_1</td>
+<td>Tanabe2018</td>
+<td>88.4</td>
+<td>89.7</td>
+<td>CNN, SVM, VGG16, ensemble</td>
+<td>audio, decision</td>
+<td>Blind Source Seperation, Blind dereverberation, Beamformer, average</td>
+<td>89</td>
+<td>average</td>
+</tr>
+<tr>
+<td></td>
+<td>Tanabe_HIT_task5_2</td>
+<td>Tanabe2018</td>
+<td>82.2</td>
+<td>86.0</td>
+<td>CNN, SVM, VGG16, ensemble</td>
+<td>audio, decision</td>
+<td>Blind Source Seperation, Blind dereverberation, Beamformer, Random Forest</td>
+<td>89</td>
+<td>Random Forest</td>
+</tr>
+<tr>
+<td></td>
+<td>Tanabe_HIT_task5_3</td>
+<td>Tanabe2018</td>
+<td>86.3</td>
+<td>89.2</td>
+<td>CNN, SVM, VGG16, ensemble</td>
+<td>audio, decision</td>
+<td>Blind Source Seperation, Blind dereverberation, Beamformer, SVM</td>
+<td>89</td>
+<td>SVM</td>
+</tr>
+<tr>
+<td></td>
+<td>Tanabe_HIT_task5_4</td>
+<td>Tanabe2018</td>
+<td>88.4</td>
+<td>89.8</td>
+<td>CNN, SVM, VGG16, ensemble</td>
+<td>audio, decision</td>
+<td>Blind Source Seperation, Blind dereverberation, Beamformer, F1-score-weighted average</td>
+<td>89</td>
+<td>F1-score-weighted average</td>
+</tr>
+<tr>
+<td></td>
+<td>Tiraboschi_UNIMI_task5_1</td>
+<td>Tiraboschi2018</td>
+<td>76.9</td>
+<td>85.8</td>
+<td>CNN</td>
+<td>classifier</td>
+<td>CNN</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_THU_task5_1</td>
+<td>Shen2018</td>
+<td>85.9</td>
+<td>87.6</td>
+<td>GCNN,GSV-SVM, ensemble</td>
+<td>classifier</td>
+<td>stacking</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_THU_task5_2</td>
+<td>Shen2018</td>
+<td>84.3</td>
+<td>86.2</td>
+<td>GCNN,GSV-SVM,ensemble</td>
+<td>classifier</td>
+<td>stacking</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_THU_task5_3</td>
+<td>Shen2018</td>
+<td>86.0</td>
+<td>87.5</td>
+<td>GCNN,GSV-SVM,ensemble</td>
+<td>classifier</td>
+<td>stacking</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_THU_task5_4</td>
+<td>Shen2018</td>
+<td>85.9</td>
+<td>87.6</td>
+<td>GCNN,GSV-SVM,ensemble</td>
+<td>classifier</td>
+<td>stacking</td>
+<td>4</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="technical-reports">Technical reports</h1>
+<div class="btex" data-source="content/data/challenge2018/technical_reports_task5.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="Chew2018" style="box-shadow: none">
+<div class="panel-heading" id="heading-Chew2018" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DCASE 2018 Challenge: Solution for Task 5
+       </h4>
+<p style="text-align:left">
+        Jeremy Chew, Yingxiang Sun, Lahiru Jayasinghe and Chau Yuen
+       </p>
+<p style="text-align:left">
+<em>
+         Engineering Product Development, Singapore University of Technology and Design, Singapore
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Sun_SUTD_task5_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Chew2018" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Chew2018" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Chew2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Sun_91.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Chew2018" class="panel-collapse collapse" id="collapse-Chew2018" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DCASE 2018 Challenge: Solution for Task 5
+      </h4>
+<p style="text-align:left">
+<small>
+        Jeremy Chew, Yingxiang Sun, Lahiru Jayasinghe and Chau Yuen
+       </small>
+<br/>
+<small>
+<em>
+         Engineering Product Development, Singapore University of Technology and Design, Singapore
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       To address Task 5 in the Detection and Classification of Acoustic Scenes and Events (DCASE) 2018 chal-lenge, in this paper, we propose an ensemble learning system. The proposed system consists of three differ-ent models, based on convolutional neural network and long short memory recurrent neural network. With extracted features such as spectrogram and mel-frequency cepstrum coefficients from different chan-nels, the proposed system can classify different do-mestic activities effectively. Experimental results ob-tained from the provided development dataset show that good performance with F1-score of 92.19% can be achieved. Compared with the baseline system, our pro-posed system significantly improves the performance of F1-score by 7.69%.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         all
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         16kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         MFCC, spectrogram
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion level
+        </td>
+<td>
+         decision
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion method
+        </td>
+<td>
+         average
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CNN, LSTM, ensemble
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         average
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Chew2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Sun_91.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Chew2018label" class="modal fade" id="bibtex-Chew2018" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexChew2018label">
+        DCASE 2018 Challenge: Solution for Task 5
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Chew2018,
+    Author = "Chew, Jeremy and Sun, Yingxiang and Jayasinghe, Lahiru and Yuen, Chau",
+    title = "{DCASE} 2018 Challenge: Solution for Task 5",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "To address Task 5 in the Detection and Classification of Acoustic Scenes and Events (DCASE) 2018 chal-lenge, in this paper, we propose an ensemble learning system. The proposed system consists of three differ-ent models, based on convolutional neural network and long short memory recurrent neural network. With extracted features such as spectrogram and mel-frequency cepstrum coefficients from different chan-nels, the proposed system can classify different do-mestic activities effectively. Experimental results ob-tained from the provided development dataset show that good performance with F1-score of 92.19\% can be achieved. Compared with the baseline system, our pro-posed system significantly improves the performance of F1-score by 7.69\%."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Dekkers2018" style="box-shadow: none">
+<div class="panel-heading" id="heading-Dekkers2018" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DCASE 2018 Challenge - Task 5: Monitoring of Domestic Activities Based on Multi-Channel Acoustics
+       </h4>
+<p style="text-align:left">
+        Gert Dekkers and Peter Karsmakers
+       </p>
+<p style="text-align:left">
+<em>
+         Computer Science, KU Leuven - ADVISE, Geel, Belgium
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Dekkers_KUL_task5_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Dekkers2018" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Dekkers2018" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Dekkers2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="https://arxiv.org/pdf/1807.11246.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Dekkers2018').collapse('show');window.location.hash='#Dekkers2018';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Dekkers2018" class="panel-collapse collapse" id="collapse-Dekkers2018" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DCASE 2018 Challenge - Task 5: Monitoring of Domestic Activities Based on Multi-Channel Acoustics
+      </h4>
+<p style="text-align:left">
+<small>
+        Gert Dekkers and Peter Karsmakers
+       </small>
+<br/>
+<small>
+<em>
+         Computer Science, KU Leuven - ADVISE, Geel, Belgium
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       The DCASE 2018 Challenge consists of five tasks related to automatic classification and detection of sound events and scenes. This paper presents the setup of Task 5 which includes the description of the task, dataset and the baseline system. In this task, it is investigated to which extent multi-channel acoustic recordings are beneficial for the purpose of classifying domestic activities. The goal is to exploit spectral and spatial cues independent of sensor location using multi-channel audio. For this purpose we provided a development and evaluation dataset which are derivatives of the SINS database and contain domestic activities recorded by multiple microphone arrays. The baseline system, based on a Neural Network architecture using convolutional and dense layer(s), is intended to lower the hurdle to participate the challenge and to provide a reference performance.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         all
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         16kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion level
+        </td>
+<td>
+         decision
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion method
+        </td>
+<td>
+         average
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CNN
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Dekkers2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="https://arxiv.org/pdf/1807.11246.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/DCASE-REPO/dcase2018_baseline/tree/master/task5" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Dekkers2018label" class="modal fade" id="bibtex-Dekkers2018" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexDekkers2018label">
+        DCASE 2018 Challenge - Task 5: Monitoring of Domestic Activities Based on Multi-Channel Acoustics
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Dekkers2018,
+    Author = "Dekkers, Gert and Karsmakers, Peter",
+    title = "{DCASE} 2018 Challenge - Task 5: Monitoring of Domestic Activities Based on Multi-Channel Acoustics",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "The DCASE 2018 Challenge consists of five tasks related to automatic classification and detection of sound events and scenes. This paper presents the setup of Task 5 which includes the description of the task, dataset and the baseline system. In this task, it is investigated to which extent multi-channel acoustic recordings are beneficial for the purpose of classifying domestic activities. The goal is to exploit spectral and spatial cues independent of sensor location using multi-channel audio. For this purpose we provided a development and evaluation dataset which are derivatives of the SINS database and contain domestic activities recorded by multiple microphone arrays. The baseline system, based on a Neural Network architecture using convolutional and dense layer(s), is intended to lower the hurdle to participate the challenge and to provide a reference performance."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Delphin-Poulat2018" style="box-shadow: none">
+<div class="panel-heading" id="heading-Delphin-Poulat2018" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        GCNN for Classification of Domestic Activities
+       </h4>
+<p style="text-align:left">
+        Lionel Delphin-Poulat, Cyril Plapous and Rozenn Nicol
+       </p>
+<p style="text-align:left">
+<em>
+         HOME/CONTENT, Orange Labs, Lannion, France
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Delphin_OL_task5_1</span> <span class="label label-primary">Delphin_OL_task5_2</span> <span class="label label-primary">Delphin_OL_task5_3</span> <span class="label label-primary">Delphin_OL_task5_4</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Delphin-Poulat2018" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Delphin-Poulat2018" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Delphin-Poulat2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Delphin_68.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Delphin-Poulat2018" class="panel-collapse collapse" id="collapse-Delphin-Poulat2018" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       GCNN for Classification of Domestic Activities
+      </h4>
+<p style="text-align:left">
+<small>
+        Lionel Delphin-Poulat, Cyril Plapous and Rozenn Nicol
+       </small>
+<br/>
+<small>
+<em>
+         HOME/CONTENT, Orange Labs, Lannion, France
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       A model of classifier for processing multi-channel audio segments into nine classes categorizing daily activities (Task 5 of Challenge DCASE 2018) is presented. Its framework is based on Gated Convolutional Neural Network (GCNN). Four models are proposed with different learning strategies. They achieve a macro-averaged F1-score between 88.50 and 88.72%.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         all
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         16kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         Gaussian Additive Noise
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion level
+        </td>
+<td>
+         decision
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion method
+        </td>
+<td>
+         average
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CNN
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Delphin-Poulat2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Delphin_68.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Delphin-Poulat2018label" class="modal fade" id="bibtex-Delphin-Poulat2018" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexDelphin-Poulat2018label">
+        GCNN for Classification of Domestic Activities
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Delphin-Poulat2018,
+    Author = "Delphin-Poulat, Lionel and Plapous, Cyril and Nicol, Rozenn",
+    title = "{GCNN} for Classification of Domestic Activities",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "A model of classifier for processing multi-channel audio segments into nine classes categorizing daily activities (Task 5 of Challenge DCASE 2018) is presented. Its framework is based on Gated Convolutional Neural Network (GCNN). Four models are proposed with different learning strategies. They achieve a macro-averaged F1-score between 88.50 and 88.72\%."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Inoue2018" style="box-shadow: none">
+<div class="panel-heading" id="heading-Inoue2018" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Domestic Activities Classification Based on CNN Using Shuffling and Mixing Data Augmentation
+       </h4>
+<p style="text-align:left">
+        Tadanobu Inoue<sup>1</sup>, Phongtharin Vinayavekhin<sup>1</sup>, Shiqiang Wang<sup>2</sup>, David Wood<sup>2</sup>, Nancy Greco<sup>2</sup> and Ryuki Tachibana<sup>3</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>AI, IBM Research, Tokyo, Japan, <sup>2</sup>AI, Research, Yorktown Heights, NY, USA, <sup>3</sup>AI, Research, Tokyo, Japan
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Inoue_IBM_task5_1</span> <span class="label label-primary">Inoue_IBM_task5_2</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Inoue2018" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Inoue2018" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Inoue2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Inoue_14.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Inoue2018" class="panel-collapse collapse" id="collapse-Inoue2018" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Domestic Activities Classification Based on CNN Using Shuffling and Mixing Data Augmentation
+      </h4>
+<p style="text-align:left">
+<small>
+        Tadanobu Inoue<sup>1</sup>, Phongtharin Vinayavekhin<sup>1</sup>, Shiqiang Wang<sup>2</sup>, David Wood<sup>2</sup>, Nancy Greco<sup>2</sup> and Ryuki Tachibana<sup>3</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>AI, IBM Research, Tokyo, Japan, <sup>2</sup>AI, Research, Yorktown Heights, NY, USA, <sup>3</sup>AI, Research, Tokyo, Japan
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report describes our proposed design and implementation of the system used for the DCASE 2018 Challenge submission. The work focuses on Task 5 of the challenge, which is about monitoring and classifying domestic activities based on multi-channel acoustics. We propose data augmentation techniques using shuffling and mixing two sounds in a same class to mitigate the unbalanced training dataset. This data augmentation can generate new variations on both the sequence and the density of sound events. The experimental results show that the proposed system achieves an average of 89.95% of macro-averaged F1 score over 4 folds on the development dataset. This is a significant improvement from the baseline result of 84.50%. In the final evaluation for the submission, four proposed classifiers are trained with four folds of training and validation data in the development dataset. Then we ensemble these four models by averaging their predictions.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         all
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         16kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         shuffling, mixing
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion level
+        </td>
+<td>
+         decision
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion method
+        </td>
+<td>
+         average
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         average
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Inoue2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Inoue_14.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Inoue2018label" class="modal fade" id="bibtex-Inoue2018" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexInoue2018label">
+        Domestic Activities Classification Based on CNN Using Shuffling and Mixing Data Augmentation
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Inoue2018,
+    Author = "Inoue, Tadanobu and Vinayavekhin, Phongtharin and Wang, Shiqiang and Wood, David and Greco, Nancy and Tachibana, Ryuki",
+    title = "Domestic Activities Classification Based on {CNN} Using Shuffling and Mixing Data Augmentation",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "This technical report describes our proposed design and implementation of the system used for the DCASE 2018 Challenge submission. The work focuses on Task 5 of the challenge, which is about monitoring and classifying domestic activities based on multi-channel acoustics. We propose data augmentation techniques using shuffling and mixing two sounds in a same class to mitigate the unbalanced training dataset. This data augmentation can generate new variations on both the sequence and the density of sound events. The experimental results show that the proposed system achieves an average of 89.95\% of macro-averaged F1 score over 4 folds on the development dataset. This is a significant improvement from the baseline result of 84.50\%. In the final evaluation for the submission, four proposed classifiers are trained with four folds of training and validation data in the development dataset. Then we ensemble these four models by averaging their predictions."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Kong2018" style="box-shadow: none">
+<div class="panel-heading" id="heading-Kong2018" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DCASE 2018 Challenge Baseline with Convolutional Neural Networks
+       </h4>
+<p style="text-align:left">
+        Qiuqiang Kong, Iqbal Turab, Xu Yong, Wenwu Wang and Mark D. Plumbley
+       </p>
+<p style="text-align:left">
+<em>
+         Centre for Vission, Speech and Signal Processing (CVSSP), University of Surrey, Guildford, UK
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Kong_Surrey_task5_1</span> <span class="label label-primary">Kong_Surrey_task5_2</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Kong2018" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Kong2018" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Kong2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Baseline_87.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Kong2018').collapse('show');window.location.hash='#Kong2018';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Kong2018" class="panel-collapse collapse" id="collapse-Kong2018" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DCASE 2018 Challenge Baseline with Convolutional Neural Networks
+      </h4>
+<p style="text-align:left">
+<small>
+        Qiuqiang Kong, Iqbal Turab, Xu Yong, Wenwu Wang and Mark D. Plumbley
+       </small>
+<br/>
+<small>
+<em>
+         Centre for Vission, Speech and Signal Processing (CVSSP), University of Surrey, Guildford, UK
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       Detection and classification of acoustic scenes and events (DCASE) 2018 challenge is a well known IEEE AASP challenge consists of several audio classification and sound event detection tasks. DCASE 2018 challenge includes five tasks: 1) Acoustic scene classification, 2) Audio tagging of Freesound, 3) Bird audio detection, 4) Weakly labeled semi-supervised sound event detection and 5) Multi-channel audio tagging. In this paper we open source the python code of all of Task 1 - 5 of DCASE 2018 challenge. The baseline source code contains the implementation of the convolutional neural networks (CNNs) including the AlexNetish and the VGGish from the image processing area. We researched how the performance varies from task to task when the configuration of the neural networks are the same. The experiment shows deeper VGGish network performs better than AlexNetish on Task 2 - 5 except Task 1 where VGGish and AlexNetish network perform similar. With the VGGish network, we achieve an accuracy of 0.680 on Task 1, a mean average precision (mAP) of 0.928 on Task 2, an area under the curve (AUC) of 0.854 on Task 3, a sound event detection F1 score of 20.8% on Task 4 and a F1 score of 87.75% on Task 5.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         all
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         16kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion level
+        </td>
+<td>
+         decision
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion method
+        </td>
+<td>
+         average
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         AlexNetish 8 layer CNN with global max pooling; AlexNetish 4 layer CNN with global max pooling
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Kong2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Baseline_87.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/qiuqiangkong/dcase2018_task5" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Kong2018label" class="modal fade" id="bibtex-Kong2018" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexKong2018label">
+        DCASE 2018 Challenge Baseline with Convolutional Neural Networks
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Kong2018,
+    Author = "Kong, Qiuqiang and Turab, Iqbal and Yong, Xu and Wang, Wenwu and Plumbley, Mark D.",
+    title = "{DCASE} 2018 Challenge Baseline with Convolutional Neural Networks",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "Detection and classification of acoustic scenes and events (DCASE) 2018 challenge is a well known IEEE AASP challenge consists of several audio classification and sound event detection tasks. DCASE 2018 challenge includes five tasks: 1) Acoustic scene classification, 2) Audio tagging of Freesound, 3) Bird audio detection, 4) Weakly labeled semi-supervised sound event detection and 5) Multi-channel audio tagging. In this paper we open source the python code of all of Task 1 - 5 of DCASE 2018 challenge. The baseline source code contains the implementation of the convolutional neural networks (CNNs) including the AlexNetish and the VGGish from the image processing area. We researched how the performance varies from task to task when the configuration of the neural networks are the same. The experiment shows deeper VGGish network performs better than AlexNetish on Task 2 - 5 except Task 1 where VGGish and AlexNetish network perform similar. With the VGGish network, we achieve an accuracy of 0.680 on Task 1, a mean average precision (mAP) of 0.928 on Task 2, an area under the curve (AUC) of 0.854 on Task 3, a sound event detection F1 score of 20.8\% on Task 4 and a F1 score of 87.75\% on Task 5."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Li2018" style="box-shadow: none">
+<div class="panel-heading" id="heading-Li2018" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Ciaic-Moda System for Dcase2018 Challenge Task5
+       </h4>
+<p style="text-align:left">
+        Dexin Li and Mou Wang
+       </p>
+<p style="text-align:left">
+<em>
+         Speech Signal Processing, CIAIC, Xi'an, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Li_NPU_task5_1</span> <span class="label label-primary">Li_NPU_task5_2</span> <span class="label label-primary">Li_NPU_task5_3</span> <span class="label label-primary">Li_NPU_task5_4</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Li2018" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Li2018" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Li2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Li_35.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Li2018" class="panel-collapse collapse" id="collapse-Li2018" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Ciaic-Moda System for Dcase2018 Challenge Task5
+      </h4>
+<p style="text-align:left">
+<small>
+        Dexin Li and Mou Wang
+       </small>
+<br/>
+<small>
+<em>
+         Speech Signal Processing, CIAIC, Xi'an, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       In this technical report, we present several systems for the task 5 of Detection and Classification of Acoustic Scenes and Events 2018 (DCASE2018) challenge. The task is to classify multi-channel audio segments into one of daily activities performed in a home environment. We develop three methods for the task. First, log melspectrogram is extracted from each segment and fed to CNN in baseline system with gated linear units (GLU). Then, we use VGGNet to improve the network. In addition, to exploit spatial information, we extract coherence features among all channels and use 1D-CNN with GLU to classify it. Finally, we make a fusion on posteriors from three subsystems to further improve the performances. The experimental results show the proposed systems can get at least 5% F1-score improvement compared to the baseline system.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         all
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         16kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Spatial features
+        </td>
+<td>
+         coherence
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion level
+        </td>
+<td>
+         decision
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion method
+        </td>
+<td>
+         average
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CNN, VGG10, ensemble; CNN, VGG10, GLU, ensemble
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         average
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Li2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Li_35.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Li2018label" class="modal fade" id="bibtex-Li2018" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexLi2018label">
+        Ciaic-Moda System for Dcase2018 Challenge Task5
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Li2018,
+    Author = "Li, Dexin and Wang, Mou",
+    title = "Ciaic-Moda System for Dcase2018 Challenge Task5",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "In this technical report, we present several systems for the task 5 of Detection and Classification of Acoustic Scenes and Events 2018 (DCASE2018) challenge. The task is to classify multi-channel audio segments into one of daily activities performed in a home environment. We develop three methods for the task. First, log melspectrogram is extracted from each segment and fed to CNN in baseline system with gated linear units (GLU). Then, we use VGGNet to improve the network. In addition, to exploit spatial information, we extract coherence features among all channels and use 1D-CNN with GLU to classify it. Finally, we make a fusion on posteriors from three subsystems to further improve the performances. The experimental results show the proposed systems can get at least 5\% F1-score improvement compared to the baseline system."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Liao2018" style="box-shadow: none">
+<div class="panel-heading" id="heading-Liao2018" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DCASE 2018 Task 5 Challenge Technical Report: Sound Event Classification by a Deep Neural Network with Attention and Minimum Variance Distortionless Response Enhancement
+       </h4>
+<p style="text-align:left">
+        Hsueh-Wei Liao<sup>1</sup>, Jong-Yi Huang<sup>2</sup>, Shih-Syuan Lan<sup>2</sup>, Tsung-Han Lee<sup>2</sup>, Yi-Wen Liu<sup>1</sup> and Ming-Sian Bai<sup>2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Electrical Engineering, National Tsing Hua University, Hsinchu, Taiwan, <sup>2</sup>Power Mechanical Engineering, National Tsing Hua University, Hsinchu, Taiwan
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Liao_NTHU_task5_1</span> <span class="label label-primary">Liao_NTHU_task5_2</span> <span class="label label-primary">Liao_NTHU_task5_3</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Liao2018" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Liao2018" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Liao2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Liao_26.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Liao2018" class="panel-collapse collapse" id="collapse-Liao2018" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DCASE 2018 Task 5 Challenge Technical Report: Sound Event Classification by a Deep Neural Network with Attention and Minimum Variance Distortionless Response Enhancement
+      </h4>
+<p style="text-align:left">
+<small>
+        Hsueh-Wei Liao<sup>1</sup>, Jong-Yi Huang<sup>2</sup>, Shih-Syuan Lan<sup>2</sup>, Tsung-Han Lee<sup>2</sup>, Yi-Wen Liu<sup>1</sup> and Ming-Sian Bai<sup>2</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Electrical Engineering, National Tsing Hua University, Hsinchu, Taiwan, <sup>2</sup>Power Mechanical Engineering, National Tsing Hua University, Hsinchu, Taiwan
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       In this technical report, we propose a sub-band convolution neural network with residual building blocks as a sound event detection system. Our system performs not only the clip-wise prediction of the task 5 but also the frame-wise prediction, which can be regarded as multi-task learning. The frame-wise labels are all transformed from the original weak labels by label smoothing with the energy of the frames. With the multi-task learning, we believe such framewise prediction can concentrate on the most important part from the weakly-labeled dataset. In addition, we attempted to preprocess the input signals by array-based methods and, depending on the sound classes, mixed results are reported in terms of the F1-score.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         all; mixed
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         16kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         time shifting
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Spatial features
+        </td>
+<td>
+         MVDR; MVDR with MMSE
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion level
+        </td>
+<td>
+         decision
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion method
+        </td>
+<td>
+         average
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CNN
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Liao2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Liao_26.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Liao2018label" class="modal fade" id="bibtex-Liao2018" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexLiao2018label">
+        DCASE 2018 Task 5 Challenge Technical Report: Sound Event Classification by a Deep Neural Network with Attention and Minimum Variance Distortionless Response Enhancement
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Liao2018,
+    Author = "Liao, Hsueh-Wei and Huang, Jong-Yi and Lan, Shih-Syuan and Lee, Tsung-Han and Liu, Yi-Wen and Bai, Ming-Sian",
+    title = "{DCASE} 2018 Task 5 Challenge Technical Report: Sound Event Classification by a Deep Neural Network with Attention and Minimum Variance Distortionless Response Enhancement",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "In this technical report, we propose a sub-band convolution neural network with residual building blocks as a sound event detection system. Our system performs not only the clip-wise prediction of the task 5 but also the frame-wise prediction, which can be regarded as multi-task learning. The frame-wise labels are all transformed from the original weak labels by label smoothing with the energy of the frames. With the multi-task learning, we believe such framewise prediction can concentrate on the most important part from the weakly-labeled dataset. In addition, we attempted to preprocess the input signals by array-based methods and, depending on the sound classes, mixed results are reported in terms of the F1-score."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Liu2018" style="box-shadow: none">
+<div class="panel-heading" id="heading-Liu2018" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        An Ensemble System for Domestic Activity Recognition
+       </h4>
+<p style="text-align:left">
+        Huaping Liu<sup>1</sup>, Feng Wang<sup>1</sup>, Xinzhu Liu<sup>2</sup> and Di Guo<sup>1</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Computer Science and Technology, Computer Science and Technology, Beijing, China, <sup>2</sup>Computer Science and Technology, Computer Science and Technology, Changchun, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Liu_THU_task5_1</span> <span class="label label-primary">Liu_THU_task5_2</span> <span class="label label-primary">Liu_THU_task5_3</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Liu2018" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Liu2018" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Liu2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Liu_7.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Liu2018" class="panel-collapse collapse" id="collapse-Liu2018" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       An Ensemble System for Domestic Activity Recognition
+      </h4>
+<p style="text-align:left">
+<small>
+        Huaping Liu<sup>1</sup>, Feng Wang<sup>1</sup>, Xinzhu Liu<sup>2</sup> and Di Guo<sup>1</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Computer Science and Technology, Computer Science and Technology, Beijing, China, <sup>2</sup>Computer Science and Technology, Computer Science and Technology, Changchun, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       As one of the most important sensing modalities, the acoustics is becoming more and more popular in achieving our smart environment nowadays. In this challenge, we try to tackle the task of monitoring domestic activities based on multi-channel acoustics. Several acoustic features including the Mel-Spectrograms, MFCC and VGGish features are extracted from the raw audio and fused to train different deep neural networks. An ensemble system is then established with the trained models. The experimental results on the development dataset demonstrate that the proposed system has shown superior performance in recognizing domestic activities.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         all
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         16kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         log-mel energies, MFCC
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         External model
+        </td>
+<td>
+         VGGish
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion level
+        </td>
+<td>
+         decision
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion method
+        </td>
+<td>
+         average
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CNN, RNN, ensemble
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         average
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Liu2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Liu_7.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Liu2018label" class="modal fade" id="bibtex-Liu2018" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexLiu2018label">
+        An Ensemble System for Domestic Activity Recognition
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Liu2018,
+    Author = "Liu, Huaping and Wang, Feng and Liu, Xinzhu and Guo, Di",
+    title = "An Ensemble System for Domestic Activity Recognition",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "As one of the most important sensing modalities, the acoustics is becoming more and more popular in achieving our smart environment nowadays. In this challenge, we try to tackle the task of monitoring domestic activities based on multi-channel acoustics. Several acoustic features including the Mel-Spectrograms, MFCC and VGGish features are extracted from the raw audio and fused to train different deep neural networks. An ensemble system is then established with the trained models. The experimental results on the development dataset demonstrate that the proposed system has shown superior performance in recognizing domestic activities."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Nakadai2018" style="box-shadow: none">
+<div class="panel-heading" id="heading-Nakadai2018" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Partially-Shared Convolutional Neural Network for Classification of Multi-Channel Recorded Audio Signals
+       </h4>
+<p style="text-align:left">
+        Kazuhiro Nakadai and Danilo R. Onishi
+       </p>
+<p style="text-align:left">
+<em>
+         Research Div., Honda Research Institute Japan, Wako, Japan
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Nakadai_HRI-JP_task5_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Nakadai2018" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Nakadai2018" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Nakadai2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Nakadai_93.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Nakadai2018" class="panel-collapse collapse" id="collapse-Nakadai2018" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Partially-Shared Convolutional Neural Network for Classification of Multi-Channel Recorded Audio Signals
+      </h4>
+<p style="text-align:left">
+<small>
+        Kazuhiro Nakadai and Danilo R. Onishi
+       </small>
+<br/>
+<small>
+<em>
+         Research Div., Honda Research Institute Japan, Wako, Japan
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical paper presents the system used in our submission for task 5 of the DCASE 2018 challenge. We proposed a partially-shared convolutional neural network, which is a multi-task system that contains a common input (the multi-channel log Mel features) and two output branches, a classification branch, which outputs the predicted class, and a regression branch, which outputs a single-channel representation of the multi-channel input data. Since the system has a shared network between classification and regression, training for regression is expected to enhance another training for classification and vice versa. Because task 5 aims at classification based on multi-channel audio input, we tried to improve classification performance with this system by training classification and regression together. By applying the proposed system incorporated with parameter tuning of the baseline CNN system, we confirmed that the classification F1 score increased to 89.94% in four-fold cross validation, while the baseline system achieved 84.50%.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         all
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         16kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion level
+        </td>
+<td>
+         decision
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion method
+        </td>
+<td>
+         majority vote
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         Partially Shared CNN
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Nakadai2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Nakadai_93.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Nakadai2018label" class="modal fade" id="bibtex-Nakadai2018" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexNakadai2018label">
+        Partially-Shared Convolutional Neural Network for Classification of Multi-Channel Recorded Audio Signals
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Nakadai2018,
+    Author = "Nakadai, Kazuhiro and Onishi, Danilo R.",
+    title = "Partially-Shared Convolutional Neural Network for Classification of Multi-Channel Recorded Audio Signals",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "This technical paper presents the system used in our submission for task 5 of the DCASE 2018 challenge. We proposed a partially-shared convolutional neural network, which is a multi-task system that contains a common input (the multi-channel log Mel features) and two output branches, a classification branch, which outputs the predicted class, and a regression branch, which outputs a single-channel representation of the multi-channel input data. Since the system has a shared network between classification and regression, training for regression is expected to enhance another training for classification and vice versa. Because task 5 aims at classification based on multi-channel audio input, we tried to improve classification performance with this system by training classification and regression together. By applying the proposed system incorporated with parameter tuning of the baseline CNN system, we confirmed that the classification F1 score increased to 89.94\% in four-fold cross validation, while the baseline system achieved 84.50\%."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Raveh2018" style="box-shadow: none">
+<div class="panel-heading" id="heading-Raveh2018" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Multi-Channel Audio Classification with Neural Network Using Scattering Transform
+       </h4>
+<p style="text-align:left">
+        Alon Raveh<sup>1</sup> and Alon Amar<sup>2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Signal Processing Department, National Research Center, Haifa, Israel, <sup>2</sup>EE, Technion, Haifa, Israel
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Raveh_INRC_task5_1</span> <span class="label label-primary">Raveh_INRC_task5_2</span> <span class="label label-primary">Raveh_INRC_task5_3</span> <span class="label label-primary">Raveh_INRC_task5_4</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Raveh2018" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Raveh2018" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Raveh2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Raveh_10.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Raveh2018" class="panel-collapse collapse" id="collapse-Raveh2018" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Multi-Channel Audio Classification with Neural Network Using Scattering Transform
+      </h4>
+<p style="text-align:left">
+<small>
+        Alon Raveh<sup>1</sup> and Alon Amar<sup>2</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Signal Processing Department, National Research Center, Haifa, Israel, <sup>2</sup>EE, Technion, Haifa, Israel
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical paper presents an approach for the 2018 acoustic scene classification challenge (DCASE 2018) task 5. A sequence of audio segments are observed by an array with 4 microphones. The task is to suggest a multichannel processing to classify the audio signals to one of 9 pre-defined classes. The proposed approach combines a deep neural network with scattering transform. Each audio segment is first represented by two layers of scattering transform. The 4 denoised transforms of each of the two layers are combined together. Each of the fused layers are processed in parallel by two neural networks (NN) architectures, RESNET and long short-term memory (LSTM) network, with a joint fully connected layer.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         all
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         16kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         Scattering Transform; Scattering Transform, SVD
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion level
+        </td>
+<td>
+         feature
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion method
+        </td>
+<td>
+         average
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         LSTM, CNN, ResNet
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Raveh2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Raveh_10.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Raveh2018label" class="modal fade" id="bibtex-Raveh2018" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexRaveh2018label">
+        Multi-Channel Audio Classification with Neural Network Using Scattering Transform
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Raveh2018,
+    Author = "Raveh, Alon and Amar, Alon",
+    title = "Multi-Channel Audio Classification with Neural Network Using Scattering Transform",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "This technical paper presents an approach for the 2018 acoustic scene classification challenge (DCASE 2018) task 5. A sequence of audio segments are observed by an array with 4 microphones. The task is to suggest a multichannel processing to classify the audio signals to one of 9 pre-defined classes. The proposed approach combines a deep neural network with scattering transform. Each audio segment is first represented by two layers of scattering transform. The 4 denoised transforms of each of the two layers are combined together. Each of the fused layers are processed in parallel by two neural networks (NN) architectures, RESNET and long short-term memory (LSTM) network, with a joint fully connected layer."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Shen2018" style="box-shadow: none">
+<div class="panel-heading" id="heading-Shen2018" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Home Activity Monitoring Based on Gated Convolutional Neural Networks and System Fusion
+       </h4>
+<p style="text-align:left">
+        Yuhan Shen, Kexin He and Weiqiang Zhang
+       </p>
+<p style="text-align:left">
+<em>
+         Electronic Engineering, Tsinghua University, Beijing, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Zhang_THU_task5_1</span> <span class="label label-primary">Zhang_THU_task5_2</span> <span class="label label-primary">Zhang_THU_task5_3</span> <span class="label label-primary">Zhang_THU_task5_4</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Shen2018" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Shen2018" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Shen2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Zhang_58.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Shen2018" class="panel-collapse collapse" id="collapse-Shen2018" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Home Activity Monitoring Based on Gated Convolutional Neural Networks and System Fusion
+      </h4>
+<p style="text-align:left">
+<small>
+        Yuhan Shen, Kexin He and Weiqiang Zhang
+       </small>
+<br/>
+<small>
+<em>
+         Electronic Engineering, Tsinghua University, Beijing, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       In this technical report, we propose a method for the task 5 of Detection and Classification of Acoustic Scenes and Events 2018 (DCASE2018) challenge. This task aims to classify multi-channel audio segments into one of the provided predefined classes. All of these classes are daily activities performed in a home environment. This paper adopts a model based on gated convolutional neural networks for domestic activity classification. We utilize multiple methods to improve the performance of our proposed system. Firstly, we use gated convolutional neural network to replace normal convolutional neural network and recurrent neural network in order to extract more temporal feature and improve working efficiency. Secondly, we mitigate the problem of data imbalance using a weighted loss function. Besides, we adopt model ensembling strategy to make our system stronger and more effective. Finally, we use a fusion of two systems to improve our performance. In a summary, we obtain 89.73% F1-score on the development dataset while the official baseline system gets 84.50% F1-score.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         all
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         16kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         log-mel energies, Time-Frequency Cepstral
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion level
+        </td>
+<td>
+         classifier
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion method
+        </td>
+<td>
+         stacking
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         GCNN,GSV-SVM, ensemble; GCNN,GSV-SVM,ensemble
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Shen2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Zhang_58.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Shen2018label" class="modal fade" id="bibtex-Shen2018" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexShen2018label">
+        Home Activity Monitoring Based on Gated Convolutional Neural Networks and System Fusion
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Shen2018,
+    Author = "Shen, Yuhan and He, Kexin and Zhang, Weiqiang",
+    title = "Home Activity Monitoring Based on Gated Convolutional Neural Networks and System Fusion",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "In this technical report, we propose a method for the task 5 of Detection and Classification of Acoustic Scenes and Events 2018 (DCASE2018) challenge. This task aims to classify multi-channel audio segments into one of the provided predefined classes. All of these classes are daily activities performed in a home environment. This paper adopts a model based on gated convolutional neural networks for domestic activity classification. We utilize multiple methods to improve the performance of our proposed system. Firstly, we use gated convolutional neural network to replace normal convolutional neural network and recurrent neural network in order to extract more temporal feature and improve working efficiency. Secondly, we mitigate the problem of data imbalance using a weighted loss function. Besides, we adopt model ensembling strategy to make our system stronger and more effective. Finally, we use a fusion of two systems to improve our performance. In a summary, we obtain 89.73\% F1-score on the development dataset while the official baseline system gets 84.50\% F1-score."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Tanabe2018" style="box-shadow: none">
+<div class="panel-heading" id="heading-Tanabe2018" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Multichannel Acoustic Scene Classification by Blind Dereverberation, Blind Source Separation, Data Augmentation, and Model Ensembling
+       </h4>
+<p style="text-align:left">
+        Ryo Tanabe, Takashi Endo, Yuki Nikaido, Takeshi Ichige, Phong Nguyen, Yohei Kawaguchi and Koichi Hamada
+       </p>
+<p style="text-align:left">
+<em>
+         R&amp;D Group, Hitachi, Ltd., Tokyo, Japan
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Tanabe_HIT_task5_1</span> <span class="label label-primary">Tanabe_HIT_task5_2</span> <span class="label label-primary">Tanabe_HIT_task5_3</span> <span class="label label-primary">Tanabe_HIT_task5_4</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Tanabe2018" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Tanabe2018" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Tanabe2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Tanabe_55.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Tanabe2018" class="panel-collapse collapse" id="collapse-Tanabe2018" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Multichannel Acoustic Scene Classification by Blind Dereverberation, Blind Source Separation, Data Augmentation, and Model Ensembling
+      </h4>
+<p style="text-align:left">
+<small>
+        Ryo Tanabe, Takashi Endo, Yuki Nikaido, Takeshi Ichige, Phong Nguyen, Yohei Kawaguchi and Koichi Hamada
+       </small>
+<br/>
+<small>
+<em>
+         R&amp;D Group, Hitachi, Ltd., Tokyo, Japan
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       Detection and Classification of Acoustic Scenes and Events (DCASE) 2018 Challenge Task 5 can be regarded as one type of multichannel acoustic scene classification. The important characteristic of the Task 5 is that a microphone array may be put at different locations between the development dataset and the evaluation dataset, so we should not exploit location-dependent spatial cues but location-independent ones to avoid overfitting. The proposed system is a combination of front-end modules based on blind signal processing and back-end modules based on machine learning. The front-end modules employ blind dereverberation, blind source separation, etc., which use the spatial cues without machine learning, so overfitting is avoided. The back-end modules employ one-dimensional-convolutional-neural-network-(1DCNN)-based architectures and VGG16-based architectures for individual front-end modules, and all the probability outputs are ensembled. Also, through a Mixup-based data augmentation, overfitting is avoided in the back-end modules.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         all
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         16kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         log-mel energies, MFCC
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Spatial features
+        </td>
+<td>
+         multi-channel front-end processing; Blind Source Seperation, Blind dereverberation, Beamformer
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         External model
+        </td>
+<td>
+         VGG16
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion level
+        </td>
+<td>
+         audio, decision
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion method
+        </td>
+<td>
+         Blind Source Seperation, Blind dereverberation, Beamformer, average; Blind Source Seperation, Blind dereverberation, Beamformer, Random Forest; Blind Source Seperation, Blind dereverberation, Beamformer, SVM; Blind Source Seperation, Blind dereverberation, Beamformer, F1-score-weighted average
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CNN, SVM, VGG16, ensemble
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         average; Random Forest; SVM; F1-score-weighted average
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Tanabe2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Tanabe_55.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Tanabe2018label" class="modal fade" id="bibtex-Tanabe2018" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexTanabe2018label">
+        Multichannel Acoustic Scene Classification by Blind Dereverberation, Blind Source Separation, Data Augmentation, and Model Ensembling
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Tanabe2018,
+    Author = "Tanabe, Ryo and Endo, Takashi and Nikaido, Yuki and Ichige, Takeshi and Nguyen, Phong and Kawaguchi, Yohei and Hamada, Koichi",
+    title = "Multichannel Acoustic Scene Classification by Blind Dereverberation, Blind Source Separation, Data Augmentation, and Model Ensembling",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "Detection and Classification of Acoustic Scenes and Events (DCASE) 2018 Challenge Task 5 can be regarded as one type of multichannel acoustic scene classification. The important characteristic of the Task 5 is that a microphone array may be put at different locations between the development dataset and the evaluation dataset, so we should not exploit location-dependent spatial cues but location-independent ones to avoid overfitting. The proposed system is a combination of front-end modules based on blind signal processing and back-end modules based on machine learning. The front-end modules employ blind dereverberation, blind source separation, etc., which use the spatial cues without machine learning, so overfitting is avoided. The back-end modules employ one-dimensional-convolutional-neural-network-(1DCNN)-based architectures and VGG16-based architectures for individual front-end modules, and all the probability outputs are ensembled. Also, through a Mixup-based data augmentation, overfitting is avoided in the back-end modules."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Tiraboschi2018" style="box-shadow: none">
+<div class="panel-heading" id="heading-Tiraboschi2018" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Monitoring of Domestic Activities Based on Multi-Channel Acoustics: A Time-Channel 2D-Convolutional Approach
+       </h4>
+<p style="text-align:left">
+        Marco Tiraboschi
+       </p>
+<p style="text-align:left">
+<em>
+         Computer Science, UniversitÃ degli Studi di Milano, Milan, Italy
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Tiraboschi_UNIMI_task5_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Tiraboschi2018" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Tiraboschi2018" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Tiraboschi2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Tiraboschi_34.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Tiraboschi2018" class="panel-collapse collapse" id="collapse-Tiraboschi2018" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Monitoring of Domestic Activities Based on Multi-Channel Acoustics: A Time-Channel 2D-Convolutional Approach
+      </h4>
+<p style="text-align:left">
+<small>
+        Marco Tiraboschi
+       </small>
+<br/>
+<small>
+<em>
+         Computer Science, UniversitÃ degli Studi di Milano, Milan, Italy
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This approach is meant to be an extension of the DCASE 2018 task 5 baseline system for domestic activity recognition exploiting multichannel audio: the Convolutional Neural Network model has been slightly restructured for this purpose by using two-dimensional convolutions along the dimensions of time and channel.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         all
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         16kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion level
+        </td>
+<td>
+         classifier
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Fusion method
+        </td>
+<td>
+         CNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CNN
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Tiraboschi2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Tiraboschi_34.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Tiraboschi2018label" class="modal fade" id="bibtex-Tiraboschi2018" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexTiraboschi2018label">
+        Monitoring of Domestic Activities Based on Multi-Channel Acoustics: A Time-Channel 2D-Convolutional Approach
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Tiraboschi2018,
+    Author = "Tiraboschi, Marco",
+    title = "Monitoring of Domestic Activities Based on Multi-Channel Acoustics: A Time-Channel {2D}-Convolutional Approach",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "This approach is meant to be an extension of the DCASE 2018 task 5 baseline system for domestic activity recognition exploiting multichannel audio: the Convolutional Neural Network model has been slightly restructured for this purpose by using two-dimensional convolutions along the dimensions of time and channel."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script>
+(function($) {
+    $(document).ready(function() {
+        var hash = window.location.hash.substr(1);
+        var anchor = window.location.hash;
+
+        var shiftWindow = function() {
+            var hash = window.location.hash.substr(1);
+            if($('#collapse-'+hash).length){
+                scrollBy(0, -100);
+            }
+        };
+        window.addEventListener("hashchange", shiftWindow);
+
+        if (window.location.hash){
+            window.scrollTo(0, 0);
+            history.replaceState(null, document.title, "#");
+            $('#collapse-'+hash).collapse('show');
+            setTimeout(function(){
+                window.location.hash = anchor;
+                shiftWindow();
+            }, 2000);
+        }
+    });
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Tutorials - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Tutorials - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/workshop2023/tutorials">
+    <meta property="og:url" content="https://dcase.community/workshop2023/tutorials" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE2023" />
+    <meta name="description" content="Democratizing Audio Machine Learning with the Huggingface Ecosystem T1 Presenters: Jose Omar Giraldo (Barcelona Supercomputing Center), Vaibhav Srivastav (Hugging Face) Time: 14:00 - 15:30, Wednesday 20th of September Tutorial content: The Hugging Face ecosystem provides a powerful platform for hosting, sharing, and utilizing DL models. In this tutorial, we …" />
+    <meta name="og:description" content="Democratizing Audio Machine Learning with the Huggingface..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Workshop2023</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Workshop home">
+        <a href="http://localhost:3000/workshop2023/"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a>
+    </li><li class="btn-group  active">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list fa-fw"></i>&nbsp;Program&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/workshop2023/schedule"><i class="fa fa-list-alt fa-fw"></i>&nbsp;Schedule</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2023/keynotes"><i class="fa fa-list-alt fa-fw"></i>&nbsp;Keynotes</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2023/tutorials"><i class="fa fa-comments-o fa-fw"></i>&nbsp;Tutorials</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Proceedings">
+        <a href="http://localhost:3000/workshop2023/proceedings"><i class="fa fa-file fa-fw"></i>&nbsp;Proceedings</a>
+    </li><li class="">
+        <a href="http://localhost:3000/workshop2023/registration"><i class="fa fa-key fa-fw"></i>&nbsp;Registration</a>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-compass fa-fw"></i>&nbsp;Venue & Travel&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Travel & Accommodation">
+        <a href="http://localhost:3000/workshop2023/travel"><i class="fa fa-info fa-fw"></i>&nbsp;Travel & Accommodation</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Sauna Rules">
+        <a href="http://localhost:3000/workshop2023/sauna-rules"><i class="fa fa-th-list fa-fw"></i>&nbsp;Sauna Rules</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>&nbsp;Authors&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/workshop2023/submission"><i class="fa fa-upload fa-fw"></i>&nbsp;Submission</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2023/author-instructions"><i class="fa fa-info fa-fw"></i>&nbsp;Instructions for Authors</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2023/presenter-instructions"><i class="fa fa-info fa-fw"></i>&nbsp;Instructions for Presenters</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2023/call-for-papers"><i class="fa fa-info fa-fw"></i>&nbsp;Call for papers</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2023/call-for-tutorials"><i class="fa fa-hand-paper-o fa-fw"></i>&nbsp;Call for tutorials</a>
+    </li>
+        </ul>
+    </li><li class="">
+        <a href="http://localhost:3000/workshop2023/reviewer-guidelines"><i class="fa fa-sticky-note-o fa-fw"></i>&nbsp;Reviewers</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Organizing Committee">
+        <a href="http://localhost:3000/workshop2023/organizers"><i class="fa fa-users fa-fw"></i>&nbsp;Organizers</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/cogs-01.jpg);box-shadow: 0px 1000px rgba(120, 72, 0, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><h1 class="bold">Tutorials</h1></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#democratizing-audio-machine-learning-with-the-huggingface-ecosystem">Democratizing Audio Machine Learning with the Huggingface Ecosystem</a></li>
+<li><a href="#monitoring-environmental-impact-of-dcase-systems-why-and-how">Monitoring Environmental Impact of DCASE Systems: Why and How?</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <div class="row">
+<div class="col-sm-10"><h1 id="democratizing-audio-machine-learning-with-the-huggingface-ecosystem">Democratizing Audio Machine Learning with the Huggingface Ecosystem</h1></div>
+<div class="col-sm-2 text-right" style="padding-top:30px;"><div class="label label-primary" style="font-size:200%;padding: .5em .6em .3em;">T1</div></div>
+</div>
+<p><strong>Presenters</strong>: 
+Jose Omar Giraldo (Barcelona Supercomputing Center),
+Vaibhav Srivastav (Hugging Face)</p>
+<p><strong>Time</strong>: 14:00 - 15:30, Wednesday 20th of September</p>
+<p><strong>Tutorial content</strong>:</p>
+<p>The Hugging Face ecosystem provides a powerful platform for hosting, sharing, and utilizing DL models. In this tutorial, we will walk you through the process of uploading your audio datasets to the Hugging Face Datasets library, making them easily accessible to researchers and practitioners worldwide. Additionally, we will guide you in sharing your custom audio models with the Hugging Face Model Hub, enabling others to benefit from your trained models and promoting collaboration within the audio processing community.</p>
+<p>Outline:</p>
+<ul>
+<li>Loading datasets: Learn techniques and best practices for efficiently loading and preprocessing large audio datasets.</li>
+<li>Writing efficient dataloaders for audio data: Explore optimization techniques, including parallelization, caching, and memory management, to speed up the training process.</li>
+<li>Uploading your audio dataset to Hugging Face: Walk through the process of sharing and making your audio datasets accessible to the wider research community.</li>
+<li>Writing a custom model to Transformers: Discover how to develop and integrate your own audio models into the Huggingface ecosystem.</li>
+</ul>
+<p>This tutorial is targeted to beginners and intermediate users who want to benefit from the Huggingface ecosystem, and want to share their work with a vibrant community of ML Practitioners.</p>
+<p><strong>Tutorial material</strong></p>
+<p><a class="btn btn-primary" href="https://github.com/Vaibhavs10/dcase-2023-workshop" target="_blank">
+GitHub Repository</a></p>
+<p>Datasets related to the tutorial in HF2 format:</p>
+<ul>
+<li><a href="https://huggingface.co/datasets/wetdog/TUT-urban-acoustic-scenes-2018-development-16bit">TUT-urban-acoustic-scenes-2018-development-16bit</a></li>
+<li><a href="https://huggingface.co/datasets/wetdog/TUT-urban-acoustic-scenes-2018-development">TUT-urban-acoustic-scenes-2018-development</a></li>
+</ul>
+<p><strong>Biographies of the presenters</strong>: </p>
+<p><em>Jose Omar Giraldo</em> is a sound engineer passionate about coding and AI. He is part of the speech team at the Barcelona Supercomputing Center but started his career in environmental audio classification and bioacoustics. He has collaborated with rainforest connection and orcasound projects to develop new methods of sound dataset exploration.</p>
+<p><em>Vaibhav Srivastav</em> is an Machine Learning Developer Advocate at Hugging Face focusing on democratising Audio through open source. He has been a freelancer, tax analyst, consultant, tech speaker and advisor for five years. In the past three years, he has invested significant time volunteering for open source and science organisations like Hugging Face, EuroPython Society, PyCon's across APAC, Google Cloud, and Facebook Developer Circles.</p>
+<p><br/>
+<br/>
+<br/></p>
+<div class="row">
+<div class="col-sm-10"><h1 id="monitoring-environmental-impact-of-dcase-systems-why-and-how">Monitoring Environmental Impact of DCASE Systems: Why and How?</h1></div>
+<div class="col-sm-2 text-right" style="padding-top:30px;"><div class="label label-primary" style="font-size:200%;padding: .5em .6em .3em;">T2</div></div>
+</div>
+<p><strong>Presenters:</strong>
+Constance Douwes (IRCAM),
+Francesca Ronchini (Politecnico di Milano),
+Romain Serizel (Université de Lorraine)</p>
+<p><strong>Time</strong>: 16:00 - 17:30, Wednesday 20th of September</p>
+<p><strong>Tutorial content</strong>:</p>
+<p>With the increasingly complex models used in machine learning and the large amount of data needed to train these models, machine learning based solutions can have a large environmental impact. Even if a few hundred experiments are sometimes needed to train a working model, the cost of the training phase represents only 10% to 20% of the total CO2 emissions of the related machine learning usage (the rest lying in the inference phase). Yet, as machine listening researchers the largest part of our energy consumption lays in the training phase. Even though models used in machine listening are smaller than those used in natural language processing or image generation, they still present similar problems. Comparing the energy consumption of system trained on different site can be a complex task and the relation between the system performance and its energy footprint can be uneasy to interpret. The aim of this tutorial is to present an overview of existing tools that can be used to monitor energy consumption and computational costs of neural network based models.</p>
+<p>The tutorial will be structured as follows:</p>
+<ul>
+<li>We will first present the different metric that can be used to get an incentive about systems computational footprint.</li>
+<li>We will address the usability of the metric at a community level. </li>
+<li>We will propose a case study on submissions to DCASE task 4 in 2022 and 2023</li>
+<li>We will close the tutorial with a “hands-on” demonstration of how to use some of the tools presented during the tutorial and their limitations.</li>
+</ul>
+<p><strong>Tutorial material</strong></p>
+<p><a class="btn btn-primary" href="https://github.com/ConstanceDws/DCASE_2023" target="_blank">
+GitHub Repository</a></p>
+<p><strong>Biographies of the presenters</strong>:</p>
+<p><em>Constance Douwes</em> graduated with a PhD in Computer Science in 2023 at IRCAM (Institut de Recherche en Coordination Acoustique/Musique), where she worked on the energy and environmental impact of specialised deep learning models for audio generation.</p>
+<p><em>Francesca Ronchini</em> is a PhD student in the Image and Sound Processing Lab (ISPLab) at Politecnico di Milano as a Ph.D. student. Her research explores sustainable Deep Learning approaches for Machine Listening applications and their interdisciplinary utilization. She has been co-organizing DCASE task 4 since 2021. Since 2023 she has been a member of the DCASE steering group.</p>
+<p><em>Romain Serizel</em> is an Associate Professor with Université de Lorraine (Nancy, France) doing research on robust speech communications and ambient sound analysis. He has been co-organizing DCASE tasks since 2018, including task 4 which includes the evaluation of the submissions energy consumption since 2022. Since 2019 he is general co-chair of the DCASE challenge together with Annamaria Mesaros and he is member of the DCASE steering group. He was DCASE workshop general co-chair in 2022.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

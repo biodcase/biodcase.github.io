@@ -1,0 +1,2484 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Sound event detection in synthetic audio - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Sound event detection in synthetic audio - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio-results">
+    <meta property="og:url" content="https://dcase.community/challenge2016/task-sound-event-detection-in-synthetic-audio-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="Toni Heittola" />
+    <meta name="description" content="Task description Detailed task description in task description page Challenge results Here you can find complete information on the submissions for Task 2: results on evaluation and development set (when reported by authors), class-wise results, technical reports and bibtex citations. Detailed description of metrics used can be found here. System …" />
+    <meta name="og:description" content="Task description Detailed task description in task..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btex.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2016</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2016/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-synthetic text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-events text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-tags text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Download data">
+        <a href="http://localhost:3000/challenge2016/download"><i class="fa fa-download"></i>&nbsp;Download</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2016/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2016/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge organizers">
+        <a href="http://localhost:3000/challenge2016/organizers"><i class="fa fa-users"></i>&nbsp;Organizers</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/tiles-01.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-success"></i><i class="fa dc-synthetic fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text">Events</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 2</span></span><img src="../images/logos/dcase/dcase2016_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Sound event detection <br>in synthetic audio</h1><hr class="small right bold"><span class="subheading">Challenge results</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#task-description">Task description</a></li>
+<li><a href="#challenge-results">Challenge results</a>
+<ul>
+<li><a href="#systems-ranking">Systems ranking</a></li>
+<li><a href="#teams-ranking">Teams ranking</a></li>
+<li><a href="#class-wise-performance">Class-wise performance</a></li>
+</ul>
+</li>
+<li><a href="#system-characteristics">System characteristics</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h2 id="task-description">Task description</h2>
+<p>Detailed task description in <a class="btn btn-primary" href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio">task description page</a></p>
+<h2 id="challenge-results">Challenge results</h2>
+<p>Here you can find complete information on the submissions for Task 2: results on evaluation and development set (when reported by authors), class-wise results, technical reports and bibtex citations.</p>
+<p>Detailed description of metrics used can be found <a href="sound-event-detection-metrics">here</a>.</p>
+<p>System outputs:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/926660" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/926660" target="_blank">
+<span style="font-size:20px;">DCASE2016 Challenge Submissions Package <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(28.7 MB)</span>
+<br/>
+<a href="http://dx.doi.org/10.5281/zenodo.926660">
+<img alt="10.5281/zenodo.926660" src="https://zenodo.org/badge/doi/10.5281/zenodo.926660.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<h3 id="systems-ranking">Systems ranking</h3>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="segment_based_F1_overall_eval" data-scatter-y="segment_based_ER_overall_eval" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="segment_based_ER_overall_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="2">Segment-based <br/><small>(overall / evaluation dataset)</small></th>
+<th class="sep-left-cell text-center" colspan="2">Event-based <br/><small>(overall / onset-only evaluation dataset)</small></th>
+<th class="sep-left-cell text-center" colspan="2">Segment-based <br/><small>(overall / development dataset)</small></th>
+</tr>
+<tr>
+<th class="sm-cell" data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_overall_dev" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_F1_overall_dev" data-sortable="true" data-value-type="float1-percentage">
+                F1
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Choi2016</td>
+<td>Choi_task2_1</td>
+<td>Choi</td>
+<td>0.3660</td>
+<td>78.7</td>
+<td>0.6178</td>
+<td>67.1</td>
+<td>0.1379</td>
+<td>92.6</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Benetos2016</td>
+<td>DCASE2016 baseline</td>
+<td>DCASE2016_Baseline</td>
+<td>0.8933</td>
+<td>37.0</td>
+<td>1.6852</td>
+<td>24.2</td>
+<td>0.7859</td>
+<td>41.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Giannoulis2016</td>
+<td>Giannoulis_task2_1</td>
+<td>Giannoulis</td>
+<td>0.6774</td>
+<td>55.8</td>
+<td>1.3490</td>
+<td>34.2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Gutirrez-Arriola2016</td>
+<td>Gutierrez_task2_1</td>
+<td>Gutierrez</td>
+<td>2.0870</td>
+<td>25.0</td>
+<td>1.3064</td>
+<td>25.7</td>
+<td>0.4973</td>
+<td>67.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Hayashi2016</td>
+<td>Hayashi_task2_1</td>
+<td>BLSTM-PP</td>
+<td>0.4082</td>
+<td>78.1</td>
+<td>0.6004</td>
+<td>68.2</td>
+<td>0.2424</td>
+<td>87.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Hayashi2016</td>
+<td>Hayashi_task2_2</td>
+<td>BLSTM-HMM</td>
+<td>0.4958</td>
+<td>76.0</td>
+<td>0.6448</td>
+<td>67.0</td>
+<td>0.2591</td>
+<td>87.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Komatsu2016</td>
+<td>Komatsu_task2_1</td>
+<td>Komatsu</td>
+<td>0.3307</td>
+<td>80.2</td>
+<td>0.4624</td>
+<td>73.8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Kong2016</td>
+<td>Kong_task2_1</td>
+<td>Kong</td>
+<td>3.5464</td>
+<td>12.6</td>
+<td>2.5999</td>
+<td>2.5</td>
+<td></td>
+<td>17.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Phan2016</td>
+<td>Phan_task2_1</td>
+<td>Phan</td>
+<td>0.5901</td>
+<td>64.8</td>
+<td>1.0123</td>
+<td>39.8</td>
+<td>0.1420</td>
+<td>92.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Pikrakis2016</td>
+<td>Pikrakis_task2_1</td>
+<td>Pikrakis</td>
+<td>0.7499</td>
+<td>37.4</td>
+<td>0.7379</td>
+<td>36.8</td>
+<td>0.5075</td>
+<td>64.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2016</td>
+<td>Vu_task2_1</td>
+<td>Vu</td>
+<td>0.8979</td>
+<td>52.8</td>
+<td>3.1818</td>
+<td>18.1</td>
+<td>0.3412</td>
+<td>81.2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="teams-ranking">Teams ranking</h3>
+<p>Table including only the best performing system per submitting team.</p>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="segment_based_F1_overall_eval" data-scatter-y="segment_based_ER_overall_eval" data-show-chart="true" data-show-pagination-switch="false" data-show-rank="true" data-sort-name="segment_based_ER_overall_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="2">Segment-based <br/><small>(overall / evaluation dataset)</small></th>
+<th class="sep-left-cell text-center" colspan="2">Event-based <br/><small>(overall / onset-only evaluation dataset)</small></th>
+<th class="sep-left-cell text-center" colspan="2">Segment-based <br/><small>(overall / development dataset)</small></th>
+</tr>
+<tr>
+<th class="sm-cell" data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_overall_dev" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_F1_overall_dev" data-sortable="true" data-value-type="float1-percentage">
+                F1
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Choi2016</td>
+<td>Choi_task2_1</td>
+<td>Choi</td>
+<td>0.3660</td>
+<td>78.7</td>
+<td>0.6178</td>
+<td>67.1</td>
+<td>0.1379</td>
+<td>92.6</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Benetos2016</td>
+<td>DCASE2016 baseline</td>
+<td>DCASE2016_Baseline</td>
+<td>0.8933</td>
+<td>37.0</td>
+<td>1.6852</td>
+<td>24.2</td>
+<td>0.7859</td>
+<td>41.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Giannoulis2016</td>
+<td>Giannoulis_task2_1</td>
+<td>Giannoulis</td>
+<td>0.6774</td>
+<td>55.8</td>
+<td>1.3490</td>
+<td>34.2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Gutirrez-Arriola2016</td>
+<td>Gutierrez_task2_1</td>
+<td>Gutierrez</td>
+<td>2.0870</td>
+<td>25.0</td>
+<td>1.3064</td>
+<td>25.7</td>
+<td>0.4973</td>
+<td>67.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Hayashi2016</td>
+<td>Hayashi_task2_1</td>
+<td>BLSTM-PP</td>
+<td>0.4082</td>
+<td>78.1</td>
+<td>0.6004</td>
+<td>68.2</td>
+<td>0.2424</td>
+<td>87.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Komatsu2016</td>
+<td>Komatsu_task2_1</td>
+<td>Komatsu</td>
+<td>0.3307</td>
+<td>80.2</td>
+<td>0.4624</td>
+<td>73.8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Kong2016</td>
+<td>Kong_task2_1</td>
+<td>Kong</td>
+<td>3.5464</td>
+<td>12.6</td>
+<td>2.5999</td>
+<td>2.5</td>
+<td></td>
+<td>17.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Phan2016</td>
+<td>Phan_task2_1</td>
+<td>Phan</td>
+<td>0.5901</td>
+<td>64.8</td>
+<td>1.0123</td>
+<td>39.8</td>
+<td>0.1420</td>
+<td>92.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Pikrakis2016</td>
+<td>Pikrakis_task2_1</td>
+<td>Pikrakis</td>
+<td>0.7499</td>
+<td>37.4</td>
+<td>0.7379</td>
+<td>36.8</td>
+<td>0.5075</td>
+<td>64.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2016</td>
+<td>Vu_task2_1</td>
+<td>Vu</td>
+<td>0.8979</td>
+<td>52.8</td>
+<td>3.1818</td>
+<td>18.1</td>
+<td>0.3412</td>
+<td>81.2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="class-wise-performance">Class-wise performance</h3>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="off" data-chart-modes="bar,scatter,comparison" data-comparison-a-row="DCASE2016 baseline" data-comparison-active-set="Class-wise performance (all/ER)" data-comparison-b-row="Komatsu_task2_1" data-comparison-row-id-field="code" data-comparison-sets-json='[
+        {"title": "Class-wise performance (all/ER)",
+        "data_axis_title": "ER",
+        "fields": ["segment_based_ER_class_clearthroat_eval","segment_based_ER_class_cough_eval","segment_based_ER_class_knock_eval","segment_based_ER_class_doorslam_eval","segment_based_ER_class_drawer_eval","segment_based_ER_class_keyboard_eval","segment_based_ER_class_keys_eval","segment_based_ER_class_laughter_eval","segment_based_ER_class_pageturn_eval","segment_based_ER_class_phone_eval","segment_based_ER_class_speech_eval"],
+        "field_titles": ["Clearing throat","Coughing","Door knock","Door slam","Drawer","Keyboard","Keys","Human laughter","Page turning","Phone ringing","Speech"]
+        },
+        {"title": "Class-wise performance (all/F1)",
+        "data_axis_title": "F1",
+        "fields": ["segment_based_F1_class_clearthroat_eval", "segment_based_F1_class_cough_eval", "segment_based_F1_class_knock_eval","segment_based_F1_class_doorslam_eval","segment_based_F1_class_drawer_eval","segment_based_F1_class_keyboard_eval","segment_based_F1_class_keys_eval","segment_based_F1_class_laughter_eval", "segment_based_F1_class_pageturn_eval","segment_based_F1_class_phone_eval","segment_based_F1_class_speech_eval"],
+        "field_titles": ["Clearing throat","Coughing","Door knock","Door slam","Drawer","Keyboard","Keys","Human laughter","Page turning","Phone ringing","Speech"]
+        }]' data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="segment_based_F1_class_eval" data-scatter-y="segment_based_ER_class_eval" data-show-chart="true" data-show-pagination-switch="false" data-show-rank="true" data-sort-name="segment_based_ER_class_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="2">Segment-based <br/>(Class-based average)</th>
+<th class="sep-left-cell text-center" colspan="2">Clearing throat</th>
+<th class="sep-left-cell text-center" colspan="2">Coughing</th>
+<th class="sep-left-cell text-center" colspan="2">Door knock</th>
+<th class="sep-left-cell text-center" colspan="2">Door slam</th>
+<th class="sep-left-cell text-center" colspan="2">Drawer</th>
+<th class="sep-left-cell text-center" colspan="2">Keyboard</th>
+<th class="sep-left-cell text-center" colspan="2">Keys</th>
+<th class="sep-left-cell text-center" colspan="2">Human laughter</th>
+<th class="sep-left-cell text-center" colspan="2">Page turning</th>
+<th class="sep-left-cell text-center" colspan="2">Phone ringing</th>
+<th class="sep-left-cell text-center" colspan="2">Speech</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(class avg/eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_F1_class_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(class avg/eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_clearthroat_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Clear throat (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_class_clearthroat_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Clear throat (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_cough_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Coughing (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_class_cough_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Coughing (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_knock_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Door knock (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_class_knock_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Door knock (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_doorslam_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Door slam (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_class_doorslam_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Door slam (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_drawer_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Drawer (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_class_drawer_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Drawer (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_keyboard_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Keyboard (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_class_keyboard_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Keyboard (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_keys_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Keys (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_class_keys_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Keys (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_laughter_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Laughter (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_class_laughter_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Laughter (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_pageturn_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Page turning (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_class_pageturn_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Page turning (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_phone_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Phone ringing (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_class_phone_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Phone ringing (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_class_speech_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Speech (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_class_speech_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Speech (eval/seg)</small>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Choi2016</td>
+<td>Choi_task2_1</td>
+<td>Choi</td>
+<td>0.4447</td>
+<td>74.2</td>
+<td>0.3373</td>
+<td>83.1</td>
+<td>0.4175</td>
+<td>77.8</td>
+<td>0.2294</td>
+<td>88.2</td>
+<td>1.1836</td>
+<td>5.4</td>
+<td>0.6000</td>
+<td>65.0</td>
+<td>0.1873</td>
+<td>91.3</td>
+<td>0.2933</td>
+<td>84.8</td>
+<td>0.4566</td>
+<td>76.1</td>
+<td>0.5609</td>
+<td>75.6</td>
+<td>0.2190</td>
+<td>88.6</td>
+<td>0.4066</td>
+<td>81.0</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Benetos2016</td>
+<td>DCASE2016 baseline</td>
+<td>DCASE2016_Baseline</td>
+<td>1.1066</td>
+<td>33.2</td>
+<td>0.8956</td>
+<td>49.4</td>
+<td>1.0561</td>
+<td>6.2</td>
+<td>0.8674</td>
+<td>63.1</td>
+<td>2.9855</td>
+<td>15.1</td>
+<td>0.9833</td>
+<td>3.3</td>
+<td>0.9100</td>
+<td>22.4</td>
+<td>0.6400</td>
+<td>62.7</td>
+<td>1.3193</td>
+<td>40.8</td>
+<td>1.0032</td>
+<td>2.5</td>
+<td>0.7956</td>
+<td>40.6</td>
+<td>0.7163</td>
+<td>59.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Giannoulis2016</td>
+<td>Giannoulis_task2_1</td>
+<td>Giannoulis</td>
+<td>0.8479</td>
+<td>55.5</td>
+<td>0.7510</td>
+<td>54.9</td>
+<td>0.9474</td>
+<td>47.3</td>
+<td>0.6667</td>
+<td>61.6</td>
+<td>2.3575</td>
+<td>29.7</td>
+<td>0.7867</td>
+<td>38.5</td>
+<td>0.4112</td>
+<td>77.1</td>
+<td>0.4400</td>
+<td>74.3</td>
+<td>0.9440</td>
+<td>52.2</td>
+<td>0.7083</td>
+<td>51.2</td>
+<td>0.5815</td>
+<td>60.6</td>
+<td>0.7329</td>
+<td>62.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Gutirrez-Arriola2016</td>
+<td>Gutierrez_task2_1</td>
+<td>Gutierrez</td>
+<td>2.2537</td>
+<td>34.2</td>
+<td>0.7510</td>
+<td>54.0</td>
+<td>0.9053</td>
+<td>25.0</td>
+<td>1.8566</td>
+<td>42.4</td>
+<td>3.0628</td>
+<td>4.5</td>
+<td>0.9033</td>
+<td>33.1</td>
+<td>0.5426</td>
+<td>67.5</td>
+<td>1.1156</td>
+<td>12.5</td>
+<td>0.7647</td>
+<td>47.6</td>
+<td>0.9744</td>
+<td>5.6</td>
+<td>0.4793</td>
+<td>71.3</td>
+<td>13.4350</td>
+<td>12.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Hayashi2016</td>
+<td>Hayashi_task2_1</td>
+<td>BLSTM-PP</td>
+<td>0.5228</td>
+<td>78.6</td>
+<td>0.5422</td>
+<td>77.2</td>
+<td>0.2947</td>
+<td>84.7</td>
+<td>0.2115</td>
+<td>90.2</td>
+<td>0.7295</td>
+<td>67.8</td>
+<td>0.8000</td>
+<td>60.4</td>
+<td>0.2822</td>
+<td>87.5</td>
+<td>0.3733</td>
+<td>83.2</td>
+<td>0.5042</td>
+<td>78.4</td>
+<td>1.6186</td>
+<td>55.0</td>
+<td>0.2238</td>
+<td>88.5</td>
+<td>0.1702</td>
+<td>91.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Hayashi2016</td>
+<td>Hayashi_task2_2</td>
+<td>BLSTM-HMM</td>
+<td>0.6055</td>
+<td>76.6</td>
+<td>0.4458</td>
+<td>78.2</td>
+<td>0.3825</td>
+<td>82.9</td>
+<td>0.4875</td>
+<td>80.1</td>
+<td>1.3043</td>
+<td>55.0</td>
+<td>0.7867</td>
+<td>64.9</td>
+<td>0.2749</td>
+<td>87.8</td>
+<td>0.2356</td>
+<td>88.8</td>
+<td>0.7983</td>
+<td>70.2</td>
+<td>1.5032</td>
+<td>56.9</td>
+<td>0.1679</td>
+<td>91.5</td>
+<td>0.2742</td>
+<td>86.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Komatsu2016</td>
+<td>Komatsu_task2_1</td>
+<td>Komatsu</td>
+<td>0.3851</td>
+<td>77.1</td>
+<td>0.4458</td>
+<td>76.8</td>
+<td>0.5719</td>
+<td>62.5</td>
+<td>0.1828</td>
+<td>90.7</td>
+<td>0.8309</td>
+<td>37.7</td>
+<td>0.4400</td>
+<td>74.7</td>
+<td>0.2311</td>
+<td>87.9</td>
+<td>0.3867</td>
+<td>81.0</td>
+<td>0.4090</td>
+<td>77.3</td>
+<td>0.2853</td>
+<td>84.5</td>
+<td>0.1290</td>
+<td>93.1</td>
+<td>0.3239</td>
+<td>82.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong2016</td>
+<td>Kong_task2_1</td>
+<td>Kong</td>
+<td>3.8264</td>
+<td>11.7</td>
+<td>0.9880</td>
+<td>3.1</td>
+<td>0.9825</td>
+<td>3.5</td>
+<td>1.0072</td>
+<td>15.6</td>
+<td>1.1643</td>
+<td>2.4</td>
+<td>1.1900</td>
+<td>11.8</td>
+<td>14.4939</td>
+<td>12.1</td>
+<td>1.0000</td>
+<td>0.0</td>
+<td>0.9916</td>
+<td>1.7</td>
+<td>17.8109</td>
+<td>9.7</td>
+<td>1.0487</td>
+<td>32.8</td>
+<td>1.4137</td>
+<td>36.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Phan2016</td>
+<td>Phan_task2_1</td>
+<td>Phan</td>
+<td>0.7051</td>
+<td>59.7</td>
+<td>0.6506</td>
+<td>62.7</td>
+<td>0.8491</td>
+<td>47.2</td>
+<td>0.6595</td>
+<td>73.1</td>
+<td>1.3092</td>
+<td>15.6</td>
+<td>0.7433</td>
+<td>62.1</td>
+<td>0.4599</td>
+<td>79.5</td>
+<td>0.7956</td>
+<td>40.5</td>
+<td>0.7199</td>
+<td>64.1</td>
+<td>0.5929</td>
+<td>62.9</td>
+<td>0.4136</td>
+<td>77.8</td>
+<td>0.5626</td>
+<td>71.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Pikrakis2016</td>
+<td>Pikrakis_task2_1</td>
+<td>Pikrakis</td>
+<td>1.1604</td>
+<td>35.5</td>
+<td>1.4096</td>
+<td>40.0</td>
+<td>1.3088</td>
+<td>21.5</td>
+<td>0.8244</td>
+<td>41.9</td>
+<td>0.9855</td>
+<td>37.8</td>
+<td>1.6300</td>
+<td>28.2</td>
+<td>0.7956</td>
+<td>44.5</td>
+<td>1.0400</td>
+<td>29.1</td>
+<td>1.0476</td>
+<td>52.4</td>
+<td>1.5801</td>
+<td>41.0</td>
+<td>0.9513</td>
+<td>10.5</td>
+<td>1.1915</td>
+<td>44.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2016</td>
+<td>Vu_task2_1</td>
+<td>Vu</td>
+<td>1.1240</td>
+<td>56.8</td>
+<td>0.8635</td>
+<td>61.0</td>
+<td>0.9789</td>
+<td>47.1</td>
+<td>0.4875</td>
+<td>74.2</td>
+<td>1.0338</td>
+<td>32.3</td>
+<td>5.2467</td>
+<td>24.5</td>
+<td>0.3650</td>
+<td>83.0</td>
+<td>0.6889</td>
+<td>62.1</td>
+<td>0.7927</td>
+<td>54.1</td>
+<td>0.7051</td>
+<td>60.1</td>
+<td>0.6180</td>
+<td>55.6</td>
+<td>0.5839</td>
+<td>71.1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="system-characteristics">System characteristics</h2>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="off" data-chart-modes="bar,scatter" data-chart-tooltip-fields="code" data-filter-control="true" data-filter-show-clear="true" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="accuracy_eval" data-scatter-y="accuracy_eval" data-show-bar-chart-xaxis="false" data-show-chart="true" data-show-pagination-switch="false" data-show-rank="true" data-sort-name="segment_based_ER_overall_eval" data-sort-order="desc" data-striped="true" data-tag-mode="column">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="2">Segment-based (overall)</th>
+<th class="sep-left-cell text-center" colspan="2">System characteristics</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="segment_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-field="system_features" data-filter-control="select" data-sortable="true" data-tag="true">
+                Features
+            </th>
+<th class="text-center" data-field="system_classifier" data-filter-control="select" data-sortable="true" data-tag="true">
+                Classifier
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Choi2016</td>
+<td>Choi_task2_1</td>
+<td>Choi</td>
+<td>0.3660</td>
+<td>78.7</td>
+<td>mel energy</td>
+<td>DNN</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Benetos2016</td>
+<td>DCASE2016 baseline</td>
+<td>DCASE2016_Baseline</td>
+<td>0.8933</td>
+<td>37.0</td>
+<td>VQT</td>
+<td>NMF</td>
+</tr>
+<tr>
+<td></td>
+<td>Giannoulis2016</td>
+<td>Giannoulis_task2_1</td>
+<td>Giannoulis</td>
+<td>0.6774</td>
+<td>55.8</td>
+<td>various</td>
+<td>CNMF</td>
+</tr>
+<tr>
+<td></td>
+<td>Gutirrez-Arriola2016</td>
+<td>Gutierrez_task2_1</td>
+<td>Gutierrez</td>
+<td>2.0870</td>
+<td>25.0</td>
+<td>MFCC</td>
+<td>kNN</td>
+</tr>
+<tr>
+<td></td>
+<td>Hayashi2016</td>
+<td>Hayashi_task2_1</td>
+<td>BLSTM-PP</td>
+<td>0.4082</td>
+<td>78.1</td>
+<td>mel filterbank</td>
+<td>BLSTM-PP</td>
+</tr>
+<tr>
+<td></td>
+<td>Hayashi2016</td>
+<td>Hayashi_task2_2</td>
+<td>BLSTM-HMM</td>
+<td>0.4958</td>
+<td>76.0</td>
+<td>mel filterbank</td>
+<td>BLSTM-HMM</td>
+</tr>
+<tr>
+<td></td>
+<td>Komatsu2016</td>
+<td>Komatsu_task2_1</td>
+<td>Komatsu</td>
+<td>0.3307</td>
+<td>80.2</td>
+<td>VQT</td>
+<td>NMF-MLD</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong2016</td>
+<td>Kong_task2_1</td>
+<td>Kong</td>
+<td>3.5464</td>
+<td>12.6</td>
+<td>mel filterbank</td>
+<td>DNN</td>
+</tr>
+<tr>
+<td></td>
+<td>Phan2016</td>
+<td>Phan_task2_1</td>
+<td>Phan</td>
+<td>0.5901</td>
+<td>64.8</td>
+<td>Gammatone cepstrum</td>
+<td>Random forests</td>
+</tr>
+<tr>
+<td></td>
+<td>Pikrakis2016</td>
+<td>Pikrakis_task2_1</td>
+<td>Pikrakis</td>
+<td>0.7499</td>
+<td>37.4</td>
+<td>Bark scale coefficients</td>
+<td>Template matching</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2016</td>
+<td>Vu_task2_1</td>
+<td>Vu</td>
+<td>0.8979</td>
+<td>52.8</td>
+<td>CQT</td>
+<td>RNN</td>
+</tr>
+</tbody>
+</table>
+<h2 id="technical-reports">Technical reports</h2>
+<div class="btex" data-source="content/data/challenge2016/technical_reports_task2.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="Benetos2016" style="box-shadow: none">
+<div class="panel-heading" id="heading-Benetos2016" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DCASE2016 Task 2 Baseline
+       </h4>
+<p style="text-align:left">
+        Emmanouil Benetos<sup>1</sup>, Grégoire Lafay<sup>2</sup> and Mathieu Lagrange<sup>2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Queen Mary University of London, London, United Kingdom, <sup>2</sup>IRCCYN, Ecole Centrale de Nantes, France
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">DCASE2016_task2_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Benetos2016" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Benetos2016" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Benetos2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Benetos2016').collapse('show');window.location.hash='#Benetos2016';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Benetos2016" class="panel-collapse collapse" id="collapse-Benetos2016" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DCASE2016 Task 2 Baseline
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       The Task 2 baseline system is meant to implement a basic approach for detecting overlapping acoustic events, and provide some comparison point for the participants while developing their systems. The baseline system is based on supervised non-negative matrix factorization (NMF), and uses a dictionary of spectral templates for performing detection, which is extracted during the training phase. The output of the NMF system is a non-binary matrix denoting event activation, which is post-processed into a list of detected events.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         VQT
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         NMF
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Benetos2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://code.soundsoftware.ac.uk/projects/dcase-2016-challenge-task-2-baseline-system" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Benetos2016label" class="modal fade" id="bibtex-Benetos2016" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexBenetos2016label">
+        DCASE2016 Task 2 Baseline
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Benetos2016,
+    Author = "Benetos, Emmanouil and Lafay, Grégoire and Lagrange, Mathieu",
+    title = "{DCASE}2016 Task 2 Baseline",
+    institution = "DCASE2016 Challenge",
+    year = "2016",
+    month = "September",
+    abstract = "The Task 2 baseline system is meant to implement a basic approach for detecting overlapping acoustic events, and provide some comparison point for the participants while developing their systems. The baseline system is based on supervised non-negative matrix factorization (NMF), and uses a dictionary of spectral templates for performing detection, which is extracted during the training phase. The output of the NMF system is a non-binary matrix denoting event activation, which is post-processed into a list of detected events."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Choi2016" style="box-shadow: none">
+<div class="panel-heading" id="heading-Choi2016" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DNN-Based Sound Event Detection with Exemplar-Based Approach for Noise Reduction
+       </h4>
+<p style="text-align:left">
+        Inkyu Choi, Kisoo Kwon, Soo Hyun Bae and Nam Soo Kim
+       </p>
+<p style="text-align:left">
+<em>
+         Department of Electrical and Computer Engineering and INMC, Seoul National University, Seoul, South Korea
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Choi_task2_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Choi2016" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Choi2016" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Choi2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Choi_2003.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Choi2016" class="panel-collapse collapse" id="collapse-Choi2016" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DNN-Based Sound Event Detection with Exemplar-Based Approach for Noise Reduction
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this paper, we present a sound event detection system based on a deep neural network (DNN). Exemplar-based noise reduction approach is proposed for enhancing mel-band energy feature. Multi-label DNN classifier is trained for polyphonic event detection. The system is evaluated on IEEE DCASE 2016 Challenge Task 2 Train/Development Datasets. The result on the development set yields up to 0.9261 and 0.1379 in terms of F-Score and error rate on segment-based metric, respectively.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         mel energy
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         DNN
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Choi2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Choi_2003.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Choi2016label" class="modal fade" id="bibtex-Choi2016" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexChoi2016label">
+        DNN-Based Sound Event Detection with Exemplar-Based Approach for Noise Reduction
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Choi2016,
+    Author = "Choi, Inkyu and Kwon, Kisoo and Bae, Soo Hyun and Kim, Nam Soo",
+    title = "{DNN}-Based Sound Event Detection with Exemplar-Based Approach for Noise Reduction",
+    institution = "DCASE2016 Challenge",
+    year = "2016",
+    month = "September",
+    abstract = "In this paper, we present a sound event detection system based on a deep neural network (DNN). Exemplar-based noise reduction approach is proposed for enhancing mel-band energy feature. Multi-label DNN classifier is trained for polyphonic event detection. The system is evaluated on IEEE DCASE 2016 Challenge Task 2 Train/Development Datasets. The result on the development set yields up to 0.9261 and 0.1379 in terms of F-Score and error rate on segment-based metric, respectively."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Giannoulis2016" style="box-shadow: none">
+<div class="panel-heading" id="heading-Giannoulis2016" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Improved Dictionary Selection and Detection Schemes in Sparse-Cnmf-Based Overlapping Acoustic Event Detection
+       </h4>
+<p style="text-align:left">
+        Panagiotis Giannoulis<sup>1,2</sup>, Gerasimos Potamianos<sup>2,3</sup>, Petros Maragos<sup>1,2</sup> and Athanasios Katsamanis<sup>1,2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>School of ECE, National Technical University of Athens, Athens, Greece, <sup>2</sup>Athena Research and Innovation Center, Maroussi, Greece, <sup>3</sup>Department of ECE, University of Thessaly, Volos, Greece
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Giannoulis_task2_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Giannoulis2016" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Giannoulis2016" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Giannoulis2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Giannoulis_2009.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Giannoulis2016" class="panel-collapse collapse" id="collapse-Giannoulis2016" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Improved Dictionary Selection and Detection Schemes in Sparse-Cnmf-Based Overlapping Acoustic Event Detection
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this paper, we investigate sparse convolutive non-negative matrix factorization (sparse-CNMF) for detecting overlapped acoustic events in single-channel audio, within the experimental framework of Task 2 of the DCASE’16 challenge. In particular, our main focus lies on the efficient creation of the dictionary, as well as on the detection scheme associated with the CNMF approach. Specifically, we propose a shift-invariant dictionary reduction method that outperforms standard CNMF-based dictionary building. Further, we develop a novel detection algorithm that combines information from the CNMF activation matrix and atom-based reconstruction residuals, achieving significant improvement over the conventional approach based on the activations alone. The resulting system, evaluated on the development set of Task 2 of the DCASE’16 Challenge, also achieves large gains over the traditional NMF baseline provided by the Challenge organizers.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         various
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CNMF
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Giannoulis2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Giannoulis_2009.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Giannoulis2016label" class="modal fade" id="bibtex-Giannoulis2016" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexGiannoulis2016label">
+        Improved Dictionary Selection and Detection Schemes in Sparse-Cnmf-Based Overlapping Acoustic Event Detection
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Giannoulis2016,
+    Author = "Giannoulis, Panagiotis and Potamianos, Gerasimos and Maragos, Petros and Katsamanis, Athanasios",
+    title = "Improved Dictionary Selection and Detection Schemes in Sparse-Cnmf-Based Overlapping Acoustic Event Detection",
+    institution = "DCASE2016 Challenge",
+    year = "2016",
+    month = "September",
+    abstract = "In this paper, we investigate sparse convolutive non-negative matrix factorization (sparse-CNMF) for detecting overlapped acoustic events in single-channel audio, within the experimental framework of Task 2 of the DCASE’16 challenge. In particular, our main focus lies on the efficient creation of the dictionary, as well as on the detection scheme associated with the CNMF approach. Specifically, we propose a shift-invariant dictionary reduction method that outperforms standard CNMF-based dictionary building. Further, we develop a novel detection algorithm that combines information from the CNMF activation matrix and atom-based reconstruction residuals, achieving significant improvement over the conventional approach based on the activations alone. The resulting system, evaluated on the development set of Task 2 of the DCASE’16 Challenge, also achieves large gains over the traditional NMF baseline provided by the Challenge organizers."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Gutirrez-Arriola2016" style="box-shadow: none">
+<div class="panel-heading" id="heading-Gutirrez-Arriola2016" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Synthetic Sound Event Detection Based on MFCC
+       </h4>
+<p style="text-align:left">
+        J.M. Gutiérrez-Arriola, R. Fraile, A. Camacho, T. Durand, J.L. Jarrin and S.R. Mendoza
+       </p>
+<p style="text-align:left">
+<em>
+         Escuela Técnica Superior de Ingeniería y Sistemas de Telecomunicacíon, Universidad Politécnica de Madrid, Madrid, Spain
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Gutierrez_task2_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Gutirrez-Arriola2016" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Gutirrez-Arriola2016" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Gutirrez-Arriola2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Gutierrez_2007.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Gutirrez-Arriola2016" class="panel-collapse collapse" id="collapse-Gutirrez-Arriola2016" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Synthetic Sound Event Detection Based on MFCC
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       This paper presents a sound event detection system based on melfrequency cepstral coefficients and a non-parametric classifier. System performance is tested using the training and development datasets corresponding to the second task of the DCASE 2016 challenge. Results indicate that the most relevant spectral information for event detection is below 8000 Hz and that the general shape of the spectral envelope is much more relevant than its fine details.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         MFCC
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         kNN
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Gutirrez-Arriola2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Gutierrez_2007.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Gutirrez-Arriola2016label" class="modal fade" id="bibtex-Gutirrez-Arriola2016" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexGutirrez-Arriola2016label">
+        Synthetic Sound Event Detection Based on MFCC
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Gutirrez-Arriola2016,
+    Author = "Gutiérrez-Arriola, J.M. and Fraile, R. and Camacho, A. and Durand, T. and Jarrin, J.L. and Mendoza, S.R.",
+    title = "Synthetic Sound Event Detection Based on {MFCC}",
+    institution = "DCASE2016 Challenge",
+    year = "2016",
+    month = "September",
+    abstract = "This paper presents a sound event detection system based on melfrequency cepstral coefficients and a non-parametric classifier. System performance is tested using the training and development datasets corresponding to the second task of the DCASE 2016 challenge. Results indicate that the most relevant spectral information for event detection is below 8000 Hz and that the general shape of the spectral envelope is much more relevant than its fine details."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Hayashi2016" style="box-shadow: none">
+<div class="panel-heading" id="heading-Hayashi2016" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Bidirectional LSTM-HMM Hybrid System for Polyphonic Sound Event Detection
+       </h4>
+<p style="text-align:left">
+        Tomoki Hayashi<sup>1</sup>, Shinji Watanabe<sup>2</sup>, Tomoki Toda<sup>1</sup>, Takaaki Hori<sup>2</sup>, Jonathan Le Roux<sup>2</sup> and Kazuya Takeda<sup>1</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Nagoya University, Nagoya, Japan, <sup>2</sup>Mitsubishi Electric Research Laboratories, Cambridge, USA
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Hayashi_task2_1</span> <span class="label label-primary">Hayashi_task2_2</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Hayashi2016" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Hayashi2016" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Hayashi2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Hayashi_2006.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Hayashi2016" class="panel-collapse collapse" id="collapse-Hayashi2016" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Bidirectional LSTM-HMM Hybrid System for Polyphonic Sound Event Detection
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this study, we propose a new method of polyphonic sound event detection based on a Bidirectional Long Short-Term Memory Hidden Markov Model hybrid system (BLSTM-HMM). We extend the hybrid model of neural network and HMM, which achieved state-of-the-art performance in the field of speech recognition, to the multi-label classification problem. This extension provides an explicit duration model for output labels, unlike the straightforward application of BLSTM-RNN. We compare the performance of our proposed method to conventional methods such as non-negative matrix factorization (NMF) and standard BLSTM-RNN, using the DCASE2016 task 2 dataset. Our proposed method outperformed conventional approaches in both monophonic and polyphonic tasks, and finally achieved an average F1 score of 76.63 % (error rate of 51.11 %) on the event-based evaluation, and an average F1-score 87.16 % (error rate of 25.91 %) on the segment-based evaluation.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         mel filterbank
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         BLSTM-PP; BLSTM-HMM
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Hayashi2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Hayashi_2006.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Hayashi2016label" class="modal fade" id="bibtex-Hayashi2016" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexHayashi2016label">
+        Bidirectional LSTM-HMM Hybrid System for Polyphonic Sound Event Detection
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Hayashi2016,
+    Author = "Hayashi, Tomoki and Watanabe, Shinji and Toda, Tomoki and Hori, Takaaki and Le Roux, Jonathan and Takeda, Kazuya",
+    title = "Bidirectional {LSTM}-{HMM} Hybrid System for Polyphonic Sound Event Detection",
+    institution = "DCASE2016 Challenge",
+    year = "2016",
+    month = "September",
+    abstract = "In this study, we propose a new method of polyphonic sound event detection based on a Bidirectional Long Short-Term Memory Hidden Markov Model hybrid system (BLSTM-HMM). We extend the hybrid model of neural network and HMM, which achieved state-of-the-art performance in the field of speech recognition, to the multi-label classification problem. This extension provides an explicit duration model for output labels, unlike the straightforward application of BLSTM-RNN. We compare the performance of our proposed method to conventional methods such as non-negative matrix factorization (NMF) and standard BLSTM-RNN, using the DCASE2016 task 2 dataset. Our proposed method outperformed conventional approaches in both monophonic and polyphonic tasks, and finally achieved an average F1 score of 76.63 \% (error rate of 51.11 \%) on the event-based evaluation, and an average F1-score 87.16 \% (error rate of 25.91 \%) on the segment-based evaluation."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Komatsu2016" style="box-shadow: none">
+<div class="panel-heading" id="heading-Komatsu2016" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Acoustic Event Detection Method Using Semi-Supervised Non-Negative Matrix Factorization with a Mixture of Local Dictionaries
+       </h4>
+<p style="text-align:left">
+        Tatsuya Komatsu, Takahiro Toizumi, Reishi Kondo and Yuzo Senda
+       </p>
+<p style="text-align:left">
+<em>
+         Data Science Research Laboratories, NEC Corporation, Kawasaki, Japan
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Komatsu_task2_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Komatsu2016" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Komatsu2016" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Komatsu2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Komatsu_2004.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Komatsu2016" class="panel-collapse collapse" id="collapse-Komatsu2016" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Acoustic Event Detection Method Using Semi-Supervised Non-Negative Matrix Factorization with a Mixture of Local Dictionaries
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       This paper proposes an acoustic event detection (AED) method using semi-supervised non-negative matrix factorization (NMF) with a mixture of local dictionaries (MLD). The proposed method based on semi-supervised NMF newly introduces a noise dictionary and a noise activation matrix both dedicated to unknown acoustic atoms which are not included in MLD. Because unknown acoustic atoms are better modeled by the new noise dictionary learned upon classification and the new activation matrix, the proposed method provides a higher classification performance for event classes modeled by MLD when a signal to be classified is contaminated by unknown acoustic atoms. Evaluation results using DCASE2016 task 2 Dataset show that F-measure by the proposed method with semisupervised NMF is improved by as much as 11.1% compared to that by the conventional method with supervised NMF.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         VQT
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         NMF-MLD
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Komatsu2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Komatsu_2004.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Komatsu2016label" class="modal fade" id="bibtex-Komatsu2016" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexKomatsu2016label">
+        Acoustic Event Detection Method Using Semi-Supervised Non-Negative Matrix Factorization with a Mixture of Local Dictionaries
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Komatsu2016,
+    Author = "Komatsu, Tatsuya and Toizumi, Takahiro and Kondo, Reishi and Senda, Yuzo",
+    title = "Acoustic Event Detection Method Using Semi-Supervised Non-Negative Matrix Factorization with a Mixture of Local Dictionaries",
+    institution = "DCASE2016 Challenge",
+    year = "2016",
+    month = "September",
+    abstract = "This paper proposes an acoustic event detection (AED) method using semi-supervised non-negative matrix factorization (NMF) with a mixture of local dictionaries (MLD). The proposed method based on semi-supervised NMF newly introduces a noise dictionary and a noise activation matrix both dedicated to unknown acoustic atoms which are not included in MLD. Because unknown acoustic atoms are better modeled by the new noise dictionary learned upon classification and the new activation matrix, the proposed method provides a higher classification performance for event classes modeled by MLD when a signal to be classified is contaminated by unknown acoustic atoms. Evaluation results using DCASE2016 task 2 Dataset show that F-measure by the proposed method with semisupervised NMF is improved by as much as 11.1\% compared to that by the conventional method with supervised NMF."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Kong2016" style="box-shadow: none">
+<div class="panel-heading" id="heading-Kong2016" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Deep Neural Network Baseline for DCASE Challenge 2016
+       </h4>
+<p style="text-align:left">
+        Qiuqiang Kong, Iwona Sobieraj, Wenwu Wang and Mark Plumbley
+       </p>
+<p style="text-align:left">
+<em>
+         Centre for Vision, Speech and Signal Processing, University of Surrey, Surrey, United Kingdom
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Kong_task2_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Kong2016" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Kong2016" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Kong2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Kong_2008.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Kong2016').collapse('show');window.location.hash='#Kong2016';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Kong2016" class="panel-collapse collapse" id="collapse-Kong2016" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Deep Neural Network Baseline for DCASE Challenge 2016
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       The DCASE Challenge 2016 contains tasks for Acoustic Scene Classification (ASC), Acoustic Event Detection (AED), and audio tagging. Since 2006, Deep Neural Networks (DNNs) have been widely applied to computer visions, speech recognition and natural language processing tasks. In this paper, we provide DNN baselines for the DCASE Challenge 2016. For feature extraction, 40 Mel filterbank features are used. Two kinds of Mel banks, same area bank and same height bank are discussed. Experimental results show that the same height bank is better than the same area bank. DNNs with the same structure are applied to all four tasks in the DCASE Challenge 2016. In Task 1 we obtained accuracy of 76.4% using Mel + DNN against 72.5% by using Mel Frequency Ceptral Coefficient (MFCC) + Gaussian Mixture Model (GMM). In Task 2 we obtained F value of 17.4% using Mel + DNN against 41.6% by using Constant Q Transform (CQT) + Nonnegative Matrix Factorization (NMF). In Task 3 we obtained F value of 38.1% using Mel + DNN against 26.6% by using MFCC + GMM. In task 4 we obtained Equal Error Rate (ERR) of 20.9% using Mel + DNN against 21.0% by using MFCC + GMM. Therefore the DNN improves the baseline in Task 1 and Task 3, and is similar to the baseline in Task 4, although is worse than the baseline in Task 2. This indicates that DNNs can be successful in many of these tasks, but may not always work.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         mel filterbank
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         DNN
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Kong2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Kong_2008.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/qiuqiangkong/DCASE2016_Task2" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Kong2016label" class="modal fade" id="bibtex-Kong2016" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexKong2016label">
+        Deep Neural Network Baseline for DCASE Challenge 2016
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Kong2016,
+    Author = "Kong, Qiuqiang and Sobieraj, Iwona and Wang, Wenwu and Plumbley, Mark",
+    title = "Deep Neural Network Baseline for {DCASE} Challenge 2016",
+    institution = "DCASE2016 Challenge",
+    year = "2016",
+    month = "September",
+    abstract = "The DCASE Challenge 2016 contains tasks for Acoustic Scene Classification (ASC), Acoustic Event Detection (AED), and audio tagging. Since 2006, Deep Neural Networks (DNNs) have been widely applied to computer visions, speech recognition and natural language processing tasks. In this paper, we provide DNN baselines for the DCASE Challenge 2016. For feature extraction, 40 Mel filterbank features are used. Two kinds of Mel banks, same area bank and same height bank are discussed. Experimental results show that the same height bank is better than the same area bank. DNNs with the same structure are applied to all four tasks in the DCASE Challenge 2016. In Task 1 we obtained accuracy of 76.4\% using Mel + DNN against 72.5\% by using Mel Frequency Ceptral Coefficient (MFCC) + Gaussian Mixture Model (GMM). In Task 2 we obtained F value of 17.4\% using Mel + DNN against 41.6\% by using Constant Q Transform (CQT) + Nonnegative Matrix Factorization (NMF). In Task 3 we obtained F value of 38.1\% using Mel + DNN against 26.6\% by using MFCC + GMM. In task 4 we obtained Equal Error Rate (ERR) of 20.9\% using Mel + DNN against 21.0\% by using MFCC + GMM. Therefore the DNN improves the baseline in Task 1 and Task 3, and is similar to the baseline in Task 4, although is worse than the baseline in Task 2. This indicates that DNNs can be successful in many of these tasks, but may not always work."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Phan2016" style="box-shadow: none">
+<div class="panel-heading" id="heading-Phan2016" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Car-Forest: Joint Classification-Regression Decision Forests for Overlapping Audio Event Detection
+       </h4>
+<p style="text-align:left">
+        Huy Phan<sup>1,2</sup>, Lars Hertel<sup>1</sup>, Marco Maass<sup>1</sup>, Philipp Koch<sup>1</sup> and Alfred Mertins<sup>1</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Institute for Signal Processing, University of Luebeck, Luebeck, Germany, <sup>2</sup>Graduate School for Computing in Medicine and Life Sciences, University of Luebeck, Luebeck, Germany
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Phan_task2_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Phan2016" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Phan2016" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Phan2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Phan_2005.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Phan2016" class="panel-collapse collapse" id="collapse-Phan2016" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Car-Forest: Joint Classification-Regression Decision Forests for Overlapping Audio Event Detection
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       This report describes our submissions to Task2 and Task3 of the DCASE 2016 challenge [1]. The systems aim at dealing with the detection of overlapping audio events in continuous streams, where the detectors are based on random decision forests. The proposed forests are jointly trained for classification and regression simultaneously. Initially, the training is classification-oriented to encourage the trees to select discriminative features from overlapping mixtures to separate positive audio segments from the negative ones. The regression phase is then carried out to let the positive audio segments vote for the event onsets and offsets, and therefore model the temporal structure of audio events. One random decision forest is specifically trained for each event category of interest. Experimental results on the development data show that our systems outperform the DCASE 2016 challenge baselines with absolute gains of 64.4% and 8.0% on Task2 and Task3, respectively.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         Gammatone cepstrum
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         Random forests
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Phan2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Phan_2005.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Phan2016label" class="modal fade" id="bibtex-Phan2016" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexPhan2016label">
+        Car-Forest: Joint Classification-Regression Decision Forests for Overlapping Audio Event Detection
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Phan2016,
+    Author = "Phan, Huy and Hertel, Lars and Maass, Marco and Koch, Philipp and Mertins, Alfred",
+    title = "Car-Forest: Joint Classification-Regression Decision Forests for Overlapping Audio Event Detection",
+    institution = "DCASE2016 Challenge",
+    year = "2016",
+    month = "September",
+    abstract = "This report describes our submissions to Task2 and Task3 of the DCASE 2016 challenge [1]. The systems aim at dealing with the detection of overlapping audio events in continuous streams, where the detectors are based on random decision forests. The proposed forests are jointly trained for classification and regression simultaneously. Initially, the training is classification-oriented to encourage the trees to select discriminative features from overlapping mixtures to separate positive audio segments from the negative ones. The regression phase is then carried out to let the positive audio segments vote for the event onsets and offsets, and therefore model the temporal structure of audio events. One random decision forest is specifically trained for each event category of interest. Experimental results on the development data show that our systems outperform the DCASE 2016 challenge baselines with absolute gains of 64.4\% and 8.0\% on Task2 and Task3, respectively."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Pikrakis2016" style="box-shadow: none">
+<div class="panel-heading" id="heading-Pikrakis2016" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Dictionary Learning Assisted Template Matching for Audio Event Detection (Legato)
+       </h4>
+<p style="text-align:left">
+        Aggelos Pikrakis<sup>1</sup> and Yannis Kopsinis<sup>2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Department of Informatics, University of Piraeus, Piraeus, Greece, <sup>2</sup>Libra MLI, Edinburgh, United Kingdom
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Pikrakis_task2_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Pikrakis2016" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Pikrakis2016" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Pikrakis2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Pikrakis_2001.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Pikrakis2016" class="panel-collapse collapse" id="collapse-Pikrakis2016" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Dictionary Learning Assisted Template Matching for Audio Event Detection (Legato)
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       We submit a two-stage scheme for the detection of audio events in synthetic audio.At a first stage, the endpoints of candidate events are located by means of an unsupervised method based on dictionary learning. At a second stage, each candidate event is matched against all provided event templates using a variant of the Smith-Waterman algorithm. This stage includes a hypothesis test against scores generated by random permutations of the feature sequences corresponding to the candidate event and each reference template. The unknown event is classified to the reference template that generates the highest computed score. The segment-based values of the F-measure and Error Rate, when the method is tested on the provided development dataset of the 2016 DCASE Challenge, are 64:01% and 50:75%, respectively. The corresponding values during event-based evaluation are 62:52% and 51:85%.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         Bark scale coefficients
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         Template matching
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Pikrakis2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Pikrakis_2001.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Pikrakis2016label" class="modal fade" id="bibtex-Pikrakis2016" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexPikrakis2016label">
+        Dictionary Learning Assisted Template Matching for Audio Event Detection (Legato)
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Pikrakis2016,
+    Author = "Pikrakis, Aggelos and Kopsinis, Yannis",
+    title = "Dictionary Learning Assisted Template Matching for Audio Event Detection (Legato)",
+    institution = "DCASE2016 Challenge",
+    year = "2016",
+    month = "September",
+    abstract = "We submit a two-stage scheme for the detection of audio events in synthetic audio.At a first stage, the endpoints of candidate events are located by means of an unsupervised method based on dictionary learning. At a second stage, each candidate event is matched against all provided event templates using a variant of the Smith-Waterman algorithm. This stage includes a hypothesis test against scores generated by random permutations of the feature sequences corresponding to the candidate event and each reference template. The unknown event is classified to the reference template that generates the highest computed score. The segment-based values of the F-measure and Error Rate, when the method is tested on the provided development dataset of the 2016 DCASE Challenge, are 64:01\% and 50:75\%, respectively. The corresponding values during event-based evaluation are 62:52\% and 51:85\%."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Vu2016" style="box-shadow: none">
+<div class="panel-heading" id="heading-Vu2016" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Acoustic Scene and Event Recognition Using Recurrent Neural Networks
+       </h4>
+<p style="text-align:left">
+        Toan H. Vu and Jia-Ching Wang
+       </p>
+<p style="text-align:left">
+<em>
+         Department of Computer Science and Information Engineering, National Central University, Taoyuan, Taiwan
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Vu_task2_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Vu2016" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Vu2016" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Vu2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Vu_2002.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Vu2016" class="panel-collapse collapse" id="collapse-Vu2016" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Acoustic Scene and Event Recognition Using Recurrent Neural Networks
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       The DCASE2016 challenge is designed particularly for research in environmental sound analysis. It consists of four tasks that spread on various problems such as acoustic scene classification and sound event detection. This paper reports our results on all the tasks by using Recurrent Neural Networks (RNNs). Experiments show that our models achieved superior performances compared with the baselines.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         CQT
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         RNN
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Vu2016" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2016/technical_reports/DCASE2016_Vu_2002.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Vu2016label" class="modal fade" id="bibtex-Vu2016" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexVu2016label">
+        Acoustic Scene and Event Recognition Using Recurrent Neural Networks
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Vu2016,
+    Author = "Vu, Toan H. and Wang, Jia-Ching",
+    title = "Acoustic Scene and Event Recognition Using Recurrent Neural Networks",
+    institution = "DCASE2016 Challenge",
+    year = "2016",
+    month = "September",
+    abstract = "The DCASE2016 challenge is designed particularly for research in environmental sound analysis. It consists of four tasks that spread on various problems such as acoustic scene classification and sound event detection. This paper reports our results on all the tasks by using Recurrent Neural Networks (RNNs). Experiments show that our models achieved superior performances compared with the baselines."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script>
+(function($) {
+    $(document).ready(function() {
+        var hash = window.location.hash.substr(1);
+        var anchor = window.location.hash;
+
+        var shiftWindow = function() {
+            var hash = window.location.hash.substr(1);
+            if($('#collapse-'+hash).length){
+                scrollBy(0, -100);
+            }
+        };
+        window.addEventListener("hashchange", shiftWindow);
+
+        if (window.location.hash){
+            window.scrollTo(0, 0);
+            history.replaceState(null, document.title, "#");
+            $('#collapse-'+hash).collapse('show');
+            setTimeout(function(){
+                window.location.hash = anchor;
+                shiftWindow();
+            }, 2000);
+        }
+    });
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

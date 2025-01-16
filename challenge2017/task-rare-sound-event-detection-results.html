@@ -1,0 +1,4010 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Detection of rare sound events - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Detection of rare sound events - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2017/task-rare-sound-event-detection-results">
+    <meta property="og:url" content="https://dcase.community/challenge2017/task-rare-sound-event-detection-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="Toni Heittola" />
+    <meta name="description" content="Task description This task focused on detection of rare sound events in artificially created mixtures. Targeted sound events are baby crying, glass breaking, and gunshot. The training material available for the participants contained a set of ready created mixtures (1500 30-second audio mixtures, totalling 12h 30min in length), a set …" />
+    <meta name="og:description" content="Task description This task focused on detection of rare..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btex.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2017</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2017/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2017/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2017/task-rare-sound-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-alarm text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-rare-sound-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-rare-sound-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2017/task-sound-event-detection-in-real-life-audio" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-events text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-sound-event-detection-in-real-life-audio"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-sound-event-detection-in-real-life-audio-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2017/task-large-scale-sound-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-large-scale-sound-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-large-scale-sound-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Download data">
+        <a href="http://localhost:3000/challenge2017/download"><i class="fa fa-download"></i>&nbsp;Download</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2017/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2017/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge organizers">
+        <a href="http://localhost:3000/challenge2017/organizers"><i class="fa fa-users"></i>&nbsp;Organizers</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/wall-06.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-success"></i><i class="fa dc-alarm fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text">Alarms</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 2</span></span><img src="../images/logos/dcase/dcase2017_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Detection of <br>rare sound events</h1><hr class="small right bold"><span class="subheading">Challenge results</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#task-description">Task description</a></li>
+<li><a href="#challenge-results">Challenge results</a>
+<ul>
+<li><a href="#systems-ranking">Systems ranking</a></li>
+<li><a href="#teams-ranking">Teams ranking</a></li>
+<li><a href="#class-wise-performance">Class-wise performance</a></li>
+</ul>
+</li>
+<li><a href="#system-characteristics">System characteristics</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h2 id="task-description">Task description</h2>
+<p>This task focused on detection of rare sound events in artificially created mixtures. Targeted sound events are <em>baby crying</em>, <em>glass breaking</em>, and <em>gunshot</em>. The training material available for the participants contained a set of ready created mixtures (1500 30-second audio mixtures, totalling 12h 30min in length), a set of isolated events (474 unique events) and background recordings (1121 30-second audio recordings, totalling 9h 20min in length). A total of 1500 30-second audio mixtures (12h 30min of audio) were used for the challenge evaluation.</p>
+<p>More detailed task description can be found in the <a class="btn btn-primary" href="http://localhost:3000/challenge2017/task-rare-sound-event-detection">task description page</a></p>
+<h2 id="challenge-results">Challenge results</h2>
+<p>Detailed description of metrics used can be found <a href="http://localhost:3000/challenge2017/metrics">here</a>.</p>
+<p>System outputs:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/2598364" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/2598364" target="_blank">
+<span style="font-size:20px;">DCASE2017 Challenge Submissions Package <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(28.7 MB)</span>
+<br/>
+<a href="http://dx.doi.org/10.5281/zenodo.2598364">
+<img alt="10.5281/zenodo.2598364" src="https://zenodo.org/badge/doi/10.5281/zenodo.2598364.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<h3 id="systems-ranking">Systems ranking</h3>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="event_based_ER_overall_eval" data-scatter-y="event_based_F1_overall_eval" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="event_based_ER_overall_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="2">Event-based <br/>(overall / evaluation dataset)</th>
+<th class="sep-left-cell text-center" colspan="2">Event-based <br/>(overall / development dataset)</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(overall / evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(overall / evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_ER_overall_dev" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(overall / development dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_F1_overall_dev" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(overall / development dataset)</small>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Cakir2017</td>
+<td>Cakir_TUT_task2_1</td>
+<td>CRNN-1</td>
+<td>0.1813</td>
+<td>91.0</td>
+<td>0.1600</td>
+<td>91.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Cakir2017</td>
+<td>Cakir_TUT_task2_2</td>
+<td>CRNN-2</td>
+<td>0.1733</td>
+<td>91.0</td>
+<td>0.1400</td>
+<td>92.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Cakir2017</td>
+<td>Cakir_TUT_task2_3</td>
+<td>CRNN-3</td>
+<td>0.2920</td>
+<td>86.0</td>
+<td>0.1400</td>
+<td>92.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Cakir2017</td>
+<td>Cakir_TUT_task2_4</td>
+<td>CRNN-4</td>
+<td>0.1867</td>
+<td>90.3</td>
+<td>0.1200</td>
+<td>93.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task2_1</td>
+<td>CRNN</td>
+<td>0.4787</td>
+<td>73.3</td>
+<td>0.2600</td>
+<td>85.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task2_2</td>
+<td>andang2</td>
+<td>0.4107</td>
+<td>79.1</td>
+<td>0.2500</td>
+<td>86.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task2_3</td>
+<td>andang2</td>
+<td>0.4453</td>
+<td>76.1</td>
+<td>0.2700</td>
+<td>85.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task2_4</td>
+<td>andang2</td>
+<td>0.4253</td>
+<td>78.6</td>
+<td>0.2700</td>
+<td>85.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Ghaffarzadegan2017</td>
+<td>Ghaffarzadegan_BOSCH_task2_1</td>
+<td>BOSCH21</td>
+<td>0.5000</td>
+<td>74.2</td>
+<td>0.1700</td>
+<td>91.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Ghaffarzadegan2017</td>
+<td>Ghaffarzadegan_BOSCH_task2_2</td>
+<td>BOSCH22</td>
+<td>0.5493</td>
+<td>71.8</td>
+<td>0.1600</td>
+<td>92.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Ghaffarzadegan2017</td>
+<td>Ghaffarzadegan_BOSCH_task2_3</td>
+<td>BOSCH23</td>
+<td>0.5560</td>
+<td>70.8</td>
+<td>0.2100</td>
+<td>89.6</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Heittola2017</td>
+<td>DCASE2017 baseline</td>
+<td>Baseline</td>
+<td>0.6373</td>
+<td>64.1</td>
+<td>0.5300</td>
+<td>72.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Jeon2017</td>
+<td>Jeon_GIST_task2_1</td>
+<td>NMF_SS+DNN</td>
+<td>0.6773</td>
+<td>65.8</td>
+<td>0.4600</td>
+<td>76.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task2_1</td>
+<td>LiSCUTt2_1</td>
+<td>0.6333</td>
+<td>65.5</td>
+<td>0.6100</td>
+<td>69.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task2_2</td>
+<td>LiSCUTt2_2</td>
+<td>0.7373</td>
+<td>57.4</td>
+<td>0.6000</td>
+<td>68.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task2_3</td>
+<td>LiSCUTt2_3</td>
+<td>0.6213</td>
+<td>66.6</td>
+<td>0.6400</td>
+<td>67.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task2_4</td>
+<td>LiSCUTt2_4</td>
+<td>0.6000</td>
+<td>69.8</td>
+<td>0.5500</td>
+<td>72.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Lim2017</td>
+<td>Lim_COCAI_task2_1</td>
+<td>1dCRNN1</td>
+<td>0.1307</td>
+<td>93.1</td>
+<td>0.0700</td>
+<td>96.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Lim2017</td>
+<td>Lim_COCAI_task2_2</td>
+<td>1dCRNN2</td>
+<td>0.1347</td>
+<td>93.0</td>
+<td>0.0700</td>
+<td>96.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Lim2017</td>
+<td>Lim_COCAI_task2_3</td>
+<td>1dCRNN3</td>
+<td>0.1520</td>
+<td>92.2</td>
+<td>0.0700</td>
+<td>96.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Lim2017</td>
+<td>Lim_COCAI_task2_4</td>
+<td>1dCRNN4</td>
+<td>0.1720</td>
+<td>91.4</td>
+<td>0.0900</td>
+<td>95.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Kaiwu2017</td>
+<td>Liping_CQU_task2_1</td>
+<td>E-RFCN</td>
+<td>0.3400</td>
+<td>79.5</td>
+<td>0.1800</td>
+<td>90.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Kaiwu2017</td>
+<td>Liping_CQU_task2_2</td>
+<td>E-RFCN</td>
+<td>0.3293</td>
+<td>81.2</td>
+<td>0.1600</td>
+<td>91.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Kaiwu2017</td>
+<td>Liping_CQU_task2_3</td>
+<td>E-RFCN</td>
+<td>0.3173</td>
+<td>82.0</td>
+<td>0.1800</td>
+<td>90.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Phan2017</td>
+<td>Phan_UniLuebeck_task2_1</td>
+<td>AED-Net</td>
+<td>0.2773</td>
+<td>85.3</td>
+<td>0.1900</td>
+<td>89.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Ravichandran2017</td>
+<td>Ravichandran_BOSCH_task2_4</td>
+<td>BOSCH24</td>
+<td>0.4267</td>
+<td>78.6</td>
+<td>0.1700</td>
+<td>87.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini2017</td>
+<td>Vesperini_UNIVPM_task2_1</td>
+<td>A3LAB</td>
+<td>0.3267</td>
+<td>83.9</td>
+<td>0.2000</td>
+<td>89.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini2017</td>
+<td>Vesperini_UNIVPM_task2_2</td>
+<td>A3LAB</td>
+<td>0.3440</td>
+<td>82.8</td>
+<td>0.1800</td>
+<td>90.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini2017</td>
+<td>Vesperini_UNIVPM_task2_3</td>
+<td>A3LAB</td>
+<td>0.3267</td>
+<td>83.2</td>
+<td>0.1800</td>
+<td>90.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini2017</td>
+<td>Vesperini_UNIVPM_task2_4</td>
+<td>A3LAB</td>
+<td>0.3267</td>
+<td>83.2</td>
+<td>0.1900</td>
+<td>90.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang2017</td>
+<td>Wang_BUPT_task2_1</td>
+<td>MFC_WJ</td>
+<td>0.4320</td>
+<td>73.4</td>
+<td>0.2800</td>
+<td>85.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang2017a</td>
+<td>Wang_THU_task2_1</td>
+<td>Baseline</td>
+<td>0.4973</td>
+<td>72.6</td>
+<td>0.3800</td>
+<td>78.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhou2017</td>
+<td>Zhou_XJTU_task2_1</td>
+<td>SLR-NMF</td>
+<td>0.3133</td>
+<td>84.2</td>
+<td>0.2800</td>
+<td>85.8</td>
+</tr>
+</tbody>
+</table>
+<h3 id="teams-ranking">Teams ranking</h3>
+<p>Table including only the best performing system per submitting team.</p>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="event_based_ER_overall_eval" data-scatter-y="event_based_F1_overall_eval" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="event_based_ER_overall_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="2">Event-based <br/>(overall / evaluation dataset)</th>
+<th class="sep-left-cell text-center" colspan="2">Event-based <br/>(overall / development dataset)</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(overall / evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(overall / evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_ER_overall_dev" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(overall / development dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_F1_overall_dev" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(overall / development dataset)</small>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Cakir2017</td>
+<td>Cakir_TUT_task2_2</td>
+<td>CRNN-2</td>
+<td>0.1733</td>
+<td>91.0</td>
+<td>0.1400</td>
+<td>92.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task2_2</td>
+<td>andang2</td>
+<td>0.4107</td>
+<td>79.1</td>
+<td>0.2500</td>
+<td>86.4</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Heittola2017</td>
+<td>DCASE2017 baseline</td>
+<td>Baseline</td>
+<td>0.6373</td>
+<td>64.1</td>
+<td>0.5300</td>
+<td>72.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Jeon2017</td>
+<td>Jeon_GIST_task2_1</td>
+<td>NMF_SS+DNN</td>
+<td>0.6773</td>
+<td>65.8</td>
+<td>0.4600</td>
+<td>76.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task2_4</td>
+<td>LiSCUTt2_4</td>
+<td>0.6000</td>
+<td>69.8</td>
+<td>0.5500</td>
+<td>72.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Lim2017</td>
+<td>Lim_COCAI_task2_1</td>
+<td>1dCRNN1</td>
+<td>0.1307</td>
+<td>93.1</td>
+<td>0.0700</td>
+<td>96.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Kaiwu2017</td>
+<td>Liping_CQU_task2_3</td>
+<td>E-RFCN</td>
+<td>0.3173</td>
+<td>82.0</td>
+<td>0.1800</td>
+<td>90.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Phan2017</td>
+<td>Phan_UniLuebeck_task2_1</td>
+<td>AED-Net</td>
+<td>0.2773</td>
+<td>85.3</td>
+<td>0.1900</td>
+<td>89.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Ravichandran2017</td>
+<td>Ravichandran_BOSCH_task2_4</td>
+<td>BOSCH24</td>
+<td>0.4267</td>
+<td>78.6</td>
+<td>0.1700</td>
+<td>87.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini2017</td>
+<td>Vesperini_UNIVPM_task2_1</td>
+<td>A3LAB</td>
+<td>0.3267</td>
+<td>83.9</td>
+<td>0.2000</td>
+<td>89.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang2017</td>
+<td>Wang_BUPT_task2_1</td>
+<td>MFC_WJ</td>
+<td>0.4320</td>
+<td>73.4</td>
+<td>0.2800</td>
+<td>85.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang2017a</td>
+<td>Wang_THU_task2_1</td>
+<td>Baseline</td>
+<td>0.4973</td>
+<td>72.6</td>
+<td>0.3800</td>
+<td>78.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhou2017</td>
+<td>Zhou_XJTU_task2_1</td>
+<td>SLR-NMF</td>
+<td>0.3133</td>
+<td>84.2</td>
+<td>0.2800</td>
+<td>85.8</td>
+</tr>
+</tbody>
+</table>
+<h3 id="class-wise-performance">Class-wise performance</h3>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="off" data-chart-modes="bar,scatter,comparison" data-comparison-a-row="DCASE2017 baseline" data-comparison-active-set="Class-wise performance (ER)" data-comparison-b-row="Lim_COCAI_task2_1" data-comparison-row-id-field="code" data-comparison-sets="Class-wise performance (ER):ER:event_based_ER_class_babycry_eval#Baby cry;event_based_ER_class_glassbreak_eval#Glass break;event_based_ER_class_gunshot_eval#Gunshot,
+Class-wise performance (F1):F1:event_based_F1_class_babycry_eval#Baby cry;event_based_F1_class_glassbreak_eval#Glass break;event_based_F1_class_gunshot_eval#Gunshot" data-comparison-sets-json='[
+        {"title": "Class-wise performance (ER)",
+        "data_axis_title": "ER",
+        "fields": ["event_based_ER_class_babycry_eval","event_based_ER_class_glassbreak_eval","event_based_ER_class_gunshot_eval"],
+        "field_titles": ["Baby cry","Glass break","Gunshot"]
+        },
+        {"title": "Class-wise performance (F1)",
+        "data_axis_title": "F1",
+        "fields": ["event_based_F1_class_babycry_eval","event_based_F1_class_glassbreak_eval","event_based_F1_class_gunshot_eval"],
+        "field_titles": ["Baby cry","Glass break","Gunshot"]
+        }]' data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="event_based_ER_class_babycry_eval" data-scatter-y="event_based_F1_class_babycry_eval" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="event_based_ER_overall_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="2">Event-based <br/>(average / evaluation dataset)</th>
+<th class="sep-left-cell text-center" colspan="2">Baby cry</th>
+<th class="sep-left-cell text-center" colspan="2">Glass break</th>
+<th class="sep-left-cell text-center" colspan="2">Gunshot</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(average / evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(average / evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_ER_class_babycry_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Baby cry (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="event_based_F1_class_babycry_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Baby cry (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_ER_class_glassbreak_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Glass break (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="event_based_F1_class_glassbreak_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Glass break (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_ER_class_gunshot_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Gunshot (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="event_based_F1_class_gunshot_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Gunshot (eval/seg)</small>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Cakir2017</td>
+<td>Cakir_TUT_task2_1</td>
+<td>CRNN-1</td>
+<td>0.1813</td>
+<td>91.0</td>
+<td>0.2720</td>
+<td>87.0</td>
+<td>0.0720</td>
+<td>96.4</td>
+<td>0.2000</td>
+<td>89.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Cakir2017</td>
+<td>Cakir_TUT_task2_2</td>
+<td>CRNN-2</td>
+<td>0.1733</td>
+<td>91.0</td>
+<td>0.1840</td>
+<td>90.8</td>
+<td>0.1040</td>
+<td>94.7</td>
+<td>0.2320</td>
+<td>87.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Cakir2017</td>
+<td>Cakir_TUT_task2_3</td>
+<td>CRNN-3</td>
+<td>0.2920</td>
+<td>86.0</td>
+<td>0.2720</td>
+<td>87.0</td>
+<td>0.1360</td>
+<td>92.9</td>
+<td>0.4680</td>
+<td>78.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Cakir2017</td>
+<td>Cakir_TUT_task2_4</td>
+<td>CRNN-4</td>
+<td>0.1867</td>
+<td>90.3</td>
+<td>0.2120</td>
+<td>89.5</td>
+<td>0.1120</td>
+<td>94.2</td>
+<td>0.2360</td>
+<td>87.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task2_1</td>
+<td>CRNN</td>
+<td>0.4787</td>
+<td>73.3</td>
+<td>0.4760</td>
+<td>75.5</td>
+<td>0.3880</td>
+<td>79.3</td>
+<td>0.5720</td>
+<td>65.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task2_2</td>
+<td>andang2</td>
+<td>0.4107</td>
+<td>79.1</td>
+<td>0.4400</td>
+<td>80.6</td>
+<td>0.2280</td>
+<td>88.5</td>
+<td>0.5640</td>
+<td>68.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task2_3</td>
+<td>andang2</td>
+<td>0.4453</td>
+<td>76.1</td>
+<td>0.4400</td>
+<td>80.6</td>
+<td>0.3240</td>
+<td>82.4</td>
+<td>0.5720</td>
+<td>65.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task2_4</td>
+<td>andang2</td>
+<td>0.4253</td>
+<td>78.6</td>
+<td>0.4400</td>
+<td>80.6</td>
+<td>0.2720</td>
+<td>87.1</td>
+<td>0.5640</td>
+<td>68.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Ghaffarzadegan2017</td>
+<td>Ghaffarzadegan_BOSCH_task2_1</td>
+<td>BOSCH21</td>
+<td>0.5000</td>
+<td>74.2</td>
+<td>0.4080</td>
+<td>78.8</td>
+<td>0.1640</td>
+<td>91.5</td>
+<td>0.9280</td>
+<td>52.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Ghaffarzadegan2017</td>
+<td>Ghaffarzadegan_BOSCH_task2_2</td>
+<td>BOSCH22</td>
+<td>0.5493</td>
+<td>71.8</td>
+<td>0.4320</td>
+<td>78.0</td>
+<td>0.2400</td>
+<td>87.5</td>
+<td>0.9760</td>
+<td>49.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Ghaffarzadegan2017</td>
+<td>Ghaffarzadegan_BOSCH_task2_3</td>
+<td>BOSCH23</td>
+<td>0.5560</td>
+<td>70.8</td>
+<td>0.4600</td>
+<td>74.7</td>
+<td>0.2320</td>
+<td>87.9</td>
+<td>0.9760</td>
+<td>49.8</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Heittola2017</td>
+<td>DCASE2017 baseline</td>
+<td>Baseline</td>
+<td>0.6373</td>
+<td>64.1</td>
+<td>0.8040</td>
+<td>66.8</td>
+<td>0.3800</td>
+<td>79.1</td>
+<td>0.7280</td>
+<td>46.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Jeon2017</td>
+<td>Jeon_GIST_task2_1</td>
+<td>NMF_SS+DNN</td>
+<td>0.6773</td>
+<td>65.8</td>
+<td>0.8840</td>
+<td>65.3</td>
+<td>0.3960</td>
+<td>80.2</td>
+<td>0.7520</td>
+<td>51.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task2_1</td>
+<td>LiSCUTt2_1</td>
+<td>0.6333</td>
+<td>65.5</td>
+<td>0.8280</td>
+<td>65.8</td>
+<td>0.4240</td>
+<td>77.8</td>
+<td>0.6480</td>
+<td>52.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task2_2</td>
+<td>LiSCUTt2_2</td>
+<td>0.7373</td>
+<td>57.4</td>
+<td>0.9160</td>
+<td>61.8</td>
+<td>0.5280</td>
+<td>69.3</td>
+<td>0.7680</td>
+<td>41.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task2_3</td>
+<td>LiSCUTt2_3</td>
+<td>0.6213</td>
+<td>66.6</td>
+<td>0.7400</td>
+<td>68.2</td>
+<td>0.4440</td>
+<td>76.2</td>
+<td>0.6800</td>
+<td>55.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task2_4</td>
+<td>LiSCUTt2_4</td>
+<td>0.6000</td>
+<td>69.8</td>
+<td>0.7800</td>
+<td>67.4</td>
+<td>0.3240</td>
+<td>82.4</td>
+<td>0.6960</td>
+<td>59.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Lim2017</td>
+<td>Lim_COCAI_task2_1</td>
+<td>1dCRNN1</td>
+<td>0.1307</td>
+<td>93.1</td>
+<td>0.1520</td>
+<td>92.2</td>
+<td>0.0480</td>
+<td>97.6</td>
+<td>0.1920</td>
+<td>89.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Lim2017</td>
+<td>Lim_COCAI_task2_2</td>
+<td>1dCRNN2</td>
+<td>0.1347</td>
+<td>93.0</td>
+<td>0.1520</td>
+<td>92.4</td>
+<td>0.0600</td>
+<td>97.0</td>
+<td>0.1920</td>
+<td>89.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Lim2017</td>
+<td>Lim_COCAI_task2_3</td>
+<td>1dCRNN3</td>
+<td>0.1520</td>
+<td>92.2</td>
+<td>0.1520</td>
+<td>92.5</td>
+<td>0.1120</td>
+<td>94.6</td>
+<td>0.1920</td>
+<td>89.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Lim2017</td>
+<td>Lim_COCAI_task2_4</td>
+<td>1dCRNN4</td>
+<td>0.1720</td>
+<td>91.4</td>
+<td>0.1720</td>
+<td>91.7</td>
+<td>0.1520</td>
+<td>92.9</td>
+<td>0.1920</td>
+<td>89.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Kaiwu2017</td>
+<td>Liping_CQU_task2_1</td>
+<td>E-RFCN</td>
+<td>0.3400</td>
+<td>79.5</td>
+<td>0.2760</td>
+<td>86.4</td>
+<td>0.1800</td>
+<td>90.2</td>
+<td>0.5640</td>
+<td>62.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Kaiwu2017</td>
+<td>Liping_CQU_task2_2</td>
+<td>E-RFCN</td>
+<td>0.3293</td>
+<td>81.2</td>
+<td>0.2840</td>
+<td>86.5</td>
+<td>0.1600</td>
+<td>91.5</td>
+<td>0.5440</td>
+<td>65.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Kaiwu2017</td>
+<td>Liping_CQU_task2_3</td>
+<td>E-RFCN</td>
+<td>0.3173</td>
+<td>82.0</td>
+<td>0.2640</td>
+<td>87.3</td>
+<td>0.1600</td>
+<td>91.5</td>
+<td>0.5280</td>
+<td>67.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Phan2017</td>
+<td>Phan_UniLuebeck_task2_1</td>
+<td>AED-Net</td>
+<td>0.2773</td>
+<td>85.3</td>
+<td>0.2840</td>
+<td>85.7</td>
+<td>0.2200</td>
+<td>88.8</td>
+<td>0.3280</td>
+<td>81.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Ravichandran2017</td>
+<td>Ravichandran_BOSCH_task2_4</td>
+<td>BOSCH24</td>
+<td>0.4267</td>
+<td>78.6</td>
+<td>0.5000</td>
+<td>75.9</td>
+<td>0.2360</td>
+<td>87.8</td>
+<td>0.5440</td>
+<td>71.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini2017</td>
+<td>Vesperini_UNIVPM_task2_1</td>
+<td>A3LAB</td>
+<td>0.3267</td>
+<td>83.9</td>
+<td>0.3560</td>
+<td>83.0</td>
+<td>0.3120</td>
+<td>84.7</td>
+<td>0.3120</td>
+<td>84.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini2017</td>
+<td>Vesperini_UNIVPM_task2_2</td>
+<td>A3LAB</td>
+<td>0.3440</td>
+<td>82.8</td>
+<td>0.3680</td>
+<td>82.4</td>
+<td>0.3280</td>
+<td>83.8</td>
+<td>0.3360</td>
+<td>82.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini2017</td>
+<td>Vesperini_UNIVPM_task2_3</td>
+<td>A3LAB</td>
+<td>0.3267</td>
+<td>83.2</td>
+<td>0.3240</td>
+<td>84.3</td>
+<td>0.2960</td>
+<td>85.1</td>
+<td>0.3600</td>
+<td>80.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini2017</td>
+<td>Vesperini_UNIVPM_task2_4</td>
+<td>A3LAB</td>
+<td>0.3267</td>
+<td>83.2</td>
+<td>0.3240</td>
+<td>84.3</td>
+<td>0.2960</td>
+<td>85.1</td>
+<td>0.3600</td>
+<td>80.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang2017</td>
+<td>Wang_BUPT_task2_1</td>
+<td>MFC_WJ</td>
+<td>0.4320</td>
+<td>73.4</td>
+<td>0.4400</td>
+<td>77.3</td>
+<td>0.2120</td>
+<td>89.1</td>
+<td>0.6440</td>
+<td>53.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang2017a</td>
+<td>Wang_THU_task2_1</td>
+<td>Baseline</td>
+<td>0.4973</td>
+<td>72.6</td>
+<td>0.5680</td>
+<td>70.7</td>
+<td>0.3560</td>
+<td>81.0</td>
+<td>0.5680</td>
+<td>66.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhou2017</td>
+<td>Zhou_XJTU_task2_1</td>
+<td>SLR-NMF</td>
+<td>0.3133</td>
+<td>84.2</td>
+<td>0.1720</td>
+<td>91.4</td>
+<td>0.2200</td>
+<td>89.1</td>
+<td>0.5480</td>
+<td>72.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="system-characteristics">System characteristics</h2>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="off" data-chart-modes="bar,scatter" data-chart-tooltip-fields="code" data-fields="code:Submission&lt;br&gt;&lt;/br&gt;code:str:visible;sortable;sep-left,
+                 name:Submission&lt;br&gt;&lt;/br&gt;name:str:visible;sortable;small,
+                 anchor:Tech.&lt;br&gt;&lt;/br&gt;Report:anchor:visible;sep-left;text-center,
+                 accuracy_eval:Accuracy &lt;br&gt;&lt;/br&gt;(Eval):float:visible;sortable;chartable;sep-left;text-center:percentage,
+                 system_input:Input:tag:visible;sortable;filterable;sep-left,
+                 system_features:Features:tag:visible;sortable;filterable,
+                 system_classifier:Classifier:tag:visible;sortable;filterable" data-filter-control="true" data-filter-show-clear="true" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="event_based_F1_overall_eval" data-scatter-y="event_based_ER_overall_eval" data-show-bar-chart-xaxis="true" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="event_based_ER_overall_eval" data-sort-order="desc" data-striped="true" data-tag-mode="column">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="2">Event-based (overall)</th>
+<th class="sep-left-cell text-center" colspan="6">System characteristics</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="event_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(overall / evaluation dataset)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="event_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(overall / evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_input" data-filter-control="select" data-sortable="true" data-tag="true">
+                Input
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_sampling_rate" data-filter-control="select" data-sortable="true" data-tag="true">
+                Sampling <br/>rate
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_data_augmentation" data-filter-control="select" data-sortable="true" data-tag="true">
+                Data <br/>augmentation
+            </th>
+<th class="text-center narrow-col" data-field="system_features" data-filter-control="select" data-sortable="true" data-tag="true">
+                Features
+            </th>
+<th class="text-center narrow-col" data-field="system_classifier" data-filter-control="select" data-sortable="true" data-tag="true">
+                Classifier
+            </th>
+<th class="text-center narrow-col" data-field="system_decision_making" data-filter-control="select" data-sortable="true" data-tag="true">
+                Decision <br/>making
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Cakir2017</td>
+<td>Cakir_TUT_task2_1</td>
+<td>CRNN-1</td>
+<td>0.1813</td>
+<td>91.0</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixture generation</td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>median filtering, same architecture in separate models for each class</td>
+</tr>
+<tr>
+<td></td>
+<td>Cakir2017</td>
+<td>Cakir_TUT_task2_2</td>
+<td>CRNN-2</td>
+<td>0.1733</td>
+<td>91.0</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixture generation</td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>median filtering, ensemble of 7 best overall architectures</td>
+</tr>
+<tr>
+<td></td>
+<td>Cakir2017</td>
+<td>Cakir_TUT_task2_3</td>
+<td>CRNN-3</td>
+<td>0.2920</td>
+<td>86.0</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixture generation</td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>median filtering, best architecture for each class</td>
+</tr>
+<tr>
+<td></td>
+<td>Cakir2017</td>
+<td>Cakir_TUT_task2_4</td>
+<td>CRNN-4</td>
+<td>0.1867</td>
+<td>90.3</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixture generation</td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>median filtering, ensemble of 7 best architectures for each class</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task2_1</td>
+<td>CRNN</td>
+<td>0.4787</td>
+<td>73.3</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>majority vote</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task2_2</td>
+<td>andang2</td>
+<td>0.4107</td>
+<td>79.1</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>majority vote</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task2_3</td>
+<td>andang2</td>
+<td>0.4453</td>
+<td>76.1</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>majority vote</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang2017</td>
+<td>Dang_NCU_task2_4</td>
+<td>andang2</td>
+<td>0.4253</td>
+<td>78.6</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>majority vote</td>
+</tr>
+<tr>
+<td></td>
+<td>Ghaffarzadegan2017</td>
+<td>Ghaffarzadegan_BOSCH_task2_1</td>
+<td>BOSCH21</td>
+<td>0.5000</td>
+<td>74.2</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>MFCC, ZCR, energy, spectral centroid, pitch</td>
+<td>ensemble</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Ghaffarzadegan2017</td>
+<td>Ghaffarzadegan_BOSCH_task2_2</td>
+<td>BOSCH22</td>
+<td>0.5493</td>
+<td>71.8</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>MFCC, ZCR, energy, spectral centroid, pitch</td>
+<td>ensemble</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Ghaffarzadegan2017</td>
+<td>Ghaffarzadegan_BOSCH_task2_3</td>
+<td>BOSCH23</td>
+<td>0.5560</td>
+<td>70.8</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>MFCC, ZCR, energy, spectral centroid, pitch</td>
+<td>ensemble</td>
+<td>thresholding</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Heittola2017</td>
+<td>DCASE2017 baseline</td>
+<td>Baseline</td>
+<td>0.6373</td>
+<td>64.1</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>MLP</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Jeon2017</td>
+<td>Jeon_GIST_task2_1</td>
+<td>NMF_SS+DNN</td>
+<td>0.6773</td>
+<td>65.8</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixture generation</td>
+<td>log-mel energies from NMF source separation</td>
+<td>MLP</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task2_1</td>
+<td>LiSCUTt2_1</td>
+<td>0.6333</td>
+<td>65.5</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>DNN(MFCC)</td>
+<td>Bi-LSTM</td>
+<td>top output probability</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task2_2</td>
+<td>LiSCUTt2_2</td>
+<td>0.7373</td>
+<td>57.4</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>DNN(MFCC)</td>
+<td>Bi-LSTM</td>
+<td>top output probability</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task2_3</td>
+<td>LiSCUTt2_3</td>
+<td>0.6213</td>
+<td>66.6</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>DNN(MFCC)</td>
+<td>DNN</td>
+<td>top output probability</td>
+</tr>
+<tr>
+<td></td>
+<td>Li2017</td>
+<td>Li_SCUT_task2_4</td>
+<td>LiSCUTt2_4</td>
+<td>0.6000</td>
+<td>69.8</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>DNN(MFCC)</td>
+<td>Bi-LSTM</td>
+<td>top output probability</td>
+</tr>
+<tr>
+<td></td>
+<td>Lim2017</td>
+<td>Lim_COCAI_task2_1</td>
+<td>1dCRNN1</td>
+<td>0.1307</td>
+<td>93.1</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixture generation</td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Lim2017</td>
+<td>Lim_COCAI_task2_2</td>
+<td>1dCRNN2</td>
+<td>0.1347</td>
+<td>93.0</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixture generation</td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Lim2017</td>
+<td>Lim_COCAI_task2_3</td>
+<td>1dCRNN3</td>
+<td>0.1520</td>
+<td>92.2</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixture generation</td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Lim2017</td>
+<td>Lim_COCAI_task2_4</td>
+<td>1dCRNN4</td>
+<td>0.1720</td>
+<td>91.4</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixture generation</td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Kaiwu2017</td>
+<td>Liping_CQU_task2_1</td>
+<td>E-RFCN</td>
+<td>0.3400</td>
+<td>79.5</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>spectrogram</td>
+<td>CNN</td>
+<td>majority vote</td>
+</tr>
+<tr>
+<td></td>
+<td>Kaiwu2017</td>
+<td>Liping_CQU_task2_2</td>
+<td>E-RFCN</td>
+<td>0.3293</td>
+<td>81.2</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>spectrogram</td>
+<td>CNN</td>
+<td>majority vote</td>
+</tr>
+<tr>
+<td></td>
+<td>Kaiwu2017</td>
+<td>Liping_CQU_task2_3</td>
+<td>E-RFCN</td>
+<td>0.3173</td>
+<td>82.0</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>spectrogram</td>
+<td>CNN</td>
+<td>majority vote</td>
+</tr>
+<tr>
+<td></td>
+<td>Phan2017</td>
+<td>Phan_UniLuebeck_task2_1</td>
+<td>AED-Net</td>
+<td>0.2773</td>
+<td>85.3</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log Gammatone cepstral coefficients</td>
+<td>tailored-loss DNN+CNN</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Ravichandran2017</td>
+<td>Ravichandran_BOSCH_task2_4</td>
+<td>BOSCH24</td>
+<td>0.4267</td>
+<td>78.6</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel Spectrograms, MFCC</td>
+<td>MLP, CNN, RNN</td>
+<td>median filtering, ensembling, hard Thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini2017</td>
+<td>Vesperini_UNIVPM_task2_1</td>
+<td>A3LAB</td>
+<td>0.3267</td>
+<td>83.9</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixture generation</td>
+<td>log-mel energies</td>
+<td>MLP, CNN</td>
+<td>theshold</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini2017</td>
+<td>Vesperini_UNIVPM_task2_2</td>
+<td>A3LAB</td>
+<td>0.3440</td>
+<td>82.8</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixture generation</td>
+<td>log-mel energies</td>
+<td>MLP, CNN</td>
+<td>theshold</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini2017</td>
+<td>Vesperini_UNIVPM_task2_3</td>
+<td>A3LAB</td>
+<td>0.3267</td>
+<td>83.2</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixture generation</td>
+<td>log-mel energies</td>
+<td>MLP, CNN</td>
+<td>theshold</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini2017</td>
+<td>Vesperini_UNIVPM_task2_4</td>
+<td>A3LAB</td>
+<td>0.3267</td>
+<td>83.2</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixture generation</td>
+<td>log-mel energies</td>
+<td>MLP, CNN</td>
+<td>theshold</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang2017</td>
+<td>Wang_BUPT_task2_1</td>
+<td>MFC_WJ</td>
+<td>0.4320</td>
+<td>73.4</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>DNN</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang2017a</td>
+<td>Wang_THU_task2_1</td>
+<td>Baseline</td>
+<td>0.4973</td>
+<td>72.6</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>mixture generation</td>
+<td>MFCC, log-mel energies</td>
+<td>DNN, HMM</td>
+<td>maxout</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhou2017</td>
+<td>Zhou_XJTU_task2_1</td>
+<td>SLR-NMF</td>
+<td>0.3133</td>
+<td>84.2</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>spectrogram</td>
+<td>NMF</td>
+<td>moving average filter</td>
+</tr>
+</tbody>
+</table>
+<h2 id="technical-reports">Technical reports</h2>
+<div class="btex" data-source="content/data/challenge2017/technical_reports_task2.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="Cakir2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Cakir2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Convolutional Recurrent Neural Networks for Rare Sound Event Detection
+       </h4>
+<p style="text-align:left">
+        Emre Cakir and Tuomas Virtanen
+       </p>
+<p style="text-align:left">
+<em>
+         Laboratory of Signal Processing, Tampere University of Technology, Tampere, Finland
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Cakir_TUT_task2_1</span> <span class="label label-primary">Cakir_TUT_task2_2</span> <span class="label label-primary">Cakir_TUT_task2_3</span> <span class="label label-primary">Cakir_TUT_task2_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Cakir2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Cakir2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Cakir2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Cakir_104.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Cakir2017" class="panel-collapse collapse" id="collapse-Cakir2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Convolutional Recurrent Neural Networks for Rare Sound Event Detection
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       Sound events possess certain temporal and spectral structure in their time-frequency representations. The spectral content for the samples of the same sound event class may exhibit small shifts due to intra-class acoustic variability. Convolutional layers can be used to learn high-level, shift invariant features from time-frequency representations of acoustic samples, while recurrent layers can be used to learn the longer term temporal context from the extracted high-level features. In this paper, we propose combining these two in a convolutional recurrent neural network (CRNN) for rare sound event detection. The proposed method is evaluated over DCASE 2017 challenge dataset of individual sound event samples mixed with everyday acoustic scene samples. CRNN provides significant performance improvement over two other deep learning based methods mainly due to its capability of longer term temporal modeling.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         mixture generation
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CRNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         median filtering, same architecture in separate models for each class; median filtering, ensemble of 7 best overall architectures; median filtering, best architecture for each class; median filtering, ensemble of 7 best architectures for each class
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Cakir2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Cakir_104.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Cakir2017label" class="modal fade" id="bibtex-Cakir2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexCakir2017label">
+        Convolutional Recurrent Neural Networks for Rare Sound Event Detection
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Cakir2017,
+    Author = "Cakir, Emre and Virtanen, Tuomas",
+    title = "Convolutional Recurrent Neural Networks for Rare Sound Event Detection",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "Sound events possess certain temporal and spectral structure in their time-frequency representations. The spectral content for the samples of the same sound event class may exhibit small shifts due to intra-class acoustic variability. Convolutional layers can be used to learn high-level, shift invariant features from time-frequency representations of acoustic samples, while recurrent layers can be used to learn the longer term temporal context from the extracted high-level features. In this paper, we propose combining these two in a convolutional recurrent neural network (CRNN) for rare sound event detection. The proposed method is evaluated over DCASE 2017 challenge dataset of individual sound event samples mixed with everyday acoustic scene samples. CRNN provides significant performance improvement over two other deep learning based methods mainly due to its capability of longer term temporal modeling."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Dang2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Dang2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Deep Learning for DCASE2017 Challenge
+       </h4>
+<p style="text-align:left">
+        An Dang, Toan Vu and Jia-Ching Wang
+       </p>
+<p style="text-align:left">
+<em>
+         Computer Sciene and Information Engineering, National Central University, Taoyuan, Taiwan
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Dang_NCU_task2_1</span> <span class="label label-primary">Dang_NCU_task2_2</span> <span class="label label-primary">Dang_NCU_task2_3</span> <span class="label label-primary">Dang_NCU_task2_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Dang2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Dang2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Dang2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Dang_209.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Dang2017" class="panel-collapse collapse" id="collapse-Dang2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Deep Learning for DCASE2017 Challenge
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       This paper reports our results on all tasks of DCASE challenge 2017 which are acoustic scene classification, detection of rare sound events, sound event detection in real life audio, and large-scale weakly supervised sound event detection for smart cars. Our proposed methods are developed based on two favorite neural networks which are convolutional neural networks (CNNs) and recurrent neural networks (RNNs). Experiments show that our proposed methods outperform the baseline.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CRNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         majority vote
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Dang2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Dang_209.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Dang2017label" class="modal fade" id="bibtex-Dang2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexDang2017label">
+        Deep Learning for DCASE2017 Challenge
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Dang2017,
+    Author = "Dang, An and Vu, Toan and Wang, Jia-Ching",
+    title = "Deep Learning for {DCASE2017} Challenge",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "This paper reports our results on all tasks of DCASE challenge 2017 which are acoustic scene classification, detection of rare sound events, sound event detection in real life audio, and large-scale weakly supervised sound event detection for smart cars. Our proposed methods are developed based on two favorite neural networks which are convolutional neural networks (CNNs) and recurrent neural networks (RNNs). Experiments show that our proposed methods outperform the baseline."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Ghaffarzadegan2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Ghaffarzadegan2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Bosch Rare Sound Events Detection Systems for DCASE2017 Challenge
+       </h4>
+<p style="text-align:left">
+        Shabnam Ghaffarzadegan<sup>1</sup>, Asif Salekin<sup>2</sup>, Samarjit Das<sup>1</sup> and Zhe Feng<sup>1</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Human Machine Interaction, Robert Bosch Research and Technology Center, Palo Alto, USA, <sup>2</sup>Computer science, University of Virginia, Virginia, USA
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Ghaffarzadegan_BOSCH_task2_1</span> <span class="label label-primary">Ghaffarzadegan_BOSCH_task2_2</span> <span class="label label-primary">Ghaffarzadegan_BOSCH_task2_3</span> <span class="label label-primary">Ravichandran_BOSCH_task2_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Ghaffarzadegan2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Ghaffarzadegan2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Ghaffarzadegan2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Ghaffarzadegan_184.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Ghaffarzadegan2017" class="panel-collapse collapse" id="collapse-Ghaffarzadegan2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Bosch Rare Sound Events Detection Systems for DCASE2017 Challenge
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this report, we describe three systems designed at BOSCH for rare audio sound events detection task of DCASE 2017 challenge. The first system is an end-to-end audio event segmentation using embeddings based on deep convolutional neural network (DCNN) and deep recurrent neural network (DRNN) trained on Mel-filter banks and spectogram features. Both system 2 and 3 contain two parts: audio event tagging and audio event segmentation. Audio event tagging selects the positive audio recordings (containing audio events), which are later processed by the audio segmentation part. Feature selection method has been deployed to select a subset of features in both systems. System 2 employs Dilated convolutional neural network on the selected features for audio tagging, and an audio-codebook approach to convert audio features to audio vectors (Audio2vec system) which are then passed to an LSTM network for audio events boundary prediction. System 3 is based on multiple instance learning problem using variational auto encoder (VAE) to perform audio event tagging and segmentation. Similar to system 2, here a LSTM network is used for audio segmentation. Finally, we have utilized models based on score-fusion among different systems to improve the final results.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         MFCC, ZCR, energy, spectral centroid, pitch; log-mel Spectrograms, MFCC
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         ensemble; MLP, CNN, RNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         thresholding; median filtering, ensembling, hard Thresholding
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Ghaffarzadegan2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Ghaffarzadegan_184.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Ghaffarzadegan2017label" class="modal fade" id="bibtex-Ghaffarzadegan2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexGhaffarzadegan2017label">
+        Bosch Rare Sound Events Detection Systems for DCASE2017 Challenge
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Ghaffarzadegan2017,
+    Author = "Ghaffarzadegan, Shabnam and Salekin, Asif and Das, Samarjit and Feng, Zhe",
+    title = "Bosch Rare Sound Events Detection Systems for {DCASE2017} Challenge",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "In this report, we describe three systems designed at BOSCH for rare audio sound events detection task of DCASE 2017 challenge. The first system is an end-to-end audio event segmentation using embeddings based on deep convolutional neural network (DCNN) and deep recurrent neural network (DRNN) trained on Mel-filter banks and spectogram features. Both system 2 and 3 contain two parts: audio event tagging and audio event segmentation. Audio event tagging selects the positive audio recordings (containing audio events), which are later processed by the audio segmentation part. Feature selection method has been deployed to select a subset of features in both systems. System 2 employs Dilated convolutional neural network on the selected features for audio tagging, and an audio-codebook approach to convert audio features to audio vectors (Audio2vec system) which are then passed to an LSTM network for audio events boundary prediction. System 3 is based on multiple instance learning problem using variational auto encoder (VAE) to perform audio event tagging and segmentation. Similar to system 2, here a LSTM network is used for audio segmentation. Finally, we have utilized models based on score-fusion among different systems to improve the final results."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Heittola2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Heittola2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DCASE 2017 Challenge Setup: Tasks, Datasets and Baseline System
+       </h4>
+<p style="text-align:left">
+        Toni Heittola and Annamaria Mesaros
+       </p>
+<p style="text-align:left">
+<em>
+         Laboratory of Signal Processing, Tampere University of Technology, Tampere, Finland
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Heittola_TUT_task2_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Heittola2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Heittola2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Heittola2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/dcase-2017-challenge-paper.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Heittola2017').collapse('show');window.location.hash='#Heittola2017';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Heittola2017" class="panel-collapse collapse" id="collapse-Heittola2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DCASE 2017 Challenge Setup: Tasks, Datasets and Baseline System
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       DCASE 2017 Challenge consists of four tasks: acoustic scene classification, detection of rare sound events, sound event detection in real-life audio, and large-scale weakly supervised sound event detection for smart cars. This paper presents the setup of these tasks: task definition, dataset, experimental setup, and baseline system results on the development dataset. The baseline systems for all tasks rely on the same implementation using multilayer perceptron and log mel-energies, but differ in the structure of the output layer and the decision making process, as well as the evaluation of system output using task specific metrics.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         MLP
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         median filtering
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Heittola2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/dcase-2017-challenge-paper.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/TUT-ARG/DCASE2017-baseline-system" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Heittola2017label" class="modal fade" id="bibtex-Heittola2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexHeittola2017label">
+        DCASE 2017 Challenge Setup: Tasks, Datasets and Baseline System
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Heittola2017,
+    Author = "Heittola, Toni and Mesaros, Annamaria",
+    title = "{DCASE} 2017 Challenge Setup: Tasks, Datasets and Baseline System",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "DCASE 2017 Challenge consists of four tasks: acoustic scene classification, detection of rare sound events, sound event detection in real-life audio, and large-scale weakly supervised sound event detection for smart cars. This paper presents the setup of these tasks: task definition, dataset, experimental setup, and baseline system results on the development dataset. The baseline systems for all tasks rely on the same implementation using multilayer perceptron and log mel-energies, but differ in the structure of the output layer and the decision making process, as well as the evaluation of system output using task specific metrics."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Jeon2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Jeon2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Nonnegative Matrix Factorization-Based Source Separation with Online Noise Learning for Detection of Rare Sound Events
+       </h4>
+<p style="text-align:left">
+        Kwang Myung Jeon and Hong Kook Kim
+       </p>
+<p style="text-align:left">
+<em>
+         School of Electrical Engineering and Computer Science, Gwangju Institute of Science and Technology, Gwangju, South Korea
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Jeon_GIST_task2_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Jeon2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Jeon2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Jeon2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Jeon_171.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Jeon2017" class="panel-collapse collapse" id="collapse-Jeon2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Nonnegative Matrix Factorization-Based Source Separation with Online Noise Learning for Detection of Rare Sound Events
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this paper, a source separation method based on nonnegative matrix factorization (NMF) with online noise learning (ONL) is proposed for the robust detection of rare sound events. The pro-posed method models the rare sound event into combinations of acoustic dictionaries, which consist of multiple spectral bases. In addition, ONL is adopted during the separation to improve the robustness against unseen noises. The spectra of the sound event separated by the proposed method act as a feature vector for the deep neural network (DNN)-based binary classifier, which deter-mines whether the event has occurred. The evaluation results using the DCASE 2017 Task 2 Dataset show that the proposed source separation method improved the F-score of the baseline DNN classifier by 6.30% while decreasing the error rate by 14.81% on average.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         mixture generation
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies from NMF source separation
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         MLP
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         median filtering
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Jeon2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Jeon_171.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Jeon2017label" class="modal fade" id="bibtex-Jeon2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexJeon2017label">
+        Nonnegative Matrix Factorization-Based Source Separation with Online Noise Learning for Detection of Rare Sound Events
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Jeon2017,
+    Author = "Jeon, Kwang Myung and Kim, Hong Kook",
+    title = "Nonnegative Matrix Factorization-Based Source Separation with Online Noise Learning for Detection of Rare Sound Events",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "In this paper, a source separation method based on nonnegative matrix factorization (NMF) with online noise learning (ONL) is proposed for the robust detection of rare sound events. The pro-posed method models the rare sound event into combinations of acoustic dictionaries, which consist of multiple spectral bases. In addition, ONL is adopted during the separation to improve the robustness against unseen noises. The spectra of the sound event separated by the proposed method act as a feature vector for the deep neural network (DNN)-based binary classifier, which deter-mines whether the event has occurred. The evaluation results using the DCASE 2017 Task 2 Dataset show that the proposed source separation method improved the F-score of the baseline DNN classifier by 6.30\% while decreasing the error rate by 14.81\% on average."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Kaiwu2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Kaiwu2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Audio Events Detection and Classification Using Extended R-FCN Approach
+       </h4>
+<p style="text-align:left">
+        Wang Kaiwu, Yang Liping and Yang Bin
+       </p>
+<p style="text-align:left">
+<em>
+         Key Laboratory of Optoelectronic Technology and Systems (Chongqing University), Ministry of Education, ChongQing University, ChongQing, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Liping_CQU_task2_1</span> <span class="label label-primary">Liping_CQU_task2_2</span> <span class="label label-primary">Liping_CQU_task2_3</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Kaiwu2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Kaiwu2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Kaiwu2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Liping_122.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Kaiwu2017" class="panel-collapse collapse" id="collapse-Kaiwu2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Audio Events Detection and Classification Using Extended R-FCN Approach
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this study, we present a new audio events detection and classification approach based on R-FCN—a state-of-the-art fully convolutional network framework for visual object detection. Spectrogram features of audio signals are used as the input of the approach. The proposed approach consists of two parts like R-FCN network. In the first part, we detect whether there are audio events by the sliding of convolutional kernel in time axis and proposals which possibly contain audio events are generated by RPN (Region Proposal Networks). In the second part, time and frequency information are integrated to classify these proposals and refine their boundaries by R-FCN. Our approach can process arbitrary length audio signals without any post-processing. Experiments on the dataset of IEEE DCASE Challenge 2017 Task 2 show that the proposed approach achieved great performance, an average F score of 91.4 %, Error Rate of 0.16 on the event-based evaluation metrics.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         spectrogram
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         majority vote
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Kaiwu2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Liping_122.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Kaiwu2017label" class="modal fade" id="bibtex-Kaiwu2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexKaiwu2017label">
+        Audio Events Detection and Classification Using Extended R-FCN Approach
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Kaiwu2017,
+    Author = "Kaiwu, Wang and Liping, Yang and Bin, Yang",
+    title = "Audio Events Detection and Classification Using Extended {R-FCN} Approach",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "In this study, we present a new audio events detection and classification approach based on R-FCN—a state-of-the-art fully convolutional network framework for visual object detection. Spectrogram features of audio signals are used as the input of the approach. The proposed approach consists of two parts like R-FCN network. In the first part, we detect whether there are audio events by the sliding of convolutional kernel in time axis and proposals which possibly contain audio events are generated by RPN (Region Proposal Networks). In the second part, time and frequency information are integrated to classify these proposals and refine their boundaries by R-FCN. Our approach can process arbitrary length audio signals without any post-processing. Experiments on the dataset of IEEE DCASE Challenge 2017 Task 2 show that the proposed approach achieved great performance, an average F score of 91.4 \%, Error Rate of 0.16 on the event-based evaluation metrics."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Li2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Li2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        The SEIE-SCUT Systems for IEEE AASP Challenge on DCASE 2017: Deep Learning Techniques for Audio Representation and Classification
+       </h4>
+<p style="text-align:left">
+        Yanxiong Li and Xianku Li
+       </p>
+<p style="text-align:left">
+<em>
+         School of Electronic and Information Engineering, South China University of Technology, Guangzhou, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Li_SCUT_task2_1</span> <span class="label label-primary">Li_SCUT_task2_2</span> <span class="label label-primary">Li_SCUT_task2_3</span> <span class="label label-primary">Li_SCUT_task2_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Li2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Li2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Li2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Li_120.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Li2017" class="panel-collapse collapse" id="collapse-Li2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       The SEIE-SCUT Systems for IEEE AASP Challenge on DCASE 2017: Deep Learning Techniques for Audio Representation and Classification
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this report, we present our works about three tasks of IEEE AASP challenge on DCASE 2017, i.e. task 1: Acoustic Scene Classification (ASC), task 2: detection of rare sound events in artificially created mixtures and task 3: sound event detection in real life recordings. Tasks 2 and 3 belong to the same problem, i.e. Sound Event Detection (SED). We adopt deep learning techniques to extract Deep Audio Feature (DAF) and classify various acoustic scenes or sound events. Specifically, a Deep Neural Network (DNN) is first built for generating the DAF from Mel-Frequency Cepstral Coefficients (MFCCs), and then a Recurrent Neural Network (RNN) of Bi-directional Long Short Term Memory (Bi-LSTM) fed by the DAF is built for ASC and SED. Evaluated on the development datasets of DCASE 2017, our systems are superior to the corresponding baselines for tasks 1 and 2, and our system for task 3 performs as good as the baseline in terms of the predominant metrics.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         DNN(MFCC)
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         Bi-LSTM; DNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         top output probability
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Li2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Li_120.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Li2017label" class="modal fade" id="bibtex-Li2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexLi2017label">
+        The SEIE-SCUT Systems for IEEE AASP Challenge on DCASE 2017: Deep Learning Techniques for Audio Representation and Classification
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Li2017,
+    Author = "Li, Yanxiong and Li, Xianku",
+    title = "The {SEIE-SCUT} Systems for {IEEE} {AASP} Challenge on {DCASE} 2017: Deep Learning Techniques for Audio Representation and Classification",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "In this report, we present our works about three tasks of IEEE AASP challenge on DCASE 2017, i.e. task 1: Acoustic Scene Classification (ASC), task 2: detection of rare sound events in artificially created mixtures and task 3: sound event detection in real life recordings. Tasks 2 and 3 belong to the same problem, i.e. Sound Event Detection (SED). We adopt deep learning techniques to extract Deep Audio Feature (DAF) and classify various acoustic scenes or sound events. Specifically, a Deep Neural Network (DNN) is first built for generating the DAF from Mel-Frequency Cepstral Coefficients (MFCCs), and then a Recurrent Neural Network (RNN) of Bi-directional Long Short Term Memory (Bi-LSTM) fed by the DAF is built for ASC and SED. Evaluated on the development datasets of DCASE 2017, our systems are superior to the corresponding baselines for tasks 1 and 2, and our system for task 3 performs as good as the baseline in terms of the predominant metrics."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Lim2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Lim2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Rare Sound Event Detection Using 1D Convolutional Recurrent Neural Networks
+       </h4>
+<p style="text-align:left">
+        Hyungui Lim<sup>1</sup>, Jeongsoo Park<sup>2,3</sup> and Yoonchang Han<sup>1</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Cochlear.ai, Seoul, Korea, <sup>2</sup>N/A, Cochlear.ai, Seoul, Korea, <sup>3</sup>Music and Audio Research Group, Seoul National University, Seoul, Korea
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Lim_COCAI_task2_1</span> <span class="label label-primary">Lim_COCAI_task2_2</span> <span class="label label-primary">Lim_COCAI_task2_3</span> <span class="label label-primary">Lim_COCAI_task2_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Lim2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Lim2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Lim2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Lim_204.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Lim2017" class="panel-collapse collapse" id="collapse-Lim2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Rare Sound Event Detection Using 1D Convolutional Recurrent Neural Networks
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       Rare sound event detection is a newly proposed task in IEEE DCASE 2017 to identify the presence of monophonic sound event that is classified as an emergency and to detect the onset time of the event. In this paper, we introduce a rare sound event detection system using combination of 1D convolutional neural network (1D ConvNet) and recurrent neural network (RNN) with long short-term memory units (LSTM). A log-amplitude mel-spectrogram is used as an input acoustic feature and the 1D ConvNet is applied in each time domain segment to convert the spectral feature. Then the RNN-LSTM is utilized to incorporate the temporal dependency of the extracted features. The system is evaluated using DCASE 2017 Challenge Task 2 Dataset. Our best result on the test set of the development dataset shows 0.07 and 96.26 of error rate and F-Score on event-based metric, respectively.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         mixture generation
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CRNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         thresholding
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Lim2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Lim_204.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Lim2017label" class="modal fade" id="bibtex-Lim2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexLim2017label">
+        Rare Sound Event Detection Using 1D Convolutional Recurrent Neural Networks
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Lim2017,
+    Author = "Lim, Hyungui and Park, Jeongsoo and Han, Yoonchang",
+    title = "Rare Sound Event Detection Using {1D} Convolutional Recurrent Neural Networks",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "Rare sound event detection is a newly proposed task in IEEE DCASE 2017 to identify the presence of monophonic sound event that is classified as an emergency and to detect the onset time of the event. In this paper, we introduce a rare sound event detection system using combination of 1D convolutional neural network (1D ConvNet) and recurrent neural network (RNN) with long short-term memory units (LSTM). A log-amplitude mel-spectrogram is used as an input acoustic feature and the 1D ConvNet is applied in each time domain segment to convert the spectral feature. Then the RNN-LSTM is utilized to incorporate the temporal dependency of the extracted features. The system is evaluated using DCASE 2017 Challenge Task 2 Dataset. Our best result on the test set of the development dataset shows 0.07 and 96.26 of error rate and F-Score on event-based metric, respectively."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Phan2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Phan2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DNN and CNN with Weighted and Multi-Task Loss Functions for Audio Event Detection
+       </h4>
+<p style="text-align:left">
+        Huy Phan<sup>1</sup>, Martin Krawczyk-Becker<sup>2</sup>, Timo Gerkmann<sup>2</sup> and Alfred Mertins<sup>1</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Institute for Signal Processing, University of Luebeck, Luebeck, Germany, <sup>2</sup>Department of Informatics, University of Hamburg, Hamburg, Germany
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Phan_UniLuebeck_task2_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Phan2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Phan2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Phan2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Phan_174.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Phan2017" class="panel-collapse collapse" id="collapse-Phan2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DNN and CNN with Weighted and Multi-Task Loss Functions for Audio Event Detection
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       This report presents our audio event detection system submitted for Task 2, "Detection of rare sound events", of DCASE 2017 challenge. The proposed system is based on convolutional neural networks (CNNs) and deep neural networks (DNNs) coupled with novel weighted and multi-task loss functions and state-of-the-art phase-aware signal enhancement. The loss functions are tailored for audio event detection in audio streams. The weighted loss is designed to tackle the common issue of imbalanced data in background/foreground classification while the multi-task loss enables the networks to simultaneously model the class distribution and the temporal structures of the target events for recognition. Our proposed systems significantly outperform the challenge baseline, improving F-score from 72.7% to 89.8% and reducing detection error rate from 0.53 to 0.19 on average.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log Gammatone cepstral coefficients
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         tailored-loss DNN+CNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         median filtering
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Phan2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Phan_174.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Phan2017label" class="modal fade" id="bibtex-Phan2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexPhan2017label">
+        DNN and CNN with Weighted and Multi-Task Loss Functions for Audio Event Detection
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Phan2017,
+    Author = "Phan, Huy and Krawczyk-Becker, Martin and Gerkmann, Timo and Mertins, Alfred",
+    title = "{DNN} and {CNN} with Weighted and Multi-Task Loss Functions for Audio Event Detection",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = {This report presents our audio event detection system submitted for Task 2, "Detection of rare sound events", of DCASE 2017 challenge. The proposed system is based on convolutional neural networks (CNNs) and deep neural networks (DNNs) coupled with novel weighted and multi-task loss functions and state-of-the-art phase-aware signal enhancement. The loss functions are tailored for audio event detection in audio streams. The weighted loss is designed to tackle the common issue of imbalanced data in background/foreground classification while the multi-task loss enables the networks to simultaneously model the class distribution and the temporal structures of the target events for recognition. Our proposed systems significantly outperform the challenge baseline, improving F-score from 72.7\% to 89.8\% and reducing detection error rate from 0.53 to 0.19 on average.}
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Ravichandran2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Ravichandran2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Bosch Rare Sound Events Detection Systems for DCASE2017 Challenge
+       </h4>
+<p style="text-align:left">
+        Anravich Ravichandran<sup>1</sup> and Samarjit Das<sup>2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Computer science, University of California, San Diego, USA, <sup>2</sup>Human Machine Interaction, Robert Bosch Research and Technology Center, Palo Alto, USA
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Ghaffarzadegan_BOSCH_task2_1</span> <span class="label label-primary">Ghaffarzadegan_BOSCH_task2_2</span> <span class="label label-primary">Ghaffarzadegan_BOSCH_task2_3</span> <span class="label label-primary">Ravichandran_BOSCH_task2_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Ravichandran2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Ravichandran2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Ravichandran2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Ravichandran_184.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Ravichandran2017" class="panel-collapse collapse" id="collapse-Ravichandran2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Bosch Rare Sound Events Detection Systems for DCASE2017 Challenge
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this report, we describe three systems designed at BOSCH for rare audio sound events detection task of DCASE 2017 challenge. The first system is an end-to-end audio event segmentation using embeddings based on deep convolutional neural network (DCNN) and deep recurrent neural network (DRNN) trained on Mel-filter banks and spectogram features. Both system 2 and 3 contain two parts: audio event tagging and audio event segmentation. Audio event tagging selects the positive audio recordings (containing audio events), which are later processed by the audio segmentation part. Feature selection method has been deployed to select a subset of features in both systems. System 2 employs Dilated convolutional neural network on the selected features for audio tagging, and an audio-codebook approach to convert audio features to audio vectors (Audio2vec system) which are then passed to an LSTM network for audio events boundary prediction. System 3 is based on multiple instance learning problem using variational auto encoder (VAE) to perform audio event tagging and segmentation. Similar to system 2, here a LSTM network is used for audio segmentation. Finally, we have utilized models based on score-fusion among different systems to improve the final results.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         MFCC, ZCR, energy, spectral centroid, pitch; log-mel Spectrograms, MFCC
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         ensemble; MLP, CNN, RNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         thresholding; median filtering, ensembling, hard Thresholding
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Ravichandran2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Ravichandran_184.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Ravichandran2017label" class="modal fade" id="bibtex-Ravichandran2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexRavichandran2017label">
+        Bosch Rare Sound Events Detection Systems for DCASE2017 Challenge
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Ravichandran2017,
+    Author = "Ravichandran, Anravich and Das, Samarjit",
+    title = "Bosch Rare Sound Events Detection Systems for {DCASE2017} Challenge",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "In this report, we describe three systems designed at BOSCH for rare audio sound events detection task of DCASE 2017 challenge. The first system is an end-to-end audio event segmentation using embeddings based on deep convolutional neural network (DCNN) and deep recurrent neural network (DRNN) trained on Mel-filter banks and spectogram features. Both system 2 and 3 contain two parts: audio event tagging and audio event segmentation. Audio event tagging selects the positive audio recordings (containing audio events), which are later processed by the audio segmentation part. Feature selection method has been deployed to select a subset of features in both systems. System 2 employs Dilated convolutional neural network on the selected features for audio tagging, and an audio-codebook approach to convert audio features to audio vectors (Audio2vec system) which are then passed to an LSTM network for audio events boundary prediction. System 3 is based on multiple instance learning problem using variational auto encoder (VAE) to perform audio event tagging and segmentation. Similar to system 2, here a LSTM network is used for audio segmentation. Finally, we have utilized models based on score-fusion among different systems to improve the final results."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Vesperini2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Vesperini2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        A Hierarchic Multi-Scaled Approach for Rare Sound Event Detection
+       </h4>
+<p style="text-align:left">
+        Fabio Vesperini, Diego Droghini, Daniele Ferretti, Emanuele Principi, Leonardo Gabrielli, Stefano Squartini and Francesco Piazza
+       </p>
+<p style="text-align:left">
+<em>
+         Department of Information Engineering, Università Politecnica delle Marche, Ancona, Italy
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Vesperini_UNIVPM_task2_1</span> <span class="label label-primary">Vesperini_UNIVPM_task2_2</span> <span class="label label-primary">Vesperini_UNIVPM_task2_3</span> <span class="label label-primary">Vesperini_UNIVPM_task2_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Vesperini2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Vesperini2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Vesperini2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Vesperini_216.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Vesperini2017" class="panel-collapse collapse" id="collapse-Vesperini2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       A Hierarchic Multi-Scaled Approach for Rare Sound Event Detection
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       We propose a system for rare sound event detection using hierarchical and multi-scaled approach based on Multi Layer Perceptron (MLP) and Convolutional Neural Networks (CNN). It is our contribution to the rare sound event detection task of the IEEE AASP Challenge on Detection and Classification of Acoustic Scenes and Events (DCASE2017). The task consists on detection of event onset from artificially generated mixtures. Acoustic features are extracted from the acoustic signals, successively first event detection stage is performed by an MLP based neural network which proposes contiguous blocks of frames to the second stage. The CNN refines the event detection of the prior network, intrinsically operating on a multi-scaled resolution and discarding blocks that contain background wrongly classified by the MLP as event. Finally the effective onset time of the active event is obtained. The achieved overall error rate and F-measure on the development testset are respectively equal to 0.18 and 90.9%.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         mixture generation
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         MLP, CNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         theshold
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Vesperini2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Vesperini_216.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Vesperini2017label" class="modal fade" id="bibtex-Vesperini2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexVesperini2017label">
+        A Hierarchic Multi-Scaled Approach for Rare Sound Event Detection
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Vesperini2017,
+    Author = "Vesperini, Fabio and Droghini, Diego and Ferretti, Daniele and Principi, Emanuele and Gabrielli, Leonardo and Squartini, Stefano and Piazza, Francesco",
+    title = "A Hierarchic Multi-Scaled Approach for Rare Sound Event Detection",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "We propose a system for rare sound event detection using hierarchical and multi-scaled approach based on Multi Layer Perceptron (MLP) and Convolutional Neural Networks (CNN). It is our contribution to the rare sound event detection task of the IEEE AASP Challenge on Detection and Classification of Acoustic Scenes and Events (DCASE2017). The task consists on detection of event onset from artificially generated mixtures. Acoustic features are extracted from the acoustic signals, successively first event detection stage is performed by an MLP based neural network which proposes contiguous blocks of frames to the second stage. The CNN refines the event detection of the prior network, intrinsically operating on a multi-scaled resolution and discarding blocks that contain background wrongly classified by the MLP as event. Finally the effective onset time of the active event is obtained. The achieved overall error rate and F-measure on the development testset are respectively equal to 0.18 and 90.9\%."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Wang2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Wang2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Multi-Frame Concatenation for Detection of Rare Sound Events Based on Deep Neural Network
+       </h4>
+<p style="text-align:left">
+        Jun Wang and Shengchen Li
+       </p>
+<p style="text-align:left">
+<em>
+         Embedded Artificial Intelligence Laboratory, Beijing University of Posts and Telecommunications, Beijing, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Wang_BUPT_task2_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Wang2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Wang2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Wang2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Wang_164.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Wang2017" class="panel-collapse collapse" id="collapse-Wang2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Multi-Frame Concatenation for Detection of Rare Sound Events Based on Deep Neural Network
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       This paper proposes a Sound Event Detection (SED) system based on Deep Neural Network (DNN). Three DNN-based classifiers are trained for detecting three target sound events including baby cry, glass break and gun shot from the audio streams provided. This paper investigates the influence of different frame concatenation when detecting sound events. Our results illustrate that the number of frames concatenated affects the accuracy of SED. The SED system proposed is tested by Development Datasets provided by Detection of Rare Sound Events in DCASE Challenge 2017. The average accuracy of the detection is that F-score and Error Rate (ER) on event-based metrics are 84.98% and 0.28, respectively.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         DNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         median filtering
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Wang2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Wang_164.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Wang2017label" class="modal fade" id="bibtex-Wang2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexWang2017label">
+        Multi-Frame Concatenation for Detection of Rare Sound Events Based on Deep Neural Network
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Wang2017,
+    Author = "Wang, Jun and Li, Shengchen",
+    title = "Multi-Frame Concatenation for Detection of Rare Sound Events Based on Deep Neural Network",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "This paper proposes a Sound Event Detection (SED) system based on Deep Neural Network (DNN). Three DNN-based classifiers are trained for detecting three target sound events including baby cry, glass break and gun shot from the audio streams provided. This paper investigates the influence of different frame concatenation when detecting sound events. Our results illustrate that the number of frames concatenated affects the accuracy of SED. The SED system proposed is tested by Development Datasets provided by Detection of Rare Sound Events in DCASE Challenge 2017. The average accuracy of the detection is that F-score and Error Rate (ER) on event-based metrics are 84.98\% and 0.28, respectively."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Wang2017a" style="box-shadow: none">
+<div class="panel-heading" id="heading-Wang2017a" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Transfer Learning Based DNN-HMM Hybrid System for Rare Sound Event Detection
+       </h4>
+<p style="text-align:left">
+        Jianfei Wang, Weiqiang Zhang and Jia Liu
+       </p>
+<p style="text-align:left">
+<em>
+         Speech and Audio Technology Laboratory, Tsinghua University, Beijing, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Wang_THU_task2_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Wang2017a" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Wang2017a" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Wang2017a" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Wang_107.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Wang2017a" class="panel-collapse collapse" id="collapse-Wang2017a" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Transfer Learning Based DNN-HMM Hybrid System for Rare Sound Event Detection
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this paper, we propose an improved Deep Neural Network-Hidden Markov Model (DNN-HMM) hybrid system for rare sound event detection. The proposed system leverages transfer learning technology in the neural network training stage. Experiment results indicate that transfer learning is more efficient when the training samples are insufficient. We use the Multi-Layer Perception (MLP) system and standard DNN-HMM system as the baseline. The performance was evaluated on the DCASE2017 task 2 development dataset show that our proposed system outperforms the MLP and DNN-HMM baselines, and finally achieves an average error rate (ER) of 0.38 and 78.3% F1-score on the event-based evaluation. The average error rate of proposed system is 15% and 8% absolutely lower than the MLP and DNN-HMM systems, respectively.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         mixture generation
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         MFCC, log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         DNN, HMM
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         maxout
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Wang2017a" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Wang_107.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Wang2017alabel" class="modal fade" id="bibtex-Wang2017a" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexWang2017alabel">
+        Transfer Learning Based DNN-HMM Hybrid System for Rare Sound Event Detection
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Wang2017a,
+    Author = "Wang, Jianfei and Zhang, Weiqiang and Liu, Jia",
+    title = "Transfer Learning Based {DNN}-{HMM} Hybrid System for Rare Sound Event Detection",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "In this paper, we propose an improved Deep Neural Network-Hidden Markov Model (DNN-HMM) hybrid system for rare sound event detection. The proposed system leverages transfer learning technology in the neural network training stage. Experiment results indicate that transfer learning is more efficient when the training samples are insufficient. We use the Multi-Layer Perception (MLP) system and standard DNN-HMM system as the baseline. The performance was evaluated on the DCASE2017 task 2 development dataset show that our proposed system outperforms the MLP and DNN-HMM baselines, and finally achieves an average error rate (ER) of 0.38 and 78.3\% F1-score on the event-based evaluation. The average error rate of proposed system is 15\% and 8\% absolutely lower than the MLP and DNN-HMM systems, respectively."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Zhou2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Zhou2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Robust Sound Event Detection Through Noise Estimation and Source Separation Using NMF
+       </h4>
+<p style="text-align:left">
+        Qing Zhou and Zuren Feng
+       </p>
+<p style="text-align:left">
+<em>
+         Systems Engineering Institute, Xi'an Jiaotong University, Xi'an, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Zhou_XJTU_task2_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Zhou2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Zhou2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Zhou2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Zhou_114.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Zhou2017" class="panel-collapse collapse" id="collapse-Zhou2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Robust Sound Event Detection Through Noise Estimation and Source Separation Using NMF
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       This paper addresses the problem of sound event detection under non-stationary noises and various real-world acoustic scenes. An effective noise reduction strategy is proposed in this paper which can automatically adapt to background variations. The proposed method is based on supervised non-negative matrix factorization (NMF) for separating target events from noise. The event dictionary is trained offline using the training data of the target event class while the noise dictionary is learned online from the input signal by sparse and low-rank decomposition. Incorporating the estimated noise bases, this method can produce accurate source separation results by reducing noise residue and signal distortion of the reconstructed event spectrogram. Experimental results on DCASE 2017 task 2 dataset show that the proposed method outperforms the baseline system based on multi-layer perceptron classifiers and also another NMF-based method which employs a semi-supervised strategy for noise reduction.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         spectrogram
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         NMF
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         moving average filter
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Zhou2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Zhou_114.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Zhou2017label" class="modal fade" id="bibtex-Zhou2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexZhou2017label">
+        Robust Sound Event Detection Through Noise Estimation and Source Separation Using NMF
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Zhou2017,
+    Author = "Zhou, Qing and Feng, Zuren",
+    title = "Robust Sound Event Detection Through Noise Estimation and Source Separation Using {NMF}",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "This paper addresses the problem of sound event detection under non-stationary noises and various real-world acoustic scenes. An effective noise reduction strategy is proposed in this paper which can automatically adapt to background variations. The proposed method is based on supervised non-negative matrix factorization (NMF) for separating target events from noise. The event dictionary is trained offline using the training data of the target event class while the noise dictionary is learned online from the input signal by sparse and low-rank decomposition. Incorporating the estimated noise bases, this method can produce accurate source separation results by reducing noise residue and signal distortion of the reconstructed event spectrogram. Experimental results on DCASE 2017 task 2 dataset show that the proposed method outperforms the baseline system based on multi-layer perceptron classifiers and also another NMF-based method which employs a semi-supervised strategy for noise reduction."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script>
+(function($) {
+    $(document).ready(function() {
+        var hash = window.location.hash.substr(1);
+        var anchor = window.location.hash;
+
+        var shiftWindow = function() {
+            var hash = window.location.hash.substr(1);
+            if($('#collapse-'+hash).length){
+                scrollBy(0, -100);
+            }
+        };
+        window.addEventListener("hashchange", shiftWindow);
+
+        if (window.location.hash){
+            window.scrollTo(0, 0);
+            history.replaceState(null, document.title, "#");
+
+            $('#collapse-'+hash).collapse('show');
+            setTimeout(function(){
+                window.location.hash = anchor;
+                shiftWindow();
+            }, 2000);
+        }
+    });
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

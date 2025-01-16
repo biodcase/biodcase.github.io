@@ -1,0 +1,1082 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Audio tagging with noisy labels and minimal supervision - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Audio tagging with noisy labels and minimal supervision - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2019/task-audio-tagging">
+    <meta property="og:url" content="https://dcase.community/challenge2019/task-audio-tagging" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="This task evaluates systems for multi-label audio tagging using a small set of manually-labeled data, and a larger set of noisy-labeled data, under a large vocabulary setting. This task will provide insight towards the development of broadly-applicable sound event classifiers able to cope with label noise and minimal supervision conditions …" />
+    <meta name="og:description" content="This task evaluates systems for multi-label audio tagging..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2019</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2019/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2019/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>Results</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-acoustic-scene-classification-results-a"><i class="fa fa-bar-chart"></i>&nbsp;Subtask A</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-acoustic-scene-classification-results-b"><i class="fa fa-bar-chart"></i>&nbsp;Subtask B</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-acoustic-scene-classification-results-c"><i class="fa fa-bar-chart"></i>&nbsp;Subtask C</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2019/task-audio-tagging" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-tags text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-audio-tagging"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-audio-tagging-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-localization-and-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-localization-and-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-localization-and-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-detection-in-domestic-environments" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-detection-in-domestic-environments"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-detection-in-domestic-environments-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2019/task-urban-sound-tagging" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-urban text-danger"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-urban-sound-tagging"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-urban-sound-tagging-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2019/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2019/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge awards">
+        <a href="http://localhost:3000/challenge2019/awards"><i class="fa fa-trophy"></i>&nbsp;Awards</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/crystal-14.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-success"></i><i class="fa dc-tags fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text">Tags</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 2</span></span><img src="../images/logos/dcase/dcase2019_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Audio tagging with noisy labels and minimal supervision</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Task description</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Coordinators</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Eduardo Fonseca" class="img img-circle" src="http://localhost:3000/images/person/eduardo_fonseca.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Eduardo Fonseca</strong>
+<a class="icon" href="mailto:eduardo.fonseca@upf.edu"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://www.mtg.upf.edu/">
+                                Universitat Pompeu Fabra
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Manoj Plakal" class="img img-circle" src="http://localhost:3000/images/person/manoj_plakal.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Manoj Plakal</strong>
+<a class="icon" href="mailto:plakal@google.com"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://research.google.com/">
+                                Google, Inc.
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Frederic Font Corbera" class="img img-circle" src="http://localhost:3000/images/person/frederic_font.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Frederic Font Corbera</strong>
+<a class="icon" href="mailto:frederic.font@upf.edu"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://www.mtg.upf.edu/">
+                                Universitat Pompeu Fabra
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Daniel P. W. Ellis" class="img img-circle" src="http://localhost:3000/images/person/dan_ellis.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Daniel P. W. Ellis</strong>
+<a class="icon" href="mailto:dpwe@google.com"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://research.google.com/">
+                                Google, Inc.
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#description">Description</a></li>
+<li><a href="#audio-dataset">Audio dataset</a>
+<ul>
+<li><a href="#ground-truth-labels">Ground truth labels</a></li>
+<li><a href="#download">Download</a></li>
+</ul>
+</li>
+<li><a href="#task-setup">Task setup</a>
+<ul>
+<li><a href="#train-set">Train set</a></li>
+<li><a href="#test-set">Test set</a></li>
+</ul>
+</li>
+<li><a href="#submission-and-evaluation">Submission and evaluation</a>
+<ul>
+<li><a href="#evaluation-metric">Evaluation metric</a></li>
+</ul>
+</li>
+<li><a href="#task-rules">Task rules</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#baseline-system">Baseline system</a></li>
+<li><a href="#citation">Citation</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p class="lead">This task evaluates systems for multi-label audio tagging using a small set of manually-labeled data, and a larger set of noisy-labeled data, under a large vocabulary setting. This task will provide insight towards the development of broadly-applicable sound event classifiers able to cope with label noise and minimal supervision conditions.</p>
+<p class="alert alert-info">
+<strong>Challenge has ended.</strong> Full results for this task can be found in the <a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2019/task-audio-tagging-results">Results <i class="fa fa-caret-right"></i></a> page.
+</p>
+<h1 id="description">Description</h1>
+<p>Current machine learning techniques require large and varied datasets in order to provide good performance and generalization. However, manually labelling a dataset is expensive and time-consuming, which limits its size. Websites like Youtube, Freesound, or Flickr host large volumes of user-contributed audio and metadata, and labels can be inferred automatically from the metadata and/or making predictions with pre-trained models. Nevertheless, these automatically inferred labels might include a substantial level of label noise. </p>
+<p>The main research question addressed in this task is how to adequately exploit a small amount of reliable, manually-labeled data, and a larger quantity of noisy web audio data in a multi-label audio tagging task with a large vocabulary setting. In addition, since the data comes from different sources, the task encourages domain adaptation approaches to deal with a potential domain mismatch.</p>
+<figure>
+<div class="row row-centered">
+<div class="col-xs-10 col-md-6 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2019/task2_freesound_audio_tagging.png"/>
+<figcaption>Figure 1: Overview of a multi-label tagging system.</figcaption>
+</div>
+</div>
+</figure>
+<p><br/></p>
+<p>This task is <strong>hosted on Kaggle</strong>, a platform that hosts machine learning competitions with a vibrant community of participants. The resources associated to this task (datasets, leaderboard and submission) as well as detailed information about how to participate are provided in the corresponding <a href="https://www.kaggle.com/c/freesound-audio-tagging-2019" target="_blank">Kaggle competition page</a> (note this task is named <strong>Freesound Audio Tagging 2019</strong> on Kaggle). What follows in this page is a summary of the most important aspects of the challenge. For full information please refer to the Kaggle competition page.</p>
+<h1 id="audio-dataset">Audio dataset</h1>
+<p>The dataset used in this task is called <strong>FSDKaggle2019</strong>, and it employs audio clips from the following sources:</p>
+<ul>
+<li>Freesound Dataset (<a href="https://annotator.freesound.org/fsd/">FSD</a>): a dataset being collected at the <a href="https://www.upf.edu/web/mtg">Music Technology Group</a> based on <a href="https://freesound.org/">Freesound</a> content organized with the <a href="https://research.google.com/audioset////////ontology/index.html">AudioSet Ontology</a> </li>
+<li>The soundtracks of a pool of Flickr videos taken from <a href="https://multimediacommons.wordpress.com/yfcc100m-core-dataset/">Yahoo Flickr Creative Commons 100M dataset (YFCC)</a> </li>
+</ul>
+<p>The audio data is labeled using a vocabulary of 80 labels from Google's <a href="https://research.google.com/audioset////////ontology/index.html">AudioSet Ontology</a>, covering diverse topics as shown in the pie chart below.</p>
+<div id="task2chart"></div>
+<p><br/></p>
+<p>The full list of categories can be inspected in the <a href="https://www.kaggle.com/c/freesound-audio-tagging-2019/data">data section of the Kaggle competition page</a>. Details on the <a href="https://research.google.com/audioset////////ontology/index.html">AudioSet Ontology</a> can be found in:</p>
+<div class="btex-item" data-item="Gemmeke2017audioset" data-source="content/data/challenge2019/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Gemmeke2017audioset"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Jort F. Gemmeke, Daniel P. W. Ellis, Dylan Freedman, Aren Jansen, Wade Lawrence, R. Channing Moore, Manoj Plakal, and Marvin Ritter.
+<em>Audio set: an ontology and human-labeled dataset for audio events.</em>
+In Proc. IEEE ICASSP 2017. New Orleans, LA, 2017.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexGemmeke2017audioset4982ab60be5140dfbe6e8b09e47191eb" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://ai.google/research/pubs/pub45857.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseGemmeke2017audioset4982ab60be5140dfbe6e8b09e47191eb" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseGemmeke2017audioset4982ab60be5140dfbe6e8b09e47191eb" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingGemmeke2017audioset4982ab60be5140dfbe6e8b09e47191eb" class="panel-collapse collapse" id="collapseGemmeke2017audioset4982ab60be5140dfbe6e8b09e47191eb" role="tabpanel">
+<h4>Audio Set: An ontology and human-labeled dataset for audio events</h4>
+<h5>Abstract</h5>
+<p class="text-justify">Audio event recognition, the human-like ability to identify and relate sounds from audio, is a nascent problem in machine perception. Comparable problems such as object detection in images have reaped enormous benefits from comprehensive datasets - principally ImageNet. This paper describes the creation of Audio Set, a large-scale dataset of manually-annotated audio events that endeavors to bridge the gap in data availability between image and audio research. Using a carefully structured hierarchical ontology of 632 audio classes guided by the literature and manual curation, we collect data from human labelers to probe the presence of specific audio classes in 10 second segments of YouTube videos. Segments are proposed for labeling using searches based on metadata, context (e.g., links), and content analysis. The result is a dataset of unprecedented breadth and size that will, we hope, substantially stimulate the development of high-performance audio event recognizers.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexGemmeke2017audioset4982ab60be5140dfbe6e8b09e47191eb" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://ai.google/research/pubs/pub45857.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexGemmeke2017audioset4982ab60be5140dfbe6e8b09e47191eblabel" class="modal fade" id="bibtexGemmeke2017audioset4982ab60be5140dfbe6e8b09e47191eb" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexGemmeke2017audioset4982ab60be5140dfbe6e8b09e47191eblabel">Audio Set: An ontology and human-labeled dataset for audio events</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Gemmeke2017audioset,
+    author = "Gemmeke, Jort F. and Ellis, Daniel P. W. and Freedman, Dylan and Jansen, Aren and Lawrence, Wade and Moore, R. Channing and Plakal, Manoj and Ritter, Marvin",
+    title = "Audio Set: An ontology and human-labeled dataset for audio events",
+    year = "2017",
+    booktitle = "Proc. IEEE ICASSP 2017",
+    address = "New Orleans, LA",
+    abstract = "Audio event recognition, the human-like ability to identify and relate sounds from audio, is a nascent problem in machine perception. Comparable problems such as object detection in images have reaped enormous benefits from comprehensive datasets - principally ImageNet. This paper describes the creation of Audio Set, a large-scale dataset of manually-annotated audio events that endeavors to bridge the gap in data availability between image and audio research. Using a carefully structured hierarchical ontology of 632 audio classes guided by the literature and manual curation, we collect data from human labelers to probe the presence of specific audio classes in 10 second segments of YouTube videos. Segments are proposed for labeling using searches based on metadata, context (e.g., links), and content analysis. The result is a dataset of unprecedented breadth and size that will, we hope, substantially stimulate the development of high-performance audio event recognizers."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="ground-truth-labels">Ground truth labels</h2>
+<p>The ground truth labels are provided at the clip-level, and express the presence of a sound category in the audio clip, hence can be considered <em>weak</em> labels or tags. Audio clips have variable lengths (roughly from 0.3 to 30s, see more details below).</p>
+<p>The audio content from <a href="https://annotator.freesound.org/fsd/">FSD</a> has been manually labeled by humans following a data labeling process using the <a href="https://annotator.freesound.org/">Freesound Annotator</a> platform. Most labels have inter-annotator agreement but not all of them. More details about the data labeling process and the Freesound Annotator can be found in:</p>
+<div class="btex-item" data-item="Fonseca2017freesound" data-source="content/data/challenge2019/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Fonseca2017freesound"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Eduardo Fonseca, Jordi Pons, Xavier Favory, Frederic Font, Dmitry Bogdanov, Andr<span class="bibtex-protected"><span class="bibtex-protected">é</span></span>s Ferraro, Sergio Oramas, Alastair Porter, and Xavier Serra.
+<em>Freesound datasets: a platform for the creation of open audio datasets.</em>
+In Proceedings of the 18th International Society for Music Information Retrieval Conference (ISMIR 2017), 486–493. Suzhou, China, 2017.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexFonseca2017freesound133b553d5f494cea9cc5e71a3713bcfc" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://repositori.upf.edu/bitstream/handle/10230/33299/fonseca_ismir17_freesound.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseFonseca2017freesound133b553d5f494cea9cc5e71a3713bcfc" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseFonseca2017freesound133b553d5f494cea9cc5e71a3713bcfc" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingFonseca2017freesound133b553d5f494cea9cc5e71a3713bcfc" class="panel-collapse collapse" id="collapseFonseca2017freesound133b553d5f494cea9cc5e71a3713bcfc" role="tabpanel">
+<h4>Freesound Datasets: a platform for the creation of open audio datasets</h4>
+<h5>Abstract</h5>
+<p class="text-justify">Openly available datasets are a key factor in the advancement of data-driven research approaches, including many of the ones used in sound and music computing. In the last few years, quite a number of new audio datasets have been made available but there are still major shortcomings in many of them to have a significant research impact. Among the common shortcomings are the lack of transparency in their creation and the difficulty of making them completely open and sharable. They often do not include clear mechanisms to amend errors and many times they are not large enough for current machine learning needs. This paper introduces Freesound Datasets, an online platform for the collaborative creation of open audio datasets based on principles of transparency, openness, dynamic character, and sustainability. As a proof-of-concept, we present an early snapshot of a large-scale audio dataset built using this platform. It consists of audio samples from Freesound organised in a hierarchy based on the AudioSet Ontology. We believe that building and maintaining datasets following the outlined principles and using open tools and collaborative approaches like the ones presented here will have a significant impact in our research community.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexFonseca2017freesound133b553d5f494cea9cc5e71a3713bcfc" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://repositori.upf.edu/bitstream/handle/10230/33299/fonseca_ismir17_freesound.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexFonseca2017freesound133b553d5f494cea9cc5e71a3713bcfclabel" class="modal fade" id="bibtexFonseca2017freesound133b553d5f494cea9cc5e71a3713bcfc" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexFonseca2017freesound133b553d5f494cea9cc5e71a3713bcfclabel">Freesound Datasets: a platform for the creation of open audio datasets</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Fonseca2017freesound,
+    Author = "Fonseca, Eduardo and Pons, Jordi and Favory, Xavier and Font, Frederic and Bogdanov, Dmitry and Ferraro, Andr{\'{e}}s and Oramas, Sergio and Porter, Alastair and Serra, Xavier",
+    title = "Freesound Datasets: a platform for the creation of open audio datasets",
+    booktitle = "Proceedings of the 18th International Society for Music Information Retrieval Conference (ISMIR 2017)",
+    year = "2017",
+    address = "Suzhou, China",
+    pages = "486-493",
+    abstract = "Openly available datasets are a key factor in the advancement of data-driven research approaches, including many of the ones used in sound and music computing. In the last few years, quite a number of new audio datasets have been made available but there are still major shortcomings in many of them to have a significant research impact. Among the common shortcomings are the lack of transparency in their creation and the difficulty of making them completely open and sharable. They often do not include clear mechanisms to amend errors and many times they are not large enough for current machine learning needs. This paper introduces Freesound Datasets, an online platform for the collaborative creation of open audio datasets based on principles of transparency, openness, dynamic character, and sustainability. As a proof-of-concept, we present an early snapshot of a large-scale audio dataset built using this platform. It consists of audio samples from Freesound organised in a hierarchy based on the AudioSet Ontology. We believe that building and maintaining datasets following the outlined principles and using open tools and collaborative approaches like the ones presented here will have a significant impact in our research community."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The <a href="https://multimediacommons.wordpress.com/yfcc100m-core-dataset/">YFCC</a> soundtracks were labeled using automated heuristics applied to the audio content and metadata of the original Flickr clips. Hence, a substantial amount of label noise can be expected. The label noise can vary widely in amount and type depending on the category, including in- and out-of-vocabulary noises. More information about some of the types of label noise that can be encountered is available in:</p>
+<div class="btex-item" data-item="Fonseca2019learning" data-source="content/data/challenge2019/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Fonseca2019learning"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Eduardo Fonseca, Manoj Plakal, Daniel P. W. Ellis, Frederic Font, Xavier Favory, and Xavier Serra.
+<em>Learning sound event classifiers from web audio with noisy labels.</em>
+In Proc. IEEE ICASSP 2019. Brighton, UK, 2019.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexFonseca2019learning4aca9a74ceb040bbb28f66dcf6cda5c3" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/1901.01189.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseFonseca2019learning4aca9a74ceb040bbb28f66dcf6cda5c3" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseFonseca2019learning4aca9a74ceb040bbb28f66dcf6cda5c3" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingFonseca2019learning4aca9a74ceb040bbb28f66dcf6cda5c3" class="panel-collapse collapse" id="collapseFonseca2019learning4aca9a74ceb040bbb28f66dcf6cda5c3" role="tabpanel">
+<h4>Learning Sound Event Classifiers from Web Audio with Noisy Labels</h4>
+<h5>Abstract</h5>
+<p class="text-justify">As sound event classification moves towards larger datasets, issues of label noise become inevitable. Web sites can supply large volumes of user-contributed audio and metadata, but inferring labels from this metadata introduces errors due to unreliable inputs, and limitations in the mapping. There is, however, little research into the impact of these errors. To foster the investigation of label noise in sound event classification we present FSDnoisy18k, a dataset containing 42.5 hours of audio across 20 sound classes, including a small amount of manually-labeled data and a larger quantity of real-world noisy data. We characterize the label noise empirically, and provide a CNN baseline system. Experiments suggest that training with large amounts of noisy data can outperform training with smaller amounts of carefully-labeled data. We also show that noise-robust loss functions can be effective in improving performance in presence of corrupted labels.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexFonseca2019learning4aca9a74ceb040bbb28f66dcf6cda5c3" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/1901.01189.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexFonseca2019learning4aca9a74ceb040bbb28f66dcf6cda5c3label" class="modal fade" id="bibtexFonseca2019learning4aca9a74ceb040bbb28f66dcf6cda5c3" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexFonseca2019learning4aca9a74ceb040bbb28f66dcf6cda5c3label">Learning Sound Event Classifiers from Web Audio with Noisy Labels</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Fonseca2019learning,
+    author = "Fonseca, Eduardo and Plakal, Manoj and Ellis, Daniel P. W. and Font, Frederic and Favory, Xavier and Serra, Xavier",
+    title = "Learning Sound Event Classifiers from Web Audio with Noisy Labels",
+    year = "2019",
+    booktitle = "Proc. IEEE ICASSP 2019",
+    address = "Brighton, UK",
+    abstract = "As sound event classification moves towards larger datasets, issues of label noise become inevitable. Web sites can supply large volumes of user-contributed audio and metadata, but inferring labels from this metadata introduces errors due to unreliable inputs, and limitations in the mapping. There is, however, little research into the impact of these errors. To foster the investigation of label noise in sound event classification we present FSDnoisy18k, a dataset containing 42.5 hours of audio across 20 sound classes, including a small amount of manually-labeled data and a larger quantity of real-world noisy data. We characterize the label noise empirically, and provide a CNN baseline system. Experiments suggest that training with large amounts of noisy data can outperform training with smaller amounts of carefully-labeled data. We also show that noise-robust loss functions can be effective in improving performance in presence of corrupted labels."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Further information on the <a href="https://multimediacommons.wordpress.com/yfcc100m-core-dataset/">YFCC</a> dataset can be found in:</p>
+<div class="btex-item" data-item="Thomee:2016:YND:2886013.2812802" data-source="content/data/challenge2019/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Thomee:2016:YND:2886013.2812802"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Bart Thomee, David A. Shamma, Gerald Friedland, Benjamin Elizalde, Karl Ni, Douglas Poland, Damian Borth, and Li-Jia Li.
+<em>YFCC100M: the new data in multimedia research.</em>
+<em>Commun. ACM</em>, 59(2):64–73, January 2016.
+URL: <a href="http://doi.acm.org/10.1145/2812802">http://doi.acm.org/10.1145/2812802</a>, <a href="https://doi.org/10.1145/2812802">doi:10.1145/2812802</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexThomee:2016:YND:2886013.28128027ea54b28bbee4e599c60f5c00aef7e78" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://dl.acm.org/citation.cfm?id=2812802" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseThomee:2016:YND:2886013.28128027ea54b28bbee4e599c60f5c00aef7e78" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseThomee:2016:YND:2886013.28128027ea54b28bbee4e599c60f5c00aef7e78" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingThomee:2016:YND:2886013.28128027ea54b28bbee4e599c60f5c00aef7e78" class="panel-collapse collapse" id="collapseThomee:2016:YND:2886013.28128027ea54b28bbee4e599c60f5c00aef7e78" role="tabpanel">
+<h4>YFCC100M: The New Data in Multimedia Research</h4>
+<h5>Abstract</h5>
+<p class="text-justify">This publicly available curated dataset of almost 100 million photos and videos is free and legal for all.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexThomee:2016:YND:2886013.28128027ea54b28bbee4e599c60f5c00aef7e78" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://dl.acm.org/citation.cfm?id=2812802" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexThomee:2016:YND:2886013.28128027ea54b28bbee4e599c60f5c00aef7e78label" class="modal fade" id="bibtexThomee:2016:YND:2886013.28128027ea54b28bbee4e599c60f5c00aef7e78" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexThomee:2016:YND:2886013.28128027ea54b28bbee4e599c60f5c00aef7e78label">YFCC100M: The New Data in Multimedia Research</h4>
+</div>
+<div class="modal-body">
+<pre>@article{Thomee:2016:YND:2886013.2812802,
+    author = "Thomee, Bart and Shamma, David A. and Friedland, Gerald and Elizalde, Benjamin and Ni, Karl and Poland, Douglas and Borth, Damian and Li, Li-Jia",
+    title = "{YFCC100M}: The New Data in Multimedia Research",
+    journal = "Commun. ACM",
+    issue_date = "February 2016",
+    volume = "59",
+    number = "2",
+    month = "January",
+    year = "2016",
+    issn = "0001-0782",
+    pages = "64--73",
+    numpages = "10",
+    url = "http://doi.acm.org/10.1145/2812802",
+    doi = "10.1145/2812802",
+    acmid = "2812802",
+    publisher = "ACM",
+    address = "New York, NY, USA",
+    abstract = "This publicly available curated dataset of almost 100 million photos and videos is free and legal for all."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="download">Download</h2>
+<p>The <strong>FSDKaggle2019</strong> dataset used in this task can be downloaded from the <a href="https://www.kaggle.com/c/freesound-audio-tagging-2019/data">Kaggle competition page</a>. The audio files of this dataset are released under Creative Commons (CC) licenses, some of them requiring attribution to their original authors and some forbidding further commercial reuse. Please check information in the <a href="https://www.kaggle.com/c/freesound-audio-tagging-2019/data">data section</a> of the Kaggle competition page for more information about <strong>usage restrictions</strong> and <strong>sound licenses</strong>. </p>
+<h1 id="task-setup">Task setup</h1>
+<p>The task consists of predicting the audio labels (tags) for every test clip. Some test clips bear one label while others bear several labels. The predictions are to be done at the clip level, i.e., no start/end timestamps for the sound events are required. The dataset for this task is split into a <strong>train set</strong> and a <strong>test set</strong>. </p>
+<h2 id="train-set">Train set</h2>
+<p>The <strong>train set</strong> is meant to be for system development. The idea is to limit the supervision provided (i.e., the manually-labeled data), thus promoting novel approaches to deal with label noise. The train set is composed of two subsets:</p>
+<ul>
+<li><strong>Curated subset</strong>: a small set of manually-labeled data from <a href="https://annotator.freesound.org/fsd/">FSD</a>. <ul>
+<li>Number of clips/class: 75 except in a few cases (where there are less)</li>
+<li>Total number of clips: 4970</li>
+<li>Avge number of labels/clip: 1.2</li>
+<li>Total duration: 10.5 hours</li>
+<li>The duration of the audio clips ranges from 0.3 to 30s due to the diversity of the sound categories and the preferences of Freesound users when recording/uploading sounds. It can happen that a few of these audio clips present additional acoustic material beyond the provided ground truth label(s).</li>
+</ul>
+</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>Noisy subset</strong>: a larger set of noisy web audio data from Flickr videos taken from <a href="https://multimediacommons.wordpress.com/yfcc100m-core-dataset/">YFCC</a>.<ul>
+<li>Number of clips/class: 300</li>
+<li>Total number of clips: 19815</li>
+<li>Avge number of labels/clip: 1.2</li>
+<li>Total duration: ~80 hours</li>
+<li>The duration of the audio clips ranges from 1s to 15s, with the vast majority lasting 15s.</li>
+</ul>
+</li>
+</ul>
+<p><br/></p>
+<p>Considering the numbers above, per-class data distribution available for training is, for most of the classes, 300 clips from the noisy subset and 75 clips from the curated subset, which means 80% noisy - 20% curated at the clip level (not at the audio duration level, considering the variable-length clips).</p>
+<h2 id="test-set">Test set</h2>
+<p>The <strong>test set</strong> is used for system evaluation and consists of manually-labeled data from <a href="https://annotator.freesound.org/fsd/">FSD</a>. Since most of the train data come from <a href="https://multimediacommons.wordpress.com/yfcc100m-core-dataset/">YFCC</a>, some acoustic domain mismatch between the train and test set can be expected. All the acoustic material present in the test set is labeled, except human error, considering the vocabulary of 80 classes used in the competition.</p>
+<p>The test set is split into two subsets, for the <strong>public</strong> and <strong>private</strong> leaderboards of the <a href="https://www.kaggle.com/c/freesound-audio-tagging-2019/data">Kaggle competition page</a>. In this competition, the submission is to be made through Kaggle Kernels. Only the subset corresponding to the public leaderboard is provided (without ground truth).</p>
+<h1 id="submission-and-evaluation">Submission and evaluation</h1>
+<p>Submissions are to be done through the Kaggle platform using Kaggle Kernels, and are evaluated with the <em>lwlrap</em> evaluation metric (see below). Participants can decide to train also in the Kaggle Kernels or offline. More information about submission using Kaggle kernels can be found in the <a href="https://www.kaggle.com/c/freesound-audio-tagging-2019#Kernels-Requirements">competition page</a>.</p>
+<h2 id="evaluation-metric">Evaluation metric</h2>
+<p>The primary competition metric is <strong>label-weighted</strong> <a href="https://scikit-learn.org/stable/modules/model_evaluation.html#label-ranking-average-precision"><strong>label-ranking average precision</strong></a> (<em>lwlrap</em>, pronounced "Lol wrap"). This measures the average precision of retrieving a ranked list of relevant labels for each test clip (i.e., the system ranks all the available labels, then the precisions of the ranked lists down to each true label are averaged). This is a generalization of the mean reciprocal rank measure (used in <a href="http://dcase.community/challenge2018/task-general-purpose-audio-tagging#submission-and-evaluation">last year's edition of the challenge</a>) for the case where there can be multiple true labels per test item. The novel "label-weighted" part means that the overall score is the average over all the labels in the test set, where each label receives equal weight (by contrast, plain <em>lrap</em> gives each test item equal weight, thereby discounting the contribution of individual labels when they appear on the same item as multiple other labels).</p>
+<p>We use label weighting because it allows per-class values to be calculated, and still have the overall metric be expressed as simple average of the per-class metrics (weighted by each label's prior in the test set). For participant's convenience, a Python implementation of lwlrap is provided in this <a href="https://colab.research.google.com/drive/1AgPdhSp7ttY18O3fEoHOQKlt_3HJDLi8">Google Colab</a>.</p>
+<h1 id="task-rules">Task rules</h1>
+<p>The most important rules include:</p>
+<ul>
+<li>Unlike last year's edition of this task, participants <strong>are not allowed</strong> to use external data for system development. This also excludes the use of <strong>pre-trained</strong> models.</li>
+<li>Participants <strong>are not allowed</strong> to make subjective judgements of the test data, nor to annotate it (this includes the use of statistics about the evaluation dataset in the decision making). The test set cannot be used to train the submitted system.</li>
+<li>The winning teams are required to publish their systems under an <strong>open-source license</strong> in order to be considered winners.</li>
+</ul>
+<p>As usual, further details about competition rules are given in the <a href="https://www.kaggle.com/c/freesound-audio-tagging-2019/rules">Rules section</a> of the competition page.</p>
+<h1 id="results">Results</h1>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="eval_score" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="4">Submission Information</th>
+<th class="sep-left-cell" colspan="2"></th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Submission code
+            </th>
+<th class="sep-left-cell" data-field="corresponding_author" data-sortable="false">
+                Author
+            </th>
+<th class="sm-cell" data-field="corresponding_affiliation" data-sortable="false">
+                Affiliation
+            </th>
+<th class="sep-left-cell text-center" data-field="external_anchor" data-sortable="false" data-value-type="url">
+                Tech. report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="lwlrap (public LB)" data-chartable="true" data-field="eval_score_public_lb" data-sortable="true" data-value-type="float4">
+                lwlrap <br/><br/>(public LB)
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="lwlrap (private LB)" data-chartable="true" data-field="eval_score" data-sortable="true" data-value-type="float4">
+                lwlrap <br/><br/>(private LB*)
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr class="danger">
+<td></td>
+<td>Zhang_THU_task2_2</td>
+<td>Weiqiang Zhang</td>
+<td>Department of Electronic Engineering (THU), Tsinghua University, Beijing, China.</td>
+<td>task-audio-tagging-results#Zhang2019</td>
+<td>0.7392</td>
+<td>0.7577</td>
+</tr>
+<tr class="danger">
+<td></td>
+<td>Zhang_THU_task2_1</td>
+<td>Weiqiang Zhang</td>
+<td>Department of Electronic Engineering (THU), Tsinghua University, Beijing, China.</td>
+<td>task-audio-tagging-results#Zhang2019</td>
+<td>0.7423</td>
+<td>0.7575</td>
+</tr>
+<tr class="danger">
+<td></td>
+<td>Boqing_NUDT_task2_1</td>
+<td>Zhu Boqing</td>
+<td>College of Computer (NUDT), National University of Defense Technology, Changsha, Changsha, China.</td>
+<td>task-audio-tagging-results#Boqing2019</td>
+<td>0.7253</td>
+<td>0.7240</td>
+</tr>
+<tr>
+<td></td>
+<td>Boqing_NUDT_task2_3</td>
+<td>Zhu Boqing</td>
+<td>College of Computer (NUDT), National University of Defense Technology, Changsha, Changsha, China.</td>
+<td>task-audio-tagging-results#Boqing2019</td>
+<td>0.7119</td>
+<td>0.6777</td>
+</tr>
+<tr class="danger">
+<td></td>
+<td>Boqing_NUDT_task2_2</td>
+<td>Zhu Boqing</td>
+<td>College of Computer (NUDT), National University of Defense Technology, Changsha, Changsha, China.</td>
+<td>task-audio-tagging-results#Boqing2019</td>
+<td>0.7235</td>
+<td>0.7232</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_BIsmart_task2_3</td>
+<td>Jihang Zhang</td>
+<td>Data Analyst (BIsmart), getBIsmart, Irvine, California, USA.</td>
+<td>task-audio-tagging-results#Zhang2019b</td>
+<td>0.7126</td>
+<td>0.7144</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_BIsmart_task2_2</td>
+<td>Jihang Zhang</td>
+<td>Data Analyst (BIsmart), getBIsmart, Irvine, California, USA.</td>
+<td>task-audio-tagging-results#Zhang2019b</td>
+<td>0.7298</td>
+<td>0.7338</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_BIsmart_task2_1</td>
+<td>Jihang Zhang</td>
+<td>Data Analyst (BIsmart), getBIsmart, Irvine, California, USA.</td>
+<td>task-audio-tagging-results#Zhang2019b</td>
+<td>0.7304</td>
+<td>0.7338</td>
+</tr>
+<tr class="danger">
+<td></td>
+<td>Kong_SURREY_task2_1</td>
+<td>Qiuqiang Kong</td>
+<td>Centre for Vision, Speech and Signal Processing (CVSSP) (SURREY), University of Surrey, Guildford, England.</td>
+<td>task-audio-tagging-results#Kong2019</td>
+<td>0.5803</td>
+<td>0.0000</td>
+</tr>
+<tr>
+<td></td>
+<td>BOUTEILLON_NOORG_task2_2</td>
+<td>Eric Bouteillon</td>
+<td>NOORG, No Organization, France.</td>
+<td>task-audio-tagging-results#Bouteillon2019</td>
+<td>0.7331</td>
+<td>0.7419</td>
+</tr>
+<tr>
+<td></td>
+<td>BOUTEILLON_NOORG_task2_1</td>
+<td>Eric Bouteillon</td>
+<td>NOORG, No Organization, France.</td>
+<td>task-audio-tagging-results#Bouteillon2019</td>
+<td>0.7389</td>
+<td>0.7519</td>
+</tr>
+<tr>
+<td></td>
+<td>Akiyama_OU_task2_2</td>
+<td>Osamu Akiyama</td>
+<td>Faculty of Medicine (OU), Osaka University, Osaka, Japan.</td>
+<td>task-audio-tagging-results#Akiyama2019</td>
+<td>0.7474</td>
+<td>0.7579</td>
+</tr>
+<tr>
+<td></td>
+<td>Akiyama_OU_task2_1</td>
+<td>Osamu Akiyama</td>
+<td>Faculty of Medicine (OU), Osaka University, Osaka, Japan.</td>
+<td>task-audio-tagging-results#Akiyama2019</td>
+<td>0.7504</td>
+<td>0.7577</td>
+</tr>
+<tr>
+<td></td>
+<td>Sun_BNU_task2_1</td>
+<td>Bo Sun</td>
+<td>College of Information Science and Technology (BNU), Bejing Normal University, Beijing, Beijing, China.</td>
+<td>task-audio-tagging-results#Sun2019</td>
+<td>0.6320</td>
+<td>0.6443</td>
+</tr>
+<tr>
+<td></td>
+<td>Ebbers_UPB_task2_3</td>
+<td>Janek Ebbers</td>
+<td>Communications Engineering (UPB), Paderborn University, Paderborn, Germany.</td>
+<td>task-audio-tagging-results#Ebbers2019</td>
+<td>0.7071</td>
+<td>0.0000</td>
+</tr>
+<tr>
+<td></td>
+<td>Ebbers_UPB_task2_2</td>
+<td>Janek Ebbers</td>
+<td>Communications Engineering (UPB), Paderborn University, Paderborn, Germany.</td>
+<td>task-audio-tagging-results#Ebbers2019</td>
+<td>0.7262</td>
+<td>0.7456</td>
+</tr>
+<tr>
+<td></td>
+<td>Ebbers_UPB_task2_1</td>
+<td>Janek Ebbers</td>
+<td>Communications Engineering (UPB), Paderborn University, Paderborn, Germany.</td>
+<td>task-audio-tagging-results#Ebbers2019</td>
+<td>0.7305</td>
+<td>0.7552</td>
+</tr>
+<tr>
+<td></td>
+<td>HongXiaoFeng_BUPT_task2_1</td>
+<td>Xiaofeng Hong</td>
+<td>Pattern Recognition and Intelligent System Laboratory (PRIS Lab) (BUPT), Beijing University of Posts and Telecommunications, Beijing, China.</td>
+<td>task-audio-tagging-results#Hong2019</td>
+<td>0.6991</td>
+<td>0.7152</td>
+</tr>
+<tr>
+<td></td>
+<td>HongXiaoFeng_BUPT_task2_2</td>
+<td>Xiaofeng Hong</td>
+<td>Pattern Recognition and Intelligent System Laboratory (PRIS Lab) (BUPT), Beijing University of Posts and Telecommunications, Beijing, China.</td>
+<td>task-audio-tagging-results#Hong2019</td>
+<td>0.6991</td>
+<td>0.7149</td>
+</tr>
+<tr class="danger">
+<td></td>
+<td>Kharin_MePhI_task2_1</td>
+<td>Alexander Kharin</td>
+<td>laboratory of bionanophotonics (MePhI), National Research Nuclear University MePhI, Moscow, Moscow, Russia.</td>
+<td>task-audio-tagging-results#Kharin2019</td>
+<td>0.6637</td>
+<td>0.6819</td>
+</tr>
+<tr>
+<td></td>
+<td>Koutini_CPJKU_task2_1</td>
+<td>Khaled Koutini</td>
+<td>Institute of Computational Perception (JKU), Johannes Kepler University Linz, Linz, Austria.</td>
+<td>task-audio-tagging-results#Koutini2019</td>
+<td>0.7282</td>
+<td>0.7351</td>
+</tr>
+<tr>
+<td></td>
+<td>Koutini_CPJKU_task2_2</td>
+<td>Khaled Koutini</td>
+<td>Institute of Computational Perception (JKU), Johannes Kepler University Linz, Linz, Austria.</td>
+<td>task-audio-tagging-results#Koutini2019</td>
+<td>0.7254</td>
+<td>0.7374</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Fonseca_UPF_task2_1</td>
+<td>Eduardo Fonseca</td>
+<td>Music Technology Group (UPF), Universitat Pompeu Fabra, Barcelona, Barcelona, Spain.</td>
+<td>task-audio-tagging-results#Fonseca2019</td>
+<td>0.5370</td>
+<td>0.5379</td>
+</tr>
+<tr class="danger">
+<td></td>
+<td>PaischerPrinz_CPJKU_task2_1</td>
+<td>Fabian Paischer</td>
+<td>Institute of Computational Perception (CPJKU), Johannes Kepler University, Linz, Linz, Austria.</td>
+<td>task-audio-tagging-results#Paischer2019</td>
+<td>0.7222</td>
+<td>0.7033</td>
+</tr>
+<tr class="danger">
+<td></td>
+<td>PaischerPrinz_CPJKU_task2_2</td>
+<td>Fabian Paischer</td>
+<td>Institute of Computational Perception (CPJKU), Johannes Kepler University, Linz, Linz, Austria.</td>
+<td>task-audio-tagging-results#Paischer2019</td>
+<td>0.7216</td>
+<td>0.7099</td>
+</tr>
+<tr>
+<td></td>
+<td>PaischerPrinz_CPJKU_task2_3</td>
+<td>Fabian Paischer</td>
+<td>Institute of Computational Perception (CPJKU), Johannes Kepler University, Linz, Linz, Austria.</td>
+<td>task-audio-tagging-results#Paischer2019</td>
+<td>0.7158</td>
+<td>0.7018</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_Kuaiyu_task2_1</td>
+<td>Yanfang Liu</td>
+<td>Kuaiyu, Beijing Kuaiyu Electronics Co., Ltd., Beijing, China.</td>
+<td>task-audio-tagging-results#Liu2019</td>
+<td>0.7348</td>
+<td>0.7414</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_Kuaiyu_task2_2</td>
+<td>Yanfang Liu</td>
+<td>Kuaiyu, Beijing Kuaiyu Electronics Co., Ltd., Beijing, China.</td>
+<td>task-audio-tagging-results#Liu2019</td>
+<td>0.7311</td>
+<td>0.7366</td>
+</tr>
+</tbody>
+</table>
+<p><b>*</b> Unless stated otherwise, all reported scores are computed using the ground truth for the private leaderboard.</p>
+<h1 id="baseline-system">Baseline system</h1>
+<p>The baseline system provides a simple entry-level state-of-the-art approach that gives a sense of the performance possible with the dataset of Task 2. It is a good starting point especially for entry-level researchers to get familiar with the task. Regardless of whether participants build their approaches on top of this baseline system or develop their own, DCASE organizers encourage all participants to open-source their code after the challenge, adding installation and running instructions similar to those of the baseline. </p>
+<p>The baseline system implements an audio classifier using an efficient MobileNet v1 convolutional neural network, which takes log mel spectrogram features as input and produces predicted scores for the 80 classes in the dataset. Baseline is available in <a href="https://github.com/DCASE-REPO/dcase2019_task2_baseline">this source code repository</a>.</p>
+<h1 id="citation">Citation</h1>
+<p>If you are using the <strong>FSDKaggle2019 dataset</strong> or <strong>baseline</strong> code, or want to refer this <strong>challenge task</strong> please cite the following paper:</p>
+<div class="btex-item" data-item="Fonseca2019audio" data-source="content/data/challenge2019/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Fonseca2019audio"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Eduardo Fonseca, Manoj Plakal, Frederic Font, Daniel P. W. Ellis, and Xavier Serra.
+<em>Audio tagging with noisy labels and minimal supervision.</em>
+In Submitted to DCASE2019 Workshop. NY, USA, 2019.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexFonseca2019audio09aec1c80541489b9bb394521e05ebf2" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/1906.02975.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseFonseca2019audio09aec1c80541489b9bb394521e05ebf2" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseFonseca2019audio09aec1c80541489b9bb394521e05ebf2" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingFonseca2019audio09aec1c80541489b9bb394521e05ebf2" class="panel-collapse collapse" id="collapseFonseca2019audio09aec1c80541489b9bb394521e05ebf2" role="tabpanel">
+<h4>Audio tagging with noisy labels and minimal supervision</h4>
+<h5>Abstract</h5>
+<p class="text-justify">This paper introduces Task 2 of the DCASE2019 Challenge, titled "Audio tagging with noisy labels and minimal supervision". This task was hosted on the Kaggle platform as "Freesound Audio Tagging 2019". The task evaluates systems for multi-label audio tagging using a large set of noisy-labeled data, and a much smaller set of manually-labeled data, under a large vocabulary setting of 80 everyday sound classes. In addition, the proposed dataset poses an acoustic mismatch problem between the noisy train set and the test set due to the fact that they come from different web audio sources. This can correspond to a realistic scenario given by the difficulty in gathering large amounts of manually labeled data. We present the task setup, the FSDKaggle2019 dataset prepared for this scientific evaluation, and a baseline system consisting of a convolutional neural network. All these resources are freely available.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexFonseca2019audio09aec1c80541489b9bb394521e05ebf2" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/1906.02975.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexFonseca2019audio09aec1c80541489b9bb394521e05ebf2label" class="modal fade" id="bibtexFonseca2019audio09aec1c80541489b9bb394521e05ebf2" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexFonseca2019audio09aec1c80541489b9bb394521e05ebf2label">Audio tagging with noisy labels and minimal supervision</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Fonseca2019audio,
+    author = "Fonseca, Eduardo and Plakal, Manoj and Font, Frederic and Ellis, Daniel P. W. and Serra, Xavier",
+    title = "Audio tagging with noisy labels and minimal supervision",
+    year = "2019",
+    booktitle = "Submitted to DCASE2019 Workshop",
+    address = "NY, USA",
+    abstract = {This paper introduces Task 2 of the DCASE2019 Challenge, titled "Audio tagging with noisy labels and minimal supervision". This task was hosted on the Kaggle platform as "Freesound Audio Tagging 2019". The task evaluates systems for multi-label audio tagging using a large set of noisy-labeled data, and a much smaller set of manually-labeled data, under a large vocabulary setting of 80 everyday sound classes. In addition, the proposed dataset poses an acoustic mismatch problem between the noisy train set and the test set due to the fact that they come from different web audio sources. This can correspond to a realistic scenario given by the difficulty in gathering large amounts of manually labeled data. We present the task setup, the FSDKaggle2019 dataset prepared for this scientific evaluation, and a baseline system consisting of a convolutional neural network. All these resources are freely available.}
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/>
+<br/></p>
+<style>
+#task2chart {
+  width: 100%;
+  height: 500px;
+  font-size: 80%;
+}
+</style>
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/kelly.js"></script>
+<script>
+
+am4core.useTheme(am4themes_kelly);
+var chart = am4core.create("task2chart", am4charts.PieChart);
+
+chart.data = [ {
+  "category": "Human sounds\n(e.g. speech, applause)",
+  "amount": 21.0
+}, {
+  "category": "Domestic sounds\n(e.g. microwave oven, toilet flush) ",
+  "amount": 20.0
+}, {
+  "category": "Musical instrument\n(e.g. accordion, acoustic guitar)",
+  "amount": 12.0
+}, {
+  "category": "Vehicles\n(e.g. car passing by, motorcycle)",
+  "amount": 8.0
+}, {
+  "category": "Animal sounds\n(e.g. cat meow, dog bark)",
+  "amount": 7.0
+}, {
+  "category": "Natural sounds\n(e.g. fire crackle, raindrop)",
+  "amount": 5.0
+}, {
+  "category": "Materials\n(e.g. glass shatter, fill (with liquid))",
+  "amount": 5.0
+}, {
+  "category": "Mechanisms\n(printer, fan)",
+  "amount": 2.0
+} ];
+
+chart.innerRadius = am4core.percent(25);
+var pieSeries = chart.series.push(new am4charts.PieSeries());
+pieSeries.dataFields.value = "amount";
+pieSeries.dataFields.category = "category";
+pieSeries.slices.template.stroke = am4core.color("#fff");
+pieSeries.slices.template.strokeWidth = 2;
+pieSeries.slices.template.strokeOpacity = 1;
+pieSeries.slices.template.tooltipText = "{category}: {value.percent.formatNumber('#.#')}% ({value.value} labels)"
+let hs = pieSeries.slices.template.states.getKey("hover");
+hs.properties.scale = 1;
+let as = pieSeries.slices.template.states.getKey("active");
+as.properties.shiftRadius = 0;
+
+pieSeries.hiddenState.properties.opacity = 1;
+pieSeries.hiddenState.properties.endAngle = -90;
+pieSeries.hiddenState.properties.startAngle = -90;
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

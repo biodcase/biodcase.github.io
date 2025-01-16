@@ -1,0 +1,459 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Metrics - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Metrics - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2016/metrics">
+    <meta property="og:url" content="https://dcase.community/challenge2016/metrics" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="Toni Heittola" />
+    <meta name="description" content="Main metric for evaluation is the segment based error rate. Detailed description and calculation procedure of metrics is presented in Publication Annamaria Mesaros, Toni Heittola, and Tuomas Virtanen. Metrics for polyphonic sound event detection. Applied Sciences, 6(6):162, 2016. URL: http://www.mdpi.com/2076-3417/6/6/162, doi …" />
+    <meta name="og:description" content="Main metric for evaluation is the segment based error..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2016</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2016/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-synthetic text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-events text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-tags text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Download data">
+        <a href="http://localhost:3000/challenge2016/download"><i class="fa fa-download"></i>&nbsp;Download</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2016/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2016/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge organizers">
+        <a href="http://localhost:3000/challenge2016/organizers"><i class="fa fa-users"></i>&nbsp;Organizers</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/dunes-02.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><h1 class="bold">Metrics</h1><hr class="small right bold"><span class="subheading">For sound event detection tasks</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#segment-based-metrics">Segment-based metrics</a>
+<ul>
+<li><a href="#error-rate">Error rate</a></li>
+<li><a href="#f-score">F-score</a></li>
+</ul>
+</li>
+<li><a href="#event-based-metrics">Event-based metrics</a>
+<ul>
+<li><a href="#error-rate-1">Error rate</a></li>
+<li><a href="#f-score-1">F-score</a></li>
+</ul>
+</li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p><strong>Main metric</strong> for evaluation is the <strong>segment based error rate</strong>.</p>
+<p>Detailed description and calculation procedure of metrics is presented in</p>
+<div class="btex-item" data-item="Mesaros2016_MDPI" data-source="content/data/challenge2016/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Mesaros2016_MDPI"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Annamaria Mesaros, Toni Heittola, and Tuomas Virtanen.
+<em>Metrics for polyphonic sound event detection.</em>
+<em>Applied Sciences</em>, 6(6):162, 2016.
+URL: <a href="http://www.mdpi.com/2076-3417/6/6/162">http://www.mdpi.com/2076-3417/6/6/162</a>, <a href="https://doi.org/10.3390/app6060162">doi:10.3390/app6060162</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexMesaros2016_MDPI0ee5be2c3f5741b188a20a0ad231fb30" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="http://www.mdpi.com/2076-3417/6/6/162/pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<a class="btn btn-xs btn-success btn-btex" data-placement="bottom" href="https://github.com/TUT-ARG/sed_eval" rel="tooltip" title="Toolbox"><i class="fa fa-file-code-o"></i></a>
+<button aria-controls="collapseMesaros2016_MDPI0ee5be2c3f5741b188a20a0ad231fb30" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseMesaros2016_MDPI0ee5be2c3f5741b188a20a0ad231fb30" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingMesaros2016_MDPI0ee5be2c3f5741b188a20a0ad231fb30" class="panel-collapse collapse" id="collapseMesaros2016_MDPI0ee5be2c3f5741b188a20a0ad231fb30" role="tabpanel">
+<h4>Metrics for Polyphonic Sound Event Detection</h4>
+<h5>Abstract</h5>
+<p class="text-justify">This paper presents and discusses various metrics proposed for evaluation of polyphonic sound event detection systems used in realistic situations where there are typically multiple sound sources active simultaneously. The system output in this case contains overlapping events, marked as multiple sounds detected as being active at the same time. The polyphonic system output requires a suitable procedure for evaluation against a reference. Metrics from neighboring fields such as speech recognition and speaker diarization can be used, but they need to be partially redefined to deal with the overlapping events. We present a review of the most common metrics in the field and the way they are adapted and interpreted in the polyphonic case. We discuss segment-based and event-based definitions of each metric and explain the consequences of instance-based and class-based averaging using a case study. In parallel, we provide a toolbox containing implementations of presented metrics.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexMesaros2016_MDPI0ee5be2c3f5741b188a20a0ad231fb30" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="http://www.mdpi.com/2076-3417/6/6/162/pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<a class="btn btn-sm btn-info btn-btex2" href="http://www.mdpi.com/2076-3417/6/6/162" title="Journal page"><i class="fa fa-book"></i> Web publication</a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success btn-btex2" data-placement="bottom" href="https://github.com/TUT-ARG/sed_eval" rel="tooltip" title="Toolbox"><i class="fa fa-file-code-o"></i> Toolbox</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexMesaros2016_MDPI0ee5be2c3f5741b188a20a0ad231fb30label" class="modal fade" id="bibtexMesaros2016_MDPI0ee5be2c3f5741b188a20a0ad231fb30" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexMesaros2016_MDPI0ee5be2c3f5741b188a20a0ad231fb30label">Metrics for Polyphonic Sound Event Detection</h4>
+</div>
+<div class="modal-body">
+<pre>@article{Mesaros2016_MDPI,
+    author = "Mesaros, Annamaria and Heittola, Toni and Virtanen, Tuomas",
+    title = "Metrics for Polyphonic Sound Event Detection",
+    journal = "Applied Sciences",
+    volume = "6",
+    year = "2016",
+    number = "6",
+    pages = "162",
+    url = "http://www.mdpi.com/2076-3417/6/6/162",
+    issn = "2076-3417",
+    abstract = "This paper presents and discusses various metrics proposed for evaluation of polyphonic sound event detection systems used in realistic situations where there are typically multiple sound sources active simultaneously. The system output in this case contains overlapping events, marked as multiple sounds detected as being active at the same time. The polyphonic system output requires a suitable procedure for evaluation against a reference. Metrics from neighboring fields such as speech recognition and speaker diarization can be used, but they need to be partially redefined to deal with the overlapping events. We present a review of the most common metrics in the field and the way they are adapted and interpreted in the polyphonic case. We discuss segment-based and event-based definitions of each metric and explain the consequences of instance-based and class-based averaging using a case study. In parallel, we provide a toolbox containing implementations of presented metrics.",
+    doi = "10.3390/app6060162"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h1 id="segment-based-metrics">Segment-based metrics</h1>
+<p>Segment based evaluation is done in a fixed time grid, using segments of one second length to compare the ground truth and the system output.</p>
+<p><strong>In each segment <span class="math">\(k\)</span></strong> we count:</p>
+<ul>
+<li><strong>true positives</strong> <span class="math">\(TP\)</span>: events indicated as active by both the ground truth and system output</li>
+<li><strong>false positives</strong> <span class="math">\(FP\)</span>: events indicated as active by the system output but inactive by the ground truth;</li>
+<li><strong>false negatives</strong> <span class="math">\(FN\)</span>: events indicated as inactive by the system output but active by the ground truth;</li>
+<li><strong>substitutions</strong> <span class="math">\(S\)</span>: system output indicating as active a wrong label events; one substitution is equivalent to one false positives and one false negative, meaning the system did not detect the correct event (false negative for the correct class) but detected something (false positive for another class)</li>
+<li><strong>insertions</strong> <span class="math">\(I\)</span>: false positives after subtracting the substitutions</li>
+<li><strong>deletions</strong> <span class="math">\(D\)</span>: false negatives after subtracting the substitutions</li>
+<li><strong>reference events</strong> <span class="math">\(N\)</span>: number of events in the ground truth (segment!)</li>
+</ul>
+<h2 id="error-rate">Error rate</h2>
+<p><strong>Error rate</strong> calculated as described in <a href="#Poliner2007">[Poliner2007]</a> over all test data based on the total number of insertions, deletions and substitutions:
+</p>
+<div class="math">\begin{equation*}
+ER=\frac{\sum {S(k)}+\sum{D(k)}+\sum{I(k)}} {\sum N(k)}
+\end{equation*}</div>
+<h2 id="f-score">F-score</h2>
+<p><strong>F-score</strong> is calculated over all test data based on the total number of false positive, false negatives and true positives:</p>
+<div class="math">\begin{equation*}
+\label{eq-fscore}
+F=\frac{2P \cdot R}{P+R}, \quad \text{where} \quad
+P=\frac {\sum TP(k)} {\sum TP(k)+\sum FP(k) },\quad
+R=\frac{\sum TP(k)} { \sum TP(k)+\sum FN(k) } \\
+\end{equation*}</div>
+<h1 id="event-based-metrics">Event-based metrics</h1>
+<p>Event-based evaluation considers true positives, false positives and false negatives with respect to event instances.</p>
+<p><strong>Definition</strong>: An event in the system output is considered correctly detected if its temporal position is overlapping with the temporal position of an event with the same label in the ground truth. A tolerance is allowed for the onset and offset (200 ms for onset and 200 ms or half length for offset)</p>
+<p>We count for all sequences:</p>
+<ul>
+<li><strong>true positives</strong> <span class="math">\(TP\)</span>: correctly detected events.</li>
+<li><strong>false positives</strong> <span class="math">\(FP\)</span>: events in the system output that are not correct according to the definition</li>
+<li><strong>false negatives</strong> <span class="math">\(FN\)</span>: events in the ground truth that have not been correctly detected according to the definition;</li>
+<li><strong>substitutions</strong> <span class="math">\(S\)</span>: events in system output that have correct temporal position but incorrect class label</li>
+<li><strong>insertions</strong> <span class="math">\(I\)</span>: events in system output that are not correct nor substitutions</li>
+<li><strong>deletions</strong> <span class="math">\(D\)</span>: events in ground truth that are not correct nor substituted</li>
+<li><strong>reference events</strong> <span class="math">\(N\)</span>: number of events in the ground truth</li>
+</ul>
+<h2 id="error-rate-1">Error rate</h2>
+<div class="math">\begin{equation*}
+ER=\frac{S+D+I}{N}
+\end{equation*}</div>
+<h2 id="f-score-1">F-score</h2>
+<div class="math">\begin{equation*}
+F=\frac{2P \cdot R}{P+R}, \quad \text{where} \quad P=\frac{TP}{TP+FP},\quad R=\frac{TP}{TP+FN} \\
+\end{equation*}</div>
+<h1 id="references">References</h1>
+<div class="btex-item" data-item="Poliner2007" data-source="content/data/challenge2016/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Poliner2007"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            G. Poliner and D. Ellis.
+<em>A discriminative model for polyphonic piano transcription.</em>
+<em>EURASIP Journal on Advances in Signal Processing</em>, 2007(1):048317, 2007.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexPoliner2007047ad2f539264a5fb773e358f8bfd54e" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://www.ee.columbia.edu/~dpwe/pubs/PoliE06-piano.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapsePoliner2007047ad2f539264a5fb773e358f8bfd54e" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapsePoliner2007047ad2f539264a5fb773e358f8bfd54e" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingPoliner2007047ad2f539264a5fb773e358f8bfd54e" class="panel-collapse collapse" id="collapsePoliner2007047ad2f539264a5fb773e358f8bfd54e" role="tabpanel">
+<h4>A Discriminative Model for Polyphonic Piano Transcription</h4>
+<h5>Abstract</h5>
+<p class="text-justify">We present a discriminative model for polyphonic piano transcription. Support vector machines trained on spectral features are used to classify frame-level note instances. The classifier outputs are temporally constrained via hidden Markov models, and the proposed system is used to transcribe both synthesized and real piano recordings. A frame-level transcription accuracy of 68% was achieved on a newly generated test set, and direct comparisons to previous approaches are provided.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexPoliner2007047ad2f539264a5fb773e358f8bfd54e" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://www.ee.columbia.edu/~dpwe/pubs/PoliE06-piano.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexPoliner2007047ad2f539264a5fb773e358f8bfd54elabel" class="modal fade" id="bibtexPoliner2007047ad2f539264a5fb773e358f8bfd54e" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexPoliner2007047ad2f539264a5fb773e358f8bfd54elabel">A Discriminative Model for Polyphonic Piano Transcription</h4>
+</div>
+<div class="modal-body">
+<pre>@article{Poliner2007,
+    Author = "Poliner, G. and Ellis, D.",
+    title = "A Discriminative Model for Polyphonic Piano Transcription",
+    journal = "EURASIP Journal on Advances in Signal Processing",
+    year = "2007",
+    number = "1",
+    pages = "048317",
+    volume = "2007",
+    abstract = "We present a discriminative model for polyphonic piano transcription. Support vector machines trained on spectral features are used to classify frame-level note instances. The classifier outputs are temporally constrained via hidden Markov models, and the proposed system is used to transcribe both synthesized and real piano recordings. A frame-level transcription accuracy of 68\% was achieved on a newly generated test set, and direct comparisons to previous approaches are provided.",
+    file = "Poliner2007\_art\%3A10.1155\%2F2007\%2F48317.pdf:Poliner2007\_art\%3A10.1155\%2F2007\%2F48317.pdf:PDF",
+    issn = "1687-6180"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

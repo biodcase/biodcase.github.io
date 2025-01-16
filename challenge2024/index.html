@@ -1,0 +1,3103 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>DCASE2024 Challenge - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="DCASE2024 Challenge - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2024/index">
+    <meta property="og:url" content="https://dcase.community/challenge2024/index" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="Introduction Sounds carry a large amount of information about our everyday environment and the physical events that take place in it. We can perceive the sound scene we are within (busy street, office, etc.), and recognize individual sound sources (car passing by, footsteps, etc.). Developing signal processing methods to extract …" />
+    <meta name="og:description" content="Introduction Sounds carry a large amount of information..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/bnews.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/bdates.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right navbar-tighter" id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2024</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2024/"><i class="fa fa-home"></i>&nbsp;Intro</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-t1"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-t2"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-t3"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-t4"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-bird text-t5"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-captioning text-t6"></i>&nbsp;Task6&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-synthesis text-t7"></i>&nbsp;Task7&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-retrieval text-t8"></i>&nbsp;Task8&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-separation text-t9"></i>&nbsp;Task9&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-traffic text-t10"></i>&nbsp;Task10&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2024/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2024/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/metal-16.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <img src="../images/logos/sps_75years_white.png" class="sr-fade-logo" style="width:200px;display:block;margin:0 auto;padding-top:15px;"></img><img src="../images/logos/ieee_white.png" class="sr-fade-logo" style="width:100px;display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><div class="pull-right"><object class="img img-responsive sr-header-overlay" type="image/svg+xml" data="..//images/overlays/wave.svg"></object></div><h1 class="bold">DCASE2024 Challenge</h1><span class="subheading">IEEE AASP Challenge on Detection and Classification of Acoustic Scenes and Events</span><hr class="small right bold">
+                        <span class="subheading subheading-secondary">1 April - 15 June 2024</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default hidden-print">
+<div class="panel-heading">
+<h3 class="panel-title">Schedule</h3>
+</div>
+<ul class="bdates-container list-group">
+<a class="list-group-item" href="http://localhost:3000/challenge2024/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>15 Jan 2024</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Challenge task descriptions
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="http://localhost:3000/challenge2024/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>01 Apr 2024</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Challenge launch
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="http://localhost:3000/challenge2024/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>01 Jun 2024</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Release of evaluation datasets
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="http://localhost:3000/challenge2024/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>15 Jun 2024</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Challenge deadline
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="http://localhost:3000/challenge2024/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>30 Jun 2024</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Challenge results
+                    
+                    </h5>
+</div>
+</div>
+</a>
+</ul>
+</div>
+
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Contact</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>DCASE Challenge</strong>
+<a class="icon" href="mailto:dcase.challenge@gmail.com"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="panel panel-success hidden-print">
+<div class="panel-heading">
+<h3 class="panel-title"><a href="http://localhost:3000/news">Recent news</a></h3>
+</div>
+<ul class="bnews-container list-group">
+<a class="list-group-item" href="http://localhost:3000/articles/dcase2024-challenge-results-published" target="_self">
+<div class="row">
+<div class="col-md-12 col-sm-12"><h5 class="list-group-item-heading">DCASE2024 Challenge results published</h5></div>
+<div class="col-md-12 col-sm-12">
+<p class="list-group-item-text text-muted">
+<small><span class="bnews-time" datetime="2024-07-01 22:40:00"></span><small>
+</small></small></p>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="http://localhost:3000/articles/dcase2024-challenge-received-321-submission-entries" target="_self">
+<div class="row">
+<div class="col-md-12 col-sm-12"><h5 class="list-group-item-heading">DCASE2024 Challenge received 321 submission entries</h5></div>
+<div class="col-md-12 col-sm-12">
+<p class="list-group-item-text text-muted">
+<small><span class="bnews-time" datetime="2024-06-20 12:00:00"></span><small>
+</small></small></p>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="http://localhost:3000/articles/dcase2024-challenge-evaluation-datasets-available" target="_self">
+<div class="row">
+<div class="col-md-12 col-sm-12"><h5 class="list-group-item-heading">DCASE2024 Challenge evaluation <br/>datasets available</h5></div>
+<div class="col-md-12 col-sm-12">
+<p class="list-group-item-text text-muted">
+<small><span class="bnews-time" datetime="2024-06-01 12:00:00"></span><small>
+</small></small></p>
+</div>
+</div>
+</a>
+</ul>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#challenge-status">Challenge status</a></li>
+<li><a href="#tasks">Tasks</a>
+<ul>
+<li><a href="#data-efficient-low-complexity-acoustic-scene-classification">Data-Efficient Low-Complexity Acoustic Scene Classification</a></li>
+<li><a href="#first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring">First-Shot Unsupervised Anomalous Sound Detection for Machine Condition Monitoring</a></li>
+<li><a href="#audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation">Audio and Audiovisual Sound Event Localization and Detection with Source Distance Estimation</a></li>
+<li><a href="#sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels">Sound Event Detection with Heterogeneous Training Dataset and Potentially Missing Labels</a></li>
+<li><a href="#few-shot-bioacoustic-event-detection">Few-shot Bioacoustic Event Detection</a></li>
+<li><a href="#automated-audio-captioning">Automated Audio Captioning</a></li>
+<li><a href="#sound-scene-synthesis">Sound Scene Synthesis</a></li>
+<li><a href="#language-based-audio-retrieval">Language-Based Audio Retrieval</a></li>
+<li><a href="#language-queried-audio-source-separation">Language-Queried Audio Source Separation</a></li>
+<li><a href="#acoustic-based-traffic-monitoring">Acoustic-based Traffic Monitoring</a></li>
+</ul>
+</li></ul></div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h1 id="introduction">Introduction</h1>
+<p>Sounds carry a large amount of information about our everyday environment and the physical events that take place in it. We can perceive the sound scene we are within (busy street, office, etc.), and recognize individual sound sources (car passing by, footsteps, etc.). Developing signal processing methods to extract this information automatically has enormous potential in several applications, for example, searching for multimedia based on its audio content, making context-aware mobile devices, robots, cars, etc., and intelligent monitoring systems to recognize activities in their environments using acoustic information. However, a significant amount of research is still needed to reliably recognize sound scenes and individual sound sources in realistic soundscapes, where multiple sounds are present, often simultaneously, and distorted by the environment.</p>
+<h1 id="challenge-status">Challenge status</h1>
+<table class="table" id="status-table">
+<thead>
+<tr>
+<th>Task</th>
+<th>Task description</th>
+<th>Development dataset</th>
+<th>Baseline system</th>
+<th>Evaluation dataset</th>
+<th>Results</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Task 1</strong>, Data-Efficient Low-Complexity Acoustic Scene Classification</td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+</tr>
+<tr>
+<td><strong>Task 2</strong>, First-Shot Unsupervised Anomalous Sound Detection for Machine Condition Monitoring</td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+</tr>
+<tr>
+<td><strong>Task 3</strong>, Audio and Audiovisual Sound Event Localization and Detection with Source Distance Estimation</td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+</tr>
+<tr>
+<td><strong>Task 4</strong>, Sound Event Detection with Heterogeneous Training Dataset and Potentially Missing Labels</td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+</tr>
+<tr>
+<td><strong>Task 5</strong>, Few-shot Bioacoustic Event Detection</td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+</tr>
+<tr>
+<td><strong>Task 6</strong>, Automated Audio Captioning</td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+</tr>
+<tr>
+<td><strong>Task 7</strong>, Sound Scene Synthesis</td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">No evaluation dataset</span></td>
+<td><span class="label label-info">Released</span></td>
+</tr>
+<tr>
+<td><strong>Task 8</strong>, Language-Based Audio Retrieval</td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+</tr>
+<tr>
+<td><strong>Task 9</strong>, Language-Queried Audio Source Separation</td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+</tr>
+<tr>
+<td><strong>Task 10</strong>, Acoustic-based Traffic Monitoring</td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+<td><span class="label label-info">Released</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="small text-muted pull-right"><em>updated 2024/07/01</em></span>
+<br/></p>
+<h1 id="tasks">Tasks</h1>
+<div class="row">
+<div class="col-lg-12" id="task1"><h2 id="data-efficient-low-complexity-acoustic-scene-classification">Data-Efficient Low-Complexity Acoustic Scene Classification</h2></div>
+</div>
+<div class="row">
+<div class="col-md-2 col-xs-top text-center">
+<span class="fa-stack fa-4x">
+<i class="fa fa-square fa-stack-2x text-t1"></i>
+<i class="fa dc-scene fa-stack-1x fa-inverse"></i>
+<strong class="fa-stack-1x dcase-icon-top-text">Scenes</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 1</span>
+</span>
+</div>
+<div class="col-md-10">
+<p>Acoustic scene classification aims to automatically categorize audio recordings into specific environmental sound scenes, such as "metro station," "urban park," or "public square." Previous editions of the acoustic scene classification (ASC) task have focused on limited computational resources and diverse recording conditions, reflecting typical challenges faced when developing ASC models for embedded systems.</p>
+<p>This year, participants are additionally encouraged to tackle another problematic condition, namely the limited availability of labeled training data. To this end, the ranking will be based on the number of labeled examples used for training and the system's performance on a test set with diverse recording conditions. Participants will train their system on predefined training sets with a varying number of items. External resources, such as data sets and pre-trained models not specific to ASC, are allowed after the approval of the task organizers and do not count towards the labeled training data count used in the ranking.</p>
+<p>Additionally, the focus on low-complexity models is preserved by restricting the model size to 128kB and the number of multiply-accumulate operations for a one-second audio clip to 30 million.</p>
+<h4>Organizers</h4>
+<div class="well well-sm well-light">
+<div class="list-group bpersonnel-container">
+<div class="row" style="display:flex;display:-webkit-flex;flex-wrap:wrap;">
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Florian Schmid" class="img img-circle" src="http://localhost:3000/images/person/florian_schmid.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Florian Schmid</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.jku.at/en/institute-of-computational-perception/">
+                                    Johannes Kepler University Linz
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://www.jku.at/en/institute-of-computational-perception/about-us/people/florian-schmid/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=BYQ5Sy8AAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Paul Primus" class="img img-circle" src="http://localhost:3000/images/person/paul_primus.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Paul Primus</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.jku.at/en/institute-of-computational-perception/">
+                                    Johannes Kepler University Linz
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://www.jku.at/en/institute-of-computational-perception/about-us/people/paul-primus/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=JAUVAdUAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Irene Martin Morato" class="img img-circle" src="http://localhost:3000/images/person/irene_martin_morato.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Irene Martin Morato</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                    Tampere University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.fi/citations?user=w-RbINwAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Toni Heittola" class="img img-circle" src="http://localhost:3000/images/person/toni_heittola.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Toni Heittola</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                    Tampere University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://homepages.tuni.fi/toni.heittola/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.fi/citations?user=SuvXN30AAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Khaled Koutini" class="img img-circle" src="http://localhost:3000/images/person/khaled_koutini.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Khaled Koutini</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.jku.at/en/institute-of-computational-perception/">
+                                    Johannes Kepler University Linz
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://www.jku.at/en/institute-of-computational-perception/about-us/people/khaled-koutini/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.at/citations?user=EefJQ3IAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Gerhard Widmer" class="img img-circle" src="http://localhost:3000/images/person/gerhard_widmer.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Gerhard Widmer</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.jku.at/en/institute-of-computational-perception/">
+                                    Johannes Kepler University Linz
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://www.jku.at/en/institute-of-computational-perception/about-us/people/gerhard-widmer/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.co.uk/citations?user=dyGS5YYAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Annamaria Mesaros" class="img img-circle" src="http://localhost:3000/images/person/annamaria_mesaros.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Annamaria Mesaros</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                    Tampere University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://homepages.tuni.fi/annamaria.mesaros/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.fi/citations?user=tOvdEZIAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="btn btn-t1" href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification">Task description</a>
+<a class="btn btn-t1" href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification-results">Results</a>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12" id="task2"><h2 id="first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring">First-Shot Unsupervised Anomalous Sound Detection for Machine Condition Monitoring</h2></div>
+</div>
+<div class="row">
+<div class="col-md-2 col-xs-top text-center">
+<span class="fa-stack fa-4x">
+<i class="fa fa-square fa-stack-2x text-t2"></i>
+<i class="fa dc-large-scale fa-stack-1x fa-inverse"></i>
+<strong class="fa-stack-1x dcase-icon-top-text">Monitoring</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 2</span>
+</span>
+</div>
+<div class="col-md-10">
+<p>The task is to develop anomalous sound detection techniques that can train models on new train data without manual tunings (first-shot problem) and work for domain generalization tasks. Our task in 2023 was also focused on the first-shot problem and domain generalization, which was realized by providing completely different machine types for the development and evaluation dataset with additional attribute information (such as the machine operation speed) attached to them. Our task in 2024 will also be held with the development and evaluation dataset having different machine types, whereas for the evaluation dataset, the machine types will be new ones not seen in our previous tasks. In addition, we will conceal additional attribute information for at least one machine type in the development dataset, which also mimics some real-world situations. The participants are expected to develop techniques that can be useful for solving the first-shot problem and train models robust to domain shifts.</p>
+<h4>Organizers</h4>
+<div class="well well-sm well-light">
+<div class="list-group bpersonnel-container">
+<div class="row" style="display:flex;display:-webkit-flex;flex-wrap:wrap;">
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Tomoya Nishida" class="img img-circle" src="http://localhost:3000/images/person/tomoya_nishida.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Tomoya Nishida</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    Hitachi, Ltd.
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Noboru Harada" class="img img-circle" src="http://localhost:3000/images/person/noboru_harada.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Noboru Harada</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.ntt.co.jp/md/e/">
+                                    NTT Corporation
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="http://www.kecl.ntt.co.jp/people/harada.noboru/index.html"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=aaD76kQAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Daisuke Niizumi" class="img img-circle" src="http://localhost:3000/images/person/daisuke_niizumi.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Daisuke Niizumi</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.ntt.co.jp/md/e/">
+                                    NTT Corporation
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?hl=en&amp;user=dTEKquEAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Davide Albertini" class="img img-circle" src="http://localhost:3000/images/person/davide_albertini.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Davide Albertini</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.st.com/content/st_com/en.html">
+                                    STMicroelectronics
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=g4IZKzQAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Roberto Sannino" class="img img-circle" src="http://localhost:3000/images/person/roberto_sannino.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Roberto Sannino</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.st.com/content/st_com/en.html">
+                                    STMicroelectronics
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Simone Pradolini" class="img img-circle" src="http://localhost:3000/images/person/simone_pradolini.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Simone Pradolini</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.st.com/content/st_com/en.html">
+                                    STMicroelectronics
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Filippo Augusti" class="img img-circle" src="http://localhost:3000/images/person/filippo_augusti.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Filippo Augusti</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.st.com/content/st_com/en.html">
+                                    STMicroelectronics
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Keisuke Imoto" class="img img-circle" src="http://localhost:3000/images/person/keisuke_imoto.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Keisuke Imoto</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    Doshisha University
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://www.ksuke.net/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=cjYn_qIAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Kota Dohi" class="img img-circle" src="http://localhost:3000/images/person/kota_dohi.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Kota Dohi</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    Hitachi, Ltd.
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Harsh Purohit" class="img img-circle" src="http://localhost:3000/images/person/harsh_purohit.jpeg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Harsh Purohit</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    Hitachi, Ltd.
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Takashi Endo" class="img img-circle" src="http://localhost:3000/images/person/takashi_endo.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Takashi Endo</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    Hitachi, Ltd.
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Yohei Kawaguchi" class="img img-circle" src="http://localhost:3000/images/person/yohei_kawaguchi.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Yohei Kawaguchi</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    Hitachi, Ltd.
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="btn btn-t2" href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring">Task description</a>
+<a class="btn btn-t2" href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring-results">Results</a>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12" id="task3"><h2 id="audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation">Audio and Audiovisual Sound Event Localization and Detection with Source Distance Estimation</h2></div>
+</div>
+<div class="row">
+<div class="col-md-2 col-xs-top text-center">
+<span class="fa-stack fa-4x">
+<i class="fa fa-square fa-stack-2x text-t3"></i>
+<i class="fa dc-localization fa-stack-1x fa-inverse"></i>
+<strong class="fa-stack-1x dcase-icon-top-text dcase-icon-top-text-sm">Localization</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 3</span>
+</span>
+</div>
+<div class="col-md-10">
+<p>In DCASE Challenge 2023 Task 3 introduced audiovisual processing in sound event localization and detection, in parallel to methods working only with audio input. In this year’s challenge we aim to maintain the same setup, since last year’s audiovisual submissions in DCASE2023 showed that there is a need for stronger approaches to effectively combine visual information with audio for SELD. There is however a new component in the new proposal, and that is source distance estimation (SDE). Complementary to direction-of-arrival estimation (DOAE) in the previous challenges, SDE is seeing increased interest from the audio research community in the last couple of years as it is a useful spatial cue for multiple downstream tasks, such as speech enhancement or separation. Successful SDE allows stronger learning of the spatial composition of a sound scene, since, together with DOA, allows absolute positional mapping of events in space.</p>
+<h4>Organizers</h4>
+<div class="well well-sm well-light">
+<div class="list-group bpersonnel-container">
+<div class="row" style="display:flex;display:-webkit-flex;flex-wrap:wrap;">
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Archontis Politis" class="img img-circle" src="http://localhost:3000/images/person/archontis_politis.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Archontis Politis</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                    Tampere University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=DuCqB3sAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Kazuki Shimada" class="img img-circle" src="http://localhost:3000/images/person/kazuki_shimada.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Kazuki Shimada</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.ai.sony/people/">
+                                    SONY
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.co.jp/citations?user=-t9IslAAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Yuki Mitsufuji" class="img img-circle" src="http://localhost:3000/images/person/yuki_mitsufuji.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Yuki Mitsufuji</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.ai.sony/people/">
+                                    SONY
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=GMytI10AAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Tuomas Virtanen" class="img img-circle" src="http://localhost:3000/images/person/tuomas_virtanen.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Tuomas Virtanen</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                    Tampere University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://homepages.tuni.fi/tuomas.virtanen/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.fi/citations?user=hRjwVoMAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Parthasaarathy Sudarsanam" class="img img-circle" src="http://localhost:3000/images/person/parthasaarathy_sudarsanam.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Parthasaarathy Sudarsanam</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                    Tampere University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=yxZ1qAIAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Daniel Krause" class="img img-circle" src="http://localhost:3000/images/person/daniel_krause.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Daniel Krause</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                    Tampere University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=pSLng-8AAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Kengo Uchida" class="img img-circle" src="http://localhost:3000/images/person/kengo_uchida.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Kengo Uchida</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.ai.sony/people/">
+                                    SONY
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=zAXF4EYAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="David Diaz-Guerra" class="img img-circle" src="http://localhost:3000/images/person/david_diaz-guerra.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">David Diaz-Guerra</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                    Tampere University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.es/citations?user=_3PjFBQAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Yuichiro Koyama" class="img img-circle" src="http://localhost:3000/images/person/yuichiro_koyama.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Yuichiro Koyama</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.ai.sony/people/">
+                                    SONY
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Naoya Takahashi" class="img img-circle" src="http://localhost:3000/images/person/naoya_takahashi.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Naoya Takahashi</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.ai.sony/people/">
+                                    SONY
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=JbtYJMoAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Takashi Shibuya" class="img img-circle" src="http://localhost:3000/images/person/takashi_shibuya.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Takashi Shibuya</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.ai.sony/people/">
+                                    SONY
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://yahshibu.github.io/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=XCRO260AAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Shusuke Takahashi" class="img img-circle" src="http://localhost:3000/images/person/shusuke_takahashi.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Shusuke Takahashi</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.ai.sony/people/">
+                                    SONY
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="btn btn-t3" href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation">Task description</a>
+<a class="btn btn-t3" href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation-results">Results</a>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12" id="task4"><h2 id="sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels">Sound Event Detection with Heterogeneous Training Dataset and Potentially Missing Labels</h2></div>
+</div>
+<div class="row">
+<div class="col-md-2 col-xs-top text-center">
+<span class="fa-stack fa-4x">
+<i class="fa fa-square fa-stack-2x text-t4"></i>
+<i class="fa dc-domestic fa-stack-1x fa-inverse"></i>
+<strong class="fa-stack-1x dcase-icon-top-text">Events</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 4</span>
+</span>
+</div>
+<div class="col-md-10">
+<p>This task is the follow up to task 4 A and task 4 B in 2023. We propose to unify the setup of both subtasks. The target of this task is to provide the event class together with the event time boundaries, given that multiple events can be present and may be overlapping in an audio recording. This task aims at exploring how to leverage training data with varying annotation granularity (temporal resolution, soft/hard labels). One major novelty is that systems will also be evaluated on labels with different granularity in order to get a broader view of the systems behavior and to assess their robustness for different applications. One additional novelty is that the target classes in the different datasets are different, and hence sound labels of one dataset may be present but not annotated in the other one. The systems will have to cope with potentially missing target labels at training.</p>
+<h4>Organizers</h4>
+<div class="well well-sm well-light">
+<div class="list-group bpersonnel-container">
+<div class="row" style="display:flex;display:-webkit-flex;flex-wrap:wrap;">
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Samuele Cornell" class="img img-circle" src="http://localhost:3000/images/person/samuele_cornell.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Samuele Cornell</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.cmu.edu/">
+                                    Carnegie Mellon University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=A3lfL0QAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Janek Ebbers" class="img img-circle" src="http://localhost:3000/images/person/janek_ebbers.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Janek Ebbers</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.merl.com/">
+                                    Mitsubishi Electric Research Lab
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://www.merl.com/people/ebbers"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=GSxZgjgAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Manu Harju" class="img img-circle" src="http://localhost:3000/images/person/default.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Manu Harju</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                    Tampere University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=uhkmbDMAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Irene Martin Morato" class="img img-circle" src="http://localhost:3000/images/person/irene_martin_morato.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Irene Martin Morato</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                    Tampere University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.fi/citations?user=w-RbINwAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Constance Douwes" class="img img-circle" src="http://localhost:3000/images/person/constance_douwes.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Constance Douwes</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.inria.fr/fr">
+                                    Inria
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://constancedws.github.io/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.fr/citations?hl=fr&amp;user=2hSzn1sAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Annamaria Mesaros" class="img img-circle" src="http://localhost:3000/images/person/annamaria_mesaros.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Annamaria Mesaros</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                    Tampere University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://homepages.tuni.fi/annamaria.mesaros/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.fi/citations?user=tOvdEZIAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Romain Serizel" class="img img-circle" src="http://localhost:3000/images/person/romain_serizel.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Romain Serizel</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://www.loria.fr/en/">
+                                    University of Lorraine
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://members.loria.fr/RSerizel/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=_PXk20cAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="btn btn-t4" href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels">Task description</a>
+<a class="btn btn-t4" href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels-results">Results</a>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12" id="task5"><h2 id="few-shot-bioacoustic-event-detection">Few-shot Bioacoustic Event Detection</h2></div>
+</div>
+<div class="row">
+<div class="col-md-2 col-xs-top text-center">
+<span class="fa-stack fa-4x">
+<i class="fa fa-square fa-stack-2x text-t5"></i>
+<i class="fa dc-bird fa-stack-1x fa-inverse"></i>
+<strong class="fa-stack-1x dcase-icon-top-text">Bio</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 5</span>
+</span>
+</div>
+<div class="col-md-10">
+<p>This task focuses on sound event detection (SED) in a few-shot learning setting for animal vocalisations. Can you design a system that can extract information from five exemplar vocalisations in a long sound recording, and generalise from those exemplers to find the rest of the sound events in the audio? The bioacoustic (animal sound) setting addresses a real need from animal researchers, while also providing a well-defined, constrained yet highly variable domain in which to evaluate a few-shot learning methodology. Between 2021 - 2023, the task has stimulated a lot of innovation, but there are many open questions and opportunities to innovate, e.g. prototypical networks, fine-tuning methods, or new architectures. The 2024 edition is the same as 2023, except for an enlarged set of data sources and a new deep learning baseline. We added two mammals datasets (one being a marine mammals dataset) to the validation set to make the domain shift between the validation and evaluation sets a little less steep. We will also introduce new unseen recordings for a couple of evaluation datasets.</p>
+<h4>Organizers</h4>
+<div class="well well-sm well-light">
+<div class="list-group bpersonnel-container">
+<div class="row" style="display:flex;display:-webkit-flex;flex-wrap:wrap;">
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Burooj Ghani" class="img img-circle" src="http://localhost:3000/images/person/burooj_ghani.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Burooj Ghani</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.naturalis.nl/en/burooj-ghani">Naturalis Biodiversity Center</a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Ines Nolasco" class="img img-circle" src="http://localhost:3000/images/person/ines_nolasco.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Ines Nolasco</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://c4dm.eecs.qmul.ac.uk/">
+                                    Queen Mary University of London
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Jinhua Liang" class="img img-circle" src="http://localhost:3000/images/person/jinhua_liang.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Jinhua Liang</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://c4dm.eecs.qmul.ac.uk/">
+                                    Queen Mary University of London
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Shubhr Singh" class="img img-circle" src="http://localhost:3000/images/person/shubhr_singh.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Shubhr Singh</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://c4dm.eecs.qmul.ac.uk/">
+                                    Queen Mary University of London
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Vincent Lostanlen" class="img img-circle" src="http://localhost:3000/images/person/vincent_lostanlen.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Vincent Lostanlen</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.cnrs.fr/">Centre National de la Recherche Scientifique(CNRS)</a><br/>
+<a class="text" href="https://www.ls2n.fr/">Laboratoire des Sciences du Numérique de Nantes (LS2N)</a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://wp.nyu.edu/birdvox/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=t4JImu0AAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Ariana Strandburg-Peshkin" class="img img-circle" src="http://localhost:3000/images/person/ariana_peshkin.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Ariana Strandburg-Peshkin</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.biologie.uni-konstanz.de/en/">University of Konstanz</a><br/>
+<a class="text" href="https://www.ab.mpg.de/crofoot">Max Planck Institute of Animal Behavior</a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=Hgwnsx0AAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Emily Grout" class="img img-circle" src="http://localhost:3000/images/person/emily_grout.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Emily Grout</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.biologie.uni-konstanz.de/en/">University of Konstanz</a><br/>
+<a class="text" href="https://www.ab.mpg.de/crofoot">Max Planck Institute of Animal Behavior</a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Hanna Pamula" class="img img-circle" src="http://localhost:3000/images/person/hanna_pamula.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Hanna Pamula</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.agh.edu.pl/en/">
+                                    AGH University of Science and Technology
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Helen Whitehead" class="img img-circle" src="http://localhost:3000/images/person/Helen_Whitehead.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Helen Whitehead</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    University of Salford
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Joe Morford" class="img img-circle" src="http://localhost:3000/images/person/Joe_Morford.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Joe Morford</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    University of Oxford
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Michael Emmerson" class="img img-circle" src="http://localhost:3000/images/person/Michael Emmerson.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Michael Emmerson</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    Queen Mary University of London
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Frants Jensen" class="img img-circle" src="http://localhost:3000/images/person/Frants_Jensen.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Frants Jensen</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    Syracuse University
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://frantsjensen.weebly.com/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.dk/citations?user=EJyZQAEAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Ester Vidana Vila" class="img img-circle" src="http://localhost:3000/images/person/Ester_Villa.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Ester Vidana Vila</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    La Salle, Universitat Ramon Llull
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.es/citations?user=Tyb6D2kAAAAJ&amp;hl=ca&amp;oi=ao"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Dan Stowell" class="img img-circle" src="http://localhost:3000/images/person/dan_stowell.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Dan Stowell</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.naturalis.nl/en">Tilburg University</a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="http://www.mcld.co.uk/research/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=BXu3q_wAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="btn btn-t5" href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection">Task description</a>
+<a class="btn btn-t5" href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection-results">Results</a>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12" id="task6"><h2 id="automated-audio-captioning">Automated Audio Captioning</h2></div>
+</div>
+<div class="row">
+<div class="col-md-2 col-xs-top text-center">
+<span class="fa-stack fa-4x">
+<i class="fa fa-square fa-stack-2x text-t6"></i>
+<i class="fa dc-captioning fa-stack-1x fa-inverse"></i>
+<strong class="fa-stack-1x dcase-icon-top-text">Caption</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 6</span>
+</span>
+</div>
+<div class="col-md-10">
+<p>Automated audio captioning (AAC) is the task of general audio content description using free text. It is an inter-modal translation task (not speech-to-text), where a system accepts as an input an audio signal and outputs the textual description (i.e. the caption) of that signal. AAC methods can model concepts (e.g. "muffled sound"), physical properties of objects and environment (e.g. "the sound of a big car", "people talking in a small and empty room"), and high level knowledge ("a clock rings three times"). This modeling can be used in various applications, ranging from automatic content description to intelligent and content-oriented machine-to-machine interaction.</p>
+<h4>Organizers</h4>
+<div class="well well-sm well-light">
+<div class="list-group bpersonnel-container">
+<div class="row" style="display:flex;display:-webkit-flex;flex-wrap:wrap;">
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Huang Xie" class="img img-circle" src="http://localhost:3000/images/person/default.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Huang Xie</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                    Tampere University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Tuomas Virtanen" class="img img-circle" src="http://localhost:3000/images/person/tuomas_virtanen.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Tuomas Virtanen</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                    Tampere University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://homepages.tuni.fi/tuomas.virtanen/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.fi/citations?user=hRjwVoMAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Romain Serizel" class="img img-circle" src="http://localhost:3000/images/person/romain_serizel.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Romain Serizel</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://www.loria.fr/en/">
+                                    University of Lorraine
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://members.loria.fr/RSerizel/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=_PXk20cAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Etienne Labbé" class="img img-circle" src="http://localhost:3000/images/person/etienne_labbe.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Etienne Labbé</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.univ-tlse3.fr/home/about-us">Université Toulouse III – Paul Sabatier</a><br/>
+<a class="text" href="https://www.irit.fr/en/home/">Institut de Recherche en Informatique de Toulouse</a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://labbeti.github.io/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=QSHFiW8AAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Thomas Pellegrini" class="img img-circle" src="http://localhost:3000/images/person/thomas_pellegrini.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Thomas Pellegrini</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.univ-tlse3.fr/home/about-us">Université Toulouse III – Paul Sabatier</a><br/>
+<a class="text" href="https://www.irit.fr/en/home/">Institut de Recherche en Informatique de Toulouse</a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://www.irit.fr/~Thomas.Pellegrini/index.html"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.pt/citations?user=5FvYex4AAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Xinhao Mei" class="img img-circle" src="http://localhost:3000/images/person/default.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Xinhao Mei</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://www.surrey.ac.uk/cvssp/">
+                                    University of Surrey
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://www.surrey.ac.uk/people/xinhao-mei"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=vGoCkeUAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Xuenan Xu" class="img img-circle" src="http://localhost:3000/images/person/default.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Xuenan Xu</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://www.surrey.ac.uk/cvssp/">
+                                    University of Surrey
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=e0h0ae8AAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Mark D. Plumbley" class="img img-circle" src="http://localhost:3000/images/person/mark_plumbley.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Mark D. Plumbley</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://www.surrey.ac.uk/cvssp/">
+                                    University of Surrey
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="http://www.surrey.ac.uk/cvssp/people/mark_plumbley/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.fi/citations?user=28TCymYAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Wenwu Wang" class="img img-circle" src="http://localhost:3000/images/person/wenwu_wang.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Wenwu Wang</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://www.surrey.ac.uk/cvssp/">
+                                    University of Surrey
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://personalpages.surrey.ac.uk/w.wang/index.html"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.co.uk/citations?user=JQFnV5IAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Mengyue Wu" class="img img-circle" src="http://localhost:3000/images/person/default.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Mengyue Wu</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://x-lance.sjtu.edu.cn/en">
+                                    Shanghai Jiao Tong University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://myw19.github.io/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=9cvRM5wAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="btn btn-t6" href="http://localhost:3000/challenge2024/task-automated-audio-captioning">Task description</a>
+<a class="btn btn-t6" href="http://localhost:3000/challenge2024/task-automated-audio-captioning-results">Results</a>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12" id="task7"><h2 id="sound-scene-synthesis">Sound Scene Synthesis</h2></div>
+</div>
+<div class="row">
+<div class="col-md-2 col-xs-top text-center">
+<span class="fa-stack fa-4x">
+<i class="fa fa-square fa-stack-2x text-t7"></i>
+<i class="fa dc-synthesis fa-stack-1x fa-inverse"></i>
+<strong class="fa-stack-1x dcase-icon-top-text">Synthesis</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 7</span>
+</span>
+</div>
+<div class="col-md-10">
+<p>Sound Scene Synthesis is the task of generating a sound scene given a textual description. This new generation task expands the scope from last year’s Foley sounds to a more general sound scene. Further, it adds controllability with natural language in the form of text prompts.</p>
+<p>The organizers will provide: 1) a development set consisting of 50 to 100 prompts and corresponding audio embeddings, and 2) a colab template with the baseline. There will be only one track, and it  permits any external resources for system training. Before the inference starts, it is allowed to use external resources to install Python modules and download pre-trained models. However, calls to external resources are not allowed during inference. In other words, the inference stage must be 100% self-contained.</p>
+<p>The evaluation will proceed as such:</p>
+<ol>
+<li>The participants submit a colab notebook with their contributions.</li>
+<li>A debugging phase will be opened a few days before the challenge deadline, during which the participants will be able to submit their system to check that it is running correctly.</li>
+<li>The organizers will query the submitted synthesizers with a new set of prompts. There will be some reasonable limits set to the system footprint.</li>
+<li>The organizers will rank the submitted synthesizers in terms of Fréchet Audio Distance (FAD).</li>
+<li>The participants will be asked to perceptually rate a sample of the generated sounds from the highest ranked systems.</li>
+<li>Results will be published on July 15th due to the time needed to perform the subjective evaluation.</li>
+</ol>
+<h4>Organizers</h4>
+<div class="well well-sm well-light">
+<div class="list-group bpersonnel-container">
+<div class="row" style="display:flex;display:-webkit-flex;flex-wrap:wrap;">
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Mathieu Lagrange" class="img img-circle" src="http://localhost:3000/images/person/Mathieu_Lagrange_02.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Mathieu Lagrange</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    CNRS, Ecole Centrale Nantes, Nantes Université
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://mathieulagrange.github.io"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=Z-D1LQwAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Junwon Lee" class="img img-circle" src="http://localhost:3000/images/person/junwon_lee.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Junwon Lee</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://mac.kaist.ac.kr/">
+                                    Gaudio Lab, Inc. / Korea Advanced Institute of Science &amp; Technology (KAIST)
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://jnwnlee.github.io"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=aJ-InM0AAAA&amp;user=aJ-InM0AAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Modan Tailleur" class="img img-circle" src="http://localhost:3000/images/person/modan_tailleur.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Modan Tailleur</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://www.ls2n.fr/">
+                                    Laboratoire des sciences du numérique de Nantes
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://modantailleur.github.io/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=nsvQ504AAAAJ&amp;hl=fr"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Laurie Heller" class="img img-circle" src="http://localhost:3000/images/person/Laurie_Heller.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Laurie Heller</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    Carnegie Mellon University
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://www.auditorylab.org"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=Gos2BtwAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Keunwoo Choi" class="img img-circle" src="http://localhost:3000/images/person/Keunwoo_Choi.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Keunwoo Choi</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    Gaudio Lab, Inc.
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://keunwoochoi.github.io"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?hl=en&amp;user=ZrqdSu4AAAAJ&amp;view_op=list_works"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Brian McFee" class="img img-circle" src="http://localhost:3000/images/person/Brian_McFee.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Brian McFee</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    New York University
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://brianmcfee.net/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=2M9ZhTcAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Keisuke Imoto" class="img img-circle" src="http://localhost:3000/images/person/keisuke_imoto.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Keisuke Imoto</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    Doshisha University
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://www.ksuke.net/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=cjYn_qIAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Yuki Okamoto" class="img img-circle" src="http://localhost:3000/images/person/Yuki_Okamoto.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Yuki Okamoto</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    The University of Tokyo
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://sites.google.com/view/yuki-okamoto/home"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.co.jp/citations?user=o3mJqCgAAAAJ&amp;hl=ja"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="btn btn-t7" href="http://localhost:3000/challenge2024/task-sound-scene-synthesis">Task description</a>
+<a class="btn btn-t7" href="http://localhost:3000/challenge2024/task-sound-scene-synthesis-results">Results</a>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12" id="task8"><h2 id="language-based-audio-retrieval">Language-Based Audio Retrieval</h2></div>
+</div>
+<div class="row">
+<div class="col-md-2 col-xs-top text-center">
+<span class="fa-stack fa-4x">
+<i class="fa fa-square fa-stack-2x text-t8"></i>
+<i class="fa dc-retrieval fa-stack-1x fa-inverse"></i>
+<strong class="fa-stack-1x dcase-icon-top-text">Retrieval</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 8</span>
+</span>
+</div>
+<div class="col-md-10">
+<p>Language-based audio retrieval is concerned with retrieving audio signals using their sound content textual descriptions (i.e., audio captions). Human written audio captions will be used as text queries. For each text query, the goal of this task is to retrieve 10 audio files from a given dataset and sort them based on their matching with the query. Through this task, we aim to inspire further research into language-based audio retrieval with unconstrained textual descriptions.</p>
+<h4>Organizers</h4>
+<div class="well well-sm well-light">
+<div class="list-group bpersonnel-container">
+<div class="row" style="display:flex;display:-webkit-flex;flex-wrap:wrap;">
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Huang Xie" class="img img-circle" src="http://localhost:3000/images/person/default.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Huang Xie</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                    Tampere University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Tuomas Virtanen" class="img img-circle" src="http://localhost:3000/images/person/tuomas_virtanen.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Tuomas Virtanen</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                    Tampere University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://homepages.tuni.fi/tuomas.virtanen/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.fi/citations?user=hRjwVoMAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Romain Serizel" class="img img-circle" src="http://localhost:3000/images/person/romain_serizel.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Romain Serizel</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://www.loria.fr/en/">
+                                    University of Lorraine
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://members.loria.fr/RSerizel/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=_PXk20cAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Etienne Labbé" class="img img-circle" src="http://localhost:3000/images/person/etienne_labbe.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Etienne Labbé</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.univ-tlse3.fr/home/about-us">Université Toulouse III – Paul Sabatier</a><br/>
+<a class="text" href="https://www.irit.fr/en/home/">Institut de Recherche en Informatique de Toulouse</a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://labbeti.github.io/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=QSHFiW8AAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Thomas Pellegrini" class="img img-circle" src="http://localhost:3000/images/person/thomas_pellegrini.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Thomas Pellegrini</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.univ-tlse3.fr/home/about-us">Université Toulouse III – Paul Sabatier</a><br/>
+<a class="text" href="https://www.irit.fr/en/home/">Institut de Recherche en Informatique de Toulouse</a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://www.irit.fr/~Thomas.Pellegrini/index.html"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.pt/citations?user=5FvYex4AAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="btn btn-t8" href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval">Task description</a>
+<a class="btn btn-t8" href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval-results">Results</a>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12" id="task9"><h2 id="language-queried-audio-source-separation">Language-Queried Audio Source Separation</h2></div>
+</div>
+<div class="row">
+<div class="col-md-2 col-xs-top text-center">
+<span class="fa-stack fa-4x">
+<i class="fa fa-square fa-stack-2x text-t9"></i>
+<i class="fa dc-separation fa-stack-1x fa-inverse"></i>
+<strong class="fa-stack-1x dcase-icon-top-text">Separation</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 9</span>
+</span>
+</div>
+<div class="col-md-10">
+<p>Language-queried audio source separation (LASS) is the task of separating arbitrary sound sources using textual descriptions of the desired source. LASS provides a useful tool for future source separation systems, allowing users to extract audio sources via natural language instructions. Such a system could be useful in many applications, such as automatic audio editing, multimedia content retrieval, and augmented listening. The objective of this challenge is to effectively separate sound sources using natural language queries, thereby advancing the way we interact with and manipulate audio content.</p>
+<h4>Organizers</h4>
+<div class="well well-sm well-light">
+<div class="list-group bpersonnel-container">
+<div class="row" style="display:flex;display:-webkit-flex;flex-wrap:wrap;">
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Xubo Liu" class="img img-circle" src="http://localhost:3000/images/person/xubo-white.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Xubo Liu</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://www.surrey.ac.uk/cvssp/">
+                                    University of Surrey
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://liuxubo717.github.io/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=-OlNYSgAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Wenwu Wang" class="img img-circle" src="http://localhost:3000/images/person/wenwu_wang.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Wenwu Wang</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://www.surrey.ac.uk/cvssp/">
+                                    University of Surrey
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://personalpages.surrey.ac.uk/w.wang/index.html"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.co.uk/citations?user=JQFnV5IAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Mark D. Plumbley" class="img img-circle" src="http://localhost:3000/images/person/mark_plumbley.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Mark D. Plumbley</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://www.surrey.ac.uk/cvssp/">
+                                    University of Surrey
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="http://www.surrey.ac.uk/cvssp/people/mark_plumbley/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.fi/citations?user=28TCymYAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Jonathan Le Roux" class="img img-circle" src="http://localhost:3000/images/person/JonathanLeRoux.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Jonathan Le Roux</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.merl.com/">
+                                    Mitsubishi Electric Research Laboratories
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://www.jonathanleroux.org/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=aUpxty8AAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Gordon Wichern" class="img img-circle" src="http://localhost:3000/images/person/GordonWichern.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Gordon Wichern</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.merl.com/">
+                                    Mitsubishi Electric Research Laboratories
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://www.merl.com/people/wichern"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=JVkh89YAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Yan Zhao" class="img img-circle" src="http://localhost:3000/images/person/default.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Yan Zhao</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.bytedance.com/en/">
+                                    ByteDance
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://cliffzhao.github.io/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=cHzLMDEAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Yuzhuo Liu" class="img img-circle" src="http://localhost:3000/images/person/yuzhuo_liu.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Yuzhuo Liu</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.bytedance.com/en/">
+                                    ByteDance
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Hangting Chen" class="img img-circle" src="http://localhost:3000/images/person/hang_ting.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Hangting Chen</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://ai.tencent.com/ailab/en/index">
+                                    Tencent AI Lab
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="btn btn-t9" href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation">Task description</a>
+<a class="btn btn-t9" href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation-results">Results</a>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12" id="task10"><h2 id="acoustic-based-traffic-monitoring">Acoustic-based Traffic Monitoring</h2></div>
+</div>
+<div class="row">
+<div class="col-md-2 col-xs-top text-center">
+<span class="fa-stack fa-4x">
+<i class="fa fa-square fa-stack-2x text-t10"></i>
+<i class="fa dc-traffic fa-stack-1x fa-inverse"></i>
+<strong class="fa-stack-1x dcase-icon-top-text">Monitoring</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 10</span>
+</span>
+</div>
+<div class="col-md-10">
+<p>This task aims to develop an acoustic-based traffic monitoring solution to count the number of pass-by vehicles, identify their type (passenger cars or commercial vehicles) and determine the direction of travel. Traffic monitoring systems are integral components of smart city developments, facilitating road monitoring and anomaly detection within urban environments. These solutions leverage various sensors, including induction loops, vibration or magnetic sensors, radar, cameras, infrared, and acoustic sensors. Acoustic-based systems offer several advantages, making them an attractive option either on a standalone basis or in conjunction with other sensors. These advantages include low cost, power efficiency, ease of installation, resilience to adverse weather, and adaptability to low visibility conditions, among others.</p>
+<p>In this task, participants receive traffic recordings from diverse locations, each characterized by distinct traffic densities. These recordings are captured using a 4-microphone linear array deployed alongside a road. Participants are tasked with designing a vehicle counting system for each car type and travel direction. Given the challenges associated with collecting and labeling real-world traffic data, participants are encouraged to employ various traffic simulation and augmentation techniques to address the limited availability of training data. Notably, participants are provided with an acoustic traffic simulation tool alongside the traffic recordings, enabling the generation of synthetic data. This tool facilitates the simulation of both individual pass-by events, based on the provided information on the type, speed, and direction of the vehicle, as well as longer audio segments containing multiple events that mimic specific traffic densities.</p>
+<h4>Organizers</h4>
+<div class="well well-sm well-light">
+<div class="list-group bpersonnel-container">
+<div class="row" style="display:flex;display:-webkit-flex;flex-wrap:wrap;">
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Luca Bondi" class="img img-circle" src="http://localhost:3000/images/person/luca_bondi.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Luca Bondi</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.bosch.com/">
+                                    Bosch Research, USA
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=fWhDIgQAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Shabnam Ghaffarzadegan" class="img img-circle" src="http://localhost:3000/images/person/shabnam_ghaffarzadegan.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Shabnam Ghaffarzadegan</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.bosch.com/">
+                                    Bosch Research, USA
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=LGI2QXoAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Stefano Damiano" class="img img-circle" src="http://localhost:3000/images/person/stefano_damiano.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Stefano Damiano</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://tvanwate.github.io/">
+                                    KU Leuven
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=f_1Zgf4AAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Abinaya Kumar" class="img img-circle" src="http://localhost:3000/images/person/abinaya_kumar.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Abinaya Kumar</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.bosch.com/">
+                                    Bosch Research, USA
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Ho-Hsiang Wu" class="img img-circle" src="http://localhost:3000/images/person/hohsiang_wu.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Ho-Hsiang Wu</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.bosch.com/">
+                                    Bosch Research, USA
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=JtVjOPoAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Wei-Cheng Lin" class="img img-circle" src="http://localhost:3000/images/person/winston_lin.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Wei-Cheng Lin</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.bosch.com/">
+                                    Bosch Research, USA
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?hl=zh-TW&amp;user=a8yul30AAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Samarjit Das" class="img img-circle" src="http://localhost:3000/images/person/sam_das.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Samarjit Das</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.bosch.com/">
+                                    Bosch Research, USA
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=6uVtIDAAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Hans-Georg Horst" class="img img-circle" src="http://localhost:3000/images/person/default.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Hans-Georg Horst</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.bosch.com/">
+                                    Robert Bosch GmbH
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Toon van Waterschoot" class="img img-circle" src="http://localhost:3000/images/person/toonvan_waterschoot.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Toon van Waterschoot</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://tvanwate.github.io/">
+                                    KU Leuven
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.at/citations?user=fEnkhUkAAAAJ&amp;hl=de"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="btn btn-t10" href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring">Task description</a>
+<a class="btn btn-t10" href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring-results">Results</a>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+</div>
+<script>
+(function($) {
+    $(document).ready(function() {
+        var hash = window.location.hash.substr(1);
+        var anchor = window.location.hash;
+
+        var shiftWindow = function() {
+            var hash = window.location.hash.substr(1);
+            scrollBy(0, -50);
+        };
+        window.addEventListener("hashchange", shiftWindow);
+
+        if (window.location.hash){
+            window.scrollTo(0, 0);
+            history.replaceState(null, document.title, "#");
+            setTimeout(function(){
+                window.location.hash = anchor;
+                shiftWindow();
+            }, 1000);
+        }
+    });
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/timeago.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/bnews.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

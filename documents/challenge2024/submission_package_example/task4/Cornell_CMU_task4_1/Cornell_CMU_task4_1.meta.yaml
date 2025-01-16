@@ -1,0 +1,146 @@
+# Submission information
+submission:
+  # Submission label
+  # Label is used to index submissions, to avoid overlapping codes among submissions
+  # use following way to form your label:
+  # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number]_[index number of your submission (1-4)]
+  label: Cornell_CMU_task4_1
+
+  # Submission name
+  # This name will be used in the results tables when space permits
+  name: DCASE2024 baseline system
+
+  # Submission name abbreviated
+  # This abbreviated name will be used in the results table when space is tight, maximum 10 characters
+  abbreviation: Baseline
+
+  # Submission authors in order, mark one of the authors as corresponding author.
+  authors:
+    # First author
+    - lastname: Cornell
+      firstname: Samuele
+      email: cornellsamuele@gmail.com                 # Contact email address
+      corresponding: true                             # Mark true for one of the authors
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: CMU
+        institute: Carnegie Mellon University
+        department: Language Technologies Institute
+        location: Pittsburgh, PA, United States
+
+    # Second author
+    - lastname: Ebbers
+      firstname: Janek
+      email: ebbers@merl.com                  # Contact email address
+
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: MERL
+        institute: Mitsubishi Electric Research Laboratories
+        department: Speech & Audio
+        location: Cambridge, MA, United States
+
+    #...
+
+
+
+# System information
+system:
+  # System description, meta data provided here will be used to do
+  # meta analysis of the submitted system. Use general level tags, if possible use the tags provided in comments.
+  # If information field is not applicable to the system, use "!!null".
+  description:
+
+    # Audio input
+    input_channels: mono                  # e.g. one or multiple [mono, binaural, left, right, mixed, ...]
+    input_sampling_rate: 16               # In kHz
+
+    # Acoustic representation
+    acoustic_features: log-mel energies   # e.g one or multiple [MFCC, log-mel energies, spectrogram, CQT, ...]
+
+    # Data augmentation methods
+    data_augmentation: !!null             # [time stretching, block mixing, pitch shifting, ...]
+
+    # Machine learning
+    # In case using ensemble methods, please specify all methods used (comma separated list).
+    machine_learning_method: CRNN      # e.g one or multiple [GMM, HMM, SVM, kNN, MLP, CNN, RNN, CRNN, NMF, random forest, ensemble, ...]
+
+    # Ensemble method subsystem count
+    # In case ensemble method is not used, mark !!null.
+    ensemble_method_subsystem_count: !!null # [2, 3, 4, 5, ... ]
+
+    # Decision making methods
+    decision_making: !!null                 # [majority vote, ...]
+
+    # Semi-supervised method used to exploit both labelled and unlabelled data
+    machine_learning_semi_supervised: mean-teacher student         # e.g one or multiple [pseudo-labelling, mean-teacher student...]
+
+    # Segmentation method
+    segmentation_method: !!null					            # E.g. [RBM, attention layers...]
+
+    # Post-processing
+    post-processing: median filtering       				# [median filtering, time aggregation...]
+
+  # System complexity, meta data provided here will be used to evaluate
+  # submitted systems from the computational load perspective.
+  complexity:
+
+    # Total amount of parameters used in the acoustic model. For neural networks, this
+    # information is usually given before training process in the network summary.
+    # For other than neural networks, if parameter count information is not directly available,
+    # try estimating the count as accurately as possible.
+    # In case of ensemble approaches, add up parameters for all subsystems.
+    total_parameters: 1800000
+    MACS: 1.036 G
+    # Approximate training time followed by the hardware used
+    trainining_time: 3h (1 GTX 1080 Ti)
+    # Model size in MB
+    model_size: 14.281
+  #Report here the energy consumption measured with e.g. codecarbon
+  energy_consumption:
+    training: 1.667
+    test: 0.145
+    #Energy consumption of the baseline (10 epochs) on your hardware
+    baseline: 0.039
+    
+  #Report here the energy consumption measured with e.g. codecarbon
+  energy_consumption:
+    #Total energy
+    energy_consumed:
+      #Submission
+      training: 1.180
+      test: 0.119
+      #Baseline
+      baseline 10 epochs: 0.039
+      baseline devtest: 0.119
+    #GPU energy
+    gpu_energy:
+      #Submission
+      training: 0.113
+      test: 0.013
+      #Baseline		
+      baseline 10 epochs: 0.004
+      baseline devtest: 0.0123
+
+  # The training subsets used to train the model. Followed the amount of data (number of clips) used per subset.
+  subsets: desed_weak (1578), desed_unlabel_in_domain (14412), desed_synthetic (30000), maestro_real (9592) 				# [desed_weak (xx), desed_unlabel_in_domain (xx), desed_synthetic (xx), maestro_real (xx), ...]
+
+  #List here the external datasets you used for training
+  external_datasets: AudioSet #AudioSet, ImageNet...
+
+  #List here the pre-trained models you used
+  pre_trained_models: BEATs  #BEATs, AST, PANNs...
+
+  # URL to the source code of the system [optional, highly recommended]
+  source_code: https://github.com/DCASE-REPO/DESED_task/tree/master/recipes/dcase2024_task4_baseline
+
+# System results
+results:
+  devtest:
+    # System result for development test datasets.
+    desed:
+      PSDS1: 0.491
+    maestro:
+      mPAUC: 0.695

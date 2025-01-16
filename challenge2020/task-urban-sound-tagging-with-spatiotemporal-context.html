@@ -1,0 +1,1655 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Urban Sound Tagging with Spatiotemporal Context - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Urban Sound Tagging with Spatiotemporal Context - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2020/task-urban-sound-tagging-with-spatiotemporal-context">
+    <meta property="og:url" content="https://dcase.community/challenge2020/task-urban-sound-tagging-with-spatiotemporal-context" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="Challenge has ended. Full results for this task can be found in the Results page. Description This task aims to investigate how spatiotemporal metadata can aid in the prediction of urban sound tags for 10s recordings from an urban acoustic sensor network for which we know when and where the …" />
+    <meta name="og:description" content="Challenge has ended. Full results for this task can be..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2020</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2020/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2020/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>Results</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-acoustic-scene-classification-results-a"><i class="fa fa-bar-chart"></i>&nbsp;Subtask A</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-acoustic-scene-classification-results-b"><i class="fa fa-bar-chart"></i>&nbsp;Subtask B</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2020/task-unsupervised-detection-of-anomalous-sounds" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-unsupervised-detection-of-anomalous-sounds"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-unsupervised-detection-of-anomalous-sounds-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-localization-and-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-localization-and-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-localization-and-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-detection-and-separation-in-domestic-environments" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-detection-and-separation-in-domestic-environments"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-detection-and-separation-in-domestic-environments-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2020/task-urban-sound-tagging-with-spatiotemporal-context" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-urban text-danger"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-urban-sound-tagging-with-spatiotemporal-context"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-urban-sound-tagging-with-spatiotemporal-context-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2020/task-automatic-audio-captioning" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-captioning text-task1"></i>&nbsp;Task6&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-automatic-audio-captioning"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-automatic-audio-captioning-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2020/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2020/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge awards">
+        <a href="http://localhost:3000/challenge2020/awards"><i class="fa fa-trophy"></i>&nbsp;Awards</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/wall-09.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-danger"></i><i class="fa dc-urban fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text dcase-icon-top-text-sm">Urban</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 5</span></span><img src="../images/logos/dcase/dcase2020_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Urban Sound Tagging with Spatiotemporal Context</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Task description</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Coordinators</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Mark Cartwright" class="img img-circle" src="http://localhost:3000/images/person/mark_cartwright.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Mark Cartwright</strong>
+<a class="icon" href="mailto:mark.cartwright@nyu.edu"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://steinhardt.nyu.edu/marl/">
+                                New York University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Jason Cramer" class="img img-circle" src="http://localhost:3000/images/person/jason_cramer.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Jason Cramer</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://steinhardt.nyu.edu/marl/">
+                                New York University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Ana Elisa Mendez Mendez" class="img img-circle" src="http://localhost:3000/images/person/ana_elisa_mendez_mendez.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Ana Elisa Mendez Mendez</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://steinhardt.nyu.edu/marl/">
+                                New York University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Yu Wang" class="img img-circle" src="http://localhost:3000/images/person/yu_wang.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Yu Wang</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://steinhardt.nyu.edu/marl/">
+                                New York University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Ho-Hsiang Wu" class="img img-circle" src="http://localhost:3000/images/person/hohsiang_wu.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Ho-Hsiang Wu</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://steinhardt.nyu.edu/marl/">
+                                New York University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Vincent Lostanlen" class="img img-circle" src="http://localhost:3000/images/person/vincent_lostanlen.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Vincent Lostanlen</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="birds.cornell.edu">
+                                Cornell University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Magdalena Fuentes" class="img img-circle" src="http://localhost:3000/images/person/magdalena_fuentes.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Magdalena Fuentes</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://steinhardt.nyu.edu/marl/">
+                                New York University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Justin Salamon" class="img img-circle" src="http://localhost:3000/images/person/justin_salamon.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Justin Salamon</strong>
+<a class="icon" href="mailto:justin.salamon@nyu.edu"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://research.adobe.com/">
+                                Adobe Research
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Juan P. Bello" class="img img-circle" src="http://localhost:3000/images/person/juan_bello.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Juan P. Bello</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://steinhardt.nyu.edu/marl/">
+                                New York University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#description">Description</a></li>
+<li><a href="#audio-dataset">Audio dataset</a>
+<ul>
+<li><a href="#recording-procedure">Recording procedure</a></li>
+<li><a href="#reference-labels">Reference labels</a></li>
+<li><a href="#spatiotemporal-context-information-stc">Spatiotemporal Context Information (STC)</a></li>
+<li><a href="#development-and-evaluation-datasets">Development and evaluation datasets</a></li>
+<li><a href="#annotation-format">Annotation format</a></li>
+<li><a href="#download">Download</a></li>
+</ul>
+</li>
+<li><a href="#task-setup">Task setup</a>
+<ul>
+<li><a href="#development-dataset">Development dataset</a></li>
+<li><a href="#evaluation-dataset">Evaluation dataset</a></li>
+</ul>
+</li>
+<li><a href="#external-data-resources">External data resources</a></li>
+<li><a href="#submission">Submission</a></li>
+<li><a href="#task-rules">Task rules</a></li>
+<li><a href="#evaluation">Evaluation</a>
+<ul>
+<li><a href="#ranking">Ranking</a></li>
+</ul>
+</li>
+<li><a href="#results">Results</a>
+<ul>
+<li><a href="#coarse-level-prediction">Coarse-level prediction</a></li>
+<li><a href="#fine-level-prediction">Fine-level prediction</a></li>
+</ul>
+</li>
+<li><a href="#baseline-system">Baseline system</a>
+<ul>
+<li><a href="#repository">Repository</a></li>
+<li><a href="#results-for-the-development-dataset">Results for the development dataset</a></li>
+</ul>
+</li>
+<li><a href="#feedback-and-questions">Feedback and questions</a></li>
+<li><a href="#citation">Citation</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p class="alert alert-info">
+<strong>Challenge has ended.</strong> Full results for this task can be found in the <a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2020/task-urban-sound-tagging-with-spatiotemporal-context-results">Results <i class="fa fa-caret-right"></i></a> page.
+</p>
+<h1 id="description">Description</h1>
+<p>This task aims to investigate how spatiotemporal metadata can aid in the prediction of urban sound tags for 10s recordings from an urban acoustic sensor network for which we know when and where the recordings were taken. This task is motivated by the real-world problem of building machine listening tools to aid in the monitoring, analysis, and mitigation of urban noise pollution.</p>
+<p>Often in machine listening research, we work with datasets scraped from the internet, disconnected from real applications, and devoid of relevant metadata such as when and where the data were recorded. However, this is not the case in many real-world sensing applications. In these scenarios, this spatiotemporal context (STC) metadata may inform us as to what sounds we may expect to hear in a recording. For example, in NYC you are more likely to hear an ice cream truck by the park at 3pm on a Saturday in July than you are by a busy street at rush hour on a Tuesday in January; however, you are more likely to hear honking, engines, and sirens on that Tuesday. However, if you knew there was a thunderstorm that Saturday afternoon in July, this would reduce your expectation to hear an ice cream truck. Knowing that this thunderstorm was afoot would also help you disambiguate between the noise of heavy rain and that of a large walk-behind saw.</p>
+<p>In this task, in addition to the recording, we provide identifiers for the New York City block (location) where the recording was taken as well as when the recording was taken, quantized to the hour. We encourage all submissions to exploit both this provided information as well as incorporating any external data (e.g. weather, land usage, traffic, Twitter) that can further help inform your system to predict tags. </p>
+<p><strong>To incentivize the use of STC metadata, only systems that exploit STC metadata will be included in the official task leaderboard. Awards will only be given to systems which have incorporated STC</strong>.</p>
+<figure>
+<div class="row row-centered">
+<div class="col-xs-10 col-md-8 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2020/task5_urban_sound_tagging.png"/>
+<figcaption>Figure 1. Overview of a system for audio tagging with spatiotemporal context.</figcaption>
+</div>
+</div>
+</figure>
+<h1 id="audio-dataset">Audio dataset</h1>
+<h2 id="recording-procedure">Recording procedure</h2>
+<p>The provided audio has been acquired using the <a href="https://wp.nyu.edu/sonyc/">SONYC</a> acoustic sensor network for urban noise pollution monitoring [1]. SONYC (Sounds of New York City) is a research project aimed at monitoring, analyzing, and mitigating urban noise pollution. To this end, SONYC has designed an acoustic sensor for noise pollution monitoring and has deployed over 50 different sensors in the Manhattan, Brooklyn, and Queens boroughs of New York, with the highest concentration around New York University's Manhattan campus. Collectively, these sensors have recorded over 100M 10-second audio clips since its launch in 2016, of which we provide a small labeled subset. The data was initially sampled by selecting the nearest neighbors on VGGish features of recordings known to have classes of interest [2], and was subsequently sampled using an active learning approach which aimed at sampling diverse samples around and above the decision threshold. All recordings are 10 seconds and were recorded with identical microphones at identical gain settings.</p>
+<p>[1] J. P. Bello, C. Silva, O. Nov, R. L. DuBios, A. Arora, J. Salamon, C. Mydlarz, H. Doraiswamy, "SONYC: A System for the Monitoring, Analysis and Mitigation of Urban Noise Pollution", Communications of the ACM (CACM), 2018.</p>
+<p>[2] Cartwright, M., Mendez, A.E.M., Cramer, J., Lostanlen, V., Dove, G., Wu, H., Salamon, J., Nov, O., Bello, J.P. "SONYC Urban Sound Tagging (SONYC-UST): A Multilabel Dataset from an Urban Acoustic Sensor Network", Proceedings of the Workshop on Detection and Classification of Acoustic Scenes and Events (DCASE) , 2019.</p>
+<h2 id="reference-labels">Reference labels</h2>
+<p>Through consultation with the New York Department of Environmental Protection (DEP) and the New York noise code, we constructed a small, two-level urban sound taxonomy (see Figure 2) consisting of 8 coarse-level and 23 fine-level sound categories, e.g., the coarse <em>alert signals</em> category contains four fine-level categories: <em>reverse beeper</em>, <em>car alarm</em>, <em>car horn</em>, <em>siren</em>. This taxonomy is not intended to provide a framework for exhaustive description of urban sounds.  Instead, it was scoped to provide actionable information to the DEP, while also being understandable and manageable for novice annotators. The chosen sound categories map to categories of interest in the noise code; they were limited to those that seem likely discernible by novice annotators; and we kept the number of categories small enough so that they can all be visible at once in an annotation interface.</p>
+<figure>
+<div class="row row-centered">
+<div class="col-xs-12 col-md-12 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2020/task5_urban_sound_tagging_taxonomy.png"/>
+<figcaption>Figure 2. Hierarchical taxonomy of urban sound tags in the DCASE Urban Sound Tagging task. Rectangular and round boxes respectively denote coarse and fine tags.</figcaption>
+</div>
+</div>
+</figure>
+<p>To annotate the sensor recordings, we launched an annotation campaign on the Zooniverse citizen-science platform [3]. We presented volunteers on the platform with instructions explaining the task and a field guide describing the SONYC-UST classes, and we asked them to annotate the presence of all of the fine-level classes in a recording. For every coarse-level class (e.g., <em>alert signal</em>) we also included a fine-level <em>other/unknown</em> class (e.g., <em>other/unknown alert signal</em>) with the goal of capturing an annotator's uncertainty in a fine-level tag while still annotating the coarse-level class. If an annotator marked a sound class as present in the recording, they were also asked to annotate the proximity of the sound event (<code>near</code>, <code>far</code>, <code>not sure</code>). Volunteers could annotate as many recordings as were available. We required that each recording be annotated by three different annotators. </p>
+<p>The SONYC research team also created an agreed-upon verified subset of annotations that will be considered ground-truth for model validation and evaluation. For additional details regarding both the crowdsourcing procedure and our multi-stage verification procedure, please see [2] and [3].</p>
+<p>[3] M. Cartwright, G.Dove, A.E. Méndez Méndez, J.P. Bello, Oded Nov, "Crowdsourcing multi-label audio annotation tasks with citizen scientists", Proceedings of the Conference on Human Factors in Computing Systems (CHI), 2019.</p>
+<h2 id="spatiotemporal-context-information-stc">Spatiotemporal Context Information (STC)</h2>
+<p>A central component of this year's task is the inclusion spatiotemporal context information (STC). To maintain privacy, we quantized the spatial information to the level of a city block, and we quantized the temporal information to the level of an hour. We also limited the occurrence of recordings with positive human voice annotations to one per hour per sensor. For the spatial information, we have provided borough and block identifiers, as used in NYC's parcel number system known as Borough, Block, Lot (BBL). This a common identifier that is used in various NYC datasets, making it easy to relate the sensor data to other city data such as <a href="https://www1.nyc.gov/site/planning/data-maps/open-data.page">PLUTO</a> and more generally <a href="https://opendata.cityofnewyork.us/">NYC Open Data</a>. For ease of use with other datasets, we've also included the latitude and longitude coordinates of the center of the block. Below are distributions of the recordings in time and space.</p>
+<figure>
+<div class="row row-centered">
+<div class="col-xs-12 col-md-5 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2020/task5_sonyc-ust-v2-sensor-map.png"/>
+<figcaption>Figure 3. Location of the SONYC-UST v2 sensors. Green is `train` split, blue is `validate` split.</figcaption>
+</div>
+<div class="col-xs-12 col-md-5 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2020/task5_sonyc-ust-v2-month-pie.png"/>
+<figcaption>Figure 4. Temporal distribution of SONYC-UST v2 recordings.</figcaption>
+</div>
+</div>
+</figure>
+<figure>
+<div class="row row-centered">
+<div class="col-xs-12 col-md-10 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2020/task5_sonyc-ust-v2-months.png"/>
+<figcaption>Figure 5. Temporal distribution of SONYC-UST v2 recordings.</figcaption>
+</div>
+</div>
+</figure>
+<h2 id="development-and-evaluation-datasets">Development and evaluation datasets</h2>
+<h2 id="annotation-format">Annotation format</h2>
+<p>The metadata corresponding to the public development set is included in the dataset as a CSV file named <code>annotations.csv</code>. Each row in the file represents one multi-label annotation of a recording---it could be the annotation of a single citizen science volunteer, a single SONYC team member, or the agreed-upon ground truth by the SONYC team (see the <em>annotator_id</em> column description for more information). The multi-label annotation is encoded as the entries in 29 columns, corresponding to alphabetically sorted tags: amplified speech, car alarm, car horn, chainsaw, and so forth. In each entry, the numbers 0 and 1 respectively denote the absence of the presence of the corresponding tag. In addition, each row also includes three identification numbers (ID): one for the human who performed the annotation, one for the sensor in the SONYC network, and one for the ten-second recording itself. This year, we are also including spatial information in four additional columns: <em>borough</em>, <em>block</em>, <em>latitude</em>, <em>longitude</em>; and temporal information in four additional columns: <em>year</em>, <em>week</em>, <em>day</em>, <em>hour</em>. The columns of the CSV are described below.</p>
+<h3>Columns</h3>
+<dl>
+<dt><em>split</em></dt>
+<dd>
+<p>The data split. (<em>train</em>, <em>validate</em>)</p>
+</dd>
+<dt><em>sensor_id</em></dt>
+<dd>
+<p>The ID of the sensor the recording is from. These have been anonymized to have no relation to geolocation.</p>
+</dd>
+<dt><em>audio_filename</em></dt>
+<dd>
+<p>The filename of the audio recording</p>
+</dd>
+<dt><em>annotator_id</em></dt>
+<dd>
+<p>The anonymous ID of the annotator. If this value is positive, it is a citizen science volunteer from the Zooniverse platform. If it is negative, it is a SONYC team member. If it is <code>0</code>, then it is the ground truth agreed-upon by the SONYC team.</p>
+</dd>
+<dt><em>year</em></dt>
+<dd>
+<p>The year the recording is from.</p>
+</dd>
+<dt><em>week</em></dt>
+<dd>
+<p>The week of the year the recording is from.</p>
+</dd>
+<dt><em>day</em></dt>
+<dd>
+<p>The day of the week the recording is from, with Monday as the start (i.e. <code>0</code>=Monday).</p>
+</dd>
+<dt><em>hour</em></dt>
+<dd>
+<p>The hour of the day the recording is from</p>
+</dd>
+<dt><em>borough</em></dt>
+<dd>
+<p>The NYC borough in which the sensor is located (<code>1</code>=Manhattan, <code>3</code>=Brooklyn, <code>4</code>=Queens). This corresponds to the first digit in the 10-digit NYC parcel number system known as Borough, Block, Lot (BBL).</p>
+</dd>
+<dt><em>block</em></dt>
+<dd>
+<p>The NYC block in which the sensor is located. This corresponds to digits 2—6 digit in the 10-digit NYC parcel number system known as Borough, Block, Lot (BBL).</p>
+</dd>
+<dt><em>latitude</em></dt>
+<dd>
+<p>The latitude coordinate of the <strong>block</strong> in which the sensor is located.</p>
+</dd>
+<dt><em>longitude</em></dt>
+<dd>
+<p>The longitude coordinate of the <strong>block</strong> in which the sensor is located.</p>
+</dd>
+<dt><em>&lt;coarse_id&gt;-&lt;fine_id&gt;_&lt;fine_name&gt;_presence</em></dt>
+<dd>
+<p>Columns of this form indicate the presence of fine-level class. <code>1</code> if present, <code>0</code> if not present. If <code>-1</code>, then the class was not labeled in this annotation because the annotation was performed by a SONYC team member who only annotated one coarse group of classes at a time when annotating the verified subset.</p>
+</dd>
+<dt><em>&lt;coarse_id&gt;_&lt;coarse_name&gt;_presence</em></dt>
+<dd>
+<p>Columns of this form indicate the presence of a coarse-level class. <code>1</code> if present, <code>0</code> if not present. If <code>-1</code>, then the class was not labeled in this annotation because the annotation was performed by a SONYC team member who only annotated one coarse group of classes at a time when annotating the verified subset. These columns are computed from the fine-level class presence columns and are presented here for convenience when training on only coarse-level classes.</p>
+</dd>
+<dt><em>&lt;coarse_id&gt;-&lt;fine_id&gt;_&lt;fine_name&gt;_proximity</em></dt>
+<dd>
+<p>Columns of this form indicate the proximity of a fine-level class. After indicating the presence of a fine-level class, citizen science annotators were asked to indicate the proximity of the sound event to the sensor. Only the citizen science volunteers performed this task, and therefore this data is not included in the verified annotations. This column may take on one of the following four values: (<code>near</code>, <code>far</code>, <code>notsure</code>, <code>-1</code>). If <code>-1</code>, then the proximity was not annotated because either the annotation was not performed by a citizen science volunteer, or the citizen science volunteer did not indicate the presence of the class.</p>
+</dd>
+</dl>
+<h2 id="download">Download</h2>
+<p>The dataset (both development and evaluation) can be downloaded here:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/3873076" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/3873076" target="_blank">
+<span style="font-size:20px;">SONYC Urban Sound Tagging <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(12.8 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.3873076">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3873076.svg"/>
+</a>
+<span class="text-muted">
+                
+                version 2.2.0
+                
+                
+                </span>
+</div>
+</div>
+<p><br/></p>
+<h1 id="task-setup">Task setup</h1>
+<p>The Urban Sound Tagging dataset comprises a public development set and a private evaluation set. For the public development set, we release both the audio recordings and the corresponding human annotations at the start of the challenge. For the private evaluation set, we will release the audio recordings at the start of the evaluation period, but we will not disclose human annotations until after the challenge has concluded.</p>
+<h2 id="development-dataset">Development dataset</h2>
+<p>The development dataset contains all of the recordings and annotations from DCASE 2019 Task 5 (both development and evaluation sets), plus almost 15000 additional recordings with crowdsourced annotations. All of the recordings are from 2016–2019 (early 2019) and are grouped into a <code>train</code> split (13538 recordings / 35 sensors) and <code>validate</code> split (4308 recordings / 9 sensors). The <code>train</code> and <code>validate</code> splits are disjoint with respect to the sensor from which each recording came. 716 of the recordings also have annotations which have been verified by the SONYC team (denoted by <code>annotator_id</code>==<code>0</code>).  Note that recordings with verified annotations are not limited to the validation sensor split (see Figure 6). Participants may use this information however they please, but note that the <strong>baseline model is trained with crowsourced annotations of the <code>train</code> sensor split, and validation metrics are reported with the verified annotations of the <code>validate</code> sensor split</strong> (see Figure 7).</p>
+<h2 id="evaluation-dataset">Evaluation dataset</h2>
+<p>The evaluation data is distributed as the <code>test</code> split in SONYC-UST v2.2. It contains 669 recordings from 48 sensors. It may contain recordings from sensors in either the <code>validate</code> or the <code>train</code> splits (and also possibly unseen sensors). However, all of the evaluation data will be displaced in time, occurring after any of the recordings in the development set (mid to late 2019). In addition, all of the annotations in the evaluation set will be verified by the SONYC team, using the same procedure as the verified annotations in the development set.</p>
+<figure>
+<div class="row row-centered">
+<div class="col-xs-12 col-md-12 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2020/task5_annotations.png"/>
+<figcaption>Figure 6. The distribution of all SONYC-UST v2 recordings and annotations by sensor split, recording split, annotation type, and time.</figcaption>
+</div>
+<div class="col-xs-12 col-md-12 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2020/task5_baseline_annotations.png"/>
+<figcaption>Figure 7. The distribution of the recordings and annotations used in training the baseline model.</figcaption>
+</div>
+</div>
+</figure>
+<h1 id="external-data-resources">External data resources</h1>
+<table class="datatable table table-hover table-condensed" data-filter-control="false" data-filter-show-clear="false" data-id-field="name" data-pagination="false" data-show-pagination-switch="false" data-sort-name="name" data-sort-order="asc">
+<thead>
+<tr>
+<th data-field="name" data-sortable="true">Dataset name</th>
+<th data-field="type" data-filter-control="select" data-sortable="true" data-tag="true">Type</th>
+<th data-field="date" data-sortable="true">Added</th>
+<th data-field="link" data-value-type="url">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AudioSet</td>
+<td>audio</td>
+<td>01.03.2020</td>
+<td>https://research.google.com/audioset/</td>
+</tr>
+<tr>
+<td>OpenL3</td>
+<td>model</td>
+<td>01.03.2020</td>
+<td>https://github.com/marl/openl3</td>
+</tr>
+<tr>
+<td>VGGish</td>
+<td>model</td>
+<td>01.03.2020</td>
+<td>https://github.com/tensorflow/models/tree/master/research/audioset/vggish</td>
+</tr>
+<tr>
+<td>PLUTO</td>
+<td>metadata</td>
+<td>01.03.2020</td>
+<td>https://www1.nyc.gov/site/planning/data-maps/open-data.page</td>
+</tr>
+<tr>
+<td>NYC OpenData</td>
+<td>metadata</td>
+<td>01.03.2020</td>
+<td>https://opendata.cityofnewyork.us</td>
+</tr>
+<tr>
+<td>NYC OpenData - NYPD Arrests Data</td>
+<td>metadata</td>
+<td>01.03.2020</td>
+<td>https://data.cityofnewyork.us/Public-Safety/NYPD-Arrests-Data-Historic-/8h9b-rp9u</td>
+</tr>
+<tr>
+<td>NYC OpenData - Motor Vehicle Collisions</td>
+<td>metadata</td>
+<td>01.03.2020</td>
+<td>Vehicle collisions - https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95</td>
+</tr>
+<tr>
+<td>NYC OpenData - 311 Service Requests</td>
+<td>metadata</td>
+<td>01.03.2020</td>
+<td>https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9</td>
+</tr>
+</tbody>
+</table>
+<h1 id="submission">Submission</h1>
+<p>The output files should be in CSV format with the following columns.</p>
+<dl>
+<dt><em>audio_filename</em></dt>
+<dd>
+<p>The filename of the audio recording</p>
+</dd>
+<dt><em>&lt;coarse_id&gt;-&lt;fine_id&gt;_&lt;fine_name&gt;</em></dt>
+<dd>
+<p>Columns of this form should indicate the probability of the presence of fine-level class (floating point values between <code>0</code> and <code>1</code>). If the system does not produce probabilities and only detections, <code>1</code> and <code>0</code> can be used for predicted positives and negatives, respectively. Numeric values outside of the range <code>[0,1]</code> or non-numeric values (including empty strings) will throw an error during evaluation and the results will not be accepted. Also note that we accept "X" level predictions, which are meant to indicate presence of the respective coarse tag that is either not captured by the available fine tags or is uncertain. For example, if a system confidently detects the presence of the coarse tag <code>machinery-impact</code> but not any of the corresponding fine tags, the value of <code>2-X_other-unknown-impact-machinery</code> would be <code>1</code>. Feel free to provide these if your system models these probabilities.</p>
+</dd>
+<dt><em>&lt;coarse_id&gt;_&lt;coarse_name&gt;</em></dt>
+<dd>
+<p>Columns of this form indicate the probability of the presence of a coarse-level class (floating point values between <code>0</code> and <code>1</code>). <code>1</code> if present, <code>0</code> if not present. If the system does not produce probabilities and only detections, <code>1</code> and <code>0</code> can be used for predicted positives and negatives, respectively.</p>
+</dd>
+</dl>
+<p>An example of the output in addition to the accompanying metadata file is included in the submission package template as well as the <a href="http://localhost:3000/challenge2020/submission">Submission</a> page. Note that evaluations at the coarse and fine levels will be performed independently on the columns corresponding to the respective tags. Therefore, participants should provide system outputs for both the coarse and fine tags if they wish to be evaluated on both levels.</p>
+<p>For more information about the submission process and platform, please refer to the <a href="http://localhost:3000/challenge2020/submission">Submission</a> page.</p>
+<h1 id="task-rules">Task rules</h1>
+<p>The rules of the DCASE Urban Sound Tagging task are relatively permissive. The only two practices that are strictly forbidden are the manual annotation of the private evaluation set and the inclusion of private external data to the <code>train</code> subset or <code>validate</code> subset. Nevertheless, we explicitly authorize the inclusion of <strong>publicly released</strong> external data to the <code>train</code> set or <code>validate</code> subset. For instance, we highly encourage the use of external spatiotemporal data such as <a href="https://opendata.cityofnewyork.us/">NYC OpenData</a>. We also authorize participants to download the <a href="https://research.google.com/audioset/">AudioSet</a> and <a href="https://datasets.freesound.org">FSD</a> and use them to learn general-purpose machine listening features in a supervised way. However, we do not allow participants to collect <code>train</code> data from YouTube or FreeSound in an arbitrary way, in the absence of a sustainable and reproducible open data initiative. This restriction to the rules of the challenge aims at preserving the reproducibility of research in the development of innovative systems for machine listening.</p>
+<p>We provide a thorough list of rules below.</p>
+<ul>
+<li>
+<p><strong>Forbidden:</strong> manual annotation of the evaluation set</p>
+<ul>
+<li>Participants are not allowed to perform any manual annotation, be it expert or crowdsourced, of the private evaluation set.</li>
+</ul>
+</li>
+<li>
+<p><strong>Forbidden:</strong> use of private external data</p>
+<ul>
+<li>
+<p>Participants are not allowed to use private external data for training, validating, and/or selecting their model.</p>
+</li>
+<li>
+<p>The term "private external data" includes all data that either have a proprietary license or are hosted on private or corporate servers, such as YouTube, Soundcloud, Dropbox, Google Drive, and so forth.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Restricted:</strong> use of open external data</p>
+<ul>
+<li>
+<p>Participants are allowed to use open external data for training, validating, and/or selecting their model.</p>
+</li>
+<li>
+<p>The term "open external data" includes all datasets that are released under a free license, such as Creative Commons; which have a digital object identifier (DOI); and which are hosted on a dedicated repository for open science, such as NYC OpenData, Zenodo, DataDryad, and IEEE DataPort.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Restricted:</strong> use of pre-trained models</p>
+<ul>
+<li>
+<p>Participants are allowed to use pretrained models, such as self-supervised audiovisual embeddings, as feature extractors for their system.</p>
+</li>
+<li>
+<p>If these pretrained models are novel contributions, we highly encourage participants to release them under an open source license, for the benefit of the machine listening community at large.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Authorized:</strong> manual inspection of the public development set</p>
+<ul>
+<li>
+<p>While not required, participants are allowed to employ additional human labor, either expert or crowdsourced, to refine the annotation of recordings in the public development set.</p>
+</li>
+<li>
+<p>To participants who were to undertake a systematic re-annotation of the <code>train</code> set, in part or in full, we kindly ask to contact us so that we can consider, for a possible upcoming edition of the Urban Sound Tagging challenge, including their annotations in the public development set.</p>
+</li>
+<li>
+<p>As stated above, although we encourage human inspection of the public development set, we strictly forbid the human inspection of the private evaluation set.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Encouraged:</strong> use of additional metadata</p>
+<ul>
+<li>
+<p>Participants are highly encouraged to use the additional metadata (both STC and non-STC) of each annotation-recording pair, such as recording location, recording time, identifying number (ID) of each sensor, annotator IDs, and perceived proximity, in the development of their system.</p>
+</li>
+<li>
+<p>In addition to spatiotemporal context, three additional examples of authorized use of metadata are: using sensor IDs to control the heterogeneity of recording conditions; using annotator IDs to model the reliability of each annotator; and using perceived proximity as a latent variable in the acoustic model.</p>
+</li>
+<li>
+<p>However, at the time of prediction, systems must only rely on a single-channel audio input along with any combination of the provided spatial and temporal metadata (STC, i.e., <em>year</em>, <em>week</em>, <em>day</em>, <em>hour</em>, <em>borough</em>, <em>block</em>, <em>latitude</em>, <em>longitude</em>). Note that <em>sensor_id</em> is not an allowed input since the model must be able to generalize to new unseen sensors.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Required (for ranking):</strong> use of STC metadata</p>
+<ul>
+<li>
+<p>Participants are highly encouraged to use the additional STC metadata of each annotation-recording pair, such as recording location, recording time, identifying number (ID) of each sensor, annotator IDs, and perceived proximity, in the development of their system.</p>
+</li>
+<li>
+<p><strong>Systems must exploit STC to be included in the official leaderboard (ranking). Submissions that don't use STC will still be evaluated, but won't be included in the ranking</strong>.</p>
+</li>
+<li>
+<p>In addition to spatiotemporal context, three additional examples of authorized use of metadata are: using sensor IDs to control the heterogeneity of recording conditions; using annotator IDs to model the reliability of each annotator; and using perceived proximity as a latent variable in the acoustic model.</p>
+</li>
+<li>
+<p>However, at the time of prediction, systems must only rely on a single-channel audio input along with any combination of the provided spatial and temporal metadata (STC, i.e., <em>year</em>, <em>week</em>, <em>day</em>, <em>hour</em>, <em>borough</em>, <em>block</em>, <em>latitude</em>, <em>longitude</em>). Note that <em>sensor_id</em> is not an allowed input since the model must be able to generalize to new unseen sensors.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Required (for ranking):</strong> open-sourcing of system source code</p>
+<ul>
+<li>
+<p>For the sake of the integrity of the challenge and as well as the contribution to the collective knowledge of the research community, we require that all systems must be verifiable and reproducible. Therefore, we require that all submissions that wish to be recognized competitively be accompanied with a link to a public source code repository.</p>
+</li>
+<li>
+<p>This can be specified in the metadata YAML file included in the submission.</p>
+</li>
+<li>
+<p>The source code must be hosted on <a href="https://github.com/">Github</a>, <a href="https://bitbucket.org/">Bitbucket</a>, <a href="https://sourceforge.net/">SourceForge</a>, or any other public code hosting service.</p>
+</li>
+<li>
+<p>The source code should be well documented and include instructions for reproducing the results of the submitted system.</p>
+</li>
+<li>
+<p>Only submissions that include reproducible open-sourced code will be considered for the top ten ranking systems.</p>
+</li>
+<li>
+<p>Closed-source submissions will still be accepted but not included in the final ranking. Open-sourced submissions are highly encouraged nonetheless.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="evaluation">Evaluation</h1>
+<p><strong>Summary:<br/></strong>
+There will be two separate rankings, one for performance on the coarse-grained labels and one for performance on the fine-grained labels. In both cases, macro-averaged AUPRC scores will be used for ranking. In addition, as a secondary metric we will also report micro-averaged AUPRC. Please see below for full details about the evaluation procedure.</p>
+<p><strong>NOTE: while all submissions will be evaluated, only submissions that make use of spatiotemporal context (STC) will be included in the rankings.</strong> </p>
+<p><strong>Full description:<br/></strong>
+The Urban Sound Tagging challenge is a task of multilabel classification. To evaluate and rank participants, we ask them to submit a CSV file following a similar layout as the publicly available CSV file of the development set: in it, each row should represent a different ten-second snippet, and each column should represent an urban sound tag.</p>
+<p>The area under the precision-recall curve (AUPRC) is the classification metric that we employ to rank participants. To compute this curve, we threshold the confidence of every tag in every snippet by some fixed threshold <span class="math">\(\tau\)</span>, thus resulting in a one-hot encoding of predicted tags. Then, we count the total number of true positives (TP), false positives (FP), and false negatives (FN) between prediction and consensus ground truth over the entire evaluation dataset.</p>
+<p>The Urban Sound Tagging challenge provides two leaderboards of participants, according to two distinct metric: fine-grained AUPRC and coarse-grained AUPRC. In each of the two levels of granularity, we vary <span class="math">\(\tau\)</span> between 0 and 1 and compute TP, FP, and FN for each coarse category. Then, we compute micro-averaged precision <span class="math">\(P = \text{TP} / (\text{TP} + \text{FP})\)</span> and recall <span class="math">\(R = \text{TP} / (\text{TP} + \text{TN})\)</span>, giving an equal importance to every sample. We repeat the same operation for all values of <span class="math">\(\tau\)</span> in the interval <span class="math">\([0, 1]\)</span> that result in different values of P and R. Lastly, we use the trapezoidal rule to estimate the AUPRC.</p>
+<p>The computations can be summarized by the following expressions defined for each coarse category, where <span class="math">\(t_0\)</span> and <span class="math">\(y_0\)</span> correspond to the presence of an incomplete tag in the ground truth and prediction (respectively), and <span class="math">\(t_k\)</span> and <span class="math">\(y_k\)</span> (for <span class="math">\(k \in \{1, \ldots, K\}\)</span>) correspond to the presence of fine tag <span class="math">\(k\)</span> in the ground truth and prediction (respectively).</p>
+<div class="math">$$\text{TP} = \left(1 - \prod_{k=0}^K (1-t_k) \right) \left(1 - \prod_{k=0}^K (1-y_k) \right)$$</div>
+<div class="math">$$\text{FP} = \left(\prod_{k=0}^K (1-t_k) \right) \left(1 - \prod_{k=0}^K (1-y_k) \right)$$</div>
+<div class="math">$$\text{FN} = \left(1 - \prod_{k=0}^K (1-t_k) \right) \left(\prod_{k=0}^K (1-y_k) \right)$$</div>
+<p>For samples with complete ground truth (i.e., in the absence of the incomplete fine tag in the ground truth for the coarse category at hand), evaluating urban sound tagging at a fine level of granularity is also relatively straightforward. Indeed, for samples with complete ground truth, the computation of TP, FP, and FN amounts to pairwise conjunctions between predicted fine tags and corresponding ground truth fine tags, without any coarsening. Each fine tag produces either one TP (if it is present and predicted), one FP (if it it absent yet predicted), or one FN (if it is absent yet not predicted). Then, we apply one-hot integer encoding to these boolean values, and sum them up at the level of coarse categories before micro-averaging across coarse categories over the entire evaluation dataset. In this case, the sum (TP+FP+FN) is equal to the number of tags in the fine-grained taxonomy, i.e. 23. Furthermore, the sum (TP+FN) is equal to the number of truly present tags in the sample at hand.</p>
+<p>The situation becomes considerably more complex when the incomplete fine tag is present in the ground truth, because this presence hinders the possibility of precisely counting the number of false alarms in the coarse category at hand. We propose a pragmatic solution to this problem; the guiding idea behind our solution is to evaluate the prediction at the fine level only when possible, and fall back to the coarse level if necessary.</p>
+<p>For example, if a small engine is present in the ground truth and absent in the prediction but an "other/unknown" engine is predicted, then it's a true positive in the coarse-grained sense, but a false negative in the fine-grained sense. However, if a small engine is absent in the ground truth and present in the prediction, then the outcome of the evaluation will depend on the completeness of the ground truth for the coarse category of engines. If this coarse category is complete (i.e. if the tag "engine of uncertain size" is absent from the ground truth), then we may evaluate the small engine tag at the fine level, and count it as a false positive. Conversely, if the coarse category of engines is incomplete (i.e. the tag "engine of uncertain size" is present in the ground truth), then we fall back to coarse-level evaluation for the sample at hand, and count the small engine prediction as a true positive, in aggregation with potential predictions of medium engines and large engines.</p>
+<p>The computations can be summarized by the following expressions defined for each coarse category, where <span class="math">\(t_0\)</span> and <span class="math">\(y_0\)</span> correspond to the presence of an incomplete tag in the ground truth and prediction (respectively), and <span class="math">\(t_k\)</span> and <span class="math">\(y_k\)</span> (for <span class="math">\(k \in \{1, \ldots, K\}\)</span>) correspond to the presence of fine tag <span class="math">\(k\)</span> in the ground truth and prediction (respectively).</p>
+<div class="math">$$\text{TP} = \left(\sum_{k=1}^K t_k y_k \right) + t_0 \left( 1 - \prod_{k=1}^K t_k y_k\right) \left(1 - \prod_{k=0}^K (1-y_k) \right) $$</div>
+<div class="math">$$\text{FP} = (1-t_0) \left( \left(\sum_{k=1}^K (1-t_k)y_k \right) + y_0 \left( \prod_{k=1}^K (1-t_k) \right) \left( 1 - \prod_{k=1}^K y_k \right) \right) $$</div>
+<div class="math">$$\text{FN} = \left(\sum_{k=1}^K t_k(1-y_k) \right) + t_0 \left( \prod_{k=1}^K (1-t_k) \right) \left(\prod_{k=0}^K (1-y_k) \right)$$</div>
+<p>We provide evaluation code that computes these metrics for participants to use for evaluating their system output in the <a href="https://github.com/sonyc-project/dcase2020task5-uststc-baseline">source code repository</a> containing the baseline model. The evaluation code accepts the output format we expect for submission, so participants can use this to help ensure that their system output is formatted correctly, as well as assessing the performance of their system as they develop it. We encourage participants to use this code as a starting point for manipulating the dataset and for evaluating their system outputs.</p>
+<h2 id="ranking">Ranking</h2>
+<p>There will be two separate rankings, one for performance on the coarse-grained labels and one for performance on the fine-grained labels. In both cases, macro-averaged AUPRC scores will be used for ranking. In addition, as a secondary metric we will also report micro-averaged AUPRC. Please see the Evaluation section for more details about the evaluation procedure.</p>
+<p><strong>NOTE: while all submissions will be evaluated, only submissions that make use of spatiotemporal context (STC) will be included in the rankings.</strong> </p>
+<h1 id="results">Results</h1>
+<h2 id="coarse-level-prediction">Coarse-level prediction</h2>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="coarse_micro_auprc" data-scatter-y="coarse_macro_auprc" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="coarse_macro_auprc" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="4">Submission Information</th>
+<th class="sep-left-cell" colspan="3">Evaluation dataset</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Submission name
+            </th>
+<th class="sep-left-cell sm-cell" data-field="corresponding_author" data-sortable="false">
+                Author
+            </th>
+<th class="sm-cell" data-field="corresponding_affiliation" data-sortable="false">
+                Affiliation
+            </th>
+<th class="sep-left-cell text-center" data-field="external_anchor" data-sortable="false" data-value-type="url">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="coarse_micro_auprc" data-sortable="true" data-value-type="float3">
+                Micro-<br/>AUPRC
+            </th>
+<th class="text-center" data-chartable="true" data-field="coarse_lwlrap" data-sortable="true" data-value-type="float3">
+                LWLRAP
+            </th>
+<th class="text-center" data-chartable="true" data-field="coarse_macro_auprc" data-sortable="true" data-value-type="float3">
+                Macro-<br/>AUPRC
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Arnault_MULT_task5_1</td>
+<td>Augustin Arnault</td>
+<td>Department of Artificial Intelligence, Mons, Belgium</td>
+<td>task-urban-sound-tagging-results#Arnault2020</td>
+<td>0.767</td>
+<td>0.846</td>
+<td>0.593</td>
+</tr>
+<tr>
+<td></td>
+<td>Arnault_MULT_task5_2</td>
+<td>Augustin Arnault</td>
+<td>Department of Artificial Intelligence, Mons, Belgium</td>
+<td>task-urban-sound-tagging-results#Arnault2020</td>
+<td>0.815</td>
+<td>0.881</td>
+<td>0.632</td>
+</tr>
+<tr>
+<td></td>
+<td>Arnault_MULT_task5_3</td>
+<td>Augustin Arnault</td>
+<td>Department of Artificial Intelligence, Mons, Belgium</td>
+<td>task-urban-sound-tagging-results#Arnault2020</td>
+<td>0.835</td>
+<td>0.898</td>
+<td>0.649</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NWPU_task5_1</td>
+<td>Jisheng Bai</td>
+<td>School of Marine Science and Technology, Xi'an, China</td>
+<td>task-urban-sound-tagging-results#Bai2020</td>
+<td>0.768</td>
+<td>0.860</td>
+<td>0.600</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NWPU_task5_2</td>
+<td>Jisheng Bai</td>
+<td>School of Marine Science and Technology, Xi'an, China</td>
+<td>task-urban-sound-tagging-results#Bai2020</td>
+<td>0.542</td>
+<td>0.720</td>
+<td>0.547</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NWPU_task5_3</td>
+<td>Jisheng Bai</td>
+<td>School of Marine Science and Technology, Xi'an, China</td>
+<td>task-urban-sound-tagging-results#Bai2020</td>
+<td>0.562</td>
+<td>0.760</td>
+<td>0.537</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NWPU_task5_4</td>
+<td>Jisheng Bai</td>
+<td>School of Marine Science and Technology, Xi'an, China</td>
+<td>task-urban-sound-tagging-results#Bai2020</td>
+<td>0.601</td>
+<td>0.745</td>
+<td>0.576</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2020 baseline</td>
+<td>Mark Cartwright</td>
+<td>Music and Audio Research Laboratory, Department of Computer Science and Engineering, Center for Urban Science and Progress, New York, New York, USA</td>
+<td>task-urban-sound-tagging-results#Cartwright2020</td>
+<td>0.749</td>
+<td>0.857</td>
+<td>0.510</td>
+</tr>
+<tr>
+<td></td>
+<td>Diez_Noismart_task5_1</td>
+<td>Itxasne Diez</td>
+<td>Getxo, Basque Country, Spain</td>
+<td>task-urban-sound-tagging-results#Diez2020</td>
+<td>0.640</td>
+<td>0.776</td>
+<td>0.449</td>
+</tr>
+<tr>
+<td></td>
+<td>Diez_Noismart_task5_2</td>
+<td>Itxasne Diez</td>
+<td>Getxo, Basque Country, Spain</td>
+<td>task-urban-sound-tagging-results#Diez2020</td>
+<td>0.615</td>
+<td>0.775</td>
+<td>0.382</td>
+</tr>
+<tr>
+<td></td>
+<td>Diez_Noismart_task5_3</td>
+<td>Itxasne Diez</td>
+<td>Getxo, Basque Country, Spain</td>
+<td>task-urban-sound-tagging-results#Diez2020</td>
+<td>0.579</td>
+<td>0.771</td>
+<td>0.387</td>
+</tr>
+<tr>
+<td></td>
+<td>Iqbal_Surrey_task5_1</td>
+<td>Turab Iqbal</td>
+<td>Centre for Vision, Speech and Signal Processing, Guildford, Surrey, UK</td>
+<td>task-urban-sound-tagging-results#Iqbal2020</td>
+<td>0.858</td>
+<td>0.915</td>
+<td>0.649</td>
+</tr>
+<tr>
+<td></td>
+<td>Iqbal_Surrey_task5_2</td>
+<td>Turab Iqbal</td>
+<td>Centre for Vision, Speech and Signal Processing, Guildford, Surrey, UK</td>
+<td>task-urban-sound-tagging-results#Iqbal2020</td>
+<td>0.839</td>
+<td>0.903</td>
+<td>0.632</td>
+</tr>
+<tr>
+<td></td>
+<td>Iqbal_Surrey_task5_3</td>
+<td>Turab Iqbal</td>
+<td>Centre for Vision, Speech and Signal Processing, Guildford, Surrey, UK</td>
+<td>task-urban-sound-tagging-results#Iqbal2020</td>
+<td>0.846</td>
+<td>0.910</td>
+<td>0.624</td>
+</tr>
+<tr>
+<td></td>
+<td>Iqbal_Surrey_task5_4</td>
+<td>Turab Iqbal</td>
+<td>Centre for Vision, Speech and Signal Processing, Guildford, Surrey, UK</td>
+<td>task-urban-sound-tagging-results#Iqbal2020</td>
+<td>0.825</td>
+<td>0.901</td>
+<td>0.604</td>
+</tr>
+<tr>
+<td></td>
+<td>JHKim_IVS_task5_1</td>
+<td>Jaehun Kim</td>
+<td>AI Research Lab, Seoul, Seoul, South Korea</td>
+<td>task-urban-sound-tagging-results#Kim2020</td>
+<td>0.788</td>
+<td>0.871</td>
+<td>0.578</td>
+</tr>
+<tr>
+<td></td>
+<td>JHKim_IVS_task5_2</td>
+<td>Jaehun Kim</td>
+<td>AI Research Lab, Seoul, Seoul, South Korea</td>
+<td>task-urban-sound-tagging-results#Kim2020</td>
+<td>0.792</td>
+<td>0.880</td>
+<td>0.586</td>
+</tr>
+<tr>
+<td></td>
+<td>JHKim_IVS_task5_3</td>
+<td>Jaehun Kim</td>
+<td>AI Research Lab, Seoul, Seoul, South Korea</td>
+<td>task-urban-sound-tagging-results#Kim2020</td>
+<td>0.788</td>
+<td>0.875</td>
+<td>0.581</td>
+</tr>
+<tr>
+<td></td>
+<td>JHKim_IVS_task5_4</td>
+<td>Jaehun Kim</td>
+<td>AI Research Lab, Seoul, Seoul, South Korea</td>
+<td>task-urban-sound-tagging-results#Kim2020</td>
+<td>0.781</td>
+<td>0.879</td>
+<td>0.569</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_BUPT_task5_1</td>
+<td>Gang Liu</td>
+<td>Pattern Recognition and Intelligent System Laboratory (PRIS Lab), Beijing,  China</td>
+<td>task-urban-sound-tagging-results#Liu2020</td>
+<td>0.748</td>
+<td>0.847</td>
+<td>0.593</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_BUPT_task5_2</td>
+<td>Gang Liu</td>
+<td>Pattern Recognition and Intelligent System Laboratory (PRIS Lab), Beijing,  China</td>
+<td>task-urban-sound-tagging-results#Liu2020</td>
+<td>0.748</td>
+<td>0.853</td>
+<td>0.594</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_BUPT_task5_3</td>
+<td>Gang Liu</td>
+<td>Pattern Recognition and Intelligent System Laboratory (PRIS Lab), Beijing,  China</td>
+<td>task-urban-sound-tagging-results#Liu2020</td>
+<td>0.755</td>
+<td>0.862</td>
+<td>0.599</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_BUPT_task5_4</td>
+<td>Gang Liu</td>
+<td>Pattern Recognition and Intelligent System Laboratory (PRIS Lab), Beijing,  China</td>
+<td>task-urban-sound-tagging-results#Liu2020</td>
+<td>0.744</td>
+<td>0.851</td>
+<td>0.594</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fine-level-prediction">Fine-level prediction</h2>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="fine_micro_auprc" data-scatter-y="fine_macro_auprc" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="fine_macro_auprc" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="4">Submission Information</th>
+<th class="sep-left-cell" colspan="3">Evaluation dataset</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Submission name
+            </th>
+<th class="sep-left-cell sm-cell" data-field="corresponding_author" data-sortable="false">
+                Author
+            </th>
+<th class="sm-cell" data-field="corresponding_affiliation" data-sortable="false">
+                Affiliation
+            </th>
+<th class="sep-left-cell text-center" data-field="external_anchor" data-sortable="false" data-value-type="url">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="fine_micro_auprc" data-sortable="true" data-value-type="float3">
+                Micro-<br/>AUPRC
+            </th>
+<th class="text-center" data-chartable="true" data-field="fine_macro_auprc" data-sortable="true" data-value-type="float3">
+                Macro-<br/>AUPRC
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Arnault_MULT_task5_1</td>
+<td>Augustin Arnault</td>
+<td>Department of Artificial Intelligence, Mons, Belgium</td>
+<td>task-urban-sound-tagging-results#Arnault2020</td>
+<td>0.724</td>
+<td>0.532</td>
+</tr>
+<tr>
+<td></td>
+<td>Arnault_MULT_task5_2</td>
+<td>Augustin Arnault</td>
+<td>Department of Artificial Intelligence, Mons, Belgium</td>
+<td>task-urban-sound-tagging-results#Arnault2020</td>
+<td>0.726</td>
+<td>0.561</td>
+</tr>
+<tr>
+<td></td>
+<td>Arnault_MULT_task5_3</td>
+<td>Augustin Arnault</td>
+<td>Department of Artificial Intelligence, Mons, Belgium</td>
+<td>task-urban-sound-tagging-results#Arnault2020</td>
+<td>0.755</td>
+<td>0.581</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NWPU_task5_1</td>
+<td>Jisheng Bai</td>
+<td>School of Marine Science and Technology, Xi'an, China</td>
+<td>task-urban-sound-tagging-results#Bai2020</td>
+<td>0.596</td>
+<td>0.484</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NWPU_task5_2</td>
+<td>Jisheng Bai</td>
+<td>School of Marine Science and Technology, Xi'an, China</td>
+<td>task-urban-sound-tagging-results#Bai2020</td>
+<td>0.515</td>
+<td>0.468</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NWPU_task5_3</td>
+<td>Jisheng Bai</td>
+<td>School of Marine Science and Technology, Xi'an, China</td>
+<td>task-urban-sound-tagging-results#Bai2020</td>
+<td>0.548</td>
+<td>0.483</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NWPU_task5_4</td>
+<td>Jisheng Bai</td>
+<td>School of Marine Science and Technology, Xi'an, China</td>
+<td>task-urban-sound-tagging-results#Bai2020</td>
+<td>0.655</td>
+<td>0.509</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2020 baseline</td>
+<td>Mark Cartwright</td>
+<td>Music and Audio Research Laboratory, Department of Computer Science and Engineering, Center for Urban Science and Progress, New York, New York, USA</td>
+<td>task-urban-sound-tagging-results#Cartwright2020</td>
+<td>0.618</td>
+<td>0.432</td>
+</tr>
+<tr>
+<td></td>
+<td>Diez_Noismart_task5_1</td>
+<td>Itxasne Diez</td>
+<td>Getxo, Basque Country, Spain</td>
+<td>task-urban-sound-tagging-results#Diez2020</td>
+<td>0.527</td>
+<td>0.370</td>
+</tr>
+<tr>
+<td></td>
+<td>Diez_Noismart_task5_2</td>
+<td>Itxasne Diez</td>
+<td>Getxo, Basque Country, Spain</td>
+<td>task-urban-sound-tagging-results#Diez2020</td>
+<td>0.466</td>
+<td>0.318</td>
+</tr>
+<tr>
+<td></td>
+<td>Diez_Noismart_task5_3</td>
+<td>Itxasne Diez</td>
+<td>Getxo, Basque Country, Spain</td>
+<td>task-urban-sound-tagging-results#Diez2020</td>
+<td>0.498</td>
+<td>0.332</td>
+</tr>
+<tr>
+<td></td>
+<td>Iqbal_Surrey_task5_1</td>
+<td>Turab Iqbal</td>
+<td>Centre for Vision, Speech and Signal Processing, Guildford, Surrey, UK</td>
+<td>task-urban-sound-tagging-results#Iqbal2020</td>
+<td>0.768</td>
+<td>0.573</td>
+</tr>
+<tr>
+<td></td>
+<td>Iqbal_Surrey_task5_2</td>
+<td>Turab Iqbal</td>
+<td>Centre for Vision, Speech and Signal Processing, Guildford, Surrey, UK</td>
+<td>task-urban-sound-tagging-results#Iqbal2020</td>
+<td>0.733</td>
+<td>0.552</td>
+</tr>
+<tr>
+<td></td>
+<td>Iqbal_Surrey_task5_3</td>
+<td>Turab Iqbal</td>
+<td>Centre for Vision, Speech and Signal Processing, Guildford, Surrey, UK</td>
+<td>task-urban-sound-tagging-results#Iqbal2020</td>
+<td>0.747</td>
+<td>0.546</td>
+</tr>
+<tr>
+<td></td>
+<td>Iqbal_Surrey_task5_4</td>
+<td>Turab Iqbal</td>
+<td>Centre for Vision, Speech and Signal Processing, Guildford, Surrey, UK</td>
+<td>task-urban-sound-tagging-results#Iqbal2020</td>
+<td>0.723</td>
+<td>0.524</td>
+</tr>
+<tr>
+<td></td>
+<td>JHKim_IVS_task5_1</td>
+<td>Jaehun Kim</td>
+<td>AI Research Lab, Seoul, Seoul, South Korea</td>
+<td>task-urban-sound-tagging-results#Kim2020</td>
+<td>0.653</td>
+<td>0.503</td>
+</tr>
+<tr>
+<td></td>
+<td>JHKim_IVS_task5_2</td>
+<td>Jaehun Kim</td>
+<td>AI Research Lab, Seoul, Seoul, South Korea</td>
+<td>task-urban-sound-tagging-results#Kim2020</td>
+<td>0.658</td>
+<td>0.516</td>
+</tr>
+<tr>
+<td></td>
+<td>JHKim_IVS_task5_3</td>
+<td>Jaehun Kim</td>
+<td>AI Research Lab, Seoul, Seoul, South Korea</td>
+<td>task-urban-sound-tagging-results#Kim2020</td>
+<td>0.654</td>
+<td>0.514</td>
+</tr>
+<tr>
+<td></td>
+<td>JHKim_IVS_task5_4</td>
+<td>Jaehun Kim</td>
+<td>AI Research Lab, Seoul, Seoul, South Korea</td>
+<td>task-urban-sound-tagging-results#Kim2020</td>
+<td>0.673</td>
+<td>0.490</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_BUPT_task5_1</td>
+<td>Gang Liu</td>
+<td>Pattern Recognition and Intelligent System Laboratory (PRIS Lab), Beijing,  China</td>
+<td>task-urban-sound-tagging-results#Liu2020</td>
+<td>0.676</td>
+<td>0.518</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_BUPT_task5_2</td>
+<td>Gang Liu</td>
+<td>Pattern Recognition and Intelligent System Laboratory (PRIS Lab), Beijing,  China</td>
+<td>task-urban-sound-tagging-results#Liu2020</td>
+<td>0.681</td>
+<td>0.523</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_BUPT_task5_3</td>
+<td>Gang Liu</td>
+<td>Pattern Recognition and Intelligent System Laboratory (PRIS Lab), Beijing,  China</td>
+<td>task-urban-sound-tagging-results#Liu2020</td>
+<td>0.663</td>
+<td>0.503</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_BUPT_task5_4</td>
+<td>Gang Liu</td>
+<td>Pattern Recognition and Intelligent System Laboratory (PRIS Lab), Beijing,  China</td>
+<td>task-urban-sound-tagging-results#Liu2020</td>
+<td>0.680</td>
+<td>0.523</td>
+</tr>
+</tbody>
+</table>
+<p>Complete results and technical reports can be found in the <a class="btn btn-primary" href="http://localhost:3000/challenge2020/task-urban-sound-tagging-with-spatiotemporal-context-results">results page</a></p>
+<h1 id="baseline-system">Baseline system</h1>
+<p>For the baseline model, we use a multi-label multi-layer perceptron model, using a single hidden layer of size 128 (with ReLU non-linearities), and using <a href="https://github.com/marl/autopool">AutoPool</a> to aggregate frame level predictions.  The model takes in as input:
+* Audio content, via OpenL3 embeddings (<code>content_type="env"</code>, <code>input_repr="mel256"</code>, and <code>embedding_size=512</code>), using a window size and hop size of 1.0 second (with centered windows), giving us 11 512-dimensional embeddings for each clip in our dataset.
+* Spatial context, via latitude and longitude values, giving us 2 values for each clip in our dataset.
+* Temporal context, via hour of the day, day of the week, and week of the year, each encoded as a one hot vector, giving us 24 + 7 + 52 = 83 values for each clip in our dataset.
+We Z-score normalize the embeddings, latitude, and longitude values, and concatenate all of the inputs (at each time step), resulting in an input size of 512 + 2 + 83 = 597.
+We use the weak tags for each audio clip as the targets for each clip. For the <code>train</code> data (which has no verified target), we count a positive for a tag if at least one annotator has labeled the audio clip with that tag (i.e. minority vote). Note that while some of the audio clips in the <code>train</code> set have verified annotations, we only use the crowdsourced annotations. For audio clips in the <code>validate</code> set, we only use annotations that have been manually verified.
+We train the model using stochastic gradient descent to minimize binary cross-entropy loss, using L2 regularization (A.K.A. weight decay) with a factor of 1e-5. For training models to predict tags at the fine level, we modify the loss such that if "unknown/other" is annotated for a particular coarse tag, the loss for the fine tags corresponding to this coarse tag are masked out. We train for up to 100 epochs; to mitigate overfitting, we use early stopping with a patience of 20 epochs using loss on the <code>validate</code> set. We train one model to predict fine-level tags, with coarse-level tag predictions obtained by taking the maximum probability over fine-tags predictions within a coarse category. We train another model only to predict coarse-level tags.</p>
+<h2 id="repository">Repository</h2>
+<p>The code for the baseline and evaluation can be found in our source code repository:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/sonyc-project/dcase2020task5-uststc-baseline" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/sonyc-project/dcase2020task5-uststc-baseline" target="_blank">
+<span style="font-size:20px;">DCASE2020 Task 5 <strong>baseline</strong>, repository <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<p>We encourage participants to use this code as a starting point for manipulating the dataset and for evaluating their system outputs.</p>
+<h2 id="results-for-the-development-dataset">Results for the development dataset</h2>
+<h3>Fine-level model</h3>
+<h4>Fine-level evaluation:</h4>
+<ul>
+<li>Micro AUPRC: 0.7329</li>
+<li>Micro F1-score (@0.5): 0.6149</li>
+<li>Macro AUPRC: 0.5278</li>
+<li>
+<p>Coarse Tag AUPRC:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Coarse Tag Name</th>
+<th style="text-align: left;">AUPRC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">engine</td>
+<td style="text-align: left;">0.6429</td>
+</tr>
+<tr>
+<td style="text-align: left;">machinery-impact</td>
+<td style="text-align: left;">0.5098</td>
+</tr>
+<tr>
+<td style="text-align: left;">non-machinery-impact</td>
+<td style="text-align: left;">0.4474</td>
+</tr>
+<tr>
+<td style="text-align: left;">powered-saw</td>
+<td style="text-align: left;">0.5194</td>
+</tr>
+<tr>
+<td style="text-align: left;">alert-signal</td>
+<td style="text-align: left;">0.8238</td>
+</tr>
+<tr>
+<td style="text-align: left;">music</td>
+<td style="text-align: left;">0.3151</td>
+</tr>
+<tr>
+<td style="text-align: left;">human-voice</td>
+<td style="text-align: left;">0.9073</td>
+</tr>
+<tr>
+<td style="text-align: left;">dog</td>
+<td style="text-align: left;">0.0568</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h4>Coarse-level evaluation:</h4>
+<ul>
+<li>Micro AUPRC: 0.8391</li>
+<li>Micro F1-score (@0.5): 0.6736</li>
+<li>
+<p>Macro AUPRC: 0.6370</p>
+</li>
+<li>
+<p>Coarse Tag AUPRC:                                      </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Coarse Tag Name</th>
+<th style="text-align: left;">AUPRC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">engine</td>
+<td style="text-align: left;">0.8191</td>
+</tr>
+<tr>
+<td style="text-align: left;">machinery-impact</td>
+<td style="text-align: left;">0.6502</td>
+</tr>
+<tr>
+<td style="text-align: left;">non-machinery-impact</td>
+<td style="text-align: left;">0.4474</td>
+</tr>
+<tr>
+<td style="text-align: left;">powered-saw</td>
+<td style="text-align: left;">0.7960</td>
+</tr>
+<tr>
+<td style="text-align: left;">alert-signal</td>
+<td style="text-align: left;">0.8837</td>
+</tr>
+<tr>
+<td style="text-align: left;">music</td>
+<td style="text-align: left;">0.4720</td>
+</tr>
+<tr>
+<td style="text-align: left;">human-voice</td>
+<td style="text-align: left;">0.9711</td>
+</tr>
+<tr>
+<td style="text-align: left;">dog</td>
+<td style="text-align: left;">0.0568</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h3>Coarse-level model</h3>
+<h4>Coarse-level evaluation:</h4>
+<ul>
+<li>Micro AUPRC: 0.8352</li>
+<li>Micro F1-score (@0.5): 0.7389</li>
+<li>Macro AUPRC: 0.6323</li>
+<li>
+<p>Coarse Tag AUPRC:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Coarse Tag Name</th>
+<th style="text-align: left;">AUPRC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">engine</td>
+<td style="text-align: left;">0.8500</td>
+</tr>
+<tr>
+<td style="text-align: left;">machinery-impact</td>
+<td style="text-align: left;">0.6021</td>
+</tr>
+<tr>
+<td style="text-align: left;">non-machinery-impact</td>
+<td style="text-align: left;">0.4192</td>
+</tr>
+<tr>
+<td style="text-align: left;">powered-saw</td>
+<td style="text-align: left;">0.7200</td>
+</tr>
+<tr>
+<td style="text-align: left;">alert-signal</td>
+<td style="text-align: left;">0.8518</td>
+</tr>
+<tr>
+<td style="text-align: left;">music</td>
+<td style="text-align: left;">0.6145</td>
+</tr>
+<tr>
+<td style="text-align: left;">human-voice</td>
+<td style="text-align: left;">0.9593</td>
+</tr>
+<tr>
+<td style="text-align: left;">dog</td>
+<td style="text-align: left;">0.0463</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h1 id="feedback-and-questions">Feedback and questions</h1>
+<p>For questions and comments on this task, please refer to our <a href="https://groups.google.com/forum/#!forum/dcase-urban-sound-tagging">Google Groups page</a>.</p>
+<h1 id="citation">Citation</h1>
+<p>If you are participating to this task or using the dataset code please consider citing the following papers:</p>
+<div class="btex-item" data-item="cartwright2019sonyc" data-source="content/data/challenge2020/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="cartwright2019sonyc"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Mark Cartwright, Ana Elisa Mendez Mendez, Jason Cramer, Vincent Lostanlen, Graham Dove, Ho-Hsiang Wu, Justin Salamon, Oded Nov, and Juan Bello.
+<em>SONYC urban sound tagging (SONYC-UST): a multilabel dataset from an urban acoustic sensor network.</em>
+In Proceedings of the Workshop on Detection and Classification of Acoustic Scenes and Events (DCASE), 35–39. October 2019.
+URL: <a href="http://dcase.community/documents/workshop2019/proceedings/DCASE2019Workshop_Cartwright_4.pdf">http://dcase.community/documents/workshop2019/proceedings/DCASE2019Workshop_Cartwright_4.pdf</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexcartwright2019sonyc3f4ab8d0c703457080d4680027c8f201" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="http://dcase.community/documents/workshop2019/proceedings/DCASE2019Workshop_Cartwright_4.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapsecartwright2019sonyc3f4ab8d0c703457080d4680027c8f201" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapsecartwright2019sonyc3f4ab8d0c703457080d4680027c8f201" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingcartwright2019sonyc3f4ab8d0c703457080d4680027c8f201" class="panel-collapse collapse" id="collapsecartwright2019sonyc3f4ab8d0c703457080d4680027c8f201" role="tabpanel">
+<h4>SONYC Urban Sound Tagging (SONYC-UST): A Multilabel Dataset from an Urban Acoustic Sensor Network</h4>
+<h5>Abstract</h5>
+<p class="text-justify">SONYC Urban Sound Tagging (SONYC-UST) is a dataset for the development and evaluation of machine listening systems for real-world urban noise monitoring. It consists of 3068 audio recordings from the Sounds of New York City (SONYC) acoustic sensor network. Via the Zooniverse citizen science platform, volunteers tagged the presence of 23 fine-grained classes that were chosen in consultation with the New York City Department of Environmental Protection. These 23 fine-grained classes can be grouped into eight coarse-grained classes. In this work, we describe the collection of this dataset, metrics used to evaluate tagging systems, and the results of a simple baseline model.</p>
+<h5>Keywords</h5>
+<p class="text-justify">sound tagging, DCASE challenge, public datasets, acoustic sensor network, noise pollution</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexcartwright2019sonyc3f4ab8d0c703457080d4680027c8f201" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="http://dcase.community/documents/workshop2019/proceedings/DCASE2019Workshop_Cartwright_4.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexcartwright2019sonyc3f4ab8d0c703457080d4680027c8f201label" class="modal fade" id="bibtexcartwright2019sonyc3f4ab8d0c703457080d4680027c8f201" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexcartwright2019sonyc3f4ab8d0c703457080d4680027c8f201label">SONYC Urban Sound Tagging (SONYC-UST): A Multilabel Dataset from an Urban Acoustic Sensor Network</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{cartwright2019sonyc,
+    Author = "Cartwright, Mark and Mendez, Ana Elisa Mendez and Cramer, Jason and Lostanlen, Vincent and Dove, Graham and Wu, Ho-Hsiang and Salamon, Justin and Nov, Oded and Bello, Juan",
+    title = "{SONYC} Urban Sound Tagging ({SONYC-UST}): A Multilabel Dataset from an Urban Acoustic Sensor Network",
+    year = "2019",
+    booktitle = "Proceedings of the Workshop on Detection and Classification of Acoustic Scenes and Events (DCASE)",
+    month = "October",
+    pages = "35--39",
+    keywords = "sound tagging, DCASE challenge, public datasets, acoustic sensor network, noise pollution",
+    abstract = "SONYC Urban Sound Tagging (SONYC-UST) is a dataset for the development and evaluation of machine listening systems for real-world urban noise monitoring. It consists of 3068 audio recordings from the Sounds of New York City (SONYC) acoustic sensor network. Via the Zooniverse citizen science platform, volunteers tagged the presence of 23 fine-grained classes that were chosen in consultation with the New York City Department of Environmental Protection. These 23 fine-grained classes can be grouped into eight coarse-grained classes. In this work, we describe the collection of this dataset, metrics used to evaluate tagging systems, and the results of a simple baseline model.",
+    url = "http://dcase.community/documents/workshop2019/proceedings/DCASE2019Workshop\_Cartwright\_4.pdf"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

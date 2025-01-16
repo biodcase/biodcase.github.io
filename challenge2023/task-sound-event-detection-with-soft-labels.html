@@ -1,0 +1,1198 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Sound Event Detection with Soft Labels - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Sound Event Detection with Soft Labels - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2023/task-sound-event-detection-with-soft-labels">
+    <meta property="og:url" content="https://dcase.community/challenge2023/task-sound-event-detection-with-soft-labels" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="The goal of this task is to evaluate systems for the detection of sound events that use softly labeled data for training in addition to other types of data such as weakly labeled, unlabeled or strongly labeled. The main focus of this subtask is to investigate whether using soft labels …" />
+    <meta name="og:description" content="The goal of this task is to evaluate systems for the..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2023</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2023/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-low-complexity-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-low-complexity-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-low-complexity-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-localization-and-detection-evaluated-in-real-spatial-sound-scenes" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-localization-and-detection-evaluated-in-real-spatial-sound-scenes"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-localization-and-detection-evaluated-in-real-spatial-sound-scenes-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-and-soft-labels" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-and-soft-labels"><i class="fa fa-info-circle fa-fw"></i>&nbsp;Introduction</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>A: Sound Event Detection with Weak Labels and Synthetic Soundscapes</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-labels-and-synthetic-soundscapes"><i class="fa fa-random fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-labels-and-synthetic-soundscapes-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>B: Sound Event Detection with Soft Labels</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-soft-labels"><i class="fa fa-info-circle fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-soft-labels-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-few-shot-bioacoustic-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-bird text-danger"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-few-shot-bioacoustic-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-few-shot-bioacoustic-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-automated-audio-captioning-and-language-based-audio-retrieval" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-captioning text-task1"></i>&nbsp;Task6&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-automated-audio-captioning-and-language-based-audio-retrieval"><i class="fa fa-info-circle fa-fw"></i>&nbsp;Introduction</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>A: Automated Audio-Captioning</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-automated-audio-captioning"><i class="fa dc-captioning fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-automated-audio-captioning-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>B: Language-Based Audio Retrieval</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-language-based-audio-retrieval"><i class="fa fa-file-text fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-language-based-audio-retrieval-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-foley-sound-synthesis" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-synthesis text-task2"></i>&nbsp;Task7&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-foley-sound-synthesis"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-foley-sound-synthesis-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2023/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2023/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/panel-03.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-info"></i><strong class="fa-stack-1x icon-text">B</strong><strong class="fa-stack-1x dcase-icon-top-text">Soft</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 4</span></span><img src="../images/logos/dcase/dcase2023_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Sound Event Detection with Soft Labels</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Task description</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Coordinators</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Annamaria Mesaros" class="img img-circle" src="http://localhost:3000/images/person/annamaria_mesaros.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Annamaria Mesaros</strong>
+<a class="icon" href="mailto:annamaria.mesaros@tuni.fi"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                Tampere University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Irene Martin Morato" class="img img-circle" src="http://localhost:3000/images/person/irene_martin_morato.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Irene Martin Morato</strong>
+<a class="icon" href="mailto:irene.martinmorato@tuni.fi"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                Tampere University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Toni Heittola" class="img img-circle" src="http://localhost:3000/images/person/toni_heittola.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Toni Heittola</strong>
+<a class="icon" href="mailto:toni.heittola@tuni.fi"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://webpages.tuni.fi/arg/">
+                                Tampere University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#description">Description</a></li>
+<li><a href="#audio-dataset">Audio dataset</a>
+<ul>
+<li><a href="#reference-labels">Reference labels</a></li>
+<li><a href="#download">Download</a></li>
+</ul>
+</li>
+<li><a href="#task-setup">Task setup</a>
+<ul>
+<li><a href="#development-dataset">Development dataset</a></li>
+<li><a href="#evaluation-dataset">Evaluation dataset</a></li>
+</ul>
+</li>
+<li><a href="#external-data-resources">External data resources</a></li>
+<li><a href="#task-rules">Task rules</a></li>
+<li><a href="#submission">Submission</a></li>
+<li><a href="#evaluation">Evaluation</a>
+<ul>
+<li><a href="#evaluation-toolboxes">Evaluation toolboxes</a></li>
+<li><a href="#task-ranking">Task Ranking</a></li>
+</ul>
+</li>
+<li><a href="#results">Results</a></li>
+<li><a href="#baseline-system">Baseline system</a></li>
+<li><a href="#citation">Citation</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p class="lead">The goal of this task is to evaluate systems for the detection of sound events that use softly labeled data for training in addition to other types of data such as weakly labeled, unlabeled or strongly labeled. The main focus of this subtask is to investigate whether using soft labels brings any improvement in performance.</p>
+<p class="alert alert-info">
+<strong>Challenge has ended.</strong> Full results for this task can be found in the <a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2023/task-sound-event-detection-with-soft-labels-results">Results <i class="fa fa-caret-right"></i></a> page.
+</p>
+<div class="alert alert-info">
+    If you are interested in the task, you can join us on the <strong><a href="https://dcase.slack.com/archives/C01NR59KAS3">dedicated slack channel</a></strong>
+</div>
+<h1 id="description">Description</h1>
+<p>This task is a subtopic of the Sound event detection task (task 4) which provides for training weakly labeled data (without timestamps), strongly-labeled synthetic data (with timestamps) and unlabeled data. The target of the systems is to provide not only the event class but also the event time localization given that multiple events can be present in an audio recording (see also Fig 1).</p>
+<p>Specific to this subtask is another type of training data:</p>
+<ul>
+<li><strong>Soft labels</strong> provided as a number <strong>between 0 and 1</strong> that characterize the certainty of human annotators for the sound at that specific time</li>
+<li>The temporal resolution of the provided data is 1 second (due to the annotation procedure)</li>
+<li>Systems will be evaluated against hard labels, obtained by thresholding the soft labels at 0.5; anything above 0.5 is considered 1 (sound active), anything below 0.5 is considered 0 (sound inactive) </li>
+</ul>
+<p><strong>Research question:</strong>
+Do soft labels contain any useful additional information to help train better sound event detection
+systems? </p>
+<h1 id="audio-dataset">Audio dataset</h1>
+<p>The development set provided for this task is <strong>MAESTRO Real</strong>. The dataset consists of real-life recordings with a length of approximately 3 minutes each, recorded in a few different acoustic scenes. The audio was annotated using Amazon Mechanical Turk, with a procedure that allows estimating soft labels from multiple annotator opinions. The full procedure for annotation and aggregation of multiple opinions can be found in the publication provided below. </p>
+<div class="btex-item" data-item="Martinmorato2023" data-source="content/data/challenge2023/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Martinmorato2023"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Irene Martín-Morató and Annamaria Mesaros.
+<em>Strong labeling of sound events using crowdsourced weak labels and annotator competence estimation.</em>
+<em>IEEE/ACM Transactions on Audio, Speech, and Language Processing</em>, 31():902–914, 2023.
+<a href="https://doi.org/10.1109/TASLP.2022.3233468">doi:10.1109/TASLP.2022.3233468</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexMartinmorato202352bfdfce14674dbfab4891f8059b3de9" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10016759" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseMartinmorato202352bfdfce14674dbfab4891f8059b3de9" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseMartinmorato202352bfdfce14674dbfab4891f8059b3de9" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingMartinmorato202352bfdfce14674dbfab4891f8059b3de9" class="panel-collapse collapse" id="collapseMartinmorato202352bfdfce14674dbfab4891f8059b3de9" role="tabpanel">
+<h4>Strong Labeling of Sound Events Using Crowdsourced Weak Labels and Annotator Competence Estimation</h4>
+<h5>Abstract</h5>
+<p class="text-justify">Crowdsourcing is a popular tool for collecting large amounts of annotated data, but the specific format of the strong labels necessary for sound event detection is not easily obtainable through crowdsourcing. In this work, we propose a novel annotation workflow that leverages the efficiency of crowdsourcing weak labels, and uses a high number of annotators to produce reliable and objective strong labels. The weak labels are collected in a highly redundant setup, to allow reconstruction of the temporal information. To obtain reliable labels, the annotators' competence is estimated using MACE (Multi-Annotator Competence Estimation) and incorporated into the strong labels estimation through weighing of individual opinions. We show that the proposed method produces consistently reliable strong annotations not only for synthetic audio mixtures, but also for audio recordings of real everyday environments. While only a maximum 80% coincidence with the complete and correct reference annotations was obtained for synthetic data, these results are explained by an extended study of how polyphony and SNR levels affect the identification rate of the sound events by the annotators. On real data, even though the estimated annotators' competence is significantly lower and the coincidence with reference labels is under 69%, the proposed majority opinion approach produces reliable aggregated strong labels in comparison with the more difficult task of crowdsourcing directly strong labels.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexMartinmorato202352bfdfce14674dbfab4891f8059b3de9" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10016759" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexMartinmorato202352bfdfce14674dbfab4891f8059b3de9label" class="modal fade" id="bibtexMartinmorato202352bfdfce14674dbfab4891f8059b3de9" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexMartinmorato202352bfdfce14674dbfab4891f8059b3de9label">Strong Labeling of Sound Events Using Crowdsourced Weak Labels and Annotator Competence Estimation</h4>
+</div>
+<div class="modal-body">
+<pre>@article{Martinmorato2023,
+    author = "Martín-Morató, Irene and Mesaros, Annamaria",
+    journal = "IEEE/ACM Transactions on Audio, Speech, and Language Processing",
+    title = "Strong Labeling of Sound Events Using Crowdsourced Weak Labels and Annotator Competence Estimation",
+    year = "2023",
+    volume = "31",
+    number = "",
+    pages = "902-914",
+    doi = "10.1109/TASLP.2022.3233468",
+    abstract = "Crowdsourcing is a popular tool for collecting large amounts of annotated data, but the specific format of the strong labels necessary for sound event detection is not easily obtainable through crowdsourcing. In this work, we propose a novel annotation workflow that leverages the efficiency of crowdsourcing weak labels, and uses a high number of annotators to produce reliable and objective strong labels. The weak labels are collected in a highly redundant setup, to allow reconstruction of the temporal information. To obtain reliable labels, the annotators' competence is estimated using MACE (Multi-Annotator Competence Estimation) and incorporated into the strong labels estimation through weighing of individual opinions. We show that the proposed method produces consistently reliable strong annotations not only for synthetic audio mixtures, but also for audio recordings of real everyday environments. While only a maximum 80\% coincidence with the complete and correct reference annotations was obtained for synthetic data, these results are explained by an extended study of how polyphony and SNR levels affect the identification rate of the sound events by the annotators. On real data, even though the estimated annotators' competence is significantly lower and the coincidence with reference labels is under 69\%, the proposed majority opinion approach produces reliable aggregated strong labels in comparison with the more difficult task of crowdsourcing directly strong labels."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<h2 id="reference-labels">Reference labels</h2>
+<p>The reference labels for the development data are available as soft labels. Their format is as follows: </p>
+<p><strong>Soft labels</strong>: </p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">filename (string)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">onset (in seconds) (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">offset (in seconds) (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">event_label (string)[tab</span><span class="o">][</span><span class="n">soft label (float)</span><span class="o">]</span><span class="err">]</span>
+</code></pre></div>
+<p>Example: </p>
+<div class="highlight"><pre><span></span><code>a1.wav       0  1   footsteps   0.6
+a1.wav       0  1   people_talking      0.9
+a1.wav       1  2   footsteps   0.8
+</code></pre></div>
+<p>These labels can be transformed into hard (binary) labels, using the 0.5 threshold, and the equivalent annotation would be </p>
+<p><strong>Hard labels</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">filename (string)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">onset (in seconds) (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">offset (in seconds) (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">]</span><span class="err">[</span><span class="n">event_label</span><span class="w"> </span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</code></pre></div>
+<p>Example: </p>
+<div class="highlight"><pre><span></span><code>a1.wav       0  2   footsteps
+a1.wav       0  1   people_talking
+</code></pre></div>
+<p>In the provided dataset there are 17 sound classes. Of them, only 15 classes have values over 0.5, out of which another 4 are very rare. For this reason, the <strong>evaluation is conducted only against the following 11 classes</strong>: </p>
+<ul>
+<li>Birds singing</li>
+<li>Car</li>
+<li>People talking</li>
+<li>Footsteps</li>
+<li>Children voices</li>
+<li>Wind blowing</li>
+<li>Brakes squeaking</li>
+<li>Large vehicle</li>
+<li>Cutlery and dishes</li>
+<li>Metro approaching</li>
+<li>Metro leaving</li>
+</ul>
+<h2 id="download">Download</h2>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/7244360" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-database fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/7244360" target="_blank">
+<span style="font-size:20px;">MAESTRO Real - Multi-Annotator Estimated Strong Labels <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(2.6 GB)</span>
+<br/>
+<a href="10.5281/zenodo.7244360">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.7244360.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<h1 id="task-setup">Task setup</h1>
+<p><strong>Participants must use the soft labels in training their system.</strong> 
+However, participants are allowed to use external datasets and embeddings extracted from pre-trained models and train their system in any combination. This means that it is possible to use both hard and soft labels in the same training setup, and other data as well. Lists of the eligible datasets and pre-trained models are provided <a href="#external-data-resources">below</a>. Datasets and models can be added to the list upon request until <strong>April 1st 2023</strong> (as long as the corresponding resources are publicly available).</p>
+<p><strong>Note also that each participant should submit at least one system that is not using external data.</strong></p>
+<h2 id="development-dataset">Development dataset</h2>
+<p>The development set consists of X files with a total duration of X minutes. 
+The dataset is provided with a 5-fold cross-validation setup in which approximately 70% of the data (per class) is used in training, and the rest is used for testing. Participants are required to report the development set results using this setup. 
+Please note that for a correct calculation of performance it is required to run the training and testing for each fold (so, 5 train/test rounds) and only evaluate performance after that. This allows evaluation of the entire list of files at once, in contrast to evaluation per fold and averaging the 5 values. Due to data imbalance between folds, the overall evaluation is more stable. </p>
+<h2 id="evaluation-dataset">Evaluation dataset</h2>
+<p>The evaluation dataset consists of 26 files with a total length of 97 minutes. Only audio is provided for the evaluation set. </p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/7870026" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/7870026" target="_blank">
+<span style="font-size:20px;">MAESTRO Real - Multi-Annotator Estimated Strong Labels; Evaluation dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(1.3 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.7870026">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.7870026.svg"/>
+</a>
+</div>
+</div>
+<h1 id="external-data-resources">External data resources</h1>
+<p><a name="external-data-resources"></a></p>
+<p>List of external data resources allowed:</p>
+<table class="datatable table table-hover table-condensed" data-filter-control="false" data-filter-show-clear="false" data-id-field="name" data-pagination="true" data-show-pagination-switch="true" data-sort-name="name" data-sort-order="asc">
+<thead>
+<tr>
+<th data-field="name" data-sortable="true">Dataset name</th>
+<th data-field="type" data-filter-control="select" data-sortable="true" data-tag="true">Type</th>
+<th data-field="date" data-sortable="true">Added</th>
+<th data-field="link" data-value-type="url">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YAMNet</td>
+<td>model</td>
+<td>20.05.2021</td>
+<td>https://github.com/tensorflow/models/tree/master/research/audioset/yamnet</td>
+</tr>
+<tr>
+<td>PANNs: Large-Scale Pretrained Audio Neural Networks for Audio Pattern Recognition</td>
+<td>model</td>
+<td>31.03.2021</td>
+<td>https://zenodo.org/record/3987831</td>
+</tr>
+<tr>
+<td>OpenL3</td>
+<td>model</td>
+<td>12.02.2020</td>
+<td>https://openl3.readthedocs.io/</td>
+</tr>
+<tr>
+<td>VGGish</td>
+<td>model</td>
+<td>12.02.2020</td>
+<td>https://github.com/tensorflow/models/tree/master/research/audioset/vggish</td>
+</tr>
+<tr>
+<td>COLA</td>
+<td>model</td>
+<td>25.02.2023</td>
+<td>https://github.com/google-research/google-research/tree/master/cola</td>
+</tr>
+<tr>
+<td>BYOL-A</td>
+<td>model</td>
+<td>25.02.2023</td>
+<td>https://github.com/nttcslab/byol-a</td>
+</tr>
+<tr>
+<td>AST: Audio Spectrogram Transformer</td>
+<td>model</td>
+<td>25.02.2023</td>
+<td>https://github.com/YuanGongND/ast</td>
+</tr>
+<tr>
+<td>PaSST: Efficient Training of Audio Transformers with Patchout</td>
+<td>model</td>
+<td>13.05.2022</td>
+<td>https://github.com/kkoutini/PaSST</td>
+</tr>
+<tr>
+<td>AudioSet</td>
+<td>audio, video</td>
+<td>04.03.2019</td>
+<td>https://research.google.com/audioset/</td>
+</tr>
+<tr>
+<td>FSD50K</td>
+<td>audio</td>
+<td>10.03.2022</td>
+<td>https://zenodo.org/record/4060432</td>
+</tr>
+<tr>
+<td>ImageNet</td>
+<td>image</td>
+<td>01.03.2021</td>
+<td>http://www.image-net.org/</td>
+</tr>
+<tr>
+<td>MUSAN</td>
+<td>audio</td>
+<td>25.02.2023</td>
+<td>https://www.openslr.org/17/</td>
+</tr>
+<tr>
+<td>DCASE 2018, Task 5: Monitoring of domestic activities based on multi-channel acoustics - Development dataset</td>
+<td>audio</td>
+<td>25.02.2023</td>
+<td>https://zenodo.org/record/1247102#.Y_oyRIBBx8s</td>
+</tr>
+<tr>
+<td>Pre-trained desed embeddings (Panns, AST part 1)</td>
+<td>model</td>
+<td>25.02.2023</td>
+<td>https://zenodo.org/record/6642806#.Y_oy_oBBx8s</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<h1 id="task-rules">Task rules</h1>
+<p>There are general rules valid for all tasks; these, along with information on technical report and submission requirements can be found here.</p>
+<p>Task specific rules:</p>
+<ul>
+<li>Participants are <strong>allowed to submit up to 4</strong> different systems.</li>
+<li>Participants are <strong>allowed to use external data</strong> for system development. However, each participant should submit at least <strong>one system that is not using external data</strong>.</li>
+<li>Data from other task is considered external data.</li>
+<li>Embeddings extracted from models pre-trained on external data is considered as external data</li>
+<li>Hard labels of the same dataset are not considered external data.</li>
+<li>Manipulation of provided training data is allowed.</li>
+<li>Participants are <strong>not allowed to use the evaluation dataset</strong> (or part of it) to train their systems or tune hyper-parameters.</li>
+</ul>
+<h1 id="submission">Submission</h1>
+<p>Instructions regarding the output submission format and the required metadata can be found in the example submission package.</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="../documents/challenge2023/dcase2023_challenge_submission_package_example.zip" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="../documents/challenge2023/dcase2023_challenge_submission_package_example.zip" target="_blank">
+<span style="font-size:20px;">DCASE2023 challenge submission example package <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(8.9 MB)</span>
+<br/>
+<span class="text-muted">
+                
+                
+                (.zip)
+                
+                </span>
+</div>
+</div>
+<p><br/></p>
+<h1 id="evaluation">Evaluation</h1>
+<p>System evaluation will be based on the following metrics, calculated in 1s-segments: </p>
+<ul>
+<li>micro-average F1 score <span class="math">\(F1_m\)</span>, calculated using <a href="https://github.com/TUT-ARG/sed_eval">sed_eval</a>, with a decision threshold of 0.5 applied to the system output provided by participants</li>
+<li>micro-average error rate <span class="math">\(ER_m\)</span>, calculated using <a href="https://github.com/TUT-ARG/sed_eval">sed_eval</a>, with a decision threshold of 0.5 applied to the system output provided by participants</li>
+<li>macro-average F1 score <span class="math">\(F1_M\)</span>, calculated using <a href="https://github.com/TUT-ARG/sed_eval">sed_eval</a>, with a decision threshold of 0.5 applied to the system output provided by participants</li>
+<li>macro-average F1 score with optimum threshold per class <span class="math">\(F1_{MO}\)</span> calculated using <a href="https://github.com/fgnt/sed_scores_eval">sed_scores_eval</a>, based on the best F1 score per class obtained with a class-specific threshold </li>
+</ul>
+<h2 id="evaluation-toolboxes">Evaluation toolboxes</h2>
+<p>Evaluation is done using <code>sed_eval</code> and <code>sed_scores_eval</code> toolboxes:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/TUT-ARG/sed_eval" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/TUT-ARG/sed_eval" target="_blank">
+<span style="font-size:20px;">sed_eval - Evaluation toolbox for Sound Event Detection <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/fgnt/sed_scores_eval" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/fgnt/sed_scores_eval" target="_blank">
+<span style="font-size:20px;">sed_scores_eval - Evaluation toolbox for efficient threshold-independent evaluation of Sound Event Detection <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/>
+<br/></p>
+<h2 id="task-ranking">Task Ranking</h2>
+<p>Ranking of the systems will be done based on <span class="math">\(F1_{MO}\)</span>. </p>
+<h1 id="results">Results</h1>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar" data-id-field="code" data-page-list="[10, All]" data-page-size="10" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="F1_MO_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="4">Submission Information</th>
+<th class="sep-left-cell" colspan="2"></th>
+</tr>
+<tr>
+<th class="sm-cell" data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sep-left-cell" data-field="corresponding_author" data-sortable="false">
+                Author
+            </th>
+<th class="sm-cell" data-field="corresponding_affiliation" data-sortable="false">
+                Affiliation
+            </th>
+<th class="sep-left-cell text-center" data-field="external_anchor" data-sortable="false" data-value-type="url">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="F1_MO_eval (Evaluation dataset)" data-chartable="true" data-field="F1_MO_eval" data-reversed="false" data-sortable="true" data-value-type="float2-percentage">
+<br/>F1_MO 
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Bai_JLESS_task4b_1</td>
+<td>Jisheng Bai</td>
+<td>Northwestern Polytechnical University, Marine Science and Technology, Joint Laboratory of Environmental Sound Sensing,, Xian, China</td>
+<td>task-sound-event-detection-with-soft-labels-results#Yin2023</td>
+<td>58.21</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_JLESS_task4b_2</td>
+<td>Jisheng Bai</td>
+<td>Northwestern Polytechnical University, Marine Science and Technology, Joint Laboratory of Environmental Sound Sensing,, Xian, China</td>
+<td>task-sound-event-detection-with-soft-labels-results#Yin2023</td>
+<td>59.77</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_JLESS_task4b_3</td>
+<td>Jisheng Bai</td>
+<td>Northwestern Polytechnical University, Marine Science and Technology, Joint Laboratory of Environmental Sound Sensing,, Xian, China</td>
+<td>task-sound-event-detection-with-soft-labels-results#Yin2023</td>
+<td>58.00</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_JLESS_task4b_4</td>
+<td>Jisheng Bai</td>
+<td>Northwestern Polytechnical University, Marine Science and Technology, Joint Laboratory of Environmental Sound Sensing,, Xian, China</td>
+<td>task-sound-event-detection-with-soft-labels-results#Yin2023</td>
+<td>60.74</td>
+</tr>
+<tr>
+<td></td>
+<td>Cai_NCUT_task4b_1</td>
+<td>Xichang Cai</td>
+<td>College of Information, North China University of Technology, Beijing, China</td>
+<td>task-sound-event-detection-with-soft-labels-results#Zhang2023</td>
+<td>43.60</td>
+</tr>
+<tr>
+<td></td>
+<td>Cai_NCUT_task4b_2</td>
+<td>Xichang Cai</td>
+<td>College of Information, North China University of Technology, Beijing, China</td>
+<td>task-sound-event-detection-with-soft-labels-results#Zhang2023</td>
+<td>43.58</td>
+</tr>
+<tr>
+<td></td>
+<td>Cai_NCUT_task4b_3</td>
+<td>Xichang Cai</td>
+<td>College of Information, North China University of Technology, Beijing, China</td>
+<td>task-sound-event-detection-with-soft-labels-results#Zhang2023</td>
+<td>42.14</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_NJUPT_task4b_1</td>
+<td>Xi Shao</td>
+<td>Nanjing University of Posts and Telecommunications,, Nanjing, Jiangsu, P.R.China</td>
+<td>task-sound-event-detection-with-soft-labels-results#Liu2023</td>
+<td>19.82</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_NJUPT_task4b_2</td>
+<td>Xi Shao</td>
+<td>Nanjing University of Posts and Telecommunications,, Nanjing, Jiangsu, P.R.China</td>
+<td>task-sound-event-detection-with-soft-labels-results#Liu2023</td>
+<td>20.83</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_NJUPT_task4b_3</td>
+<td>Xi Shao</td>
+<td>Nanjing University of Posts and Telecommunications,, Nanjing, Jiangsu, P.R.China</td>
+<td>task-sound-event-detection-with-soft-labels-results#Liu2023</td>
+<td>22.53</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_NJUPT_task4b_4</td>
+<td>Xi Shao</td>
+<td>Nanjing University of Posts and Telecommunications,, Nanjing, Jiangsu, P.R.China</td>
+<td>task-sound-event-detection-with-soft-labels-results#Liu2023</td>
+<td>22.46</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_SRCN_task4b_1</td>
+<td>Yangyang Liu</td>
+<td>Intelligence Service Lab, Intelligence SW Team, Samsung Research China-Nanjing, Nanjing, China</td>
+<td>task-sound-event-detection-with-soft-labels-results#Jin2023</td>
+<td>44.69</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_SRCN_task4b_2</td>
+<td>Yangyang Liu</td>
+<td>Intelligence Service Lab, Intelligence SW Team, Samsung Research China-Nanjing, Nanjing, China</td>
+<td>task-sound-event-detection-with-soft-labels-results#Jin2023</td>
+<td>52.03</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2023 baseline</td>
+<td>Irene Martin</td>
+<td>Computing Sciences, Tampere University, Tampere, Finland</td>
+<td>task-sound-event-detection-with-soft-labels-results#Martin2023</td>
+<td>43.44</td>
+</tr>
+<tr>
+<td></td>
+<td>Min_KAIST_task4b_1</td>
+<td>Deokki Min</td>
+<td>Mechanical Engineering, Korea Advanced Institute of Science and Technology, Daejeon, Republic of Korea</td>
+<td>task-sound-event-detection-with-soft-labels-results#Min2023</td>
+<td>48.95</td>
+</tr>
+<tr>
+<td></td>
+<td>Min_KAIST_task4b_2</td>
+<td>Deokki Min</td>
+<td>Mechanical Engineering, Korea Advanced Institute of Science and Technology, Daejeon, Republic of Korea</td>
+<td>task-sound-event-detection-with-soft-labels-results#Min2023</td>
+<td>48.72</td>
+</tr>
+<tr>
+<td></td>
+<td>Min_KAIST_task4b_3</td>
+<td>Deokki Min</td>
+<td>Mechanical Engineering, Korea Advanced Institute of Science and Technology, Daejeon, Republic of Korea</td>
+<td>task-sound-event-detection-with-soft-labels-results#Min2023</td>
+<td>45.21</td>
+</tr>
+<tr>
+<td></td>
+<td>Min_KAIST_task4b_4</td>
+<td>Deokki Min</td>
+<td>Mechanical Engineering, Korea Advanced Institute of Science and Technology, Daejeon, Republic of Korea</td>
+<td>task-sound-event-detection-with-soft-labels-results#Min2023</td>
+<td>46.24</td>
+</tr>
+<tr>
+<td></td>
+<td>Nhan_VNUHCMUS_task4b_1</td>
+<td>Tri-Do Nhan</td>
+<td>Computing Sciences, University of Science, Vietnam National University</td>
+<td>task-sound-event-detection-with-soft-labels-results#Nhan2023</td>
+<td>47.17</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task4b_1</td>
+<td>Xu Xuenan</td>
+<td>X-LANCE Lab, Department of Computer Science and Engineering, Shanghai Jiao Tong University, Shanghai, China</td>
+<td>task-sound-event-detection-with-soft-labels-results#Xuenan2023</td>
+<td>46.13</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task4b_2</td>
+<td>Xu Xuenan</td>
+<td>X-LANCE Lab, Department of Computer Science and Engineering, Shanghai Jiao Tong University, Shanghai, China</td>
+<td>task-sound-event-detection-with-soft-labels-results#Xuenan2023</td>
+<td>50.88</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task4b_3</td>
+<td>Xu Xuenan</td>
+<td>X-LANCE Lab, Department of Computer Science and Engineering, Shanghai Jiao Tong University, Shanghai, China</td>
+<td>task-sound-event-detection-with-soft-labels-results#Xuenan2023</td>
+<td>51.13</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task4b_4</td>
+<td>Xu Xuenan</td>
+<td>X-LANCE Lab, Department of Computer Science and Engineering, Shanghai Jiao Tong University, Shanghai, China</td>
+<td>task-sound-event-detection-with-soft-labels-results#Xuenan2023</td>
+<td>46.99</td>
+</tr>
+</tbody>
+</table>
+<p>Complete results and technical reports can be found in the <a class="btn btn-primary" href="http://localhost:3000/challenge2023/task-sound-event-detection-with-soft-labels-results">results page</a></p>
+<h1 id="baseline-system">Baseline system</h1>
+<p>The baseline system is a CRNN with a linear output layer that is trained using the soft labels and mse. The system architecture consists of three CNN layers and one bi-directional gated recurrent unit (GRU) layer. As input, the model uses mel-band energies extracted using a hop length of 200 ms and 64 mel filter banks.</p>
+<h3>Repository</h3>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/marmoi/dcase2023_task4b_baseline" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/marmoi/dcase2023_task4b_baseline" target="_blank">
+<span style="font-size:20px;">DCASE2022 Task 4B <strong>baseline</strong>, repository <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<h3>Parameters</h3>
+<p>Neural network:</p>
+<ul>
+<li>Input shape: sequence_length * 64</li>
+<li>Architecture:</li>
+<li>CNN layer #1<ul>
+<li>2D Convolutional layer (filters: 128, kernel size: 3) + Batch normalization + ReLu activation</li>
+<li>2D max pooling (pool size: (1, 5)) + Dropout (rate: 20%)</li>
+</ul>
+</li>
+<li>CNN layer #2<ul>
+<li>2D Convolutional layer (filters: 128, kernel size: 3) + Batch normalization + ReLu activation</li>
+<li>2D max pooling (pool size: (1, 2)) + Dropout (rate: 20%)</li>
+</ul>
+</li>
+<li>CNN layer #3<ul>
+<li>2D Convolutional layer (filters: 32, kernel size: 3) + Batch normalization + ReLu activation</li>
+<li>2D max pooling (pool size: (1, 2)) + Dropout (rate: 20%)</li>
+</ul>
+</li>
+<li>Permute</li>
+<li>Bidirectional #1</li>
+<li>Dense layer #1<ul>
+<li>Dense layer (units: 64, activation: Linear )</li>
+<li>Dropout (rate: 30%)</li>
+</ul>
+</li>
+<li>Dense layer #2<ul>
+<li>Dense layer (units: 32, activation: Linear )</li>
+</ul>
+</li>
+</ul>
+<h3>Results for the development dataset</h3>
+<div class="table-responsive col-md-12">
+<table class="table">
+<thead>
+<tr class="active">
+<th></th>
+<th class="sep-left" colspan="2">Micro-average</th>
+<th class="sep-left" colspan="2">Macro-average</th>
+</tr>
+<tr class="active">
+<th></th>
+<th class="sep-left">ER<sub>m</sub></th>
+<th>F1<sub>m</sub></th>
+<th class="sep-left">F1<sub>M</sub></th>
+<th>F1<sub>MO</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline</td>
+<td class="sep-left">0.479</td>
+<td>71.50 %</td>
+<td class="sep-left">35.21 %</td>
+<td>44.13 %</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="clearfix"></div>
+<h1 id="citation">Citation</h1>
+<p>If you are using the <strong>audio dataset</strong>, please cite the following paper:</p>
+<div class="btex-item" data-item="Martinmorato2023" data-source="content/data/challenge2023/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Martinmorato2023"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Irene Martín-Morató and Annamaria Mesaros.
+<em>Strong labeling of sound events using crowdsourced weak labels and annotator competence estimation.</em>
+<em>IEEE/ACM Transactions on Audio, Speech, and Language Processing</em>, 31():902–914, 2023.
+<a href="https://doi.org/10.1109/TASLP.2022.3233468">doi:10.1109/TASLP.2022.3233468</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexMartinmorato2023c6dae79a3d3847d0975d601bca60f3d5" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10016759" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseMartinmorato2023c6dae79a3d3847d0975d601bca60f3d5" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseMartinmorato2023c6dae79a3d3847d0975d601bca60f3d5" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingMartinmorato2023c6dae79a3d3847d0975d601bca60f3d5" class="panel-collapse collapse" id="collapseMartinmorato2023c6dae79a3d3847d0975d601bca60f3d5" role="tabpanel">
+<h4>Strong Labeling of Sound Events Using Crowdsourced Weak Labels and Annotator Competence Estimation</h4>
+<h5>Abstract</h5>
+<p class="text-justify">Crowdsourcing is a popular tool for collecting large amounts of annotated data, but the specific format of the strong labels necessary for sound event detection is not easily obtainable through crowdsourcing. In this work, we propose a novel annotation workflow that leverages the efficiency of crowdsourcing weak labels, and uses a high number of annotators to produce reliable and objective strong labels. The weak labels are collected in a highly redundant setup, to allow reconstruction of the temporal information. To obtain reliable labels, the annotators' competence is estimated using MACE (Multi-Annotator Competence Estimation) and incorporated into the strong labels estimation through weighing of individual opinions. We show that the proposed method produces consistently reliable strong annotations not only for synthetic audio mixtures, but also for audio recordings of real everyday environments. While only a maximum 80% coincidence with the complete and correct reference annotations was obtained for synthetic data, these results are explained by an extended study of how polyphony and SNR levels affect the identification rate of the sound events by the annotators. On real data, even though the estimated annotators' competence is significantly lower and the coincidence with reference labels is under 69%, the proposed majority opinion approach produces reliable aggregated strong labels in comparison with the more difficult task of crowdsourcing directly strong labels.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexMartinmorato2023c6dae79a3d3847d0975d601bca60f3d5" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10016759" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexMartinmorato2023c6dae79a3d3847d0975d601bca60f3d5label" class="modal fade" id="bibtexMartinmorato2023c6dae79a3d3847d0975d601bca60f3d5" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexMartinmorato2023c6dae79a3d3847d0975d601bca60f3d5label">Strong Labeling of Sound Events Using Crowdsourced Weak Labels and Annotator Competence Estimation</h4>
+</div>
+<div class="modal-body">
+<pre>@article{Martinmorato2023,
+    author = "Martín-Morató, Irene and Mesaros, Annamaria",
+    journal = "IEEE/ACM Transactions on Audio, Speech, and Language Processing",
+    title = "Strong Labeling of Sound Events Using Crowdsourced Weak Labels and Annotator Competence Estimation",
+    year = "2023",
+    volume = "31",
+    number = "",
+    pages = "902-914",
+    doi = "10.1109/TASLP.2022.3233468",
+    abstract = "Crowdsourcing is a popular tool for collecting large amounts of annotated data, but the specific format of the strong labels necessary for sound event detection is not easily obtainable through crowdsourcing. In this work, we propose a novel annotation workflow that leverages the efficiency of crowdsourcing weak labels, and uses a high number of annotators to produce reliable and objective strong labels. The weak labels are collected in a highly redundant setup, to allow reconstruction of the temporal information. To obtain reliable labels, the annotators' competence is estimated using MACE (Multi-Annotator Competence Estimation) and incorporated into the strong labels estimation through weighing of individual opinions. We show that the proposed method produces consistently reliable strong annotations not only for synthetic audio mixtures, but also for audio recordings of real everyday environments. While only a maximum 80\% coincidence with the complete and correct reference annotations was obtained for synthetic data, these results are explained by an extended study of how polyphony and SNR levels affect the identification rate of the sound events by the annotators. On real data, even though the estimated annotators' competence is significantly lower and the coincidence with reference labels is under 69\%, the proposed majority opinion approach produces reliable aggregated strong labels in comparison with the more difficult task of crowdsourcing directly strong labels."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<p>If you are using the <strong>baseline</strong>, please cite the following paper:</p>
+<div class="btex-item" data-item="Martinmorato2023b" data-source="content/data/challenge2023/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Martinmorato2023b"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Irene Martín-Morató, Manu Harju, Paul Ahokas, and Annamaria Mesaros.
+<em>Strong labeling of sound events using crowdsourced weak labels and annotator competence estimation.</em>
+In Proc. IEEE Int. Conf. Acoustic., Speech and Signal Process. (ICASSP). 2023.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexMartinmorato2023b947e4f23d7bb4de6b51ff064f18fd237" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/2302.14572.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseMartinmorato2023b947e4f23d7bb4de6b51ff064f18fd237" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseMartinmorato2023b947e4f23d7bb4de6b51ff064f18fd237" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingMartinmorato2023b947e4f23d7bb4de6b51ff064f18fd237" class="panel-collapse collapse" id="collapseMartinmorato2023b947e4f23d7bb4de6b51ff064f18fd237" role="tabpanel">
+<h4>Strong Labeling of Sound Events Using Crowdsourced Weak Labels and Annotator Competence Estimation</h4>
+<h5>Abstract</h5>
+<p class="text-justify">In this paper, we study the use of soft labels to train a system for sound event detection (SED). Soft labels can result from annotations which account for human uncertainty about categories, or emerge as a natural representation of multiple opinions in annotation. Converting annotations to hard labels results in unambiguous categories for training, at the cost of losing the details about the labels distribution. This work investigates how soft labels can be used, and what benefits they bring in training a SED system. The results show that the system is capable of learning information about the activity of the sounds which is reflected in the soft labels and is able to detect sounds that are missed in the typical binary target training setup. We also release a new dataset produced through crowdsourcing, containing temporally strong labels for sound events in real-life recordings, with both soft and hard labels.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexMartinmorato2023b947e4f23d7bb4de6b51ff064f18fd237" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/2302.14572.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexMartinmorato2023b947e4f23d7bb4de6b51ff064f18fd237label" class="modal fade" id="bibtexMartinmorato2023b947e4f23d7bb4de6b51ff064f18fd237" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexMartinmorato2023b947e4f23d7bb4de6b51ff064f18fd237label">Strong Labeling of Sound Events Using Crowdsourced Weak Labels and Annotator Competence Estimation</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Martinmorato2023b,
+    author = "Martín-Morató, Irene and Harju, Manu and Ahokas, Paul and Mesaros, Annamaria",
+    title = "Strong Labeling of Sound Events Using Crowdsourced Weak Labels and Annotator Competence Estimation",
+    booktitle = "Proc. IEEE Int. Conf. Acoustic., Speech and Signal Process. (ICASSP)",
+    year = "2023",
+    abstract = "In this paper, we study the use of soft labels to train a system for sound event detection (SED). Soft labels can result from annotations which account for human uncertainty about categories, or emerge as a natural representation of multiple opinions in annotation. Converting annotations to hard labels results in unambiguous categories for training, at the cost of losing the details about the labels distribution. This work investigates how soft labels can be used, and what benefits they bring in training a SED system. The results show that the system is capable of learning information about the activity of the sounds which is reflected in the soft labels and is able to detect sounds that are missed in the typical binary target training setup. We also release a new dataset produced through crowdsourcing, containing temporally strong labels for sound events in real-life recordings, with both soft and hard labels."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

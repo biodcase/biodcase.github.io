@@ -1,0 +1,2854 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Acoustic-Based Traffic Monitoring - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Acoustic-Based Traffic Monitoring - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring-results">
+    <meta property="og:url" content="https://dcase.community/challenge2024/task-acoustic-based-traffic-monitoring-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="Task description This task aims to design an acoustic-based traffic monitoring solution an essential parts of smart city development to monitor the usage and condition of roadway infrastructures and detect anomalies. The challenge focuses on developng models to count the number of vehicles, per vehicle type (car or commercial vehicle …" />
+    <meta name="og:description" content="Task description This task aims to design an..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btex.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right navbar-tighter" id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2024</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2024/"><i class="fa fa-home"></i>&nbsp;Intro</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-t1"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-t2"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-t3"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-t4"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-bird text-t5"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-captioning text-t6"></i>&nbsp;Task6&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-synthesis text-t7"></i>&nbsp;Task7&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-retrieval text-t8"></i>&nbsp;Task8&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-separation text-t9"></i>&nbsp;Task9&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-traffic text-t10"></i>&nbsp;Task10&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2024/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2024/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/wave-02.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-t10"></i><i class="fa dc-traffic fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text">Monitoring</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 10</span></span><img src="../images/logos/dcase/dcase2024_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Acoustic-Based Traffic Monitoring</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Challenge results</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#task-description">Task description</a></li>
+<li><a href="#systems-ranking">Systems ranking</a></li>
+<li><a href="#teams-ranking">Teams ranking</a></li>
+<li><a href="#system-characteristics">System characteristics</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h1 id="task-description">Task description</h1>
+<p>This task aims to design an acoustic-based traffic monitoring solution an essential parts of smart city development to monitor the usage and condition 
+of roadway infrastructures and detect anomalies. The challenge focuses on developng models to count the number of vehicles, per vehicle type (car or commercial vehicle) and per direction of travel (left or right).</p>
+<p>More detailed task description can be found in the <a class="btn btn-primary" href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring" style="">task description page</a></p>
+<h1 id="systems-ranking">Systems ranking</h1>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="submission_label" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="system_overall_rank" data-scatter-y="system_avg_rank" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="system_overall_rank" data-sort-order="asc">
+<thead>
+<tr>
+<th></th>
+<th class="sep-left-cell text-center" colspan="3">Submission information</th>
+<th class="sep-left-cell text-center" colspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="6">Kendall's Tau car left per location <br/></th>
+<th class="sep-left-cell text-center" colspan="6">Kendall's Tau car right per location <br/></th>
+<th class="sep-left-cell text-center" colspan="6">Kendall's Tau cv left per location <br/></th>
+<th class="sep-left-cell text-center" colspan="6">Kendall's Tau cv right per location <br/></th>
+<th class="sep-left-cell text-center" colspan="6">RMSE car left per location <br/></th>
+<th class="sep-left-cell text-center" colspan="6">RMSE car right per location <br/></th>
+<th class="sep-left-cell text-center" colspan="6">RMSE cv left per location <br/></th>
+<th class="sep-left-cell text-center" colspan="6">RMSE cv right per location <br/></th>
+</tr>
+<tr>
+<th class="sep-right-cell" data-rank="true">Rank</th>
+<th data-field="submission_label" data-sortable="true">
+                Submission label
+            </th>
+<th class="sm-cell" data-field="submission_name" data-sortable="true">
+                Name
+            </th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Team rank" data-chartable="true" data-field="system_overall_rank" data-sortable="true" data-value-type="int">
+                Official <br/>rank
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="system_avg_rank" data-sortable="true" data-value-type="float2">
+                Rank <br/>score
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="loc1 car left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarLeft_eval_loc1" data-sortable="true" data-value-type="float2">
+                loc<br/>1
+            </th>
+<th class="text-center" data-axis-label="loc2 car left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarLeft_eval_loc2" data-sortable="true" data-value-type="float2">
+                loc<br/>2
+            </th>
+<th class="text-center" data-axis-label="loc3 car left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarLeft_eval_loc3" data-sortable="true" data-value-type="float2">
+                loc<br/>3
+            </th>
+<th class="text-center" data-axis-label="loc4 car left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarLeft_eval_loc4" data-sortable="true" data-value-type="float2">
+                loc<br/>4
+            </th>
+<th class="text-center" data-axis-label="loc5 car left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarLeft_eval_loc5" data-sortable="true" data-value-type="float2">
+                loc<br/>5
+            </th>
+<th class="text-center" data-axis-label="loc6 car left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarLeft_eval_loc6" data-sortable="true" data-value-type="float2">
+                loc<br/>6
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="loc1 car right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarRight_eval_loc1" data-sortable="true" data-value-type="float2">
+                loc<br/>1
+            </th>
+<th class="text-center" data-axis-label="loc2 car right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarRight_eval_loc2" data-sortable="true" data-value-type="float2">
+                loc<br/>2
+            </th>
+<th class="text-center" data-axis-label="loc3 car right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarRight_eval_loc3" data-sortable="true" data-value-type="float2">
+                loc<br/>3
+            </th>
+<th class="text-center" data-axis-label="loc4 car right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarRight_eval_loc4" data-sortable="true" data-value-type="float2">
+                loc<br/>4
+            </th>
+<th class="text-center" data-axis-label="loc5 car right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarRight_eval_loc5" data-sortable="true" data-value-type="float2">
+                loc<br/>5
+            </th>
+<th class="text-center" data-axis-label="loc6 car right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarRight_eval_loc6" data-sortable="true" data-value-type="float2">
+                loc<br/>6
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="loc1 cv left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvLeft_eval_loc1" data-sortable="true" data-value-type="float2">
+                loc<br/>1
+            </th>
+<th class="text-center" data-axis-label="loc2 cv left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvLeft_eval_loc2" data-sortable="true" data-value-type="float2">
+                loc<br/>2
+            </th>
+<th class="text-center" data-axis-label="loc3 cv left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvLeft_eval_loc3" data-sortable="true" data-value-type="float2">
+                loc<br/>3
+            </th>
+<th class="text-center" data-axis-label="loc4 cv left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvLeft_eval_loc4" data-sortable="true" data-value-type="float2">
+                loc<br/>4
+            </th>
+<th class="text-center" data-axis-label="loc5 cv left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvLeft_eval_loc5" data-sortable="true" data-value-type="float2">
+                loc<br/>5
+            </th>
+<th class="text-center" data-axis-label="loc6 cv left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvLeft_eval_loc6" data-sortable="true" data-value-type="float2">
+                loc<br/>6
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="loc1 cv right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvRight_eval_loc1" data-sortable="true" data-value-type="float2">
+                loc<br/>1
+            </th>
+<th class="text-center" data-axis-label="loc2 cv right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvRight_eval_loc2" data-sortable="true" data-value-type="float2">
+                loc<br/>2
+            </th>
+<th class="text-center" data-axis-label="loc3 cv right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvRight_eval_loc3" data-sortable="true" data-value-type="float2">
+                loc<br/>3
+            </th>
+<th class="text-center" data-axis-label="loc4 cv right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvRight_eval_loc4" data-sortable="true" data-value-type="float2">
+                loc<br/>4
+            </th>
+<th class="text-center" data-axis-label="loc5 cv right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvRight_eval_loc5" data-sortable="true" data-value-type="float2">
+                loc<br/>5
+            </th>
+<th class="text-center" data-axis-label="loc6 cv right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvRight_eval_loc6" data-sortable="true" data-value-type="float2">
+                loc<br/>6
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarLeft_eval_loc1" data-sortable="true" data-value-type="float2">
+                loc<br/>1
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarLeft_eval_loc2" data-sortable="true" data-value-type="float2">
+                loc<br/>2
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarLeft_eval_loc3" data-sortable="true" data-value-type="float2">
+                loc<br/>3
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarLeft_eval_loc4" data-sortable="true" data-value-type="float2">
+                loc<br/>4
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarLeft_eval_loc5" data-sortable="true" data-value-type="float2">
+                loc<br/>5
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarLeft_eval_loc6" data-sortable="true" data-value-type="float2">
+                loc<br/>6
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarRight_eval_loc1" data-sortable="true" data-value-type="float2">
+                loc<br/>1
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarRight_eval_loc2" data-sortable="true" data-value-type="float2">
+                loc<br/>2
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarRight_eval_loc3" data-sortable="true" data-value-type="float2">
+                loc<br/>3
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarRight_eval_loc4" data-sortable="true" data-value-type="float2">
+                loc<br/>4
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarRight_eval_loc5" data-sortable="true" data-value-type="float2">
+                loc<br/>5
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarRight_eval_loc6" data-sortable="true" data-value-type="float2">
+                loc<br/>6
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvLeft_eval_loc1" data-sortable="true" data-value-type="float2">
+                loc<br/>1
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvLeft_eval_loc2" data-sortable="true" data-value-type="float2">
+                loc<br/>2
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvLeft_eval_loc3" data-sortable="true" data-value-type="float2">
+                loc<br/>3
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvLeft_eval_loc4" data-sortable="true" data-value-type="float2">
+                loc<br/>4
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvLeft_eval_loc5" data-sortable="true" data-value-type="float2">
+                loc<br/>5
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvLeft_eval_loc6" data-sortable="true" data-value-type="float2">
+                loc<br/>6
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvRight_eval_loc1" data-sortable="true" data-value-type="float2">
+                loc<br/>1
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvRight_eval_loc2" data-sortable="true" data-value-type="float2">
+                loc<br/>2
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvRight_eval_loc3" data-sortable="true" data-value-type="float2">
+                loc<br/>3
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvRight_eval_loc4" data-sortable="true" data-value-type="float2">
+                loc<br/>4
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvRight_eval_loc5" data-sortable="true" data-value-type="float2">
+                loc<br/>5
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvRight_eval_loc6" data-sortable="true" data-value-type="float2">
+                loc<br/>6
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Baseline_Bosch_task10</td>
+<td>Baseline_Bosch</td>
+<td>Baseline2024dcaseT10</td>
+<td>5</td>
+<td>5.17</td>
+<td>0.47</td>
+<td>0.45</td>
+<td>0.62</td>
+<td>0.46</td>
+<td>0.48</td>
+<td>0.82</td>
+<td>0.48</td>
+<td>0.22</td>
+<td>0.59</td>
+<td>0.25</td>
+<td>0.57</td>
+<td>0.74</td>
+<td>0.23</td>
+<td>0.14</td>
+<td>0.10</td>
+<td></td>
+<td>0.09</td>
+<td>0.71</td>
+<td>0.19</td>
+<td>-0.03</td>
+<td>0.27</td>
+<td>0.44</td>
+<td>0.11</td>
+<td>0.65</td>
+<td>2.45</td>
+<td>3.31</td>
+<td>1.63</td>
+<td>1.70</td>
+<td>0.66</td>
+<td>1.67</td>
+<td>2.69</td>
+<td>3.56</td>
+<td>1.21</td>
+<td>2.21</td>
+<td>0.61</td>
+<td>1.95</td>
+<td>0.73</td>
+<td>0.47</td>
+<td>0.31</td>
+<td>0.55</td>
+<td>0.49</td>
+<td>0.54</td>
+<td>0.78</td>
+<td>0.61</td>
+<td>0.20</td>
+<td>0.73</td>
+<td>0.68</td>
+<td>0.44</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_JLESS_task10_1</td>
+<td>Bai_JLESS</td>
+<td>Bai2024dcaseT10</td>
+<td>3</td>
+<td>4.44</td>
+<td>0.40</td>
+<td>0.51</td>
+<td>0.62</td>
+<td>0.47</td>
+<td>0.49</td>
+<td>0.82</td>
+<td>0.42</td>
+<td>0.38</td>
+<td>0.60</td>
+<td>0.24</td>
+<td>0.66</td>
+<td>0.72</td>
+<td>0.14</td>
+<td>0.13</td>
+<td>0.23</td>
+<td>0.40</td>
+<td>0.12</td>
+<td>0.73</td>
+<td>0.15</td>
+<td>0.17</td>
+<td>0.38</td>
+<td>0.46</td>
+<td>0.12</td>
+<td>0.71</td>
+<td>2.78</td>
+<td>3.02</td>
+<td>1.58</td>
+<td>1.45</td>
+<td>0.64</td>
+<td>1.76</td>
+<td>3.31</td>
+<td>2.69</td>
+<td>1.17</td>
+<td>2.25</td>
+<td>0.53</td>
+<td>1.91</td>
+<td>0.91</td>
+<td>0.56</td>
+<td>0.30</td>
+<td>0.50</td>
+<td>0.27</td>
+<td>0.50</td>
+<td>0.80</td>
+<td>0.61</td>
+<td>0.18</td>
+<td>0.63</td>
+<td>0.21</td>
+<td>0.46</td>
+</tr>
+<tr>
+<td></td>
+<td>Betton-Ployon_ACSTB_task10_1</td>
+<td>Betton-Ployon_ACSTB</td>
+<td>Betton2024dcaseT10</td>
+<td>9</td>
+<td>7.89</td>
+<td>0.48</td>
+<td>0.11</td>
+<td>0.39</td>
+<td>0.76</td>
+<td>-0.01</td>
+<td>0.20</td>
+<td>0.46</td>
+<td>0.04</td>
+<td>0.38</td>
+<td>0.78</td>
+<td>-0.03</td>
+<td>0.26</td>
+<td>0.11</td>
+<td>0.22</td>
+<td>0.06</td>
+<td>0.01</td>
+<td>0.05</td>
+<td>0.10</td>
+<td>0.15</td>
+<td>-0.04</td>
+<td>0.04</td>
+<td>0.29</td>
+<td>-0.00</td>
+<td>0.12</td>
+<td>2.41</td>
+<td>4.57</td>
+<td>2.24</td>
+<td>0.92</td>
+<td>1.16</td>
+<td>5.64</td>
+<td>2.75</td>
+<td>4.41</td>
+<td>2.20</td>
+<td>0.94</td>
+<td>1.14</td>
+<td>5.24</td>
+<td>0.76</td>
+<td>0.47</td>
+<td>0.31</td>
+<td>0.55</td>
+<td>0.27</td>
+<td>1.11</td>
+<td>0.74</td>
+<td>0.62</td>
+<td>0.21</td>
+<td>0.56</td>
+<td>0.26</td>
+<td>1.23</td>
+</tr>
+<tr>
+<td></td>
+<td>Cai_NCUT_task10_1</td>
+<td>Cai_NCUT</td>
+<td>Cai2024dcaseT10</td>
+<td>10</td>
+<td>8.14</td>
+<td>0.46</td>
+<td>0.12</td>
+<td>0.57</td>
+<td></td>
+<td>0.03</td>
+<td>0.81</td>
+<td>0.46</td>
+<td>0.15</td>
+<td>0.46</td>
+<td></td>
+<td>0.22</td>
+<td>0.65</td>
+<td>0.07</td>
+<td>0.01</td>
+<td>0.04</td>
+<td></td>
+<td>0.01</td>
+<td>0.56</td>
+<td>0.11</td>
+<td></td>
+<td>0.10</td>
+<td></td>
+<td>0.17</td>
+<td>0.43</td>
+<td>2.48</td>
+<td>4.37</td>
+<td>1.71</td>
+<td>2.12</td>
+<td>0.93</td>
+<td>1.74</td>
+<td>2.78</td>
+<td>3.38</td>
+<td>1.32</td>
+<td>2.49</td>
+<td>0.84</td>
+<td>2.34</td>
+<td>0.79</td>
+<td>0.48</td>
+<td>0.29</td>
+<td>0.55</td>
+<td>0.24</td>
+<td>0.72</td>
+<td>0.80</td>
+<td>0.64</td>
+<td>0.20</td>
+<td>0.74</td>
+<td>0.22</td>
+<td>0.64</td>
+</tr>
+<tr>
+<td></td>
+<td>Guan_GISP-HEU_task10_1</td>
+<td>Guan_HEU_1</td>
+<td>Guan2024dcaseT10</td>
+<td>2</td>
+<td>4.33</td>
+<td>0.50</td>
+<td>0.61</td>
+<td>0.62</td>
+<td>0.34</td>
+<td>0.56</td>
+<td>0.84</td>
+<td>0.51</td>
+<td>0.54</td>
+<td>0.59</td>
+<td>0.45</td>
+<td>0.48</td>
+<td>0.70</td>
+<td>0.16</td>
+<td>0.19</td>
+<td>0.14</td>
+<td>-0.08</td>
+<td>-0.01</td>
+<td>0.72</td>
+<td>0.18</td>
+<td>0.08</td>
+<td>0.33</td>
+<td>0.61</td>
+<td>0.13</td>
+<td>0.57</td>
+<td>2.41</td>
+<td>2.52</td>
+<td>1.62</td>
+<td>1.70</td>
+<td>0.58</td>
+<td>1.63</td>
+<td>2.70</td>
+<td>2.30</td>
+<td>1.15</td>
+<td>1.76</td>
+<td>0.68</td>
+<td>2.11</td>
+<td>0.77</td>
+<td>0.46</td>
+<td>0.32</td>
+<td>0.75</td>
+<td>0.25</td>
+<td>0.52</td>
+<td>0.72</td>
+<td>0.62</td>
+<td>0.20</td>
+<td>0.65</td>
+<td>0.22</td>
+<td>0.55</td>
+</tr>
+<tr>
+<td></td>
+<td>Guan_GISP-HEU_task10_2</td>
+<td>Guan_HEU_2</td>
+<td>Guan2024dcaseT10</td>
+<td>1</td>
+<td>3.98</td>
+<td>0.49</td>
+<td>0.63</td>
+<td>0.62</td>
+<td>0.03</td>
+<td>0.59</td>
+<td>0.84</td>
+<td>0.50</td>
+<td>0.50</td>
+<td>0.60</td>
+<td>0.39</td>
+<td>0.60</td>
+<td>0.72</td>
+<td>0.22</td>
+<td>0.06</td>
+<td>0.15</td>
+<td>0.03</td>
+<td>0.41</td>
+<td>0.67</td>
+<td>0.19</td>
+<td>0.29</td>
+<td>0.36</td>
+<td>0.53</td>
+<td>0.39</td>
+<td>0.56</td>
+<td>2.41</td>
+<td>2.58</td>
+<td>1.62</td>
+<td>2.22</td>
+<td>0.56</td>
+<td>1.53</td>
+<td>2.65</td>
+<td>2.64</td>
+<td>1.17</td>
+<td>1.79</td>
+<td>0.56</td>
+<td>2.01</td>
+<td>0.74</td>
+<td>0.57</td>
+<td>0.44</td>
+<td>0.73</td>
+<td>0.16</td>
+<td>0.56</td>
+<td>0.74</td>
+<td>0.59</td>
+<td>0.20</td>
+<td>0.65</td>
+<td>0.22</td>
+<td>0.56</td>
+</tr>
+<tr>
+<td></td>
+<td>Guan_GISP-HEU_task10_3</td>
+<td>Guan_HEU_3</td>
+<td>Guan2024dcaseT10</td>
+<td>7</td>
+<td>6.27</td>
+<td>0.50</td>
+<td>0.45</td>
+<td>0.60</td>
+<td>0.22</td>
+<td>0.02</td>
+<td>0.63</td>
+<td>0.51</td>
+<td>0.41</td>
+<td>0.55</td>
+<td>0.29</td>
+<td>-0.09</td>
+<td>0.61</td>
+<td>0.23</td>
+<td>0.26</td>
+<td>0.06</td>
+<td>0.23</td>
+<td>0.12</td>
+<td>0.40</td>
+<td>0.22</td>
+<td>0.11</td>
+<td>0.24</td>
+<td>0.36</td>
+<td>0.28</td>
+<td>0.28</td>
+<td>2.52</td>
+<td>3.09</td>
+<td>1.67</td>
+<td>1.89</td>
+<td>0.93</td>
+<td>3.23</td>
+<td>2.78</td>
+<td>3.16</td>
+<td>1.22</td>
+<td>1.96</td>
+<td>0.93</td>
+<td>2.61</td>
+<td>0.81</td>
+<td>0.63</td>
+<td>0.30</td>
+<td>0.53</td>
+<td>0.22</td>
+<td>0.86</td>
+<td>0.75</td>
+<td>0.61</td>
+<td>0.29</td>
+<td>0.72</td>
+<td>0.21</td>
+<td>0.71</td>
+</tr>
+<tr>
+<td></td>
+<td>Park_KT_task10_1</td>
+<td>Park_KT_1</td>
+<td>Park2024dcaseT10</td>
+<td>8</td>
+<td>6.85</td>
+<td>0.42</td>
+<td>0.45</td>
+<td>0.57</td>
+<td>0.32</td>
+<td>0.51</td>
+<td>0.81</td>
+<td>0.42</td>
+<td>0.03</td>
+<td>0.56</td>
+<td>0.21</td>
+<td>0.40</td>
+<td>0.71</td>
+<td>0.18</td>
+<td>0.00</td>
+<td>0.07</td>
+<td>-0.24</td>
+<td>0.18</td>
+<td>0.68</td>
+<td>0.13</td>
+<td>0.13</td>
+<td>0.21</td>
+<td>0.43</td>
+<td>0.03</td>
+<td>0.61</td>
+<td>2.63</td>
+<td>3.50</td>
+<td>1.73</td>
+<td>1.91</td>
+<td>0.66</td>
+<td>1.82</td>
+<td>2.93</td>
+<td>4.37</td>
+<td>1.24</td>
+<td>2.51</td>
+<td>0.71</td>
+<td>1.99</td>
+<td>0.99</td>
+<td>0.48</td>
+<td>0.32</td>
+<td>0.59</td>
+<td>0.23</td>
+<td>0.52</td>
+<td>0.90</td>
+<td>0.61</td>
+<td>0.18</td>
+<td>0.65</td>
+<td>0.24</td>
+<td>0.46</td>
+</tr>
+<tr>
+<td></td>
+<td>Park_KT_task10_2</td>
+<td>Park_KT_2</td>
+<td>Park2024dcaseT10</td>
+<td>11</td>
+<td>8.21</td>
+<td>0.42</td>
+<td>0.44</td>
+<td>0.44</td>
+<td>0.34</td>
+<td>0.46</td>
+<td>0.59</td>
+<td>0.43</td>
+<td>0.00</td>
+<td>0.39</td>
+<td>0.06</td>
+<td>0.34</td>
+<td>0.54</td>
+<td>0.22</td>
+<td>0.08</td>
+<td>0.04</td>
+<td>-0.34</td>
+<td>0.16</td>
+<td>0.24</td>
+<td>0.24</td>
+<td>-0.02</td>
+<td>0.14</td>
+<td>0.25</td>
+<td>0.05</td>
+<td>0.17</td>
+<td>2.72</td>
+<td>3.76</td>
+<td>2.05</td>
+<td>1.93</td>
+<td>0.69</td>
+<td>3.16</td>
+<td>2.86</td>
+<td>4.57</td>
+<td>1.46</td>
+<td>2.68</td>
+<td>0.72</td>
+<td>3.10</td>
+<td>0.75</td>
+<td>0.46</td>
+<td>0.32</td>
+<td>0.58</td>
+<td>0.25</td>
+<td>0.94</td>
+<td>0.71</td>
+<td>0.62</td>
+<td>0.23</td>
+<td>0.72</td>
+<td>0.26</td>
+<td>0.79</td>
+</tr>
+<tr>
+<td></td>
+<td>Park_KT_task10_3</td>
+<td>Park_KT_3</td>
+<td>Park2024dcaseT10</td>
+<td>6</td>
+<td>5.67</td>
+<td>0.46</td>
+<td>0.57</td>
+<td>0.59</td>
+<td>0.40</td>
+<td>0.62</td>
+<td>0.81</td>
+<td>0.46</td>
+<td>0.08</td>
+<td>0.58</td>
+<td>0.17</td>
+<td>0.60</td>
+<td>0.71</td>
+<td>0.16</td>
+<td>-0.01</td>
+<td>0.08</td>
+<td>-0.28</td>
+<td>0.19</td>
+<td>0.72</td>
+<td>0.13</td>
+<td>0.02</td>
+<td>0.15</td>
+<td>0.31</td>
+<td>0.08</td>
+<td>0.63</td>
+<td>2.52</td>
+<td>2.73</td>
+<td>1.69</td>
+<td>1.82</td>
+<td>0.54</td>
+<td>1.77</td>
+<td>2.77</td>
+<td>3.97</td>
+<td>1.20</td>
+<td>2.51</td>
+<td>0.55</td>
+<td>2.02</td>
+<td>0.80</td>
+<td>0.48</td>
+<td>0.29</td>
+<td>0.57</td>
+<td>0.19</td>
+<td>0.53</td>
+<td>0.77</td>
+<td>0.62</td>
+<td>0.18</td>
+<td>0.71</td>
+<td>0.22</td>
+<td>0.46</td>
+</tr>
+<tr>
+<td></td>
+<td>Takahashi_TMU-NEE_task10_1</td>
+<td>Takahashi_TMU</td>
+<td>Takahashi2024dcaseT10</td>
+<td>4</td>
+<td>4.77</td>
+<td>0.50</td>
+<td>0.65</td>
+<td>0.62</td>
+<td>-0.22</td>
+<td>0.42</td>
+<td>0.87</td>
+<td>0.51</td>
+<td>0.62</td>
+<td>0.61</td>
+<td>0.10</td>
+<td>0.28</td>
+<td>0.76</td>
+<td>0.20</td>
+<td>0.15</td>
+<td>-0.03</td>
+<td>0.16</td>
+<td>-0.06</td>
+<td>0.82</td>
+<td>0.22</td>
+<td>0.09</td>
+<td>0.01</td>
+<td>0.37</td>
+<td>-0.09</td>
+<td>0.77</td>
+<td>2.39</td>
+<td>2.63</td>
+<td>1.60</td>
+<td>3.08</td>
+<td>0.69</td>
+<td>1.26</td>
+<td>2.69</td>
+<td>3.71</td>
+<td>1.14</td>
+<td>2.46</td>
+<td>0.81</td>
+<td>1.75</td>
+<td>0.74</td>
+<td>0.49</td>
+<td>0.30</td>
+<td>0.42</td>
+<td>0.21</td>
+<td>0.41</td>
+<td>0.71</td>
+<td>0.63</td>
+<td>0.21</td>
+<td>0.83</td>
+<td>0.29</td>
+<td>0.40</td>
+</tr>
+</tbody>
+</table>
+<h1 id="teams-ranking">Teams ranking</h1>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="submission_label" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="system_overall_rank" data-scatter-y="system_avg_rank" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="system_overall_rank" data-sort-order="asc">
+<thead>
+<tr>
+<th></th>
+<th class="sep-left-cell text-center" colspan="3">Submission information</th>
+<th class="sep-left-cell text-center" colspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="6">Kendall's Tau car left per location <br/></th>
+<th class="sep-left-cell text-center" colspan="6">Kendall's Tau car right per location <br/></th>
+<th class="sep-left-cell text-center" colspan="6">Kendall's Tau cv left per location <br/></th>
+<th class="sep-left-cell text-center" colspan="6">Kendall's Tau cv right per location <br/></th>
+<th class="sep-left-cell text-center" colspan="6">RMSE car left per location <br/></th>
+<th class="sep-left-cell text-center" colspan="6">RMSE car right per location <br/></th>
+<th class="sep-left-cell text-center" colspan="6">RMSE cv left per location <br/></th>
+<th class="sep-left-cell text-center" colspan="6">RMSE cv right per location <br/></th>
+</tr>
+<tr>
+<th class="sep-right-cell" data-rank="true">Rank</th>
+<th data-field="submission_label" data-sortable="true">
+                Submission label
+            </th>
+<th class="sm-cell" data-field="submission_name" data-sortable="true">
+                Name
+            </th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Team rank" data-chartable="true" data-field="system_overall_rank" data-sortable="true" data-value-type="int">
+                Official <br/>rank
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="system_avg_rank" data-sortable="true" data-value-type="float2">
+                Rank <br/>score
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="loc1 car left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarLeft_eval_loc1" data-sortable="true" data-value-type="float2">
+                loc<br/>1
+            </th>
+<th class="text-center" data-axis-label="loc2 car left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarLeft_eval_loc2" data-sortable="true" data-value-type="float2">
+                loc<br/>2
+            </th>
+<th class="text-center" data-axis-label="loc3 car left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarLeft_eval_loc3" data-sortable="true" data-value-type="float2">
+                loc<br/>3
+            </th>
+<th class="text-center" data-axis-label="loc4 car left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarLeft_eval_loc4" data-sortable="true" data-value-type="float2">
+                loc<br/>4
+            </th>
+<th class="text-center" data-axis-label="loc5 car left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarLeft_eval_loc5" data-sortable="true" data-value-type="float2">
+                loc<br/>5
+            </th>
+<th class="text-center" data-axis-label="loc6 car left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarLeft_eval_loc6" data-sortable="true" data-value-type="float2">
+                loc<br/>6
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="loc1 car right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarRight_eval_loc1" data-sortable="true" data-value-type="float2">
+                loc<br/>1
+            </th>
+<th class="text-center" data-axis-label="loc2 car right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarRight_eval_loc2" data-sortable="true" data-value-type="float2">
+                loc<br/>2
+            </th>
+<th class="text-center" data-axis-label="loc3 car right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarRight_eval_loc3" data-sortable="true" data-value-type="float2">
+                loc<br/>3
+            </th>
+<th class="text-center" data-axis-label="loc4 car right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarRight_eval_loc4" data-sortable="true" data-value-type="float2">
+                loc<br/>4
+            </th>
+<th class="text-center" data-axis-label="loc5 car right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarRight_eval_loc5" data-sortable="true" data-value-type="float2">
+                loc<br/>5
+            </th>
+<th class="text-center" data-axis-label="loc6 car right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CarRight_eval_loc6" data-sortable="true" data-value-type="float2">
+                loc<br/>6
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="loc1 cv left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvLeft_eval_loc1" data-sortable="true" data-value-type="float2">
+                loc<br/>1
+            </th>
+<th class="text-center" data-axis-label="loc2 cv left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvLeft_eval_loc2" data-sortable="true" data-value-type="float2">
+                loc<br/>2
+            </th>
+<th class="text-center" data-axis-label="loc3 cv left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvLeft_eval_loc3" data-sortable="true" data-value-type="float2">
+                loc<br/>3
+            </th>
+<th class="text-center" data-axis-label="loc4 cv left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvLeft_eval_loc4" data-sortable="true" data-value-type="float2">
+                loc<br/>4
+            </th>
+<th class="text-center" data-axis-label="loc5 cv left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvLeft_eval_loc5" data-sortable="true" data-value-type="float2">
+                loc<br/>5
+            </th>
+<th class="text-center" data-axis-label="loc6 cv left&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvLeft_eval_loc6" data-sortable="true" data-value-type="float2">
+                loc<br/>6
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="loc1 cv right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvRight_eval_loc1" data-sortable="true" data-value-type="float2">
+                loc<br/>1
+            </th>
+<th class="text-center" data-axis-label="loc2 cv right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvRight_eval_loc2" data-sortable="true" data-value-type="float2">
+                loc<br/>2
+            </th>
+<th class="text-center" data-axis-label="loc3 cv right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvRight_eval_loc3" data-sortable="true" data-value-type="float2">
+                loc<br/>3
+            </th>
+<th class="text-center" data-axis-label="loc4 cv right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvRight_eval_loc4" data-sortable="true" data-value-type="float2">
+                loc<br/>4
+            </th>
+<th class="text-center" data-axis-label="loc5 cv right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvRight_eval_loc5" data-sortable="true" data-value-type="float2">
+                loc<br/>5
+            </th>
+<th class="text-center" data-axis-label="loc6 cv right&lt;br&gt;&lt;/br&gt;rank" data-chartable="true" data-field="KendallsTau_CvRight_eval_loc6" data-sortable="true" data-value-type="float2">
+                loc<br/>6
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarLeft_eval_loc1" data-sortable="true" data-value-type="float2">
+                loc<br/>1
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarLeft_eval_loc2" data-sortable="true" data-value-type="float2">
+                loc<br/>2
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarLeft_eval_loc3" data-sortable="true" data-value-type="float2">
+                loc<br/>3
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarLeft_eval_loc4" data-sortable="true" data-value-type="float2">
+                loc<br/>4
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarLeft_eval_loc5" data-sortable="true" data-value-type="float2">
+                loc<br/>5
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarLeft_eval_loc6" data-sortable="true" data-value-type="float2">
+                loc<br/>6
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarRight_eval_loc1" data-sortable="true" data-value-type="float2">
+                loc<br/>1
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarRight_eval_loc2" data-sortable="true" data-value-type="float2">
+                loc<br/>2
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarRight_eval_loc3" data-sortable="true" data-value-type="float2">
+                loc<br/>3
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarRight_eval_loc4" data-sortable="true" data-value-type="float2">
+                loc<br/>4
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarRight_eval_loc5" data-sortable="true" data-value-type="float2">
+                loc<br/>5
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CarRight_eval_loc6" data-sortable="true" data-value-type="float2">
+                loc<br/>6
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvLeft_eval_loc1" data-sortable="true" data-value-type="float2">
+                loc<br/>1
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvLeft_eval_loc2" data-sortable="true" data-value-type="float2">
+                loc<br/>2
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvLeft_eval_loc3" data-sortable="true" data-value-type="float2">
+                loc<br/>3
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvLeft_eval_loc4" data-sortable="true" data-value-type="float2">
+                loc<br/>4
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvLeft_eval_loc5" data-sortable="true" data-value-type="float2">
+                loc<br/>5
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvLeft_eval_loc6" data-sortable="true" data-value-type="float2">
+                loc<br/>6
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvRight_eval_loc1" data-sortable="true" data-value-type="float2">
+                loc<br/>1
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvRight_eval_loc2" data-sortable="true" data-value-type="float2">
+                loc<br/>2
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvRight_eval_loc3" data-sortable="true" data-value-type="float2">
+                loc<br/>3
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvRight_eval_loc4" data-sortable="true" data-value-type="float2">
+                loc<br/>4
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvRight_eval_loc5" data-sortable="true" data-value-type="float2">
+                loc<br/>5
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="RMSE_CvRight_eval_loc6" data-sortable="true" data-value-type="float2">
+                loc<br/>6
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Baseline_Bosch_task10</td>
+<td>Baseline_Bosch</td>
+<td>Baseline2024dcaseT10</td>
+<td>4</td>
+<td>5.17</td>
+<td>0.47</td>
+<td>0.45</td>
+<td>0.62</td>
+<td>0.46</td>
+<td>0.48</td>
+<td>0.82</td>
+<td>0.48</td>
+<td>0.22</td>
+<td>0.59</td>
+<td>0.25</td>
+<td>0.57</td>
+<td>0.74</td>
+<td>0.23</td>
+<td>0.14</td>
+<td>0.10</td>
+<td></td>
+<td>0.09</td>
+<td>0.71</td>
+<td>0.19</td>
+<td>-0.03</td>
+<td>0.27</td>
+<td>0.44</td>
+<td>0.11</td>
+<td>0.65</td>
+<td>2.45</td>
+<td>3.31</td>
+<td>1.63</td>
+<td>1.70</td>
+<td>0.66</td>
+<td>1.67</td>
+<td>2.69</td>
+<td>3.56</td>
+<td>1.21</td>
+<td>2.21</td>
+<td>0.61</td>
+<td>1.95</td>
+<td>0.73</td>
+<td>0.47</td>
+<td>0.31</td>
+<td>0.55</td>
+<td>0.49</td>
+<td>0.54</td>
+<td>0.78</td>
+<td>0.61</td>
+<td>0.20</td>
+<td>0.73</td>
+<td>0.68</td>
+<td>0.44</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_JLESS_task10_1</td>
+<td>Bai_JLESS</td>
+<td>Bai2024dcaseT10</td>
+<td>2</td>
+<td>4.44</td>
+<td>0.40</td>
+<td>0.51</td>
+<td>0.62</td>
+<td>0.47</td>
+<td>0.49</td>
+<td>0.82</td>
+<td>0.42</td>
+<td>0.38</td>
+<td>0.60</td>
+<td>0.24</td>
+<td>0.66</td>
+<td>0.72</td>
+<td>0.14</td>
+<td>0.13</td>
+<td>0.23</td>
+<td>0.40</td>
+<td>0.12</td>
+<td>0.73</td>
+<td>0.15</td>
+<td>0.17</td>
+<td>0.38</td>
+<td>0.46</td>
+<td>0.12</td>
+<td>0.71</td>
+<td>2.78</td>
+<td>3.02</td>
+<td>1.58</td>
+<td>1.45</td>
+<td>0.64</td>
+<td>1.76</td>
+<td>3.31</td>
+<td>2.69</td>
+<td>1.17</td>
+<td>2.25</td>
+<td>0.53</td>
+<td>1.91</td>
+<td>0.91</td>
+<td>0.56</td>
+<td>0.30</td>
+<td>0.50</td>
+<td>0.27</td>
+<td>0.50</td>
+<td>0.80</td>
+<td>0.61</td>
+<td>0.18</td>
+<td>0.63</td>
+<td>0.21</td>
+<td>0.46</td>
+</tr>
+<tr>
+<td></td>
+<td>Betton-Ployon_ACSTB_task10_1</td>
+<td>Betton-Ployon_ACSTB</td>
+<td>Betton2024dcaseT10</td>
+<td>6</td>
+<td>7.89</td>
+<td>0.48</td>
+<td>0.11</td>
+<td>0.39</td>
+<td>0.76</td>
+<td>-0.01</td>
+<td>0.20</td>
+<td>0.46</td>
+<td>0.04</td>
+<td>0.38</td>
+<td>0.78</td>
+<td>-0.03</td>
+<td>0.26</td>
+<td>0.11</td>
+<td>0.22</td>
+<td>0.06</td>
+<td>0.01</td>
+<td>0.05</td>
+<td>0.10</td>
+<td>0.15</td>
+<td>-0.04</td>
+<td>0.04</td>
+<td>0.29</td>
+<td>-0.00</td>
+<td>0.12</td>
+<td>2.41</td>
+<td>4.57</td>
+<td>2.24</td>
+<td>0.92</td>
+<td>1.16</td>
+<td>5.64</td>
+<td>2.75</td>
+<td>4.41</td>
+<td>2.20</td>
+<td>0.94</td>
+<td>1.14</td>
+<td>5.24</td>
+<td>0.76</td>
+<td>0.47</td>
+<td>0.31</td>
+<td>0.55</td>
+<td>0.27</td>
+<td>1.11</td>
+<td>0.74</td>
+<td>0.62</td>
+<td>0.21</td>
+<td>0.56</td>
+<td>0.26</td>
+<td>1.23</td>
+</tr>
+<tr>
+<td></td>
+<td>Cai_NCUT_task10_1</td>
+<td>Cai_NCUT</td>
+<td>Cai2024dcaseT10</td>
+<td>7</td>
+<td>8.14</td>
+<td>0.46</td>
+<td>0.12</td>
+<td>0.57</td>
+<td></td>
+<td>0.03</td>
+<td>0.81</td>
+<td>0.46</td>
+<td>0.15</td>
+<td>0.46</td>
+<td></td>
+<td>0.22</td>
+<td>0.65</td>
+<td>0.07</td>
+<td>0.01</td>
+<td>0.04</td>
+<td></td>
+<td>0.01</td>
+<td>0.56</td>
+<td>0.11</td>
+<td></td>
+<td>0.10</td>
+<td></td>
+<td>0.17</td>
+<td>0.43</td>
+<td>2.48</td>
+<td>4.37</td>
+<td>1.71</td>
+<td>2.12</td>
+<td>0.93</td>
+<td>1.74</td>
+<td>2.78</td>
+<td>3.38</td>
+<td>1.32</td>
+<td>2.49</td>
+<td>0.84</td>
+<td>2.34</td>
+<td>0.79</td>
+<td>0.48</td>
+<td>0.29</td>
+<td>0.55</td>
+<td>0.24</td>
+<td>0.72</td>
+<td>0.80</td>
+<td>0.64</td>
+<td>0.20</td>
+<td>0.74</td>
+<td>0.22</td>
+<td>0.64</td>
+</tr>
+<tr>
+<td></td>
+<td>Guan_GISP-HEU_task10_2</td>
+<td>Guan_HEU_2</td>
+<td>Guan2024dcaseT10</td>
+<td>1</td>
+<td>3.98</td>
+<td>0.49</td>
+<td>0.63</td>
+<td>0.62</td>
+<td>0.03</td>
+<td>0.59</td>
+<td>0.84</td>
+<td>0.50</td>
+<td>0.50</td>
+<td>0.60</td>
+<td>0.39</td>
+<td>0.60</td>
+<td>0.72</td>
+<td>0.22</td>
+<td>0.06</td>
+<td>0.15</td>
+<td>0.03</td>
+<td>0.41</td>
+<td>0.67</td>
+<td>0.19</td>
+<td>0.29</td>
+<td>0.36</td>
+<td>0.53</td>
+<td>0.39</td>
+<td>0.56</td>
+<td>2.41</td>
+<td>2.58</td>
+<td>1.62</td>
+<td>2.22</td>
+<td>0.56</td>
+<td>1.53</td>
+<td>2.65</td>
+<td>2.64</td>
+<td>1.17</td>
+<td>1.79</td>
+<td>0.56</td>
+<td>2.01</td>
+<td>0.74</td>
+<td>0.57</td>
+<td>0.44</td>
+<td>0.73</td>
+<td>0.16</td>
+<td>0.56</td>
+<td>0.74</td>
+<td>0.59</td>
+<td>0.20</td>
+<td>0.65</td>
+<td>0.22</td>
+<td>0.56</td>
+</tr>
+<tr>
+<td></td>
+<td>Park_KT_task10_3</td>
+<td>Park_KT_3</td>
+<td>Park2024dcaseT10</td>
+<td>5</td>
+<td>5.67</td>
+<td>0.46</td>
+<td>0.57</td>
+<td>0.59</td>
+<td>0.40</td>
+<td>0.62</td>
+<td>0.81</td>
+<td>0.46</td>
+<td>0.08</td>
+<td>0.58</td>
+<td>0.17</td>
+<td>0.60</td>
+<td>0.71</td>
+<td>0.16</td>
+<td>-0.01</td>
+<td>0.08</td>
+<td>-0.28</td>
+<td>0.19</td>
+<td>0.72</td>
+<td>0.13</td>
+<td>0.02</td>
+<td>0.15</td>
+<td>0.31</td>
+<td>0.08</td>
+<td>0.63</td>
+<td>2.52</td>
+<td>2.73</td>
+<td>1.69</td>
+<td>1.82</td>
+<td>0.54</td>
+<td>1.77</td>
+<td>2.77</td>
+<td>3.97</td>
+<td>1.20</td>
+<td>2.51</td>
+<td>0.55</td>
+<td>2.02</td>
+<td>0.80</td>
+<td>0.48</td>
+<td>0.29</td>
+<td>0.57</td>
+<td>0.19</td>
+<td>0.53</td>
+<td>0.77</td>
+<td>0.62</td>
+<td>0.18</td>
+<td>0.71</td>
+<td>0.22</td>
+<td>0.46</td>
+</tr>
+<tr>
+<td></td>
+<td>Takahashi_TMU-NEE_task10_1</td>
+<td>Takahashi_TMU</td>
+<td>Takahashi2024dcaseT10</td>
+<td>3</td>
+<td>4.77</td>
+<td>0.50</td>
+<td>0.65</td>
+<td>0.62</td>
+<td>-0.22</td>
+<td>0.42</td>
+<td>0.87</td>
+<td>0.51</td>
+<td>0.62</td>
+<td>0.61</td>
+<td>0.10</td>
+<td>0.28</td>
+<td>0.76</td>
+<td>0.20</td>
+<td>0.15</td>
+<td>-0.03</td>
+<td>0.16</td>
+<td>-0.06</td>
+<td>0.82</td>
+<td>0.22</td>
+<td>0.09</td>
+<td>0.01</td>
+<td>0.37</td>
+<td>-0.09</td>
+<td>0.77</td>
+<td>2.39</td>
+<td>2.63</td>
+<td>1.60</td>
+<td>3.08</td>
+<td>0.69</td>
+<td>1.26</td>
+<td>2.69</td>
+<td>3.71</td>
+<td>1.14</td>
+<td>2.46</td>
+<td>0.81</td>
+<td>1.75</td>
+<td>0.74</td>
+<td>0.49</td>
+<td>0.30</td>
+<td>0.42</td>
+<td>0.21</td>
+<td>0.41</td>
+<td>0.71</td>
+<td>0.63</td>
+<td>0.21</td>
+<td>0.83</td>
+<td>0.29</td>
+<td>0.40</td>
+</tr>
+</tbody>
+</table>
+<h1 id="system-characteristics">System characteristics</h1>
+<p>Summary of the submitted system characteristics.</p>
+<table class="datatable table table-hover table-condensed" data-chart-tooltip-fields="submission_label" data-filter-control="true" data-filter-show-clear="true" data-id-field="submission_label" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-bar-chart-xaxis="false" data-show-chart="false" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="system_overall_rank" data-sort-order="asc" data-striped="true" data-tag-mode="column">
+<thead>
+<tr>
+<th data-field="system_overall_rank" data-sortable="true" data-value-type="int">
+                Rank
+            </th>
+<th class="sm-cell" data-field="submission_label" data-sortable="true">
+                Submission<br/>label
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_description_input_sampling_rate" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Input sampling rate
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_description_acoustic_features" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Acoustic<br/>Features
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_description_data_augmentation" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Data<br/>Augmentation
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_description_machine_learning_method" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Model
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_description_pipeline" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Pipeline
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_complexity_total_parameters" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                System complexity
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_description_external_data_usage" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                External Data
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr class="info" data-hline="true">
+<td>5</td>
+<td>Baseline_Bosch_task10</td>
+<td>Baseline2024dcaseT10</td>
+<td>16kHz</td>
+<td>Generalized Cross-Correlation with Phase transform and Log Mel Spectrogram</td>
+<td>Acoustic Traffic Simulation</td>
+<td>CRNN</td>
+<td>pre-training, fine-tuning</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Bai_JLESS_task10_1</td>
+<td>Bai2024dcaseT10</td>
+<td>16kHz</td>
+<td>Generalized Cross-Correlation with Phase transform and Log Mel Spectrogram</td>
+<td></td>
+<td>CRNN</td>
+<td>training</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Betton-Ployon_ACSTB_task10_1</td>
+<td>Betton2024dcaseT10</td>
+<td>16kHz</td>
+<td>Generalized Cross-Correlation with Phase transform and Log Mel Spectrogram</td>
+<td></td>
+<td>CRNN</td>
+<td>training</td>
+<td></td>
+<td>external non-supervised counting algorithm</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Cai_NCUT_task10_1</td>
+<td>Cai2024dcaseT10</td>
+<td>96kHz</td>
+<td>Generalized Cross-Correlation with Phase transform and Log Mel Spectrogram</td>
+<td></td>
+<td>CRNN</td>
+<td>training</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Guan_GISP-HEU_task10_1</td>
+<td>Guan2024dcaseT10</td>
+<td>16kHz</td>
+<td>Generalized Cross-Correlation with Phase transform and Log Mel Spectrogram</td>
+<td></td>
+<td>PANNs, GAT</td>
+<td>training</td>
+<td></td>
+<td>pre-trained model</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Guan_GISP-HEU_task10_2</td>
+<td>Guan2024dcaseT10</td>
+<td>16kHz</td>
+<td>Generalized Cross-Correlation with Phase transform and Log Mel Spectrogram</td>
+<td>SpecAugment</td>
+<td>PANNs, GAT</td>
+<td>training</td>
+<td></td>
+<td>pre-trained model</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Guan_GISP-HEU_task10_3</td>
+<td>Guan2024dcaseT10</td>
+<td>16kHz</td>
+<td>Log Mel Spectrogram</td>
+<td>SpecAugment, phase shifting</td>
+<td>PANNs, GAT</td>
+<td>training</td>
+<td></td>
+<td>pre-trained model</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Park_KT_task10_1</td>
+<td>Park2024dcaseT10</td>
+<td>16kHz</td>
+<td>Spectrogram, STHD (Short-Time Homomorphic Deconvolution)</td>
+<td>Simulation Sound Synthesis</td>
+<td>CRNN</td>
+<td>pre-training, transfer learning</td>
+<td></td>
+<td>pre-trained model</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Park_KT_task10_2</td>
+<td>Park2024dcaseT10</td>
+<td>16kHz</td>
+<td>Spectrogram, STHD (Short-Time Homomorphic Deconvolution)</td>
+<td>Simulation Sound Synthesis</td>
+<td>CRNN</td>
+<td>pre-training, transfer learning</td>
+<td></td>
+<td>pre-trained model</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Park_KT_task10_3</td>
+<td>Park2024dcaseT10</td>
+<td>16kHz</td>
+<td>Spectrogram, STHD (Short-Time Homomorphic Deconvolution)</td>
+<td>Simulation Sound Synthesis</td>
+<td>CRNN</td>
+<td>pre-training, transfer learning</td>
+<td></td>
+<td>pre-trained model</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Takahashi_TMU-NEE_task10_1</td>
+<td>Takahashi2024dcaseT10</td>
+<td>16kHz</td>
+<td>Log Power Spectrogram and Cosine-Sine of Phase Difference</td>
+<td></td>
+<td>CRNN</td>
+<td>training, matching loss</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br/>
+<br/></p>
+<h1 id="technical-reports">Technical reports</h1>
+<div class="btex" data-source="content/data/challenge2024/technical_reports_task10.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="Bai2024dcaseT10" style="box-shadow: none">
+<div class="panel-heading" id="heading-Bai2024dcaseT10" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        JLESS SUBMISSION TO DCASE2024 TASK10: AN ACOUSTIC-BASED TRAFFIC MONITORING SOLUTION
+       </h4>
+<p style="text-align:left">
+        Dongzhe Zhang, Jisheng Bai, Jianfeng Chen
+       </p>
+<p style="text-align:left">
+<em>
+         Northwestern Polytechnical University, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Bai_JLESS_task10_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Bai2024dcaseT10" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Bai2024dcaseT10" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Bai2024dcaseT10" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Bai_17_t10.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Bai2024dcaseT10" class="panel-collapse collapse" id="collapse-Bai2024dcaseT10" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       JLESS SUBMISSION TO DCASE2024 TASK10: AN ACOUSTIC-BASED TRAFFIC MONITORING SOLUTION
+      </h4>
+<p style="text-align:left">
+<small>
+        Dongzhe Zhang, Jisheng Bai, Jianfeng Chen
+       </small>
+<br/>
+<small>
+<em>
+         Northwestern Polytechnical University, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       In this technical report, we describe our proposed system for the traffic monitoring challenge. Our solution addresses the critical need for efficient traffic monitoring systems in smart city development, leveraging the advantages of acoustic sensors. Initially, we review various sensor types used in traffic monitoring, emphasizing the benefits of acoustic sensors such as low cost, power efficiency, and robustness in adverse conditions. Given the challenges of collecting and labeling real-world traffic data, we incorporate synthetic data generated via the pyroadacoustics simulator to enhance system performance. We employ multiple data augmentation techniques to create a balanced and comprehensive training dataset. Our approach also includes detailed metadata integration, which provides sensor location IDs, timestamps, sensor array geometry, and vehicle counts. During the training phase, we implement several strategies to improve the system generalization in real-world environments. Our results demonstrate that the proposed system significantly outperforms baseline models in accurately detecting and classifying traffic events, validating the efficacy of our approach using both real and synthetic data.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         Generalized Cross-Correlation with Phase transform and Log Mel Spectrogram
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Bai2024dcaseT10" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Bai_17_t10.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="" style="text-decoration:none;border-bottom:0;padding-bottom:6px" target="_blank" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Bai2024dcaseT10label" class="modal fade" id="bibtex-Bai2024dcaseT10" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexBai2024dcaseT10label">
+        JLESS SUBMISSION TO DCASE2024 TASK10: AN ACOUSTIC-BASED TRAFFIC MONITORING SOLUTION
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Bai2024dcaseT10,
+    Author = "Zhang, Dongzhe and Bai, Jisheng and Chen, Jianfeng",
+    title = "JLESS SUBMISSION TO DCASE2024 TASK10: AN ACOUSTIC-BASED TRAFFIC MONITORING SOLUTION",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "In this technical report, we describe our proposed system for the traffic monitoring challenge. Our solution addresses the critical need for efficient traffic monitoring systems in smart city development, leveraging the advantages of acoustic sensors. Initially, we review various sensor types used in traffic monitoring, emphasizing the benefits of acoustic sensors such as low cost, power efficiency, and robustness in adverse conditions. Given the challenges of collecting and labeling real-world traffic data, we incorporate synthetic data generated via the pyroadacoustics simulator to enhance system performance. We employ multiple data augmentation techniques to create a balanced and comprehensive training dataset. Our approach also includes detailed metadata integration, which provides sensor location IDs, timestamps, sensor array geometry, and vehicle counts. During the training phase, we implement several strategies to improve the system generalization in real-world environments. Our results demonstrate that the proposed system significantly outperforms baseline models in accurately detecting and classifying traffic events, validating the efficacy of our approach using both real and synthetic data.",
+    url = ""
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Baseline2024dcaseT10" style="box-shadow: none">
+<div class="panel-heading" id="heading-Baseline2024dcaseT10" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Sound of Traffic: A Dataset for Acoustic Traffic Identification and Counting
+       </h4>
+<p style="text-align:left">
+        Shabnam Ghaffarzadegan, Luca Bondi, Wei-Cheng Lin, Abinaya Kumar, Ho-Hsiang Wu, Hans-Georg Horst, Samarjit Das
+       </p>
+<p style="text-align:left">
+<em>
+         Bosch Research, USA
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Baseline_Bosch_task10</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Baseline2024dcaseT10" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Baseline2024dcaseT10" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Baseline2024dcaseT10" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Baseline2024dcaseT10').collapse('show');window.location.hash='#Baseline2024dcaseT10';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Baseline2024dcaseT10" class="panel-collapse collapse" id="collapse-Baseline2024dcaseT10" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Sound of Traffic: A Dataset for Acoustic Traffic Identification and Counting
+      </h4>
+<p style="text-align:left">
+<small>
+        Shabnam Ghaffarzadegan, Luca Bondi, Wei-Cheng Lin, Abinaya Kumar, Ho-Hsiang Wu, Hans-Georg Horst, Samarjit Das
+       </small>
+<br/>
+<small>
+<em>
+         Bosch Research, USA
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       We introduce soundoftraffic, the largest publicly available dataset for traffic identification and counting to date. With over 415 hours of multichannel acoustic traffic data recorded in six different locations, it encompasses varying levels of traffic density and environmental conditions. In this work, we discuss strategies for automatic collection and alignment of large amount of labeled data, leveraging existing asynchronous urban sensors such as radar, cameras, and inductive coils. In addition to the dataset, we propose a simple baseline system for vehicle counting divided by type of the vehicle (passenger vs. commercial vehicle) and direction of travel (right-to-left and left-to-right), a fundamental task for traffic analysis. The dataset and baseline system serve as a starting point for researchers to develop more advanced algorithms and models in this field. The dataset can be accessed at https://zenodo.org/records/10700792 and https://zenodo.org/records/11209838.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         Generalized Cross-Correlation with Phase transform and Log Mel Spectrogram
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         Acoustic Traffic Simulation
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Baseline2024dcaseT10" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/boschresearch/acoustic-traffic-simulation-counting" style="text-decoration:none;border-bottom:0;padding-bottom:6px" target="_blank" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Baseline2024dcaseT10label" class="modal fade" id="bibtex-Baseline2024dcaseT10" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexBaseline2024dcaseT10label">
+        Sound of Traffic: A Dataset for Acoustic Traffic Identification and Counting
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Baseline2024dcaseT10,
+    Author = "Ghaffarzadegan, Shabnam and Bondi, Luca and Lin, Wei-Cheng and Kumar, Abinaya and Wu, Ho-Hsiang and Horst, Hans-Georg and Das, Samarjit",
+    title = "Sound of Traffic: A Dataset for Acoustic Traffic Identification and Counting",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "We introduce soundoftraffic, the largest publicly available dataset for traffic identification and counting to date. With over 415 hours of multichannel acoustic traffic data recorded in six different locations, it encompasses varying levels of traffic density and environmental conditions. In this work, we discuss strategies for automatic collection and alignment of large amount of labeled data, leveraging existing asynchronous urban sensors such as radar, cameras, and inductive coils. In addition to the dataset, we propose a simple baseline system for vehicle counting divided by type of the vehicle (passenger vs. commercial vehicle) and direction of travel (right-to-left and left-to-right), a fundamental task for traffic analysis. The dataset and baseline system serve as a starting point for researchers to develop more advanced algorithms and models in this field. The dataset can be accessed at https://zenodo.org/records/10700792 and https://zenodo.org/records/11209838.",
+    url = "https://github.com/boschresearch/acoustic-traffic-simulation-counting"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Betton2024dcaseT10" style="box-shadow: none">
+<div class="panel-heading" id="heading-Betton2024dcaseT10" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        TRAFFIC COUNTING SYSTEM LEVERAGED WITH A NON-SUPERVISED COUNTING APPROACH
+       </h4>
+<p style="text-align:left">
+        Erwann Betton-Ployon, Abbes Kacem, Jerome Mars
+       </p>
+<p style="text-align:left">
+<em>
+         ACOUSTB, France
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Betton-Ployon_ACSTB_task10_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Betton2024dcaseT10" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Betton2024dcaseT10" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Betton2024dcaseT10" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Betton-Ployon_31_t10.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Betton2024dcaseT10').collapse('show');window.location.hash='#Betton2024dcaseT10';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Betton2024dcaseT10" class="panel-collapse collapse" id="collapse-Betton2024dcaseT10" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       TRAFFIC COUNTING SYSTEM LEVERAGED WITH A NON-SUPERVISED COUNTING APPROACH
+      </h4>
+<p style="text-align:left">
+<small>
+        Erwann Betton-Ployon, Abbes Kacem, Jerome Mars
+       </small>
+<br/>
+<small>
+<em>
+         ACOUSTB, France
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       To face the challenges of urban mobility optimisation, safety and disturbance reduction, traffic monitoring flourishes around anthropized areas. Acoustic monitoring can provide a cost-effective traffic counting system, besides using it as a noise monitoring process. One would expect a traffic monitoring system to identify direction and vehicle type while counting pass-bys on audio segments. Main difficulties are related to the variety of sound landscapes and sources near roadways. Generalisation among recording sites is delicate, and the accuracy depends on the amount of labelled data available per site. In this work, we introduce a non-supervised traffic counting algorithm to complement the existing supervised models. Our traffic counting algorithm uses the recording site metadata to estimate a standard GCC-Phat mask for any pass-by. This mask is applied on the cross-correlation signal of the 4 audio channels, permitting a pass-by detection with direction identification. This information is transmitted to the supervised model, which eventually refines its initial output. The addition of our algorithm counting estimation is highly effective on sites with few available labelled data. A significant RMSE reduction is observed when total duration of real labelled data is inferior to 2 hours.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         Generalized Cross-Correlation with Phase transform and Log Mel Spectrogram
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Betton2024dcaseT10" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Betton-Ployon_31_t10.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/Erwann-BP/DCASE2024-T10_S1-ACOUSTB" style="text-decoration:none;border-bottom:0;padding-bottom:6px" target="_blank" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Betton2024dcaseT10label" class="modal fade" id="bibtex-Betton2024dcaseT10" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexBetton2024dcaseT10label">
+        TRAFFIC COUNTING SYSTEM LEVERAGED WITH A NON-SUPERVISED COUNTING APPROACH
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Betton2024dcaseT10,
+    Author = "Betton-Ployon, Erwann and Kacem, Abbes and Mars, Jerome",
+    title = "TRAFFIC COUNTING SYSTEM LEVERAGED WITH A NON-SUPERVISED COUNTING APPROACH",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "To face the challenges of urban mobility optimisation, safety and disturbance reduction, traffic monitoring flourishes around anthropized areas. Acoustic monitoring can provide a cost-effective traffic counting system, besides using it as a noise monitoring process. One would expect a traffic monitoring system to identify direction and vehicle type while counting pass-bys on audio segments. Main difficulties are related to the variety of sound landscapes and sources near roadways. Generalisation among recording sites is delicate, and the accuracy depends on the amount of labelled data available per site. In this work, we introduce a non-supervised traffic counting algorithm to complement the existing supervised models. Our traffic counting algorithm uses the recording site metadata to estimate a standard GCC-Phat mask for any pass-by. This mask is applied on the cross-correlation signal of the 4 audio channels, permitting a pass-by detection with direction identification. This information is transmitted to the supervised model, which eventually refines its initial output. The addition of our algorithm counting estimation is highly effective on sites with few available labelled data. A significant RMSE reduction is observed when total duration of real labelled data is inferior to 2 hours.",
+    url = "https://github.com/Erwann-BP/DCASE2024-T10\_S1-ACOUSTB"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Cai2024dcaseT10" style="box-shadow: none">
+<div class="panel-heading" id="heading-Cai2024dcaseT10" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DCASE 2024 CHALLENGE TASK10 TECHNICAL REPORT
+       </h4>
+<p style="text-align:left">
+        Zhilong Jiang, Xichang Cai, Ziyi Liu, Menglong Wu
+       </p>
+<p style="text-align:left">
+<em>
+         North China University of Technology, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Cai_NCUT_task10_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Cai2024dcaseT10" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Cai2024dcaseT10" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Cai2024dcaseT10" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Cai_50_t10.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Cai2024dcaseT10" class="panel-collapse collapse" id="collapse-Cai2024dcaseT10" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DCASE 2024 CHALLENGE TASK10 TECHNICAL REPORT
+      </h4>
+<p style="text-align:left">
+<small>
+        Zhilong Jiang, Xichang Cai, Ziyi Liu, Menglong Wu
+       </small>
+<br/>
+<small>
+<em>
+         North China University of Technology, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report describes our approach to Challenge 10 of DCASE 2024: acoustic based traffic monitoring. In our work, we use Mel spectrogram and Vgg11 algorithm to extract catego-ry features of vehicles in sound, while using GCC-PATH algo-rithm and CNN algorithm to extract directional features of vehi-cles in sound. Meanwhile, we also optimize the experimental results by continuously adjusting the parameters in the algorithm.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         Generalized Cross-Correlation with Phase transform and Log Mel Spectrogram
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Cai2024dcaseT10" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Cai_50_t10.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="" style="text-decoration:none;border-bottom:0;padding-bottom:6px" target="_blank" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Cai2024dcaseT10label" class="modal fade" id="bibtex-Cai2024dcaseT10" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexCai2024dcaseT10label">
+        DCASE 2024 CHALLENGE TASK10 TECHNICAL REPORT
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Cai2024dcaseT10,
+    Author = "Jiang, Zhilong and Cai, Xichang and Liu, Ziyi and Wu, Menglong",
+    title = "DCASE 2024 CHALLENGE TASK10 TECHNICAL REPORT",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "This technical report describes our approach to Challenge 10 of DCASE 2024: acoustic based traffic monitoring. In our work, we use Mel spectrogram and Vgg11 algorithm to extract catego-ry features of vehicles in sound, while using GCC-PATH algo-rithm and CNN algorithm to extract directional features of vehi-cles in sound. Meanwhile, we also optimize the experimental results by continuously adjusting the parameters in the algorithm.",
+    url = ""
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Guan2024dcaseT10" style="box-shadow: none">
+<div class="panel-heading" id="heading-Guan2024dcaseT10" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        FINE-GRAINED AUDIO FEATURE REPRESENTATION WITH PRETRAINED MODEL AND GRAPH ATTENTION FOR TRAFFIC FLOW MONITORING
+       </h4>
+<p style="text-align:left">
+        Shitong Fan, Feiyang Xiao, Shuhan Qi, Qiaoxi Zhu, Wenwu Wang, Jian Guan
+       </p>
+<p style="text-align:left">
+<em>
+         Harbin Engineering University, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Guan_GISP-HEU_task10_1</span> <span class="label label-primary">Guan_GISP-HEU_task10_2</span> <span class="label label-primary">Guan_GISP-HEU_task10_3</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Guan2024dcaseT10" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Guan2024dcaseT10" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Guan2024dcaseT10" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Guan_81_t10.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Guan2024dcaseT10').collapse('show');window.location.hash='#Guan2024dcaseT10';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Guan2024dcaseT10" class="panel-collapse collapse" id="collapse-Guan2024dcaseT10" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       FINE-GRAINED AUDIO FEATURE REPRESENTATION WITH PRETRAINED MODEL AND GRAPH ATTENTION FOR TRAFFIC FLOW MONITORING
+      </h4>
+<p style="text-align:left">
+<small>
+        Shitong Fan, Feiyang Xiao, Shuhan Qi, Qiaoxi Zhu, Wenwu Wang, Jian Guan
+       </small>
+<br/>
+<small>
+<em>
+         Harbin Engineering University, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report describes our submission for DCASE 2024 Challenge Task 10. To enhance audio feature representation for audio event detection, we use pre-trained audio neural networks (PANNs) for audio feature pretraining and a graph attention module (GAT) for audio feature fine-tuning to capture important temporal relations and learn the dependencies among audio features across different time frames. Thus, our method can capture important audio event information in the audio signals, and provide fine-grained audio representation for vehicle type detection. We use this finegrained feature instead of the feature branch in the original baseline to build our systems. In our systems, we apply the SpecAugment strategy for audio data augmentation and introduce an overall phase shift to explore the directional information. Experimental results indicate that our systems show some improved performance among the six locations in the evaluation, except for location 1.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         Generalized Cross-Correlation with Phase transform and Log Mel Spectrogram
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         SpecAugment
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Guan2024dcaseT10" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Guan_81_t10.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/moyu2023101/dcase_task10/" style="text-decoration:none;border-bottom:0;padding-bottom:6px" target="_blank" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Guan2024dcaseT10label" class="modal fade" id="bibtex-Guan2024dcaseT10" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexGuan2024dcaseT10label">
+        FINE-GRAINED AUDIO FEATURE REPRESENTATION WITH PRETRAINED MODEL AND GRAPH ATTENTION FOR TRAFFIC FLOW MONITORING
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Guan2024dcaseT10,
+    Author = "Fan, Shitong and Xiao, Feiyang and Qi, Shuhan and Zhu, Qiaoxi and Wang, Wenwu and Guan, Jian",
+    title = "FINE-GRAINED AUDIO FEATURE REPRESENTATION WITH PRETRAINED MODEL AND GRAPH ATTENTION FOR TRAFFIC FLOW MONITORING",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "This technical report describes our submission for DCASE 2024 Challenge Task 10. To enhance audio feature representation for audio event detection, we use pre-trained audio neural networks (PANNs) for audio feature pretraining and a graph attention module (GAT) for audio feature fine-tuning to capture important temporal relations and learn the dependencies among audio features across different time frames. Thus, our method can capture important audio event information in the audio signals, and provide fine-grained audio representation for vehicle type detection. We use this finegrained feature instead of the feature branch in the original baseline to build our systems. In our systems, we apply the SpecAugment strategy for audio data augmentation and introduce an overall phase shift to explore the directional information. Experimental results indicate that our systems show some improved performance among the six locations in the evaluation, except for location 1.",
+    url = "https://github.com/moyu2023101/dcase\_task10/"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Park2024dcaseT10" style="box-shadow: none">
+<div class="panel-heading" id="heading-Park2024dcaseT10" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Deep Acoustic Vehicle Counting Model with Short-Time Homomorphic Deconvolution
+       </h4>
+<p style="text-align:left">
+        Yeonseok Park, and TaeWoon Yeo, Baeksan On
+       </p>
+<p style="text-align:left">
+<em>
+         KT Corporation, South Korea
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Park_KT_task10_1</span> <span class="label label-primary">Park_KT_task10_2</span> <span class="label label-primary">Park_KT_task10_3</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Park2024dcaseT10" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Park2024dcaseT10" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Park2024dcaseT10" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Park_68_t10.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Park2024dcaseT10').collapse('show');window.location.hash='#Park2024dcaseT10';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Park2024dcaseT10" class="panel-collapse collapse" id="collapse-Park2024dcaseT10" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Deep Acoustic Vehicle Counting Model with Short-Time Homomorphic Deconvolution
+      </h4>
+<p style="text-align:left">
+<small>
+        Yeonseok Park, and TaeWoon Yeo, Baeksan On
+       </small>
+<br/>
+<small>
+<em>
+         KT Corporation, South Korea
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       In the design of urban traffic monitoring solutions aimed at opti-mizing logistics infrastructure, acoustic vehicle counting models have gained attention for their cost-effectiveness and energy effi-ciency. While deep learning has proven effective in visual traffic monitoring, its application in the auditory domain remains under-explored due to the limited availability of real-world data. This study proposes the use of Short Time Homomorphic Deconvolu-tion (STHD) for analyzing sound signals to estimate the direction of vehicle sounds. This algorithm calculates distances between microphones based on sound direction, facilitating the inference of sound direction and movement. We present a strategy for de-signing and training a deep learning model that leverages features derived from this algorithm. The proposed system simultaneously counts cars and commercial vehicles on a two-lane road under moderate traffic density conditions, accurately identifying their directions of travel.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         Spectrogram, STHD (Short-Time Homomorphic Deconvolution)
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         Simulation Sound Synthesis
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Park2024dcaseT10" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Park_68_t10.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/ProcessorPark/Deep-Acoustic-Vehicle-Counting-Model-with-Short-Time-Homomorphic-Deconvolution" style="text-decoration:none;border-bottom:0;padding-bottom:6px" target="_blank" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Park2024dcaseT10label" class="modal fade" id="bibtex-Park2024dcaseT10" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexPark2024dcaseT10label">
+        Deep Acoustic Vehicle Counting Model with Short-Time Homomorphic Deconvolution
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Park2024dcaseT10,
+    Author = "Park, Yeonseok and Yeo, TaeWoon and On, Baeksan",
+    title = "Deep Acoustic Vehicle Counting Model with Short-Time Homomorphic Deconvolution",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "In the design of urban traffic monitoring solutions aimed at opti-mizing logistics infrastructure, acoustic vehicle counting models have gained attention for their cost-effectiveness and energy effi-ciency. While deep learning has proven effective in visual traffic monitoring, its application in the auditory domain remains under-explored due to the limited availability of real-world data. This study proposes the use of Short Time Homomorphic Deconvolu-tion (STHD) for analyzing sound signals to estimate the direction of vehicle sounds. This algorithm calculates distances between microphones based on sound direction, facilitating the inference of sound direction and movement. We present a strategy for de-signing and training a deep learning model that leverages features derived from this algorithm. The proposed system simultaneously counts cars and commercial vehicles on a two-lane road under moderate traffic density conditions, accurately identifying their directions of travel.",
+    url = "https://github.com/ProcessorPark/Deep-Acoustic-Vehicle-Counting-Model-with-Short-Time-Homomorphic-Deconvolution"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Takahashi2024dcaseT10" style="box-shadow: none">
+<div class="panel-heading" id="heading-Takahashi2024dcaseT10" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        NEURAL NETWORK TRAINING WITH MATCHING LOSS FOR RANKING FUNCTION
+       </h4>
+<p style="text-align:left">
+        Tomohiro Takahashi, Natsuki Ueno, Yuma Kinoshita, Yukoh Wakabayashi, Nobutaka Ono, Makiho Sukekawa, Seishi Fukuma, Hiroshi Nakagawa
+       </p>
+<p style="text-align:left">
+<em>
+         Tokyo Metropolitan University, Japan
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Takahashi_TMU-NEE_task10_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Takahashi2024dcaseT10" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Takahashi2024dcaseT10" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Takahashi2024dcaseT10" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Takahashi_82_t10.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Takahashi2024dcaseT10" class="panel-collapse collapse" id="collapse-Takahashi2024dcaseT10" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       NEURAL NETWORK TRAINING WITH MATCHING LOSS FOR RANKING FUNCTION
+      </h4>
+<p style="text-align:left">
+<small>
+        Tomohiro Takahashi, Natsuki Ueno, Yuma Kinoshita, Yukoh Wakabayashi, Nobutaka Ono, Makiho Sukekawa, Seishi Fukuma, Hiroshi Nakagawa
+       </small>
+<br/>
+<small>
+<em>
+         Tokyo Metropolitan University, Japan
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       In this report, we summarize our approach for DCASE 2024 Challenge Task 10, acoustic-based traffic monitoring. Our approach consists of two improvements from the baseline system. One is the introduction of the matching loss for the ranking function to the loss function of the Convolutional Recurrent Neural Network (CRNN), which aims to improve the Kendall’s Tau Rank Correlation (KTRC). The results indicate that it is also effective in improving the Root Mean Square Error (RMSE). The other improvement is a change in the input features. We also report the estimation performance for the development datasets.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         Log Power Spectrogram and Cosine-Sine of Phase Difference
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Takahashi2024dcaseT10" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Takahashi_82_t10.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="" style="text-decoration:none;border-bottom:0;padding-bottom:6px" target="_blank" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Takahashi2024dcaseT10label" class="modal fade" id="bibtex-Takahashi2024dcaseT10" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexTakahashi2024dcaseT10label">
+        NEURAL NETWORK TRAINING WITH MATCHING LOSS FOR RANKING FUNCTION
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Takahashi2024dcaseT10,
+    Author = "Takahashi, Tomohiro and Ueno, Natsuki and Kinoshita, Yuma and Wakabayashi, Yukoh and Ono, Nobutaka and Sukekawa, Makiho and Fukuma, Seishi and Nakagawa, Hiroshi",
+    title = "NEURAL NETWORK TRAINING WITH MATCHING LOSS FOR RANKING FUNCTION",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "In this report, we summarize our approach for DCASE 2024 Challenge Task 10, acoustic-based traffic monitoring. Our approach consists of two improvements from the baseline system. One is the introduction of the matching loss for the ranking function to the loss function of the Convolutional Recurrent Neural Network (CRNN), which aims to improve the Kendall’s Tau Rank Correlation (KTRC). The results indicate that it is also effective in improving the Root Mean Square Error (RMSE). The other improvement is a change in the input features. We also report the estimation performance for the development datasets.",
+    url = ""
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script>
+(function($) {
+    $(document).ready(function() {
+        var hash = window.location.hash.substr(1);
+        var anchor = window.location.hash;
+
+        var shiftWindow = function() {
+            var hash = window.location.hash.substr(1);
+            if($('#collapse-'+hash).length){
+                scrollBy(0, -100);
+            }
+        };
+        window.addEventListener("hashchange", shiftWindow);
+
+        if (window.location.hash){
+            window.scrollTo(0, 0);
+            history.replaceState(null, document.title, "#");
+            $('#collapse-'+hash).collapse('show');
+            setTimeout(function(){
+                window.location.hash = anchor;
+                shiftWindow();
+            }, 2000);
+        }
+    });
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

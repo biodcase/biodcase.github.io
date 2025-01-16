@@ -1,0 +1,2216 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Bird audio detection - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Bird audio detection - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2018/task-bird-audio-detection-results">
+    <meta property="og:url" content="https://dcase.community/challenge2018/task-bird-audio-detection-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="Task description The task is to design a system that, given a short audio recording, returns a binary decision for the presence/absence of bird sound (bird sound of any kind). An important goal of this task is generalisation to new conditions. To explore this we provide 3 separate development …" />
+    <meta name="og:description" content="Task description The task is to design a system that,..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btex.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2018</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2018/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2018/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>Results</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-acoustic-scene-classification-results-a"><i class="fa fa-bar-chart"></i>&nbsp;Subtask A</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-acoustic-scene-classification-results-b"><i class="fa fa-bar-chart"></i>&nbsp;Subtask B</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-acoustic-scene-classification-results-c"><i class="fa fa-bar-chart"></i>&nbsp;Subtask C</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2018/task-general-purpose-audio-tagging" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-tags text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-general-purpose-audio-tagging"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-general-purpose-audio-tagging-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2018/task-bird-audio-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-bird text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-bird-audio-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-bird-audio-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2018/task-large-scale-weakly-labeled-semi-supervised-sound-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-large-scale-weakly-labeled-semi-supervised-sound-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-large-scale-weakly-labeled-semi-supervised-sound-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2018/task-monitoring-domestic-activities" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-home text-danger"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-monitoring-domestic-activities"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-monitoring-domestic-activities-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2018/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2018/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/dunes-02.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-warning"></i><i class="fa dc-bird fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text">Birds</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 3</span></span><img src="../images/logos/dcase/dcase2018_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Bird audio detection</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Challenge results</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#task-description">Task description</a></li>
+<li><a href="#teams-ranking">Teams ranking</a></li>
+<li><a href="#prize-winners">Prize winners</a>
+<ul>
+<li><a href="#1-highest-scoring-open-sourcereproducible-method-award">1: Highest-scoring open-source/reproducible method award</a></li>
+<li><a href="#2-judges'-award-for-the-method-considered-by-the-judges-to-be-the-most-interesting-or-innovative">2: Judges' award for the method considered by the judges to be the most interesting or innovative.</a></li>
+</ul>
+</li>
+<li><a href="#systems-ranking">Systems ranking</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h1 id="task-description">Task description</h1>
+<p>The task is to design a system that, given a short audio recording, returns a binary decision for the presence/absence of bird sound (bird sound of any kind). </p>
+<p>An important goal of this task is <strong>generalisation to new conditions</strong>. To explore this we provide 3 separate development datasets, and 3 evaluation datasets, <em>each recorded under differing conditions</em>. The datasets have different balances of positive/negative cases, different bird species, different background sounds, different recording equipment.</p>
+<p>More detailed task description can be found in the <a class="btn btn-primary" href="http://localhost:3000/challenge2018/task-bird-audio-detection" style="">task description page</a></p>
+<h1 id="teams-ranking">Teams ranking</h1>
+<div class="row row-centered">
+<div class="col-xs-10 col-md-8 col-centered">
+<img class="img img-responsive" src="../images/tasks/challenge2018/task3_bird_finalscores.png"/>
+</div>
+</div>
+<p>Table including only the best performing system per submitting team.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="auc_eval_confidence" data-scatter-y="auc_dev" data-show-chart="false" data-show-pagination-switch="false" data-show-rank="true" data-sort-name="auc_eval_confidence" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true">Rank</th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Submission <br/>name
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="AUC (Evaluation dataset)" data-chartable="true" data-field="auc_eval_confidence" data-sortable="true" data-value-type="float1-percentage-interval-muted">
+                AUC <br/><small class="text-muted">with 95% confidence interval</small> <br/>(Evaluation dataset)
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Lasseck_MfN_1</td>
+<td>Lasseck_MfN</td>
+<td>89.0 (87.7 - 89.9)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>bulbul_DCASE_1</td>
+<td>bulbul_DCASE</td>
+<td>88.5 (86.9 - 89.1)</td>
+</tr>
+<tr>
+<td></td>
+<td>SpeechLab_UKY_3</td>
+<td>SpeechLab_UKY</td>
+<td>83.9 (81.7 - 84.7)</td>
+</tr>
+<tr>
+<td></td>
+<td>JiananSong_BUPT_1</td>
+<td>JiananSong_BUPT</td>
+<td>82.1 (80.3 - 83.0)</td>
+</tr>
+<tr>
+<td></td>
+<td>Himawan_QUT_1</td>
+<td>Himawan_QUT</td>
+<td>81.7 (80.3 - 82.8)</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_1</td>
+<td>Bai_NPU</td>
+<td>81.5 (80.1 - 82.8)</td>
+</tr>
+<tr>
+<td></td>
+<td>Baseline_Surrey_1</td>
+<td>Baseline_Surrey</td>
+<td>80.9 (79.1 - 82.4)</td>
+</tr>
+<tr>
+<td></td>
+<td>Berger_JKU_1</td>
+<td>Berger_JKU</td>
+<td>80.8 (79.2 - 82.5)</td>
+</tr>
+<tr>
+<td></td>
+<td>Mukherjee_IITKgp_2</td>
+<td>Mukherjee_IITKgp</td>
+<td>80.7 (79.5 - 82.3)</td>
+</tr>
+<tr>
+<td></td>
+<td>Yu_LR_2</td>
+<td>Yu_LR</td>
+<td>80.6 (78.5 - 81.4)</td>
+</tr>
+<tr>
+<td></td>
+<td>Thakur_IITMANDI_1</td>
+<td>Thakur_IITMANDI</td>
+<td>79.2 (76.7 - 79.5)</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini_A3Lab_1</td>
+<td>Vesperini_A3Lab</td>
+<td>78.8 (77.4 - 80.2)</td>
+</tr>
+<tr>
+<td></td>
+<td>Tao_IITLAB_2</td>
+<td>Tao_IITLAB</td>
+<td>75.4 (73.2 - 77.1)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>skfl_DCASE_1</td>
+<td>skfl_DCASE</td>
+<td>73.4 (72.0 - 75.3)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>smacpy_DCASE_1</td>
+<td>smacpy_DCASE</td>
+<td>51.7 (50.5 - 52.5)</td>
+</tr>
+<tr>
+<td></td>
+<td>Jamali_HUT_1</td>
+<td>Jamali_HUT</td>
+<td>48.9 (46.4 - 49.6)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="prize-winners">Prize winners</h1>
+<p>The two prize winners receive £250 in recognition of their contribution.</p>
+<h2 id="1-highest-scoring-open-sourcereproducible-method-award">1: Highest-scoring open-source/reproducible method award</h2>
+<ul>
+<li><strong>Winner: <a href="/documents/challenge2018/technical_reports/DCASE2018_Liaqat_96.pdf">Liaquat et al</a> (University of Kentucky, USA)</strong> - This student team re-implemented the "bulbul" system (last year's winner) and then evaluated various ideas for improving it. Although the individual modifications did not improve the score, an <em>ensemble</em> of the resulting systems led to an improved final score. The tech report gives a discussion of the techniques tried, including a domain adaptation method and signal enhancement.</li>
+</ul>
+<p><a class="btn btn-sm btn-success" href="https://github.com/UKYSpeechLab/ukybirddet" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code"><i class="fa fa-file-code-o"></i> Code</a></p>
+<h2 id="2-judges'-award-for-the-method-considered-by-the-judges-to-be-the-most-interesting-or-innovative">2: Judges' award for the method considered by the judges to be the most interesting or innovative.</h2>
+<ul>
+<li><strong>Winner: <a href="/documents/challenge2018/technical_reports/DCASE2018_Vesperini_95.pdf">Vesperini et al</a> (Università Politecnica delle Marche, Italy)</strong> - The authors use "capsule networks", a new idea for routing between modules in neural networks. The paper gives a clear introduction to the concept, and it's encouraging that this rather new idea gets respectable performance on the challenge data (78.8%).</li>
+</ul>
+<p><strong>Special mention: <a href="/documents/challenge2018/technical_reports/DCASE2018_Berger_66.pdf">Berger et al</a> (Johannes Kepler University, Austria)</strong> - The authors use a bulbul-like model, and they describe an interesting domain-adaptation technique, which gives them approximately a 1% boost over their base model.</p>
+<h1 id="systems-ranking">Systems ranking</h1>
+<p>Table including all systems officially submitted (up to 4 per team).</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="auc_eval_confidence" data-scatter-y="auc_dev" data-show-chart="false" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="auc_eval_confidence" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true">Rank</th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Submission <br/>name
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="AUC (Evaluation dataset)" data-chartable="true" data-field="auc_eval_confidence" data-sortable="true" data-value-type="float1-percentage-interval-muted">
+                AUC <br/><small class="text-muted">with 95% confidence interval</small> <br/>(Evaluation datasets)
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Lasseck_MfN_1</td>
+<td>Lasseck_MfN</td>
+<td>89.0 (87.7 - 89.9)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>bulbul_DCASE_1</td>
+<td>bulbul_DCASE</td>
+<td>88.5 (86.9 - 89.1)</td>
+</tr>
+<tr>
+<td></td>
+<td>SpeechLab_UKY_1</td>
+<td>SpeechLab_UKY</td>
+<td>82.5 (81.0 - 83.5)</td>
+</tr>
+<tr>
+<td></td>
+<td>JiananSong_BUPT_1</td>
+<td>JiananSong_BUPT</td>
+<td>82.1 (80.3 - 83.0)</td>
+</tr>
+<tr>
+<td></td>
+<td>Himawan_QUT_1</td>
+<td>Himawan_QUT</td>
+<td>81.7 (80.3 - 82.8)</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_1</td>
+<td>Bai_NPU</td>
+<td>81.5 (80.1 - 82.8)</td>
+</tr>
+<tr>
+<td></td>
+<td>Baseline_Surrey_1</td>
+<td>Baseline_Surrey</td>
+<td>80.9 (79.1 - 82.4)</td>
+</tr>
+<tr>
+<td></td>
+<td>Berger_JKU_1</td>
+<td>Berger_JKU</td>
+<td>80.8 (79.2 - 82.5)</td>
+</tr>
+<tr>
+<td></td>
+<td>Yu_LR_1</td>
+<td>Yu_LR</td>
+<td>80.5 (78.6 - 81.5)</td>
+</tr>
+<tr>
+<td></td>
+<td>Mukherjee_IITKgp_1</td>
+<td>Mukherjee_IITKgp</td>
+<td>80.4 (79.0 - 82.0)</td>
+</tr>
+<tr>
+<td></td>
+<td>Thakur_IITMANDI_1</td>
+<td>Thakur_IITMANDI</td>
+<td>79.2 (76.7 - 79.5)</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini_A3Lab_1</td>
+<td>Vesperini_A3Lab</td>
+<td>78.8 (77.4 - 80.2)</td>
+</tr>
+<tr>
+<td></td>
+<td>Tao_IITLAB_1</td>
+<td>Tao_IITLAB</td>
+<td>74.9 (73.4 - 76.7)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>skfl_DCASE_1</td>
+<td>skfl_DCASE</td>
+<td>73.4 (72.0 - 75.3)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>smacpy_DCASE_1</td>
+<td>smacpy_DCASE</td>
+<td>51.7 (50.5 - 52.5)</td>
+</tr>
+<tr>
+<td></td>
+<td>Jamali_HUT_1</td>
+<td>Jamali_HUT</td>
+<td>48.9 (46.4 - 49.6)</td>
+</tr>
+<tr>
+<td></td>
+<td>SpeechLab_UKY_2</td>
+<td>SpeechLab_UKY</td>
+<td>82.7 (79.8 - 83.6)</td>
+</tr>
+<tr>
+<td></td>
+<td>Himawan_QUT_2</td>
+<td>Himawan_QUT</td>
+<td>81.3 (80.0 - 82.7)</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_2</td>
+<td>Bai_NPU</td>
+<td>80.9 (79.5 - 82.2)</td>
+</tr>
+<tr>
+<td></td>
+<td>Mukherjee_IITKgp_2</td>
+<td>Mukherjee_IITKgp</td>
+<td>80.7 (79.5 - 82.3)</td>
+</tr>
+<tr>
+<td></td>
+<td>Yu_LR_2</td>
+<td>Yu_LR</td>
+<td>80.6 (78.5 - 81.4)</td>
+</tr>
+<tr>
+<td></td>
+<td>Vesperini_A3Lab_2</td>
+<td>Vesperini_A3Lab</td>
+<td>75.9 (73.0 - 78.0)</td>
+</tr>
+<tr>
+<td></td>
+<td>Tao_IITLAB_2</td>
+<td>Tao_IITLAB</td>
+<td>75.4 (73.2 - 77.1)</td>
+</tr>
+<tr>
+<td></td>
+<td>Thakur_IITMANDI_2</td>
+<td>Thakur_IITMANDI</td>
+<td>75.4 (72.1 - 77.6)</td>
+</tr>
+<tr>
+<td></td>
+<td>Baseline_Surrey_2</td>
+<td>Baseline_Surrey</td>
+<td>74.8 (72.8 - 76.3)</td>
+</tr>
+<tr>
+<td></td>
+<td>Berger_JKU_2</td>
+<td>Berger_JKU</td>
+<td>70.8 (68.2 - 71.8)</td>
+</tr>
+<tr>
+<td></td>
+<td>JiananSong_BUPT_2</td>
+<td>JiananSong_BUPT</td>
+<td>51.5 (49.2 - 52.6)</td>
+</tr>
+<tr>
+<td></td>
+<td>SpeechLab_UKY_3</td>
+<td>SpeechLab_UKY</td>
+<td>83.9 (81.7 - 84.7)</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_3</td>
+<td>Bai_NPU</td>
+<td>81.5 (80.1 - 82.8)</td>
+</tr>
+<tr>
+<td></td>
+<td>Himawan_QUT_3</td>
+<td>Himawan_QUT</td>
+<td>80.6 (78.7 - 81.5)</td>
+</tr>
+<tr>
+<td></td>
+<td>Yu_LR_3</td>
+<td>Yu_LR</td>
+<td>80.0 (77.7 - 80.6)</td>
+</tr>
+<tr>
+<td></td>
+<td>Tao_IITLAB_3</td>
+<td>Tao_IITLAB</td>
+<td>74.1 (72.3 - 76.0)</td>
+</tr>
+<tr>
+<td></td>
+<td>Thakur_IITMANDI_3</td>
+<td>Thakur_IITMANDI</td>
+<td>72.9 (70.0 - 74.1)</td>
+</tr>
+<tr>
+<td></td>
+<td>SpeechLab_UKY_4</td>
+<td>SpeechLab_UKY</td>
+<td>83.6 (81.4 - 84.6)</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_4</td>
+<td>Bai_NPU</td>
+<td>81.4 (80.0 - 82.7)</td>
+</tr>
+<tr>
+<td></td>
+<td>Himawan_QUT_4</td>
+<td>Himawan_QUT</td>
+<td>78.4 (76.8 - 79.9)</td>
+</tr>
+<tr>
+<td></td>
+<td>Thakur_IITMANDI_4</td>
+<td>Thakur_IITMANDI</td>
+<td>77.7 (76.2 - 79.7)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="technical-reports">Technical reports</h1>
+<div class="btex" data-source="content/data/challenge2018/technical_reports_task3.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="Bai2018" style="box-shadow: none">
+<div class="panel-heading" id="heading-Bai2018" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        CIAIC-BAD SYSTEM FOR DCASE2018 CHALLENGE TASK 3
+       </h4>
+<p style="text-align:left">
+        Bai, Jisheng and Wu, Ru and Wang, Mou and Li, Dexin and Li, Di and Han, Xueyu and Wang, Qian and Liu, Qing and Wang, Bolun and Fu, Zhonghua
+       </p>
+<p style="text-align:left">
+        Northwestern Polytechnical University, Xi'an, China
+       </p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Bai2018" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Bai2018" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Bai2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Bai_998.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Bai2018" class="panel-collapse collapse" id="collapse-Bai2018" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       CIAIC-BAD SYSTEM FOR DCASE2018 CHALLENGE TASK 3
+      </h4>
+<p style="text-align:left">
+<small>
+        Bai, Jisheng and Wu, Ru and Wang, Mou and Li, Dexin and Li, Di and Han, Xueyu and Wang, Qian and Liu, Qing and Wang, Bolun and Fu, Zhonghua
+       </small>
+<br/>
+<small>
+<em>
+         Northwestern Polytechnical University, Xi'an, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       In this technical report, we present our system for the task 3 of Detection and Classification of Acoustic Scenes and Events 2018 (DCASE2018) challenge, i.e. bird audio detection(BAD). First, log mel-spectrogram and mel-frequency cepstral coefficients (MFCC) are extracted as features. In order to improve the quality of original audio, same denoising methods are adopted, for example, adaptive denoising in Adobe Audition. Then, convolutional recurrent neural networks (CRNN) with customized activation function is used for detection. Finally, we use aforementioned features as inputs to train our CRNN model and make a fusion on three subsystems to further improve the performance. We evaluate the proposed systems on the dataset with area under the ROC curve (AUC) measure, and our best AUC score on leaderboard dataset is 85.67.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Bai2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Bai_998.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Bai2018label" class="modal fade" id="bibtex-Bai2018" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexBai2018label">
+        CIAIC-BAD SYSTEM FOR DCASE2018 CHALLENGE TASK 3
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Bai2018,
+    Author = "Bai, Jisheng and Wu, Ru and Wang, Mou and Li, Dexin and Li, Di and Han, Xueyu and Wang, Qian and Liu, Qing and Wang, Bolun and Fu, Zhonghua",
+    title = "{CIAIC-BAD} SYSTEM FOR {DCASE2018} CHALLENGE TASK 3",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "In this technical report, we present our system for the task 3 of Detection and Classification of Acoustic Scenes and Events 2018 (DCASE2018) challenge, i.e. bird audio detection(BAD). First, log mel-spectrogram and mel-frequency cepstral coefficients (MFCC) are extracted as features. In order to improve the quality of original audio, same denoising methods are adopted, for example, adaptive denoising in Adobe Audition. Then, convolutional recurrent neural networks (CRNN) with customized activation function is used for detection. Finally, we use aforementioned features as inputs to train our CRNN model and make a fusion on three subsystems to further improve the performance. We evaluate the proposed systems on the dataset with area under the ROC curve (AUC) measure, and our best AUC score on leaderboard dataset is 85.67."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Berger_JKU" style="box-shadow: none">
+<div class="panel-heading" id="heading-Berger_JKU" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Bird Audio Detection - DCASE 2018
+       </h4>
+<p style="text-align:left">
+        Franz Berger and William Freillinger and Paul Primus and Wolfgang Reisinger
+       </p>
+<p style="text-align:left">
+        Johannes Kepler University, Linz
+       </p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Berger_JKU" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Berger_JKU" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Berger_JKU" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Berger_66.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Berger_JKU" class="panel-collapse collapse" id="collapse-Berger_JKU" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Bird Audio Detection - DCASE 2018
+      </h4>
+<p style="text-align:left">
+<small>
+        Franz Berger and William Freillinger and Paul Primus and Wolfgang Reisinger
+       </small>
+<br/>
+<small>
+<em>
+         Johannes Kepler University, Linz
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       In this paper we explore three approaches on bird audio detection. We establish a simple baseline, experiment with handcrafted features and finally move to Convolutional Neural Networks.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Berger_JKU" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Berger_66.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Berger_JKUlabel" class="modal fade" id="bibtex-Berger_JKU" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexBerger_JKUlabel">
+        Bird Audio Detection - DCASE 2018
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Berger_JKU,
+    Author = "Berger, Franz and Freillinger, William and Primus, Paul and Reisinger, Wolfgang",
+    title = "Bird Audio Detection - DCASE 2018",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "In this paper we explore three approaches on bird audio detection. We establish a simple baseline, experiment with handcrafted features and finally move to Convolutional Neural Networks."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Himawan_QUT" style="box-shadow: none">
+<div class="panel-heading" id="heading-Himawan_QUT" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        3D CONVOLUTIONAL RECURRENT NEURAL NETWORKS FOR BIRD SOUND DETECTION
+       </h4>
+<p style="text-align:left">
+        Ivan Himawan and Michael Towsey and Paul Roe
+       </p>
+<p style="text-align:left">
+        Queensland University of Technology
+       </p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Himawan_QUT" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Himawan_QUT" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Himawan_QUT" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Himawan_45.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Himawan_QUT').collapse('show');window.location.hash='#Himawan_QUT';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Himawan_QUT" class="panel-collapse collapse" id="collapse-Himawan_QUT" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       3D CONVOLUTIONAL RECURRENT NEURAL NETWORKS FOR BIRD SOUND DETECTION
+      </h4>
+<p style="text-align:left">
+<small>
+        Ivan Himawan and Michael Towsey and Paul Roe
+       </small>
+<br/>
+<small>
+<em>
+         Queensland University of Technology
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       With the increasing use of a high quality acoustic devices to monitor wildlife population, it has become imperative to develop techniques for analyzing animals’ calls automatically. Bird sound detection is one example of a long-term monitoring project where data are collected in continuous periods, often cover multiple sites at the same time. Inspired by the success of deep learning approaches in various audio classification tasks, this paper first review previous works exploiting deep learning for bird audio detection, and then proposes a novel 3-dimensional (3D) convolutional and recurrent neural networks. We employed 3D convolutions for extracting spa- tial and temporal information simultaneously. In order to leverage powerful and compact features of 3D convolution, we employ se- parate RNNs, acting on each filter of the last convolutional layers rather than stacking the feature maps in the typical combined CNN and RNN architectures.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Himawan_QUT" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Himawan_45.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/himaivan/BAD2" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Himawan_QUTlabel" class="modal fade" id="bibtex-Himawan_QUT" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexHimawan_QUTlabel">
+        3D CONVOLUTIONAL RECURRENT NEURAL NETWORKS FOR BIRD SOUND DETECTION
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Himawan_QUT,
+    Author = "Himawan, Ivan and Towsey, Michael and Roe, Paul",
+    title = "3D CONVOLUTIONAL RECURRENT NEURAL NETWORKS FOR BIRD SOUND DETECTION",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "With the increasing use of a high quality acoustic devices to monitor wildlife population, it has become imperative to develop techniques for analyzing animals’ calls automatically. Bird sound detection is one example of a long-term monitoring project where data are collected in continuous periods, often cover multiple sites at the same time. Inspired by the success of deep learning approaches in various audio classification tasks, this paper first review previous works exploiting deep learning for bird audio detection, and then proposes a novel 3-dimensional (3D) convolutional and recurrent neural networks. We employed 3D convolutions for extracting spa- tial and temporal information simultaneously. In order to leverage powerful and compact features of 3D convolution, we employ se- parate RNNs, acting on each filter of the last convolutional layers rather than stacking the feature maps in the typical combined CNN and RNN architectures."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Jamali_HUT" style="box-shadow: none">
+<div class="panel-heading" id="heading-Jamali_HUT" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Bird Audio Detection using Supervised Weighted NMF
+       </h4>
+<p style="text-align:left">
+        Soroush Jamali and Juan Ahmadpanah and Ghasem Alipoor
+       </p>
+<p style="text-align:left">
+        Hamedan University of Technology
+       </p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Jamali_HUT" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Jamali_HUT" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Jamali_HUT" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Jamali_75.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Jamali_HUT" class="panel-collapse collapse" id="collapse-Jamali_HUT" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Bird Audio Detection using Supervised Weighted NMF
+      </h4>
+<p style="text-align:left">
+<small>
+        Soroush Jamali and Juan Ahmadpanah and Ghasem Alipoor
+       </small>
+<br/>
+<small>
+<em>
+         Hamedan University of Technology
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This paper reports on the results of our bird audio detection system, developed for Task 3 of the DCACE 2018, challenge that is defined as a binary classification problem. Our proposed method is based on supervised non- negative matrix factorization (NMF) of the constant-Q transform (CQT) spectrogram. Two dictionaries are trained over the training data available for the bird and environment classes. Test samples are then linearly decomposed using a combined dictionary, generated by concatenating these two dictionaries. Classification is performed based on the energy of the activations relevant to each class. However, to further improve the classification performance, we propose to weight each activation coefficient according to the contribution of its corresponding basis in constructing each class. A scheme is proposed to extract this contribution weights from the activation coefficients of the training data. The developed system, evaluated over the development dataset of the challenge, results in up to 80% accuracy.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Jamali_HUT" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Jamali_75.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Jamali_HUTlabel" class="modal fade" id="bibtex-Jamali_HUT" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexJamali_HUTlabel">
+        Bird Audio Detection using Supervised Weighted NMF
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Jamali_HUT,
+    Author = "Jamali, Soroush and Ahmadpanah, Juan and Alipoor, Ghasem",
+    title = "Bird Audio Detection using Supervised Weighted NMF",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "This paper reports on the results of our bird audio detection system, developed for Task 3 of the DCACE 2018, challenge that is defined as a binary classification problem. Our proposed method is based on supervised non- negative matrix factorization (NMF) of the constant-Q transform (CQT) spectrogram. Two dictionaries are trained over the training data available for the bird and environment classes. Test samples are then linearly decomposed using a combined dictionary, generated by concatenating these two dictionaries. Classification is performed based on the energy of the activations relevant to each class. However, to further improve the classification performance, we propose to weight each activation coefficient according to the contribution of its corresponding basis in constructing each class. A scheme is proposed to extract this contribution weights from the activation coefficients of the training data. The developed system, evaluated over the development dataset of the challenge, results in up to 80\% accuracy."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="JiananSong_BUPT" style="box-shadow: none">
+<div class="panel-heading" id="heading-JiananSong_BUPT" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Bird Audio Detection using Convolutional Neural Networks and Binary Neural Networks
+       </h4>
+<p style="text-align:left">
+        Jinan Song and Shengchen Li
+       </p>
+<p style="text-align:left">
+        Beijing University of Posts and Telecommunications
+       </p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-JiananSong_BUPT" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-JiananSong_BUPT" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-JiananSong_BUPT" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Song_50.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-JiananSong_BUPT" class="panel-collapse collapse" id="collapse-JiananSong_BUPT" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Bird Audio Detection using Convolutional Neural Networks and Binary Neural Networks
+      </h4>
+<p style="text-align:left">
+<small>
+        Jinan Song and Shengchen Li
+       </small>
+<br/>
+<small>
+<em>
+         Beijing University of Posts and Telecommunications
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       For the bird audio detection task of the IEEE AASP Challenge on Detection and Classification of Acoustic Scenes and Events (DCASE2017), we propose a audio classification method for bird species identification using Convolutional Neural Networks (CNNs) and Binarized Neural Networks (BNNs).Although deep learning networks is currently popular in bird audio detection[1], the complex network structure makes it difficult to design the hardware of the detection system. Therefore, after the design of the CNNs, the convolutional layer and the fully connected layer are binarized on the basis of the original network, and both network structures are tested. Finally Area Under ROC Curve (AUC) score is used as the evaluation index. The results of using CNNs and BNNs in the preview score are 88.75% and 68.60%.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-JiananSong_BUPT" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Song_50.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-JiananSong_BUPTlabel" class="modal fade" id="bibtex-JiananSong_BUPT" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexJiananSong_BUPTlabel">
+        Bird Audio Detection using Convolutional Neural Networks and Binary Neural Networks
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{JiananSong_BUPT,
+    Author = "Song, Jinan and Li, Shengchen",
+    title = "Bird Audio Detection using Convolutional Neural Networks and Binary Neural Networks",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "For the bird audio detection task of the IEEE AASP Challenge on Detection and Classification of Acoustic Scenes and Events (DCASE2017), we propose a audio classification method for bird species identification using Convolutional Neural Networks (CNNs) and Binarized Neural Networks (BNNs).Although deep learning networks is currently popular in bird audio detection[1], the complex network structure makes it difficult to design the hardware of the detection system. Therefore, after the design of the CNNs, the convolutional layer and the fully connected layer are binarized on the basis of the original network, and both network structures are tested. Finally Area Under ROC Curve (AUC) score is used as the evaluation index. The results of using CNNs and BNNs in the preview score are 88.75\% and 68.60\%."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Kong2018" style="box-shadow: none">
+<div class="panel-heading" id="heading-Kong2018" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DCASE 2018 Challenge Surrey Cross-Task convolutional neural network baseline
+       </h4>
+<p style="text-align:left">
+        Qiuqiang Kong, Iqbal Turab, Xu Yong, Wenwu Wang and Mark D. Plumbley
+       </p>
+<p style="text-align:left">
+        Centre for Vission, Speech and Signal Processing (CVSSP), University of Surrey, Guildford, UK
+       </p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Kong2018" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Kong2018" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Kong2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Baseline_87.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Kong2018').collapse('show');window.location.hash='#Kong2018';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Kong2018" class="panel-collapse collapse" id="collapse-Kong2018" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DCASE 2018 Challenge Surrey Cross-Task convolutional neural network baseline
+      </h4>
+<p style="text-align:left">
+<small>
+        Qiuqiang Kong, Iqbal Turab, Xu Yong, Wenwu Wang and Mark D. Plumbley
+       </small>
+<br/>
+<small>
+<em>
+         Centre for Vission, Speech and Signal Processing (CVSSP), University of Surrey, Guildford, UK
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       Detection and classification of acoustic scenes and events (DCASE) 2018 challenge is a well known IEEE AASP challenge consists of several audio classification and sound event detection tasks. DCASE 2018 challenge includes five tasks: 1) Acoustic scene classification, 2) Audio tagging of Freesound, 3) Bird audio detection, 4) Weakly labeled semi-supervised sound event detection and 5) Multi-channel audio tagging. In this paper we open source the python code of all of Task 1 - 5 of DCASE 2018 challenge. The baseline source code contains the implementation of the convolutioanl neural networks (CNNs) including the AlexNetish and the VGGish from the image processing area. We researched how the performance varies from task to task when the configuration of the neural networks are the same. The experiment shows deeper VGGish network performs better than AlexNetish on Task 2 - 5 except Task 1 where VGGish and AlexNetish network perform similar. With the VGGish network, we achieve an accuracy of 0.680 on Task 1, a mean average precision (mAP) of 0.928 on Task 2, an area under the curve (AUC) of 0.854 on Task 3, a sound event detection F1 score of 20.8% on Task 4 and a F1 score of 87.75% on Task 5.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         VGGish 8 layer CNN with global max pooling; AlexNetish 4 layer CNN with global max pooling
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Kong2018" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Baseline_87.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/qiuqiangkong/dcase2018_task3" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Kong2018label" class="modal fade" id="bibtex-Kong2018" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexKong2018label">
+        DCASE 2018 Challenge Surrey Cross-Task convolutional neural network baseline
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Kong2018,
+    Author = "Kong, Qiuqiang and Turab, Iqbal and Yong, Xu and Wang, Wenwu and Plumbley, Mark D.",
+    title = "{DCASE} 2018 Challenge Surrey Cross-Task convolutional neural network baseline",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "Detection and classification of acoustic scenes and events (DCASE) 2018 challenge is a well known IEEE AASP challenge consists of several audio classification and sound event detection tasks. DCASE 2018 challenge includes five tasks: 1) Acoustic scene classification, 2) Audio tagging of Freesound, 3) Bird audio detection, 4) Weakly labeled semi-supervised sound event detection and 5) Multi-channel audio tagging. In this paper we open source the python code of all of Task 1 - 5 of DCASE 2018 challenge. The baseline source code contains the implementation of the convolutioanl neural networks (CNNs) including the AlexNetish and the VGGish from the image processing area. We researched how the performance varies from task to task when the configuration of the neural networks are the same. The experiment shows deeper VGGish network performs better than AlexNetish on Task 2 - 5 except Task 1 where VGGish and AlexNetish network perform similar. With the VGGish network, we achieve an accuracy of 0.680 on Task 1, a mean average precision (mAP) of 0.928 on Task 2, an area under the curve (AUC) of 0.854 on Task 3, a sound event detection F1 score of 20.8\% on Task 4 and a F1 score of 87.75\% on Task 5."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Lasseck_MfN" style="box-shadow: none">
+<div class="panel-heading" id="heading-Lasseck_MfN" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        ACOUSTIC BIRD DETECTION WITH DEEP CONVOLUTIONAL NEURAL NETWORKS
+       </h4>
+<p style="text-align:left">
+        Mario Lasseck
+       </p>
+<p style="text-align:left">
+        Museum fuer Naturkunde, Berlin
+       </p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Lasseck_MfN" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Lasseck_MfN" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Lasseck_MfN" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Lasseck_76.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Lasseck_MfN" class="panel-collapse collapse" id="collapse-Lasseck_MfN" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       ACOUSTIC BIRD DETECTION WITH DEEP CONVOLUTIONAL NEURAL NETWORKS
+      </h4>
+<p style="text-align:left">
+<small>
+        Mario Lasseck
+       </small>
+<br/>
+<small>
+<em>
+         Museum fuer Naturkunde, Berlin
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This paper presents deep learning techniques for acoustic bird detection. Deep Convolutional Neural Networks (DCNNs), originally designed for image classification, are adapted and fine-tuned to detect the presence of birds in audio recordings. Various data augmentation techniques are applied to increase model performance and improve generalization to unknown recording conditions and new habitats. The proposed approach is evaluated in the Bird Audio Detection task which is part of the IEEE AASP Challenge on Detection and Classification of Acoustic Scenes and Events (DCASE) 2018. It provides the best system for the task and surpasses previous state-of-the-art achieving an area under the curve (AUC) above 95 % on the public challenge leaderboard [1].
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Lasseck_MfN" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Lasseck_76.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Lasseck_MfNlabel" class="modal fade" id="bibtex-Lasseck_MfN" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexLasseck_MfNlabel">
+        ACOUSTIC BIRD DETECTION WITH DEEP CONVOLUTIONAL NEURAL NETWORKS
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Lasseck_MfN,
+    Author = "Lasseck, Mario",
+    title = "ACOUSTIC BIRD DETECTION WITH DEEP CONVOLUTIONAL NEURAL NETWORKS",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "This paper presents deep learning techniques for acoustic bird detection. Deep Convolutional Neural Networks (DCNNs), originally designed for image classification, are adapted and fine-tuned to detect the presence of birds in audio recordings. Various data augmentation techniques are applied to increase model performance and improve generalization to unknown recording conditions and new habitats. The proposed approach is evaluated in the Bird Audio Detection task which is part of the IEEE AASP Challenge on Detection and Classification of Acoustic Scenes and Events (DCASE) 2018. It provides the best system for the task and surpasses previous state-of-the-art achieving an area under the curve (AUC) above 95 \% on the public challenge leaderboard [1]."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Mukherjee_IITKgp" style="box-shadow: none">
+<div class="panel-heading" id="heading-Mukherjee_IITKgp" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        CONVOLUTIONAL RECURRENT NEURAL NETWORK BASED BIRD AUDIO DETECTION
+       </h4>
+<p style="text-align:left">
+        Rajdeep Mukherjee and Dipyaman Banerjee and Kuntal Dey and Niloy Ganguly
+       </p>
+<p style="text-align:left">
+        Indian Institute of Technology, Kharagpur and IBM Research, New Delhi
+       </p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Mukherjee_IITKgp" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Mukherjee_IITKgp" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Mukherjee_IITKgp" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Mukherjee_107.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Mukherjee_IITKgp" class="panel-collapse collapse" id="collapse-Mukherjee_IITKgp" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       CONVOLUTIONAL RECURRENT NEURAL NETWORK BASED BIRD AUDIO DETECTION
+      </h4>
+<p style="text-align:left">
+<small>
+        Rajdeep Mukherjee and Dipyaman Banerjee and Kuntal Dey and Niloy Ganguly
+       </small>
+<br/>
+<small>
+<em>
+         Indian Institute of Technology, Kharagpur and IBM Research, New Delhi
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       We propose a Convolutional Recurrent Neural Network (CRNN) based approach, implemented as a Convolutional Neural Network (CNN) followed by a Recurrent Neural Network (RNN), for the task of detecting the presence of birds in audio recordings. As part of the IEEE DCASE 2018 Challenge, we were provided with three sep- arate development datasets containing recordings from three very different bird sound monitoring projects. We performed a stratified 3-way cross-validation mechanism for training our model by con- sidering two datasets for training and the remaining one for valida- tion in each fold in order to generalize our model well when exposed to data from unseen conditions. We obtained an Area Under Curve (AUC) measure of 88.7% on the leaderboard test set. We compare our results with the CNN version of our model which achieves an AUC measure of 87.74% on the same test set.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Mukherjee_IITKgp" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Mukherjee_107.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Mukherjee_IITKgplabel" class="modal fade" id="bibtex-Mukherjee_IITKgp" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexMukherjee_IITKgplabel">
+        CONVOLUTIONAL RECURRENT NEURAL NETWORK BASED BIRD AUDIO DETECTION
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Mukherjee_IITKgp,
+    Author = "Mukherjee, Rajdeep and Banerjee, Dipyaman and Dey, Kuntal and Ganguly, Niloy",
+    title = "CONVOLUTIONAL RECURRENT NEURAL NETWORK BASED BIRD AUDIO DETECTION",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "We propose a Convolutional Recurrent Neural Network (CRNN) based approach, implemented as a Convolutional Neural Network (CNN) followed by a Recurrent Neural Network (RNN), for the task of detecting the presence of birds in audio recordings. As part of the IEEE DCASE 2018 Challenge, we were provided with three sep- arate development datasets containing recordings from three very different bird sound monitoring projects. We performed a stratified 3-way cross-validation mechanism for training our model by con- sidering two datasets for training and the remaining one for valida- tion in each fold in order to generalize our model well when exposed to data from unseen conditions. We obtained an Area Under Curve (AUC) measure of 88.7\% on the leaderboard test set. We compare our results with the CNN version of our model which achieves an AUC measure of 87.74\% on the same test set."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="SpeechLab_UKY" style="box-shadow: none">
+<div class="panel-heading" id="heading-SpeechLab_UKY" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DOMAIN TUNING METHODS FOR BIRD AUDIO DETECTION
+       </h4>
+<p style="text-align:left">
+        Sidrah Liaqat and Narjes Bozorg and Neenu Jose and Patrick Conrey and Antony Tamasi and Michael T. Johnson
+       </p>
+<p style="text-align:left">
+        University of Kentucky Speech and Signal Processing Lab
+       </p>
+<p style="text-align:left">
+<span class="label label-success">
+         Highest-scoring open source / reproducible method
+        </span>
+</p>
+<button aria-controls="collapse-SpeechLab_UKY" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-SpeechLab_UKY" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-SpeechLab_UKY" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Liaqat_96.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-SpeechLab_UKY').collapse('show');window.location.hash='#SpeechLab_UKY';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-SpeechLab_UKY" class="panel-collapse collapse" id="collapse-SpeechLab_UKY" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DOMAIN TUNING METHODS FOR BIRD AUDIO DETECTION
+      </h4>
+<p style="text-align:left">
+<small>
+        Sidrah Liaqat and Narjes Bozorg and Neenu Jose and Patrick Conrey and Antony Tamasi and Michael T. Johnson
+       </small>
+<br/>
+<small>
+<em>
+         University of Kentucky Speech and Signal Processing Lab
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This paper presents several feature extraction and normal- ization methods implemented for the DCASE 2018 Bird Audio Detection challenge, a binary audio classification task to identify whether a ten second audio segment from a specified dataset contains one or more bird vocaliza- tions. Our baseline system is adapted from the Convolu- tional Neural Network system of last year’s challenge winner bulbul [1]. We introduce one feature modification, an increase in temporal resolution of the Mel-spectrogram feature matrix, tailored to the fast-changing temporal structure of many song-bird vocalizations. Additionally, we introduce two feature normalization approaches, a front-end signal enhancement method to reduce differ- ences in dataset noise characteristics and an explicit do- main adaptation method based on covariance normaliza- tion. Overall results show that none of these approaches gave significant improvements for either a within-dataset training/testing paradigm or a cross-dataset train- ing/testing paradigm.
+      </p>
+<p>
+<strong>
+        Awards:
+       </strong>
+       Highest-scoring open source / reproducible method
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-SpeechLab_UKY" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Liaqat_96.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/UKYSpeechLab/ukybirddet" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-SpeechLab_UKYlabel" class="modal fade" id="bibtex-SpeechLab_UKY" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexSpeechLab_UKYlabel">
+        DOMAIN TUNING METHODS FOR BIRD AUDIO DETECTION
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{SpeechLab_UKY,
+    Author = "Liaqat, Sidrah and Bozorg, Narjes and Jose, Neenu and Conrey, Patrick and Tamasi, Antony and Johnson, Michael T.",
+    title = "DOMAIN TUNING METHODS FOR BIRD AUDIO DETECTION",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "This paper presents several feature extraction and normal- ization methods implemented for the DCASE 2018 Bird Audio Detection challenge, a binary audio classification task to identify whether a ten second audio segment from a specified dataset contains one or more bird vocaliza- tions. Our baseline system is adapted from the Convolu- tional Neural Network system of last year’s challenge winner bulbul [1]. We introduce one feature modification, an increase in temporal resolution of the Mel-spectrogram feature matrix, tailored to the fast-changing temporal structure of many song-bird vocalizations. Additionally, we introduce two feature normalization approaches, a front-end signal enhancement method to reduce differ- ences in dataset noise characteristics and an explicit do- main adaptation method based on covariance normaliza- tion. Overall results show that none of these approaches gave significant improvements for either a within-dataset training/testing paradigm or a cross-dataset train- ing/testing paradigm."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Tao_IITLAB" style="box-shadow: none">
+<div class="panel-heading" id="heading-Tao_IITLAB" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        BIRD AUDIO DETECTION FOR DCASE 2018 CHALLENGE TECHNICAL REPORT
+       </h4>
+<p style="text-align:left">
+        Lianjie Tao and Xinxing Chen
+       </p>
+<p style="text-align:left">
+        Chongqing University
+       </p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Tao_IITLAB" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Tao_IITLAB" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Tao_IITLAB" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Tao_24.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Tao_IITLAB').collapse('show');window.location.hash='#Tao_IITLAB';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Tao_IITLAB" class="panel-collapse collapse" id="collapse-Tao_IITLAB" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       BIRD AUDIO DETECTION FOR DCASE 2018 CHALLENGE TECHNICAL REPORT
+      </h4>
+<p style="text-align:left">
+<small>
+        Lianjie Tao and Xinxing Chen
+       </small>
+<br/>
+<small>
+<em>
+         Chongqing University
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       The 2018 BAD challenge [1] requires to determine bird audio in a 10 seconds sound clips, the organizer gave us three development datasets for training our NN, and three evaluation datasets to evaluate our NN. The goal of the challenge is to maximize the recognition of audio in the birds.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Tao_IITLAB" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Tao_24.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/nicktao9/bulbul_bird_detection_dcase2018" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Tao_IITLABlabel" class="modal fade" id="bibtex-Tao_IITLAB" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexTao_IITLABlabel">
+        BIRD AUDIO DETECTION FOR DCASE 2018 CHALLENGE TECHNICAL REPORT
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Tao_IITLAB,
+    Author = "Tao, Lianjie and Chen, Xinxing",
+    title = "BIRD AUDIO DETECTION FOR DCASE 2018 CHALLENGE TECHNICAL REPORT",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "The 2018 BAD challenge [1] requires to determine bird audio in a 10 seconds sound clips, the organizer gave us three development datasets for training our NN, and three evaluation datasets to evaluate our NN. The goal of the challenge is to maximize the recognition of audio in the birds."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Thakur_IITMANDI" style="box-shadow: none">
+<div class="panel-heading" id="heading-Thakur_IITMANDI" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        LEARNED AGGREGATION IN CNN: ALL-CONV NET FOR BIRD ACTIVITY DETECTION
+       </h4>
+<p style="text-align:left">
+        Anshul Thakur and Arjun Pankajakshan and Padmanabhan Rajan
+       </p>
+<p style="text-align:left">
+        Indian Institute of Technology Mandi
+       </p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Thakur_IITMANDI" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Thakur_IITMANDI" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Thakur_IITMANDI" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Thakur_25.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Thakur_IITMANDI" class="panel-collapse collapse" id="collapse-Thakur_IITMANDI" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       LEARNED AGGREGATION IN CNN: ALL-CONV NET FOR BIRD ACTIVITY DETECTION
+      </h4>
+<p style="text-align:left">
+<small>
+        Anshul Thakur and Arjun Pankajakshan and Padmanabhan Rajan
+       </small>
+<br/>
+<small>
+<em>
+         Indian Institute of Technology Mandi
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       The task 3 of DCASE 2018 i.e. bird activity detection (BAD) deals with identifying the presence or absence of bird vocaliza- tions in a given audio recording. In this submission, we utilize an all-convolutional neural network (all-conv net) for BAD. The network is characterized by the utilization of convolutional oper- ations to implement aggregation/pooling and dense layers. The ag- gregation operation implemented by convolution helps in capturing the inter feature-map correlations which are ignored in traditional max/average pooling. This helps in learning a function which ag- gregates the complementary information in various feature maps, leading to better bird activity detection. Building on the all-conv net, we utilize four different derivative systems which provide good validation and preview scores.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Thakur_IITMANDI" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Thakur_25.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Thakur_IITMANDIlabel" class="modal fade" id="bibtex-Thakur_IITMANDI" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexThakur_IITMANDIlabel">
+        LEARNED AGGREGATION IN CNN: ALL-CONV NET FOR BIRD ACTIVITY DETECTION
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Thakur_IITMANDI,
+    Author = "Thakur, Anshul and Pankajakshan, Arjun and Rajan, Padmanabhan",
+    title = "LEARNED AGGREGATION IN CNN: ALL-CONV NET FOR BIRD ACTIVITY DETECTION",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "The task 3 of DCASE 2018 i.e. bird activity detection (BAD) deals with identifying the presence or absence of bird vocaliza- tions in a given audio recording. In this submission, we utilize an all-convolutional neural network (all-conv net) for BAD. The network is characterized by the utilization of convolutional oper- ations to implement aggregation/pooling and dense layers. The ag- gregation operation implemented by convolution helps in capturing the inter feature-map correlations which are ignored in traditional max/average pooling. This helps in learning a function which ag- gregates the complementary information in various feature maps, leading to better bird activity detection. Building on the all-conv net, we utilize four different derivative systems which provide good validation and preview scores."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Vesperini_A3Lab" style="box-shadow: none">
+<div class="panel-heading" id="heading-Vesperini_A3Lab" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        A CAPSULE NEURAL NETWORKS BASED APPROACH FOR BIRD AUDIO DETECTION
+       </h4>
+<p style="text-align:left">
+        Fabio Vesperini and Leonardo Gabrielli and Emanuele Principi and Stefano Squartini
+       </p>
+<p style="text-align:left">
+        Università Politecnica delle Marche, Ancona
+       </p>
+<p style="text-align:left">
+<span class="label label-success">
+         Judges' award
+        </span>
+</p>
+<button aria-controls="collapse-Vesperini_A3Lab" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Vesperini_A3Lab" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Vesperini_A3Lab" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Vesperini_95.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Vesperini_A3Lab" class="panel-collapse collapse" id="collapse-Vesperini_A3Lab" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       A CAPSULE NEURAL NETWORKS BASED APPROACH FOR BIRD AUDIO DETECTION
+      </h4>
+<p style="text-align:left">
+<small>
+        Fabio Vesperini and Leonardo Gabrielli and Emanuele Principi and Stefano Squartini
+       </small>
+<br/>
+<small>
+<em>
+         Università Politecnica delle Marche, Ancona
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       We propose a system for bird audio detection based on the innova- tive CapsNet architecture. It is our contribution to the third task of the DCASE2018 Challenge. The task consists on a binary detec- tion of presence/absence of bird sounds on audio files belonging to different datasets. Spectral acoustic features are extracted from the acoustic signals, successively a deep neural network which com- prehend capsule units is trained by means of supervised learning using binary annotations of bird song activity as target vector in combination with the dynamic routing mechanism. This procedure has the aim to incentive the network to learn global coherence im- plicitly and to identify part-whole relationships between capsules, thereby improving generalization performance in detecting the pres- ence bird songs from various environmental conditions. We achieve a harmonic mean of the Area Under Roc Curve (AUC) score equal to 85.08 from the cross-validation performed on the development dataset, while we obtain an AUC equal to 84.43 as preview score from a subset of the unseen evaluation data.
+      </p>
+<p>
+<strong>
+        Awards:
+       </strong>
+       Judges' award
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Vesperini_A3Lab" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Vesperini_95.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Vesperini_A3Lablabel" class="modal fade" id="bibtex-Vesperini_A3Lab" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexVesperini_A3Lablabel">
+        A CAPSULE NEURAL NETWORKS BASED APPROACH FOR BIRD AUDIO DETECTION
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Vesperini_A3Lab,
+    Author = "Vesperini, Fabio and Gabrielli, Leonardo and Principi, Emanuele and Squartini, Stefano",
+    title = "A CAPSULE NEURAL NETWORKS BASED APPROACH FOR BIRD AUDIO DETECTION",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "We propose a system for bird audio detection based on the innova- tive CapsNet architecture. It is our contribution to the third task of the DCASE2018 Challenge. The task consists on a binary detec- tion of presence/absence of bird sounds on audio files belonging to different datasets. Spectral acoustic features are extracted from the acoustic signals, successively a deep neural network which com- prehend capsule units is trained by means of supervised learning using binary annotations of bird song activity as target vector in combination with the dynamic routing mechanism. This procedure has the aim to incentive the network to learn global coherence im- plicitly and to identify part-whole relationships between capsules, thereby improving generalization performance in detecting the pres- ence bird songs from various environmental conditions. We achieve a harmonic mean of the Area Under Roc Curve (AUC) score equal to 85.08 from the cross-validation performed on the development dataset, while we obtain an AUC equal to 84.43 as preview score from a subset of the unseen evaluation data."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Yu_LR" style="box-shadow: none">
+<div class="panel-heading" id="heading-Yu_LR" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DCASE 2018 CHALLENGE TECHNICAL REPORT
+       </h4>
+<p style="text-align:left">
+        Chenchen Yu and Yu Hao and Wenbo Yang and Bo Fu
+       </p>
+<p style="text-align:left">
+        AI Lab, Lenovo Research
+       </p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Yu_LR" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Yu_LR" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Yu_LR" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Yu_44.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Yu_LR" class="panel-collapse collapse" id="collapse-Yu_LR" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DCASE 2018 CHALLENGE TECHNICAL REPORT
+      </h4>
+<p style="text-align:left">
+<small>
+        Chenchen Yu and Yu Hao and Wenbo Yang and Bo Fu
+       </small>
+<br/>
+<small>
+<em>
+         AI Lab, Lenovo Research
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       For the task of Bird Audio Detection in the DCASE Challenge 2018[1], we present three approaches that all use convolutional neural networks on Mel-spectrogram. We obtained Area Under Curve (AUC) measure of 0.8610, 0.8548, 0.8464 on preview score which is calculated using approximate 1000 files randomly selected from the Chernobyl and warblrb10k data.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Yu_LR" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2018/technical_reports/DCASE2018_Yu_44.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Yu_LRlabel" class="modal fade" id="bibtex-Yu_LR" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexYu_LRlabel">
+        DCASE 2018 CHALLENGE TECHNICAL REPORT
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Yu_LR,
+    Author = "Yu, Chenchen and Hao, Yu and Yang, Wenbo and Fu, Bo",
+    title = "DCASE 2018 CHALLENGE TECHNICAL REPORT",
+    institution = "DCASE2018 Challenge",
+    year = "2018",
+    month = "September",
+    abstract = "For the task of Bird Audio Detection in the DCASE Challenge 2018[1], we present three approaches that all use convolutional neural networks on Mel-spectrogram. We obtained Area Under Curve (AUC) measure of 0.8610, 0.8548, 0.8464 on preview score which is calculated using approximate 1000 files randomly selected from the Chernobyl and warblrb10k data."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script>
+(function($) {
+    $(document).ready(function() {
+        var hash = window.location.hash.substr(1);
+        var anchor = window.location.hash;
+
+        var shiftWindow = function() {
+            var hash = window.location.hash.substr(1);
+            if($('#collapse-'+hash).length){
+                scrollBy(0, -100);
+            }
+        };
+        window.addEventListener("hashchange", shiftWindow);
+
+        if (window.location.hash){
+            window.scrollTo(0, 0);
+            history.replaceState(null, document.title, "#");
+            $('#collapse-'+hash).collapse('show');
+            setTimeout(function(){
+                window.location.hash = anchor;
+                shiftWindow();
+            }, 2000);
+        }
+    });
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

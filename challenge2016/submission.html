@@ -1,0 +1,331 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Submission - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Submission - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2016/submission">
+    <meta property="og:url" content="https://dcase.community/challenge2016/submission" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="Toni Heittola" />
+    <meta name="description" content="Submissions must include output of the system for the test set and a technical report. The technical report can be the same as your submission to DCASE2016 Workshop (please indicate this in your submission email). Participants must submit the results and the technical report by emailing them to dcasechallenge@gmail …" />
+    <meta name="og:description" content="Submissions must include output of the system for the test..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2016</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2016/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-synthetic text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-events text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-tags text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Download data">
+        <a href="http://localhost:3000/challenge2016/download"><i class="fa fa-download"></i>&nbsp;Download</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2016/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2016/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge organizers">
+        <a href="http://localhost:3000/challenge2016/organizers"><i class="fa fa-users"></i>&nbsp;Organizers</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/wall-02.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><h1 class="bold">Submission</h1><hr class="small right bold"><span class="subheading">Instructions</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#system-output">System output</a></li>
+<li><a href="#technical-report">Technical report</a></li>
+<li><a href="#submission">Submission</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p>Submissions must include <strong>output of the system for the test set</strong> and a <strong>technical report</strong>. The technical report can be the same as your submission to DCASE2016 Workshop (please indicate this in your submission email).</p>
+<p>Participants must submit the results and the technical report by emailing them to <strong>dcasechallenge@gmail.com</strong> by latest on <strong>7th July 2016</strong>.</p>
+<h2 id="system-output">System output</h2>
+<p>Participants must submit the results for the test data. Examples for formatting the output for the different tasks are given below.</p>
+<p><strong>Submitted system outputs will be published</strong> on-line on the DCASE2016 website later to allow future evaluations.</p>
+<h3>Task 1: Acoustic scene classification</h3>
+<p>Single text-file (in CSV format) containing classification result for each audio file in the evaluation set. Result items can be in any order. Format:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">filename (string)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">scene label (string)</span><span class="o">]</span>
+</code></pre></div>
+<p>Example <em>task1_results.txt</em> file</p>
+<div class="highlight"><pre><span></span><code>audio/178.wav    residential_street
+audio/62.wav     office
+audio/261.wav    home
+...
+</code></pre></div>
+<h3>Task 2: Sound event detection in synthetic audio</h3>
+<p>One should submit single .txt file per evaluated audio recording. The output file should contain a list of detected events, specified by the onset, offset and the event ID separated by a tab. Format:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">event onset in seconds (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">event offset in seconds (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">event ID (string)</span><span class="o">]</span>
+</code></pre></div>
+<p>Example <em>task2_results.txt</em> file</p>
+<div class="highlight"><pre><span></span><code><span class="mf">1.387392290</span><span class="w">    </span><span class="mf">3.262403627</span><span class="w">    </span><span class="n">pageturn</span>
+<span class="mf">5.073560090</span><span class="w">    </span><span class="mf">5.793378684</span><span class="w">    </span><span class="n">knock</span>
+<span class="mf">...</span>
+</code></pre></div>
+<p>There should be no additional tab characters anywhere, and there should be no whitespace added after the label, just the newline.
+The 11 event IDs to be used for the .txt output are: <code>clearthroat</code>, <code>cough</code>, <code>doorslam</code>, <code>drawer</code>, <code>keyboard</code>, <code>keys</code>, <code>knock</code>, <code>laughter</code>, <code>pageturn</code>, <code>phone</code>, <code>speech</code>.</p>
+<h3>Task 3: Sound event detection in real life audio</h3>
+<p>Single text-file (in CSV format) per evaluated scene (home and residential area), each file containing detected sound event from each audio file. Events can be in any order. Format:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">filename (string)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">event onset time in seconds (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">event offset time in seconds (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">event label (string)</span><span class="o">]</span>
+</code></pre></div>
+<p>Example <em>task3_results_home.txt</em> file</p>
+<div class="highlight"><pre><span></span><code>audio/home/a029.wav     1.0000    2.8000    dishes
+audio/home/a029.wav     0.0000    0.2000    object impact
+audio/home/a033.wav     4.0000    4.1000    cutlery
+...
+</code></pre></div>
+<p>Example <em>task3_results_residential_area.txt</em> file</p>
+<div class="highlight"><pre><span></span><code>audio/residential_area/a009.wav     4.0000    4.1000    car passing by
+audio/residential_area/a008.wav     0.0000    0.2000    bird singing
+audio/residential_area/a008.wav     1.0000    2.8000    people speaking
+...
+</code></pre></div>
+<h3>Task 4: Domestic audio tagging</h3>
+<p>Single text file (in CSV format) containing a classification score for each label class and for each audio chunk in the evaluation set. No particular ordering is required for rows in the CSV file. Format:</p>
+<div class="highlight"><pre><span></span><code>[filename (string)],[label (string)],[classification score (float)]
+</code></pre></div>
+<p>Example <em>task4_results.txt</em> file</p>
+<div class="highlight"><pre><span></span><code>file1.wav,c,0.1221
+file1.wav,m,0.6576
+file1.wav,f,0.8751
+file1.wav,v,0.3432
+file1.wav,p,-0.3238
+file1.wav,b,0.2942
+file1.wav,o,-0.6542
+file2.wav,c,0.1221
+file2.wav,m,0.6576
+file2.wav,f,0.8751
+file2.wav,v,-0.3432
+file2.wav,p,0.3238
+file2.wav,b,-0.2942
+file2.wav,o,0.6542
+...
+</code></pre></div>
+<h2 id="technical-report">Technical report</h2>
+<p>Reports should be <strong>maximum 5 pages</strong> (can be shorter), including all text, figures, and references, with the last page containing only references. The <a href="documents/dcase2016_template.pdf">provided template</a> has to be used (either Latex or Word template below). The technical report shares the template with <a href="workshop">DCASE2016 Workshop</a>.</p>
+<p>For participants taking part in multiple tasks, one technical report covering all tasks is sufficient. In case the submitted systems for different tasks differ enough, multiple technical reports can be submitted, one per task submission.</p>
+<p>The report should contain sufficient description of the system and report results obtained with provided cross-validation setup. Extensive literature review or related work sections are not required.</p>
+<p>If you submit a paper to the <a href="workshop">DCASE2016 workshop</a> based on your challenge submission system, you can use same paper as technical report and submit it with results.</p>
+<p>The report will be published online along with the results on the DCASE2016 website.</p>
+<h3>Templates</h3>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="../documents/challenge2016/dcase2016_latex_template.zip" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="../documents/challenge2016/dcase2016_latex_template.zip" target="_blank">
+<span style="font-size:20px;">Latex template <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(279 KB)</span>
+<br/>
+<span class="text-muted">
+                
+                
+                (.zip)
+                
+                </span>
+</div>
+</div>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="../documents/challenge2016/dcase2016_word_template.doc" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-word-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="../documents/challenge2016/dcase2016_word_template.doc" target="_blank">
+<span style="font-size:20px;">Word template <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(70 KB)</span>
+<br/>
+<span class="text-muted">
+                
+                
+                (.doc)
+                
+                </span>
+</div>
+</div>
+<p><br/></p>
+<h2 id="submission">Submission</h2>
+<p>The results and the technical report should be emailed to <strong>dcasechallenge@gmail.com</strong> before the submission deadline. The deadline for the submission is <strong>7th July 2016</strong>. You will receive a <strong>confirmation</strong> once we have verified the details listed below.</p>
+<p>Information required in the submission email:</p>
+<ul>
+<li>Authors and their affiliations</li>
+<li>Corresponding author (including email address)</li>
+<li>Name that you prefer your system to be called. If not supplied, we will use [Lastname of corresponding author]_2016.</li>
+<li>Preferred abbreviation of the submitted system. This will be used in the results tables. E.g. you can use the institution name or lastname of the corresponding author. If not supplied, we will use [Lastname of corresponding author]_2016.</li>
+<li>Indicate if the same document has been submitted to the DCASE2016 workshop as a regular paper.</li>
+</ul>
+<p>Files required in the submission email:</p>
+<ul>
+<li>Technical report in PDF format; in case of submitting task specific reports, indicate this in the prefix of the report filename (e.g. task1_report.pdf).</li>
+<li>System outputs in specified format; please indicate clearly which file is for which task (e.g. task1_results.txt)</li>
+</ul>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

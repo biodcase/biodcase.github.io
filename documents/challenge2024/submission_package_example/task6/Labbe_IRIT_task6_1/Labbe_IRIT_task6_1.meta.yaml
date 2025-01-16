@@ -1,0 +1,259 @@
+# Submission information for task 6
+submission:
+  # Submission label
+  # Label is used to index submissions.
+  # Generate your label following way to avoid
+  # overlapping codes among submissions
+  # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number]_[index number of your submission (1-4)]
+  label: Labbe_IRIT_task6_1
+  #
+  # Submission name
+  # This name will be used in the results tables when space permits
+  name: DCASE2024 baseline system
+  #
+  # Submission name abbreviated
+  # This abbreviated name will be used in the results table when space is tight.
+  # Use maximum 10 characters.
+  abbreviation: Baseline
+
+# Authors of the submitted system. Mark authors in
+# the order you want them to appear in submission lists.
+# One of the authors has to be marked as corresponding author,
+# this will be listed next to the submission in the results tables.
+authors:
+  # First author
+  - lastname: Labbé
+    firstname: Étienne
+    email: etienne.labbe@irit.fr               # Contact email address
+    corresponding: true                         # Mark true for one of the authors
+
+    # Affiliation information for the author
+    affiliation:
+      abbreviation: IRIT
+      institute: Institut de Recherche en Informatique de Toulouse
+      department: Signaux et Images            # Optional
+      location: Toulouse, France
+
+  # Second author
+  # ...
+
+# System information
+system:
+  # System description, meta data provided here will be used to do
+  # meta analysis of the submitted system.
+  # Use general level tags, when possible use the tags provided in comments.
+  # If information field is not applicable to the system, use "!!null".
+  description:
+    # Audio input / sampling rate
+    # e.g., 16kHz, 22.05kHz, 44.1kHz, 48.0kHz
+    input_sampling_rate: 32kHz
+
+    # Acoustic representation
+    # Here you should indicate what can or audio representation
+    # you used. If your system used hand-crafted features (e.g.
+    # mel band energies), then you can do
+    #
+    # `acoustic_features: mel energies`
+    #
+    # Else, if you used some pre-trained audio feature extractor, 
+    # you can indicate the name of the system, for example
+    #
+    # `acoustic_features: cnn10`
+    acoustic_features: ConvNeXt-Tiny
+    # acoustic_features_url: 
+
+    # Word embeddings
+    # Here you can indicate how you treated word embeddings.
+    # If your method learned its own word embeddings (i.e. you
+    # did not used any pre-trained word embeddings) then you can
+    # do
+    #
+    # `word_embeddings: learned`
+    #  
+    # Else, specify the pre-trained word embeddings that you used
+    # (e.g., Word2Vec, BERT, etc).
+    # If possible, please use the fullname of the model involved. (e.g., BART-base)
+    word_embeddings: learned
+
+    # Data augmentation methods
+    # e.g., mixup, time stretching, block mixing, pitch shifting, ...
+    data_augmentation: mixup + label smoothing
+
+    # Method scheme
+    # Here you should indicate the scheme of the method that you
+    # used. For example
+    machine_learning_method: encoder-decoder
+
+    # Learning scheme
+    # Here you should indicate the learning scheme. 
+    # For example, you could specify either
+    # supervised, self-supervised, or even 
+    # reinforcement learning. 
+    learning_scheme: supervised
+
+    # Ensemble
+    # - Here you should indicate the number of systems involved if you used ensembling.
+    # - If you did not use ensembling, just write 1.
+    ensemble_num_systems: 1
+
+    # Audio modelling
+    # Here you should indicate the type of system used for
+    # audio modelling. For example, if you used some stacked CNNs, then
+    # you could do
+    #
+    # audio_modelling: cnn
+    #
+    # If you used some pre-trained system for audio modelling,
+    # then you should indicate the system used (e.g., COALA, COLA,
+    # transformer).
+    audio_modelling: !!null
+
+    # Word modelling
+    # Similarly, here you should indicate the type of system used
+    # for word modelling. For example, if you used some RNNs,
+    # then you could do
+    #
+    # word_modelling: rnn
+    #
+    # If you used some pre-trained system for word modelling, then you should indicate the system used (e.g., transformer).
+    word_modelling: transformer
+
+    # Loss function
+    # - Here you should indicate the loss fuction that you employed.
+    loss_function: cross_entropy
+
+    # Optimizer
+    # - Here you should indicate the name of the optimizer that you used. 
+    optimizer: AdamW
+
+    # Learning rate
+    # - Here you should indicate the learning rate of the optimizer that you used.
+    learning_rate: 5e-4
+
+    # Weight decay
+    # - Here you should indicate if you used any weight decay of your optimizer.
+    # - Be careful because most optimizers uses a non-zero value by default.
+    # - Use 0 for no weight decay.
+    weight_decay: 2
+
+    # Gradient clipping
+    # - Here you should indicate if you used any gradient clipping. 
+    # - Use 0 for no clipping.
+    gradient_clipping: 1
+
+    # Gradient norm
+    # - Here you should indicate the norm of the gradient that you used for gradient clipping.
+    # - Use !!null for no clipping.
+    gradient_norm: "L2"
+
+    # Metric monitored
+    # - Here you should report the monitored metric for optimizing your method.
+    # - For example, did you monitored the loss on the validation data (i.e. validation loss)?
+    # - Or you monitored the SPIDEr metric? Maybe the training loss?
+    metric_monitored: validation_loss
+
+  # System complexity, meta data provided here will be used to evaluate
+  # submitted systems from the computational load perspective.
+  complexity:
+    # About the amount of parameters used in the acoustic model.
+    # - For neural networks, this information is usually given before training process in the network summary.
+    # - For other than neural networks, if parameter count information is not directly available, try estimating the count as accurately as possible.
+    # - In case embeddings are used, add up parameter count of the embedding extraction networks and classification network
+    # - Use numerical value (do not use comma for thousands-separator).
+    # - WARNING: In case of ensembling, add up parameters for all subsystems.
+
+    # Learnable parameters
+    learnable_parameters: 11914777
+    # Frozen parameters (from the feature extractor and other parts of the model)
+    frozen_parameters: 29388303
+    # Total amount of parameters involved at inference time
+    # Unless you used a complex method for prediction (e.g., re-ranking methods that use additional pretrained models), this value is equal to the sum of the learnable and frozen parameters.
+    inference_parameters: 41303080
+
+    # Training duration of your entire system in SECONDS.
+    # - WARNING: In case of ensembling, add up durations for all subsystems trained.
+    duration: 8840
+    # Number of GPUs used for training
+    gpu_count: 1
+    # GPU model name
+    gpu_model: NVIDIA GeForce RTX 2080 Ti
+
+    # Optionally, number of multiply-accumulate operations (macs) to generate a caption
+    # - You should use the same audio file ('Santa Motor.wav' from Clotho development-testing subset) for fair comparison with other models.
+    # - You should include all the operations involved, including: feature extraction, beam search, etc. However, you can exclude operations used to resample the waveform.
+    inference_macs: 48762319200
+
+  # List of datasets used for training your system.
+  # Unless you also used them to train your captioning system, you do not not need to include datasets involved to pretrain your encoder and/or decoder. (e.g., AudioSet for ConvNeXt in the baseline)
+  # However, you should:
+  # - Keep the Clotho development-training if you used it to train your system.
+  # - Include here Clotho development-validation subset if you used it to train your system.
+  # - Please always specify the correct subset of the dataset involved.
+  train_datasets:
+    - # Dataset name
+      name: Clotho
+      # Subset name (DCASE convention for Clotho)
+      subset: development-training
+      # Audio source (use !!null if not applicable)
+      source: Freesound
+      # Dataset access url
+      url: https://doi.org/10.5281/zenodo.3490683
+      # Has audio:
+      has_audio: Yes
+      # Has images
+      has_images: No
+      # Has video
+      has_video: No
+      # Has captions
+      has_captions: Yes
+      # Number of captions per audio
+      nb_captions_per_audio: 5
+      # Total amount of examples used
+      total_audio_length: 3839
+      # Used for (e.g., audio_modelling, word_modelling, audio_and_word_modelling)
+      used_for: audio_and_word_modelling
+
+  # List of datasets used for validation (checkpoint selection).
+  # However, you should:
+  # - Keep the Clotho development-validation if you used it to validate your system.
+  # - If you did not used any validation dataset, just write `validation_datasets: []`.
+  # - Please always specify the correct subset involved.
+  validation_datasets:
+    - # Dataset name
+      name: Clotho
+      # Subset name (DCASE convention for Clotho)
+      subset: development-validation
+      # Audio source (use !!null if not applicable)
+      source: Freesound
+      # Dataset access url
+      url: https://doi.org/10.5281/zenodo.3490683
+      # Has audio:
+      has_audio: Yes
+      # Has images
+      has_images: No
+      # Has video
+      has_video: No
+      # Has captions
+      has_captions: Yes
+      # Number of captions per audio
+      nb_captions_per_audio: 5
+      # Total amount of examples used
+      total_audio_length: 1045
+
+  # URL to the source code of the system (optional, write !!null if you do not want to share code)
+  source_code: https://github.com/Labbeti/dcase2024-task6-baseline
+
+# System results
+results:
+  development_testing:
+    # System results on the development-testing split.
+    # - Full results are not mandatory, however, they are highly recommended as they are needed for thorough analysis of the challenge submissions.
+    # - If you are unable to provide all the results, incomplete results can also be reported.
+    # - Each score should contain at least 3 decimals.
+    meteor: 0.18979284501354263
+    cider: 0.4619283292849137
+    spice: 0.1335348395173806
+    spider: 0.2977315844011471
+    spider_fl: 0.2962828356306173
+    fense: 0.5040896972480929
+    vocabulary: 551.000

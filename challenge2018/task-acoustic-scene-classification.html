@@ -1,0 +1,2015 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Acoustic scene classification - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Acoustic scene classification - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2018/task-acoustic-scene-classification">
+    <meta property="og:url" content="https://dcase.community/challenge2018/task-acoustic-scene-classification" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="Challenge has ended. Full results for this task can be found in subtask specific result pages: Task1A Task1B Task1C The goal of acoustic scene classification is to classify a test recording into one of the provided predefined classes that characterizes the environment in which it was recorded. This task comprises …" />
+    <meta name="og:description" content="Challenge has ended. Full results for this task can be..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2018</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2018/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2018/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>Results</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-acoustic-scene-classification-results-a"><i class="fa fa-bar-chart"></i>&nbsp;Subtask A</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-acoustic-scene-classification-results-b"><i class="fa fa-bar-chart"></i>&nbsp;Subtask B</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-acoustic-scene-classification-results-c"><i class="fa fa-bar-chart"></i>&nbsp;Subtask C</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2018/task-general-purpose-audio-tagging" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-tags text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-general-purpose-audio-tagging"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-general-purpose-audio-tagging-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2018/task-bird-audio-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-bird text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-bird-audio-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-bird-audio-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2018/task-large-scale-weakly-labeled-semi-supervised-sound-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-large-scale-weakly-labeled-semi-supervised-sound-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-large-scale-weakly-labeled-semi-supervised-sound-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2018/task-monitoring-domestic-activities" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-home text-danger"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-monitoring-domestic-activities"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2018/task-monitoring-domestic-activities-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2018/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2018/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/water-01.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-primary"></i><i class="fa dc-scene fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text">Scenes</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 1</span></span><img src="../images/logos/dcase/dcase2018_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Acoustic<br> scene classification</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Task description</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Coordinators</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Annamaria Mesaros" class="img img-circle" src="http://localhost:3000/images/person/annamaria_mesaros.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Annamaria Mesaros</strong>
+<a class="icon" href="mailto:annamaria.mesaros@tuni.fi"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://arg.cs.tut.fi/">
+                                Tampere University of Technology
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Tuomas Virtanen" class="img img-circle" src="http://localhost:3000/images/person/tuomas_virtanen.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Tuomas Virtanen</strong>
+<a class="icon" href="mailto:tuomas.virtanen@tuni.fi"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://arg.cs.tut.fi/">
+                                Tampere University of Technology
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Toni Heittola" class="img img-circle" src="http://localhost:3000/images/person/toni_heittola.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Toni Heittola</strong>
+<a class="icon" href="mailto:toni.heittola@tuni.fi"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://arg.cs.tut.fi/">
+                                Tampere University of Technology
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#description">Description</a></li>
+<li><a href="#audio-dataset">Audio dataset</a>
+<ul>
+<li><a href="#recording-procedure">Recording procedure</a></li>
+<li><a href="#reference-labels">Reference labels</a></li>
+<li><a href="#download">Download</a></li>
+</ul>
+</li>
+<li><a href="#task-setup">Task setup</a>
+<ul>
+<li><a href="#subtask-a">Subtask A</a></li>
+<li><a href="#subtask-b">Subtask B</a></li>
+<li><a href="#subtask-c">Subtask C</a></li>
+</ul>
+</li>
+<li><a href="#submission">Submission</a></li>
+<li><a href="#public-leaderboards">Public leaderboards</a>
+<ul>
+<li><a href="#datasets">Datasets</a></li>
+</ul>
+</li>
+<li><a href="#task-rules">Task rules</a></li>
+<li><a href="#evaluation">Evaluation</a></li>
+<li><a href="#results">Results</a>
+<ul>
+<li><a href="#subtask-a-1">Subtask A</a></li>
+<li><a href="#subtask-b-1">Subtask B</a></li>
+<li><a href="#subtask-c-1">Subtask C</a></li>
+<li><a href="#submissions">Submissions</a></li>
+</ul>
+</li>
+<li><a href="#baseline-system">Baseline system</a>
+<ul>
+<li><a href="#repository">Repository</a></li>
+<li><a href="#system-description">System description</a></li>
+<li><a href="#results-for-the-development-dataset">Results for the development dataset</a></li>
+</ul>
+</li>
+<li><a href="#citation">Citation</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p class="alert alert-info">
+<strong>Challenge has ended.</strong> Full results for this task can be found in subtask specific result pages:
+    <a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2018/task-acoustic-scene-classification-results-a">Task1A <i class="fa fa-caret-right"></i></a>
+<a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2018/task-acoustic-scene-classification-results-b">Task1B <i class="fa fa-caret-right"></i></a>
+<a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2018/task-acoustic-scene-classification-results-c">Task1C <i class="fa fa-caret-right"></i></a>
+</p>
+<p class="lead">The goal of acoustic scene classification is to classify a test recording into one of the provided predefined classes that characterizes the environment in which it was recorded.</p>
+<p>This task comprises three different subtasks that involve system development for three different situations:</p>
+<div class="row">
+<div class="col-md-2 text-center">
+<span class="fa-stack fa-3x">
+<i class="fa fa-square fa-stack-2x text-primary"></i>
+<strong class="fa-stack-1x icon-text">A</strong>
+<strong class="fa-stack-1x dcase-icon-top-text">Match</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 1</span>
+</span>
+</div>
+<div class="col-md-10 col-xs-middle">
+<h3>Acoustic Scene Classification <br/><small>Subtask A</small></h3>
+<p>Classification of data from the same device as the available training data.</p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-2 text-center">
+<span class="fa-stack fa-3x">
+<i class="fa fa-square fa-stack-2x text-info"></i>
+<strong class="fa-stack-1x icon-text">B</strong>
+<strong class="fa-stack-1x dcase-icon-top-text">Mismatch</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 1</span>
+</span>
+</div>
+<div class="col-md-10 col-xs-middle">
+<h3>Acoustic Scene Classification with mismatched recording devices <br/><small>Subtask B</small></h3>
+<p>Classification of data recorded with devices different than the training data.</p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-2 text-center">
+<span class="fa-stack fa-3x">
+<i class="fa fa-square fa-stack-2x text-warning"></i>
+<strong class="fa-stack-1x icon-text">C</strong>
+<strong class="fa-stack-1x dcase-icon-top-text">External</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 1</span>
+</span>
+</div>
+<div class="col-md-10 col-xs-middle">
+<h3>Acoustic Scene Classification with use of external data <br/><small>Subtask C</small></h3>
+<p>Use of external data in training.</p>
+</div>
+</div>
+<h1 id="description">Description</h1>
+<p>The goal of acoustic scene classification is to classify a test recording into one of the provided predefined classes that characterizes the environment in which it was recorded — for example "park", "pedestrian street", "metro station". </p>
+<figure>
+<div class="row row-centered">
+<div class="col-xs-10 col-md-6 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2018/task1_acoustic_scene_classification.png"/>
+<figcaption>Figure 1: Overview of acoustic scene classification system.</figcaption>
+</div>
+</div>
+</figure>
+<p><br/></p>
+<h1 id="audio-dataset">Audio dataset</h1>
+<p>The dataset for this task is the <strong>TUT Urban Acoustic Scenes 2018</strong> dataset, consisting of recordings from various acoustic scenes. The dataset was recorded in six large european cities, in different locations for each scene class. For each recording location there are 5-6 minutes of audio. The original recordings were split into segments with a length of 10 seconds that are provided in individual files. Available information about the recordings include the following: acoustic scene class, city, and recording location.   </p>
+<p>There are two different versions, <strong>TUT Urban Acoustic Scenes 2018</strong> and <strong>TUT Urban Acoustic Scenes 2018 Mobile</strong>, used for tasks A and B, respectively. More details about them can be found below. </p>
+<p>Acoustic scenes for the task (10):</p>
+<ul>
+<li>Airport - <code>airport</code></li>
+<li>Indoor shopping mall - <code>shopping_mall</code></li>
+<li>Metro station - <code>metro_station</code></li>
+<li>Pedestrian street - <code>street_pedestrian</code></li>
+<li>Public square - <code>public_square</code></li>
+<li>Street with medium level of traffic - <code>street_traffic</code></li>
+<li>Travelling by a tram - <code>tram</code></li>
+<li>Travelling by a bus - <code>bus</code></li>
+<li>Travelling by an underground metro - <code>metro</code></li>
+<li>Urban park - <code>park</code></li>
+</ul>
+<p>The dataset was collected by Tampere University of Technology between 01/2018 - 03/2018. The data collection received funding from the European Research Council, grant agreement 637422 EVERYSOUND.</p>
+<p><a href="https://erc.europa.eu/"><img alt="ERC" src="../images/sponsors/erc.jpg" title="ERC"/></a></p>
+<h2 id="recording-procedure">Recording procedure</h2>
+<p>Recordings were made using four devices that captured audio simultaneously.  </p>
+<p>The main recording device consists in <a href="http://www.soundman.de/en/products/">Soundman OKM II Klassik/studio A3</a>, electret binaural microphone and a <a href="https://www.zoom.co.jp/products/handy-recorder/zoom-f8-multitrack-field-recorder">Zoom F8</a> audio recorder using 48kHz sampling rate and 24 bit resolution. The microphones are specifically made to look like headphones, being worn in the ears. As an effect of this, the recorded audio is very similar to the sound that reaches the human auditory system of the person wearing the equipment. This equipment is further referred to as device A.</p>
+<p>Three other commonly available customer devices (e.g. smartphones, cameras) were used, handled in typical ways by the person doing recordings (e.g. hand held). We further refer to these devices as B, C, and D. The audio recordings from these devices are of different quality than device A. All simultaneous recordings are time synchronized. </p>
+<p><strong>TUT Urban Acoustic Scenes 2018</strong> development dataset contains only material recorded with device A, having 864 segments for each acoustic scene (144 minutes of audio). The dataset contains in total 8640 segments, i.e. 24 hours of audio.  </p>
+<p><strong>TUT Urban Acoustic Scenes 2018 Mobile</strong> development dataset contains material recorded with devices A, B and C. For each acoustic scene there are 864 segments recorded with device A, and parallel audio consisting of 72 segments recorded with devices B and C . Data from device A was resampled and averaged into a single channel, to align with the properties of the data recorded with devices B and C. The dataset contains in total 28 hours of audio. </p>
+<h2 id="reference-labels">Reference labels</h2>
+<p>Reference labels are provided only for the development datasets. Currently, there is no plan of releasing the reference labels for evaluation or public leaderboard datasets. If you are preparing a publication based on the DCASE challenge setup and you want to evaluate your proposed system with official challenge evaluation setup, contact the task coordinators. Task coordinators can provide unofficial scoring for limited amount of system outputs.    </p>
+<h2 id="download">Download</h2>
+<h3>Subtask A</h3>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/1228142" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/1228142" target="_blank">
+<span style="font-size:20px;">TUT Urban Acoustic Scenes 2018, Development dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(21.1 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.1228142">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1228142.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/1293883" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/1293883" target="_blank">
+<span style="font-size:20px;">TUT Urban Acoustic Scenes 2018, Evaluation dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(8.3 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.1293883">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1293883.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/1245181" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/1245181" target="_blank">
+<span style="font-size:20px;">TUT Urban Acoustic Scenes 2018, Leaderboard dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(2.8 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.1245181">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1245181.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<h3>Subtask B</h3>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/1228235" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/1228235" target="_blank">
+<span style="font-size:20px;">TUT Urban Acoustic Scenes 2018 Mobile, Development dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(11.3 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.1228235">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1228235.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/1293901" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/1293901" target="_blank">
+<span style="font-size:20px;">TUT Urban Acoustic Scenes 2018 Mobile, Evaluation dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(16.0 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.1293901">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1293901.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/1245184" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/1245184" target="_blank">
+<span style="font-size:20px;">TUT Urban Acoustic Scenes 2018 Mobile, Leaderboard dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(2.3 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.1245184">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1245184.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<h3>Subtask C</h3>
+<p>This subtask is using the same dataset as subtask A.</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/1228142" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/1228142" target="_blank">
+<span style="font-size:20px;">TUT Urban Acoustic Scenes 2018, Development dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(21.1 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.1228142">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1228142.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/1293883" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/1293883" target="_blank">
+<span style="font-size:20px;">TUT Urban Acoustic Scenes 2018, Evaluation dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(8.3 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.1293883">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1293883.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/1245181" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/1245181" target="_blank">
+<span style="font-size:20px;">TUT Urban Acoustic Scenes 2018, Leaderboard dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(2.8 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.1245181">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1245181.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<h1 id="task-setup">Task setup</h1>
+<p>For each subtask, a development set is provided, together with a training/test partitioning for system development. Participants are required to report performance of their system using this train/test setup in order to allow comparison of systems on the development set.</p>
+<h2 id="subtask-a">Subtask A</h2>
+<p><span class="fa-stack fa-3x">
+<i class="fa fa-square fa-stack-2x text-primary"></i>
+<strong class="fa-stack-1x icon-text">A</strong>
+<strong class="fa-stack-1x dcase-icon-top-text">Match</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 1</span>
+</span>
+<em>Acoustic Scene Classification</em> </p>
+<p>This subtask is concerned with the basic problem of acoustic scene classification, in which all available data (development and evaluation) are recorded with the same device, in this case device A. </p>
+<h4>Development dataset</h4>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/1228142" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/1228142" target="_blank">
+<span style="font-size:20px;">TUT Urban Acoustic Scenes 2018, Development dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(21.1 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.1228142">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1228142.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<p>The development data consists of recordings from all six cities, and is partitioned so that the training subset contains for each city and each class recordings from approximately 70% of recording locations, and the test subset contains recordings from the rest of the locations. Of the total 8640 segments, 6122 segments were included in the training subset and 2518 segments in the test subset. For complete details on the dataset, check the readme file provided with the data.</p>
+<p>Participants are allowed to create their own cross-validation folds or separate validation set. In this case please pay attention to the segments recorded at same location. Location identifier can be found from metadata file provided in the dataset or from audio file names:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">scene</span><span class="w"> </span><span class="n">label</span><span class="p">]</span><span class="o">-</span><span class="p">[</span><span class="n">city</span><span class="p">]</span><span class="o">-</span><span class="p">[</span><span class="n">location</span><span class="w"> </span><span class="kt">id</span><span class="p">]</span><span class="o">-</span><span class="p">[</span><span class="n">segment</span><span class="w"> </span><span class="kt">id</span><span class="p">]</span><span class="o">-</span><span class="p">[</span><span class="n">device</span><span class="w"> </span><span class="kt">id</span><span class="p">].</span><span class="n">wav</span>
+</code></pre></div>
+<p>Make sure that all files having same location id are placed on the same side of the evaluation. In this subtask, device id is always <code>a</code>.</p>
+<p>In this subtask, <strong>use of external data is forbidden</strong>. Data from another task or subtask is considered external data!</p>
+<h4>Evaluation dataset</h4>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/1293883" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/1293883" target="_blank">
+<span style="font-size:20px;">TUT Urban Acoustic Scenes 2018, Evaluation dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(8.3 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.1293883">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1293883.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<p>Participants should run their system for this dataset, and submit the classification results (system output) to DCASE2018 Challenge. Evaluation dataset is provided without ground truth. The amount of data in the evaluation set is 10 hours.</p>
+<h2 id="subtask-b">Subtask B</h2>
+<p><span class="fa-stack fa-3x">
+<i class="fa fa-square fa-stack-2x text-info"></i>
+<strong class="fa-stack-1x icon-text">B</strong>
+<strong class="fa-stack-1x dcase-icon-top-text">Mismatch</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 1</span>
+</span>
+<em>Acoustic Scene Classification with mismatched recording devices</em></p>
+<p>This subtask is concerned with the situation in which an application will be tested with a few different types of devices, possibly not the same as the ones used to record the development data. </p>
+<h4>Development dataset</h4>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/1228235" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/1228235" target="_blank">
+<span style="font-size:20px;">TUT Urban Acoustic Scenes 2018 Mobile, Development dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(11.3 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.1228235">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1228235.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<p>The development data consists of the same recordings as in subtask A, and a small amount of parallel data recorded with devices B and C. The amount of data is as follows:</p>
+<ul>
+<li><strong>Device A</strong>: 24 hours (8640 segments, same as subtask A, but resampled and single-channel)</li>
+<li><strong>Device B</strong>: 2 hours (72 segments per acoustic scene)</li>
+<li><strong>Device C</strong>: 2 hours (72 segments per acoustic scene)</li>
+</ul>
+<p>The 2 hours of data recorded with devices B and C is parallel, and also available as recorded with device A. The training/test setup was created such that approximately 70% of recording locations for each city and each scene class are in the training subset, considering only device A. The training subset contains 6122 segments from device A, 540 segments from device B, and 540 segments from device C. The test subset contains 2518 segments from device A, 180 segments from device B, and 180 segments from device C. Please report development set results using the provided data partitioning.</p>
+<p>Participants are allowed to create their own cross-validation folds or separate validation set. In this case please pay attention to the segments recorded at same location. Location identifier can be found from metadata file provided in the dataset or from audio file names:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">scene</span><span class="w"> </span><span class="n">label</span><span class="p">]</span><span class="o">-</span><span class="p">[</span><span class="n">city</span><span class="p">]</span><span class="o">-</span><span class="p">[</span><span class="n">location</span><span class="w"> </span><span class="kt">id</span><span class="p">]</span><span class="o">-</span><span class="p">[</span><span class="n">segment</span><span class="w"> </span><span class="kt">id</span><span class="p">]</span><span class="o">-</span><span class="p">[</span><span class="n">device</span><span class="w"> </span><span class="kt">id</span><span class="p">].</span><span class="n">wav</span>
+</code></pre></div>
+<p>Make sure that all files having same location id are placed on the same side of the evaluation. In this subtask, device id can be <code>a</code>, <code>b</code>, or <code>c</code>.</p>
+<p>In this subtask, <strong>use of external data is forbidden</strong>. Data from another task or subtask is considered external data!</p>
+<h4>Evaluation dataset</h4>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/1293901" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/1293901" target="_blank">
+<span style="font-size:20px;">TUT Urban Acoustic Scenes 2018 Mobile, Evaluation dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(16.0 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.1293901">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1293901.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<p>Participants should run their system for this dataset, and submit the classification results (system output) to DCASE2018 Challenge. Evaluation dataset is provided without ground truth. The evaluation data consists of audio recorded with all four devices, of which device D was not encountered in development. 
+<strong>Ranking of systems will be done only using devices B and C</strong>, but accuracy will be calculated also for devices A and D.</p>
+<h2 id="subtask-c">Subtask C</h2>
+<p><span class="fa-stack fa-3x">
+<i class="fa fa-square fa-stack-2x text-warning"></i>
+<strong class="fa-stack-1x icon-text">C</strong>
+<strong class="fa-stack-1x dcase-icon-top-text">External</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 1</span>
+</span>
+<em>Acoustic Scene Classification with use of external data</em></p>
+<p>This subtask is meant to test if use of external data in system development brings a significant improvement to the performance. The task is identical to subtask A, with the only difference that <strong>use of external data and transfer learning is allowed</strong> under the following conditions:</p>
+<ul>
+<li>The used dataset must be public and freely available before 29th of March 2018</li>
+<li>Participants must inform/suggest such data to be listed on the task webpage, so that all competitors know about them and have equal opportunity to use them; please let us know by sending email to dcase.challenge@gmail.com and we will update the list of external datasets accordingly</li>
+<li>Once the evaluation set is published, the list of allowed external datasets is locked (no further external sources allowed)</li>
+<li>Participants should list in their technical report the external data sources they used </li>
+</ul>
+<p><strong>Participants to this subtask are encouraged to submit also for subtask A</strong> to provide the comparison point of their system <strong>without external data</strong>.</p>
+<h3>External data sources</h3>
+<p>List of external datasets allowed:</p>
+<table class="datatable table table-hover table-condensed" data-filter-control="false" data-filter-show-clear="false" data-id-field="name" data-pagination="false" data-show-pagination-switch="false" data-sort-name="name" data-sort-order="asc">
+<thead>
+<tr>
+<th data-field="name" data-sortable="true">Dataset name</th>
+<th data-field="type" data-filter-control="select" data-sortable="true" data-tag="true">Type</th>
+<th data-field="date" data-sortable="true">Added</th>
+<th data-field="link" data-value-type="url">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TUT Acoustic scenes 2017, development dataset</td>
+<td>audio</td>
+<td>29.3.2018</td>
+<td>https://zenodo.org/record/400515</td>
+</tr>
+<tr>
+<td>TUT Acoustic scenes 2017, evaluation dataset</td>
+<td>audio</td>
+<td>29.3.2018</td>
+<td>https://zenodo.org/record/1040168</td>
+</tr>
+<tr>
+<td>TUT Acoustic scenes 2016, development dataset</td>
+<td>audio</td>
+<td>29.3.2018</td>
+<td>https://zenodo.org/record/45739</td>
+</tr>
+<tr>
+<td>TUT Acoustic scenes 2016, evaluation dataset</td>
+<td>audio</td>
+<td>29.3.2018</td>
+<td>https://zenodo.org/record/165995</td>
+</tr>
+<tr>
+<td>LITIS Rouen audio scene dataset</td>
+<td>audio</td>
+<td>29.3.2018</td>
+<td>https://sites.google.com/site/alainrakotomamonjy/home/audio-scene</td>
+</tr>
+<tr>
+<td>DCASE2013 Challenge - Public Dataset for Scene Classification Task</td>
+<td>audio</td>
+<td>29.3.2018</td>
+<td>https://archive.org/details/dcase2013_scene_classification</td>
+</tr>
+<tr>
+<td>DCASE2013 Challenge - Private Dataset for Scene Classification Task</td>
+<td>audio</td>
+<td>29.3.2018</td>
+<td>https://archive.org/details/dcase2013_scene_classification_testset</td>
+</tr>
+<tr>
+<td>Dares G1</td>
+<td>audio</td>
+<td>29.3.2018</td>
+<td>http://www.daresounds.org/</td>
+</tr>
+<tr>
+<td>AudioSet</td>
+<td>audio</td>
+<td>25.4.2018</td>
+<td>https://research.google.com/audioset/</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<p class="bg-success">
+Participants can suggest data to this list by sending email to <strong>dcase.challenge@gmail.com</strong> until evaluation dataset is published, after which the list is locked.
+</p>
+<h1 id="submission">Submission</h1>
+<p>Official challenge submission consists of a technical report and system output for the evaluation data. </p>
+<p>System output should be presented as a single text-file (in CSV format) containing classification result for each audio file in the evaluation set. Result items can be in any order. Format:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">filename (string)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">scene label (string)</span><span class="o">]</span>
+</code></pre></div>
+<p>Multiple system outputs can be submitted (maximum 4 per participant). For each system, meta information should be provided in a separate file, containing the task specific information as given in the example here. All files should be packaged into a zip file for submission. Please carefully mark the connection between the submitted files and the corresponding system or system parameters (for example by naming the text file appropriately).</p>
+<p>Detailed information for the submission can be found on the <a href="http://localhost:3000/challenge2018/submission">Submission page</a>. </p>
+<h1 id="public-leaderboards">Public leaderboards</h1>
+<p>During the challenge, a public leaderboard will be provided using a separate public evaluation set for each subtask. 
+The leaderboards are organized through Kaggle InClass competitions, and they are meant to serve as a development tool for participants during the development. </p>
+<p><a class="icon-link" href="https://www.kaggle.com/c/dcase2018-task1a-leaderboard" target="_blank">
+<span class="fa-stack fa-3x">
+<i class="fa fa-square fa-stack-2x text-primary"></i>
+<strong class="fa-stack-1x icon-text">A</strong>
+<strong class="fa-stack-1x dcase-icon-top-text">Match</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 1</span>
+</span></a>
+<a href="https://www.kaggle.com/c/dcase2018-task1a-leaderboard" target="_blank">
+<strong style="font-size:140%;">Subtask A Leaderboard</strong>
+</a></p>
+<p><a class="icon-link" href="https://www.kaggle.com/c/dcase2018-task1b-leaderboard" target="_blank">
+<span class="fa-stack fa-3x">
+<i class="fa fa-square fa-stack-2x text-info"></i>
+<strong class="fa-stack-1x icon-text">B</strong>
+<strong class="fa-stack-1x dcase-icon-top-text">Mismatch</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 1</span>
+</span>
+<a href="https://www.kaggle.com/c/dcase2018-task1b-leaderboard" target="_blank">
+<strong style="font-size:140%;">Subtask B Leaderboard</strong>
+</a></a></p>
+<p><a class="icon-link" href="https://www.kaggle.com/c/dcase2018-task1c-leaderboard" target="_blank">
+<span class="fa-stack fa-3x">
+<i class="fa fa-square fa-stack-2x text-warning"></i>
+<strong class="fa-stack-1x icon-text">C</strong>
+<strong class="fa-stack-1x dcase-icon-top-text">External</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 1</span>
+</span>
+<a href="https://www.kaggle.com/c/dcase2018-task1c-leaderboard" target="_blank">
+<strong style="font-size:140%;">Subtask C Leaderboard</strong>
+</a></a></p>
+<p><strong>The official DCASE challenge submission will not be done through these Kaggle InClass competitions.</strong></p>
+<h2 id="datasets">Datasets</h2>
+<p>For public leaderboard submissions, participants should use the challenge development datasets to train their system as in DCASE challenge. Separate datasets, leaderboard datasets, are released to be used as evaluation datasets in the competitions. These leaderboard datasets consist of similar material to the official evaluation dataset in the DCASE challenge. The material amount in the leaderboard dataset is considerably lower than the official evaluation material in the DCASE challenge. 
+It is <strong>not allowed</strong> to use the leaderboard datasets to train the systems in any DCASE challenge subtasks or leaderboard competitions. </p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/1245181" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/1245181" target="_blank">
+<span style="font-size:20px;">TUT Urban Acoustic Scenes 2018, Leaderboard dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(2.8 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.1245181">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1245181.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/1245184" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/1245184" target="_blank">
+<span style="font-size:20px;">TUT Urban Acoustic Scenes 2018 Mobile, Leaderboard dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(2.3 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.1245184">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1245184.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<h1 id="task-rules">Task rules</h1>
+<p>There are general rules valid for all tasks; these, along with information on technical report and submission requirements can be found <a href="http://localhost:3000/challenge2018/rules">here</a>.</p>
+<p>Task specific rules:</p>
+<ul>
+<li>Use of external data for system development is <strong>allowed only in subtask C</strong>. Data from another task or subtask is considered external data.</li>
+<li>Manipulation of provided training and development data <strong>is allowed</strong> in all subtasks. The development dataset can be augmented without use of external data (e.g. by mixing data sampled from a pdf or using techniques such as pitch shifting or time stretching).</li>
+<li>Participants are <strong>not allowed</strong> to make subjective judgments of the evaluation data, nor to annotate it. The evaluation dataset cannot be used to train the submitted system; the use of statistics about the evaluation data in the decision making is also forbidden.</li>
+<li>Classification decision must be done independently for each test sample.</li>
+</ul>
+<h1 id="evaluation">Evaluation</h1>
+<p>The scoring of acoustic scene classification will be based on <strong>classification accuracy</strong>: the number of correctly classified segments among the total number of segments. Each segment is considered an independent test sample. Accuracy will be calculated as average of the class-wise accuracy. </p>
+<p>Participants can use <strong>sed_eval toolbox</strong> for the evaluation:   </p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/TUT-ARG/sed_eval" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/TUT-ARG/sed_eval" target="_blank">
+<span style="font-size:20px;">sed_eval - Evaluation toolbox for Sound Event Detection <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<h1 id="results">Results</h1>
+<h2 id="subtask-a-1">Subtask A</h2>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar" data-id-field="code" data-page-list="[10, 25, 50, All]" data-page-size="10" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="accuracy_eval_confidence" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="4">Submission Information</th>
+<th class="sep-left-cell" colspan="1"></th>
+</tr>
+<tr>
+<th class="sm-cell" data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sep-left-cell" data-field="corresponding_author" data-sortable="false">
+                Author
+            </th>
+<th class="sm-cell" data-field="corresponding_affiliation" data-sortable="false">
+                Affiliation
+            </th>
+<th class="sep-left-cell text-center" data-field="external_anchor" data-sortable="false" data-value-type="url">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Classification Accuracy" data-chartable="true" data-field="accuracy_eval_confidence" data-sortable="true" data-value-type="float1-percentage-interval-muted">
+                Accuracy <br/><small class="text-muted">with 95% <br/>confidence interval</small>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Baseline_Surrey_task1a_1</td>
+<td>Qiuqiang Kong</td>
+<td>Centre for Vission, Speech and Signal Processing (CVSSP), University of Surrey, Guildford, UK</td>
+<td>task-acoustic-scene-classification-results-a#Kong2018</td>
+<td>70.4 (68.9 - 71.9)</td>
+</tr>
+<tr>
+<td></td>
+<td>Baseline_Surrey_task1a_2</td>
+<td>Qiuqiang Kong</td>
+<td>Centre for Vission, Speech and Signal Processing (CVSSP), University of Surrey, Guildford, UK</td>
+<td>task-acoustic-scene-classification-results-a#Kong2018</td>
+<td>69.7 (68.2 - 71.2)</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang_NCU_task1a_1</td>
+<td>An Dang</td>
+<td>Computer Science and Information Engineering, Deep Learning and Media System Laboratory, National Central University, Taoyuan, Taiwan</td>
+<td>task-acoustic-scene-classification-results-a#Dang2018</td>
+<td>73.3 (71.9 - 74.8)</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang_NCU_task1a_2</td>
+<td>An Dang</td>
+<td>Computer Science and Information Engineering, Deep Learning and Media System Laboratory, National Central University, Taoyuan, Taiwan</td>
+<td>task-acoustic-scene-classification-results-a#Dang2018</td>
+<td>74.5 (73.1 - 76.0)</td>
+</tr>
+<tr>
+<td></td>
+<td>Dang_NCU_task1a_3</td>
+<td>An Dang</td>
+<td>Computer Science and Information Engineering, Deep Learning and Media System Laboratory, National Central University, Taoyuan, Taiwan</td>
+<td>task-acoustic-scene-classification-results-a#Dang2018</td>
+<td>74.1 (72.7 - 75.5)</td>
+</tr>
+<tr>
+<td></td>
+<td>Dorfer_CPJKU_task1a_1</td>
+<td>Matthias Dorfer</td>
+<td>Institute of Computational Perception, Johannes Kepler University Linz, Linz, Austria</td>
+<td>task-acoustic-scene-classification-results-a#Dorfer2018</td>
+<td>79.7 (78.4 - 81.0)</td>
+</tr>
+<tr>
+<td></td>
+<td>Dorfer_CPJKU_task1a_2</td>
+<td>Matthias Dorfer</td>
+<td>Institute of Computational Perception, Johannes Kepler University Linz, Linz, Austria</td>
+<td>task-acoustic-scene-classification-results-a#Dorfer2018</td>
+<td>67.8 (66.3 - 69.3)</td>
+</tr>
+<tr>
+<td></td>
+<td>Dorfer_CPJKU_task1a_3</td>
+<td>Matthias Dorfer</td>
+<td>Institute of Computational Perception, Johannes Kepler University Linz, Linz, Austria</td>
+<td>task-acoustic-scene-classification-results-a#Dorfer2018</td>
+<td>80.5 (79.2 - 81.8)</td>
+</tr>
+<tr>
+<td></td>
+<td>Dorfer_CPJKU_task1a_4</td>
+<td>Matthias Dorfer</td>
+<td>Institute of Computational Perception, Johannes Kepler University Linz, Linz, Austria</td>
+<td>task-acoustic-scene-classification-results-a#Dorfer2018</td>
+<td>77.2 (75.8 - 78.5)</td>
+</tr>
+<tr>
+<td></td>
+<td>Fraile_UPM_task1a_1</td>
+<td>Ruben Fraile</td>
+<td>Research Center on Software Technologies and Multimedia Systems for Sustainability (CITSEM), Universidad Politecnica de Madrid, Madrid, Spain</td>
+<td>task-acoustic-scene-classification-results-a#Fraile2018</td>
+<td>62.7 (61.1 - 64.3)</td>
+</tr>
+<tr>
+<td></td>
+<td>Gil-jin_KNU_task1a_1</td>
+<td>Jang Gin-jin</td>
+<td>School of Electronics Engineering, Kyungpook National University, Daegu, Korea</td>
+<td>task-acoustic-scene-classification-results-a#Sangwon2018</td>
+<td>74.4 (73.0 - 75.8)</td>
+</tr>
+<tr>
+<td></td>
+<td>Golubkov_SPCH_task1a_1</td>
+<td>Alexander Golubkov</td>
+<td>Saint Petersburg, Russia</td>
+<td>task-acoustic-scene-classification-results-a#Golubkov2018</td>
+<td>60.2 (58.7 - 61.8)</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2018 baseline</td>
+<td>Toni Heittola</td>
+<td>Laboratory of Signal Processing, Tampere University of Technology, Tampere, Finland</td>
+<td>task-acoustic-scene-classification-results-a#Heittola2018</td>
+<td>61.0 (59.4 - 62.6)</td>
+</tr>
+<tr>
+<td></td>
+<td>Jung_UOS_task1a_1</td>
+<td>Ha-jin Yu</td>
+<td>School of Computer Science, University of Seoul, Seoul, South Korea</td>
+<td>task-acoustic-scene-classification-results-a#Jung2018</td>
+<td>74.8 (73.4 - 76.2)</td>
+</tr>
+<tr>
+<td></td>
+<td>Jung_UOS_task1a_2</td>
+<td>Ha-jin Yu</td>
+<td>School of Computer Science, University of Seoul, Seoul, South Korea</td>
+<td>task-acoustic-scene-classification-results-a#Jung2018</td>
+<td>74.2 (72.8 - 75.7)</td>
+</tr>
+<tr>
+<td></td>
+<td>Jung_UOS_task1a_3</td>
+<td>Ha-jin Yu</td>
+<td>School of Computer Science, University of Seoul, Seoul, South Korea</td>
+<td>task-acoustic-scene-classification-results-a#Jung2018</td>
+<td>73.8 (72.4 - 75.2)</td>
+</tr>
+<tr>
+<td></td>
+<td>Jung_UOS_task1a_4</td>
+<td>Ha-jin Yu</td>
+<td>School of Computer Science, University of Seoul, Seoul, South Korea</td>
+<td>task-acoustic-scene-classification-results-a#Jung2018</td>
+<td>73.8 (72.4 - 75.3)</td>
+</tr>
+<tr>
+<td></td>
+<td>Khadkevich_FB_task1a_1</td>
+<td>Maksim Khadkevich</td>
+<td>AML, Facebook, Menlo Park, CA, USA</td>
+<td>task-acoustic-scene-classification-results-a#Khadkevich2018</td>
+<td>67.8 (66.3 - 69.3)</td>
+</tr>
+<tr>
+<td></td>
+<td>Khadkevich_FB_task1a_2</td>
+<td>Maksim Khadkevich</td>
+<td>AML, Facebook, Menlo Park, CA, USA</td>
+<td>task-acoustic-scene-classification-results-a#Khadkevich2018</td>
+<td>67.2 (65.7 - 68.8)</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_BIT_task1a_1</td>
+<td>Zhitong Li</td>
+<td>Laboratory of Modern Communication, Beijing Institute of Technology, Beijing, China</td>
+<td>task-acoustic-scene-classification-results-a#Li2018</td>
+<td>73.0 (71.5 - 74.4)</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_BIT_task1a_2</td>
+<td>Zhitong Li</td>
+<td>Laboratory of Modern Communication, Beijing Institute of Technology, Beijing, China</td>
+<td>task-acoustic-scene-classification-results-a#Li2018</td>
+<td>75.3 (73.9 - 76.7)</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_BIT_task1a_3</td>
+<td>Zhitong Li</td>
+<td>Laboratory of Modern Communication, Beijing Institute of Technology, Beijing, China</td>
+<td>task-acoustic-scene-classification-results-a#Li2018</td>
+<td>75.3 (73.9 - 76.7)</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_BIT_task1a_4</td>
+<td>Zhitong Li</td>
+<td>Laboratory of Modern Communication, Beijing Institute of Technology, Beijing, China</td>
+<td>task-acoustic-scene-classification-results-a#Li2018</td>
+<td>75.0 (73.6 - 76.4)</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_SCUT_task1a_1</td>
+<td>YangXiong Li</td>
+<td>Laboratory of Signal Processing, South China University of Technology, Guangzhou, China</td>
+<td>task-acoustic-scene-classification-results-a#Li2018a</td>
+<td>43.4 (41.8 - 45.0)</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_SCUT_task1a_2</td>
+<td>YangXiong Li</td>
+<td>Laboratory of Signal Processing, South China University of Technology, Guangzhou, China</td>
+<td>task-acoustic-scene-classification-results-a#Li2018a</td>
+<td>50.2 (48.6 - 51.9)</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_SCUT_task1a_3</td>
+<td>YangXiong Li</td>
+<td>Laboratory of Signal Processing, South China University of Technology, Guangzhou, China</td>
+<td>task-acoustic-scene-classification-results-a#Li2018a</td>
+<td>44.5 (42.9 - 46.2)</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_SCUT_task1a_4</td>
+<td>YangXiong Li</td>
+<td>Laboratory of Signal Processing, South China University of Technology, Guangzhou, China</td>
+<td>task-acoustic-scene-classification-results-a#Li2018a</td>
+<td>46.7 (45.1 - 48.3)</td>
+</tr>
+<tr>
+<td></td>
+<td>Liping_CQU_task1a_1</td>
+<td>Chen Xinxing</td>
+<td>College of Optoelectronic Engineering, Chongqing University, Chongqing, China</td>
+<td>task-acoustic-scene-classification-results-a#Liping2018</td>
+<td>70.4 (69.0 - 71.9)</td>
+</tr>
+<tr>
+<td></td>
+<td>Liping_CQU_task1a_2</td>
+<td>Chen Xinxing</td>
+<td>College of Optoelectronic Engineering, Chongqing University, Chongqing, China</td>
+<td>task-acoustic-scene-classification-results-a#Liping2018</td>
+<td>74.0 (72.6 - 75.4)</td>
+</tr>
+<tr>
+<td></td>
+<td>Liping_CQU_task1a_3</td>
+<td>Chen Xinxing</td>
+<td>College of Optoelectronic Engineering, Chongqing University, Chongqing, China</td>
+<td>task-acoustic-scene-classification-results-a#Liping2018</td>
+<td>74.7 (73.3 - 76.1)</td>
+</tr>
+<tr>
+<td></td>
+<td>Liping_CQU_task1a_4</td>
+<td>Chen Xinxing</td>
+<td>College of Optoelectronic Engineering, Chongqing University, Chongqing, China</td>
+<td>task-acoustic-scene-classification-results-a#Liping2018</td>
+<td>75.4 (74.0 - 76.8)</td>
+</tr>
+<tr>
+<td></td>
+<td>Maka_ZUT_task1a_1</td>
+<td>Tomasz Maka</td>
+<td>Faculty of Computer Science and Information Technology, West Pomeranian University of Technology, Szczecin, Szczecin, Poland</td>
+<td>task-acoustic-scene-classification-results-a#Maka2018</td>
+<td>65.8 (64.3 - 67.4)</td>
+</tr>
+<tr>
+<td></td>
+<td>Mariotti_lip6_task1a_1</td>
+<td>Octave Mariotti</td>
+<td>Laboratoire d'informatique de Paris 6, Sorbonne Université, Paris, France</td>
+<td>task-acoustic-scene-classification-results-a#Mariotti2018</td>
+<td>75.0 (73.6 - 76.4)</td>
+</tr>
+<tr>
+<td></td>
+<td>Mariotti_lip6_task1a_2</td>
+<td>Octave Mariotti</td>
+<td>Laboratoire d'informatique de Paris 6, Sorbonne Université, Paris, France</td>
+<td>task-acoustic-scene-classification-results-a#Mariotti2018</td>
+<td>72.8 (71.3 - 74.2)</td>
+</tr>
+<tr>
+<td></td>
+<td>Mariotti_lip6_task1a_3</td>
+<td>Octave Mariotti</td>
+<td>Laboratoire d'informatique de Paris 6, Sorbonne Université, Paris, France</td>
+<td>task-acoustic-scene-classification-results-a#Mariotti2018</td>
+<td>72.8 (71.3 - 74.2)</td>
+</tr>
+<tr>
+<td></td>
+<td>Mariotti_lip6_task1a_4</td>
+<td>Octave Mariotti</td>
+<td>Laboratoire d'informatique de Paris 6, Sorbonne Université, Paris, France</td>
+<td>task-acoustic-scene-classification-results-a#Mariotti2018</td>
+<td>74.9 (73.4 - 76.3)</td>
+</tr>
+<tr>
+<td></td>
+<td>Nguyen_TUGraz_task1a_1</td>
+<td>Truc Nguyen</td>
+<td>Signal Processing and Speech Communication Laboratory, Graz University of Technology, Graz, Austria/ Europe</td>
+<td>task-acoustic-scene-classification-results-a#Nguyen2018</td>
+<td>69.8 (68.3 - 71.3)</td>
+</tr>
+<tr>
+<td></td>
+<td>Ren_UAU_task1a_1</td>
+<td>Zhao Ren</td>
+<td>ZD.B Chair of Embedded Intelligence for Health Care and Wellbeing, University of Augsburg, Augsburg, Germany</td>
+<td>task-acoustic-scene-classification-results-a#Ren2018</td>
+<td>69.0 (67.5 - 70.5)</td>
+</tr>
+<tr>
+<td></td>
+<td>Roletscheck_UNIA_task1a_1</td>
+<td>Christian Roletscheck</td>
+<td>Human Centered Multimedia, Augsburg University, Augsburg, Germany</td>
+<td>task-acoustic-scene-classification-results-a#Roletscheck2018</td>
+<td>69.2 (67.7 - 70.7)</td>
+</tr>
+<tr>
+<td></td>
+<td>Roletscheck_UNIA_task1a_2</td>
+<td>Christian Roletscheck</td>
+<td>Human Centered Multimedia, Augsburg University, Augsburg, Germany</td>
+<td>task-acoustic-scene-classification-results-a#Roletscheck2018</td>
+<td>67.3 (65.7 - 68.8)</td>
+</tr>
+<tr>
+<td></td>
+<td>Sakashita_TUT_task1a_1</td>
+<td>Yuma Sakashita</td>
+<td>Knowledge Data Engineering Laboratory, Toyohashi University of Technology, Aichi, Japan</td>
+<td>task-acoustic-scene-classification-results-a#Sakashita2018</td>
+<td>81.0 (79.7 - 82.3)</td>
+</tr>
+<tr>
+<td></td>
+<td>Sakashita_TUT_task1a_2</td>
+<td>Yuma Sakashita</td>
+<td>Knowledge Data Engineering Laboratory, Toyohashi University of Technology, Aichi, Japan</td>
+<td>task-acoustic-scene-classification-results-a#Sakashita2018</td>
+<td>81.0 (79.7 - 82.3)</td>
+</tr>
+<tr>
+<td></td>
+<td>Sakashita_TUT_task1a_3</td>
+<td>Yuma Sakashita</td>
+<td>Knowledge Data Engineering Laboratory, Toyohashi University of Technology, Aichi, Japan</td>
+<td>task-acoustic-scene-classification-results-a#Sakashita2018</td>
+<td>80.7 (79.4 - 82.0)</td>
+</tr>
+<tr>
+<td></td>
+<td>Sakashita_TUT_task1a_4</td>
+<td>Yuma Sakashita</td>
+<td>Knowledge Data Engineering Laboratory, Toyohashi University of Technology, Aichi, Japan</td>
+<td>task-acoustic-scene-classification-results-a#Sakashita2018</td>
+<td>79.3 (78.0 - 80.6)</td>
+</tr>
+<tr>
+<td></td>
+<td>Tilak_IIITB_task1a_1</td>
+<td>Tilak Purohit</td>
+<td>Signal Processing and Pattern Recognition Lab, International Institute of Information Technology, Bangaluru, India</td>
+<td>task-acoustic-scene-classification-results-a#Purohit2018</td>
+<td>59.5 (57.9 - 61.1)</td>
+</tr>
+<tr>
+<td></td>
+<td>Tilak_IIITB_task1a_2</td>
+<td>Tilak Purohit</td>
+<td>Signal Processing and Pattern Recognition Lab, International Institute of Information Technology, Bangaluru, India</td>
+<td>task-acoustic-scene-classification-results-a#Purohit2018</td>
+<td>58.3 (56.7 - 59.9)</td>
+</tr>
+<tr>
+<td></td>
+<td>Tilak_IIITB_task1a_3</td>
+<td>Tilak Purohit</td>
+<td>Signal Processing and Pattern Recognition Lab, International Institute of Information Technology, Bangaluru, India</td>
+<td>task-acoustic-scene-classification-results-a#Purohit2018</td>
+<td>55.0 (53.4 - 56.6)</td>
+</tr>
+<tr>
+<td></td>
+<td>Waldekar_IITKGP_task1a_1</td>
+<td>Shefali Waldekar</td>
+<td>Electronics and Electrical Communication Engineering Dept., Indian Institute of Technology Kharagpur, Kharagpur, India</td>
+<td>task-acoustic-scene-classification-results-a#Waldekar2018</td>
+<td>69.7 (68.2 - 71.2)</td>
+</tr>
+<tr>
+<td></td>
+<td>WangJun_BUPT_task1a_1</td>
+<td>Wang Jun</td>
+<td>Institute of Information Photonics and Optical Communication, c, Beijing, China</td>
+<td>task-acoustic-scene-classification-results-a#Jun2018</td>
+<td>70.9 (69.4 - 72.4)</td>
+</tr>
+<tr>
+<td></td>
+<td>WangJun_BUPT_task1a_2</td>
+<td>Wang Jun</td>
+<td>Institute of Information Photonics and Optical Communication, Beijing University of Posts and Telecommunications, Beijing, China</td>
+<td>task-acoustic-scene-classification-results-a#Jun2018</td>
+<td>70.5 (69.0 - 72.0)</td>
+</tr>
+<tr>
+<td></td>
+<td>WangJun_BUPT_task1a_3</td>
+<td>Wang Jun</td>
+<td>Institute of Information Photonics and Optical Communication, Beijing University of Posts and Telecommunications, Beijing, China</td>
+<td>task-acoustic-scene-classification-results-a#Jun2018</td>
+<td>73.2 (71.7 - 74.6)</td>
+</tr>
+<tr>
+<td></td>
+<td>Yang_GIST_task1a_1</td>
+<td>Jeong Hyeon Yang</td>
+<td>School of Electrical Engineering and Computer Science, Gwangju Institute of Science and Technology, Gwangju, Korea</td>
+<td>task-acoustic-scene-classification-results-a#Yang2018</td>
+<td>71.7 (70.2 - 73.2)</td>
+</tr>
+<tr>
+<td></td>
+<td>Yang_GIST_task1a_2</td>
+<td>Jeong Hyeon Yang</td>
+<td>School of Electrical Engineering and Computer Science, Gwangju Institute of Science and Technology, Gwangju, Korea</td>
+<td>task-acoustic-scene-classification-results-a#Yang2018</td>
+<td>70.0 (68.5 - 71.5)</td>
+</tr>
+<tr>
+<td></td>
+<td>Zeinali_BUT_task1a_1</td>
+<td>Hossein Zeinali</td>
+<td>BUT Speech, Department of Computer Graphics and Multimedia, Faculty of Information Technology, Brno University of Technology, Brno, Czech Republic</td>
+<td>task-acoustic-scene-classification-results-a#Zeinali2018</td>
+<td>78.4 (77.0 - 79.7)</td>
+</tr>
+<tr>
+<td></td>
+<td>Zeinali_BUT_task1a_2</td>
+<td>Hossein Zeinali</td>
+<td>BUT Speech, Department of Computer Graphics and Multimedia, Faculty of Information Technology, Brno University of Technology, Brno, Czech Republic</td>
+<td>task-acoustic-scene-classification-results-a#Zeinali2018</td>
+<td>78.1 (76.8 - 79.5)</td>
+</tr>
+<tr>
+<td></td>
+<td>Zeinali_BUT_task1a_3</td>
+<td>Hossein Zeinali</td>
+<td>BUT Speech, Department of Computer Graphics and Multimedia, Faculty of Information Technology, Brno University of Technology, Brno, Czech Republic</td>
+<td>task-acoustic-scene-classification-results-a#Zeinali2018</td>
+<td>74.5 (73.1 - 76.0)</td>
+</tr>
+<tr>
+<td></td>
+<td>Zeinali_BUT_task1a_4</td>
+<td>Hossein Zeinali</td>
+<td>BUT Speech, Department of Computer Graphics and Multimedia, Faculty of Information Technology, Brno University of Technology, Brno, Czech Republic</td>
+<td>task-acoustic-scene-classification-results-a#Zeinali2018</td>
+<td>75.1 (73.7 - 76.6)</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_HIT_task1a_1</td>
+<td>Liwen Zhang</td>
+<td>Laboratory of Speech Signal Processing, Harbin Institute of Technology, Harbin, China</td>
+<td>task-acoustic-scene-classification-results-a#Zhang2018</td>
+<td>73.4 (72.0 - 74.9)</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_HIT_task1a_2</td>
+<td>Liwen Zhang</td>
+<td>Laboratory of Speech Signal Processing, Harbin Institute of Technology, Harbin, China</td>
+<td>task-acoustic-scene-classification-results-a#Zhang2018</td>
+<td>70.9 (69.4 - 72.3)</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhao_DLU_task1a_1</td>
+<td>Lasheng Zhao</td>
+<td>Key Laboratory of Advanced Design and Intelligent Computing(Dalian University), Ministry of Education, Dalian University, Liaoning, China</td>
+<td>task-acoustic-scene-classification-results-a#Hao2018</td>
+<td>69.8 (68.3 - 71.3)</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<p>Complete results and technical reports can be found at <a class="btn btn-primary" href="http://localhost:3000/challenge2018/task-acoustic-scene-classification-results-a">subtask A results page</a></p>
+<h2 id="subtask-b-1">Subtask B</h2>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar" data-id-field="code" data-page-list="[10, 25, 50, All]" data-page-size="10" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="accuracy_eval_confidence" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="4">Submission Information</th>
+<th class="sep-left-cell" colspan="1"></th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sep-left-cell" data-field="corresponding_author" data-sortable="false">
+                Author
+            </th>
+<th class="sm-cell" data-field="corresponding_affiliation" data-sortable="false">
+                Affiliation
+            </th>
+<th class="sep-left-cell text-center" data-field="external_anchor" data-sortable="false" data-value-type="url">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Classification Accuracy" data-chartable="true" data-field="accuracy_eval_confidence" data-sortable="true" data-value-type="float1-percentage-interval-muted">
+                Accuracy <br/><small class="text-muted">with 95% <br/>confidence interval</small>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Baseline_Surrey_task1b_1</td>
+<td>Qiuqiang Kong</td>
+<td>Centre for Vission, Speech and Signal Processing (CVSSP), University of Surrey, Guildford, UK</td>
+<td>task-acoustic-scene-classification-results-b#Kong2018</td>
+<td>59.6 (58.5 - 60.7)</td>
+</tr>
+<tr>
+<td></td>
+<td>Baseline_Surrey_task1b_2</td>
+<td>Qiuqiang Kong</td>
+<td>Centre for Vission, Speech and Signal Processing (CVSSP), University of Surrey, Guildford, UK</td>
+<td>task-acoustic-scene-classification-results-b#Kong2018</td>
+<td>58.8 (57.7 - 59.9)</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2018 baseline</td>
+<td>Toni Heittola</td>
+<td>Laboratory of Signal Processing, Tampere University of Technology, Tampere, Finland</td>
+<td>task-acoustic-scene-classification-results-b#Heittola2018</td>
+<td>46.5 (45.4 - 47.6)</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_SCUT_task1b_1</td>
+<td>YangXiong Li</td>
+<td>Laboratory of Signal Processing, South China University of Technology, Guangzhou, China</td>
+<td>task-acoustic-scene-classification-results-b#Li2018</td>
+<td>41.1 (40.0 - 42.2)</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_SCUT_task1b_2</td>
+<td>YangXiong Li</td>
+<td>Laboratory of Signal Processing, South China University of Technology, Guangzhou, China</td>
+<td>task-acoustic-scene-classification-results-b#Li2018</td>
+<td>39.5 (38.4 - 40.6)</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_SCUT_task1b_3</td>
+<td>YangXiong Li</td>
+<td>Laboratory of Signal Processing, South China University of Technology, Guangzhou, China</td>
+<td>task-acoustic-scene-classification-results-b#Li2018</td>
+<td>42.3 (41.2 - 43.4)</td>
+</tr>
+<tr>
+<td></td>
+<td>Liping_CQU_task1b_1</td>
+<td>Chen Xinxing</td>
+<td>College of Optoelectronic Engineering, Chongqing University, Chongqing, China</td>
+<td>task-acoustic-scene-classification-results-b#Liping2018</td>
+<td>67.0 (66.0 - 68.1)</td>
+</tr>
+<tr>
+<td></td>
+<td>Liping_CQU_task1b_2</td>
+<td>Chen Xinxing</td>
+<td>College of Optoelectronic Engineering, Chongqing University, Chongqing, China</td>
+<td>task-acoustic-scene-classification-results-b#Liping2018</td>
+<td>63.2 (62.1 - 64.3)</td>
+</tr>
+<tr>
+<td></td>
+<td>Liping_CQU_task1b_3</td>
+<td>Chen Xinxing</td>
+<td>College of Optoelectronic Engineering, Chongqing University, Chongqing, China</td>
+<td>task-acoustic-scene-classification-results-b#Liping2018</td>
+<td>67.7 (66.6 - 68.7)</td>
+</tr>
+<tr>
+<td></td>
+<td>Liping_CQU_task1b_4</td>
+<td>Chen Xinxing</td>
+<td>College of Optoelectronic Engineering, Chongqing University, Chongqing, China</td>
+<td>task-acoustic-scene-classification-results-b#Liping2018</td>
+<td>67.1 (66.1 - 68.2)</td>
+</tr>
+<tr>
+<td></td>
+<td>Nguyen_TUGraz_task1b_1</td>
+<td>Truc Nguyen</td>
+<td>Signal Processing and Speech Communication Laboratory, Graz University of Technology, Graz, Austria/ Europe</td>
+<td>task-acoustic-scene-classification-results-b#Nguyen2018</td>
+<td>69.0 (68.0 - 70.0)</td>
+</tr>
+<tr>
+<td></td>
+<td>Ren_UAU_task1b_1</td>
+<td>Zhao Ren</td>
+<td>ZD.B Chair of Embedded Intelligence for Health Care and Wellbeing, University of Augsburg, Augsburg, Germany</td>
+<td>task-acoustic-scene-classification-results-b#Ren2018</td>
+<td>60.5 (59.4 - 61.5)</td>
+</tr>
+<tr>
+<td></td>
+<td>Tchorz_THL_task1b_1</td>
+<td>Juergen Tchorz</td>
+<td>Institute for Acoustics, University of Applied Sciences Luebeck, Luebeck, Germany</td>
+<td>task-acoustic-scene-classification-results-b#Tchorz2018</td>
+<td>54.0 (52.9 - 55.1)</td>
+</tr>
+<tr>
+<td></td>
+<td>Waldekar_IITKGP_task1b_1</td>
+<td>Shefali Waldekar</td>
+<td>Electronics and Electrical Communication Engineering Dept., Indian Institute of Technology Kharagpur, Kharagpur, India</td>
+<td>task-acoustic-scene-classification-results-b#Waldekar2018</td>
+<td>56.2 (55.1 - 57.3)</td>
+</tr>
+<tr>
+<td></td>
+<td>WangJun_BUPT_task1b_1</td>
+<td>Wang Jun</td>
+<td>Laboratory of Signal Processing, Institute of Information Photonics and Optical Communication, Beijing, China</td>
+<td>task-acoustic-scene-classification-results-b#Jun2018</td>
+<td>48.8 (47.7 - 49.9)</td>
+</tr>
+<tr>
+<td></td>
+<td>WangJun_BUPT_task1b_2</td>
+<td>Wang Jun</td>
+<td>Laboratory of Signal Processing, Institute of Information Photonics and Optical Communication, Beijing, China</td>
+<td>task-acoustic-scene-classification-results-b#Jun2018</td>
+<td>52.5 (51.4 - 53.6)</td>
+</tr>
+<tr>
+<td></td>
+<td>WangJun_BUPT_task1b_3</td>
+<td>Wang Jun</td>
+<td>Laboratory of Signal Processing, Institute of Information Photonics and Optical Communication, Beijing, China</td>
+<td>task-acoustic-scene-classification-results-b#Jun2018</td>
+<td>52.3 (51.2 - 53.4)</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<p>Complete results and technical reports can be found at <a class="btn btn-info" href="http://localhost:3000/challenge2018/task-acoustic-scene-classification-results-b">subtask B results page</a></p>
+<h2 id="subtask-c-1">Subtask C</h2>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar" data-id-field="code" data-page-list="[10, 25, 50, All]" data-page-size="25" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="false" data-show-rank="true" data-sort-name="accuracy_eval_confidence" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="4">Submission Information</th>
+<th class="sep-left-cell" colspan="1"></th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sep-left-cell" data-field="corresponding_author" data-sortable="false">
+                Author
+            </th>
+<th class="sm-cell" data-field="corresponding_affiliation" data-sortable="false">
+                Affiliation
+            </th>
+<th class="sep-left-cell text-center" data-field="external_anchor" data-sortable="false" data-value-type="url">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Classification Accuracy" data-chartable="true" data-field="accuracy_eval_confidence" data-sortable="true" data-value-type="float1-percentage-interval-muted">
+                Accuracy <br/><small class="text-muted">with 95% <br/>confidence interval</small>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2018 baseline</td>
+<td>Toni Heittola</td>
+<td>Laboratory of Signal Processing, Tampere University of Technology, Tampere, Finland</td>
+<td>task-acoustic-scene-classification-results-c#Heittola2018</td>
+<td>61.0 (59.4 - 62.6)</td>
+</tr>
+<tr>
+<td></td>
+<td>Khadkevich_FB_task1c_1</td>
+<td>Maksim Khadkevich</td>
+<td>AML, Facebook, Menlo Park, CA, USA</td>
+<td>task-acoustic-scene-classification-results-c#Khadkevich2018</td>
+<td>71.7 (70.2 - 73.2)</td>
+</tr>
+<tr>
+<td></td>
+<td>Khadkevich_FB_task1c_2</td>
+<td>Maksim Khadkevich</td>
+<td>AML, Facebook, Menlo Park, CA, USA</td>
+<td>task-acoustic-scene-classification-results-c#Khadkevich2018</td>
+<td>69.0 (67.5 - 70.5)</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<p>Complete results and technical reports can be found at <a class="btn btn-warning" href="http://localhost:3000/challenge2018/task-acoustic-scene-classification-results-c" style="">subtask C results page</a></p>
+<h2 id="submissions">Submissions</h2>
+<table class="table">
+<thead>
+<tr>
+<th>Subtask</th>
+<th>Teams</th>
+<th>Entries</th>
+<th>Authors</th>
+<th>Affiliations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Subtask A</td>
+<td>24</td>
+<td>59</td>
+<td>71</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Subtask B</td>
+<td>8</td>
+<td>16</td>
+<td>21</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Subtask C</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Overall</td>
+<td>25</td>
+<td>77</td>
+<td>72</td>
+<td>26</td>
+</tr>
+</tbody>
+</table>
+<h1 id="baseline-system">Baseline system</h1>
+<p>The baseline system provides a simple entry-level state-of-the-art approach that gives reasonable results in the subtasks of Task 1. The baseline system is built on <a href="https://github.com/DCASE-REPO/dcase_util">dcase_util</a> toolbox. </p>
+<p>Participants are strongly encouraged to build their own systems by extending the provided baseline system. The system has all needed functionality for the dataset handling, acoustic feature storing and accessing, acoustic model training  and storing, and evaluation. The modular structure of the system enables participants to modify the system to their needs. The baseline system is a good starting point especially for the entry level researchers to familiarize themselves with the acoustic scene classification problem.</p>
+<p>If participants plan to publish their code to the DCASE community after the challenge, building their approach on the baseline system will make their code more accessible to the community. DCASE organizers strongly encourage participants to share their code in any form after the challenge.</p>
+<h2 id="repository">Repository</h2>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/DCASE-REPO/dcase2018_baseline/tree/master/task1" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/DCASE-REPO/dcase2018_baseline/tree/master/task1" target="_blank">
+<span style="font-size:20px;">DCASE2018 Task 1 <strong>Baseline</strong> <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<h2 id="system-description">System description</h2>
+<p>The baseline system implements a convolutional neural network (CNN) based approach, where log mel-band energies are first extracted for each 10-second signal, and a network consisting of two CNN layers and one fully connected layer is trained to assign scene labels to the audio signals.</p>
+<p>The baseline system is built on <a href="https://github.com/DCASE-REPO/dcase_util">dcase_util</a> toolbox. The machine learning part of the code in built on <a href="https://keras.io/">Keras (v2.1.5)</a>, using <a href="https://www.tensorflow.org/">TensorFlow (v1.4.0)</a> as backend.</p>
+<h3>Parameters</h3>
+<h4>Acoustic features</h4>
+<ul>
+<li>Analysis frame 40 ms (50% hop size)</li>
+<li>Log mel-band energies (40 bands)</li>
+</ul>
+<h4>Neural network</h4>
+<ul>
+<li>Input shape: 40 * 500 (10 seconds)</li>
+<li>
+<p>Architecture:</p>
+<ul>
+<li>CNN layer #1<ul>
+<li>2D Convolutional layer (filters: 32, kernel size: 7) + Batch normalization + ReLu activation</li>
+<li>2D max pooling (pool size: (5, 5)) + Dropout (rate: 30%)</li>
+</ul>
+</li>
+<li>CNN layer #2<ul>
+<li>2D Convolutional layer (filters: 64, kernel size: 7) + Batch normalization + ReLu activation</li>
+<li>2D max pooling (pool size: (4, 100)) + Dropout (rate: 30%)</li>
+</ul>
+</li>
+<li>Flatten</li>
+<li>Dense layer #1<ul>
+<li>Dense layer (units: 100, activation: ReLu )</li>
+<li>Dropout (rate: 30%)</li>
+</ul>
+</li>
+<li>Output layer (activation: softmax)</li>
+</ul>
+</li>
+<li>
+<p>Learning (epochs: 200, batch size: 16, data shuffling between epochs)</p>
+<ul>
+<li>Optimizer: Adam (learning rate: 0.001)</li>
+</ul>
+</li>
+<li>
+<p>Model selection:</p>
+<ul>
+<li>Approximately 30% of the original training data is assigned to validation set, split done such that training and validation sets do not have segments from the same location and both sets have data from each city</li>
+<li>Model performance after each epoch is evaluated on the validation set, and best performing model is selected</li>
+</ul>
+</li>
+</ul>
+<h2 id="results-for-the-development-dataset">Results for the development dataset</h2>
+<p>Results are calculated using TensorFlow in GPU mode (using Nvidia Titan XP GPU card). Because results produced with GPU card are generally non-deterministic, the system was trained and tested 10 times; mean and standard deviation of the performance from these 10 independent trials are shown in the results tables.</p>
+<h3>Subtask A</h3>
+<div class="table-responsive col-md-8">
+<table class="table table-striped">
+<thead>
+<tr>
+<th>Scene label</th>
+<th class="col-md-4">Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Airport</td>
+<td>72.9 %</td>
+</tr>
+<tr>
+<td>Bus</td>
+<td>62.9 %</td>
+</tr>
+<tr>
+<td>Metro</td>
+<td>51.2 %</td>
+</tr>
+<tr>
+<td>Metro station</td>
+<td>55.4 %</td>
+</tr>
+<tr>
+<td>Park</td>
+<td>79.1 %</td>
+</tr>
+<tr>
+<td>Public square</td>
+<td>40.4 %</td>
+</tr>
+<tr>
+<td>Shopping mall</td>
+<td>49.6 %</td>
+</tr>
+<tr>
+<td>Street, pedestrian</td>
+<td>50.0 %</td>
+</tr>
+<tr>
+<td>Street, traffic</td>
+<td>80.5 %</td>
+</tr>
+<tr>
+<td>Tram</td>
+<td>55.1 %</td>
+</tr>
+<tr>
+<td><strong>Average</strong></td>
+<td><strong>59.7 %</strong> (± 0.7)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="clearfix"></div>
+<p><strong>Note:</strong> The reported baseline system performance is not exactly reproducible due to varying setups. However, you should be able obtain very similar results.</p>
+<h3>Subtask B</h3>
+<p>Material from device A (high-quality) is used for training, while testing is done with material from all three devices. This highlights the problem of mismatched recording devices. Results are calculated the same way as for subtask A, with mean and standard deviation of the performance from 10 independent trials shown in the results table.</p>
+<p>Remember that ranking in this subtask will be done by devices B and C (third column in this table).</p>
+<div class="table-responsive col-md-12">
+<table class="table table-striped">
+<thead>
+<tr>
+<th>Scene label</th>
+<th>Device B</th>
+<th>Device C</th>
+<th>Average (B,C)</th>
+<th>Device A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Airport</td>
+<td>68.9 %</td>
+<td>76.1 %</td>
+<td>72.5 %</td>
+<td>73.4 %</td>
+</tr>
+<tr>
+<td>Bus</td>
+<td>70.6 %</td>
+<td>86.1 %</td>
+<td>78.3 %</td>
+<td>56.7 %</td>
+</tr>
+<tr>
+<td>Metro</td>
+<td>23.9 %</td>
+<td>17.2 %</td>
+<td>20.6 %</td>
+<td>46.6 %</td>
+</tr>
+<tr>
+<td>Metro station</td>
+<td>33.9 %</td>
+<td>31.7 %</td>
+<td>32.8 %</td>
+<td>52.9 %</td>
+</tr>
+<tr>
+<td>Park</td>
+<td>67.2 %</td>
+<td>51.1 %</td>
+<td>59.2 %</td>
+<td>80.8 %</td>
+</tr>
+<tr>
+<td>Public square</td>
+<td>22.8 %</td>
+<td>26.7 %</td>
+<td>24.7 %</td>
+<td>37.9 %</td>
+</tr>
+<tr>
+<td>Shopping mall</td>
+<td>58.3 %</td>
+<td>63.9 %</td>
+<td>61.1 %</td>
+<td>46.4 %</td>
+</tr>
+<tr>
+<td>Street, pedestrian</td>
+<td>16.7 %</td>
+<td>25.0 %</td>
+<td>20.8 %</td>
+<td>55.5 %</td>
+</tr>
+<tr>
+<td>Street, traffic</td>
+<td>69.4 %</td>
+<td>63.3 %</td>
+<td>66.4 %</td>
+<td>82.5 %</td>
+</tr>
+<tr>
+<td>Tram</td>
+<td>18.9 %</td>
+<td>20.6 %</td>
+<td>19.7 %</td>
+<td>56.5 %</td>
+</tr>
+<tr>
+<td><strong>Average</strong></td>
+<td><strong>45.1 %</strong> (± 3.6)</td>
+<td><strong>46.2 %</strong> (± 4.2)</td>
+<td><strong>45.6 %</strong> (± 3.6)</td>
+<td><strong>58.9 %</strong> (± 0.8)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="clearfix"></div>
+<p><strong>Note:</strong> The reported baseline system performance is not exactly reproducible due to varying setups. However, you should be able obtain very similar results.</p>
+<h3>Subtask C</h3>
+<p>Result for the subtask A applies.</p>
+<h1 id="citation">Citation</h1>
+<p>If you are using the <strong>dataset</strong> or <strong>baseline</strong> code, or want to refer <strong>challenge task</strong> please cite the following paper:</p>
+<div class="btex-item" data-item="Mesaros2018_DCASE" data-source="content/data/challenge2018/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Mesaros2018_DCASE"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Annamaria Mesaros, Toni Heittola, and Tuomas Virtanen.
+<em>A multi-device dataset for urban acoustic scene classification.</em>
+In Proceedings of the Detection and Classification of Acoustic Scenes and Events 2018 Workshop (DCASE2018), 9–13. November 2018.
+URL: <a href="https://arxiv.org/abs/1807.09840">https://arxiv.org/abs/1807.09840</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexMesaros2018_DCASE9f2632fd61dc40c996ef852d677002c7" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/1807.09840" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseMesaros2018_DCASE9f2632fd61dc40c996ef852d677002c7" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseMesaros2018_DCASE9f2632fd61dc40c996ef852d677002c7" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingMesaros2018_DCASE9f2632fd61dc40c996ef852d677002c7" class="panel-collapse collapse" id="collapseMesaros2018_DCASE9f2632fd61dc40c996ef852d677002c7" role="tabpanel">
+<h4>A multi-device dataset for urban acoustic scene classification</h4>
+<h5>Abstract</h5>
+<p class="text-justify">This paper introduces the acoustic scene classification task of DCASE 2018 Challenge and the TUT Urban Acoustic Scenes 2018 dataset provided for the task, and evaluates the performance of a baseline system in the task. As in previous years of the challenge, the task is defined for classification of short audio samples into one of predefined acoustic scene classes, using a supervised, closed-set classification setup. The newly recorded TUT Urban Acoustic Scenes 2018 dataset consists of ten different acoustic scenes and was recorded in six large European cities, therefore it has a higher acoustic variability than the previous datasets used for this task, and in addition to high-quality binaural recordings, it also includes data recorded with mobile devices. We also present the baseline system consisting of a convolutional neural network and its performance in the subtasks using the recommended cross-validation setup.</p>
+<h5>Keywords</h5>
+<p class="text-justify">Acoustic scene classification, DCASE challenge, public datasets, multi-device data</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexMesaros2018_DCASE9f2632fd61dc40c996ef852d677002c7" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/1807.09840" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexMesaros2018_DCASE9f2632fd61dc40c996ef852d677002c7label" class="modal fade" id="bibtexMesaros2018_DCASE9f2632fd61dc40c996ef852d677002c7" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexMesaros2018_DCASE9f2632fd61dc40c996ef852d677002c7label">A multi-device dataset for urban acoustic scene classification</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Mesaros2018_DCASE,
+    Author = "Mesaros, Annamaria and Heittola, Toni and Virtanen, Tuomas",
+    title = "A multi-device dataset for urban acoustic scene classification",
+    year = "2018",
+    booktitle = "Proceedings of the Detection and Classification of Acoustic Scenes and Events 2018 Workshop (DCASE2018)",
+    month = "November",
+    pages = "9--13",
+    keywords = "Acoustic scene classification, DCASE challenge, public datasets, multi-device data",
+    abstract = "This paper introduces the acoustic scene classification task of DCASE 2018 Challenge and the TUT Urban Acoustic Scenes 2018 dataset provided for the task, and evaluates the performance of a baseline system in the task. As in previous years of the challenge, the task is defined for classification of short audio samples into one of predefined acoustic scene classes, using a supervised, closed-set classification setup. The newly recorded TUT Urban Acoustic Scenes 2018 dataset consists of ten different acoustic scenes and was recorded in six large European cities, therefore it has a higher acoustic variability than the previous datasets used for this task, and in addition to high-quality binaural recordings, it also includes data recorded with mobile devices. We also present the baseline system consisting of a convolutional neural network and its performance in the subtasks using the recommended cross-validation setup.",
+    url = "https://arxiv.org/abs/1807.09840"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/>
+<br/></p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

@@ -1,0 +1,3703 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Audio and Audiovisual Sound Event Localization and Detection with Source Distance Estimation - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Audio and Audiovisual Sound Event Localization and Detection with Source Distance Estimation - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation-results">
+    <meta property="og:url" content="https://dcase.community/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="Task description The Sound Event Localization and Detection (SELD) task deals with methods that detect the temporal onset and offset of sound events when active, classify the type of the event from a known set of sound classes, and further localize the events in space when active. The focus of …" />
+    <meta name="og:description" content="Task description The Sound Event Localization and..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btex.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right navbar-tighter" id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2024</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2024/"><i class="fa fa-home"></i>&nbsp;Intro</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-t1"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-t2"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-t3"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-t4"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-bird text-t5"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-captioning text-t6"></i>&nbsp;Task6&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-synthesis text-t7"></i>&nbsp;Task7&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-retrieval text-t8"></i>&nbsp;Task8&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-separation text-t9"></i>&nbsp;Task9&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-traffic text-t10"></i>&nbsp;Task10&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2024/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2024/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/wall-08.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-t3"></i><i class="fa dc-localization fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text dcase-icon-top-text-sm">Localization</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 3</span></span><img src="../images/logos/dcase/dcase2024_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Audio and Audiovisual Sound Event Localization and Detection with Source Distance Estimation</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Challenge results</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#task-description">Task description</a></li>
+<li><a href="#teams-ranking">Teams ranking</a>
+<ul>
+<li><a href="#track-a-audio-only">Track A: Audio-only</a></li>
+<li><a href="#track-b-audiovisual">Track B: Audiovisual</a></li>
+</ul>
+</li>
+<li><a href="#systems-ranking">Systems ranking</a>
+<ul>
+<li><a href="#track-a-audio-only-1">Track A: Audio-only</a></li>
+<li><a href="#track-b-audiovisual-1">Track B: Audiovisual</a></li>
+</ul>
+</li>
+<li><a href="#system-characteristics">System characteristics</a>
+<ul>
+<li><a href="#track-a-audio-only-2">Track A: Audio-only</a></li>
+<li><a href="#track-b-audiovisual-2">Track B: Audiovisual</a></li>
+</ul>
+</li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h1 id="task-description">Task description</h1>
+<p>The Sound Event Localization and Detection (SELD) task deals with methods that detect the temporal onset and offset of sound events when active, classify the type of the event from a known set of sound classes, and further localize the events in space when active. </p>
+<p>The focus of the current SELD task is developing systems that can perform adequately on real sound scene recordings, with a small amount of training data. There are two tracks: an <strong>audio-only track (Track A)</strong> for systems using only microphone recordings to estimate the SELD labels, and an <strong>audiovisual track (Track B)</strong> for systems employing additionally simultaneous 360° video recordings aligned spatially with the multichannel microphone recordings.</p>
+<p>The task provides two datasets, development and evaluation, recorded in a multiple rooms over two different sites. Among the two datasets, only the development dataset provides the reference labels. The participants are expected to build and validate systems using the development dataset, report results on a predefined development set split, and finally test their system on the unseen evaluation dataset.</p>
+<p>More details on the task setup and evaluation can be found in the <a class="btn btn-primary" href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation" style="">task description page.</a></p>
+<h1 id="teams-ranking">Teams ranking</h1>
+<p>The SELD task received 47 submissions in total from 13 teams across the world. From those, 29 submissions were on the audio-only Track A, and 18 submissions on the audiovisual Track B. 4 teams participated in both Track A &amp; B, 7 teams participated only in Track A and 2 teams articipated only in Track B. </p>
+<p>The following table includes only the best performing system per submitting team. Confidence intervals are also reported for each metric on the evaluation set results.</p>
+<h2 id="track-a-audio-only">Track A: Audio-only</h2>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="scatter" data-id-field="anchor" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="team_rank" data-scatter-y="f_20_1" data-show-chart="true" data-show-pagination-switch="false" data-show-rank="true" data-sort-name="team_rank" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="4">Submission Information</th>
+<th class="sep-left-cell" colspan="5">Evaluation Dataset</th>
+</tr>
+<tr>
+<th data-field="anchor" data-sortable="true">
+                Submission name
+            </th>
+<th class="sep-left-cell" data-field="corresponding_author" data-sortable="false">
+                Corresponding<br/> author
+            </th>
+<th class="sm-cell" data-field="corresponding_affiliation" data-sortable="false">
+                Affiliation
+            </th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="team_rank" data-sortable="true" data-value-type="int">
+                Team <br/> Rank
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="f_20_1" data-sortable="true" data-value-type="float1-percentage-interval-muted">
+            F-score  <br/>(20°/1)
+            </th>
+<th class="text-center" data-chartable="true" data-field="doae" data-reversed="true" data-sortable="true" data-value-type="float1-interval-muted">
+            DOA <br/>error (°)
+            </th>
+<th class="text-center" data-chartable="true" data-field="rde" data-reversed="true" data-sortable="true" data-value-type="float2-interval-muted">
+            Relative distance <br/>error
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Du_NERCSLIP_task3a_4</td>
+<td>Qing Wang</td>
+<td>University of Science and Technology of China</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>1</td>
+<td>54.4 (48.9 - 59.2)</td>
+<td>13.6 (12.4 - 15.0)</td>
+<td>0.21 (0.18 - 0.23)</td>
+</tr>
+<tr>
+<td></td>
+<td>Yu_HYUNDAI_task3a_3</td>
+<td>Hogeon Yu</td>
+<td>Hyundai Motor Company</td>
+<td>Yu_HYUNDAI_task3a_report</td>
+<td>2</td>
+<td>29.8 (25.1 - 34.2)</td>
+<td>19.8 (18.3 - 21.6)</td>
+<td>0.28 (0.25 - 0.32)</td>
+</tr>
+<tr>
+<td></td>
+<td>Yeow_NTU_task3a_2</td>
+<td>Jun Wei Yeow</td>
+<td>Nanyang Technological University</td>
+<td>Yeow_NTU_task3a_report</td>
+<td>3</td>
+<td>26.2 (22.0 - 30.5)</td>
+<td>25.1 (23.2 - 27.6)</td>
+<td>0.26 (0.22 - 0.28)</td>
+</tr>
+<tr>
+<td></td>
+<td>Guan_CQUPT_task3a_4</td>
+<td>Xin Guan</td>
+<td>Chongqing University of Posts and Telecommunications</td>
+<td>Guan_CQUPT_task3_report</td>
+<td>4</td>
+<td>26.7 (22.7 - 31.1)</td>
+<td>18.6 (17.4 - 21.8)</td>
+<td>0.36 (0.34 - 0.39)</td>
+</tr>
+<tr>
+<td></td>
+<td>Vo_DU_task3a_1</td>
+<td>Quoc Thinh Vo</td>
+<td>Drexel University</td>
+<td>Vo_DU_task3a_report</td>
+<td>5</td>
+<td>24.7 (20.8 - 28.4)</td>
+<td>19.3 (17.7 - 21.3)</td>
+<td>0.34 (0.30 - 0.37)</td>
+</tr>
+<tr>
+<td></td>
+<td>Berg_LU_task3a_3</td>
+<td>Axel Berg</td>
+<td>Lund University, Arm</td>
+<td>Berg_LU_task3_report</td>
+<td>6</td>
+<td>25.5 (21.8 - 29.6)</td>
+<td>23.2 (18.2 - 28.8)</td>
+<td>0.39 (0.34 - 0.44)</td>
+</tr>
+<tr>
+<td></td>
+<td>Sun_JLESS_task3a_1</td>
+<td>Wenqiang Sun</td>
+<td>Northwestern Polytechnical University</td>
+<td>Sun_JLESS_task3a_report</td>
+<td>7</td>
+<td>28.5 (24.2 - 33.0)</td>
+<td>23.8 (21.5 - 25.9)</td>
+<td>0.51 (0.49 - 0.53)</td>
+</tr>
+<tr>
+<td></td>
+<td>Qian_IASP_task3a_1</td>
+<td>Yuanhang Qian</td>
+<td>Wuhan University</td>
+<td>Qian_IASP_task3a_report</td>
+<td>8</td>
+<td>22.8 (18.6 - 26.8)</td>
+<td>27.2 (24.6 - 29.8)</td>
+<td>0.36 (0.31 - 0.42)</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>AO_Baseline_FOA</td>
+<td>Parthasaarathy Sudarsanam</td>
+<td>Tampere University</td>
+<td>Politis_TAU_task3a_report</td>
+<td>9</td>
+<td>18.0 (14.6 - 21.7)</td>
+<td>29.6 (24.6 - 33.3)</td>
+<td>0.31 (0.28 - 0.36)</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_BUPT_task3a_1</td>
+<td>Zhicheng Zhang</td>
+<td>Beijing University of Posts and Telecommunications</td>
+<td>Zhang_BUPT_task3a_report</td>
+<td>10</td>
+<td>19.0 (16.1 - 21.8)</td>
+<td>29.6 (26.6 - 32.9)</td>
+<td>0.40 (0.32 - 0.48)</td>
+</tr>
+<tr>
+<td></td>
+<td>Chen_ECUST_task3a_1</td>
+<td>Ning Chen</td>
+<td>East China University of Science and Technology</td>
+<td>Chen_ECUST_task3_report</td>
+<td>11</td>
+<td>15.1 (12.2 - 17.9)</td>
+<td>28.3 (25.5 - 30.9)</td>
+<td>0.48 (0.39 - 0.59)</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_BIT_task3a_1</td>
+<td>Jiahao Li</td>
+<td>Beijing Institution of Technology</td>
+<td>Li_BIT_task3a_report</td>
+<td>12</td>
+<td>16.9 (13.4 - 20.5)</td>
+<td>33.5 (30.0 - 42.7)</td>
+<td>0.51 (0.26 - 1.25)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="track-b-audiovisual">Track B: Audiovisual</h2>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="scatter" data-id-field="anchor" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="team_rank" data-scatter-y="f_20_1" data-show-chart="true" data-show-pagination-switch="false" data-show-rank="true" data-sort-name="team_rank" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="4">Submission Information</th>
+<th class="sep-left-cell" colspan="5">Evaluation Dataset</th>
+</tr>
+<tr>
+<th data-field="anchor" data-sortable="true">
+                Submission name
+            </th>
+<th class="sep-left-cell" data-field="corresponding_author" data-sortable="false">
+                Corresponding<br/> author
+            </th>
+<th class="sm-cell" data-field="corresponding_affiliation" data-sortable="false">
+                Affiliation
+            </th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="team_rank" data-sortable="true" data-value-type="int">
+                Team <br/> Rank
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="f_20_1" data-sortable="true" data-value-type="float1-percentage-interval-muted">
+            F-score  <br/>(20°/1)
+            </th>
+<th class="text-center" data-chartable="true" data-field="doae" data-reversed="true" data-sortable="true" data-value-type="float1-interval-muted">
+            DOA <br/>error (°)
+            </th>
+<th class="text-center" data-chartable="true" data-field="rde" data-reversed="true" data-sortable="true" data-value-type="float2-interval-muted">
+            Relative distance <br/>error
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Du_NERCSLIP_task3b_4</td>
+<td>Qing Wang</td>
+<td>University of Science and Technology of China</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>1</td>
+<td>55.8 (51.2 - 60.4)</td>
+<td>11.4 (10.4 - 12.5)</td>
+<td>0.25 (0.22 - 0.29)</td>
+</tr>
+<tr>
+<td></td>
+<td>Berghi_SURREY_task3b_4</td>
+<td>Davide Berghi</td>
+<td>University of Surrey</td>
+<td>Berghi_SURREY_task3b_report</td>
+<td>2</td>
+<td>39.2 (33.9 - 44.3)</td>
+<td>15.8 (14.2 - 17.4)</td>
+<td>0.29 (0.25 - 0.32)</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_SHU_task3b_2</td>
+<td>Yongbo Li</td>
+<td>Shanghai University</td>
+<td>Li_SHU_task3b_report</td>
+<td>3</td>
+<td>34.2 (29.9 - 38.4)</td>
+<td>21.5 (19.8 - 23.4)</td>
+<td>0.28 (0.25 - 0.31)</td>
+</tr>
+<tr>
+<td></td>
+<td>Guan_CQUPT_task3b_2</td>
+<td>Xin Guan</td>
+<td>Chongqing University of Posts and Telecommunications</td>
+<td>Guan_CQUPT_task3_report</td>
+<td>4</td>
+<td>23.2 (19.2 - 27.2)</td>
+<td>18.8 (17.3 - 21.5)</td>
+<td>0.32 (0.28 - 0.37)</td>
+</tr>
+<tr>
+<td></td>
+<td>Berg_LU_task3b_3</td>
+<td>Axel Berg</td>
+<td>Lund University, Arm</td>
+<td>Berg_LU_task3_report</td>
+<td>5</td>
+<td>25.9 (22.1 - 30.1)</td>
+<td>23.2 (18.2 - 28.8)</td>
+<td>0.33 (0.28 - 0.38)</td>
+</tr>
+<tr>
+<td></td>
+<td>Chen_ECUST_task3b_1</td>
+<td>Ning Chen</td>
+<td>East China University of Science and Technology</td>
+<td>Chen_ECUST_task3_report</td>
+<td>6</td>
+<td>16.3 (13.7 - 19.3)</td>
+<td>25.1 (22.3 - 26.9)</td>
+<td>0.32 (0.27 - 0.39)</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>AV_Baseline_MIC</td>
+<td>Parthasaarathy Sudarsanam</td>
+<td>Tampere University</td>
+<td>Shimada_SONY_task3b_report</td>
+<td>7</td>
+<td>16.0 (12.1 - 20.0)</td>
+<td>35.9 (31.8 - 39.6)</td>
+<td>0.30 (0.27 - 0.33)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="systems-ranking">Systems ranking</h1>
+<p>Performance of all the submitted systems on the evaluation and the development datasets. Confidence intervals are also reported for each metric on the evaluation set results.</p>
+<h2 id="track-a-audio-only-1">Track A: Audio-only</h2>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="scatter" data-id-field="anchor" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="submission_rank" data-scatter-y="f_20_1" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="submission_rank" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="2">Submission Information</th>
+<th class="sep-left-cell" colspan="4">Evaluation Dataset</th>
+<th class="sep-left-cell" colspan="3">Development Dataset</th>
+</tr>
+<tr>
+<th data-field="anchor" data-sortable="true">
+Submission name
+</th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+Technical<br/>Report
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="submission_rank" data-sortable="true" data-value-type="int">
+Submission <br/> Rank
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="f_20_1" data-sortable="true" data-value-type="float1-percentage-interval-muted">
+F-score  <br/>(20°/1)
+</th>
+<th class="text-center" data-chartable="true" data-field="doae" data-reversed="true" data-sortable="true" data-value-type="float1-interval-muted">
+DOA <br/>error (°)
+</th>
+<th class="text-center" data-chartable="true" data-field="rde" data-reversed="true" data-sortable="true" data-value-type="float2-interval-muted">
+Relative distance <br/>error
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="dev_f_20_1" data-sortable="true" data-value-type="float1-percentage">
+F-score <br/>(20°/1)
+</th>
+<th class="text-center" data-chartable="true" data-field="dev_doae" data-reversed="true" data-sortable="true" data-value-type="float1">
+DOA <br/>error (°)
+</th>
+<th class="text-center" data-chartable="true" data-field="dev_rde" data-reversed="true" data-sortable="true" data-value-type="float2">
+Relative distance <br/>error
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Du_NERCSLIP_task3a_4</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>1</td>
+<td>54.4 (48.9 - 59.2)</td>
+<td>13.6 (12.4 - 15.0)</td>
+<td>0.21 (0.18 - 0.23)</td>
+<td>59.7</td>
+<td>12.4</td>
+<td>0.21</td>
+</tr>
+<tr>
+<td></td>
+<td>Du_NERCSLIP_task3a_1</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>2</td>
+<td>55.7 (50.8 - 60.0)</td>
+<td>13.7 (12.4 - 15.3)</td>
+<td>0.21 (0.19 - 0.23)</td>
+<td>61.0</td>
+<td>12.3</td>
+<td>0.21</td>
+</tr>
+<tr>
+<td></td>
+<td>Du_NERCSLIP_task3a_2</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>3</td>
+<td>54.3 (48.9 - 59.0)</td>
+<td>13.6 (12.4 - 15.0)</td>
+<td>0.21 (0.19 - 0.23)</td>
+<td>59.7</td>
+<td>12.4</td>
+<td>0.22</td>
+</tr>
+<tr>
+<td></td>
+<td>Du_NERCSLIP_task3a_3</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>4</td>
+<td>53.8 (47.9 - 58.9)</td>
+<td>14.2 (12.6 - 16.0)</td>
+<td>0.21 (0.18 - 0.24)</td>
+<td>58.8</td>
+<td>12.4</td>
+<td>0.21</td>
+</tr>
+<tr>
+<td></td>
+<td>Yu_HYUNDAI_task3a_3</td>
+<td>Yu_HYUNDAI_task3a_report</td>
+<td>5</td>
+<td>29.8 (25.1 - 34.2)</td>
+<td>19.8 (18.3 - 21.6)</td>
+<td>0.28 (0.25 - 0.32)</td>
+<td>34.7</td>
+<td>18.8</td>
+<td>0.28</td>
+</tr>
+<tr>
+<td></td>
+<td>Yu_HYUNDAI_task3a_4</td>
+<td>Yu_HYUNDAI_task3a_report</td>
+<td>6</td>
+<td>29.2 (24.4 - 33.6)</td>
+<td>19.7 (18.1 - 21.5)</td>
+<td>0.30 (0.27 - 0.34)</td>
+<td>35.0</td>
+<td>19.0</td>
+<td>0.29</td>
+</tr>
+<tr>
+<td></td>
+<td>Yu_HYUNDAI_task3a_1</td>
+<td>Yu_HYUNDAI_task3a_report</td>
+<td>7</td>
+<td>29.2 (24.5 - 33.5)</td>
+<td>19.8 (18.2 - 21.5)</td>
+<td>0.29 (0.25 - 0.33)</td>
+<td>33.9</td>
+<td>19.5</td>
+<td>0.28</td>
+</tr>
+<tr>
+<td></td>
+<td>Yu_HYUNDAI_task3a_2</td>
+<td>Yu_HYUNDAI_task3a_report</td>
+<td>8</td>
+<td>28.2 (23.5 - 32.6)</td>
+<td>20.1 (18.4 - 22.3)</td>
+<td>0.29 (0.24 - 0.32)</td>
+<td>33.4</td>
+<td>19.2</td>
+<td>0.28</td>
+</tr>
+<tr>
+<td></td>
+<td>Yeow_NTU_task3a_2</td>
+<td>Yeow_NTU_task3a_report</td>
+<td>9</td>
+<td>26.2 (22.0 - 30.5)</td>
+<td>25.1 (23.2 - 27.6)</td>
+<td>0.26 (0.22 - 0.28)</td>
+<td>33.8</td>
+<td>21.4</td>
+<td>0.30</td>
+</tr>
+<tr>
+<td></td>
+<td>Guan_CQUPT_task3a_4</td>
+<td>Guan_CQUPT_task3_report</td>
+<td>10</td>
+<td>26.7 (22.7 - 31.1)</td>
+<td>18.6 (17.4 - 21.8)</td>
+<td>0.36 (0.34 - 0.39)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Vo_DU_task3a_1</td>
+<td>Vo_DU_task3a_report</td>
+<td>11</td>
+<td>24.7 (20.8 - 28.4)</td>
+<td>19.3 (17.7 - 21.3)</td>
+<td>0.34 (0.30 - 0.37)</td>
+<td>39.7</td>
+<td>17.4</td>
+<td>0.33</td>
+</tr>
+<tr>
+<td></td>
+<td>Yeow_NTU_task3a_3</td>
+<td>Yeow_NTU_task3a_report</td>
+<td>12</td>
+<td>24.6 (20.2 - 29.4)</td>
+<td>25.9 (21.2 - 28.4)</td>
+<td>0.26 (0.19 - 0.29)</td>
+<td>32.7</td>
+<td>22.9</td>
+<td>0.30</td>
+</tr>
+<tr>
+<td></td>
+<td>Vo_DU_task3a_2</td>
+<td>Vo_DU_task3a_report</td>
+<td>13</td>
+<td>25.6 (21.4 - 29.5)</td>
+<td>20.1 (18.4 - 22.2)</td>
+<td>0.33 (0.29 - 0.36)</td>
+<td>39.9</td>
+<td>17.5</td>
+<td>0.32</td>
+</tr>
+<tr>
+<td></td>
+<td>Guan_CQUPT_task3a_1</td>
+<td>Guan_CQUPT_task3_report</td>
+<td>14</td>
+<td>21.9 (17.4 - 26.2)</td>
+<td>16.7 (15.5 - 18.9)</td>
+<td>0.31 (0.28 - 0.34)</td>
+<td>43.2</td>
+<td>14.6</td>
+<td>0.29</td>
+</tr>
+<tr>
+<td></td>
+<td>Vo_DU_task3a_3</td>
+<td>Vo_DU_task3a_report</td>
+<td>15</td>
+<td>24.6 (20.4 - 28.1)</td>
+<td>18.9 (17.4 - 20.5)</td>
+<td>0.34 (0.30 - 0.37)</td>
+<td>40.2</td>
+<td>17.5</td>
+<td>0.32</td>
+</tr>
+<tr>
+<td></td>
+<td>Guan_CQUPT_task3a_3</td>
+<td>Guan_CQUPT_task3_report</td>
+<td>16</td>
+<td>22.5 (18.2 - 26.7)</td>
+<td>16.7 (15.8 - 18.9)</td>
+<td>0.36 (0.33 - 0.42)</td>
+<td>44.1</td>
+<td>13.7</td>
+<td>0.30</td>
+</tr>
+<tr>
+<td></td>
+<td>Berg_LU_task3a_3</td>
+<td>Berg_LU_task3_report</td>
+<td>17</td>
+<td>25.5 (21.8 - 29.6)</td>
+<td>23.2 (18.2 - 28.8)</td>
+<td>0.39 (0.34 - 0.44)</td>
+<td>32.0</td>
+<td>21.8</td>
+<td>0.44</td>
+</tr>
+<tr>
+<td></td>
+<td>Berg_LU_task3a_1</td>
+<td>Berg_LU_task3_report</td>
+<td>18</td>
+<td>27.0 (23.3 - 31.2)</td>
+<td>26.1 (23.0 - 28.6)</td>
+<td>0.37 (0.34 - 0.44)</td>
+<td>29.0</td>
+<td>23.9</td>
+<td>0.38</td>
+</tr>
+<tr>
+<td></td>
+<td>Yeow_NTU_task3a_1</td>
+<td>Yeow_NTU_task3a_report</td>
+<td>19</td>
+<td>23.5 (19.3 - 27.9)</td>
+<td>27.2 (24.2 - 30.5)</td>
+<td>0.28 (0.25 - 0.33)</td>
+<td>33.9</td>
+<td>20.4</td>
+<td>0.30</td>
+</tr>
+<tr>
+<td></td>
+<td>Sun_JLESS_task3a_1</td>
+<td>Sun_JLESS_task3a_report</td>
+<td>20</td>
+<td>28.5 (24.2 - 33.0)</td>
+<td>23.8 (21.5 - 25.9)</td>
+<td>0.51 (0.49 - 0.53)</td>
+<td>29.2</td>
+<td>20.7</td>
+<td>0.47</td>
+</tr>
+<tr>
+<td></td>
+<td>Guan_CQUPT_task3a_2</td>
+<td>Guan_CQUPT_task3_report</td>
+<td>21</td>
+<td>21.6 (17.7 - 25.4)</td>
+<td>17.2 (15.1 - 20.2)</td>
+<td>0.40 (0.37 - 0.45)</td>
+<td>43.7</td>
+<td>14.0</td>
+<td>0.30</td>
+</tr>
+<tr>
+<td></td>
+<td>Berg_LU_task3a_2</td>
+<td>Berg_LU_task3_report</td>
+<td>22</td>
+<td>24.3 (20.4 - 28.3)</td>
+<td>21.5 (18.7 - 24.0)</td>
+<td>0.39 (0.31 - 0.50)</td>
+<td>28.7</td>
+<td>20.8</td>
+<td>0.38</td>
+</tr>
+<tr>
+<td></td>
+<td>Yeow_NTU_task3a_4</td>
+<td>Yeow_NTU_task3a_report</td>
+<td>23</td>
+<td>21.6 (17.8 - 25.6)</td>
+<td>27.3 (23.5 - 30.9)</td>
+<td>0.27 (0.23 - 0.30)</td>
+<td>32.7</td>
+<td>20.6</td>
+<td>0.31</td>
+</tr>
+<tr>
+<td></td>
+<td>Berg_LU_task3a_4</td>
+<td>Berg_LU_task3_report</td>
+<td>24</td>
+<td>23.5 (19.5 - 27.6)</td>
+<td>23.9 (18.2 - 31.1)</td>
+<td>0.43 (0.38 - 0.54)</td>
+<td>26.8</td>
+<td>26.5</td>
+<td>0.57</td>
+</tr>
+<tr>
+<td></td>
+<td>Qian_IASP_task3a_1</td>
+<td>Qian_IASP_task3a_report</td>
+<td>25</td>
+<td>22.8 (18.6 - 26.8)</td>
+<td>27.2 (24.6 - 29.8)</td>
+<td>0.36 (0.31 - 0.42)</td>
+<td>23.0</td>
+<td>25.1</td>
+<td>0.43</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>AO_Baseline_FOA</td>
+<td>Politis_TAU_task3a_report</td>
+<td>26</td>
+<td>18.0 (14.6 - 21.7)</td>
+<td>29.6 (24.6 - 33.3)</td>
+<td>0.31 (0.28 - 0.36)</td>
+<td>13.1</td>
+<td>36.9</td>
+<td>0.33</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>AO_Baseline_MIC</td>
+<td>Politis_TAU_task3a_report</td>
+<td>27</td>
+<td>16.3 (13.1 - 19.3)</td>
+<td>34.1 (30.7 - 37.4)</td>
+<td>0.30 (0.28 - 0.33)</td>
+<td>9.9</td>
+<td>38.1</td>
+<td>0.30</td>
+</tr>
+<tr>
+<td></td>
+<td>Sun_JLESS_task3a_2</td>
+<td>Sun_JLESS_task3a_report</td>
+<td>28</td>
+<td>21.9 (18.7 - 25.4)</td>
+<td>26.4 (24.9 - 28.1)</td>
+<td>0.51 (0.49 - 0.53)</td>
+<td>21.7</td>
+<td>26.5</td>
+<td>0.48</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_BUPT_task3a_1</td>
+<td>Zhang_BUPT_task3a_report</td>
+<td>29</td>
+<td>19.0 (16.1 - 21.8)</td>
+<td>29.6 (26.6 - 32.9)</td>
+<td>0.40 (0.32 - 0.48)</td>
+<td>19.0</td>
+<td>27.5</td>
+<td>0.39</td>
+</tr>
+<tr>
+<td></td>
+<td>Chen_ECUST_task3a_1</td>
+<td>Chen_ECUST_task3_report</td>
+<td>30</td>
+<td>15.1 (12.2 - 17.9)</td>
+<td>28.3 (25.5 - 30.9)</td>
+<td>0.48 (0.39 - 0.59)</td>
+<td>19.2</td>
+<td>22.9</td>
+<td>0.32</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_BIT_task3a_1</td>
+<td>Li_BIT_task3a_report</td>
+<td>31</td>
+<td>16.9 (13.4 - 20.5)</td>
+<td>33.5 (30.0 - 42.7)</td>
+<td>0.51 (0.26 - 1.25)</td>
+<td>33.9</td>
+<td>21.1</td>
+<td>0.30</td>
+</tr>
+</tbody>
+</table>
+<h2 id="track-b-audiovisual-1">Track B: Audiovisual</h2>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="scatter" data-id-field="anchor" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="submission_rank" data-scatter-y="f_20_1" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="submission_rank" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="2">Submission Information</th>
+<th class="sep-left-cell" colspan="4">Evaluation Dataset</th>
+<th class="sep-left-cell" colspan="3">Development Dataset</th>
+</tr>
+<tr>
+<th data-field="anchor" data-sortable="true">
+Submission name
+</th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+Technical<br/>Report
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="submission_rank" data-sortable="true" data-value-type="int">
+Submission <br/> Rank
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="f_20_1" data-sortable="true" data-value-type="float1-percentage-interval-muted">
+F-score  <br/>(20°/1)
+</th>
+<th class="text-center" data-chartable="true" data-field="doae" data-reversed="true" data-sortable="true" data-value-type="float1-interval-muted">
+DOA <br/>error (°)
+</th>
+<th class="text-center" data-chartable="true" data-field="rde" data-reversed="true" data-sortable="true" data-value-type="float2-interval-muted">
+Relative distance <br/>error
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="dev_f_20_1" data-sortable="true" data-value-type="float1-percentage">
+F-score <br/>(20°/1)
+</th>
+<th class="text-center" data-chartable="true" data-field="dev_doae" data-reversed="true" data-sortable="true" data-value-type="float1">
+DOA <br/>error (°)
+</th>
+<th class="text-center" data-chartable="true" data-field="dev_rde" data-reversed="true" data-sortable="true" data-value-type="float2">
+Relative distance <br/>error
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Du_NERCSLIP_task3b_4</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>1</td>
+<td>55.8 (51.2 - 60.4)</td>
+<td>11.4 (10.4 - 12.5)</td>
+<td>0.25 (0.22 - 0.29)</td>
+<td>59.9</td>
+<td>10.9</td>
+<td>0.21</td>
+</tr>
+<tr>
+<td></td>
+<td>Du_NERCSLIP_task3b_3</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>2</td>
+<td>55.6 (50.9 - 60.3)</td>
+<td>11.3 (10.3 - 12.4)</td>
+<td>0.25 (0.22 - 0.29)</td>
+<td>59.2</td>
+<td>10.8</td>
+<td>0.22</td>
+</tr>
+<tr>
+<td></td>
+<td>Du_NERCSLIP_task3b_2</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>3</td>
+<td>53.5 (49.1 - 57.8)</td>
+<td>11.7 (10.5 - 12.9)</td>
+<td>0.27 (0.22 - 0.32)</td>
+<td>59.9</td>
+<td>11.2</td>
+<td>0.21</td>
+</tr>
+<tr>
+<td></td>
+<td>Du_NERCSLIP_task3b_1</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>4</td>
+<td>52.6 (47.7 - 56.9)</td>
+<td>13.6 (12.4 - 15.2)</td>
+<td>0.29 (0.25 - 0.34)</td>
+<td>61.0</td>
+<td>10.9</td>
+<td>0.22</td>
+</tr>
+<tr>
+<td></td>
+<td>Berghi_SURREY_task3b_4</td>
+<td>Berghi_SURREY_task3b_report</td>
+<td>5</td>
+<td>39.2 (33.9 - 44.3)</td>
+<td>15.8 (14.2 - 17.4)</td>
+<td>0.29 (0.25 - 0.32)</td>
+<td>40.3</td>
+<td>18.0</td>
+<td>0.30</td>
+</tr>
+<tr>
+<td></td>
+<td>Berghi_SURREY_task3b_2</td>
+<td>Berghi_SURREY_task3b_report</td>
+<td>6</td>
+<td>36.5 (31.5 - 41.1)</td>
+<td>14.4 (13.0 - 15.8)</td>
+<td>0.29 (0.26 - 0.33)</td>
+<td>38.7</td>
+<td>16.8</td>
+<td>0.30</td>
+</tr>
+<tr>
+<td></td>
+<td>Berghi_SURREY_task3b_1</td>
+<td>Berghi_SURREY_task3b_report</td>
+<td>7</td>
+<td>39.5 (34.3 - 44.3)</td>
+<td>15.4 (13.9 - 16.9)</td>
+<td>0.31 (0.26 - 0.36)</td>
+<td>40.8</td>
+<td>17.7</td>
+<td>0.30</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_SHU_task3b_2</td>
+<td>Li_SHU_task3b_report</td>
+<td>8</td>
+<td>34.2 (29.9 - 38.4)</td>
+<td>21.5 (19.8 - 23.4)</td>
+<td>0.28 (0.25 - 0.31)</td>
+<td>36.4</td>
+<td>19.1</td>
+<td>0.30</td>
+</tr>
+<tr>
+<td></td>
+<td>Berghi_SURREY_task3b_3</td>
+<td>Berghi_SURREY_task3b_report</td>
+<td>9</td>
+<td>30.0 (25.8 - 34.2)</td>
+<td>26.1 (19.4 - 29.8)</td>
+<td>0.29 (0.25 - 0.33)</td>
+<td>30.7</td>
+<td>18.9</td>
+<td>0.27</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_SHU_task3b_1</td>
+<td>Li_SHU_task3b_report</td>
+<td>10</td>
+<td>31.9 (27.9 - 36.0)</td>
+<td>19.6 (18.1 - 21.2)</td>
+<td>0.33 (0.29 - 0.37)</td>
+<td>39.2</td>
+<td>18.7</td>
+<td>0.31</td>
+</tr>
+<tr>
+<td></td>
+<td>Guan_CQUPT_task3b_2</td>
+<td>Guan_CQUPT_task3_report</td>
+<td>11</td>
+<td>23.2 (19.2 - 27.2)</td>
+<td>18.8 (17.3 - 21.5)</td>
+<td>0.32 (0.28 - 0.37)</td>
+<td>46.7</td>
+<td>14.2</td>
+<td>0.28</td>
+</tr>
+<tr>
+<td></td>
+<td>Guan_CQUPT_task3b_1</td>
+<td>Guan_CQUPT_task3_report</td>
+<td>12</td>
+<td>22.2 (18.2 - 26.0)</td>
+<td>20.3 (18.4 - 23.9)</td>
+<td>0.30 (0.26 - 0.34)</td>
+<td>44.4</td>
+<td>15.2</td>
+<td>0.27</td>
+</tr>
+<tr>
+<td></td>
+<td>Berg_LU_task3b_3</td>
+<td>Berg_LU_task3_report</td>
+<td>13</td>
+<td>25.9 (22.1 - 30.1)</td>
+<td>23.2 (18.2 - 28.8)</td>
+<td>0.33 (0.28 - 0.38)</td>
+<td>33.4</td>
+<td>21.8</td>
+<td>0.28</td>
+</tr>
+<tr>
+<td></td>
+<td>Berg_LU_task3b_2</td>
+<td>Berg_LU_task3_report</td>
+<td>14</td>
+<td>24.3 (20.4 - 28.4)</td>
+<td>21.5 (18.7 - 24.0)</td>
+<td>0.34 (0.28 - 0.41)</td>
+<td>29.4</td>
+<td>20.8</td>
+<td>0.28</td>
+</tr>
+<tr>
+<td></td>
+<td>Berg_LU_task3b_4</td>
+<td>Berg_LU_task3_report</td>
+<td>15</td>
+<td>23.7 (19.7 - 27.8)</td>
+<td>23.9 (18.2 - 31.1)</td>
+<td>0.34 (0.26 - 0.40)</td>
+<td>29.0</td>
+<td>26.5</td>
+<td>0.28</td>
+</tr>
+<tr>
+<td></td>
+<td>Chen_ECUST_task3b_1</td>
+<td>Chen_ECUST_task3_report</td>
+<td>16</td>
+<td>16.3 (13.7 - 19.3)</td>
+<td>25.1 (22.3 - 26.9)</td>
+<td>0.32 (0.27 - 0.39)</td>
+<td>16.2</td>
+<td>26.2</td>
+<td>0.41</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>AV_Baseline_MIC</td>
+<td>Shimada_SONY_task3b_report</td>
+<td>17</td>
+<td>16.0 (12.1 - 20.0)</td>
+<td>35.9 (31.8 - 39.6)</td>
+<td>0.30 (0.27 - 0.33)</td>
+<td>11.8</td>
+<td>38.5</td>
+<td>0.29</td>
+</tr>
+<tr>
+<td></td>
+<td>Berg_LU_task3b_1</td>
+<td>Berg_LU_task3_report</td>
+<td>18</td>
+<td>26.4 (22.9 - 30.4)</td>
+<td>26.1 (23.0 - 28.6)</td>
+<td>0.35 (0.30 - 0.44)</td>
+<td>29.8</td>
+<td>23.9</td>
+<td>0.28</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>AV_Baseline_FOA</td>
+<td>Shimada_SONY_task3b_report</td>
+<td>19</td>
+<td>15.5 (12.9 - 18.6)</td>
+<td>34.6 (31.0 - 37.3)</td>
+<td>0.31 (0.27 - 0.35)</td>
+<td>11.3</td>
+<td>38.4</td>
+<td>0.36</td>
+</tr>
+<tr>
+<td></td>
+<td>Chen_ECUST_task3b_2</td>
+<td>Chen_ECUST_task3_report</td>
+<td>20</td>
+<td>14.1 (11.6 - 16.7)</td>
+<td>42.2 (26.1 - 90.5)</td>
+<td>0.39 (0.34 - 0.49)</td>
+<td>17.9</td>
+<td>24.2</td>
+<td>0.38</td>
+</tr>
+</tbody>
+</table>
+<h1 id="system-characteristics">System characteristics</h1>
+<h2 id="track-a-audio-only-2">Track A: Audio-only</h2>
+<table class="datatable table table-hover table-condensed" data-chart-tooltip-fields="code" data-filter-control="true" data-filter-show-clear="true" data-id-field="anchor" data-pagination="true" data-rank-mode="grouped_muted" data-show-bar-chart-xaxis="false" data-show-chart="false" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="submission_rank" data-sort-order="asc" data-striped="true" data-tag-mode="column">
+<thead>
+<tr>
+<th data-field="submission_rank" data-sortable="true" data-value-type="int">
+Rank
+</th>
+<th class="sm-cell" data-field="anchor" data-sortable="true">
+Submission<br/>name
+</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+Technical<br/>Report
+</th>
+<th class="sep-left-cell text-center narrow-col" data-field="model" data-filter-control="select" data-filter-strict-search="true" data-sortable="false" data-tag="true">
+Model
+</th>
+<th class="sep-left-cell text-center narrow-col" data-axis-scale="log10_unit" data-field="model_params" data-sortable="true" data-value-type="numeric-unit">
+Model<br/>params
+</th>
+<th class="sep-left-cell text-center narrow-col" data-field="input_format" data-filter-control="select" data-filter-strict-search="true" data-sortable="false" data-tag="true">
+Audio<br/>format
+</th>
+<th class="sep-left-cell text-center narrow-col" data-field="input_feature" data-filter-control="select" data-filter-strict-search="true" data-sortable="false" data-tag="true">
+Acoustic<br/>features
+</th>
+<th class="sep-left-cell text-center narrow-col" data-field="augmentation" data-filter-control="select" data-filter-strict-search="true" data-sortable="false" data-tag="true">
+Data <br/>augmentation
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Du_NERCSLIP_task3a_4</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>ResNet, Conformer, Ensemble</td>
+<td>46878922</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>audio channel swapping, multi-channel data simulation, manifold mixup</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Du_NERCSLIP_task3a_1</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>ResNet, Conformer, Conv-TasNet, Ensemble</td>
+<td>145105065</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>audio channel swapping, multi-channel data simulation, manifold mixup</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Du_NERCSLIP_task3a_2</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>ResNet, Conformer, Ensemble</td>
+<td>46803107</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>audio channel swapping, multi-channel data simulation, manifold mixup</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Du_NERCSLIP_task3a_3</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>ResNet, Conformer, Ensemble</td>
+<td>93682029</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>audio channel swapping, multi-channel data simulation, manifold mixup</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Yu_HYUNDAI_task3a_3</td>
+<td>Yu_HYUNDAI_task3a_report</td>
+<td>CNN, MHSA, MHA</td>
+<td>6317996</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>multi-channel data simulation</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Yu_HYUNDAI_task3a_4</td>
+<td>Yu_HYUNDAI_task3a_report</td>
+<td>CNN, MHSA, MHA</td>
+<td>6317996</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>multi-channel data simulation</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Yu_HYUNDAI_task3a_1</td>
+<td>Yu_HYUNDAI_task3a_report</td>
+<td>CNN, MHSA, MHA</td>
+<td>6317996</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>multi-channel data simulation</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Yu_HYUNDAI_task3a_2</td>
+<td>Yu_HYUNDAI_task3a_report</td>
+<td>CNN, MHSA, MHA</td>
+<td>6317996</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>multi-channel data simulation</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Yeow_NTU_task3a_2</td>
+<td>Yeow_NTU_task3a_report</td>
+<td>ResNet, Conformer, Squeeze-and-Excitation</td>
+<td>5383000</td>
+<td>Ambisonic</td>
+<td>SALSA</td>
+<td>mixup, frequency shifting, audio channel swapping</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Guan_CQUPT_task3a_4</td>
+<td>Guan_CQUPT_task3_report</td>
+<td>CNN, Conformer, Ensemble</td>
+<td>14479876</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector, log-rms</td>
+<td>cutout, specAugment, pitch shifting, augmix, audio channel swapping</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Vo_DU_task3a_1</td>
+<td>Vo_DU_task3a_report</td>
+<td>ResNet, Conformer</td>
+<td>40262940</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>cutout, specAugment, audio channel swapping</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Yeow_NTU_task3a_3</td>
+<td>Yeow_NTU_task3a_report</td>
+<td>ResNet, Conformer, Squeeze-and-Excitation</td>
+<td>5383000</td>
+<td>Ambisonic</td>
+<td>SALSA</td>
+<td>mixup, frequency shifting, audio channel swapping</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Vo_DU_task3a_2</td>
+<td>Vo_DU_task3a_report</td>
+<td>ResNet, Conformer</td>
+<td>40262940</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>cutout, specAugment, audio channel swapping</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Guan_CQUPT_task3a_1</td>
+<td>Guan_CQUPT_task3_report</td>
+<td>CNN, Conformer, Ensemble</td>
+<td>9318488</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>cutout, specAugment, pitch shifting, augmix, audio channel swapping</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Vo_DU_task3a_3</td>
+<td>Vo_DU_task3a_report</td>
+<td>ResNet, Conformer</td>
+<td>40262940</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>cutout, specAugment, audio channel swapping</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Guan_CQUPT_task3a_3</td>
+<td>Guan_CQUPT_task3_report</td>
+<td>CNN, Conformer, Ensemble</td>
+<td>9820632</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector, log-rms</td>
+<td>cutout, specAugment, pitch shifting, augmix, audio channel swapping</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Berg_LU_task3a_3</td>
+<td>Berg_LU_task3_report</td>
+<td>CST-Former, MHSA, Transformer</td>
+<td>1490000</td>
+<td>Microphone Array</td>
+<td>mel spectra, NGCC-PHAT</td>
+<td>audio channel swapping</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Berg_LU_task3a_1</td>
+<td>Berg_LU_task3_report</td>
+<td>CST-Former, MHSA, Transformer</td>
+<td>663000</td>
+<td>Microphone Array</td>
+<td>mel spectra, NGCC-PHAT</td>
+<td>audio channel swapping</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Yeow_NTU_task3a_1</td>
+<td>Yeow_NTU_task3a_report</td>
+<td>ResNet, Conformer, Squeeze-and-Excitation</td>
+<td>5383000</td>
+<td>Ambisonic</td>
+<td>SALSA</td>
+<td>mixup, frequency shifting, audio channel swapping</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Sun_JLESS_task3a_1</td>
+<td>Sun_JLESS_task3a_report</td>
+<td>CNN, Conformer, Ensemble</td>
+<td>13107932</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector, sinIPD</td>
+<td>channel rotation</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Guan_CQUPT_task3a_2</td>
+<td>Guan_CQUPT_task3_report</td>
+<td>CNN, Conformer, Ensemble</td>
+<td>10322776</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector, log-rms</td>
+<td>cutout, specAugment, pitch shifting, augmix, audio channel swapping</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Berg_LU_task3a_2</td>
+<td>Berg_LU_task3_report</td>
+<td>CST-Former, MHSA, Transformer</td>
+<td>663000</td>
+<td>Microphone Array</td>
+<td>MFCC, NGCC-PHAT</td>
+<td>audio channel swapping</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Yeow_NTU_task3a_4</td>
+<td>Yeow_NTU_task3a_report</td>
+<td>ResNet, Conformer, Squeeze-and-Excitation</td>
+<td>5383000</td>
+<td>Ambisonic</td>
+<td>SALSA</td>
+<td>mixup, frequency shifting, audio channel swapping</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Berg_LU_task3a_4</td>
+<td>Berg_LU_task3_report</td>
+<td>CST-Former, MHSA, Transformer</td>
+<td>1490000</td>
+<td>Microphone Array</td>
+<td>MFCC, NGCC-PHAT</td>
+<td>audio channel swapping</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Qian_IASP_task3a_1</td>
+<td>Qian_IASP_task3a_report</td>
+<td>ResNet, Conformer,CNN</td>
+<td>64560</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>audio channel swapping</td>
+</tr>
+<tr data-hline="true">
+<td>26</td>
+<td>AO_Baseline_FOA</td>
+<td>Politis_TAU_task3a_report</td>
+<td>CRNN, MHSA</td>
+<td>742559</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td></td>
+</tr>
+<tr data-hline="true">
+<td>27</td>
+<td>AO_Baseline_MIC</td>
+<td>Politis_TAU_task3a_report</td>
+<td>CRNN, MHSA</td>
+<td>744287</td>
+<td>Microphone Array</td>
+<td>mel spectra, GCC-PHAT</td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td>Sun_JLESS_task3a_2</td>
+<td>Sun_JLESS_task3a_report</td>
+<td>CNN, Conformer,  Ensemble</td>
+<td>13107932</td>
+<td>Microphone Array</td>
+<td>mel spectra, intensity vector, sinIPD</td>
+<td>channel rotation</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Zhang_BUPT_task3a_1</td>
+<td>Zhang_BUPT_task3a_report</td>
+<td>CNN, Conformer</td>
+<td>7461404</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td>Chen_ECUST_task3a_1</td>
+<td>Chen_ECUST_task3_report</td>
+<td>CRNN, MHSA</td>
+<td>740963</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector, magnitude spectra</td>
+<td>audio channel swapping</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Li_BIT_task3a_1</td>
+<td>Li_BIT_task3a_report</td>
+<td>Conformer, ConvNeXt</td>
+<td>3714972</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>audio channel swapping</td>
+</tr>
+</tbody>
+</table>
+<p><br/>
+<br/></p>
+<h2 id="track-b-audiovisual-2">Track B: Audiovisual</h2>
+<table class="datatable table table-hover table-condensed" data-chart-tooltip-fields="code" data-filter-control="true" data-filter-show-clear="true" data-id-field="anchor" data-pagination="true" data-rank-mode="grouped_muted" data-show-bar-chart-xaxis="false" data-show-chart="false" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="submission_rank" data-sort-order="asc" data-striped="true" data-tag-mode="column">
+<thead>
+<tr>
+<th data-field="submission_rank" data-sortable="true" data-value-type="int">
+Rank
+</th>
+<th class="sm-cell" data-field="anchor" data-sortable="true">
+Submission<br/>name
+</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+Technical<br/>Report
+</th>
+<th class="sep-left-cell text-center narrow-col" data-field="model" data-filter-control="select" data-filter-strict-search="true" data-sortable="false" data-tag="true">
+Model
+</th>
+<th class="sep-left-cell text-center narrow-col" data-axis-scale="log10_unit" data-field="model_params" data-sortable="true" data-value-type="numeric-unit">
+Model<br/>params
+</th>
+<th class="sep-left-cell text-center narrow-col" data-field="input_format" data-filter-control="select" data-filter-strict-search="true" data-sortable="false" data-tag="true">
+Audio<br/>format
+</th>
+<th class="sep-left-cell text-center narrow-col" data-field="input_feature" data-filter-control="select" data-filter-strict-search="true" data-sortable="false" data-tag="true">
+Acoustic<br/>features
+</th>
+<th class="sep-left-cell text-center narrow-col" data-field="augmentation" data-filter-control="select" data-filter-strict-search="true" data-sortable="false" data-tag="true">
+Data <br/>augmentation
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Du_NERCSLIP_task3b_4</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>ResNet, Conformer, Ensemble</td>
+<td>93537081</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>audio channel swapping, multi-channel data simulation, video pixel swapping, manifold mixup</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Du_NERCSLIP_task3b_3</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>ResNet, Conformer, Ensemble</td>
+<td>81851917</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>audio channel swapping, multi-channel data simulation, video pixel swapping, manifold mixup</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Du_NERCSLIP_task3b_2</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>ResNet, Conformer, Ensemble</td>
+<td>58488271</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>audio channel swapping, multi-channel data simulation, video pixel swapping, manifold mixup</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Du_NERCSLIP_task3b_1</td>
+<td>Du_NERCSLIP_task3_report</td>
+<td>ResNet, Conformer, Ensemble</td>
+<td>70166753</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>audio channel swapping, multi-channel data simulation, video pixel swapping, manifold mixup</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Berghi_SURREY_task3b_4</td>
+<td>Berghi_SURREY_task3b_report</td>
+<td>CNN, Conformer, ViT, MHST</td>
+<td>446613716</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector, direct-reverberant components</td>
+<td>audio-visual channel swapping</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Berghi_SURREY_task3b_2</td>
+<td>Berghi_SURREY_task3b_report</td>
+<td>CNN, Conformer</td>
+<td>85483420</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>audio-visual channel swapping</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Berghi_SURREY_task3b_1</td>
+<td>Berghi_SURREY_task3b_report</td>
+<td>CNN, Conformer</td>
+<td>85483420</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>audio-visual channel swapping</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Li_SHU_task3b_2</td>
+<td>Li_SHU_task3b_report</td>
+<td>ResNet-50,ResNet, Conformer,Transformer</td>
+<td>9995660</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>audio channel swapping,multi-channel data simulation,video pixel swapping</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Berghi_SURREY_task3b_3</td>
+<td>Berghi_SURREY_task3b_report</td>
+<td>CNN, Conformer, ViT, MHST</td>
+<td>275646876</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector, direct-reverberant components</td>
+<td>audio-visual channel swapping</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Li_SHU_task3b_1</td>
+<td>Li_SHU_task3b_report</td>
+<td>ResNet-50,ResNet, Conformer,Transformer</td>
+<td>9995660</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>audio channel swapping,video pixel swapping,multi-channel data simulation</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Guan_CQUPT_task3b_2</td>
+<td>Guan_CQUPT_task3_report</td>
+<td>CNN, Conformer, Ensemble, MHSA, MHCA</td>
+<td>13401544</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>cutout, specAugment, pitch shifting, augmix, audio channel swapping, audio-visual channel swapping</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Guan_CQUPT_task3b_1</td>
+<td>Guan_CQUPT_task3_report</td>
+<td>CNN, Conformer, Ensemble, MHSA, MHCA</td>
+<td>13401544</td>
+<td>Ambisonic</td>
+<td>mel spectra, intensity vector</td>
+<td>cutout, specAugment, pitch shifting, augmix, audio channel swapping, audio-visual channel swapping</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Berg_LU_task3b_3</td>
+<td>Berg_LU_task3_report</td>
+<td>CST-Former, MHSA, Transformer</td>
+<td>21900000</td>
+<td>Microphone Array</td>
+<td>mel spectra, NGCC-PHAT</td>
+<td>audio channel swapping</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Berg_LU_task3b_2</td>
+<td>Berg_LU_task3_report</td>
+<td>CST-Former, MHSA, Transformer</td>
+<td>21000000</td>
+<td>Microphone Array</td>
+<td>MFCC, NGCC-PHAT</td>
+<td>audio channel swapping</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Berg_LU_task3b_4</td>
+<td>Berg_LU_task3_report</td>
+<td>CST-Former, MHSA, Transformer</td>
+<td>21900000</td>
+<td>Microphone Array</td>
+<td>MFCC, NGCC-PHAT</td>
+<td>audio channel swapping</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Chen_ECUST_task3b_1</td>
+<td>Chen_ECUST_task3_report</td>
+<td>CRNN, MHSA</td>
+<td>743428</td>
+<td>Ambisonic</td>
+<td>mel spectra, GCC-PHAT, magnitude spectra</td>
+<td>audio channel swapping, video pixel swapping</td>
+</tr>
+<tr data-hline="true">
+<td>17</td>
+<td>AV_Baseline_MIC</td>
+<td>Shimada_SONY_task3b_report</td>
+<td>CRNN</td>
+<td>2728671</td>
+<td>Microphone Array</td>
+<td>magnitude spectra, IPD</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>Berg_LU_task3b_1</td>
+<td>Berg_LU_task3_report</td>
+<td>CST-Former, MHSA, Transformer</td>
+<td>21000000</td>
+<td>Microphone Array</td>
+<td>mel spectra, NGCC-PHAT</td>
+<td>audio channel swapping</td>
+</tr>
+<tr data-hline="true">
+<td>19</td>
+<td>AV_Baseline_FOA</td>
+<td>Shimada_SONY_task3b_report</td>
+<td>CRNN</td>
+<td>2726943</td>
+<td>Ambisonic</td>
+<td>magnitude spectra, IPD</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>Chen_ECUST_task3b_2</td>
+<td>Chen_ECUST_task3_report</td>
+<td>CRNN, MHSA</td>
+<td>745963</td>
+<td>Ambisonic</td>
+<td>mel spectra, GCC-PHAT, magnitude spectra</td>
+<td>audio channel swapping, video pixel swapping</td>
+</tr>
+</tbody>
+</table>
+<p><br/>
+<br/></p>
+<h1 id="technical-reports">Technical reports</h1>
+<div class="btex" data-source="content/data/challenge2024/technical_reports_task3.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="Berg_LU_task3_report" style="box-shadow: none">
+<div class="panel-heading" id="heading-Berg_LU_task3_report" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        THE LU SYSTEM FOR DCASE 2024 SOUND EVENT LOCALIZATION AND DETECTION CHALLENGE
+       </h4>
+<p style="text-align:left">
+        Axel Berg<sup>1,2</sup>, Johanna Engman<sup>1</sup>, Jens Gulin<sup>1,3</sup>, Karl Astrom<sup>1</sup>, Magnus Oskarsson<sup>1</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Computer Vision and Machine Learning, Centre for Mathematical Sciences, Lund University, Sweden, <sup>2</sup>Arm, Lund, Sweden, <sup>3</sup>Sony Europe B.V., Lund, Sweden
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Berg_LU_task3a_1</span> <span class="label label-primary">Berg_LU_task3a_2</span> <span class="label label-primary">Berg_LU_task3a_3</span> <span class="label label-primary">Berg_LU_task3a_4</span> <span class="label label-primary">Berg_LU_task3b_1</span> <span class="label label-primary">Berg_LU_task3b_2</span> <span class="label label-primary">Berg_LU_task3b_3</span> <span class="label label-primary">Berg_LU_task3b_4</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Berg_LU_task3_report" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Berg_LU_task3_report" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Berg_LU_task3_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Berg_24_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Berg_LU_task3_report').collapse('show');window.location.hash='#Berg_LU_task3_report';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Berg_LU_task3_report" class="panel-collapse collapse" id="collapse-Berg_LU_task3_report" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       THE LU SYSTEM FOR DCASE 2024 SOUND EVENT LOCALIZATION AND DETECTION CHALLENGE
+      </h4>
+<p style="text-align:left">
+<small>
+        Axel Berg<sup>1,2</sup>, Johanna Engman<sup>1</sup>, Jens Gulin<sup>1,3</sup>, Karl Astrom<sup>1</sup>, Magnus Oskarsson<sup>1</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Computer Vision and Machine Learning, Centre for Mathematical Sciences, Lund University, Sweden, <sup>2</sup>Arm, Lund, Sweden, <sup>3</sup>Sony Europe B.V., Lund, Sweden
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report gives an overview of our submission to task 3 of the DCASE 2024 challenge. We present a sound event localization and detection (SELD) system using input features based on trainable neural generalized cross-correlations with phase transform (NGCC-PHAT). With these features together with spectrograms as input to a Transformer-based network, we achieve significant improvements over the baseline method. In addition, we also present an audio-visual version of our system, where distance predictions are updated using depth maps from the panorama video frames.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Berg_LU_task3_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Berg_24_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/axeber01/ngcc-seld/" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Berg_LU_task3_reportlabel" class="modal fade" id="bibtex-Berg_LU_task3_report" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexBerg_LU_task3_reportlabel">
+        THE LU SYSTEM FOR DCASE 2024 SOUND EVENT LOCALIZATION AND DETECTION CHALLENGE
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Berg_LU_task3_report,
+    Author = "Berg, Axel and Engman, Johanna and Gulin, Jens and Astrom, Karl and Oskarsson, Magnus",
+    title = "THE LU SYSTEM FOR DCASE 2024 SOUND EVENT LOCALIZATION AND DETECTION CHALLENGE",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "This technical report gives an overview of our submission to task 3 of the DCASE 2024 challenge. We present a sound event localization and detection (SELD) system using input features based on trainable neural generalized cross-correlations with phase transform (NGCC-PHAT). With these features together with spectrograms as input to a Transformer-based network, we achieve significant improvements over the baseline method. In addition, we also present an audio-visual version of our system, where distance predictions are updated using depth maps from the panorama video frames."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Berghi_SURREY_task3b_report" style="box-shadow: none">
+<div class="panel-heading" id="heading-Berghi_SURREY_task3b_report" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        LEVERAGING REVERBERATION AND VISUAL DEPTH CUES FOR SOUND EVENT LOCALIZATION AND DETECTION WITH DISTANCE ESTIMATION
+       </h4>
+<p style="text-align:left">
+        Davide Berghi, Philip J. B. Jackson
+       </p>
+<p style="text-align:left">
+<em>
+         CVSSP, University of Surrey, Guildford, UK
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Berghi_SURREY_task3b_1</span> <span class="label label-primary">Berghi_SURREY_task3b_2</span> <span class="label label-primary">Berghi_SURREY_task3b_3</span> <span class="label label-primary">Berghi_SURREY_task3b_4</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Berghi_SURREY_task3b_report" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Berghi_SURREY_task3b_report" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Berghi_SURREY_task3b_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Berghi_93_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Berghi_SURREY_task3b_report" class="panel-collapse collapse" id="collapse-Berghi_SURREY_task3b_report" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       LEVERAGING REVERBERATION AND VISUAL DEPTH CUES FOR SOUND EVENT LOCALIZATION AND DETECTION WITH DISTANCE ESTIMATION
+      </h4>
+<p style="text-align:left">
+<small>
+        Davide Berghi, Philip J. B. Jackson
+       </small>
+<br/>
+<small>
+<em>
+         CVSSP, University of Surrey, Guildford, UK
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This report describes our systems submitted for the DCASE2024 Task 3 challenge: Audio and Audiovisual Sound Event Localization and Detection with Source Distance Estimation (Track B). Our main model is based on the audio-visual (AV) Conformer, which processes video and audio embeddings extracted with ResNet50 and with an audio encoder pre-trained on SELD, respectively. This model outperformed the audio-visual baseline of the development set of the STARSS23 dataset by a wide margin, halving its DOAE and improving the F1 by more than 3x. Our second system performs a temporal ensemble from the outputs of the AV-Conformer. We then extended the model with features for distance estimation, such as direct and reverberant signal components extracted from the omnidirectional audio channel, and depth maps extracted from the video frames. While the new system improved the RDE of our previous model by about 3 percentage points, it achieved a lower F1 score. This may be caused by sound classes that rarely appear in the training set and that the more complex system does not detect, as analysis can determine. To overcome this problem, our fourth and final system consists of an ensemble strategy combining the predictions of the other three. Many opportunities to refine the system and training strategy can be tested in future ablation experiments, and likely achieve incremental performance gains for this audio-visual task.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Berghi_SURREY_task3b_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Berghi_93_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Berghi_SURREY_task3b_reportlabel" class="modal fade" id="bibtex-Berghi_SURREY_task3b_report" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexBerghi_SURREY_task3b_reportlabel">
+        LEVERAGING REVERBERATION AND VISUAL DEPTH CUES FOR SOUND EVENT LOCALIZATION AND DETECTION WITH DISTANCE ESTIMATION
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Berghi_SURREY_task3b_report,
+    Author = "Berghi, Davide and Jackson, Philip J. B.",
+    title = "LEVERAGING REVERBERATION AND VISUAL DEPTH CUES FOR SOUND EVENT LOCALIZATION AND DETECTION WITH DISTANCE ESTIMATION",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "This report describes our systems submitted for the DCASE2024 Task 3 challenge: Audio and Audiovisual Sound Event Localization and Detection with Source Distance Estimation (Track B). Our main model is based on the audio-visual (AV) Conformer, which processes video and audio embeddings extracted with ResNet50 and with an audio encoder pre-trained on SELD, respectively. This model outperformed the audio-visual baseline of the development set of the STARSS23 dataset by a wide margin, halving its DOAE and improving the F1 by more than 3x. Our second system performs a temporal ensemble from the outputs of the AV-Conformer. We then extended the model with features for distance estimation, such as direct and reverberant signal components extracted from the omnidirectional audio channel, and depth maps extracted from the video frames. While the new system improved the RDE of our previous model by about 3 percentage points, it achieved a lower F1 score. This may be caused by sound classes that rarely appear in the training set and that the more complex system does not detect, as analysis can determine. To overcome this problem, our fourth and final system consists of an ensemble strategy combining the predictions of the other three. Many opportunities to refine the system and training strategy can be tested in future ablation experiments, and likely achieve incremental performance gains for this audio-visual task."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Chen_ECUST_task3_report" style="box-shadow: none">
+<div class="panel-heading" id="heading-Chen_ECUST_task3_report" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        FEATURE FUSION BASED ON CROSS-FEATURE TRANSFORMER FOR SOUND EVENT LOCALIZATION AND DETECTION WITH SOURCE DISTANCE ESTIMATION
+       </h4>
+<p style="text-align:left">
+        Jishen Tao, Ning Chen
+       </p>
+<p style="text-align:left">
+<em>
+         East China University of Science and Technology School of Information Science and Engineering, Shanghai, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Chen_ECUST_task3a_1</span> <span class="label label-primary">Chen_ECUST_task3b_1</span> <span class="label label-primary">Chen_ECUST_task3b_2</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Chen_ECUST_task3_report" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Chen_ECUST_task3_report" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Chen_ECUST_task3_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Chen_106_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Chen_ECUST_task3_report" class="panel-collapse collapse" id="collapse-Chen_ECUST_task3_report" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       FEATURE FUSION BASED ON CROSS-FEATURE TRANSFORMER FOR SOUND EVENT LOCALIZATION AND DETECTION WITH SOURCE DISTANCE ESTIMATION
+      </h4>
+<p style="text-align:left">
+<small>
+        Jishen Tao, Ning Chen
+       </small>
+<br/>
+<small>
+<em>
+         East China University of Science and Technology School of Information Science and Engineering, Shanghai, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       Since the audio of many sound events contains rich high-frequency components, the Log-Mel, which compacts the high-frequency components seriously, cannot represent the essential feature of sound event entirely. In this paper, the Log-Mel Spectrogram + Intensity Vector (LMSIV) and Magnitude Spectrogram (MS) are fused to solve this problem. First, the Cross-Feature Transformer (CFT) is performed on each feature to inspire the other feature to reinforce itself through directly attending to latent relevance revealed in the other feature to fuse the features while ensuring awareness of their interaction introduced. Then Self-Attention Transformer (SAT) is performed on the concatenation of the obtained embeddings to further prioritize contextual information in it. The experimental results show that our proposed system outperform the baseline system on the development dataset of DCASE 2024 task3.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Chen_ECUST_task3_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Chen_106_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Chen_ECUST_task3_reportlabel" class="modal fade" id="bibtex-Chen_ECUST_task3_report" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexChen_ECUST_task3_reportlabel">
+        FEATURE FUSION BASED ON CROSS-FEATURE TRANSFORMER FOR SOUND EVENT LOCALIZATION AND DETECTION WITH SOURCE DISTANCE ESTIMATION
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Chen_ECUST_task3_report,
+    Author = "Tao, Jishen and Chen, Ning",
+    title = "FEATURE FUSION BASED ON CROSS-FEATURE TRANSFORMER FOR SOUND EVENT LOCALIZATION AND DETECTION WITH SOURCE DISTANCE ESTIMATION",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "Since the audio of many sound events contains rich high-frequency components, the Log-Mel, which compacts the high-frequency components seriously, cannot represent the essential feature of sound event entirely. In this paper, the Log-Mel Spectrogram + Intensity Vector (LMSIV) and Magnitude Spectrogram (MS) are fused to solve this problem. First, the Cross-Feature Transformer (CFT) is performed on each feature to inspire the other feature to reinforce itself through directly attending to latent relevance revealed in the other feature to fuse the features while ensuring awareness of their interaction introduced. Then Self-Attention Transformer (SAT) is performed on the concatenation of the obtained embeddings to further prioritize contextual information in it. The experimental results show that our proposed system outperform the baseline system on the development dataset of DCASE 2024 task3."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Du_NERCSLIP_task3_report" style="box-shadow: none">
+<div class="panel-heading" id="heading-Du_NERCSLIP_task3_report" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        THE NERC-SLIP SYSTEM FOR SOUND EVENT LOCALIZATION AND DETECTION WITH SOURCE DISTANCE ESTIMATION OF DCASE 2024 CHALLENGE
+       </h4>
+<p style="text-align:left">
+        Qing Wang<sup>1</sup>, Yuxuan Dong<sup>1</sup>, Hengyi Hong<sup>2</sup>, Ruoyu Wei<sup>3</sup>, Maocheng Hu<sup>4</sup>, Shi Cheng<sup>1</sup>, Ya Jiang<sup>1</sup>, Mingqi Cai<sup>3</sup>, Xin Fang<sup>3</sup>, Jun Du<sup>1</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>University of Science and Technology of China, Hefei, China, <sup>2</sup>Harbin Engineering University, Harbin, China, <sup>3</sup>iFLYTEK, Hefei, China, <sup>4</sup>National Intelligent Voice Innovation Center, Hefei, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Du_NERCSLIP_task3a_1</span> <span class="label label-primary">Du_NERCSLIP_task3a_2</span> <span class="label label-primary">Du_NERCSLIP_task3a_3</span> <span class="label label-primary">Du_NERCSLIP_task3a_4</span> <span class="label label-primary">Du_NERCSLIP_task3b_1</span> <span class="label label-primary">Du_NERCSLIP_task3b_2</span> <span class="label label-primary">Du_NERCSLIP_task3b_3</span> <span class="label label-primary">Du_NERCSLIP_task3b_4</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Du_NERCSLIP_task3_report" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Du_NERCSLIP_task3_report" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Du_NERCSLIP_task3_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Du_83_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Du_NERCSLIP_task3_report" class="panel-collapse collapse" id="collapse-Du_NERCSLIP_task3_report" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       THE NERC-SLIP SYSTEM FOR SOUND EVENT LOCALIZATION AND DETECTION WITH SOURCE DISTANCE ESTIMATION OF DCASE 2024 CHALLENGE
+      </h4>
+<p style="text-align:left">
+<small>
+        Qing Wang<sup>1</sup>, Yuxuan Dong<sup>1</sup>, Hengyi Hong<sup>2</sup>, Ruoyu Wei<sup>3</sup>, Maocheng Hu<sup>4</sup>, Shi Cheng<sup>1</sup>, Ya Jiang<sup>1</sup>, Mingqi Cai<sup>3</sup>, Xin Fang<sup>3</sup>, Jun Du<sup>1</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>University of Science and Technology of China, Hefei, China, <sup>2</sup>Harbin Engineering University, Harbin, China, <sup>3</sup>iFLYTEK, Hefei, China, <sup>4</sup>National Intelligent Voice Innovation Center, Hefei, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       The technical report presents our submission system for Task 3 of the DCASE 2024 Challenge: Audio and Audiovisual Sound Event Localization and Detection (SELD) with Source Distance Estimation (SDE). In addition to direction of arrival estimation (DOAE) of the sound source, this challenge also requires predicting the source distance. We attempted three methods to enable the system to predict both the DOA and the distance of the sound source. First, we proposed two multi-task learning frameworks. One introduces an extra branch to the original SELD model with multi-task learning framework, resulting in a three-branch output to simultaneously predict the DOA and distance of the sound source. The other integrates the sound source distance into the DOA prediction, estimat- ing the absolute position of the sound source. Second, we trained two models for DOAE and SDE respectively, and then used a joint prediction method based on the outputs of the two models. For the audiovisual SELD task with SDE, we used a ResNet-50 model pretrained on ImageNet as the visual feature extractor. Additionally, we simulated audio-visual data and used a teacher-student learning method to train our multi-modal system. We evaluated our methods on the dev-test set of the Sony-TAu Realistic Spatial Soundscapes 2023 (STARSS23) dataset.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Du_NERCSLIP_task3_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Du_83_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Du_NERCSLIP_task3_reportlabel" class="modal fade" id="bibtex-Du_NERCSLIP_task3_report" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexDu_NERCSLIP_task3_reportlabel">
+        THE NERC-SLIP SYSTEM FOR SOUND EVENT LOCALIZATION AND DETECTION WITH SOURCE DISTANCE ESTIMATION OF DCASE 2024 CHALLENGE
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Du_NERCSLIP_task3_report,
+    Author = "Wang, Qing and Dong, Yuxuan and Hong, Hengyi and Wei, Ruoyu and Hu, Maocheng and Cheng, Shi and Jiang, Ya and Cai, Mingqi and Fang, Xin and Du, Jun",
+    title = "THE NERC-SLIP SYSTEM FOR SOUND EVENT LOCALIZATION AND DETECTION WITH SOURCE DISTANCE ESTIMATION OF DCASE 2024 CHALLENGE",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "The technical report presents our submission system for Task 3 of the DCASE 2024 Challenge: Audio and Audiovisual Sound Event Localization and Detection (SELD) with Source Distance Estimation (SDE). In addition to direction of arrival estimation (DOAE) of the sound source, this challenge also requires predicting the source distance. We attempted three methods to enable the system to predict both the DOA and the distance of the sound source. First, we proposed two multi-task learning frameworks. One introduces an extra branch to the original SELD model with multi-task learning framework, resulting in a three-branch output to simultaneously predict the DOA and distance of the sound source. The other integrates the sound source distance into the DOA prediction, estimat- ing the absolute position of the sound source. Second, we trained two models for DOAE and SDE respectively, and then used a joint prediction method based on the outputs of the two models. For the audiovisual SELD task with SDE, we used a ResNet-50 model pretrained on ImageNet as the visual feature extractor. Additionally, we simulated audio-visual data and used a teacher-student learning method to train our multi-modal system. We evaluated our methods on the dev-test set of the Sony-TAu Realistic Spatial Soundscapes 2023 (STARSS23) dataset."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Guan_CQUPT_task3_report" style="box-shadow: none">
+<div class="panel-heading" id="heading-Guan_CQUPT_task3_report" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        POWER CUE ENHANCED NETWORK AND AUDIO-VISUAL FUISON FOR SOUND EVENT LOCALIZATION AND DETECTION OF DCASE2024 CHALLENGE
+       </h4>
+<p style="text-align:left">
+        Xin Guan<sup>1</sup>, Yi Zhou<sup>1</sup>, Hongqing Liu<sup>1</sup>, Yin Cao<sup>2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Chongqing University of Posts and Telecommunications, School of Communication and Information Engineering, Chongqing, China, <sup>2</sup>Department of Intelligent Science, Xi’an Jiaotong Liverpool University, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Guan_CQUPT_task3a_1</span> <span class="label label-primary">Guan_CQUPT_task3a_2</span> <span class="label label-primary">Guan_CQUPT_task3a_3</span> <span class="label label-primary">Guan_CQUPT_task3a_4</span> <span class="label label-primary">Guan_CQUPT_task3b_1</span> <span class="label label-primary">Guan_CQUPT_task3b_2</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Guan_CQUPT_task3_report" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Guan_CQUPT_task3_report" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Guan_CQUPT_task3_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Guan_11_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Guan_CQUPT_task3_report" class="panel-collapse collapse" id="collapse-Guan_CQUPT_task3_report" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       POWER CUE ENHANCED NETWORK AND AUDIO-VISUAL FUISON FOR SOUND EVENT LOCALIZATION AND DETECTION OF DCASE2024 CHALLENGE
+      </h4>
+<p style="text-align:left">
+<small>
+        Xin Guan<sup>1</sup>, Yi Zhou<sup>1</sup>, Hongqing Liu<sup>1</sup>, Yin Cao<sup>2</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Chongqing University of Posts and Telecommunications, School of Communication and Information Engineering, Chongqing, China, <sup>2</sup>Department of Intelligent Science, Xi’an Jiaotong Liverpool University, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report describes our submission systems for Task 3 of the DCASE2024 challenge: Sound Event Localization and Detection (SELD) Evaluated in Real Spatial Sound Scenes. To address the audio-only SELD task, we utilize a Resnet-Conformer as the main network. Additionally, we introduce a branch to receive power cue features, specifically log root mean square (log-rms). We employ various data augmentation techniques, including audio channel swapping (ACS), random cutout, time-frequency masking, frequency shifting, and AugMix, to enhance the model’s generalization. For the audio-visual SELD task, we also augment the visual modality in alignment with ACS. The audio and visual embeddings are sent to parallel Cross-Modal Attentive Fusion (CMAF) blocks before concatenation. We evaluate our approach on the dev-test set of the Sony-TAu Realistic Spatial Soundscapes 2023 (STARSS23) dataset.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Guan_CQUPT_task3_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Guan_11_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Guan_CQUPT_task3_reportlabel" class="modal fade" id="bibtex-Guan_CQUPT_task3_report" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexGuan_CQUPT_task3_reportlabel">
+        POWER CUE ENHANCED NETWORK AND AUDIO-VISUAL FUISON FOR SOUND EVENT LOCALIZATION AND DETECTION OF DCASE2024 CHALLENGE
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Guan_CQUPT_task3_report,
+    Author = "Guan, Xin and Zhou, Yi and Liu, Hongqing and Cao, Yin",
+    title = "POWER CUE ENHANCED NETWORK AND AUDIO-VISUAL FUISON FOR SOUND EVENT LOCALIZATION AND DETECTION OF DCASE2024 CHALLENGE",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "This technical report describes our submission systems for Task 3 of the DCASE2024 challenge: Sound Event Localization and Detection (SELD) Evaluated in Real Spatial Sound Scenes. To address the audio-only SELD task, we utilize a Resnet-Conformer as the main network. Additionally, we introduce a branch to receive power cue features, specifically log root mean square (log-rms). We employ various data augmentation techniques, including audio channel swapping (ACS), random cutout, time-frequency masking, frequency shifting, and AugMix, to enhance the model’s generalization. For the audio-visual SELD task, we also augment the visual modality in alignment with ACS. The audio and visual embeddings are sent to parallel Cross-Modal Attentive Fusion (CMAF) blocks before concatenation. We evaluate our approach on the dev-test set of the Sony-TAu Realistic Spatial Soundscapes 2023 (STARSS23) dataset."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Li_BIT_task3a_report" style="box-shadow: none">
+<div class="panel-heading" id="heading-Li_BIT_task3a_report" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        THE SYSTEM USING CONVNEXT, CONFORMER, AND DATA AUGMENTATION FOR SOUND EVENT LOCALIZATION AND DETECTION
+       </h4>
+<p style="text-align:left">
+        Jiahao Li
+       </p>
+<p style="text-align:left">
+<em>
+         Beijing Institution of Technology, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Li_BIT_task3a_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Li_BIT_task3a_report" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Li_BIT_task3a_report" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Li_BIT_task3a_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Li_4_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Li_BIT_task3a_report" class="panel-collapse collapse" id="collapse-Li_BIT_task3a_report" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       THE SYSTEM USING CONVNEXT, CONFORMER, AND DATA AUGMENTATION FOR SOUND EVENT LOCALIZATION AND DETECTION
+      </h4>
+<p style="text-align:left">
+<small>
+        Jiahao Li
+       </small>
+<br/>
+<small>
+<em>
+         Beijing Institution of Technology, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report details our submission system for DCASE2024 Task 3: Audio and Audiovisual Sound Event Localization and Detection (SELD) with Source Distance Estimation. To address the audio-only task, we initially apply the Audio Channel Swapping (ACS) method to generate augmented data, enhancing the performance of the proposed system. Subsequently, we introduce the ConvNeXt module for feature extraction and processing. To further enhance feature extraction capabilities, we employ the Squeeze-and-Excitation Block (SEBlock) after ConvNeXt. We then utilize the Conformer to extract additional features and ultimately compute the multi-ACCDOA output. The proposed system significantly outperforms the baseline on the development dataset of DCASE2024 Task 3.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Li_BIT_task3a_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Li_4_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Li_BIT_task3a_reportlabel" class="modal fade" id="bibtex-Li_BIT_task3a_report" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexLi_BIT_task3a_reportlabel">
+        THE SYSTEM USING CONVNEXT, CONFORMER, AND DATA AUGMENTATION FOR SOUND EVENT LOCALIZATION AND DETECTION
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Li_BIT_task3a_report,
+    Author = "Li, Jiahao",
+    title = "THE SYSTEM USING CONVNEXT, CONFORMER, AND DATA AUGMENTATION FOR SOUND EVENT LOCALIZATION AND DETECTION",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "This technical report details our submission system for DCASE2024 Task 3: Audio and Audiovisual Sound Event Localization and Detection (SELD) with Source Distance Estimation. To address the audio-only task, we initially apply the Audio Channel Swapping (ACS) method to generate augmented data, enhancing the performance of the proposed system. Subsequently, we introduce the ConvNeXt module for feature extraction and processing. To further enhance feature extraction capabilities, we employ the Squeeze-and-Excitation Block (SEBlock) after ConvNeXt. We then utilize the Conformer to extract additional features and ultimately compute the multi-ACCDOA output. The proposed system significantly outperforms the baseline on the development dataset of DCASE2024 Task 3."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Li_SHU_task3b_report" style="box-shadow: none">
+<div class="panel-heading" id="heading-Li_SHU_task3b_report" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Data Augmentation and Cross-Fusion for Audiovisual Sound Event Localization and Detection with Source Distance Estimation
+       </h4>
+<p style="text-align:left">
+        Yongbo Li, Chuan Wang, Qinghua Huang
+       </p>
+<p style="text-align:left">
+<em>
+         Shanghai University, Shanghai, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Li_SHU_task3b_1</span> <span class="label label-primary">Li_SHU_task3b_2</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Li_SHU_task3b_report" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Li_SHU_task3b_report" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Li_SHU_task3b_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Li_25_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Li_SHU_task3b_report" class="panel-collapse collapse" id="collapse-Li_SHU_task3b_report" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Data Augmentation and Cross-Fusion for Audiovisual Sound Event Localization and Detection with Source Distance Estimation
+      </h4>
+<p style="text-align:left">
+<small>
+        Yongbo Li, Chuan Wang, Qinghua Huang
+       </small>
+<br/>
+<small>
+<em>
+         Shanghai University, Shanghai, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report describes a system participating in the DCASE2024 challenge Task 3: Sound Event Localization and Detection with Source Distance Estimation-Track B: Audio-Visual Reasoning. A system based on the official baseline system is developed and improved in terms of network architecture and data augmentation. The convolutional recurrent neural network (CRNN) is substituted by a ResNet-Conformer block pre-trained on an audio-only network. Audio Channel Swapping (ACS) is applied to the DCASE 2024 official audio dataset to generate more audio data. A simulated audio dataset is also created. Video Pixel Swapping (VPS) is performed on the original video data to obtain more video data. Experimental results show that our system outperforms the baseline method on the Sony-TAU Real Spatial Soundscape 2024 (STARSS24) development dataset. A series of experiments are implemented only on the First-Order Ambisonics (FOA) dataset.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Li_SHU_task3b_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Li_25_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Li_SHU_task3b_reportlabel" class="modal fade" id="bibtex-Li_SHU_task3b_report" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexLi_SHU_task3b_reportlabel">
+        Data Augmentation and Cross-Fusion for Audiovisual Sound Event Localization and Detection with Source Distance Estimation
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Li_SHU_task3b_report,
+    Author = "Li, Yongbo and Wang, Chuan and Huang, Qinghua",
+    title = "Data Augmentation and Cross-Fusion for Audiovisual Sound Event Localization and Detection with Source Distance Estimation",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "This technical report describes a system participating in the DCASE2024 challenge Task 3: Sound Event Localization and Detection with Source Distance Estimation-Track B: Audio-Visual Reasoning. A system based on the official baseline system is developed and improved in terms of network architecture and data augmentation. The convolutional recurrent neural network (CRNN) is substituted by a ResNet-Conformer block pre-trained on an audio-only network. Audio Channel Swapping (ACS) is applied to the DCASE 2024 official audio dataset to generate more audio data. A simulated audio dataset is also created. Video Pixel Swapping (VPS) is performed on the original video data to obtain more video data. Experimental results show that our system outperforms the baseline method on the Sony-TAU Real Spatial Soundscape 2024 (STARSS24) development dataset. A series of experiments are implemented only on the First-Order Ambisonics (FOA) dataset."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Politis_TAU_task3a_report" style="box-shadow: none">
+<div class="panel-heading" id="heading-Politis_TAU_task3a_report" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        STARSS22: A dataset of spatial recordings of real scenes with spatiotemporal annotations of sound events
+       </h4>
+<p style="text-align:left">
+        Archontis Politis<sup>1</sup>, Kazuki Shimada<sup>2</sup>, Parthasaarathy Sudarsanam<sup>1</sup>, Sharath Adavanne<sup>1</sup>, Daniel Krause<sup>1</sup>, Yuichiro Koyama<sup>2</sup>, Naoya Takahashi<sup>2</sup>, Shusuke Takahashi<sup>2</sup>, Yuki Mitsufuji<sup>2</sup>, Tuomas Virtanen<sup>1</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Tampere University, Tampere, Finland, <sup>2</sup>SONY, Tokyo, Japan
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">AO_Baseline_FOA</span> <span class="label label-primary">AO_Baseline_MIC</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Politis_TAU_task3a_report" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Politis_TAU_task3a_report" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Politis_TAU_task3a_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="https://dcase.community/documents/workshop2022/proceedings/DCASE2022Workshop_Politis_51.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Politis_TAU_task3a_report').collapse('show');window.location.hash='#Politis_TAU_task3a_report';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Politis_TAU_task3a_report" class="panel-collapse collapse" id="collapse-Politis_TAU_task3a_report" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       STARSS22: A dataset of spatial recordings of real scenes with spatiotemporal annotations of sound events
+      </h4>
+<p style="text-align:left">
+<small>
+        Archontis Politis<sup>1</sup>, Kazuki Shimada<sup>2</sup>, Parthasaarathy Sudarsanam<sup>1</sup>, Sharath Adavanne<sup>1</sup>, Daniel Krause<sup>1</sup>, Yuichiro Koyama<sup>2</sup>, Naoya Takahashi<sup>2</sup>, Shusuke Takahashi<sup>2</sup>, Yuki Mitsufuji<sup>2</sup>, Tuomas Virtanen<sup>1</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Tampere University, Tampere, Finland, <sup>2</sup>SONY, Tokyo, Japan
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This report presents the Sony-TAu Realistic Spatial Soundscapes 2022 (STARSS22) dataset of spatial recordings of real sound scenes collected in various interiors at two different sites. The dataset is captured with a high resolution spherical microphone array and delivered in two 4-channel formats, first-order Ambisonics and tetrahedral microphone array. Sound events belonging to 13 target classes are annotated both temporally and spatially through a combination of human annotation and optical tracking. STARSS22 serves as the development and evaluation dataset for Task 3 (Sound Event Localization and Detection) of the DCASE2022 Challenge and it introduces significant new challenges with regard to the previous iterations, which were based on synthetic data. Additionally, the report introduces the baseline system that accompanies the dataset with emphasis on its differences to the baseline of the previous challenge. Baseline results indicate that with a suitable training strategy a reasonable detection and localization performance can be achieved on real sound scene recordings. The dataset is available in https://zenodo.org/record/6600531.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Politis_TAU_task3a_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="https://dcase.community/documents/workshop2022/proceedings/DCASE2022Workshop_Politis_51.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/sharathadavanne/seld-dcase2023" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Politis_TAU_task3a_reportlabel" class="modal fade" id="bibtex-Politis_TAU_task3a_report" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexPolitis_TAU_task3a_reportlabel">
+        STARSS22: A dataset of spatial recordings of real scenes with spatiotemporal annotations of sound events
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Politis_TAU_task3a_report,
+    author = "Politis, Archontis and Shimada, Kazuki and Sudarsanam, Parthasaarathy and Adavanne, Sharath and Krause, Daniel and Koyama, Yuichiro and Takahashi, Naoya and Takahashi, Shusuke and Mitsufuji, Yuki and Virtanen, Tuomas",
+    title = "{STARSS22}: {A} dataset of spatial recordings of real scenes with spatiotemporal annotations of sound events",
+    booktitle = "Proceedings of the 8th Detection and Classification of Acoustic Scenes and Events 2022 Workshop (DCASE2022)",
+    institution = "DCASE2023 Challenge",
+    address = "Nancy, France",
+    month = "November",
+    year = "2022",
+    pages = "125--129",
+    abstract = "This report presents the Sony-TAu Realistic Spatial Soundscapes 2022 (STARSS22) dataset of spatial recordings of real sound scenes collected in various interiors at two different sites. The dataset is captured with a high resolution spherical microphone array and delivered in two 4-channel formats, first-order Ambisonics and tetrahedral microphone array. Sound events belonging to 13 target classes are annotated both temporally and spatially through a combination of human annotation and optical tracking. STARSS22 serves as the development and evaluation dataset for Task 3 (Sound Event Localization and Detection) of the DCASE2022 Challenge and it introduces significant new challenges with regard to the previous iterations, which were based on synthetic data. Additionally, the report introduces the baseline system that accompanies the dataset with emphasis on its differences to the baseline of the previous challenge. Baseline results indicate that with a suitable training strategy a reasonable detection and localization performance can be achieved on real sound scene recordings. The dataset is available in https://zenodo.org/record/6600531.",
+    url = "https://dcase.community/workshop2022/proceedings"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Qian_IASP_task3a_report" style="box-shadow: none">
+<div class="panel-heading" id="heading-Qian_IASP_task3a_report" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        THE IASP SUBMISSION FOR SOUND EVENT LOCALIZATION AND DETECTION OF DCASE2024 CHALLENGE
+       </h4>
+<p style="text-align:left">
+        Yuanhang Qian, Tianqin Zheng, Yichen Zeng, Gongping Huang
+       </p>
+<p style="text-align:left">
+<em>
+         School of Electronic Information, Wuhan University, Wuhan, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Qian_IASP_task3a_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Qian_IASP_task3a_report" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Qian_IASP_task3a_report" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Qian_IASP_task3a_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Qian_43_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Qian_IASP_task3a_report" class="panel-collapse collapse" id="collapse-Qian_IASP_task3a_report" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       THE IASP SUBMISSION FOR SOUND EVENT LOCALIZATION AND DETECTION OF DCASE2024 CHALLENGE
+      </h4>
+<p style="text-align:left">
+<small>
+        Yuanhang Qian, Tianqin Zheng, Yichen Zeng, Gongping Huang
+       </small>
+<br/>
+<small>
+<em>
+         School of Electronic Information, Wuhan University, Wuhan, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       The technical report describes the submission systems developed for task 3a of the DCASE2024 challenge: Audio Sound Event Localization and Detection with Source Distance Estimation. To enhance the performance of the audio-only task, we implement audio channel swapping as a data augmentation technique. We adopt the Resnet-Conformer model for the network architecture, which is well-suited for capturing First-Order Ambisonics (FOA) format data patterns. Additionally, the approach utilizes the Multi- ACCDDOA method to concurrently predict the event type and estimate the source distance. This comprehensive strategy yielded superior results compared to the baseline system.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Qian_IASP_task3a_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Qian_43_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Qian_IASP_task3a_reportlabel" class="modal fade" id="bibtex-Qian_IASP_task3a_report" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexQian_IASP_task3a_reportlabel">
+        THE IASP SUBMISSION FOR SOUND EVENT LOCALIZATION AND DETECTION OF DCASE2024 CHALLENGE
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Qian_IASP_task3a_report,
+    Author = "Qian, Yuanhang and Zheng, Tianqin and Zeng, Yichen and Huang, Gongping",
+    title = "THE IASP SUBMISSION FOR SOUND EVENT LOCALIZATION AND DETECTION OF DCASE2024 CHALLENGE",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "The technical report describes the submission systems developed for task 3a of the DCASE2024 challenge: Audio Sound Event Localization and Detection with Source Distance Estimation. To enhance the performance of the audio-only task, we implement audio channel swapping as a data augmentation technique. We adopt the Resnet-Conformer model for the network architecture, which is well-suited for capturing First-Order Ambisonics (FOA) format data patterns. Additionally, the approach utilizes the Multi- ACCDDOA method to concurrently predict the event type and estimate the source distance. This comprehensive strategy yielded superior results compared to the baseline system."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Shimada_SONY_task3b_report" style="box-shadow: none">
+<div class="panel-heading" id="heading-Shimada_SONY_task3b_report" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        STARSS23: An Audio-Visual Dataset of Spatial Recordings of Real Scenes with Spatiotemporal Annotations of Sound Events
+       </h4>
+<p style="text-align:left">
+        Kazuki Shimada<sup>2</sup>, Archontis Politis<sup>1</sup>, Parthasaarathy Sudarsanam<sup>1</sup>, Daniel Krause<sup>1</sup>, Kengo Uchida<sup>2</sup>, Sharath Adavanne<sup>1</sup>, Aapo Hakala<sup>1</sup>, Yuichiro Koyama<sup>2</sup>, Naoya Takahashi<sup>2</sup>, Shusuke Takahashi<sup>2</sup>, Tuomas Virtanen<sup>1</sup>, Yuki Mitsufuji<sup>2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Tampere University, Tampere, Finland, <sup>2</sup>SONY, Tokyo, Japan
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">AV_Baseline_FOA</span> <span class="label label-primary">AV_Baseline_MIC</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Shimada_SONY_task3b_report" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Shimada_SONY_task3b_report" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Shimada_SONY_task3b_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="https://proceedings.neurips.cc/paper_files/paper/2023/file/e6c9671ed3b3106b71cafda3ba225c1a-Paper-Datasets_and_Benchmarks.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Shimada_SONY_task3b_report').collapse('show');window.location.hash='#Shimada_SONY_task3b_report';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Shimada_SONY_task3b_report" class="panel-collapse collapse" id="collapse-Shimada_SONY_task3b_report" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       STARSS23: An Audio-Visual Dataset of Spatial Recordings of Real Scenes with Spatiotemporal Annotations of Sound Events
+      </h4>
+<p style="text-align:left">
+<small>
+        Kazuki Shimada<sup>2</sup>, Archontis Politis<sup>1</sup>, Parthasaarathy Sudarsanam<sup>1</sup>, Daniel Krause<sup>1</sup>, Kengo Uchida<sup>2</sup>, Sharath Adavanne<sup>1</sup>, Aapo Hakala<sup>1</sup>, Yuichiro Koyama<sup>2</sup>, Naoya Takahashi<sup>2</sup>, Shusuke Takahashi<sup>2</sup>, Tuomas Virtanen<sup>1</sup>, Yuki Mitsufuji<sup>2</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Tampere University, Tampere, Finland, <sup>2</sup>SONY, Tokyo, Japan
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       While direction of arrival (DOA) of sound events is generally estimated from multichannel audio data recorded in a microphone array, sound events usually derive from visually perceptible source objects, e.g., sounds of footsteps come from the feet of a walker. This paper proposes an audio-visual sound event localization and detection (SELD) task, which uses multichannel audio and video information to estimate the temporal activation and DOA of target sound events. Audio-visual SELD systems can detect and localize sound events using signals from a microphone array and audio-visual correspondence. We also introduce an audio-visual dataset, Sony-TAu Realistic Spatial Soundscapes 2023 (STARSS23), which consists of multichannel audio data recorded with a microphone array, video data, and spatiotemporal annotation of sound events. Sound scenes in STARSS23 are recorded with instructions, which guide recording participants to ensure adequate activity and occurrences of sound events. STARSS23 also serves human-annotated temporal activation labels and human-confirmed DOA labels, which are based on tracking results of a motion capture system. Our benchmark results show that the audio-visual SELD system achieves lower localization error than the audio-only system. The data is available at https://zenodo.org/record/7880637.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Shimada_SONY_task3b_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="https://proceedings.neurips.cc/paper_files/paper/2023/file/e6c9671ed3b3106b71cafda3ba225c1a-Paper-Datasets_and_Benchmarks.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/sony/audio-visual-seld-dcase2023" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Shimada_SONY_task3b_reportlabel" class="modal fade" id="bibtex-Shimada_SONY_task3b_report" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexShimada_SONY_task3b_reportlabel">
+        STARSS23: An Audio-Visual Dataset of Spatial Recordings of Real Scenes with Spatiotemporal Annotations of Sound Events
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Shimada_SONY_task3b_report,
+    author = "Shimada, Kazuki and Politis, Archontis and Sudarsanam, Parthasaarathy and Krause, Daniel and Uchida, Kengo and Adavanne, Sharath and Hakala, Aapo and Koyama, Yuichiro and Takahashi, Naoya and Takahashi, Shusuke and Virtanen, Tuomas and Mitsufuji, Yuki",
+    title = "{STARSS23}: {A}n Audio-Visual Dataset of Spatial Recordings of Real Scenes with Spatiotemporal Annotations of Sound Events",
+    booktitle = "Proceedings of the 37th International Conference on Neural Information Processing Systems (NeurIPS 2023)",
+    address = "New Orleans, USA",
+    month = "December",
+    pages = "72931--72957",
+    abstract = "While direction of arrival (DOA) of sound events is generally estimated from multichannel audio data recorded in a microphone array, sound events usually derive from visually perceptible source objects, e.g., sounds of footsteps come from the feet of a walker. This paper proposes an audio-visual sound event localization and detection (SELD) task, which uses multichannel audio and video information to estimate the temporal activation and DOA of target sound events. Audio-visual SELD systems can detect and localize sound events using signals from a microphone array and audio-visual correspondence. We also introduce an audio-visual dataset, Sony-TAu Realistic Spatial Soundscapes 2023 (STARSS23), which consists of multichannel audio data recorded with a microphone array, video data, and spatiotemporal annotation of sound events. Sound scenes in STARSS23 are recorded with instructions, which guide recording participants to ensure adequate activity and occurrences of sound events. STARSS23 also serves human-annotated temporal activation labels and human-confirmed DOA labels, which are based on tracking results of a motion capture system. Our benchmark results show that the audio-visual SELD system achieves lower localization error than the audio-only system. The data is available at https://zenodo.org/record/7880637.",
+    year = "2023",
+    url = "https://proceedings.neurips.cc/paper\_files/paper/2023/hash/e6c9671ed3b3106b71cafda3ba225c1a-Abstract-Datasets\_and\_Benchmarks.html"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Sun_JLESS_task3a_report" style="box-shadow: none">
+<div class="panel-heading" id="heading-Sun_JLESS_task3a_report" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        JLESS SUBMISSION TO DCASE2024 TASK3: Conformer with Data Augmentation for Sound Event Localization and Detection with Source Distance Estimation
+       </h4>
+<p style="text-align:left">
+        Wenqiang Sun<sup>1</sup>, Dongzhe Zhang<sup>1,2</sup>, Jisheng Bai<sup>1,2</sup>, Jianfeng Chen<sup>1,2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Joint Laboratory of Environmental Sound Sensing, School of Marine Science and Technology, Northwestern Polytechnical University, Xi’an, China, <sup>2</sup> LianFeng Acoustic Technologies Co., Ltd. Xi’an, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Sun_JLESS_task3a_1</span> <span class="label label-primary">Sun_JLESS_task3a_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Sun_JLESS_task3a_report" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Sun_JLESS_task3a_report" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Sun_JLESS_task3a_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Sun_23_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Sun_JLESS_task3a_report" class="panel-collapse collapse" id="collapse-Sun_JLESS_task3a_report" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       JLESS SUBMISSION TO DCASE2024 TASK3: Conformer with Data Augmentation for Sound Event Localization and Detection with Source Distance Estimation
+      </h4>
+<p style="text-align:left">
+<small>
+        Wenqiang Sun<sup>1</sup>, Dongzhe Zhang<sup>1,2</sup>, Jisheng Bai<sup>1,2</sup>, Jianfeng Chen<sup>1,2</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Joint Laboratory of Environmental Sound Sensing, School of Marine Science and Technology, Northwestern Polytechnical University, Xi’an, China, <sup>2</sup> LianFeng Acoustic Technologies Co., Ltd. Xi’an, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report, we describe our proposed system for DCASE2024 task3: Sound Event Localization and Detec tion(SELD) with Source Distance Estimation in Real Spatial Sound Scenes. At first, we review the famous deep learning methods in SELD. To augment our dataset, we employ channel rotation techniques. In addition to existing features, we introduce a novel feature: the sine value of the inter-channel phase difference. Finally, we validate the effectiveness of our approach on the Sony-TAU Realistic Spatial Soundscapes 2023 (STARSS23) dataset and the results demonstrate that our method outperforms the baseline across multiple metrics.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Sun_JLESS_task3a_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Sun_23_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Sun_JLESS_task3a_reportlabel" class="modal fade" id="bibtex-Sun_JLESS_task3a_report" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexSun_JLESS_task3a_reportlabel">
+        JLESS SUBMISSION TO DCASE2024 TASK3: Conformer with Data Augmentation for Sound Event Localization and Detection with Source Distance Estimation
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Sun_JLESS_task3a_report,
+    Author = "Sun, Wenqiang and Zhang, Dongzhe and Bai, Jisheng and Chen, Jianfeng",
+    title = "JLESS SUBMISSION TO DCASE2024 TASK3: Conformer with Data Augmentation for Sound Event Localization and Detection with Source Distance Estimation",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "This technical report, we describe our proposed system for DCASE2024 task3: Sound Event Localization and Detec tion(SELD) with Source Distance Estimation in Real Spatial Sound Scenes. At first, we review the famous deep learning methods in SELD. To augment our dataset, we employ channel rotation techniques. In addition to existing features, we introduce a novel feature: the sine value of the inter-channel phase difference. Finally, we validate the effectiveness of our approach on the Sony-TAU Realistic Spatial Soundscapes 2023 (STARSS23) dataset and the results demonstrate that our method outperforms the baseline across multiple metrics."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Vo_DU_task3a_report" style="box-shadow: none">
+<div class="panel-heading" id="heading-Vo_DU_task3a_report" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        RESNET-CONFORMER NETWORK WITH SHARED WEIGHTS AND ATTENTION MECHANISM FOR SOUND EVENT LOCALIZATION, DETECTION, AND DISTANCE ESTIMATION
+       </h4>
+<p style="text-align:left">
+        Quoc Thinh Vo, David K. Han
+       </p>
+<p style="text-align:left">
+<em>
+         Drexel University, College of Engineering Electrical and Computer Engineering Department, Philadelphia, USA
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Vo_DU_task3a_1</span> <span class="label label-primary">Vo_DU_task3a_2</span> <span class="label label-primary">Vo_DU_task3a_3</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Vo_DU_task3a_report" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Vo_DU_task3a_report" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Vo_DU_task3a_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Vo_63_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Vo_DU_task3a_report" class="panel-collapse collapse" id="collapse-Vo_DU_task3a_report" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       RESNET-CONFORMER NETWORK WITH SHARED WEIGHTS AND ATTENTION MECHANISM FOR SOUND EVENT LOCALIZATION, DETECTION, AND DISTANCE ESTIMATION
+      </h4>
+<p style="text-align:left">
+<small>
+        Quoc Thinh Vo, David K. Han
+       </small>
+<br/>
+<small>
+<em>
+         Drexel University, College of Engineering Electrical and Computer Engineering Department, Philadelphia, USA
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report outlines our approach to Task 3A of the Detection and Classification of Acoustic Scenes and Events (DCASE) 2024, focusing on Sound Event Localization and Detection (SELD). SELD provides valuable insights by estimating sound event localization and detection, aiding in various machine cognition tasks such as environmental inference, navigation, and other sound localization-related applications. This year’s challenge evaluates models using either audio-only (Track A) or audiovisual (Track B) inputs on annotated recordings of real sound scenes. A notable change this year is the introduction of distance estimation, with evaluation metrics adjusted accordingly for a comprehensive assessment. Our submission is for Task A of the Challenge, which focuses on the audio-only track. Our approach utilizes log-mel spectrograms, intensity vectors, and employs multiple data augmentations. We proposed an EINV2-based network architecture, achieving improved results: an F-score of 40.2%, Angular Error (DOA) of 17.7°, and Relative Distance Error (RDE) of 0.32 on the test set of the Development Dataset.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Vo_DU_task3a_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Vo_63_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Vo_DU_task3a_reportlabel" class="modal fade" id="bibtex-Vo_DU_task3a_report" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexVo_DU_task3a_reportlabel">
+        RESNET-CONFORMER NETWORK WITH SHARED WEIGHTS AND ATTENTION MECHANISM FOR SOUND EVENT LOCALIZATION, DETECTION, AND DISTANCE ESTIMATION
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Vo_DU_task3a_report,
+    Author = "Vo, Quoc Thinh and Han, David K.",
+    title = "RESNET-CONFORMER NETWORK WITH SHARED WEIGHTS AND ATTENTION MECHANISM FOR SOUND EVENT LOCALIZATION, DETECTION, AND DISTANCE ESTIMATION",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "This technical report outlines our approach to Task 3A of the Detection and Classification of Acoustic Scenes and Events (DCASE) 2024, focusing on Sound Event Localization and Detection (SELD). SELD provides valuable insights by estimating sound event localization and detection, aiding in various machine cognition tasks such as environmental inference, navigation, and other sound localization-related applications. This year’s challenge evaluates models using either audio-only (Track A) or audiovisual (Track B) inputs on annotated recordings of real sound scenes. A notable change this year is the introduction of distance estimation, with evaluation metrics adjusted accordingly for a comprehensive assessment. Our submission is for Task A of the Challenge, which focuses on the audio-only track. Our approach utilizes log-mel spectrograms, intensity vectors, and employs multiple data augmentations. We proposed an EINV2-based network architecture, achieving improved results: an F-score of 40.2\%, Angular Error (DOA) of 17.7°, and Relative Distance Error (RDE) of 0.32 on the test set of the Development Dataset."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Yeow_NTU_task3a_report" style="box-shadow: none">
+<div class="panel-heading" id="heading-Yeow_NTU_task3a_report" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        SQUEEZE-AND-EXCITE RESNET-CONFORMERS FOR SOUND EVENT LOCALIZATION, DETECTION, AND DISTANCE ESTIMATION FOR DCASE2024 CHALLENGE
+       </h4>
+<p style="text-align:left">
+        Jun Wei Yeow<sup>1</sup>, Ee-Leng Tan<sup>1</sup>, Jisheng Bai<sup>2</sup>, Santi Peksi<sup>1</sup>, Woon-Seng Gan<sup>1</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Smart Nation TRANS Lab, Nanyang Technological University, Singapore, <sup>2</sup>School of Marine Science and Technology, Northwestern Polytechnical University, Xi’an, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Yeow_NTU_task3a_1</span> <span class="label label-primary">Yeow_NTU_task3a_2</span> <span class="label label-primary">Yeow_NTU_task3a_3</span> <span class="label label-primary">Yeow_NTU_task3a_4</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Yeow_NTU_task3a_report" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Yeow_NTU_task3a_report" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Yeow_NTU_task3a_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Yeow_12_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Yeow_NTU_task3a_report" class="panel-collapse collapse" id="collapse-Yeow_NTU_task3a_report" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       SQUEEZE-AND-EXCITE RESNET-CONFORMERS FOR SOUND EVENT LOCALIZATION, DETECTION, AND DISTANCE ESTIMATION FOR DCASE2024 CHALLENGE
+      </h4>
+<p style="text-align:left">
+<small>
+        Jun Wei Yeow<sup>1</sup>, Ee-Leng Tan<sup>1</sup>, Jisheng Bai<sup>2</sup>, Santi Peksi<sup>1</sup>, Woon-Seng Gan<sup>1</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Smart Nation TRANS Lab, Nanyang Technological University, Singapore, <sup>2</sup>School of Marine Science and Technology, Northwestern Polytechnical University, Xi’an, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report details our systems submitted for Task 3 of the DCASE 2024 Challenge: Audio and Audiovisual Sound Event Localization and Detection (SELD) with Source Distance Estimation (SDE). We address only the audio-only SELD with SDE (SELDDE) task in this report. We propose to improve the existing ResNet- Conformer architectures with Squeeze-and-Excitation blocks in order to introduce additional forms of channel- and spatial-wise attention. In order to improve SELD performance, we also utilize the Spatial Cue-Augmented Log-Spectrogram (SALSA) features over the commonly used log-mel spectra features for polyphonic SELD. We complement the existing Sony-TAu Realistic Spatial Soundscapes 2023 (STARSS23) dataset with the audio channel swapping technique and synthesize additional data using the SpatialScaper generator. We also perform distance scaling in order to prevent large distance errors from contributing more towards the loss function. Finally, we evaluate our approach on the evaluation subset of the STARSS23 dataset.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Yeow_NTU_task3a_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Yeow_12_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Yeow_NTU_task3a_reportlabel" class="modal fade" id="bibtex-Yeow_NTU_task3a_report" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexYeow_NTU_task3a_reportlabel">
+        SQUEEZE-AND-EXCITE RESNET-CONFORMERS FOR SOUND EVENT LOCALIZATION, DETECTION, AND DISTANCE ESTIMATION FOR DCASE2024 CHALLENGE
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Yeow_NTU_task3a_report,
+    Author = "Yeow, Jun Wei and Tan, Ee-Leng and Bai, Jisheng and Peksi, Santi and Gan, Woon-Seng",
+    title = "SQUEEZE-AND-EXCITE RESNET-CONFORMERS FOR SOUND EVENT LOCALIZATION, DETECTION, AND DISTANCE ESTIMATION FOR DCASE2024 CHALLENGE",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "This technical report details our systems submitted for Task 3 of the DCASE 2024 Challenge: Audio and Audiovisual Sound Event Localization and Detection (SELD) with Source Distance Estimation (SDE). We address only the audio-only SELD with SDE (SELDDE) task in this report. We propose to improve the existing ResNet- Conformer architectures with Squeeze-and-Excitation blocks in order to introduce additional forms of channel- and spatial-wise attention. In order to improve SELD performance, we also utilize the Spatial Cue-Augmented Log-Spectrogram (SALSA) features over the commonly used log-mel spectra features for polyphonic SELD. We complement the existing Sony-TAu Realistic Spatial Soundscapes 2023 (STARSS23) dataset with the audio channel swapping technique and synthesize additional data using the SpatialScaper generator. We also perform distance scaling in order to prevent large distance errors from contributing more towards the loss function. Finally, we evaluate our approach on the evaluation subset of the STARSS23 dataset."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Yu_HYUNDAI_task3a_report" style="box-shadow: none">
+<div class="panel-heading" id="heading-Yu_HYUNDAI_task3a_report" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DOA AND EVENT GUIDANCE SYSTEM FOR SOUND EVENT LOCALIZATION AND DETECTION WITH SOURCE DISTANCE ESTIMATION
+       </h4>
+<p style="text-align:left">
+        Hogeon Yu
+       </p>
+<p style="text-align:left">
+<em>
+         Hyundai Motor Company, Robotics Lab, South Korea
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Yu_HYUNDAI_task3a_1</span> <span class="label label-primary">Yu_HYUNDAI_task3a_2</span> <span class="label label-primary">Yu_HYUNDAI_task3a_3</span> <span class="label label-primary">Yu_HYUNDAI_task3a_4</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Yu_HYUNDAI_task3a_report" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Yu_HYUNDAI_task3a_report" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Yu_HYUNDAI_task3a_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Yu_62_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Yu_HYUNDAI_task3a_report" class="panel-collapse collapse" id="collapse-Yu_HYUNDAI_task3a_report" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DOA AND EVENT GUIDANCE SYSTEM FOR SOUND EVENT LOCALIZATION AND DETECTION WITH SOURCE DISTANCE ESTIMATION
+      </h4>
+<p style="text-align:left">
+<small>
+        Hogeon Yu
+       </small>
+<br/>
+<small>
+<em>
+         Hyundai Motor Company, Robotics Lab, South Korea
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report describes the proposed system submitted to the DCASE2024 Task3: Sound Event Localization and Detection with Source Distance Estimation. There are two tracks, and we participate in the audio-only track. At first, we adopt the CST block, a transformer-based network, to extract meaningful features for predicting sub-tasks DOA and SED. Next, DOA and EVENT guidance attention blocks are introduced to boost the performance on a Multi-ACCDOA-based single-task system for the SELD tasks. We only apply the data augmentation method, a multi-channel simulation technique to complement the sparsity of training data provided by the challenge. Tested on the dev-test set of the Sony-TAu Realistic Spatial Soundscapes 2023 (STARSS23) dataset, our proposed systems outperform the baseline system.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Yu_HYUNDAI_task3a_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Yu_62_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Yu_HYUNDAI_task3a_reportlabel" class="modal fade" id="bibtex-Yu_HYUNDAI_task3a_report" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexYu_HYUNDAI_task3a_reportlabel">
+        DOA AND EVENT GUIDANCE SYSTEM FOR SOUND EVENT LOCALIZATION AND DETECTION WITH SOURCE DISTANCE ESTIMATION
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Yu_HYUNDAI_task3a_report,
+    Author = "Yu, Hogeon",
+    title = "DOA AND EVENT GUIDANCE SYSTEM FOR SOUND EVENT LOCALIZATION AND DETECTION WITH SOURCE DISTANCE ESTIMATION",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "This technical report describes the proposed system submitted to the DCASE2024 Task3: Sound Event Localization and Detection with Source Distance Estimation. There are two tracks, and we participate in the audio-only track. At first, we adopt the CST block, a transformer-based network, to extract meaningful features for predicting sub-tasks DOA and SED. Next, DOA and EVENT guidance attention blocks are introduced to boost the performance on a Multi-ACCDOA-based single-task system for the SELD tasks. We only apply the data augmentation method, a multi-channel simulation technique to complement the sparsity of training data provided by the challenge. Tested on the dev-test set of the Sony-TAu Realistic Spatial Soundscapes 2023 (STARSS23) dataset, our proposed systems outperform the baseline system."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Zhang_BUPT_task3a_report" style="box-shadow: none">
+<div class="panel-heading" id="heading-Zhang_BUPT_task3a_report" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        MULTI-SCALE FEATURE FUSION FOR SOUND EVENT LOCALIZATION AND DETECTION
+       </h4>
+<p style="text-align:left">
+        Da Mu, Huamei Sun, Haobo Yue, Yuanyuan Jiang, Zehao Wang, Zhicheng Zhang, Jianqin Yin
+       </p>
+<p style="text-align:left">
+<em>
+         School of Artificial Intelligence, Beijing University of Posts and Telecommunications, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Zhang_BUPT_task3a_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Zhang_BUPT_task3a_report" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Zhang_BUPT_task3a_report" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Zhang_BUPT_task3a_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Zhang_7_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Zhang_BUPT_task3a_report" class="panel-collapse collapse" id="collapse-Zhang_BUPT_task3a_report" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       MULTI-SCALE FEATURE FUSION FOR SOUND EVENT LOCALIZATION AND DETECTION
+      </h4>
+<p style="text-align:left">
+<small>
+        Da Mu, Huamei Sun, Haobo Yue, Yuanyuan Jiang, Zehao Wang, Zhicheng Zhang, Jianqin Yin
+       </small>
+<br/>
+<small>
+<em>
+         School of Artificial Intelligence, Beijing University of Posts and Telecommunications, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report describes our submission system for task 3 of the DCASE2024 challenge: Sound Event Localization and Detection with Source Distance Estimation. Our experiment specifically focused on analyzing the first-order ambisonics (FOA) dataset. Building upon our previous work, we utilized a three-stage network structure known as the Multi-scale Feature Fusion (MFF) module. This module allowed us to efficiently extract multi-scale features across the spectral, spatial, and temporal domains. In this report, we introduce the implementation of the MFF module as the encoder and Conformer Blocks as the decoder within a single-branch neu- ral network named MFF-Conformer. This configuration enables us to generate Multi-ACCDOA labels as the output. Compared to the baseline system, our approach exhibits significant improvements in F20° and DOAE metrics and demonstrates its effectiveness on the development dataset of DCASE task 3.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Zhang_BUPT_task3a_report" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Zhang_7_t3.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Zhang_BUPT_task3a_reportlabel" class="modal fade" id="bibtex-Zhang_BUPT_task3a_report" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexZhang_BUPT_task3a_reportlabel">
+        MULTI-SCALE FEATURE FUSION FOR SOUND EVENT LOCALIZATION AND DETECTION
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Zhang_BUPT_task3a_report,
+    Author = "Mu, Da and Sun, Huamei and Yue, Haobo and Jiang, Yuanyuan and Wang, Zehao and Zhang, Zhicheng and Yin, Jianqin",
+    title = "MULTI-SCALE FEATURE FUSION FOR SOUND EVENT LOCALIZATION AND DETECTION",
+    institution = "DCASE2024 Challenge",
+    year = "2024",
+    month = "June",
+    abstract = "This technical report describes our submission system for task 3 of the DCASE2024 challenge: Sound Event Localization and Detection with Source Distance Estimation. Our experiment specifically focused on analyzing the first-order ambisonics (FOA) dataset. Building upon our previous work, we utilized a three-stage network structure known as the Multi-scale Feature Fusion (MFF) module. This module allowed us to efficiently extract multi-scale features across the spectral, spatial, and temporal domains. In this report, we introduce the implementation of the MFF module as the encoder and Conformer Blocks as the decoder within a single-branch neu- ral network named MFF-Conformer. This configuration enables us to generate Multi-ACCDOA labels as the output. Compared to the baseline system, our approach exhibits significant improvements in F20° and DOAE metrics and demonstrates its effectiveness on the development dataset of DCASE task 3."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script>
+(function($) {
+$(document).ready(function() {
+var hash = window.location.hash.substr(1);
+var anchor = window.location.hash;
+
+var shiftWindow = function() {
+var hash = window.location.hash.substr(1);
+if($('#collapse-'+hash).length){
+scrollBy(0, -100);
+}
+};
+window.addEventListener("hashchange", shiftWindow);
+
+if (window.location.hash){
+window.scrollTo(0, 0);
+history.replaceState(null, document.title, "#");
+$('#collapse-'+hash).collapse('show');
+setTimeout(function(){
+window.location.hash = anchor;
+shiftWindow();
+}, 2000);
+}
+});
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

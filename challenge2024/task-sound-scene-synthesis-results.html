@@ -1,0 +1,1783 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Sound Scene Synthesis - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Sound Scene Synthesis - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2024/task-sound-scene-synthesis-results">
+    <meta property="og:url" content="https://dcase.community/challenge2024/task-sound-scene-synthesis-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="Task description Environmental Sound Scene Synthesis is the task of generating environmental sound given a textual description. Environmental sounds encompass any non-musical and unintelligible vocal sounds. This next-generation task expands the scope from last year’s Foley sounds to a more general sound scene. Further, it adds controllability with natural …" />
+    <meta name="og:description" content="Task description Environmental Sound Scene Synthesis is..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btex.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right navbar-tighter" id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2024</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2024/"><i class="fa fa-home"></i>&nbsp;Intro</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-t1"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-t2"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-t3"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-t4"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-bird text-t5"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-captioning text-t6"></i>&nbsp;Task6&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-synthesis text-t7"></i>&nbsp;Task7&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-retrieval text-t8"></i>&nbsp;Task8&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-separation text-t9"></i>&nbsp;Task9&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-traffic text-t10"></i>&nbsp;Task10&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2024/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2024/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/wave-02.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-task2"></i><i class="fa dc-synthesis fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text">Synthesis</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 7</span></span><img src="../images/logos/dcase/dcase2024_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Sound Scene Synthesis</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Challenge results</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#task-description">Task description</a></li>
+<li><a href="#systems-ranking">Systems ranking</a>
+<ul>
+<li><a href="#evaluation-procedure">Evaluation Procedure</a></li>
+<li><a href="#ranking">Ranking</a></li>
+<li><a href="#perceptual-evaluation-score">Perceptual Evaluation Score</a></li>
+<li><a href="#fad-score">FAD Score</a></li>
+</ul>
+</li>
+<li><a href="#system-characteristics">System characteristics</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h1 id="task-description">Task description</h1>
+<p>Environmental Sound Scene Synthesis is the task of generating environmental sound given a textual description. Environmental sounds encompass any non-musical and unintelligible vocal sounds. This next-generation task expands the scope from last year’s Foley sounds to a more general sound scene. Further, it adds controllability with natural language in the form of text prompts.</p>
+<h1 id="systems-ranking">Systems ranking</h1>
+<h2 id="evaluation-procedure">Evaluation Procedure</h2>
+<p>Fourteen raters judged 24 prompts per system for 6 systems: 4 contestants, a baseline, and a Sound-Designer Reference set constructed by hand-mixing recorded sounds. Four of the raters were contestants and 10 of the raters were double-blinded organizers and their lab members.</p>
+<p>There were 4 unique foreground prompts for each of 6 foreground categories: <strong>alarms</strong>, <strong>animals</strong>, <strong>entrances</strong>, <strong>humans</strong>, <strong>tools</strong>, <strong>vehicles</strong>. Five types of background prompts (<strong>birds</strong>, <strong>crowds</strong>, <strong>traffic</strong>, <strong>water</strong>, <strong>no background</strong>) were interspersed irregularly among the categories, so that the average match rating of background prompts within a particular foreground category represents the ratings of a few types of background prompts.</p>
+<p>All raters were uninformed about which system generated each sound. Organizers who gave ratings saw anonymized system numbers in the data until all results and rankings were finalized. (Those organizers who had heard sounds during the generation phase did not participate in ratings; instead, they generated the anonymized system numbers for the data files).
+Contestants rated sounds from all systems; to avoid bias, their self-ratings were removed in case they were able to recognize sounds from their own system. For each contestant and each prompt, each self-rating was replaced with a contestant’s average responses to that prompt for all other systems; this ensured that removal of self-ratings would not uniquely raise or lower the average of their own system.</p>
+<h2 id="ranking">Ranking</h2>
+<p>The final ranking is determined by the weighted average of the three ratings were based on a ratio of <strong>category fit for foreground sound : category fit for background sound : audio quality</strong> that was <strong>2:1:1</strong>.</p>
+<h2 id="perceptual-evaluation-score">Perceptual Evaluation Score</h2>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="off" data-chart-modes="scatter,comparison" data-comparison-a-row="DCASE2024_baseline_task7" data-comparison-active-set="Weighted Average Score" data-comparison-b-row="Sun_Samsung_task7_1" data-comparison-row-id-field="code" data-comparison-sets-json='[
+       {"title": "Weighted Average Score", "data_axis_title": "Score", "fields": ["weighted_average_average", "weighted_average_alarm", "weighted_average_animal", "weighted_average_entrance", "weighted_average_human", "weighted_average_tool", "weighted_average_vehicle"]
+       },
+       {"title": "Foreground Fit Score", "data_axis_title": "Score", "fields": ["category_fit_foreground_average", "category_fit_foreground_alarm", "category_fit_foreground_animal", "category_fit_foreground_entrance", "category_fit_foreground_human", "category_fit_foreground_tool", "category_fit_foreground_vehicle"]
+       },
+       {"title": "Background Fit Score", "data_axis_title": "Score", "fields": ["category_fit_background_average", "category_fit_background_alarm", "category_fit_background_animal", "category_fit_background_entrance", "category_fit_background_human", "category_fit_background_tool", "category_fit_background_vehicle"]
+       },
+       {"title": "Audio Quality Score", "data_axis_title": "Score", "fields": ["audio_quality_average", "audio_quality_alarm", "audio_quality_animal", "audio_quality_entrance", "audio_quality_human", "audio_quality_tool", "audio_quality_vehicle"]
+       }]' data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="system_rank" data-scatter-y="weighted_average_average" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="weighted_average_average" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2"></th>
+<th class="sep-left-cell" colspan="2">Submission Information</th>
+<th class="sep-left-cell" colspan="8">Weighted Average Score</th>
+<th class="sep-left-cell" colspan="7">Foreground Fit</th>
+<th class="sep-left-cell" colspan="7">Background Fit</th>
+<th class="sep-left-cell" colspan="7">Audio Quality</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Submission Code
+            </th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="system_rank" data-sortable="true" data-value-type="int">
+                Official<br/>Rank
+            </th>
+<th class="text-center" data-chartable="true" data-field="weighted_average_average" data-sortable="true" data-value-type="float3">
+                Average Score
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="weighted_average_alarm" data-sortable="true" data-value-type="float3">
+                Alarm
+            </th>
+<th class="text-center" data-chartable="true" data-field="weighted_average_animal" data-sortable="true" data-value-type="float3">
+                Animal
+            </th>
+<th class="text-center" data-chartable="true" data-field="weighted_average_entrance" data-sortable="true" data-value-type="float3">
+                Entrance
+            </th>
+<th class="text-center" data-chartable="true" data-field="weighted_average_human" data-sortable="true" data-value-type="float3">
+                Human
+            </th>
+<th class="text-center" data-chartable="true" data-field="weighted_average_tool" data-sortable="true" data-value-type="float3">
+                Tool
+            </th>
+<th class="text-center" data-chartable="true" data-field="weighted_average_vehicle" data-sortable="true" data-value-type="float3">
+                Vehicle
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="category_fit_foreground_average" data-sortable="true" data-value-type="float3">
+                Average Score
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="category_fit_foreground_alarm" data-sortable="true" data-value-type="float3">
+                Alarm
+            </th>
+<th class="text-center" data-chartable="true" data-field="category_fit_foreground_animal" data-sortable="true" data-value-type="float3">
+                Animal
+            </th>
+<th class="text-center" data-chartable="true" data-field="category_fit_foreground_entrance" data-sortable="true" data-value-type="float3">
+                Entrance
+            </th>
+<th class="text-center" data-chartable="true" data-field="category_fit_foreground_human" data-sortable="true" data-value-type="float3">
+                Human
+            </th>
+<th class="text-center" data-chartable="true" data-field="category_fit_foreground_tool" data-sortable="true" data-value-type="float3">
+                Tool
+            </th>
+<th class="text-center" data-chartable="true" data-field="category_fit_foreground_vehicle" data-sortable="true" data-value-type="float3">
+                Vehicle
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="category_fit_background_average" data-sortable="true" data-value-type="float3">
+                Average Score
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="category_fit_background_alarm" data-sortable="true" data-value-type="float3">
+                Alarm
+            </th>
+<th class="text-center" data-chartable="true" data-field="category_fit_background_animal" data-sortable="true" data-value-type="float3">
+                Animal
+            </th>
+<th class="text-center" data-chartable="true" data-field="category_fit_background_entrance" data-sortable="true" data-value-type="float3">
+                Entrance
+            </th>
+<th class="text-center" data-chartable="true" data-field="category_fit_background_human" data-sortable="true" data-value-type="float3">
+                Human
+            </th>
+<th class="text-center" data-chartable="true" data-field="category_fit_background_tool" data-sortable="true" data-value-type="float3">
+                Tool
+            </th>
+<th class="text-center" data-chartable="true" data-field="category_fit_background_vehicle" data-sortable="true" data-value-type="float3">
+                Vehicle
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="audio_quality_average" data-sortable="true" data-value-type="float3">
+                Average Score
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="audio_quality_alarm" data-sortable="true" data-value-type="float3">
+                Alarm
+            </th>
+<th class="text-center" data-chartable="true" data-field="audio_quality_animal" data-sortable="true" data-value-type="float3">
+                Animal
+            </th>
+<th class="text-center" data-chartable="true" data-field="audio_quality_entrance" data-sortable="true" data-value-type="float3">
+                Entrance
+            </th>
+<th class="text-center" data-chartable="true" data-field="audio_quality_human" data-sortable="true" data-value-type="float3">
+                Human
+            </th>
+<th class="text-center" data-chartable="true" data-field="audio_quality_tool" data-sortable="true" data-value-type="float3">
+                Tool
+            </th>
+<th class="text-center" data-chartable="true" data-field="audio_quality_vehicle" data-sortable="true" data-value-type="float3">
+                Vehicle
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Sound Designer (Ref.)</td>
+<td></td>
+<td></td>
+<td>8.793</td>
+<td>9.331</td>
+<td>8.478</td>
+<td>8.598</td>
+<td>9.286</td>
+<td>9.290</td>
+<td>8.853</td>
+<td>9.768</td>
+<td>9.768</td>
+<td>8.554</td>
+<td>8.875</td>
+<td>9.500</td>
+<td>9.393</td>
+<td>9.143</td>
+<td>8.786</td>
+<td>8.786</td>
+<td>8.375</td>
+<td>8.286</td>
+<td>9.125</td>
+<td>9.339</td>
+<td>8.554</td>
+<td>9.000</td>
+<td>9.000</td>
+<td>8.429</td>
+<td>8.357</td>
+<td>9.018</td>
+<td>9.036</td>
+<td>8.571</td>
+</tr>
+<tr>
+<td></td>
+<td>Sun_Samsung_task7_1</td>
+<td>SunSamsung2024</td>
+<td>1</td>
+<td>5.832</td>
+<td>5.651</td>
+<td>5.884</td>
+<td>5.630</td>
+<td>5.191</td>
+<td>5.769</td>
+<td>6.870</td>
+<td>5.752</td>
+<td>5.571</td>
+<td>6.414</td>
+<td>4.500</td>
+<td>4.964</td>
+<td>5.307</td>
+<td>7.757</td>
+<td>5.780</td>
+<td>5.743</td>
+<td>4.729</td>
+<td>7.079</td>
+<td>5.311</td>
+<td>6.139</td>
+<td>5.679</td>
+<td>6.045</td>
+<td>5.718</td>
+<td>5.979</td>
+<td>6.443</td>
+<td>5.525</td>
+<td>6.321</td>
+<td>6.286</td>
+</tr>
+<tr>
+<td></td>
+<td>Chung_KT_task7_1</td>
+<td>ChungKT2024</td>
+<td>2</td>
+<td>4.966</td>
+<td>4.890</td>
+<td>5.506</td>
+<td>4.272</td>
+<td>4.737</td>
+<td>4.885</td>
+<td>5.506</td>
+<td>5.025</td>
+<td>5.218</td>
+<td>6.079</td>
+<td>3.750</td>
+<td>4.436</td>
+<td>4.907</td>
+<td>5.761</td>
+<td>4.623</td>
+<td>3.746</td>
+<td>4.446</td>
+<td>4.807</td>
+<td>5.361</td>
+<td>4.071</td>
+<td>5.307</td>
+<td>5.191</td>
+<td>5.379</td>
+<td>5.421</td>
+<td>4.782</td>
+<td>4.714</td>
+<td>5.654</td>
+<td>5.196</td>
+</tr>
+<tr>
+<td></td>
+<td>Yi_Surrey_task7_1</td>
+<td>YiSURREY2024</td>
+<td>3</td>
+<td>4.748</td>
+<td>4.271</td>
+<td>5.499</td>
+<td>4.920</td>
+<td>5.497</td>
+<td>4.043</td>
+<td>4.256</td>
+<td>3.733</td>
+<td>2.775</td>
+<td>4.968</td>
+<td>4.671</td>
+<td>5.543</td>
+<td>2.339</td>
+<td>2.104</td>
+<td>5.133</td>
+<td>5.261</td>
+<td>5.454</td>
+<td>3.261</td>
+<td>5.236</td>
+<td>5.375</td>
+<td>6.214</td>
+<td>6.391</td>
+<td>6.271</td>
+<td>6.607</td>
+<td>7.079</td>
+<td>5.664</td>
+<td>6.118</td>
+<td>6.604</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2024_baseline_task7</td>
+<td>LeeGLI2024</td>
+<td></td>
+<td>3.287</td>
+<td>3.750</td>
+<td>1.764</td>
+<td>4.607</td>
+<td>2.880</td>
+<td>4.049</td>
+<td>2.674</td>
+<td>3.280</td>
+<td>4.071</td>
+<td>1.054</td>
+<td>4.946</td>
+<td>2.036</td>
+<td>4.893</td>
+<td>2.679</td>
+<td>2.797</td>
+<td>2.768</td>
+<td>2.446</td>
+<td>4.036</td>
+<td>3.196</td>
+<td>1.696</td>
+<td>2.643</td>
+<td>3.792</td>
+<td>4.089</td>
+<td>2.500</td>
+<td>4.500</td>
+<td>4.250</td>
+<td>4.714</td>
+<td>2.696</td>
+</tr>
+<tr>
+<td></td>
+<td>Verma_IITMandi_task7_1</td>
+<td>VermaIITMandi2024</td>
+<td>4</td>
+<td>2.523</td>
+<td>2.207</td>
+<td>2.269</td>
+<td>3.540</td>
+<td>2.636</td>
+<td>1.965</td>
+<td>2.520</td>
+<td>1.792</td>
+<td>1.021</td>
+<td>1.504</td>
+<td>2.621</td>
+<td>1.814</td>
+<td>1.414</td>
+<td>2.379</td>
+<td>3.078</td>
+<td>4.168</td>
+<td>2.575</td>
+<td>4.575</td>
+<td>2.811</td>
+<td>2.204</td>
+<td>2.132</td>
+<td>3.430</td>
+<td>2.618</td>
+<td>3.493</td>
+<td>4.343</td>
+<td>4.107</td>
+<td>2.829</td>
+<td>3.189</td>
+</tr>
+</tbody>
+</table>
+<p><br/>
+<br/></p>
+<h2 id="fad-score">FAD Score</h2>
+<p>Frechet Audio Distance (FAD) was calculated using embeddings of the evaluation set (Sound Design Reference audio datasets) and generated sounds from submitted systems.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="off" data-chart-modes="scatter,comparison" data-comparison-a-row="DCASE2024_baseline_task7" data-comparison-active-set="FAD (eval)" data-comparison-b-row="Sun_Samsung_task7_1" data-comparison-row-id-field="code" data-comparison-sets-json='[
+       {"title": "FAD (eval)", "data_axis_title": "FAD", "fields": ["FAD_PANNs_eval_average", "FAD_CLAP_eval_average", "FAD_VGGish_eval_average"]
+       },
+       {"title": "FAD (dev)", "data_axis_title": "FAD", "fields": ["FAD_PANNs_dev_average", "FAD_CLAP_dev_average", "FAD_VGGish_dev_average"]
+       }]' data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="FAD_PANNs_eval_average" data-scatter-y="FAD_CLAP_eval_average" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="total_rank" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2"></th>
+<th class="sep-left-cell" colspan="2">Submission Information</th>
+<th class="sep-left-cell" colspan="5">Evaluation Dataset</th>
+<th class="sep-left-cell" colspan="3">Development Dataset</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Submission Code
+            </th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="system_rank" data-sortable="true" data-value-type="int">
+                Official<br/>Rank
+            </th>
+<th class="text-center" data-chartable="true" data-field="FAD_rank" data-sortable="true" data-value-type="int">
+                FAD <br/>Rank
+            </th>
+<th class="text-center" data-chartable="true" data-field="FAD_PANNs_eval_average" data-sortable="true" data-value-type="float3">
+                FAD (PANNs)
+            </th>
+<th class="text-center" data-chartable="true" data-field="FAD_CLAP_eval_average" data-sortable="true" data-value-type="float3">
+                FAD (CLAP)
+            </th>
+<th class="text-center" data-chartable="true" data-field="FAD_VGGish_eval_average" data-sortable="true" data-value-type="float3">
+                FAD (VGGish)
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="FAD_PANNs_dev_average" data-sortable="true" data-value-type="float3">
+                FAD (PANNs)
+            </th>
+<th class="text-center" data-chartable="true" data-field="FAD_CLAP_dev_average" data-sortable="true" data-value-type="float3">
+                FAD (CLAP)
+            </th>
+<th class="text-center" data-chartable="true" data-field="FAD_VGGish_dev_average" data-sortable="true" data-value-type="float3">
+                FAD (VGGish)
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Sound Designer (Ref.)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Sun_Samsung_task7_1</td>
+<td>SunSamsung2024</td>
+<td>1</td>
+<td>1</td>
+<td>35.985</td>
+<td>257.968</td>
+<td>5.424</td>
+<td>50.179</td>
+<td>333.943</td>
+<td>7.558</td>
+</tr>
+<tr>
+<td></td>
+<td>Chung_KT_task7_1</td>
+<td>ChungKT2024</td>
+<td>2</td>
+<td>2</td>
+<td>37.092</td>
+<td>192.358</td>
+<td>5.051</td>
+<td>41.580</td>
+<td>269.975</td>
+<td>4.524</td>
+</tr>
+<tr>
+<td></td>
+<td>Yi_Surrey_task7_1</td>
+<td>YiSURREY2024</td>
+<td>3</td>
+<td>3</td>
+<td>43.304</td>
+<td>149.853</td>
+<td>6.800</td>
+<td>56.985</td>
+<td>295.729</td>
+<td>6.253</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2024_baseline_task7</td>
+<td>LeeGLI2024</td>
+<td></td>
+<td></td>
+<td>57.061</td>
+<td>321.415</td>
+<td>9.713</td>
+<td>55.614</td>
+<td>367.668</td>
+<td>8.069</td>
+</tr>
+<tr>
+<td></td>
+<td>Verma_IITMandi_task7_1</td>
+<td>VermaIITMandi2024</td>
+<td>4</td>
+<td>4</td>
+<td>53.728</td>
+<td>313.398</td>
+<td>9.208</td>
+<td>52.056</td>
+<td>348.012</td>
+<td>6.520</td>
+</tr>
+</tbody>
+</table>
+<p><br/>
+<br/></p>
+<h1 id="system-characteristics">System characteristics</h1>
+<p>Summary of the submitted system characteristics.</p>
+<table class="datatable table table-hover table-condensed" data-chart-tooltip-fields="code" data-filter-control="true" data-filter-show-clear="true" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-bar-chart-xaxis="false" data-show-chart="false" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="total_rank" data-sort-order="asc" data-striped="true" data-tag-mode="column">
+<thead>
+<tr>
+<th data-field="total_rank" data-sortable="true" data-value-type="int">
+</th>
+<th class="sep-left-cell sm-cell" data-field="code" data-sortable="true">
+                Submission<br/>Code
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="external_audio_dataset" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Audio<br/>Dataset
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_input" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                System<br/>input
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_machine_learning_method" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                ML<br/>method
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_phase_reconstruction" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Phase<br/>reconstruction
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_acoustic_feature" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Acoustic<br/>feature
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-axis-scale="log10_unit" data-field="system_complexity" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-value-type="numeric-unit">
+                System<br/>Complexity
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_data_augmentation" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Data<br/>Augmentation
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="external_model" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Pre-trained<br/>Model
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_ensemble_method_subsystem_count" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true" data-value-type="int">
+                Subsystem<br/>Count
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr class="info" data-hline="true">
+<td>1</td>
+<td>Sound Designer (Ref.)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Sun_Samsung_task7_1</td>
+<td>SunSamsung2024</td>
+<td>AudioCaps, audio-alpaca</td>
+<td>text prompt</td>
+<td>VAE, CLAP, U-Net-based latent diffusion model</td>
+<td>HiFi-GAN</td>
+<td>mel-spectrogram</td>
+<td>1047000000</td>
+<td>conditioning augmentation</td>
+<td>TANGO 2, HiFi-GAN</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Chung_KT_task7_1</td>
+<td>ChungKT2024</td>
+<td>AudioCaps, WavCaps</td>
+<td>text prompt, noise</td>
+<td>CLAP, GAN</td>
+<td>HiFi-GAN</td>
+<td>mel-spectrogram</td>
+<td>325963838</td>
+<td></td>
+<td>CLAP, HiFi-GAN</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Yi_Surrey_task7_1</td>
+<td>YiSURREY2024</td>
+<td>AudioSet</td>
+<td>text prompt</td>
+<td>VAE, T5, U-Net-based latent diffusion model</td>
+<td>BigvGAN</td>
+<td>mel-spectrogram</td>
+<td>265531016</td>
+<td>conditioning augmentation</td>
+<td>CLAP</td>
+<td></td>
+</tr>
+<tr class="info" data-hline="true">
+<td>5</td>
+<td>DCASE2024_baseline_task7</td>
+<td>LeeGLI2024</td>
+<td>DCASE2024 Challenge Task 7 Development Dataset</td>
+<td>text prompt</td>
+<td>VAE, CLAP, U-Net-based latent diffusion model</td>
+<td>HiFi-GAN</td>
+<td>mel-spectrogram</td>
+<td>416000000</td>
+<td>conditioning augmentation</td>
+<td>HiFi-GAN</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Verma_IITMandi_task7_1</td>
+<td>VermaIITMandi2024</td>
+<td>DCASE2024 Challenge Task 7 Development Dataset, Custom Dataset</td>
+<td>text prompt</td>
+<td>VAE, CLAP, U-Net-based latent diffusion model</td>
+<td>HiFi-GAN</td>
+<td>mel-spectrogram</td>
+<td>671000000</td>
+<td>conditioning augmentation</td>
+<td>HiFi-GAN</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br/>
+<br/></p>
+<h1 id="technical-reports">Technical reports</h1>
+<div class="btex" data-source="content/data/challenge2024/technical_reports_task7.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="ChungKT2024" style="box-shadow: none">
+<div class="panel-heading" id="heading-ChungKT2024" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Sound Scene Synthesis Based on GAN Using Contrastive Learning and Effective Time-Frequency Swap Cross Attention Mechanism
+       </h4>
+<p style="text-align:left">
+        Hae Chun Chung, Jae Hoon Jung
+       </p>
+<p style="text-align:left">
+<em>
+         KT Corporation, Seoul, Republic of Korea
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Chung_KT_task7_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-ChungKT2024" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-ChungKT2024" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-ChungKT2024" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Chung_53_t7.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-ChungKT2024" class="panel-collapse collapse" id="collapse-ChungKT2024" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Sound Scene Synthesis Based on GAN Using Contrastive Learning and Effective Time-Frequency Swap Cross Attention Mechanism
+      </h4>
+<p style="text-align:left">
+<small>
+        Hae Chun Chung, Jae Hoon Jung
+       </small>
+<br/>
+<small>
+<em>
+         KT Corporation, Seoul, Republic of Korea
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report outlines the efforts of KT Corporation's Acoustic Processing Project for addressing sound scene synthesis, DCASE 2024 Challenge Task 7. The task's objective is to develop a generative system capable of synthesizing environmental sounds from text descriptions. Our system is designed in three stages to achieve this goal: embedding the text description, generating a mel spectrogram conditioned on the text embedding, and converting the mel spectrogram into an audio waveform. Our main focus lies on training the model for the second stage. We employed a generative adversarial network (GAN) and meticulously designed the training process and architecture. We utilized various contrastive losses and introduced the single-double-triple attention mechanism to accurately capture text descriptions and train high-quality features. To mitigate the rise in GPU memory consumption caused by the expanded attention mechanism, we designed a novel time-frequency swap cross-attention mechanism. Our system achieved FAD score more than 30% lower than the DCASE baseline, demonstrating significant performance improvements in text-to-audio generation.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         System input
+        </td>
+<td>
+         text prompt,noise
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Machine learning method
+        </td>
+<td>
+         CLAP,GAN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Phase reconstruction method
+        </td>
+<td>
+         HiFi-GAN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         mel-spectrogram
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         System comprexity
+        </td>
+<td>
+         325963838 parameters
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-ChungKT2024" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Chung_53_t7.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-ChungKT2024label" class="modal fade" id="bibtex-ChungKT2024" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexChungKT2024label">
+        Sound Scene Synthesis Based on GAN Using Contrastive Learning and Effective Time-Frequency Swap Cross Attention Mechanism
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{ChungKT2024,
+    Author = "Chung, Hae Chun and Jung, Jae Hoon",
+    title = "Sound Scene Synthesis Based on GAN Using Contrastive Learning and Effective Time-Frequency Swap Cross Attention Mechanism",
+    institution = "KT Corporation, Seoul, Republic of Korea",
+    year = "2024",
+    month = "July",
+    abstract = "This technical report outlines the efforts of KT Corporation's Acoustic Processing Project for addressing sound scene synthesis, DCASE 2024 Challenge Task 7. The task's objective is to develop a generative system capable of synthesizing environmental sounds from text descriptions. Our system is designed in three stages to achieve this goal: embedding the text description, generating a mel spectrogram conditioned on the text embedding, and converting the mel spectrogram into an audio waveform. Our main focus lies on training the model for the second stage. We employed a generative adversarial network (GAN) and meticulously designed the training process and architecture. We utilized various contrastive losses and introduced the single-double-triple attention mechanism to accurately capture text descriptions and train high-quality features. To mitigate the rise in GPU memory consumption caused by the expanded attention mechanism, we designed a novel time-frequency swap cross-attention mechanism. Our system achieved FAD score more than 30\% lower than the DCASE baseline, demonstrating significant performance improvements in text-to-audio generation."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="LeeGLI2024" style="box-shadow: none">
+<div class="panel-heading" id="heading-LeeGLI2024" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Correlation of Fréchet Audio Distance With Human Perception of Environmental Audio Is Embedding Dependent
+       </h4>
+<p style="text-align:left">
+        Modan Tailleur, Junwon Lee, Mathieu Lagrange, Keunwoo Choi, Laurie M. Heller, Keisuke Imoto, Yuki Okamoto
+       </p>
+<p style="text-align:left">
+<em>
+         CNRS, Ecole Centrale Nantes, Nantes Universite, Nantes, France and Gaudio Lab, Inc., Seoul, South Korea, KAIST and Daejeon, South Korea and Carnegie Mellon University, Pennsylvania, USA and Doshisha University, Kyoto, Japan and Ritsumeikan University, Kyoto, Japan
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">DCASE2024_baseline_task7</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-LeeGLI2024" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-LeeGLI2024" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-LeeGLI2024" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="https://arxiv.org/pdf/2403.17508" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-LeeGLI2024').collapse('show');window.location.hash='#LeeGLI2024';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-LeeGLI2024" class="panel-collapse collapse" id="collapse-LeeGLI2024" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Correlation of Fréchet Audio Distance With Human Perception of Environmental Audio Is Embedding Dependent
+      </h4>
+<p style="text-align:left">
+<small>
+        Modan Tailleur, Junwon Lee, Mathieu Lagrange, Keunwoo Choi, Laurie M. Heller, Keisuke Imoto, Yuki Okamoto
+       </small>
+<br/>
+<small>
+<em>
+         CNRS, Ecole Centrale Nantes, Nantes Universite, Nantes, France and Gaudio Lab, Inc., Seoul, South Korea, KAIST and Daejeon, South Korea and Carnegie Mellon University, Pennsylvania, USA and Doshisha University, Kyoto, Japan and Ritsumeikan University, Kyoto, Japan
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         System input
+        </td>
+<td>
+         text prompt
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Machine learning method
+        </td>
+<td>
+         VAE,CLAP,U-Net-based latent diffusion model
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Phase reconstruction method
+        </td>
+<td>
+         HiFi-GAN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         mel-spectrogram
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         conditioning augmentation
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-LeeGLI2024" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="https://arxiv.org/pdf/2403.17508" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/DCASE2024-Task7-Sound-Scene-Synthesis/AudioLDM-training-finetuning" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-LeeGLI2024label" class="modal fade" id="bibtex-LeeGLI2024" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexLeeGLI2024label">
+        Correlation of Fréchet Audio Distance With Human Perception of Environmental Audio Is Embedding Dependent
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{LeeGLI2024,
+    Author = "Lagrange, Mathieu and Lee, Junwon and Tailleur, Modan and Heller, Laurie and Choi, Keunwoo and McFee, Brian and Imoto, Keisuke and Okamoto, Yuki",
+    title = "Correlation of Fréchet Audio Distance With Human Perception of Environmental Audio Is Embedding Dependent",
+    institution = "CNRS, Ecole Centrale Nantes, Nantes Universite, Nantes, France and Gaudio Lab, Inc., Seoul, South Korea, KAIST and Daejeon, South Korea and Carnegie Mellon University, Pennsylvania, USA and New York University, New York, USA, and Doshisha University, Kyoto, Japan and Ritsumeikan University, Kyoto, Japan",
+    year = "2024",
+    month = "July",
+    abstract = "",
+    journal = "arXiv:2403.17508"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="SunSamsung2024" style="box-shadow: none">
+<div class="panel-heading" id="heading-SunSamsung2024" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Sound Scene Synthesis With AudioLDM and TANGO2 for DCASE 2024 Task7
+       </h4>
+<p style="text-align:left">
+        Xie ZhiDong, Li XinYu, Liu HaiCheng, Zou XiaoYan, Sun Yu
+       </p>
+<p style="text-align:left">
+<em>
+         Samsung Research China-Nanjing, Nanjing, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Sun_Samsung_task7_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-SunSamsung2024" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-SunSamsung2024" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-SunSamsung2024" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Sun_51_t7.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-SunSamsung2024" class="panel-collapse collapse" id="collapse-SunSamsung2024" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Sound Scene Synthesis With AudioLDM and TANGO2 for DCASE 2024 Task7
+      </h4>
+<p style="text-align:left">
+<small>
+        Xie ZhiDong, Li XinYu, Liu HaiCheng, Zou XiaoYan, Sun Yu
+       </small>
+<br/>
+<small>
+<em>
+         Samsung Research China-Nanjing, Nanjing, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This report describes our submission for DCASE2024 Challenge Task 7, a system for sound scene synthesis. Our system is based on AudioLDM and Tango2. Experiments are conducted on the dataset of DCASE2024 Challenge Task 7. The Frechet Audio Distance (FAD) between the sound generated by our system and the develop set is 60.64.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         System input
+        </td>
+<td>
+         text prompt
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Machine learning method
+        </td>
+<td>
+         VAE,CLAP,U-Net-based latent diffusion model
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Phase reconstruction method
+        </td>
+<td>
+         HiFi-GAN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         mel-spectrogram
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         conditioning augmentation
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Subsystem count
+        </td>
+<td>
+         2
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         System comprexity
+        </td>
+<td>
+         1047000000 parameters
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-SunSamsung2024" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Sun_51_t7.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-SunSamsung2024label" class="modal fade" id="bibtex-SunSamsung2024" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexSunSamsung2024label">
+        Sound Scene Synthesis With AudioLDM and TANGO2 for DCASE 2024 Task7
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{SunSamsung2024,
+    Author = "ZhiDong, Xie and XinYu, Li and HaiCheng, Liu and XiaoYan, Zou and Yu, Sun",
+    title = "Sound Scene Synthesis With AudioLDM and TANGO2 for DCASE 2024 Task7",
+    institution = "Samsung Research China-Nanjing, Nanjing, China",
+    year = "2024",
+    month = "July",
+    abstract = "This report describes our submission for DCASE2024 Challenge Task 7, a system for sound scene synthesis. Our system is based on AudioLDM and Tango2. Experiments are conducted on the dataset of DCASE2024 Challenge Task 7. The Frechet Audio Distance (FAD) between the sound generated by our system and the develop set is 60.64."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="VermaIITMandi2024" style="box-shadow: none">
+<div class="panel-heading" id="heading-VermaIITMandi2024" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Sound Scene Synthesis Based on Fine-Tuned Latent Diffusion Model for DCASE Challenge 2024 Task 7
+       </h4>
+<p style="text-align:left">
+        Sagnik Ghosh, Gaurav Verma, Siddharath Narayan Shakya, Shubham Sharma, Shivesh Singh
+       </p>
+<p style="text-align:left">
+<em>
+         Indian Institute of Technology Mandi, Kamand, Mandi, India
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Verma_IITMandi_task7_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-VermaIITMandi2024" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-VermaIITMandi2024" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-VermaIITMandi2024" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Verma_85_t7.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-VermaIITMandi2024').collapse('show');window.location.hash='#VermaIITMandi2024';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-VermaIITMandi2024" class="panel-collapse collapse" id="collapse-VermaIITMandi2024" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Sound Scene Synthesis Based on Fine-Tuned Latent Diffusion Model for DCASE Challenge 2024 Task 7
+      </h4>
+<p style="text-align:left">
+<small>
+        Sagnik Ghosh, Gaurav Verma, Siddharath Narayan Shakya, Shubham Sharma, Shivesh Singh
+       </small>
+<br/>
+<small>
+<em>
+         Indian Institute of Technology Mandi, Kamand, Mandi, India
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       With the advancements in generative AI, text-to-audio systems have become increasingly popular, transforming audio generation across various domains such as music and speech. These systems enable the generation of high-quality audio from textual descriptions, offering freedom and control when producing a variety of audio. This technical report explores advancements in deep learning applied to sound generation specifically focusing on environmental sound scene generation. Our approach leverages a Text-toAudio (TTA) system with Contrastive Language-Audio Pretraining (CLAP), Conditional Latent Diffusion Models, a Variational Autoencoder (VAE) decoder, and a HiFi-GAN vocoder where LDM learn continuous audio representations from CLAP embeddings, enhancing synthesis control through natural language prompts. Also finetuned the diffusion model with the custom dataset created using two audio dataset in order to improve generation quality.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         System input
+        </td>
+<td>
+         text prompt
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Machine learning method
+        </td>
+<td>
+         VAE,CLAP,U-Net-based latent diffusion model
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Phase reconstruction method
+        </td>
+<td>
+         HiFi-GAN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         mel-spectrogram
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         conditioning augmentation
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         System comprexity
+        </td>
+<td>
+         671000000 parameters
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-VermaIITMandi2024" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Verma_85_t7.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/dcaseFoley/DCASE_CHALLENGE_2024" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-VermaIITMandi2024label" class="modal fade" id="bibtex-VermaIITMandi2024" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexVermaIITMandi2024label">
+        Sound Scene Synthesis Based on Fine-Tuned Latent Diffusion Model for DCASE Challenge 2024 Task 7
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{VermaIITMandi2024,
+    Author = "Ghosh, Sagnik and Verma, Gaurav and Shakya, Siddharath Narayan and Sharma, Shubham and Singh, Shivesh",
+    title = "Sound Scene Synthesis Based on Fine-Tuned Latent Diffusion Model for DCASE Challenge 2024 Task 7",
+    institution = "Indian Institute of Technology Mandi, Kamand, Mandi, India",
+    year = "2024",
+    month = "July",
+    abstract = "With the advancements in generative AI, text-to-audio systems have become increasingly popular, transforming audio generation across various domains such as music and speech. These systems enable the generation of high-quality audio from textual descriptions, offering freedom and control when producing a variety of audio. This technical report explores advancements in deep learning applied to sound generation specifically focusing on environmental sound scene generation. Our approach leverages a Text-toAudio (TTA) system with Contrastive Language-Audio Pretraining (CLAP), Conditional Latent Diffusion Models, a Variational Autoencoder (VAE) decoder, and a HiFi-GAN vocoder where LDM learn continuous audio representations from CLAP embeddings, enhancing synthesis control through natural language prompts. Also finetuned the diffusion model with the custom dataset created using two audio dataset in order to improve generation quality."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="YiSURREY2024" style="box-shadow: none">
+<div class="panel-heading" id="heading-YiSURREY2024" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Diffusion Based Sound Scene Synthesis for DCASE Challenge 2024 Task 7
+       </h4>
+<p style="text-align:left">
+        Yi Yuan, Haohe Liu, Xubo Liu, Mark D. Plumbley, Wenwu Wang
+       </p>
+<p style="text-align:left">
+<em>
+         University of Surrey, Guildford, United Kingdom
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Yi_SURREY_task7_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-YiSURREY2024" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-YiSURREY2024" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-YiSURREY2024" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Yi_18_t7.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-YiSURREY2024').collapse('show');window.location.hash='#YiSURREY2024';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-YiSURREY2024" class="panel-collapse collapse" id="collapse-YiSURREY2024" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Diffusion Based Sound Scene Synthesis for DCASE Challenge 2024 Task 7
+      </h4>
+<p style="text-align:left">
+<small>
+        Yi Yuan, Haohe Liu, Xubo Liu, Mark D. Plumbley, Wenwu Wang
+       </small>
+<br/>
+<small>
+<em>
+         University of Surrey, Guildford, United Kingdom
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       Sound scene synthesis aims to generate a variety of environment-related sounds within a specific scene. In this work, we proposed a system for DCASE 2024 challenge task 7. The proposed system is based on the official baseline model AudioLDM, a diffusion-based text-to-audio generation model. The system first trained with large-scale datasets and then downstream into this task via transfer learning. Addressing the challenge of no target audio data, we implemented an automated pipeline to synthesize audio and generate corresponding captions that mirror the semantic structure of the task. Despite the absence of dedicated training and testing sets for this task, our robust audio synthesis model effectively adapts the given conditions, fulfilling all the task requirements. Our system achieved a Fre ́chet Audio Distance (FAD) score of 55.1, surpassing the baseline system's FAD score of 61.3 calculated by the official evaluation toolkit.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         System input
+        </td>
+<td>
+         text prompt
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Machine learning method
+        </td>
+<td>
+         VAE,T5,U-Net-based latent diffusion model
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Phase reconstruction method
+        </td>
+<td>
+         BigvGAN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         mel-spectrogram
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         conditioning augmentation
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         System comprexity
+        </td>
+<td>
+         265531016 parameters
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-YiSURREY2024" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2024/technical_reports/DCASE2024_Yi_18_t7.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/yyua8222/Dcase2024-Task7" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-YiSURREY2024label" class="modal fade" id="bibtex-YiSURREY2024" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexYiSURREY2024label">
+        Diffusion Based Sound Scene Synthesis for DCASE Challenge 2024 Task 7
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{YiSURREY2024,
+    Author = "Yuan, Yi and Liu, Haohe and Liu, Xubo and Plumbley, Mark D. and Wang, Wenwu",
+    title = "Diffusion Based Sound Scene Synthesis for DCASE Challenge 2024 Task 7",
+    institution = "University of Surrey, Guildford, United Kingdom",
+    year = "2024",
+    month = "July",
+    abstract = "Sound scene synthesis aims to generate a variety of environment-related sounds within a specific scene. In this work, we proposed a system for DCASE 2024 challenge task 7. The proposed system is based on the official baseline model AudioLDM, a diffusion-based text-to-audio generation model. The system first trained with large-scale datasets and then downstream into this task via transfer learning. Addressing the challenge of no target audio data, we implemented an automated pipeline to synthesize audio and generate corresponding captions that mirror the semantic structure of the task. Despite the absence of dedicated training and testing sets for this task, our robust audio synthesis model effectively adapts the given conditions, fulfilling all the task requirements. Our system achieved a Fre ́chet Audio Distance (FAD) score of 55.1, surpassing the baseline system's FAD score of 61.3 calculated by the official evaluation toolkit."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script>
+(function($) {
+    $(document).ready(function() {
+        var hash = window.location.hash.substr(1);
+        var anchor = window.location.hash;
+
+        var shiftWindow = function() {
+            var hash = window.location.hash.substr(1);
+            if($('#collapse-'+hash).length){
+                scrollBy(0, -100);
+            }
+        };
+        window.addEventListener("hashchange", shiftWindow);
+
+        if (window.location.hash){
+            window.scrollTo(0, 0);
+            history.replaceState(null, document.title, "#");
+            $('#collapse-'+hash).collapse('show');
+            setTimeout(function(){
+                window.location.hash = anchor;
+                shiftWindow();
+            }, 2000);
+        }
+    });
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

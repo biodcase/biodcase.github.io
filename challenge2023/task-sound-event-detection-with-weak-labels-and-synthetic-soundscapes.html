@@ -1,0 +1,1838 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Sound Event Detection with Weak Labels and Synthetic Soundscapes - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Sound Event Detection with Weak Labels and Synthetic Soundscapes - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-labels-and-synthetic-soundscapes">
+    <meta property="og:url" content="https://dcase.community/challenge2023/task-sound-event-detection-with-weak-labels-and-synthetic-soundscapes" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="The goal of the task is to evaluate systems for the detection of sound events using real data either weakly labeled or unlabeled and simulated data that is strongly labeled (with time stamps). Challenge has ended. Full results for this task can be found in the Results page. If you …" />
+    <meta name="og:description" content="The goal of the task is to evaluate systems for the..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2023</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2023/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-low-complexity-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-low-complexity-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-low-complexity-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-localization-and-detection-evaluated-in-real-spatial-sound-scenes" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-localization-and-detection-evaluated-in-real-spatial-sound-scenes"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-localization-and-detection-evaluated-in-real-spatial-sound-scenes-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-and-soft-labels" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-and-soft-labels"><i class="fa fa-info-circle fa-fw"></i>&nbsp;Introduction</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>A: Sound Event Detection with Weak Labels and Synthetic Soundscapes</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-labels-and-synthetic-soundscapes"><i class="fa fa-random fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-labels-and-synthetic-soundscapes-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>B: Sound Event Detection with Soft Labels</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-soft-labels"><i class="fa fa-info-circle fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-soft-labels-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-few-shot-bioacoustic-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-bird text-danger"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-few-shot-bioacoustic-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-few-shot-bioacoustic-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-automated-audio-captioning-and-language-based-audio-retrieval" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-captioning text-task1"></i>&nbsp;Task6&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-automated-audio-captioning-and-language-based-audio-retrieval"><i class="fa fa-info-circle fa-fw"></i>&nbsp;Introduction</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>A: Automated Audio-Captioning</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-automated-audio-captioning"><i class="fa dc-captioning fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-automated-audio-captioning-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>B: Language-Based Audio Retrieval</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-language-based-audio-retrieval"><i class="fa fa-file-text fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-language-based-audio-retrieval-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-foley-sound-synthesis" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-synthesis text-task2"></i>&nbsp;Task7&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-foley-sound-synthesis"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-foley-sound-synthesis-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2023/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2023/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/mosaic-07.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-info"></i><strong class="fa-stack-1x icon-text">A</strong><strong class="fa-stack-1x dcase-icon-top-text">Weak</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 4</span></span><img src="../images/logos/dcase/dcase2023_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Sound Event Detection with Weak Labels and Synthetic Soundscapes</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Task description</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Coordinators</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Romain Serizel" class="img img-circle" src="http://localhost:3000/images/person/romain_serizel.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Romain Serizel</strong>
+<a class="icon" href="mailto:romain.serizel@loria.fr"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://www.loria.fr/en/">
+                                University of Lorraine
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Francesca Ronchini" class="img img-circle" src="http://localhost:3000/images/person/francesca_ronchini.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Francesca Ronchini</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.polimi.it/">
+                                Politecnico di Milano
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Janek Ebbers" class="img img-circle" src="http://localhost:3000/images/person/janek_ebbers.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Janek Ebbers</strong>
+<a class="icon" href="mailto:ebbers@nt.uni-paderborn.de"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.uni-paderborn.de/en/">
+                                Paderborn University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Florian Angulo" class="img img-circle" src="http://localhost:3000/images/person/florian_angulo.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Florian Angulo</strong>
+<a class="icon" href="mailto:florian.angulo@telecom-paris.fr"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.telecom-paris.fr/en/home">
+                                Telecom Paris
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="David Perera" class="img img-circle" src="http://localhost:3000/images/person/david_perera.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>David Perera</strong>
+<a class="icon" href="mailto:david.perera@telecom-paris.fr"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.telecom-paris.fr/en/home">
+                                Telecom Paris
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Slim Essid" class="img img-circle" src="http://localhost:3000/images/person/slim_essid.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Slim Essid</strong>
+<a class="icon" href="mailto:slim.essid@telecom-paris.fr"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.telecom-paris.fr/en/home">
+                                Telecom Paris
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#description">Description</a>
+<ul>
+<li><a href="#novelties-for-2023-edition">Novelties for 2023 edition</a></li>
+<li><a href="#scientific-questions">Scientific questions</a></li>
+</ul>
+</li>
+<li><a href="#audio-dataset">Audio dataset</a>
+<ul>
+<li><a href="#reference-labels">Reference labels</a></li>
+<li><a href="#download">Download</a></li>
+</ul>
+</li>
+<li><a href="#task-setup">Task setup</a>
+<ul>
+<li><a href="#development-set">Development set</a></li>
+<li><a href="#evaluation-set">Evaluation set</a></li>
+</ul>
+</li>
+<li><a href="#external-data-resources">External data resources</a></li>
+<li><a href="#task-rules">Task rules</a></li>
+<li><a href="#submission">Submission</a>
+<ul>
+<li><a href="#metadata-file">Metadata file</a></li>
+<li><a href="#package-validator">Package validator</a></li>
+</ul>
+</li>
+<li><a href="#evaluation">Evaluation</a>
+<ul>
+<li><a href="#scenario-1">Scenario 1</a></li>
+<li><a href="#scenario-2">Scenario 2</a></li>
+<li><a href="#task-ranking">Task Ranking</a></li>
+<li><a href="#contrastive-metric-collar-based-f1-score">Contrastive metric (collar-based F1-score)</a></li>
+<li><a href="#energy-consumption">Energy consumption</a></li>
+</ul>
+</li>
+<li><a href="#results">Results</a></li>
+<li><a href="#baseline-system">Baseline system</a></li>
+<li><a href="#citation">Citation</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p class="lead">The goal of the task is to evaluate systems for the detection of sound events using real data either weakly labeled or unlabeled and simulated data that is strongly labeled (with time stamps).</p>
+<p class="alert alert-info">
+<strong>Challenge has ended.</strong> Full results for this task can be found in the <a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2023/task-sound-event-detection-with-soft-labels-results">Results <i class="fa fa-caret-right"></i></a> page.
+</p>
+<div class="alert alert-info">
+    If you are interested in the task, you can join us on the <strong><a href="https://dcase.slack.com/archives/C01NR59KAS3">dedicated slack channel</a></strong>
+</div>
+<h1 id="description">Description</h1>
+<p>This task is the follow-up to [DCASE 2022 Task 4][dcase22_task4].
+The task evaluates systems for the detection of sound events using weakly labeled data (without timestamps).
+The target of the systems is to provide <strong>not only the event class but also the event time localization</strong>
+given that multiple events can be present in an audio recording (see also Fig 1).</p>
+<figure name="fig1">
+<div class="row row-centered">
+<div class="col-xs-10 col-md-8 col-centered">
+<img class="img img-responsive" src="../images/tasks/challenge2020/task4_sound_event_detection.png"/>
+<figcaption>Figure 1: Overview of a sound event detection system.</figcaption>
+</div>
+</div>
+</figure>
+<p><br/></p>
+<h2 id="novelties-for-2023-edition">Novelties for 2023 edition</h2>
+<ul>
+<li>We will evaluated the submissions using a threshold-independant implementation of the PSDS.</li>
+<li>For each submitted system we ask you to submit the output scores from three independent model trainings with different initialization to be able to evaluate the model performance's standard deviation.</li>
+<li>Reporting the energy consumption is mandatory.</li>
+<li>In order to account for potential hardware difference, participants have to report the energy consumption measured while training the baseline during 10 epochs (on their hardware).</li>
+<li>We are introducing a new metric, complementary to the energy consumption metric: Multiply–accumulate operations (MACs) for 10 seconds of audio prediction.</li>
+<li>We will experiment run post-processing-invariant evaluation.</li>
+<li>We require to submit at least one system without ensembles.</li>
+<li>We propose a new baseline using BEATS embeddings.</li>
+</ul>
+<h2 id="scientific-questions">Scientific questions</h2>
+<p>This task highlights a number of specific research questions:</p>
+<ul>
+<li>What strategies work well when training a sound event detection system with a heterogeneous dataset, including:<ul>
+<li>A large amount of unbalanced and unlabeled training data</li>
+<li>A small weakly annotated set</li>
+<li>A synthetic set from isolated sound events and backgrounds</li>
+</ul>
+</li>
+<li>What is the impact of using <strong>embeddings</strong> extracted from pre-trained models?</li>
+<li>What are the potential advantages of using external data?</li>
+<li>What is the impact of model complexity/energy consumption on the performance?</li>
+<li>What is the impact of the temporal post-processing on the performance?</li>
+<li>Can we find more robust way to evaluate systems (and take training variabilities into account)?</li>
+</ul>
+<h1 id="audio-dataset">Audio dataset</h1>
+<p>This Task is primarily based on the DESED dataset, which has been used since <a href="https://dcase.community/challenge2020/task-sound-event-detection-and-separation-in-domestic-environments">DCASE 2020 Task 4</a>. DESED is composed of 10 sec audio clips recorded in domestic environments (taken from <a href="https://research.google.com/AudioSet/">AudioSet</a>) or synthesized using <a href="https://github.com/justinsalamon/Scaper">Scaper</a> to simulate a domestic environment. The task focuses on 10 classes of sound events that represent a subset of AudioSet (note that not all the classes in DESED correspond to classes in AudioSet; for example, some classes in DESED group several classes from AudioSet):</p>
+<p>More information about this dataset and how to generate synthetic soundscapes can be found on the <a href="https://project.inria.fr/desed/">DESED website</a>.</p>
+<ul>
+<li>Google researchers conducted a quality assessment task where experts were exposed to 10 randomly selected clips for each class and discovered that a in most of the cases not all the clips contains the event related to the given annotation</li>
+<li>The weak annotations have been verified manually for  a small subset of the training set.</li>
+<li>Another subset of the development set has been annotated manually with strong annotations, to be used as the validation set (see also below for a detailed explanation about the development set).</li>
+</ul>
+<div class="btex-item" data-item="Turpault2019_DCASE" data-source="content/data/challenge2020/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Turpault2019_DCASE"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Nicolas Turpault, Romain Serizel, Ankit Parag Shah, and Justin Salamon.
+<em>Sound event detection in domestic environments with weakly labeled data and soundscape synthesis.</em>
+In <span class="bibtex-protected">Workshop on Detection and Classification of Acoustic Scenes and Events</span>. New York City, United States, October 2019.
+URL: <a href="https://hal.inria.fr/hal-02160855">https://hal.inria.fr/hal-02160855</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexTurpault2019_DCASE006adae2c4ae491c86c6ea18381ef471" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://hal.inria.fr/hal-02160855/file/Sound_event_detection_in_domestic_environments_with_weakly_labeled_data_and_soundscape_synthesis.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseTurpault2019_DCASE006adae2c4ae491c86c6ea18381ef471" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseTurpault2019_DCASE006adae2c4ae491c86c6ea18381ef471" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingTurpault2019_DCASE006adae2c4ae491c86c6ea18381ef471" class="panel-collapse collapse" id="collapseTurpault2019_DCASE006adae2c4ae491c86c6ea18381ef471" role="tabpanel">
+<h4>Sound event detection in domestic environments with weakly labeled data and soundscape synthesis</h4>
+<h5>Abstract</h5>
+<p class="text-justify">This paper presents Task 4 of the Detection and Classification of Acoustic Scenes and Events (DCASE) 2019 challenge and provides a first analysis of the challenge results. The task is a followup to Task 4 of DCASE 2018, and involves training systems for large-scale detection of sound events using a combination of weakly labeled data, i.e. training labels without time boundaries, and strongly-labeled synthesized data. The paper introduces Domestic Environment Sound Event Detection (DESED) dataset mixing a part of last year dataset and an additional synthetic, strongly labeled, dataset provided this year that we’ll describe more in detail. We also report the performance of the submitted systems on the official evaluation (test) and development sets as well as several additional datasets. The best systems from this year outperform last year’s winning system by about 10% points in terms of F-measure.</p>
+<h5>Keywords</h5>
+<p class="text-justify">Sound event detection ; Weakly labeled data ; Semi-supervised learning ; Synthetic data</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexTurpault2019_DCASE006adae2c4ae491c86c6ea18381ef471" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://hal.inria.fr/hal-02160855/file/Sound_event_detection_in_domestic_environments_with_weakly_labeled_data_and_soundscape_synthesis.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexTurpault2019_DCASE006adae2c4ae491c86c6ea18381ef471label" class="modal fade" id="bibtexTurpault2019_DCASE006adae2c4ae491c86c6ea18381ef471" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexTurpault2019_DCASE006adae2c4ae491c86c6ea18381ef471label">Sound event detection in domestic environments with weakly labeled data and soundscape synthesis</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Turpault2019_DCASE,
+    Author = "Turpault, Nicolas and Serizel, Romain and Parag Shah, Ankit and Salamon, Justin",
+    title = "{Sound event detection in domestic environments with weakly labeled data and soundscape synthesis}",
+    booktitle = "{Workshop on Detection and Classification of Acoustic Scenes and Events}",
+    address = "New York City, United States",
+    year = "2019",
+    month = "October",
+    keywords = "Sound event detection ; Weakly labeled data ; Semi-supervised learning ; Synthetic data",
+    abstract = "This paper presents Task 4 of the Detection and Classification of Acoustic Scenes and Events (DCASE) 2019 challenge and provides a first analysis of the challenge results. The task is a followup to Task 4 of DCASE 2018, and involves training systems for large-scale detection of sound events using a combination of weakly labeled data, i.e. training labels without time boundaries, and strongly-labeled synthesized data. The paper introduces Domestic Environment Sound Event Detection (DESED) dataset mixing a part of last year dataset and an additional synthetic, strongly labeled, dataset provided this year that we’ll describe more in detail. We also report the performance of the submitted systems on the official evaluation (test) and development sets as well as several additional datasets. The best systems from this year outperform last year’s winning system by about 10\% points in terms of F-measure.",
+    hal_id = "hal-02160855",
+    hal_version = "v2",
+    url = "https://hal.inria.fr/hal-02160855"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="btex-item" data-item="Serizel2020_ICASSP" data-source="content/data/challenge2020/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Serizel2020_ICASSP"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Romain Serizel, Nicolas Turpault, Ankit Shah, and Justin Salamon.
+<em>Sound event detection in synthetic domestic environments.</em>
+In <span class="bibtex-protected">ICASSP 2020 - 45th International Conference on Acoustics, Speech, and Signal Processing</span>. Barcelona, Spain, 2020.
+URL: <a href="https://hal.inria.fr/hal-02355573">https://hal.inria.fr/hal-02355573</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexSerizel2020_ICASSP6d6eac5fd081417b98afb7e27425b200" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://hal.inria.fr/hal-02355573/file/Sound_event_detection_in_domestic_environments_on_synthetic_soundscapes.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseSerizel2020_ICASSP6d6eac5fd081417b98afb7e27425b200" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseSerizel2020_ICASSP6d6eac5fd081417b98afb7e27425b200" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingSerizel2020_ICASSP6d6eac5fd081417b98afb7e27425b200" class="panel-collapse collapse" id="collapseSerizel2020_ICASSP6d6eac5fd081417b98afb7e27425b200" role="tabpanel">
+<h4>Sound event detection in synthetic domestic environments</h4>
+<h5>Abstract</h5>
+<p class="text-justify">This paper presents Task 4 of the Detection and Classification of Acoustic Scenes and Events (DCASE) 2019 challenge and provides a first analysis of the challenge results. The task is a followup to Task 4 of DCASE 2018, and involves training systems for large-scale detection of sound events using a combination of weakly labeled data, i.e. training labels without time boundaries, and strongly-labeled synthesized data. The paper introduces Domestic Environment Sound Event Detection (DESED) dataset mixing a part of last year dataset and an additional synthetic, strongly labeled, dataset provided this year that we’ll describe more in detail. We also report the performance of the submitted systems on the official evaluation (test) and development sets as well as several additional datasets. The best systems from this year outperform last year’s winning system by about 10% points in terms of F-measure.</p>
+<h5>Keywords</h5>
+<p class="text-justify">semi-supervised learning ; weakly labeled data ; synthetic data ; Sound event detection ; Index Terms-Sound event detection</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexSerizel2020_ICASSP6d6eac5fd081417b98afb7e27425b200" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://hal.inria.fr/hal-02355573/file/Sound_event_detection_in_domestic_environments_on_synthetic_soundscapes.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexSerizel2020_ICASSP6d6eac5fd081417b98afb7e27425b200label" class="modal fade" id="bibtexSerizel2020_ICASSP6d6eac5fd081417b98afb7e27425b200" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexSerizel2020_ICASSP6d6eac5fd081417b98afb7e27425b200label">Sound event detection in synthetic domestic environments</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Serizel2020_ICASSP,
+    Author = "Serizel, Romain and Turpault, Nicolas and Shah, Ankit and Salamon, Justin",
+    title = "{Sound event detection in synthetic domestic environments}",
+    booktitle = "{ICASSP 2020 - 45th International Conference on Acoustics, Speech, and Signal Processing}",
+    address = "Barcelona, Spain",
+    year = "2020",
+    keywords = "semi-supervised learning ; weakly labeled data ; synthetic data ; Sound event detection ; Index Terms-Sound event detection",
+    abstract = "This paper presents Task 4 of the Detection and Classification of Acoustic Scenes and Events (DCASE) 2019 challenge and provides a first analysis of the challenge results. The task is a followup to Task 4 of DCASE 2018, and involves training systems for large-scale detection of sound events using a combination of weakly labeled data, i.e. training labels without time boundaries, and strongly-labeled synthesized data. The paper introduces Domestic Environment Sound Event Detection (DESED) dataset mixing a part of last year dataset and an additional synthetic, strongly labeled, dataset provided this year that we’ll describe more in detail. We also report the performance of the submitted systems on the official evaluation (test) and development sets as well as several additional datasets. The best systems from this year outperform last year’s winning system by about 10\% points in terms of F-measure.",
+    hal_id = "hal-02355573",
+    hal_version = "v2",
+    url = "https://hal.inria.fr/hal-02355573"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="reference-labels">Reference labels</h2>
+<p>AudioSet provides annotations at clip level (without time boundaries for the events). Therefore, the original annotations are considered as weak labels.
+Google researchers conducted a quality assessment task where experts were exposed to 10 randomly selected clips for each class and discovered that in most cases not all the clips contains the event related to the given annotation.</p>
+<h3>Weak annotations</h3>
+<p>The weak annotations have been verified manually for a small subset of the training set.
+The weak annotations are provided in a tab separated csv file under the following format:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">filename (string)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">event_labels (strings)</span><span class="o">]</span>
+</code></pre></div>
+<p>For example:
+    <code>Y-BJNMHMZDcU_50.000_60.000.wav Alarm_bell_ringing,Dog</code></p>
+<h3>Strong annotations</h3>
+<p>Another subset of the development has been annotated manually with strong annotations, to be used as the <strong>test set</strong>
+(see also below for a detailed explanation about the development set).</p>
+<p>The <strong>synthetic subset</strong> of the development set is generated and labeled with strong annotations using the
+<a href="https://github.com/justinsalamon/Scaper">Scaper soundscape synthesis and augmentation library</a>.
+Each sound clip from FSD50K was verified by humans in order to check the event class present in FSD50K annotation was indeed dominant in the audio clip.</p>
+<div class="btex-item" data-item="fonseca2020fsd50k" data-source="content/data/challenge2020/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="fonseca2020fsd50k"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Eduardo Fonseca, Xavier Favory, Jordi Pons, Frederic Font, and Xavier Serra.
+<em>FSD50K: an open dataset of human-labeled sound events.</em>
+In arXiv:2010.00475. 2020.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexfonseca2020fsd50k915c14e1bac74e31bad00299ef7b846b" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/2010.00475.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapsefonseca2020fsd50k915c14e1bac74e31bad00299ef7b846b" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapsefonseca2020fsd50k915c14e1bac74e31bad00299ef7b846b" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingfonseca2020fsd50k915c14e1bac74e31bad00299ef7b846b" class="panel-collapse collapse" id="collapsefonseca2020fsd50k915c14e1bac74e31bad00299ef7b846b" role="tabpanel">
+<h4>FSD50K: an Open Dataset of Human-Labeled Sound Events</h4>
+<h5>Abstract</h5>
+<p class="text-justify">Most existing datasets for sound event recognition (SER) are relatively small and/or domain-specific, with the exception of AudioSet, based on a massive amount of audio tracks from YouTube videos and encompassing over 500 classes of everyday sounds. However, AudioSet is not an open dataset---its release consists of pre-computed audio features (instead of waveforms), which limits the adoption of some SER methods. Downloading the original audio tracks is also problematic due to constituent YouTube videos gradually disappearing and usage rights issues, which casts doubts over the suitability of this resource for systems' benchmarking. To provide an alternative benchmark dataset and thus foster SER research, we introduce FSD50K, an open dataset containing over 51k audio clips totalling over 100h of audio manually labeled using 200 classes drawn from the AudioSet Ontology. The audio clips are licensed under Creative Commons licenses, making the dataset freely distributable (including waveforms). We provide a detailed description of the FSD50K creation process, tailored to the particularities of Freesound data, including challenges encountered and solutions adopted. We include a comprehensive dataset characterization along with discussion of limitations and key factors to allow its audio-informed usage. Finally, we conduct sound event classification experiments to provide baseline systems as well as insight on the main factors to consider when splitting Freesound audio data for SER. Our goal is to develop a dataset to be widely adopted by the community as a new open benchmark for SER research.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexfonseca2020fsd50k915c14e1bac74e31bad00299ef7b846b" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/2010.00475.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexfonseca2020fsd50k915c14e1bac74e31bad00299ef7b846blabel" class="modal fade" id="bibtexfonseca2020fsd50k915c14e1bac74e31bad00299ef7b846b" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexfonseca2020fsd50k915c14e1bac74e31bad00299ef7b846blabel">FSD50K: an Open Dataset of Human-Labeled Sound Events</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{fonseca2020fsd50k,
+    author = "Fonseca, Eduardo and Favory, Xavier and Pons, Jordi and Font, Frederic and Serra, Xavier",
+    title = "{FSD50K}: an Open Dataset of Human-Labeled Sound Events",
+    year = "2020",
+    booktitle = "arXiv:2010.00475",
+    abstract = "Most existing datasets for sound event recognition (SER) are relatively small and/or domain-specific, with the exception of AudioSet, based on a massive amount of audio tracks from YouTube videos and encompassing over 500 classes of everyday sounds. However, AudioSet is not an open dataset---its release consists of pre-computed audio features (instead of waveforms), which limits the adoption of some SER methods. Downloading the original audio tracks is also problematic due to constituent YouTube videos gradually disappearing and usage rights issues, which casts doubts over the suitability of this resource for systems' benchmarking. To provide an alternative benchmark dataset and thus foster SER research, we introduce FSD50K, an open dataset containing over 51k audio clips totalling over 100h of audio manually labeled using 200 classes drawn from the AudioSet Ontology. The audio clips are licensed under Creative Commons licenses, making the dataset freely distributable (including waveforms). We provide a detailed description of the FSD50K creation process, tailored to the particularities of Freesound data, including challenges encountered and solutions adopted. We include a comprehensive dataset characterization along with discussion of limitations and key factors to allow its audio-informed usage. Finally, we conduct sound event classification experiments to provide baseline systems as well as insight on the main factors to consider when splitting Freesound audio data for SER. Our goal is to develop a dataset to be widely adopted by the community as a new open benchmark for SER research."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="btex-item" data-item="font2013freesound" data-source="content/data/challenge2019/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="font2013freesound"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Frederic Font, Gerard Roma, and Xavier Serra.
+<em>Freesound technical demo.</em>
+In Proceedings of the 21st ACM international conference on Multimedia, 411–412. ACM, 2013.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexfont2013freesound5ef142cc47784bf38af8f588677d222a" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="http://mtg.upf.edu/system/files/publications/Font-Roma-Serra-ACMM-2013.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapsefont2013freesound5ef142cc47784bf38af8f588677d222a" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapsefont2013freesound5ef142cc47784bf38af8f588677d222a" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingfont2013freesound5ef142cc47784bf38af8f588677d222a" class="panel-collapse collapse" id="collapsefont2013freesound5ef142cc47784bf38af8f588677d222a" role="tabpanel">
+<h4>Freesound technical demo</h4>
+<h5>Abstract</h5>
+<p class="text-justify">Freesound is an online collaborative sound database where people with diverse interests share recorded sound samples under Creative Commons licenses. It was started in 2005 and it is being maintained to support diverse research projects and as a service to the overall research and artistic community. In this demo we want to introduce Freesound to the multimedia community and show its potential as a research resource. We begin by describing some general aspects of Freesound, its architecture and functionalities, and then explain potential usages that this framework has for research applications.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexfont2013freesound5ef142cc47784bf38af8f588677d222a" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="http://mtg.upf.edu/system/files/publications/Font-Roma-Serra-ACMM-2013.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexfont2013freesound5ef142cc47784bf38af8f588677d222alabel" class="modal fade" id="bibtexfont2013freesound5ef142cc47784bf38af8f588677d222a" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexfont2013freesound5ef142cc47784bf38af8f588677d222alabel">Freesound technical demo</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{font2013freesound,
+    author = "Font, Frederic and Roma, Gerard and Serra, Xavier",
+    title = "Freesound technical demo",
+    booktitle = "Proceedings of the 21st ACM international conference on Multimedia",
+    pages = "411--412",
+    year = "2013",
+    organization = "ACM",
+    abstract = "Freesound is an online collaborative sound database where people with diverse interests share recorded sound samples under Creative Commons licenses. It was started in 2005 and it is being maintained to support diverse research projects and as a service to the overall research and artistic community. In this demo we want to introduce Freesound to the multimedia community and show its potential as a research resource. We begin by describing some general aspects of Freesound, its architecture and functionalities, and then explain potential usages that this framework has for research applications."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>In both cases, the minimum length for an event is 250ms. The minimum duration of the pause between two events from the same class is 150ms.
+When the silence between two consecutive events from the same class was less than 150ms the events have been merged to a single event.</p>
+<p>The strong annotations are provided in a tab separated csv file under the following format:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">[</span><span class="n">filename (string)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">onset (in seconds) (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">offset (in seconds) (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">event_label (string)</span><span class="o">]</span>
+</code></pre></div>
+<p>For example:</p>
+<p><code>YOTsn73eqbfc_10.000_20.000.wav   0.163   0.665   Alarm_bell_ringing</code></p>
+<h2 id="download">Download</h2>
+<p>The dataset is composed of several subsets that can be downloaded independently from the respective repositories or automatically with the Task 4 data generation script.</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/DCASE-REPO/DESED_task/blob/master/recipes/dcase2021_task4_baseline/generate_dcase_task4_2021.py" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/DCASE-REPO/DESED_task/blob/master/recipes/dcase2021_task4_baseline/generate_dcase_task4_2021.py" target="_blank">
+<span style="font-size:20px;">Data generation script for SED training <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<p>To access the datasets separately please refer to <a href="https://dcase.community/challenge2021/task-sound-event-detection-and-separation-in-domestic-environments#download">last year instructions</a></p>
+<h1 id="task-setup">Task setup</h1>
+<p>The challenge consists of detecting sound events within web videos using training data from real recordings (both weakly labeled and unlabeled and synthetic audio clips which are strongly labeled).
+The detection within a 10-second clip should be performed with start and end timestamps.
+ Note that a 10-seconds clip may correspond to more than one sound event.</p>
+<p>Participants are allowed to use external datasets and embeddings extracted from pre-trained models. Lists of the eligible datasets and pre-trained models are provided below. Datasets and models can be added to the list upon request until April 15th (as long as the corresponding resources are publicly available).</p>
+<p>Note also that each participant should <strong>submit at least one system that is not using external data</strong>.</p>
+<h2 id="development-set">Development set</h2>
+<p>We provide 3 different splits of the training data in our development set:
+"Weakly labeled training set", "Unlabeled in domain training set" and "Synthetic strongly labeled set" with strong annotations.</p>
+<p><strong>Weakly labeled training set</strong>:<br/>
+This set contains <strong>1578 clips</strong> (2244 class occurrences) for which weak annotations have been verified and cross-checked.</p>
+<p><strong>Unlabeled in domain training set</strong>:<br/>
+This set is considerably larger than the previous one. It contains <strong>14412 clips</strong>.
+The clips are selected such that the distribution per class (based on AudioSet annotations)
+is close to the distribution in the labeled set.
+Note however that given the uncertainty on AudioSet labels this distribution might not be exactly similar.</p>
+<p><strong>Synthetic strongly labeled set</strong>:<br/>
+This set is composed of <strong>10000 clips</strong> generated with the <a href="https://github.com/justinsalamon/Scaper">Scaper soundscape synthesis and augmentation library</a>.
+The clips are generated such that the distribution per event is close to the one of the validation set.</p>
+<ul>
+<li>We used all the foreground files from the DESED synthetic soundbank (multiple times).</li>
+<li>We used background files annotated as "other" from <a href="https://zenodo.org/record/1247102">the subpart of SINS dataset</a> and files from the <a href="https://zenodo.org/record/400515">TUT Acoustic scenes 2017, development dataset</a>.</li>
+<li>We used the clips from <a href="https://zenodo.org/record/4012661">FUSS</a> containing the non-target classes. The clip selection is based on FSD50K annotations. The clips selected are in the training for <strong>both</strong> FSD50K and FUSS. We provide tsv files corresponding to these splits.</li>
+<li>Event distribution statistics for both target event classes and non target event classes are computed on annotations obtained by human for <a href="https://research.google.com/audioset/download_strong.html">~90k clips from AudioSet</a>.</li>
+</ul>
+<div class="btex-item" data-item="hershey2021benefit" data-source="content/data/challenge2022/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="hershey2021benefit"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Shawn Hershey, Daniel PW Ellis, Eduardo Fonseca, Aren Jansen, Caroline Liu, R Channing Moore, and Manoj Plakal.
+<em>The benefit of temporally-strong labels in audio event classification.</em>
+In ICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 366–370. IEEE, 2021.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexhershey2021benefit64f6132f0f4e4db59aab9ac0870817ad" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/2105.07031" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapsehershey2021benefit64f6132f0f4e4db59aab9ac0870817ad" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapsehershey2021benefit64f6132f0f4e4db59aab9ac0870817ad" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headinghershey2021benefit64f6132f0f4e4db59aab9ac0870817ad" class="panel-collapse collapse" id="collapsehershey2021benefit64f6132f0f4e4db59aab9ac0870817ad" role="tabpanel">
+<h4>The benefit of temporally-strong labels in audio event classification</h4>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexhershey2021benefit64f6132f0f4e4db59aab9ac0870817ad" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/2105.07031" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexhershey2021benefit64f6132f0f4e4db59aab9ac0870817adlabel" class="modal fade" id="bibtexhershey2021benefit64f6132f0f4e4db59aab9ac0870817ad" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexhershey2021benefit64f6132f0f4e4db59aab9ac0870817adlabel">The benefit of temporally-strong labels in audio event classification</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{hershey2021benefit,
+    author = "Hershey, Shawn and Ellis, Daniel PW and Fonseca, Eduardo and Jansen, Aren and Liu, Caroline and Moore, R Channing and Plakal, Manoj",
+    title = "The benefit of temporally-strong labels in audio event classification",
+    booktitle = "ICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+    pages = "366--370",
+    year = "2021",
+    organization = "IEEE"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>We share the original data and scripts to generate soundscapes and encourage participants to create their own subsets.
+See <a href="https://github.com/turpaultn/DESED">DESED github repo</a> and <a href="https://Scaper.readthedocs.io/en/latest/">Scaper documentation</a> for more information about how to create new soundscapes.</p>
+<h3>Sound event detection validation set</h3>
+<p>The validation set is designed such that the distribution in term of clips per class is similar to that of the weakly labeled training set.
+The validation set contains <strong>1168 clips</strong> (4093 events).
+The validation set is annotated with strong labels, with timestamps (obtained by human annotators).</p>
+<h2 id="evaluation-set">Evaluation set</h2>
+<p>The sound event detection evaluation dataset is composed of 10 seconds.</p>
+<ul>
+<li>A first subset is composed of audio clips extracted from YouTube and Vimeo videos under Creative Commons licenses. This subset is used for ranking purposes. <strong>This subset includes the <a href="https://zenodo.org/record/4560759#.YmJUdRxBxH4">public evaluation dataset</a>.</strong></li>
+</ul>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/7874573" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/7874573" target="_blank">
+<span style="font-size:20px;">Task 4 - <strong>Evaluation dataset</strong> <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(1 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.7874573">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.7874573.svg"/>
+</a>
+<span class="text-muted">
+                
+                version 1.0
+                
+                
+                </span>
+</div>
+</div>
+<h1 id="external-data-resources">External data resources</h1>
+<p>List of external data resources allowed:</p>
+<table class="datatable table table-hover table-condensed" data-filter-control="false" data-filter-show-clear="false" data-id-field="name" data-pagination="true" data-show-pagination-switch="true" data-sort-name="name" data-sort-order="asc">
+<thead>
+<tr>
+<th data-field="name" data-sortable="true">Dataset name</th>
+<th data-field="type" data-filter-control="select" data-sortable="true" data-tag="true">Type</th>
+<th data-field="date" data-sortable="true">Added</th>
+<th data-field="link" data-value-type="url">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YAMNet</td>
+<td>model</td>
+<td>20.05.2021</td>
+<td>https://github.com/tensorflow/models/tree/master/research/audioset/yamnet</td>
+</tr>
+<tr>
+<td>PANNs: Large-Scale Pretrained Audio Neural Networks for Audio Pattern Recognition</td>
+<td>model</td>
+<td>31.03.2021</td>
+<td>https://zenodo.org/record/3987831</td>
+</tr>
+<tr>
+<td>OpenL3</td>
+<td>model</td>
+<td>12.02.2020</td>
+<td>https://openl3.readthedocs.io/</td>
+</tr>
+<tr>
+<td>VGGish</td>
+<td>model</td>
+<td>12.02.2020</td>
+<td>https://github.com/tensorflow/models/tree/master/research/audioset/vggish</td>
+</tr>
+<tr>
+<td>COLA</td>
+<td>model</td>
+<td>25.02.2023</td>
+<td>https://github.com/google-research/google-research/tree/master/cola</td>
+</tr>
+<tr>
+<td>BYOL-A</td>
+<td>model</td>
+<td>25.02.2023</td>
+<td>https://github.com/nttcslab/byol-a</td>
+</tr>
+<tr>
+<td>AST: Audio Spectrogram Transformer</td>
+<td>model</td>
+<td>25.02.2023</td>
+<td>https://github.com/YuanGongND/ast</td>
+</tr>
+<tr>
+<td>PaSST: Efficient Training of Audio Transformers with Patchout</td>
+<td>model</td>
+<td>13.05.2022</td>
+<td>https://github.com/kkoutini/PaSST</td>
+</tr>
+<tr>
+<td>BEATs: Audio Pre-Training with Acoustic Tokenizers</td>
+<td>model</td>
+<td>01.03.2023</td>
+<td>https://github.com/microsoft/unilm/tree/master/beats</td>
+</tr>
+<tr>
+<td>AudioSet</td>
+<td>audio, video</td>
+<td>04.03.2019</td>
+<td>https://research.google.com/audioset/</td>
+</tr>
+<tr>
+<td>FSD50K</td>
+<td>audio</td>
+<td>10.03.2022</td>
+<td>https://zenodo.org/record/4060432</td>
+</tr>
+<tr>
+<td>ImageNet</td>
+<td>image</td>
+<td>01.03.2021</td>
+<td>http://www.image-net.org/</td>
+</tr>
+<tr>
+<td>MUSAN</td>
+<td>audio</td>
+<td>25.02.2023</td>
+<td>https://www.openslr.org/17/</td>
+</tr>
+<tr>
+<td>DCASE 2018, Task 5: Monitoring of domestic activities based on multi-channel acoustics - Development dataset</td>
+<td>audio</td>
+<td>25.02.2023</td>
+<td>https://zenodo.org/record/1247102#.Y_oyRIBBx8s</td>
+</tr>
+<tr>
+<td>Pre-trained desed embeddings (Panns, AST part 1)</td>
+<td>model</td>
+<td>25.02.2023</td>
+<td>https://zenodo.org/record/6642806#.Y_oy_oBBx8s</td>
+</tr>
+<tr>
+<td>Audio Teacher-Student Transformer</td>
+<td>model</td>
+<td>22.04.2024</td>
+<td>https://drive.google.com/file/d/1_xb0_n3UNbUG_pH1vLHTviLfsaSfCzxz/view</td>
+</tr>
+<tr>
+<td>TUT Acoustic scenes dataset</td>
+<td>audio</td>
+<td>22.04.2024</td>
+<td>https://zenodo.org/records/45739</td>
+</tr>
+<tr>
+<td>MicIRP</td>
+<td>IR</td>
+<td>28.03.2023</td>
+<td>http://micirp.blogspot.com/?m=1</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<!-- ## Pre-trained models
+- Pre-trained models using AudioSet:
+    - Supervised:
+        - [YAMNet](https://github.com/tensorflow/models/tree/master/research/audioset/yamnet)
+        - [PANNs](https://github.com/qiuqiangkong/audioset_tagging_cnn)
+    - Self-supervised:
+        - [OpenL3](https://github.com/marl/l3embedding)
+        - [COLA](https://github.com/google-research/google-research/tree/master/cola)
+        - [BYOL-A](https://github.com/nttcslab/byol-a)
+- [AST](https://github.com/YuanGongND/ast)
+- [PaSST](https://github.com/kkoutini/PaSST)
+
+<div class="brepository-item"
+data-source="content/data/challenge2022/repository.yaml"
+data-item="dcase2022-task4-desed_panns_ast"></div>
+
+
+
+## Allowed Datasets
+- [SINS](dcase18_task5_dev_set)
+- [AudioSet](AudioSet)
+- [FSD50K](https://zenodo.org/record/4060432#.YmJWNRxBxH4)
+- [MUSAN](https://www.openslr.org/17/)
+- [ImageNet](https://www.image-net.org/) -->
+<h1 id="task-rules">Task rules</h1>
+<p>There are general rules valid for all tasks; these, along with information on technical report and submission requirements can be found <a href="http://dcase.community/challenge2023/rules">here</a>.</p>
+<p>Task specific rules:</p>
+<ul>
+<li>Participants are allowed to submit up to <strong>4 different systems</strong> without ensembling and <strong>4 different systems</strong> with ensembling.</li>
+<li>Participants <strong>have to submit at least one system without ensembling</strong>.</li>
+<li>Participants <strong>are allowed</strong> to use external data for system development. <strong>However, each participant should submit at least one system that is not using external data.</strong></li>
+<li>Data from other task is considered external data.</li>
+<li>Embeddings extracted from models pre-trained on external data is considered as external data</li>
+<li>Another example of external data is other materials related to the video such as the rest of audio from where the 10-sec clip was extracted, the video frames and metadata.</li>
+<li>Manipulation of provided training data <strong>is allowed</strong>.</li>
+<li>Participants <strong>are not allowed</strong> to use the <strong>public evaluation dataset</strong> and <strong>synthetic evaluation dataset</strong> (or part of them) to train their systems or tune hyper-parameters.</li>
+</ul>
+<h1 id="submission">Submission</h1>
+<p>Instructions regarding the output submission format and the required metadata can be found in the example submission package.</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="../documents/challenge2023/dcase2023_challenge_submission_package_example.zip" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="../documents/challenge2023/dcase2023_challenge_submission_package_example.zip" target="_blank">
+<span style="font-size:20px;">DCASE2023 challenge submission example package <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(8.9 MB)</span>
+<br/>
+<span class="text-muted">
+                
+                
+                (.zip)
+                
+                </span>
+</div>
+</div>
+<p><br/></p>
+<h2 id="metadata-file">Metadata file</h2>
+<p>Participants are allowed to submit up to 4 different systems without ensembling and 4 systems with ensembling. Participants <strong>have to submit at least one system without ensembling</strong> . Each participants is expected to submit <strong>at least one system without external data</strong>. Participants using external data/pretrained models, please make sure to fill the field corresponding to the field in the yaml file.</p>
+<p>For each submission, participants should provide the outputs obtained with 3 differents runs of the same systems in order to compute confidence intervals.</p>
+<p>Participants using external data/pretrained models, please make sure to fill the corresponding fields in the yaml file (lines 109 and 112).</p>
+<div class="alert alert-info">
+    Please make sure to <strong>report the energy consumption</strong> in the yaml file (lines 102 and 103).
+</div>
+<h2 id="package-validator">Package validator</h2>
+<p><strong>Before submission, please make sure you check that your submission package is correct with the validation script enclosed in the submission package:</strong>
+<code>python validate_submissions.py -i /Users/nturpaul/Documents/code/dcase2021/task4_test</code></p>
+<h1 id="evaluation">Evaluation</h1>
+<p>All submissions will be evaluated with polyphonic sound event detection scores (PSDS) computed over the real recordings in the evaluation set (the performance on synthetic recordings is not taken into account in the metric). This metric is based on the intersection between events.</p>
+<p><strong>(NEW)</strong> This year we use <a href="https://github.com/fgnt/sed_scores_eval">sed_scores_eval</a> for evaluation which computes the PSDS accurately from sound event detection scores.
+Hence, we require participants to submit timestamped scores rather than detected events.
+See https://github.com/fgnt/sed_scores_eval for details.</p>
+<div class="alert alert-info">Note that this year's results can therefore not be directly compared with previous year's results as threshold independent PSDS results in higher values (for the baseline ~1%).</div>
+<p>In order to understand better what is the behavior of each submissions for different scenarios. We propose a metric that evaluate the submissions on two different scenarios that emphasize different systems properties.</p>
+<div class="btex-item" data-item="Ebbers2022" data-source="content/data/challenge2023/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Ebbers2022"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Janek Ebbers, Reinhold Haeb-Umbach, and Romain Serizel.
+<em>Threshold independent evaluation of sound event detection scores.</em>
+In ICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 1021–1025. IEEE, 2022.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexEbbers2022db3213b10bd04c51ac0a08c1e67a198d" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/2201.13148" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseEbbers2022db3213b10bd04c51ac0a08c1e67a198d" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseEbbers2022db3213b10bd04c51ac0a08c1e67a198d" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingEbbers2022db3213b10bd04c51ac0a08c1e67a198d" class="panel-collapse collapse" id="collapseEbbers2022db3213b10bd04c51ac0a08c1e67a198d" role="tabpanel">
+<h4>Threshold Independent Evaluation of Sound Event Detection Scores</h4>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexEbbers2022db3213b10bd04c51ac0a08c1e67a198d" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/2201.13148" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexEbbers2022db3213b10bd04c51ac0a08c1e67a198dlabel" class="modal fade" id="bibtexEbbers2022db3213b10bd04c51ac0a08c1e67a198d" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexEbbers2022db3213b10bd04c51ac0a08c1e67a198dlabel">Threshold Independent Evaluation of Sound Event Detection Scores</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Ebbers2022,
+    author = "Ebbers, Janek and Haeb-Umbach, Reinhold and Serizel, Romain",
+    title = "Threshold Independent Evaluation of Sound Event Detection Scores",
+    booktitle = "ICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+    pages = "1021--1025",
+    year = "2022",
+    organization = "IEEE"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="scenario-1">Scenario 1</h2>
+<p>The system needs to react fast upon an event detection (e.g. to trigger an alarm, adapt home automation system...). The localization of the sound event is then really important. The PSDS parameters reflecting these needs are:</p>
+<ul>
+<li>Detection Tolerance criterion (DTC): 0.7</li>
+<li>Ground Truth intersection criterion (GTC): 0.7</li>
+<li>Cost of instability across class (<span class="math">\(\alpha_{ST}\)</span>): 1</li>
+<li>Cost of CTs on user experience (<span class="math">\(\alpha_{CT}\)</span>): 0</li>
+<li>Maximum False Positive rate (e_max): 100</li>
+</ul>
+<h2 id="scenario-2">Scenario 2</h2>
+<p>The system must avoid confusing between classes but the reaction time is less crucial than in the first scenario. The PSDS parameters reflecting these needs are:</p>
+<ul>
+<li>Detection Tolerance criterion (DTC): 0.1</li>
+<li>Ground Truth intersection criterion (GTC): 0.1</li>
+<li>Cost of instability across class (<span class="math">\(\alpha_{ST}\)</span>): 1</li>
+<li>Cross-Trigger Tolerance criterion (cttc): 0.3</li>
+<li>Cost of CTs on user experience (<span class="math">\(\alpha_{CT}\)</span>): 0.5</li>
+<li>Maximum False Positive rate (e_max): 100</li>
+</ul>
+<h2 id="task-ranking">Task Ranking</h2>
+<p>The <strong>official ranking will be a team wise ranking</strong>, not a system wise ranking. The ranking criterion will be the aggregation of PSDS-scenario1 and PSDS-scenario2. Each separate metric considered in the final ranking criterion will be the best separate metric among all teams submission (<strong>PSDS-scenario1 and PSDS-scenario2 can be obtained by two different systems from the same team</strong>, see also <a href="#ranking">Fig 1</a>). The setup is chosen in order to favor experiments on the systems behavior, and adaptation to different metrics depending on the targeted scenario.</p>
+<div class="math">$$ \mathrm{Ranking\ Score} = \overline{\mathrm{PSDS}_1} + \overline{\mathrm{PSDS}_2}$$</div>
+<p>with <span class="math">\(\overline{\mathrm{PSDS}_1}\)</span> and <span class="math">\(\overline{\mathrm{PSDS}_2}\)</span> the PSDS on scenario 1 and 2 normalized by the baseline PSDS on these scenarios, respectively.</p>
+<figure name="ranking">
+<div class="row row-centered">
+<div class="col-xs-10 col-md-10 col-centered">
+<img class="img img-responsive" src="../images/tasks/challenge2021/task4_rank_psds.png"/>
+<figcaption>Figure 5: PSDS combination for the final ranking.</figcaption>
+</div>
+</div>
+</figure>
+<p><br/></p>
+<h2 id="contrastive-metric-collar-based-f1-score">Contrastive metric (collar-based F1-score)</h2>
+<p>Additionally, event-based measures with a 200 ms collar on onsets and a 200 ms / 20% of the events length collar on offsets will be provided as a contrastive measure. System will be evaluated with threshold fixed at 0.5 unless participant explicitly provide another operating point to be evaluated with F1-score.</p>
+<p>Evaluation is done using sed_eval and psds_eval toolboxes:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/TUT-ARG/sed_eval" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/TUT-ARG/sed_eval" target="_blank">
+<span style="font-size:20px;">sed_eval - Evaluation toolbox for Sound Event Detection <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/fgnt/sed_scores_eval" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/fgnt/sed_scores_eval" target="_blank">
+<span style="font-size:20px;">sed_scores_eval - Evaluation toolbox for efficient threshold-independent evaluation of Sound Event Detection <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<h2 id="energy-consumption">Energy consumption</h2>
+<div class="alert alert-info">Note that this year the energy consumption reports are <strong>mandatory</strong>.</div>
+<p>The cost computation can have an important ecological impact. A environmental metric is suggested to raise awareness around this subject. While this metric won't be used in the ranking system, it can be an important aspect during the award attribution. Energy consumption is computed using <a href="https://codecarbon.io/">code carbon</a> (a running example is provided in the baseline).</p>
+<p><strong>(NEW)</strong> In order to account for potential hardware difference, participants <strong>have to report</strong> the energy consumption measured while training the baseline during 10 epochs (on their hardware).</p>
+<h2><strong>(New)</strong> Multiply–accumulate (MAC) operations</h2>
+<p>This year we are introducing a new metric, complementary to the energy consumption metric.
+We are considering the Multiply–accumulate operations (MACs) for 10 seconds of audio prediction, so to have information regarding the computational complexity of the network in terms of multiply-accumulate (MAC) operations.</p>
+<p>We use <a href="https://github.com/Lyken17/pytorch-OpCounter">THOP: PyTorch-OpCounter</a> as framework to compute the number of multiply-accumulate operations (MACs). For more information regarding how to install and use THOP, the reader is referred to <a href="https://github.com/Lyken17/pytorch-OpCounter">THOP documentation</a>.</p>
+<h1 id="results">Results</h1>
+<p>All confindence intervals are computed based on the three runs per systems and bootstrapping on the evaluation set. The table below includes only the best ranking score per submitting team <strong>without ensembling</strong>.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-filter-control="true" data-filter-show-clear="true" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="psds1" data-scatter-y="psds2" data-show-chart="true" data-show-pagination-switch="false" data-show-rank="true" data-sort-name="ranking_score" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true">Rank</th>
+<th data-field="system_name_1" data-sortable="true">
+                Submission <br/>code<br/>
+                (PSDS 1)
+            </th>
+<th data-field="system_name_2" data-sortable="true">
+                Submission <br/>code<br/>
+                (PSDS 2)
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Ranking score (Evaluation dataset)" data-chartable="true" data-field="ranking_score" data-sortable="true" data-value-type="float2">
+<br/>Ranking score <br/>(Evaluation dataset)
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="PSDS 1 (Evaluation dataset)" data-chartable="true" data-field="psds1" data-sortable="true" data-value-type="float3-interval-muted">
+<br/>PSDS 1 <br/>(Evaluation dataset)
+            </th>
+<th class="sep-right-cell text-center" data-axis-label="PSDS 2 (Evaluation dataset)" data-chartable="true" data-field="psds2" data-sortable="true" data-value-type="float3-interval-muted">
+<br/>PSDS 2 <br/>(Evaluation dataset)
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Kim_GIST-HanwhaVision_task4a_2</td>
+<td>Kim_GIST-HanwhaVision_task4a_3</td>
+<td>1.68</td>
+<td>0.591 (0.574 - 0.611)</td>
+<td>0.835 (0.826 - 0.846)</td>
+</tr>
+<tr>
+<td></td>
+<td>Zhang_IOA_task4a_6</td>
+<td>Zhang_IOA_task4a_7</td>
+<td>1.63</td>
+<td>0.562 (0.552 - 0.575)</td>
+<td>0.830 (0.820 - 0.842)</td>
+</tr>
+<tr>
+<td></td>
+<td>Wenxin_TJU_task4a_6</td>
+<td>Wenxin_TJU_task4a_6</td>
+<td>1.61</td>
+<td>0.546 (0.536 - 0.556)</td>
+<td>0.831 (0.823 - 0.842)</td>
+</tr>
+<tr>
+<td></td>
+<td>Xiao_FMSG_task4a_4</td>
+<td>Xiao_FMSG_task4a_4</td>
+<td>1.60</td>
+<td>0.551 (0.543 - 0.562)</td>
+<td>0.813 (0.802 - 0.827)</td>
+</tr>
+<tr>
+<td></td>
+<td>Guan_HIT_task4a_3</td>
+<td>Guan_HIT_task4a_4</td>
+<td>1.60</td>
+<td>0.526 (0.513 - 0.539)</td>
+<td>0.855 (0.844 - 0.867)</td>
+</tr>
+<tr>
+<td></td>
+<td>Chen_CHT_task4a_2</td>
+<td>Chen_CHT_task4a_2</td>
+<td>1.58</td>
+<td>0.563 (0.550 - 0.574)</td>
+<td>0.779 (0.768 - 0.792)</td>
+</tr>
+<tr>
+<td></td>
+<td>Li_USTC_task4a_6</td>
+<td>Li_USTC_task4a_6</td>
+<td>1.56</td>
+<td>0.546 (0.529 - 0.562)</td>
+<td>0.783 (0.771 - 0.796)</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_NSYSU_task4a_7</td>
+<td>Liu_NSYSU_task4a_7</td>
+<td>1.55</td>
+<td>0.521 (0.510 - 0.531)</td>
+<td>0.813 (0.796 - 0.831)</td>
+</tr>
+<tr>
+<td></td>
+<td>Cheimariotis_DUTH_task4a_1</td>
+<td>Cheimariotis_DUTH_task4a_1</td>
+<td>1.53</td>
+<td>0.516 (0.504 - 0.529)</td>
+<td>0.796 (0.784 - 0.808)</td>
+</tr>
+<tr class="info">
+<td></td>
+<td>Baseline_BEATS</td>
+<td>Baseline_BEATS</td>
+<td>1.52</td>
+<td>0.510 (0.496 - 0.523)</td>
+<td>0.798 (0.782 - 0.811)</td>
+</tr>
+<tr class="info">
+<td></td>
+<td>Baseline</td>
+<td>Baseline</td>
+<td>1.00</td>
+<td>0.327 (0.317 - 0.339)</td>
+<td>0.538 (0.515 - 0.566)</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang_XiaoRice_task4a_1</td>
+<td>Wang_XiaoRice_task4a_1</td>
+<td>1.50</td>
+<td>0.494 (0.477 - 0.510)</td>
+<td>0.801 (0.789 - 0.815)</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee_CAUET_task4a_1</td>
+<td>Lee_CAUET_task4a_2</td>
+<td>1.28</td>
+<td>0.425 (0.415 - 0.440)</td>
+<td>0.674 (0.661 - 0.690)</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_SRCN_task4a_4</td>
+<td>Liu_SRCN_task4a_4</td>
+<td>1.25</td>
+<td>0.412 (0.400 - 0.424)</td>
+<td>0.663 (0.652 - 0.676)</td>
+</tr>
+<tr>
+<td></td>
+<td>Barahona_AUDIAS_task4a_2</td>
+<td>Barahona_AUDIAS_task4a_4</td>
+<td>1.21</td>
+<td>0.380 (0.361 - 0.406)</td>
+<td>0.673 (0.652 - 0.700)</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_NCUT_task4a_1</td>
+<td>Wu_NCUT_task4a_1</td>
+<td>1.15</td>
+<td>0.391 (0.379 - 0.405)</td>
+<td>0.596 (0.584 - 0.610)</td>
+</tr>
+<tr>
+<td></td>
+<td>Gan_NCUT_task4a_1</td>
+<td>Gan_NCUT_task4a_1</td>
+<td>1.12</td>
+<td>0.365 (0.353 - 0.377)</td>
+<td>0.603 (0.589 - 0.617)</td>
+</tr>
+</tbody>
+</table>
+<p>Complete results and technical reports can be found in the <a class="btn btn-primary" href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-labels-and-synthetic-soundscapes-results">results page</a></p>
+<h1 id="baseline-system">Baseline system</h1>
+<h3>System description</h3>
+<p>The baseline model  is the same as in <a href="https://dcase.community/challenge2021/task-sound-event-detection-and-separation-in-domestic-environments#sound-event-detection-baseline">DCASE 2021 Task 4</a>. The model is a mean-teacher model. The 2023 recipe include a version of the baseline train on DESED and strongly annotated clips from AudioSet. Mixup is used as data augmentation technique for weak and synthetic data by mixing data in a batch (50% chance of applying it). More details about the baseline are available on the <a href="https://github.com/DCASE-REPO/DESED_task/tree/master/recipes/dcase2023_task4_baseline">baseline page</a>.</p>
+<h4><strong>(New)</strong> Baseline using pre-trained embeddings from models (SEC/Tagging) trained on Audioset</h4>
+<p>We added a baseline which exploits the pre-trained model <a href="https://arxiv.org/abs/2212.09058">BEATs</a>,  the current state-of-the-art (as of March 2023) on the <a href="https://paperswithcode.com/sota/audio-classification-on-audioset">Audioset classification task</a>.</p>
+<p>In the proposed baseline, the frame-level embeddings are used in a late-fusion fashion with the existing CRNN baseline classifier. The temporal resolution of the frame-level embeddings is matched to that of the CNN output using Adaptative Average Pooling. We then feed their frame-level concatenation to the RNN + MLP classifier. See the <a href="https://github.com/DCASE-REPO/DESED_task/tree/master/recipes/dcase2023_task4_baseline">baseline page</a> for details.</p>
+<h3>Results for the development dataset</h3>
+<table class="table table-striped">
+<thead>
+<tr>
+<td></td>
+<td><strong>PSDS-scenario1</strong></td>
+<td><strong>PSDS-scenario2</strong></td>
+<td>Intersection-based F1 </td>
+<td>Collar-based F1</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline</td>
+<td><strong> 0.359 +/- 0.006  </strong></td>
+<td><strong> 0.562 +/- 0.012 </strong></td>
+<td> 64.2 +/- 0.8 % </td>
+<td> 40.7 +/- 0.6 % </td>
+</tr>
+<tr>
+<td>Baseline (AudioSet strong)</td>
+<td> 0.364 +/- 0.005  </td>
+<td> 0.576 +/- 0.011 </td>
+<td> 65.5 +/- 1.3 % </td>
+<td> 43.3 +/- 1.4 % </td>
+</tr>
+<tr>
+<td>Baseline (BEATS)</td>
+<td> 0.500 +/- 0.004  </td>
+<td> 0.762 +/- 0.008 </td>
+<td> 80.7 +/- 0.4 % </td>
+<td> 57.1 +/- 1.3 % </td>
+</tr>
+<tr>
+<!--<tr>
+ <td>Baseline (AST)</td>
+ <td> 0.313  </td>
+ <td> 0.722 </td>
+ <td> 90.0% </td>
+ <td> 37.2% </td>
+ </tr>-->
+</tr></tbody>
+</table>
+<p>Collar-based = event-based.
+Intersection based is computed using (dtc=gtc=0.5, cttc=0.3) and event-based is computed using collars (onset=200ms, offset=max(200ms, 20% event-duration)</p>
+<p><strong>Note:</strong> The performance might not be exactly reproducible on a GPU based system.
+That is why, you can download the checkpoint of the network along with the TensorBoard events.
+Launch <code>python train_sed.py --test_from_checkpoint /path/to/downloaded.ckpt</code> to test this model.</p>
+<h3>Energy consumption during the training and evaluation phase</h3>
+<p>Energy consumption for 1 run on a NVIDIA A100 80Gb for a training phase and an inference phase on the development set.</p>
+<table class="table table-striped">
+<thead>
+<tr>
+<td></td>
+<td><strong>Training</strong> (kWh)</td>
+<td><strong>Dev-test</strong> (kWh)</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline</td>
+<td><strong> 1.390 +/- 0.019  </strong></td>
+<td><strong> 0.019 +/- 0.001 </strong></td>
+</tr>
+<tr>
+<td>Baseline (AudioSet strong)</td>
+<td> 1.418 +/- 0.016 </td>
+<td> 0.020 +/- 0.001 </td>
+</tr>
+<td>Baseline (BEATS)</td>
+<td> 1.821 +/- 0.457 </td>
+<td> 0.022 +/- 0.003 </td>
+<!--<tr>
+ <td>Baseline (AST)</td>
+ <td>   </td>
+ <td> 0.037  </td>
+ <td>0.254</td>
+ <td>0.585</td>
+ </tr>-->
+</tbody>
+</table>
+<p><strong>Total number of multiply–accumulate operation (MACs):</strong> 44.683 G</p>
+<h3>Repositories</h3>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/DCASE-REPO/DESED_task/tree/master/recipes/dcase2023_task4_baseline" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/DCASE-REPO/DESED_task/tree/master/recipes/dcase2023_task4_baseline" target="_blank">
+<span style="font-size:20px;">DCASE2022 Task 4A <strong>baseline</strong>, repository <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/4639817" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-table fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/4639817" target="_blank">
+<span style="font-size:20px;">Task 4 - <strong>SED baseline</strong> checkpoint of the network <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(59.9 MB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.4639817">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.4639817.svg"/>
+</a>
+<span class="text-muted">
+                
+                version 1
+                
+                
+                </span>
+</div>
+</div>
+<p><br/></p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/7759146" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-table fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/7759146" target="_blank">
+<span style="font-size:20px;">Baseline system (with BEATS embedding) pre-trained weights <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(69.3 MB)</span>
+<br/>
+<a href="10.5281/zenodo.7759146">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.7759146.svg"/>
+</a>
+<span class="text-muted">
+                
+                version 2
+                
+                
+                </span>
+</div>
+</div>
+<p><br/></p>
+<h1 id="citation">Citation</h1>
+<div class="btex-item" data-item="Turpault2019_DCASE" data-source="content/data/challenge2020/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Turpault2019_DCASE"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Nicolas Turpault, Romain Serizel, Ankit Parag Shah, and Justin Salamon.
+<em>Sound event detection in domestic environments with weakly labeled data and soundscape synthesis.</em>
+In <span class="bibtex-protected">Workshop on Detection and Classification of Acoustic Scenes and Events</span>. New York City, United States, October 2019.
+URL: <a href="https://hal.inria.fr/hal-02160855">https://hal.inria.fr/hal-02160855</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexTurpault2019_DCASE1e0de08e3a234cd2a00fc317b54ac6a9" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://hal.inria.fr/hal-02160855/file/Sound_event_detection_in_domestic_environments_with_weakly_labeled_data_and_soundscape_synthesis.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseTurpault2019_DCASE1e0de08e3a234cd2a00fc317b54ac6a9" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseTurpault2019_DCASE1e0de08e3a234cd2a00fc317b54ac6a9" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingTurpault2019_DCASE1e0de08e3a234cd2a00fc317b54ac6a9" class="panel-collapse collapse" id="collapseTurpault2019_DCASE1e0de08e3a234cd2a00fc317b54ac6a9" role="tabpanel">
+<h4>Sound event detection in domestic environments with weakly labeled data and soundscape synthesis</h4>
+<h5>Abstract</h5>
+<p class="text-justify">This paper presents Task 4 of the Detection and Classification of Acoustic Scenes and Events (DCASE) 2019 challenge and provides a first analysis of the challenge results. The task is a followup to Task 4 of DCASE 2018, and involves training systems for large-scale detection of sound events using a combination of weakly labeled data, i.e. training labels without time boundaries, and strongly-labeled synthesized data. The paper introduces Domestic Environment Sound Event Detection (DESED) dataset mixing a part of last year dataset and an additional synthetic, strongly labeled, dataset provided this year that we’ll describe more in detail. We also report the performance of the submitted systems on the official evaluation (test) and development sets as well as several additional datasets. The best systems from this year outperform last year’s winning system by about 10% points in terms of F-measure.</p>
+<h5>Keywords</h5>
+<p class="text-justify">Sound event detection ; Weakly labeled data ; Semi-supervised learning ; Synthetic data</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexTurpault2019_DCASE1e0de08e3a234cd2a00fc317b54ac6a9" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://hal.inria.fr/hal-02160855/file/Sound_event_detection_in_domestic_environments_with_weakly_labeled_data_and_soundscape_synthesis.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexTurpault2019_DCASE1e0de08e3a234cd2a00fc317b54ac6a9label" class="modal fade" id="bibtexTurpault2019_DCASE1e0de08e3a234cd2a00fc317b54ac6a9" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexTurpault2019_DCASE1e0de08e3a234cd2a00fc317b54ac6a9label">Sound event detection in domestic environments with weakly labeled data and soundscape synthesis</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Turpault2019_DCASE,
+    Author = "Turpault, Nicolas and Serizel, Romain and Parag Shah, Ankit and Salamon, Justin",
+    title = "{Sound event detection in domestic environments with weakly labeled data and soundscape synthesis}",
+    booktitle = "{Workshop on Detection and Classification of Acoustic Scenes and Events}",
+    address = "New York City, United States",
+    year = "2019",
+    month = "October",
+    keywords = "Sound event detection ; Weakly labeled data ; Semi-supervised learning ; Synthetic data",
+    abstract = "This paper presents Task 4 of the Detection and Classification of Acoustic Scenes and Events (DCASE) 2019 challenge and provides a first analysis of the challenge results. The task is a followup to Task 4 of DCASE 2018, and involves training systems for large-scale detection of sound events using a combination of weakly labeled data, i.e. training labels without time boundaries, and strongly-labeled synthesized data. The paper introduces Domestic Environment Sound Event Detection (DESED) dataset mixing a part of last year dataset and an additional synthetic, strongly labeled, dataset provided this year that we’ll describe more in detail. We also report the performance of the submitted systems on the official evaluation (test) and development sets as well as several additional datasets. The best systems from this year outperform last year’s winning system by about 10\% points in terms of F-measure.",
+    hal_id = "hal-02160855",
+    hal_version = "v2",
+    url = "https://hal.inria.fr/hal-02160855"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="btex-item" data-item="Ronchini2021" data-source="content/data/challenge2022/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Ronchini2021"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Francesca Ronchini, Romain Serizel, Nicolas Turpault, and Samuele Cornell.
+<em>The impact of non-target events in synthetic soundscapes for sound event detection.</em>
+In Proceedings of the 6th Detection and Classification of Acoustic Scenes and Events 2021 Workshop (DCASE2021), 115–119. Barcelona, Spain, November 2021.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexRonchini2021f584aada86be4c26a3a08b403fcd5729" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/abs/2109.14061v1" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseRonchini2021f584aada86be4c26a3a08b403fcd5729" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseRonchini2021f584aada86be4c26a3a08b403fcd5729" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingRonchini2021f584aada86be4c26a3a08b403fcd5729" class="panel-collapse collapse" id="collapseRonchini2021f584aada86be4c26a3a08b403fcd5729" role="tabpanel">
+<h4>The Impact of Non-Target Events in Synthetic Soundscapes for Sound Event Detection</h4>
+<h5>Abstract</h5>
+<p class="text-justify">Detection and Classification Acoustic Scene and Events Challenge 2021 Task 4 uses a heterogeneous dataset that includes both recorded and synthetic soundscapes. Until recently only target sound events were considered when synthesizing the soundscapes. However, recorded soundscapes often contain a substantial amount of non-target events that may affect the performance. In this paper, we focus on the impact of these non-target events in the synthetic soundscapes. Firstly, we investigate to what extent using non-target events alternatively during the training or validation phase (or none of them) helps the system to correctly detect target events. Secondly, we analyze to what extend adjusting the signal-to-noise ratio between target and non-target events at training improves the sound event detection performance. The results show that using both target and non-target events for only one of the phases (validation or training) helps the system to properly detect sound events, outperforming the baseline (which uses non-target events in both phases). The paper also reports the results of a preliminary study on evaluating the system on clips that contain only non-target events. This opens questions for future work on non-target subset and acoustic similarity between target and non-target events which might confuse the system.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexRonchini2021f584aada86be4c26a3a08b403fcd5729" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/abs/2109.14061v1" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexRonchini2021f584aada86be4c26a3a08b403fcd5729label" class="modal fade" id="bibtexRonchini2021f584aada86be4c26a3a08b403fcd5729" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexRonchini2021f584aada86be4c26a3a08b403fcd5729label">The Impact of Non-Target Events in Synthetic Soundscapes for Sound Event Detection</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Ronchini2021,
+    author = "Ronchini, Francesca and Serizel, Romain and Turpault, Nicolas and Cornell, Samuele",
+    title = "The Impact of Non-Target Events in Synthetic Soundscapes for Sound Event Detection",
+    booktitle = "Proceedings of the 6th Detection and Classification of Acoustic Scenes and Events 2021 Workshop (DCASE2021)",
+    address = "Barcelona, Spain",
+    month = "November",
+    year = "2021",
+    pages = "115--119",
+    abstract = "Detection and Classification Acoustic Scene and Events Challenge 2021 Task 4 uses a heterogeneous dataset that includes both recorded and synthetic soundscapes. Until recently only target sound events were considered when synthesizing the soundscapes. However, recorded soundscapes often contain a substantial amount of non-target events that may affect the performance. In this paper, we focus on the impact of these non-target events in the synthetic soundscapes. Firstly, we investigate to what extent using non-target events alternatively during the training or validation phase (or none of them) helps the system to correctly detect target events. Secondly, we analyze to what extend adjusting the signal-to-noise ratio between target and non-target events at training improves the sound event detection performance. The results show that using both target and non-target events for only one of the phases (validation or training) helps the system to properly detect sound events, outperforming the baseline (which uses non-target events in both phases). The paper also reports the results of a preliminary study on evaluating the system on clips that contain only non-target events. This opens questions for future work on non-target subset and acoustic similarity between target and non-target events which might confuse the system.",
+    isbn = "978-84-09-36072-7",
+    doi. = "10.5281/zenodo.5770113"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="btex-item" data-item="Ebbers2022" data-source="content/data/challenge2023/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Ebbers2022"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Janek Ebbers, Reinhold Haeb-Umbach, and Romain Serizel.
+<em>Threshold independent evaluation of sound event detection scores.</em>
+In ICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 1021–1025. IEEE, 2022.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexEbbers2022f6dfbdf95ca64f2f83d9655ecc4bc91a" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/2201.13148" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseEbbers2022f6dfbdf95ca64f2f83d9655ecc4bc91a" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseEbbers2022f6dfbdf95ca64f2f83d9655ecc4bc91a" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingEbbers2022f6dfbdf95ca64f2f83d9655ecc4bc91a" class="panel-collapse collapse" id="collapseEbbers2022f6dfbdf95ca64f2f83d9655ecc4bc91a" role="tabpanel">
+<h4>Threshold Independent Evaluation of Sound Event Detection Scores</h4>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexEbbers2022f6dfbdf95ca64f2f83d9655ecc4bc91a" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/2201.13148" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexEbbers2022f6dfbdf95ca64f2f83d9655ecc4bc91alabel" class="modal fade" id="bibtexEbbers2022f6dfbdf95ca64f2f83d9655ecc4bc91a" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexEbbers2022f6dfbdf95ca64f2f83d9655ecc4bc91alabel">Threshold Independent Evaluation of Sound Event Detection Scores</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Ebbers2022,
+    author = "Ebbers, Janek and Haeb-Umbach, Reinhold and Serizel, Romain",
+    title = "Threshold Independent Evaluation of Sound Event Detection Scores",
+    booktitle = "ICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+    pages = "1021--1025",
+    year = "2022",
+    organization = "IEEE"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

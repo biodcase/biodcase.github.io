@@ -1,0 +1,2186 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Sound Event Detection with Soft Labels - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Sound Event Detection with Soft Labels - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2023/task-sound-event-detection-with-soft-labels-results">
+    <meta property="og:url" content="https://dcase.community/challenge2023/task-sound-event-detection-with-soft-labels-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="Task description The task evaluates systems for the detection of sound events using softly labeled data for training in addition to other types of data such as weakly labeled, unlabeled or strongly labeled. The target of the systems is to provide not only the event class but also the event …" />
+    <meta name="og:description" content="Task description The task evaluates systems for the..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btex.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2023</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2023/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-low-complexity-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-low-complexity-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-low-complexity-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-localization-and-detection-evaluated-in-real-spatial-sound-scenes" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-localization-and-detection-evaluated-in-real-spatial-sound-scenes"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-localization-and-detection-evaluated-in-real-spatial-sound-scenes-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-and-soft-labels" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-and-soft-labels"><i class="fa fa-info-circle fa-fw"></i>&nbsp;Introduction</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>A: Sound Event Detection with Weak Labels and Synthetic Soundscapes</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-labels-and-synthetic-soundscapes"><i class="fa fa-random fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-labels-and-synthetic-soundscapes-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>B: Sound Event Detection with Soft Labels</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-soft-labels"><i class="fa fa-info-circle fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-soft-labels-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-few-shot-bioacoustic-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-bird text-danger"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-few-shot-bioacoustic-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-few-shot-bioacoustic-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-automated-audio-captioning-and-language-based-audio-retrieval" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-captioning text-task1"></i>&nbsp;Task6&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-automated-audio-captioning-and-language-based-audio-retrieval"><i class="fa fa-info-circle fa-fw"></i>&nbsp;Introduction</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>A: Automated Audio-Captioning</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-automated-audio-captioning"><i class="fa dc-captioning fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-automated-audio-captioning-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>B: Language-Based Audio Retrieval</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-language-based-audio-retrieval"><i class="fa fa-file-text fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-language-based-audio-retrieval-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-foley-sound-synthesis" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-synthesis text-task2"></i>&nbsp;Task7&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-foley-sound-synthesis"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-foley-sound-synthesis-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2023/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2023/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/panel-03.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-info"></i><strong class="fa-stack-1x icon-text">B</strong><strong class="fa-stack-1x dcase-icon-top-text">Soft</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 4</span></span><img src="../images/logos/dcase/dcase2023_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Sound Event Detection with Soft Labels</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Challenge results</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#task-description">Task description</a></li>
+<li><a href="#systems-ranking">Systems ranking</a></li>
+<li><a href="#teams-ranking">Teams ranking</a></li>
+<li><a href="#system-characteristics">System characteristics</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h1 id="task-description">Task description</h1>
+<p>The task evaluates systems for the detection of sound events using <strong>softly labeled</strong> data for training in addition to other types of data such as weakly labeled, unlabeled or strongly labeled. The target of the systems is to provide not only the event class but also the event time boundaries of the multiple events present in the real-life audio recordings. The main goal of the task is to investigate whether using soft labels brings any improvement in performance.</p>
+<p>More detailed task description can be found in the <a class="btn btn-primary" href="http://localhost:3000/challenge2023/task-sound-event-detection-with-soft-labels" style="">task description page</a></p>
+<h1 id="systems-ranking">Systems ranking</h1>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-filter-control="true" data-filter-show-clear="true" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="F1_MO_eval" data-scatter-y="F1_MO_dev" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="F1_MO_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th></th>
+<th class="sep-left-cell text-center" colspan="3">Submission information</th>
+<th class="sep-left-cell text-center" colspan="4">Evaluation dataset</th>
+<th class="sep-left-cell text-center" colspan="4">Development dataset</th>
+</tr>
+<tr>
+<th class="sep-right-cell" data-rank="true">Rank</th>
+<th data-field="code" data-sortable="true">
+                Submission <br/>label
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="F1_MO_eval (Evaluation dataset)" data-chartable="true" data-field="F1_MO_eval" data-sortable="true" data-value-type="float2-percentage">
+<br/>F1_MO 
+            </th>
+<th class="text-center" data-axis-label="ER_m (Evaluation dataset)" data-chartable="true" data-field="ER_m_eval" data-sortable="true" data-value-type="float3">
+<br/>ER_m 
+            </th>
+<th class="text-center" data-axis-label="F1_m (Evaluation dataset)" data-chartable="true" data-field="F1_m_eval" data-sortable="true" data-value-type="float2-percentage">
+<br/>F1_m 
+            </th>
+<th class="sep-right-cell text-center" data-axis-label="F1_M (Evaluation dataset)" data-chartable="true" data-field="F1_M_eval" data-sortable="true" data-value-type="float2-percentage">
+<br/>F1_M 
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="F1_MO (Development dataset)" data-chartable="true" data-field="F1_MO_dev" data-sortable="true" data-value-type="float2-percentage">
+<br/>F1_MO 
+            </th>
+<th class="text-center" data-axis-label="ER_m (Development dataset)" data-chartable="true" data-field="ER_m_dev" data-sortable="true" data-value-type="float3">
+<br/>ER_m 
+            </th>
+<th class="text-center" data-axis-label="F1_m (Development dataset)" data-chartable="true" data-field="F1_m_dev" data-sortable="true" data-value-type="float2-percentage">
+<br/>F1_m 
+            </th>
+<th class="sep-right-cell text-center" data-axis-label="F1_M (Development dataset)" data-chartable="true" data-field="F1_M_dev" data-sortable="true" data-value-type="float2-percentage">
+<br/>F1_M 
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Bai_JLESS_task4b_1</td>
+<td>Two_D+</td>
+<td>Yin2023</td>
+<td>58.21</td>
+<td>0.345</td>
+<td>79.84</td>
+<td>45.98</td>
+<td>50.79</td>
+<td>0.402</td>
+<td>75.28</td>
+<td>39.21</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_JLESS_task4b_2</td>
+<td>Two_D+_en</td>
+<td>Yin2023</td>
+<td>59.77</td>
+<td>0.325</td>
+<td>80.84</td>
+<td>40.29</td>
+<td>54.30</td>
+<td>0.387</td>
+<td>77.21</td>
+<td>42.05</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_JLESS_task4b_3</td>
+<td>One_en</td>
+<td>Yin2023</td>
+<td>58.00</td>
+<td>0.328</td>
+<td>80.76</td>
+<td>37.28</td>
+<td>52.25</td>
+<td>0.394</td>
+<td>76.90</td>
+<td>40.58</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_JLESS_task4b_4</td>
+<td>All_SED_sys</td>
+<td>Yin2023</td>
+<td>60.74</td>
+<td>0.320</td>
+<td>81.01</td>
+<td>37.33</td>
+<td>56.16</td>
+<td>0.360</td>
+<td>78.63</td>
+<td>42.45</td>
+</tr>
+<tr>
+<td></td>
+<td>Cai_NCUT_task4b_1</td>
+<td>NCUT_1</td>
+<td>Zhang2023</td>
+<td>43.60</td>
+<td>0.367</td>
+<td>77.86</td>
+<td>35.71</td>
+<td>43.50</td>
+<td>0.439</td>
+<td>74.84</td>
+<td>39.57</td>
+</tr>
+<tr>
+<td></td>
+<td>Cai_NCUT_task4b_2</td>
+<td>NCUT_2</td>
+<td>Zhang2023</td>
+<td>43.58</td>
+<td>0.376</td>
+<td>77.96</td>
+<td>36.45</td>
+<td>44.49</td>
+<td>0.443</td>
+<td>73.38</td>
+<td>35.60</td>
+</tr>
+<tr>
+<td></td>
+<td>Cai_NCUT_task4b_3</td>
+<td>NCUT_3</td>
+<td>Zhang2023</td>
+<td>42.14</td>
+<td>0.346</td>
+<td>79.01</td>
+<td>33.36</td>
+<td>44.47</td>
+<td>0.432</td>
+<td>73.89</td>
+<td>34.86</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_NJUPT_task4b_1</td>
+<td>NJUPT_1</td>
+<td>Liu2023</td>
+<td>19.82</td>
+<td>0.786</td>
+<td>34.03</td>
+<td>5.62</td>
+<td>69.28</td>
+<td>0.684</td>
+<td>32.53</td>
+<td>18.18</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_NJUPT_task4b_2</td>
+<td>NJUPT_2</td>
+<td>Liu2023</td>
+<td>20.83</td>
+<td>0.886</td>
+<td>22.27</td>
+<td>4.51</td>
+<td>72.13</td>
+<td>0.724</td>
+<td>25.53</td>
+<td>11.28</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_NJUPT_task4b_3</td>
+<td>NJUPT_3</td>
+<td>Liu2023</td>
+<td>22.53</td>
+<td>0.688</td>
+<td>40.85</td>
+<td>5.69</td>
+<td>71.53</td>
+<td>0.713</td>
+<td>29.64</td>
+<td>18.19</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_NJUPT_task4b_4</td>
+<td>NJUPT_4</td>
+<td>Liu2023</td>
+<td>22.46</td>
+<td>0.739</td>
+<td>37.56</td>
+<td>5.82</td>
+<td>74.15</td>
+<td>0.751</td>
+<td>26.89</td>
+<td>19.30</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_SRCN_task4b_1</td>
+<td>CRNN_t4b</td>
+<td>Jin2023</td>
+<td>44.69</td>
+<td>0.419</td>
+<td>75.95</td>
+<td>31.03</td>
+<td>43.98</td>
+<td>0.500</td>
+<td>71.04</td>
+<td>34.73</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_SRCN_task4b_2</td>
+<td>AST_t4b</td>
+<td>Jin2023</td>
+<td>52.03</td>
+<td>0.320</td>
+<td>80.89</td>
+<td>31.74</td>
+<td>49.70</td>
+<td>0.430</td>
+<td>72.90</td>
+<td>28.80</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2023 baseline</td>
+<td>Baseline_task4b</td>
+<td></td>
+<td>43.44</td>
+<td>0.484</td>
+<td>74.13</td>
+<td>35.28</td>
+<td>42.87</td>
+<td>0.487</td>
+<td>70.34</td>
+<td>35.83</td>
+</tr>
+<tr>
+<td></td>
+<td>Min_KAIST_task4b_1</td>
+<td>STRF_aug</td>
+<td>Min2023</td>
+<td>48.95</td>
+<td>0.361</td>
+<td>78.05</td>
+<td>29.19</td>
+<td>45.81</td>
+<td>0.445</td>
+<td>72.78</td>
+<td>36.12</td>
+</tr>
+<tr>
+<td></td>
+<td>Min_KAIST_task4b_2</td>
+<td>STRF_aug_e</td>
+<td>Min2023</td>
+<td>48.72</td>
+<td>0.351</td>
+<td>78.27</td>
+<td>28.68</td>
+<td>45.37</td>
+<td>0.447</td>
+<td>72.53</td>
+<td>35.20</td>
+</tr>
+<tr>
+<td></td>
+<td>Min_KAIST_task4b_3</td>
+<td>STRF_AST</td>
+<td>Min2023</td>
+<td>45.21</td>
+<td>0.397</td>
+<td>74.77</td>
+<td>21.94</td>
+<td>45.41</td>
+<td>0.461</td>
+<td>70.20</td>
+<td>27.82</td>
+</tr>
+<tr>
+<td></td>
+<td>Min_KAIST_task4b_4</td>
+<td>STRF_AST_e</td>
+<td>Min2023</td>
+<td>46.24</td>
+<td>0.390</td>
+<td>75.23</td>
+<td>21.98</td>
+<td>44.27</td>
+<td>0.453</td>
+<td>71.00</td>
+<td>29.83</td>
+</tr>
+<tr>
+<td></td>
+<td>Nhan_VNUHCMUS_task4b_1</td>
+<td>STTeam</td>
+<td>Nhan2023</td>
+<td>47.17</td>
+<td>1.000</td>
+<td>nan</td>
+<td>0.00</td>
+<td>46.71</td>
+<td>0.450</td>
+<td>72.43</td>
+<td>37.32</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task4b_1</td>
+<td>sjtu_baseline</td>
+<td>Xuenan2023</td>
+<td>46.13</td>
+<td>0.371</td>
+<td>78.05</td>
+<td>32.29</td>
+<td>55.79</td>
+<td>0.386</td>
+<td>78.15</td>
+<td>42.96</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task4b_2</td>
+<td>fc_beat</td>
+<td>Xuenan2023</td>
+<td>50.88</td>
+<td>0.362</td>
+<td>77.80</td>
+<td>24.41</td>
+<td>59.88</td>
+<td>0.369</td>
+<td>77.80</td>
+<td>28.52</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task4b_3</td>
+<td>scene_ens</td>
+<td>Xuenan2023</td>
+<td>51.13</td>
+<td>0.329</td>
+<td>80.80</td>
+<td>35.58</td>
+<td>69.85</td>
+<td>0.246</td>
+<td>86.13</td>
+<td>57.91</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task4b_4</td>
+<td>time_beat</td>
+<td>Xuenan2023</td>
+<td>46.99</td>
+<td>0.396</td>
+<td>75.04</td>
+<td>24.87</td>
+<td>57.25</td>
+<td>0.354</td>
+<td>78.95</td>
+<td>37.29</td>
+</tr>
+</tbody>
+</table>
+<h1 id="teams-ranking">Teams ranking</h1>
+<p>Table including only the best ranking score per submitting team.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-filter-control="true" data-filter-show-clear="true" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="F1_MO_eval" data-scatter-y="F1_MO_dev" data-show-chart="true" data-show-pagination-switch="false" data-show-rank="true" data-sort-name="F1_MO_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th></th>
+<th class="sep-left-cell text-center" colspan="3">Submission information</th>
+<th class="sep-left-cell text-center" colspan="4">Evaluation dataset</th>
+<th class="sep-left-cell text-center" colspan="4">Development dataset</th>
+</tr>
+<tr>
+<th class="sep-right-cell" data-rank="true">Rank</th>
+<th data-field="code" data-sortable="true">
+                Submission <br/>label
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="F1_MO_eval (Evaluation dataset)" data-chartable="true" data-field="F1_MO_eval" data-sortable="true" data-value-type="float2-percentage">
+<br/>F1_MO 
+            </th>
+<th class="text-center" data-axis-label="ER_m (Evaluation dataset)" data-chartable="true" data-field="ER_m_eval" data-sortable="true" data-value-type="float3">
+<br/>ER_m 
+            </th>
+<th class="text-center" data-axis-label="F1_m (Evaluation dataset)" data-chartable="true" data-field="F1_m_eval" data-sortable="true" data-value-type="float2-percentage">
+<br/>F1_m 
+            </th>
+<th class="sep-right-cell text-center" data-axis-label="F1_M (Evaluation dataset)" data-chartable="true" data-field="F1_M_eval" data-sortable="true" data-value-type="float2-percentage">
+<br/>F1_M 
+            </th>
+<th class="text-center" data-axis-label="F1_MO (Development dataset)" data-chartable="true" data-field="F1_MO_dev" data-sortable="true" data-value-type="float2-percentage">
+<br/>F1_MO 
+            </th>
+<th class="text-center" data-axis-label="ER_m (Development dataset)" data-chartable="true" data-field="ER_m_dev" data-sortable="true" data-value-type="float3">
+<br/>ER_m 
+            </th>
+<th class="text-center" data-axis-label="F1_m (Development dataset)" data-chartable="true" data-field="F1_m_dev" data-sortable="true" data-value-type="float2-percentage">
+<br/>F1_m 
+            </th>
+<th class="sep-right-cell text-center" data-axis-label="F1_M (Development dataset)" data-chartable="true" data-field="F1_M_dev" data-sortable="true" data-value-type="float2-percentage">
+<br/>F1_M 
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Bai_JLESS_task4b_4</td>
+<td>All_SED_sys</td>
+<td>Yin2023</td>
+<td>60.74</td>
+<td>0.320</td>
+<td>81.01</td>
+<td>37.33</td>
+<td>56.16</td>
+<td>0.360</td>
+<td>78.63</td>
+<td>42.45</td>
+</tr>
+<tr>
+<td></td>
+<td>Cai_NCUT_task4b_1</td>
+<td>NCUT_1</td>
+<td>Zhang2023</td>
+<td>43.60</td>
+<td>0.367</td>
+<td>77.86</td>
+<td>35.71</td>
+<td>43.50</td>
+<td>0.439</td>
+<td>74.84</td>
+<td>39.57</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_NJUPT_task4b_1</td>
+<td>NJUPT_1</td>
+<td>Liu2023</td>
+<td>24.24</td>
+<td>0.991</td>
+<td>2.71</td>
+<td>0.75</td>
+<td>63.43</td>
+<td>0.193</td>
+<td>72.91</td>
+<td>59.76</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_SRCN_task4b_2</td>
+<td>AST_t4b</td>
+<td>Jin2023</td>
+<td>52.03</td>
+<td>0.320</td>
+<td>80.89</td>
+<td>31.74</td>
+<td>49.70</td>
+<td>0.430</td>
+<td>72.90</td>
+<td>28.80</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2023 baseline</td>
+<td>Baseline_task4b</td>
+<td>Martin2023</td>
+<td>43.44</td>
+<td>0.484</td>
+<td>74.13</td>
+<td>35.28</td>
+<td>42.87</td>
+<td>0.487</td>
+<td>70.34</td>
+<td>35.83</td>
+</tr>
+<tr>
+<td></td>
+<td>Min_KAIST_task4b_1</td>
+<td>STRF_aug</td>
+<td>Min2023</td>
+<td>48.95</td>
+<td>0.361</td>
+<td>78.05</td>
+<td>29.19</td>
+<td>45.81</td>
+<td>0.445</td>
+<td>72.78</td>
+<td>36.12</td>
+</tr>
+<tr>
+<td></td>
+<td>Nhan_VNUHCMUS_task4b_1</td>
+<td>STTeam</td>
+<td>Nhan2023</td>
+<td>47.17</td>
+<td>1.000</td>
+<td>nan</td>
+<td>0.00</td>
+<td>46.71</td>
+<td>0.450</td>
+<td>72.43</td>
+<td>37.32</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task4b_3</td>
+<td>scene_ens</td>
+<td>Xuenan2023</td>
+<td>51.13</td>
+<td>0.329</td>
+<td>80.80</td>
+<td>35.58</td>
+<td>69.85</td>
+<td>0.246</td>
+<td>86.13</td>
+<td>57.91</td>
+</tr>
+</tbody>
+</table>
+<h1 id="system-characteristics">System characteristics</h1>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="off" data-chart-modes="bar" data-chart-tooltip-fields="code" data-filter-control="true" data-filter-show-clear="true" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-bar-chart-xaxis="false" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="F1_MO_eval" data-sort-order="desc" data-striped="true" data-tag-mode="column">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true">Rank</th>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-chartable="true" data-field="F1_MO_eval" data-sortable="true" data-value-type="float2-percentage">
+<br/>F1_MO<br/> (Evaluation dataset)
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_data_augmentation" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Data <br/>augmentation
+            </th>
+<th class="text-center narrow-col" data-field="system_classifier" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                System
+            </th>
+<th class="text-center narrow-col" data-field="system_features" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+                Features
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Bai_JLESS_task4b_1</td>
+<td>Yin2023</td>
+<td>58.21</td>
+<td>mixup</td>
+<td>Conformer</td>
+<td>log-mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_JLESS_task4b_2</td>
+<td>Yin2023</td>
+<td>59.77</td>
+<td>mixup</td>
+<td>Conformer</td>
+<td>log-mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_JLESS_task4b_3</td>
+<td>Yin2023</td>
+<td>58.00</td>
+<td>mixup</td>
+<td>Conformer</td>
+<td>log-mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_JLESS_task4b_4</td>
+<td>Yin2023</td>
+<td>60.74</td>
+<td>mixup</td>
+<td>Conformer</td>
+<td>log-mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Cai_NCUT_task4b_1</td>
+<td>Zhang2023</td>
+<td>43.60</td>
+<td>mixup</td>
+<td>CRNN</td>
+<td>log-mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Cai_NCUT_task4b_2</td>
+<td>Zhang2023</td>
+<td>43.58</td>
+<td>mixup</td>
+<td>SK-RCRNN,CRNN</td>
+<td>log-mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Cai_NCUT_task4b_3</td>
+<td>Zhang2023</td>
+<td>42.14</td>
+<td>mixup</td>
+<td>SK-RCRNN,CRNN,RCRNN</td>
+<td>log-mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_NJUPT_task4b_1</td>
+<td>Liu2023</td>
+<td>19.82</td>
+<td></td>
+<td>MViT</td>
+<td>mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_NJUPT_task4b_2</td>
+<td>Liu2023</td>
+<td>20.83</td>
+<td></td>
+<td>MViT</td>
+<td>mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_NJUPT_task4b_3</td>
+<td>Liu2023</td>
+<td>22.53</td>
+<td></td>
+<td>MViT</td>
+<td>mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_NJUPT_task4b_4</td>
+<td>Liu2023</td>
+<td>22.46</td>
+<td></td>
+<td>MViT</td>
+<td>mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_SRCN_task4b_1</td>
+<td>Jin2023</td>
+<td>44.69</td>
+<td>mixup</td>
+<td>CRNN</td>
+<td>spectrogram</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_SRCN_task4b_2</td>
+<td>Jin2023</td>
+<td>52.03</td>
+<td>mixup</td>
+<td>CRNN</td>
+<td>spectrogram</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2023 baseline</td>
+<td></td>
+<td>43.44</td>
+<td></td>
+<td>CRNN</td>
+<td>mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Min_KAIST_task4b_1</td>
+<td>Min2023</td>
+<td>48.95</td>
+<td></td>
+<td>CRNN, STRFaugNet</td>
+<td>log-mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Min_KAIST_task4b_2</td>
+<td>Min2023</td>
+<td>48.72</td>
+<td></td>
+<td>CRNN, STRFaugNet, ensemble</td>
+<td>log-mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Min_KAIST_task4b_3</td>
+<td>Min2023</td>
+<td>45.21</td>
+<td></td>
+<td>CRNN, STRFaugNet</td>
+<td>log-mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Min_KAIST_task4b_4</td>
+<td>Min2023</td>
+<td>46.24</td>
+<td></td>
+<td>CRNN, STRFaugNet, ensemble</td>
+<td>log-mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Nhan_VNUHCMUS_task4b_1</td>
+<td>Nhan2023</td>
+<td>47.17</td>
+<td>specaugment, wavaugment</td>
+<td>Self Attention CRNN</td>
+<td>mel-spectrogram</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task4b_1</td>
+<td>Xuenan2023</td>
+<td>46.13</td>
+<td></td>
+<td>CRNN</td>
+<td>mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task4b_2</td>
+<td>Xuenan2023</td>
+<td>50.88</td>
+<td></td>
+<td>CRNN</td>
+<td>mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task4b_3</td>
+<td>Xuenan2023</td>
+<td>51.13</td>
+<td></td>
+<td>CRNN</td>
+<td>mel energies</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task4b_4</td>
+<td>Xuenan2023</td>
+<td>46.99</td>
+<td></td>
+<td>CRNN</td>
+<td>mel energies</td>
+</tr>
+</tbody>
+</table>
+<p><br/>
+<br/></p>
+<h1 id="technical-reports">Technical reports</h1>
+<div class="btex" data-source="content/data/challenge2023/technical_reports_task4b.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="Jin2023" style="box-shadow: none">
+<div class="panel-heading" id="heading-Jin2023" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DCASE 2023 Challenge Task4 Technical Report
+       </h4>
+<p style="text-align:left">
+        Yongbin Jin<sup>1</sup>, Minjun Chen<sup>1</sup>, Jun Shao<sup>1</sup>, Yangyang Liu<sup>1</sup>, Bo Peng<sup>1</sup> and Jie Chen<sup>2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Intelligence Service Lab, Intelligence SW Team, Samsung Research China-Nanjing, Nanjing, China, <sup>2</sup>Intelligence SW Team, Samsung Research China-Nanjing, Nanjing, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Liu_SRCN_task4b_1</span> <span class="label label-primary">Liu_SRCN_task4b_2</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Jin2023" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Jin2023" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Jin2023" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2023/technical_reports/DCASE2023_Liu_81_t4b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Jin2023" class="panel-collapse collapse" id="collapse-Jin2023" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DCASE 2023 Challenge Task4 Technical Report
+      </h4>
+<p style="text-align:left">
+<small>
+        Yongbin Jin<sup>1</sup>, Minjun Chen<sup>1</sup>, Jun Shao<sup>1</sup>, Yangyang Liu<sup>1</sup>, Bo Peng<sup>1</sup> and Jie Chen<sup>2</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Intelligence Service Lab, Intelligence SW Team, Samsung Research China-Nanjing, Nanjing, China, <sup>2</sup>Intelligence SW Team, Samsung Research China-Nanjing, Nanjing, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       We describe our submitted systems for DCASE2023 Task4 in this technical report: Sound Event Detection with Weak Labels and Synthetic Soundscapes (Subtask A), and Sound Event Detection with Soft Labels (Subtask B). We focus on construct a CRNN model, which fuses the embedding extracted by the BEATs or AST pre-trained modelï¼Œand use the frequency dynamic convolution(FDY-CRNN) and channel-wise selective kernel attention (SKA) for having adaptive receptive field. To get multiple models of different architectures for making an ensemble, we fine-tune multiple BEATs model on the SED dataset also. In order to make use of the weak labeled and unlabeled subset of DESED dataset further, we pseudo labels these subsets by a multiple iterative of self-training. We also use a small part of audio files from the Audioset dataset, and this part of data following the same self-training procedure. We train these models using two different settings, one setting for optimizing PSDS1 score, and the other for optimizing PSDS2 score. Our proposed systems achieve poly-phonic sound event detection scores (PSDS-scores) of 0.570 (PSDS-scenario1) and 0.889 (PSDS-scenario2) respectively on development dataset of subtask A, and macro-average F1 score with optimum threshold per class (F1MO) 49.70 on development dataset of subtask B.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CRNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         spectrogram
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         mixup
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Jin2023" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2023/technical_reports/DCASE2023_Liu_81_t4b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Jin2023label" class="modal fade" id="bibtex-Jin2023" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexJin2023label">
+        DCASE 2023 Challenge Task4 Technical Report
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Jin2023,
+    Author = "Jin, Yongbin and Chen, Minjun and Shao, Jun and Liu, Yangyang and Peng, Bo and Chen, Jie",
+    title = "{DCASE} 2023 Challenge Task4 Technical Report",
+    institution = "DCASE2023 Challenge",
+    year = "2023",
+    month = "May",
+    abstract = "We describe our submitted systems for DCASE2023 Task4 in this technical report: Sound Event Detection with Weak Labels and Synthetic Soundscapes (Subtask A), and Sound Event Detection with Soft Labels (Subtask B). We focus on construct a CRNN model, which fuses the embedding extracted by the BEATs or AST pre-trained modelï¼Œand use the frequency dynamic convolution(FDY-CRNN) and channel-wise selective kernel attention (SKA) for having adaptive receptive field. To get multiple models of different architectures for making an ensemble, we fine-tune multiple BEATs model on the SED dataset also. In order to make use of the weak labeled and unlabeled subset of DESED dataset further, we pseudo labels these subsets by a multiple iterative of self-training. We also use a small part of audio files from the Audioset dataset, and this part of data following the same self-training procedure. We train these models using two different settings, one setting for optimizing PSDS1 score, and the other for optimizing PSDS2 score. Our proposed systems achieve poly-phonic sound event detection scores (PSDS-scores) of 0.570 (PSDS-scenario1) and 0.889 (PSDS-scenario2) respectively on development dataset of subtask A, and macro-average F1 score with optimum threshold per class (F1MO) 49.70 on development dataset of subtask B."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Liu2023" style="box-shadow: none">
+<div class="panel-heading" id="heading-Liu2023" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Sound Event Detection System Using a Modifided Mvit for DCASE 2023 Challenge Task 4b
+       </h4>
+<p style="text-align:left">
+        Shutao Liu<sup>1</sup>, Peihong Zhang<sup>2</sup>, Fulin Yang<sup>2</sup>, Chenyang Zhu<sup>1</sup>, Shengchen Li<sup>3</sup> and Xi Shao<sup>1</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Nanjing University of Posts and Telecommunications, Nanjing, Jiangsu, P.R.China, <sup>2</sup>Xi'an Jiaotong-Liverpool University, Suzhou,Jiangsu, P.R.China, <sup>3</sup>Xi'an Jiaotong-Liverpool University, Suzhou,Jiangsu, P.R.China,
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Liu_NJUPT_task4b_1</span> <span class="label label-primary">Liu_NJUPT_task4b_2</span> <span class="label label-primary">Liu_NJUPT_task4b_3</span> <span class="label label-primary">Liu_NJUPT_task4b_4</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Liu2023" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Liu2023" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Liu2023" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2023/technical_reports/DCASE2023_Liu_49_t4b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Liu2023" class="panel-collapse collapse" id="collapse-Liu2023" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Sound Event Detection System Using a Modifided Mvit for DCASE 2023 Challenge Task 4b
+      </h4>
+<p style="text-align:left">
+<small>
+        Shutao Liu<sup>1</sup>, Peihong Zhang<sup>2</sup>, Fulin Yang<sup>2</sup>, Chenyang Zhu<sup>1</sup>, Shengchen Li<sup>3</sup> and Xi Shao<sup>1</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Nanjing University of Posts and Telecommunications, Nanjing, Jiangsu, P.R.China, <sup>2</sup>Xi'an Jiaotong-Liverpool University, Suzhou,Jiangsu, P.R.China, <sup>3</sup>Xi'an Jiaotong-Liverpool University, Suzhou,Jiangsu, P.R.China,
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       In this report, we describe our submissions for the task 4b of Detection and Classification of Acoustic Scenes and Events (DCASE) 2023 Challenge: Sound Event Detection with Soft Labels. We use a MViT model based on frequency dynamic convolution. While preserving the advantages of multi-scale feature extraction by MViT, frequency dynamic convolution is used to overcome the translation invariance of image feature extraction caused by MViT model to improve the ability of the model in terms of extracting frequency dimension features. Without using any external datasets or pretrain model, our system trained only on the provided soft-label dataset, and the final F1-m score and F1-MO score are 80.52 and 63.43, respectively, both higher than the baseline system.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         MViT
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         mel energies
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Liu2023" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2023/technical_reports/DCASE2023_Liu_49_t4b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Liu2023label" class="modal fade" id="bibtex-Liu2023" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexLiu2023label">
+        Sound Event Detection System Using a Modifided Mvit for DCASE 2023 Challenge Task 4b
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Liu2023,
+    Author = "Liu, Shutao and Zhang, Peihong and Yang, Fulin and Zhu, Chenyang and Li, Shengchen and Shao, Xi",
+    title = "Sound Event Detection System Using a Modifided Mvit for {DCASE} 2023 Challenge Task 4b",
+    institution = "DCASE2023 Challenge",
+    year = "2023",
+    month = "May",
+    abstract = "In this report, we describe our submissions for the task 4b of Detection and Classification of Acoustic Scenes and Events (DCASE) 2023 Challenge: Sound Event Detection with Soft Labels. We use a MViT model based on frequency dynamic convolution. While preserving the advantages of multi-scale feature extraction by MViT, frequency dynamic convolution is used to overcome the translation invariance of image feature extraction caused by MViT model to improve the ability of the model in terms of extracting frequency dimension features. Without using any external datasets or pretrain model, our system trained only on the provided soft-label dataset, and the final F1-m score and F1-MO score are 80.52 and 63.43, respectively, both higher than the baseline system."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Min2023" style="box-shadow: none">
+<div class="panel-heading" id="heading-Min2023" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Application of Spectro-Temporal Receptive Field for DCASE 2023 Challenge Task4 B
+       </h4>
+<p style="text-align:left">
+        Deokki Min, Hyeonuk Nam and Park Yong-Hwa
+       </p>
+<p style="text-align:left">
+<em>
+         Mechanical Engineering, Korea Advanced Institute of Science and Technology, Daejeon, Republic of Korea
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Min_KAIST_task4b_1</span> <span class="label label-primary">Min_KAIST_task4b_2</span> <span class="label label-primary">Min_KAIST_task4b_3</span> <span class="label label-primary">Min_KAIST_task4b_4</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Min2023" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Min2023" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Min2023" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2023/technical_reports/DCASE2023_Min_37_t4b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Min2023" class="panel-collapse collapse" id="collapse-Min2023" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Application of Spectro-Temporal Receptive Field for DCASE 2023 Challenge Task4 B
+      </h4>
+<p style="text-align:left">
+<small>
+        Deokki Min, Hyeonuk Nam and Park Yong-Hwa
+       </small>
+<br/>
+<small>
+<em>
+         Mechanical Engineering, Korea Advanced Institute of Science and Technology, Daejeon, Republic of Korea
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       Spectro-Temporal Receptive Field (STRF) is a linear function which describe the relationship between sound stimulus and primary auditory cortex (A1) neural response. By means of convolution with sound spectrogram and STRF, it is possible to predict the A1 cells response. A1 is known to estimates the spectro-temporal modulation information of input sound, and by considering the characteristic of A1, STRF is designed to capture this both spectral and temporal modulation information. In this work, we used STRF as a CNN kernel and construct the two-branch deep learning model. One branch is named as STRFNet whose first CNN layer kernel is STRF. This branch extracts the neuroscience-inspired spectro-temporal modulation information. The other branch is CRNN which has deeper layer than the baseline, and extracts the general time-frequency information of input spectrogram. Two-branch model is named as STRFaugNet, and its performance outperforms the baseline by 6.9%.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CRNN, STRFaugNet; CRNN, STRFaugNet, ensemble
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         average
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Min2023" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2023/technical_reports/DCASE2023_Min_37_t4b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Min2023label" class="modal fade" id="bibtex-Min2023" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexMin2023label">
+        Application of Spectro-Temporal Receptive Field for DCASE 2023 Challenge Task4 B
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Min2023,
+    Author = "Min, Deokki and Nam, Hyeonuk and Yong-Hwa, Park",
+    title = "Application of Spectro-Temporal Receptive Field for {DCASE} 2023 Challenge Task4 B",
+    institution = "DCASE2023 Challenge",
+    year = "2023",
+    month = "May",
+    abstract = "Spectro-Temporal Receptive Field (STRF) is a linear function which describe the relationship between sound stimulus and primary auditory cortex (A1) neural response. By means of convolution with sound spectrogram and STRF, it is possible to predict the A1 cells response. A1 is known to estimates the spectro-temporal modulation information of input sound, and by considering the characteristic of A1, STRF is designed to capture this both spectral and temporal modulation information. In this work, we used STRF as a CNN kernel and construct the two-branch deep learning model. One branch is named as STRFNet whose first CNN layer kernel is STRF. This branch extracts the neuroscience-inspired spectro-temporal modulation information. The other branch is CRNN which has deeper layer than the baseline, and extracts the general time-frequency information of input spectrogram. Two-branch model is named as STRFaugNet, and its performance outperforms the baseline by 6.9\%."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Nhan2023" style="box-shadow: none">
+<div class="panel-heading" id="heading-Nhan2023" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Sound Event Detection with Soft Labels Using Self-Attention Mechanisms for Global Scene Feature Extraction
+       </h4>
+<p style="text-align:left">
+        Tri-Do Nhan<sup>1</sup>, Biyani Param<sup>2</sup> and Yuxuan Zhang<sup>3</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Computing Sciences, University of Science, Vietnam National University, <sup>2</sup>Computing Sciences, BITS Pilani Goa Campus, India, <sup>3</sup>Computing Sciences, Nanyang Technological University, NTU Singapore
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Nhan_VNUHCMUS_task4b_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Nhan2023" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Nhan2023" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Nhan2023" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2023/technical_reports/DCASE2023_Nhan_55_t4b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Nhan2023').collapse('show');window.location.hash='#Nhan2023';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Nhan2023" class="panel-collapse collapse" id="collapse-Nhan2023" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Sound Event Detection with Soft Labels Using Self-Attention Mechanisms for Global Scene Feature Extraction
+      </h4>
+<p style="text-align:left">
+<small>
+        Tri-Do Nhan<sup>1</sup>, Biyani Param<sup>2</sup> and Yuxuan Zhang<sup>3</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Computing Sciences, University of Science, Vietnam National University, <sup>2</sup>Computing Sciences, BITS Pilani Goa Campus, India, <sup>3</sup>Computing Sciences, Nanyang Technological University, NTU Singapore
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This paper presents our approach to Task 4b of the Detection and Classification of Acoustic Scenes and Events (DCASE) 2023 Challenge, which focuses on Sound Event Detection with Soft Labels. Our proposed method builds upon a CRNN backbone model and leverages the benefits of data augmentation techniques to improve model robustness. Furthermore, we introduce self-attention mechanisms to capture global context information and enhance the model's ability to predict soft label segments more accurately. Our experiments demonstrate that incorporating soft labels and self-attention mechanisms result in significant performance gains compared to traditional methods on data varying across different scenarios
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         Self Attention CRNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         mel-spectrogram
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         specaugment, wavaugment
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Nhan2023" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2023/technical_reports/DCASE2023_Nhan_55_t4b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/v-nhandt21/SED_SoftLabel" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Nhan2023label" class="modal fade" id="bibtex-Nhan2023" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexNhan2023label">
+        Sound Event Detection with Soft Labels Using Self-Attention Mechanisms for Global Scene Feature Extraction
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Nhan2023,
+    Author = "Nhan, Tri-Do and Param, Biyani and Zhang, Yuxuan",
+    title = "Sound Event Detection with Soft Labels Using Self-Attention Mechanisms for Global Scene Feature Extraction",
+    institution = "DCASE2023 Challenge",
+    year = "2023",
+    month = "May",
+    abstract = "This paper presents our approach to Task 4b of the Detection and Classification of Acoustic Scenes and Events (DCASE) 2023 Challenge, which focuses on Sound Event Detection with Soft Labels. Our proposed method builds upon a CRNN backbone model and leverages the benefits of data augmentation techniques to improve model robustness. Furthermore, we introduce self-attention mechanisms to capture global context information and enhance the model's ability to predict soft label segments more accurately. Our experiments demonstrate that incorporating soft labels and self-attention mechanisms result in significant performance gains compared to traditional methods on data varying across different scenarios"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Xuenan2023" style="box-shadow: none">
+<div class="panel-heading" id="heading-Xuenan2023" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Sound Event Detection by Aggregating Pre-Trained Embeddings From Different Layers
+       </h4>
+<p style="text-align:left">
+        Xu Xuenan, Ma Ziyang, Yang Fei, Yang Guanrou, Wu Mengyue and Chen Xie
+       </p>
+<p style="text-align:left">
+<em>
+         X-LANCE Lab, Department of Computer Science and Engineering, Shanghai Jiao Tong University, Shanghai, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Xu_SJTU_task4b_1</span> <span class="label label-primary">Xu_SJTU_task4b_2</span> <span class="label label-primary">Xu_SJTU_task4b_3</span> <span class="label label-primary">Xu_SJTU_task4b_4</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Xuenan2023" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Xuenan2023" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Xuenan2023" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2023/technical_reports/DCASE2023_Xu_100_t4b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Xuenan2023" class="panel-collapse collapse" id="collapse-Xuenan2023" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Sound Event Detection by Aggregating Pre-Trained Embeddings From Different Layers
+      </h4>
+<p style="text-align:left">
+<small>
+        Xu Xuenan, Ma Ziyang, Yang Fei, Yang Guanrou, Wu Mengyue and Chen Xie
+       </small>
+<br/>
+<small>
+<em>
+         X-LANCE Lab, Department of Computer Science and Engineering, Shanghai Jiao Tong University, Shanghai, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report is the system description of the X-Lance team submission to the DCASE 2023 task 4b challenge: sound event detection with soft labels. Our submissions focus on incorporating informative audio representations from self-supervised learning. The embeddings from different layers of the pre-trained models are aggregated as the input of our model. Since the occurrence of sound events in different scenes is imbalanced, for each scene we train our models using all the audio files. Finally, models of different architectures trained under different scenes are ensembled with learned weights.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CRNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         average; weighted
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Xuenan2023" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2023/technical_reports/DCASE2023_Xu_100_t4b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Xuenan2023label" class="modal fade" id="bibtex-Xuenan2023" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexXuenan2023label">
+        Sound Event Detection by Aggregating Pre-Trained Embeddings From Different Layers
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Xuenan2023,
+    Author = "Xuenan, Xu and Ziyang, Ma and Fei, Yang and Guanrou, Yang and Mengyue, Wu and Xie, Chen",
+    title = "Sound Event Detection by Aggregating Pre-Trained Embeddings From Different Layers",
+    institution = "DCASE2023 Challenge",
+    year = "2023",
+    month = "May",
+    abstract = "This technical report is the system description of the X-Lance team submission to the DCASE 2023 task 4b challenge: sound event detection with soft labels. Our submissions focus on incorporating informative audio representations from self-supervised learning. The embeddings from different layers of the pre-trained models are aggregated as the input of our model. Since the occurrence of sound events in different scenes is imbalanced, for each scene we train our models using all the audio files. Finally, models of different architectures trained under different scenes are ensembled with learned weights."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Yin2023" style="box-shadow: none">
+<div class="panel-heading" id="heading-Yin2023" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        How Information on Soft Labels and Hard Labels Mutually Benefits Sound Event Detection Tasks
+       </h4>
+<p style="text-align:left">
+        Han Yin, Jisheng Bai, Siwei Huang and Jianfeng Chen
+       </p>
+<p style="text-align:left">
+<em>
+         Northwestern Polytechnical University, Marine Science and Technology, Joint Laboratory of Environmental Sound Sensing,, Xian, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Bai_JLESS_task4b_1</span> <span class="label label-primary">Bai_JLESS_task4b_2</span> <span class="label label-primary">Bai_JLESS_task4b_3</span> <span class="label label-primary">Bai_JLESS_task4b_4</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Yin2023" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Yin2023" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Yin2023" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2023/technical_reports/DCASE2023_Bai_87_t4b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Yin2023" class="panel-collapse collapse" id="collapse-Yin2023" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       How Information on Soft Labels and Hard Labels Mutually Benefits Sound Event Detection Tasks
+      </h4>
+<p style="text-align:left">
+<small>
+        Han Yin, Jisheng Bai, Siwei Huang and Jianfeng Chen
+       </small>
+<br/>
+<small>
+<em>
+         Northwestern Polytechnical University, Marine Science and Technology, Joint Laboratory of Environmental Sound Sensing,, Xian, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report describes our submission to DCASE 2023 Task 4 Subtrack B: Sound event detection (SED) with soft labels. We propose different architectures to explore how both soft and hard labels can jointly improve the performance of SED. And we use temporal mixup for data augmentation and k-fold cross-validationapproaches to solve the problem of too little training data. Our systems are built upon the Convolutional Recurrent Neural Network (CRNN) proposed by the baseline and the Conformer structure. We conduct extensive ablation experiments to compare the advantages and disadvantages of different information fusion strategies.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         Conformer
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         mixup
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Yin2023" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2023/technical_reports/DCASE2023_Bai_87_t4b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Yin2023label" class="modal fade" id="bibtex-Yin2023" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexYin2023label">
+        How Information on Soft Labels and Hard Labels Mutually Benefits Sound Event Detection Tasks
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Yin2023,
+    Author = "Yin, Han and Bai, Jisheng and Huang, Siwei and Chen, Jianfeng",
+    title = "How Information on Soft Labels and Hard Labels Mutually Benefits Sound Event Detection Tasks",
+    institution = "DCASE2023 Challenge",
+    year = "2023",
+    month = "May",
+    abstract = "This technical report describes our submission to DCASE 2023 Task 4 Subtrack B: Sound event detection (SED) with soft labels. We propose different architectures to explore how both soft and hard labels can jointly improve the performance of SED. And we use temporal mixup for data augmentation and k-fold cross-validationapproaches to solve the problem of too little training data. Our systems are built upon the Convolutional Recurrent Neural Network (CRNN) proposed by the baseline and the Conformer structure. We conduct extensive ablation experiments to compare the advantages and disadvantages of different information fusion strategies."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Zhang2023" style="box-shadow: none">
+<div class="panel-heading" id="heading-Zhang2023" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Sound Event Detection Based on Soft Label
+       </h4>
+<p style="text-align:left">
+        Haiyue Zhang<sup>1</sup>, Liangxiao Zuo<sup>2</sup>, Jingxuan Chen<sup>2</sup>, Xichang Cai<sup>3</sup> and Menglong Wu<sup>3</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Electronic science and technology, North China University of Technology, Beijing, China, <sup>2</sup>Communication Engineering, North China University of Technology, Beijing, China, <sup>3</sup>College of Information, North China University of Technology, Beijing, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Cai_NCUT_task4b_1</span> <span class="label label-primary">Cai_NCUT_task4b_2</span> <span class="label label-primary">Cai_NCUT_task4b_3</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Zhang2023" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Zhang2023" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Zhang2023" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2023/technical_reports/DCASE2023_Cai_11_t4b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Zhang2023" class="panel-collapse collapse" id="collapse-Zhang2023" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Sound Event Detection Based on Soft Label
+      </h4>
+<p style="text-align:left">
+<small>
+        Haiyue Zhang<sup>1</sup>, Liangxiao Zuo<sup>2</sup>, Jingxuan Chen<sup>2</sup>, Xichang Cai<sup>3</sup> and Menglong Wu<sup>3</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Electronic science and technology, North China University of Technology, Beijing, China, <sup>2</sup>Communication Engineering, North China University of Technology, Beijing, China, <sup>3</sup>College of Information, North China University of Technology, Beijing, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This report focuses on an in-depth study of DCASE 2023 Task 4b. In contrast to previous tasks, this task provides a dataset with soft labels, aiming to explore how to improve the performance of the baseline system using soft labels. The report primarily employs two effective enhancement methods. Firstly, to balance the dataset, the report expands the original dataset. Given the significant differences in sound events within the dataset, an augmentation method is employed to generate additional samples and equalize the dataset. Secondly, to further enhance the system performance, a model ensemble approach is utilized. By combining the predictions of multiple models, their individual strengths can be effectively utilized to improve overall performance.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CRNN; SK-RCRNN,CRNN; SK-RCRNN,CRNN,RCRNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Acoustic features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         mixup
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         average
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Zhang2023" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2023/technical_reports/DCASE2023_Cai_11_t4b.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Zhang2023label" class="modal fade" id="bibtex-Zhang2023" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexZhang2023label">
+        Sound Event Detection Based on Soft Label
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Zhang2023,
+    Author = "Zhang, Haiyue and Zuo, Liangxiao and Chen, Jingxuan and Cai, Xichang and Wu, Menglong",
+    title = "Sound Event Detection Based on Soft Label",
+    institution = "DCASE2023 Challenge",
+    year = "2023",
+    month = "May",
+    abstract = "This report focuses on an in-depth study of DCASE 2023 Task 4b. In contrast to previous tasks, this task provides a dataset with soft labels, aiming to explore how to improve the performance of the baseline system using soft labels. The report primarily employs two effective enhancement methods. Firstly, to balance the dataset, the report expands the original dataset. Given the significant differences in sound events within the dataset, an augmentation method is employed to generate additional samples and equalize the dataset. Secondly, to further enhance the system performance, a model ensemble approach is utilized. By combining the predictions of multiple models, their individual strengths can be effectively utilized to improve overall performance."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script>
+(function($) {
+    $(document).ready(function() {
+        var hash = window.location.hash.substr(1);
+        var anchor = window.location.hash;
+
+        var shiftWindow = function() {
+            var hash = window.location.hash.substr(1);
+            if($('#collapse-'+hash).length){
+                scrollBy(0, -100);
+            }
+        };
+        window.addEventListener("hashchange", shiftWindow);
+
+        if (window.location.hash){
+            window.scrollTo(0, 0);
+            history.replaceState(null, document.title, "#");
+            $('#collapse-'+hash).collapse('show');
+            setTimeout(function(){
+                window.location.hash = anchor;
+                shiftWindow();
+            }, 2000);
+        }
+    });
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

@@ -1,0 +1,1602 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Urban Sound Tagging - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Urban Sound Tagging - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2019/task-urban-sound-tagging">
+    <meta property="og:url" content="https://dcase.community/challenge2019/task-urban-sound-tagging" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="The goal of urban sound tagging (UST) is to predict whether each of 23 sources of noise pollution is present or absent in a 10-second scene, as recorded by an acoustic sensor network. Challenge has ended. Full results for this task can be found in the Results page. Problem statement …" />
+    <meta name="og:description" content="The goal of urban sound tagging (UST) is to predict..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2019</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2019/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2019/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>Results</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-acoustic-scene-classification-results-a"><i class="fa fa-bar-chart"></i>&nbsp;Subtask A</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-acoustic-scene-classification-results-b"><i class="fa fa-bar-chart"></i>&nbsp;Subtask B</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-acoustic-scene-classification-results-c"><i class="fa fa-bar-chart"></i>&nbsp;Subtask C</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2019/task-audio-tagging" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-tags text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-audio-tagging"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-audio-tagging-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-localization-and-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-localization-and-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-localization-and-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-detection-in-domestic-environments" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-detection-in-domestic-environments"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-sound-event-detection-in-domestic-environments-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2019/task-urban-sound-tagging" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-urban text-danger"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-urban-sound-tagging"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2019/task-urban-sound-tagging-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2019/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2019/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge awards">
+        <a href="http://localhost:3000/challenge2019/awards"><i class="fa fa-trophy"></i>&nbsp;Awards</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/metal-14.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-danger"></i><i class="fa dc-urban fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text dcase-icon-top-text-sm">Urban</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 5</span></span><img src="../images/logos/dcase/dcase2019_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Urban Sound Tagging</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Task description</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Coordinators</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Mark Cartwright" class="img img-circle" src="http://localhost:3000/images/person/mark_cartwright.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Mark Cartwright</strong>
+<a class="icon" href="mailto:mark.cartwright@nyu.edu"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://steinhardt.nyu.edu/marl/">
+                                New York University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Jason Cramer" class="img img-circle" src="http://localhost:3000/images/person/jason_cramer.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Jason Cramer</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://steinhardt.nyu.edu/marl/">
+                                New York University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Ana Elisa Mendez Mendez" class="img img-circle" src="http://localhost:3000/images/person/ana_elisa_mendez_mendez.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Ana Elisa Mendez Mendez</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://steinhardt.nyu.edu/marl/">
+                                New York University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Ho-Hsiang Wu" class="img img-circle" src="http://localhost:3000/images/person/hohsiang_wu.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Ho-Hsiang Wu</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://steinhardt.nyu.edu/marl/">
+                                New York University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Vincent Lostanlen" class="img img-circle" src="http://localhost:3000/images/person/vincent_lostanlen.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Vincent Lostanlen</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="birds.cornell.edu">
+                                Cornell University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Justin Salamon" class="img img-circle" src="http://localhost:3000/images/person/justin_salamon.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Justin Salamon</strong>
+<a class="icon" href="mailto:justin.salamon@nyu.edu"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://research.adobe.com/">
+                                Adobe Research
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Juan P. Bello" class="img img-circle" src="http://localhost:3000/images/person/juan_bello.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Juan P. Bello</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://steinhardt.nyu.edu/marl/">
+                                New York University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#problem-statement">Problem statement</a>
+<ul>
+<li><a href="#context">Context</a></li>
+<li><a href="#motivation">Motivation</a></li>
+</ul>
+</li>
+<li><a href="#audio-dataset">Audio dataset</a>
+<ul>
+<li><a href="#recording-procedure">Recording procedure</a></li>
+<li><a href="#reference-labels">Reference labels</a></li>
+<li><a href="#annotation-format">Annotation format</a></li>
+<li><a href="#download">Download</a></li>
+</ul>
+</li>
+<li><a href="#task-setup">Task setup</a>
+<ul>
+<li><a href="#development-dataset">Development dataset</a></li>
+<li><a href="#evaluation-dataset">Evaluation dataset</a></li>
+</ul>
+</li>
+<li><a href="#task-rules">Task rules</a></li>
+<li><a href="#submission">Submission</a></li>
+<li><a href="#evaluation">Evaluation</a>
+<ul>
+<li><a href="#metrics">Metrics</a></li>
+</ul>
+</li>
+<li><a href="#results">Results</a>
+<ul>
+<li><a href="#coarse-level-prediction">Coarse-level prediction</a></li>
+<li><a href="#fine-level-prediction">Fine-level prediction</a></li>
+</ul>
+</li>
+<li><a href="#awards">Awards</a></li>
+<li><a href="#baseline-system">Baseline system</a>
+<ul>
+<li><a href="#repository">Repository</a></li>
+<li><a href="#baseline-results">Baseline results</a></li>
+</ul>
+</li>
+<li><a href="#feedback-and-questions">Feedback and questions</a></li>
+<li><a href="#citation">Citation</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p class="lead">The goal of urban sound tagging (UST) is to predict whether each of 23 sources of noise pollution is present or absent in a 10-second scene, as recorded by an acoustic sensor network.</p>
+<p class="alert alert-info">
+<strong>Challenge has ended.</strong> Full results for this task can be found in the <a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2019/task-urban-sound-tagging-results">Results <i class="fa fa-caret-right"></i></a> page.
+</p>
+<h1 id="problem-statement">Problem statement</h1>
+<p>With the Urban Sound Tagging challenge, SONYC provides a realistic use case for the development and evaluation of innovative systems in machine listening. Upon coordination with the Department of Environmental Protection, we have established a set of 23 noise "tags", each of them referring to a source of noise, and many which are frequent causes of noise complaints in New York City. We propose to formulate urban sound tagging as a multilabel classification problem.</p>
+<p>The primary goal of the challenge is to write a computer program which, given a ten-second recording from some urban environment, returns whether each of these 23 sources is audible in the recording or not. This is a relatively ambitious goal, because it implies to resolve ambiguities between closely related percepts, such as distinguishing motorcycle engines from car engines and truck engines. This distinction is not even always achieved by human annotators. In the following, we refer to this problem as "fine-grained" classification.</p>
+<p>A secondary goal of the challenge is to retrieve, rather than fine-grained tags among a list of 23, coarse-grained tags among a list of seven. For example, small engines, medium engines, and large engines are three fine-grained tags which we gather under the coarse category of "engine".</p>
+<p>The relationship between coarse-grained and fine-grained tags is hierarchical, so that it is possible to derive coarse-grained labeling from fine-grained labeling, but not the other way around. In practice, although the coarse taxonomy may conflate dissimilar sounds (e.g. car horn and car alarm), it enjoys a considerably better inter-annotator agreement than the fine taxonomy.</p>
+<p>The reason why we simultaneously formulate urban sound tagging at two different levels of granularity is to investigate the tradeoff between training machine listening models with specific, potentially erroneous labels (fine-grained multilabel classification); versus with approximate, likely correct labels (coarse-grained multilabel classification).</p>
+<p>For each ten-second snippet, a 23-dimensional binary vector encodes the ground truth: absence and presence of a given class respectively correspond to the values 0 and 1. In other words, a perfectly accurate for urban sound tagging would only return binary values. In practice, we allow, and even encourage, participants to return unquantized values, ranging continuously between 0 and 1. Quantizing those values amounts to an operation of rounding to the nearest
+integer.</p>
+<h2 id="context">Context</h2>
+<p>The city of New York, like many others, has a "noise code". For reasons of comfort and public health, jackhammers can only operate on weekdays; pet owners are held accountable for their animals' noises; ice cream trucks may play their jingles while in motion, but should remain quiet once they've parked; blasting a car horn is restricted to situations of imminent danger. The noise code presents a plan of legal enforcement and thus mitigation of harmful and disruptive types of sounds.</p>
+<p>In an effort towards reducing urban noise pollution, the engagement of citizens is crucial, yet by no means sufficient on its own. Indeed, the rate of complaints that are transmitted, in a given neighborhood, through a municipal service such as 3-1-1, is not necessarily proportional to the level of noise pollution in that neighborhood. In the case of New York City, the Department of Environmental Protection is in charge of attending to the subset of noise complaints which are caused by static sources, including construction and traffic. Unfortunately, statistical evidence demonstrates that, although harmful levels of noise predominantly affect low-income and unemployed New Yorkers, these residents are the least likely to take the initiative of filing a complaint to the city officials. Such a gap between reported exposure and actual exposure raises the challenge of improving fairness, accountability, and transparency in public policies against noise
+pollution.</p>
+<h2 id="motivation">Motivation</h2>
+<p>SONYC (Sounds of New York City) is an independent research project for mitigating urban noise pollution. One of its aims is to map the spatiotemporal distribution of noise at the scale of a megacity like New York, in real time, and throughout multiple years. To this end, SONYC has designed an acoustic sensor for noise pollution monitoring. This sensor combines a relatively high accuracy in sound acquisition with a relatively low production cost. Between 2015 and 2019, over 50 different sensors have been assembled and deployed in various areas of New York City. Collectively, these sensors have gathered the equivalent of 37 years of audio data.</p>
+<p>Every year, the SONYC acoustic sensor network records millions of such audio snippets. This automated procedure of data acquisition, in its own right, gives some insight into the overall rumble of New York City through time and space. However, as of today, each SONYC sensor merely returns an overall sound pressure level (SPL) in its immediate vicinity, without breaking it down into specific components. From a perceptual standpoint, not all sources of outdoor noise are equally unpleasant. For this reason, determining whether a given acoustic scene comes in violation of the noise code requires, more than an SPL estimate in decibels, a list of all active sources in the scene. In other words, in the context of automated noise pollution monitoring, the resort to computational methods for detection and classification of acoustic scenes and events (DCASE) appears as necessary.</p>
+<p>In the long term, some of the most successful techniques in the challenge could inspire the development of an embedded solution for automatic urban sound tagging. Following the submission deadline, we plan to write a report summarizing the most significant findings of all participants. In the long term, some of the most successful techniques in the challenge could inspire the development of an embedded solution for low-cost and scalable monitoring, analysis, and mitigation of urban
+noise.</p>
+<h1 id="audio-dataset">Audio dataset</h1>
+<h2 id="recording-procedure">Recording procedure</h2>
+<p>The provided audio has been acquired using the SONYC acoustic sensor network for urban noise pollution monitoring. Over 50 different sensors have been deployed in New York City, and these sensors have collectively gathered the equivalent of 37 years of audio data, of which we provide a small subset. The data was sampled by selecting the nearest neighbors on VGGish features of recordings known to have classes of interest. All recordings are 10 seconds and were recorded with identical microphones at identical gain settings. <strong>To maintain privacy, the recordings in this release have been distributed in time and location, and the time and location of the recordings are not included in the metadata.</strong></p>
+<h2 id="reference-labels">Reference labels</h2>
+<p>The process of collecting accurate ground truth data is an essential component in the fair evaluation of all information retrieval systems. Nevertheless, in the scope of DCASE challenges, such a process is particularly tedious, and urban sound tagging makes no exception. Indeed, various heterogeneous sources of noise pollution may overlap within the same acoustic scene. Furthermore, the distances between a given sensor and all audible sources may typically vary between 10 meters and 100 meters. Because of absorption and reverberation, identifying all sources may remain difficult for the inexpert ear. So as to account for the eventuality of human errors in the annotation of audio data, we make sure that at least three humans listen to each recording independently.</p>
+<p>These humans are citizen scientists, that is, individuals who volunteered their time to annotate soundscapes from SONYC sensors. We recruited these volunteers on Zooniverse, a web platform for citizen science. Although the citizen scientists of SONYC likely did not receive any formal training in ecoacoustics, they did go through a specific tutorial on how to annotate soundscapes on the Zooniverse browser interface. They also received a field guide of urban sounds for reference. Furthermore, ahead of the release of the Urban Sound Tagging dataset, we had performed a controlled study on the tradeoff between reliability and redundancy in crowdsourcing audio annotations from multiple human subjects. The findings of this preliminary study allowed us to write an experimental plan for maximizing the informativeness of our data collection campaign, given a fixed volume of human labor.</p>
+<h3>Coarse-level and fine-level taxonomies</h3>
+<p>We illustrate the relationship of hierarchical containment between coarse-grained and fine-grained taxonomy in the diagram below.</p>
+<figure>
+<div class="row row-centered">
+<div class="col-xs-10 col-md-8 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2019/task5_urban_sound_tagging.png"/>
+<figcaption>Figure 1. Hierarchical taxonomy of urban sound tags in the DCASE Urban Sound Tagging task. Rectangular and round boxes respectively denote coarse and fine tags.</figcaption>
+</div>
+</div>
+</figure>
+<p>Note that the fine-grained taxonomy distinguishes whether human voices are heard talking, shouting, or amplified through a megaphone; whether a rotating saw is small (handheld) or large (walk-behind); and whether a vehicle alert sound is an anti-theft alarm or a reverse beeper.</p>
+<p>Although these distinctions are relatively subtle in machine listening, and often regarded as superfluous, they are essential to efficient noise pollution monitoring, because they map to different paragraphs of the noise code. Yet, it is not always possible, even for expert ears, to resolve these distinctions. Conversely, the coarse-grained taxonomy is slightly less convenient for mapping the spatiotemporal impact of, say, construction noise, because some coarse tags incorporate sources both from construction-related and construction-unrelated acoustic environments.</p>
+<p>During our annotation campaign, we gave annotators the possibility to express their uncertainty in their choice of tagging. To this end, we supplemented the list of 23 tags above by 7 tags of the form "other/unknown", each corresponding to a different coarse category. We refer to these 7 tags as incomplete tags, as opposed to 23 complete tags. For every coarse category, the fine-grained reference annotation may contain one or several complete fine-grained tags belonging to that category, as well as the incomplete fine-grained tag. In the following, we present a metric for fine-grained multilabel classification with potentially incomplete ground truth.</p>
+<p>The urban sound tagging challenge has two leaderboards: one for coarse-grained classification and another for fine-grained classification. The evaluation of coarse-grained multilabel classification is relatively standard, because there is no need to account for the presence of incomplete tags. Conversely, the evaluation of fine-grained multilbabel classification requires to occasionally fall back to the coarse grain for samples and coarse category in which the ground truth
+annotation is incomplete.</p>
+<p>For example, suppose that a ten-second snippet contains an engine sound, but it's impossible to tell whether this engine is medium (car engine) or large (truck engine). In the reference annotation, this snippet contains the incomplete tag "engine of uncertain size", and none of the complete tags for the coarse category of engines. Any machine listening system which detects the presence of an engine, whatever be its size, will be considered to produce a correct prediction.</p>
+<h3>Taxonomy format</h3>
+<p>The label taxonomy is described in an included YAML file <code>dcase-ust-taxonomy.yaml</code>. We replicate it below for reference.</p>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">1. engine</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">small-sounding-engine</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">medium-sounding-engine</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">3</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">large-sounding-engine</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">engine-of-uncertain-size</span>
+<span class="l l-Scalar l-Scalar-Plain">2. machinery-impact</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rock-drill</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jackhammer</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">3</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hoe-ram</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">4</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pile-driver</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">other-unknown-impact-machinery</span>
+<span class="l l-Scalar l-Scalar-Plain">3. non-machinery-impact</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">non-machinery-impact</span>
+<span class="l l-Scalar l-Scalar-Plain">4. powered-saw</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chainsaw</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">small-medium-rotating-saw</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">3</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">large-rotating-saw</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">other-unknown-powered-saw</span>
+<span class="l l-Scalar l-Scalar-Plain">5. alert-signal</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">car-horn</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">car-alarm</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">3</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">siren</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">4</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reverse-beeper</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">other-unknown-alert-signal</span>
+<span class="l l-Scalar l-Scalar-Plain">6. music</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stationary-music</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mobile-music</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">3</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ice-cream-truck</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">music-from-uncertain-source</span>
+<span class="l l-Scalar l-Scalar-Plain">7. human-voice</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person-or-small-group-talking</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person-or-small-group-shouting</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">3</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">large-crowd</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">4</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">amplified-speech</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">X</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">other-unknown-human-voice</span>
+<span class="l l-Scalar l-Scalar-Plain">8. dog</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dog-barking-whining</span>
+</code></pre></div>
+<h2 id="annotation-format">Annotation format</h2>
+<p>In the metadata corresponding to the public development set, we adopt a one-hot encoding of urban sound tags. Each annotator-snippet pair is a row vector with 29 different entries, corresponding to alphabetically sorted tags: amplified speech, car alarm, car horn, chainsaw, and so forth. In each entry, the numbers 0 and 1 respectively denote the absence of the presence of the corresponding tag. As a complement to this one-hot encoding, we append three identification numbers (ID): one for the human who performed the annotation, one for the sensor in the SONYC network, and one for the ten-second snippet itself. We concatenate all available crowdsourced annotations into a table in which each row corresponds to a different annotator-snippet pair. We format this table into a text file with comma-separated values (CSV), included in the dataset as <code>annotations.csv</code>. Each row in the file represents one multi-label annotation of a recording---it could be the annotation of a single citizen science volunteer, a single SONYC team member, or the agreed-upon ground truth by the SONYC team (see the <em>annotator_id</em> column description for more information). We recommend participants to use a dedicated library to parse this CSV annotation file, rather than attempt to parse tabular data themselves. The describe the columns below.</p>
+<h3>Columns</h3>
+<dl>
+<dt><em>split</em></dt>
+<dd>
+<p>The data split. (<em>train</em>, <em>validate</em>)</p>
+</dd>
+<dt><em>sensor_id</em></dt>
+<dd>
+<p>The ID of the sensor the recording is from. These have been anonymized to have no relation to geolocation.</p>
+</dd>
+<dt><em>audio_filename</em></dt>
+<dd>
+<p>The filename of the audio recording</p>
+</dd>
+<dt><em>annotator_id</em></dt>
+<dd>
+<p>The anonymous ID of the annotator. If this value is positive, it is a citizen science volunteer from the Zooniverse platform. If it is negative, it is a SONYC team member (only present for <code>validate</code> set). If it is 0, then it is the ground truth agreed-upon by the SONYC team.</p>
+</dd>
+<dt><em>&lt;coarse_id&gt;-&lt;fine_id&gt;_&lt;fine_name&gt;_presence</em></dt>
+<dd>
+<p>Columns of this form indicate the presence of fine-level class. <code>1</code> if present, <code>0</code> if not present. If <code>-1</code>, then the class was not labeled in this annotation because the annotation was performed by a SONYC team member who only annotated one coarse group of classes at a time when annotating the <code>validate</code> set.</p>
+</dd>
+<dt><em>&lt;coarse_id&gt;_&lt;coarse_name&gt;_presence</em></dt>
+<dd>
+<p>Columns of this form indicate the presence of a coarse-level class. <code>1</code> if present, <code>0</code> if not present. If <code>-1</code>, then the class was not labeled in this annotation because the annotation was performed by a SONYC team member who only annotated one coarse group of classes at a time when annotating the <code>validate</code> set. These columns are computed from the fine-level class presence columns and are presented here for convenience when training on only coarse-level classes.</p>
+</dd>
+<dt><em>&lt;coarse_id&gt;-&lt;fine_id&gt;_&lt;fine_name&gt;_proximity</em></dt>
+<dd>
+<p>Columns of this form indicate the proximity of a fine-level class. After indicating the presence of a fine-level class, citizen science annotators were asked to indicate the proximity of the sound event to the sensor. Only the citizen science volunteers performed this task, and therefore this data is included in the <code>train</code> subset but not the <code>validate</code> subset. This column may take on one of the following four values: (<code>near</code>, <code>far</code>, <code>notsure</code>, <code>-1</code>). If <code>-1</code>, then the proximity was not annotated because either the annotation was not performed by a citizen science volunteer, or the citizen science volunteer did not indicate the presence of the class.</p>
+</dd>
+</dl>
+<h2 id="download">Download</h2>
+<p>The development and evaluation datasets can both be downloaded here:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://doi.org/10.5281/zenodo.3233082" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://doi.org/10.5281/zenodo.3233082" target="_blank">
+<span style="font-size:20px;">SONYC Urban Sound Tagging <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(2.1 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.3233082">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3233082.svg"/>
+</a>
+<span class="text-muted">
+                
+                version 0.2.0
+                
+                
+                </span>
+</div>
+</div>
+<p><br/></p>
+<h1 id="task-setup">Task setup</h1>
+<p>Just like other datasets in the DCASE challenge, the Urban Sound Tagging dataset comprises a public development set and a private evaluation set. On the public development set, we release both the audio snippets and the corresponding human annotations. Conversely, on the private evaluation set, we only release the audio snippets and do not disclose human annotations except to the coordinators of the DCASE challenge.</p>
+<h2 id="development-dataset">Development dataset</h2>
+<p>The development dataset in this release contains a <code>train</code> split (2351 recordings) and <code>validate</code> split (443 recordings). The <code>train</code> and <code>validate</code> splits are disjoint with respect to the sensor from which each recording came, and were chosen such that the distribution of citizen science provided labels were similar for each split. The sensors in the evaluation set will also be disjoint with the <code>train</code> set.</p>
+<p>The purpose of the development set is to allow participants to develop computational systems for multilabel classification in a supervised manner. We have partitioned this development set into two disjoint subsets: a <code>train</code> set and a <code>validate</code> set. In this partition, we have made sure that the frequency of occurrence of each tag is roughly preserved between the <code>train</code> set and the <code>validate</code> set. Furthermore, for every given sensor in the SONYC network, we allocated all available annotated recordings which originate from this sensor into either the <code>train</code> set or the <code>validate</code> set, but never both. This sensor-conditional split guarantees that, for participants, evaluating sound event detection on the <code>validate</code> subset reflects the ability of their machine listening system to generalize to new recording conditions, rather than overfitting the recording conditions in the evaluation set.</p>
+<h2 id="evaluation-dataset">Evaluation dataset</h2>
+<p>The evaluation set may contains sensors from the <code>validate</code> split, but the evaluation recordings will be displaced in time, occurring after any of the recordings in the <code>validate</code> split.</p>
+<p>The purpose of the private evaluation set is to perform a comparative evaluation of all competing systems in the Urban Sound Tagging challenge. In this context, it is vital to have a highly reliable estimate of the ground truth and minimize annotation error. Therefore, as organizers of the Urban Sound Tagging challenge, we carefully annotated all ten-second snippets in the private evaluation set ourselves, in addition to crowdsourcing annotations on Zooniverse. As a result, audio snippets in the evaluation set have both three independent annotations from citizen scientists and two independent annotations from machine listening experts. Lastly, we applied a third round of multi-expert review over the mismatches between expert annotations, thus progressively converge towards a consensus. In the following, we denote by "ground truth" the outcome of said consensus.</p>
+<h1 id="task-rules">Task rules</h1>
+<p>In comparison with previously held challenges, the rules of the DCASE Urban Sound Tagging task are relatively permissive. The only two practices that are strictly forbidden are the manual annotation of the private evaluation set and the inclusion of private external data to the <code>train</code> subset or <code>validate</code> subset. Nevertheless, we explicitly authorize the inclusion of publicly released external data to the <code>train</code> set or <code>validate</code> subset. For instance, we authorize participants to download the <a href="https://research.google.com/audioset/">AudioSet</a> and <a href="https://datasets.freesound.org">FSD</a> and use them to learn general-purpose machine listening features in a supervised way. However, we do not allow participants to collect <code>train</code> data from YouTube or FreeSound in an arbitrary way, in the absence of a sustainable and reproducible open data initiative. This restriction to the rules of the challenge aims at preserving the reproducibility of research in the development of innovative systems for machine listening.</p>
+<p>We provide a thorough list of rules below.</p>
+<ul>
+<li>
+<p><strong>Forbidden:</strong> manual annotation of the evaluation set</p>
+<ul>
+<li>Participants are not allowed to perform any manual annotation, be it expert of crowdsourced, onto the private evaluation set.</li>
+</ul>
+</li>
+<li>
+<p><strong>Forbidden:</strong> use of private external data</p>
+<ul>
+<li>
+<p>Participants are not allowed to use private external data for training, validating, and/or selecting their model.</p>
+</li>
+<li>
+<p>The term "private external data" includes all data that either have a proprietary license or are hosted on private or corporate servers, such as YouTube, Soundcloud, Dropbox, Google Drive, and so forth.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Restricted:</strong> use of open external data</p>
+<ul>
+<li>Participants are allowed to use open external data for training, validating, and/or selecting their model.</li>
+<li>The term "open external data" includes all datasets that are released under a free license, such as Creative Commons; which have a digital object identifier (DOI); and which are hosted on a dedicated repository for open science, such as Zenodo, DataDryad, and IEEE DataPort.</li>
+<li>During the development phase, we recommend participants to inform and suggest task organizers external datasets they are planning to use. These suggested datasets will be listed on the task page, so that all competitors know about them and have equal opportunity to use them.</li>
+<li>Once the private evaluation set is published, the list of external datasets allowed is locked, and no external sources are allowed anymore.</li>
+</ul>
+</li>
+<li>
+<p><strong>Restricted:</strong> use of pre-trained models</p>
+<ul>
+<li>Participants are allowed to use pretrained models, such as self-supervised audiovisual embeddings, as feature extractors for their system.</li>
+<li>If these pretrained models are novel contributions, we highly encourage participants to release them under an open source license, for the benefit of the machine listening community at large.</li>
+</ul>
+</li>
+<li>
+<p><strong>Authorized:</strong> use of additional metadata</p>
+<ul>
+<li>While not required, participants are allowed to use the additional metadata of each annotation-snippet pair, such as identifying number (ID) of each sensor, annotator IDs, and perceived proximity, in the development of their system. However, we remind all participants that, at the time of prediction, their system must solely rely on a single-channel audio input.</li>
+<li>Three examples of authorized use of metadata are: using sensor IDs to control the heterogeneity of recording conditions; using annotator IDs to model the reliability of each annotator; and using perceived proximity as a latent variable in the acoustic model.</li>
+</ul>
+</li>
+<li>
+<p><strong>Authorized:</strong> manual inspection of the public development set</p>
+<ul>
+<li>While not required, participants are allowed to employ additional human labor, either expert or crowdsourced, to refine the annotation of snippets in the public development set.</li>
+<li>To participants who were to undertake a systematic re-annotation of the <code>train</code> set, in part or in full, we kindly ask to contact us so that we can consider, for a possible upcoming edition of the Urban Sound Tagging challenge, including their annotations in the public development set.</li>
+<li>As stated above, although we encourage human inspection of the public development set, we strictly forbid the human inspection of the private evaluation set.</li>
+</ul>
+</li>
+<li>
+<p><strong>Required (for ranking):</strong> open-sourcing of system source code</p>
+<ul>
+<li>For the sake of the integrity of the challenge and as well as the contribution to the collective knowledge of the research community, we require that all systems must be verifiable and reproducible. Therefore, we require that all submissions that wish to be recognized competitively be accompanied with a link to a public source code repository.</li>
+<li>This can be specified in the metadata YAML file included in the submission.</li>
+<li>The source code must be hosted on <a href="https://github.com/">Github</a>, <a href="https://bitbucket.org/">Bitbucket</a>, <a href="https://sourceforge.net/">SourceForge</a>, or any other public code hosting service.</li>
+<li>The source code should be well documented and include instructions for reproducing the results of the submitted system.</li>
+<li>Only submissions that include reproducible open-sourced code will be considered for the top ten ranking systems.</li>
+<li>Closed-source submissions will still be accepted but not included in the final ranking. Open-sourced submissions are highly encouraged nonetheless.</li>
+</ul>
+</li>
+</ul>
+<h1 id="submission">Submission</h1>
+<p>The output files should be in CSV format with the following columns.</p>
+<dl>
+<dt><em>audio_filename</em></dt>
+<dd>
+<p>The filename of the audio recording</p>
+</dd>
+<dt><em>&lt;coarse_id&gt;-&lt;fine_id&gt;_&lt;fine_name&gt;</em></dt>
+<dd>
+<p>Columns of this form should indicate the probability of the presence of fine-level class (floating point values between <code>0</code> and <code>1</code>). If the system does not produce probabilities and only detections, <code>1</code> and <code>0</code> can be used for predicted positives and negatives, respectively. Numeric values outside of the range <code>[0,1]</code> or non-numeric values (including empty strings) will throw an error during evaluation and the results will not be accepted. Also note that we accept "X" level predictions, which are meant to indicate presence of the respective coarse tag that is either not captured by the available fine tags or is uncertain. For example, if a system confidently detects the presence of the coarse tag <code>machinery-impact</code> but not any of the corresponding fine tags, the value of <code>2-X_other-unknown-impact-machinery</code> would be <code>1</code>. Feel free to provide these if your system models these probabilities.</p>
+</dd>
+<dt><em>&lt;coarse_id&gt;_&lt;coarse_name&gt;</em></dt>
+<dd>
+<p>Columns of this form indicate the probability of the presence of a coarse-level class (floating point values between <code>0</code> and <code>1</code>). <code>1</code> if present, <code>0</code> if not present. If the system does not produce probabilities and only detections, <code>1</code> and <code>0</code> can be used for predicted positives and negatives, respectively.</p>
+</dd>
+</dl>
+<p>An example of the output in addition to the accompanying metadata file is included in the submission package template as well as the <a href="http://localhost:3000/challenge2019/submission">Submission</a> page. Note that evaluations at the coarse and fine levels will be performed independently on the columns corresponding to the respective tags. Therefore, participants should provide system outputs for both the coarse and fine tags if they wish to be evaluated on both levels.</p>
+<p>For more information about the submission process and platform, please refer to the <a href="http://localhost:3000/challenge2019/submission">Submission</a> page.</p>
+<h1 id="evaluation">Evaluation</h1>
+<h2 id="metrics">Metrics</h2>
+<p>The Urban Sound Tagging challenge is a task of multilabel classification. To evaluate and rank participants, we ask them to submit a CSV file following a similar layout as the publicly available CSV file of the development set: in it, each row should represent a different ten-second snippet, and each column should represent an urban sound tag.</p>
+<p>The area under the precision-recall curve (AUPRC) is the classification metric that we employ to rank participants. To compute this curve, we threshold the confidence of every tag in every snippet by some fixed threshold <span class="math">\(\tau\)</span>, thus resulting in a one-hot encoding of predicted tags. Then, we count the total number of true positives (TP), false positives (FP), and false negatives (FN) between prediction and consensus ground truth over the entire evaluation dataset.</p>
+<p>The Urban Sound Tagging challenge provides two leaderboards of participants, according to two distinct metric: fine-grained AUPRC and coarse-grained AUPRC. In each of the two levels of granularity, we vary <span class="math">\(\tau\)</span> between 0 and 1 and compute TP, FP, and FN for each coarse category. Then, we compute micro-averaged precision <span class="math">\(P = \text{TP} / (\text{TP} + \text{FP})\)</span> and recall <span class="math">\(R = \text{TP} / (\text{TP} + \text{TN})\)</span>, giving an equal importance to every sample. We repeat the same operation for all values of <span class="math">\(\tau\)</span> in the interval <span class="math">\([0, 1]\)</span> that result in different values of P and R. Lastly, we use the trapezoidal rule to estimate the AUPRC.</p>
+<p>The computations can be summarized by the following expressions defined for each coarse category, where <span class="math">\(t_0\)</span> and <span class="math">\(y_0\)</span> correspond to the presence of an incomplete tag in the ground truth and prediction (respectively), and <span class="math">\(t_k\)</span> and <span class="math">\(y_k\)</span> (for <span class="math">\(k \in \{1, \ldots, K\}\)</span>) correspond to the presence of fine tag <span class="math">\(k\)</span> in the ground truth and prediction (respectively).</p>
+<div class="math">$$\text{TP} = \left(1 - \prod_{k=0}^K (1-t_k) \right) \left(1 - \prod_{k=0}^K (1-y_k) \right)$$</div>
+<div class="math">$$\text{FP} = \left(\prod_{k=0}^K (1-t_k) \right) \left(1 - \prod_{k=0}^K (1-y_k) \right)$$</div>
+<div class="math">$$\text{FN} = \left(1 - \prod_{k=0}^K (1-t_k) \right) \left(\prod_{k=0}^K (1-y_k) \right)$$</div>
+<p>For samples with complete ground truth (i.e., in the absence of the incomplete fine tag in the ground truth for the coarse category at hand), evaluating urban sound tagging at a fine level of granularity is also relatively straightforward. Indeed, for samples with complete ground truth, the computation of TP, FP, and FN amounts to pairwise conjunctions between predicted fine tags and corresponding ground truth fine tags, without any coarsening. Each fine tag produces either one TP (if it is present and predicted), one FP (if it it absent yet predicted), or one FN (if it is absent yet not predicted). Then, we apply one-hot integer encoding to these boolean values, and sum them up at the level of coarse categories before micro-averaging across coarse categories over the entire evaluation dataset. In this case, the sum (TP+FP+FN) is equal to the number of tags in the fine-grained taxonomy, i.e. 23. Furthermore, the sum (TP+FN) is equal to the number of truly present tags in the sample at hand.</p>
+<p>The situation becomes considerably more complex when the incomplete fine tag is present in the ground truth, because this presence hinders the possibility of precisely counting the number of false alarms in the coarse category at hand. We propose a pragmatic solution to this problem; the guiding idea behind our solution is to evaluate the prediction at the fine level only when possible, and fall back to the coarse level if necessary.</p>
+<p>For example, if a small engine is present in the ground truth and absent in the prediction but an "other/unknown" engine is predicted, then it's a true positive in the coarse-grained sense, but a false negative in the fine-grained sense. However, if a small engine is absent in the ground truth and present in the prediction, then the outcome of the evaluation will depend on the completeness of the ground truth for the coarse category of engines. If this coarse category is complete (i.e. if the tag "engine of uncertain size" is absent from the ground truth), then we may evaluate the small engine tag at the fine level, and count it as a false positive. Conversely, if the coarse category of engines is incomplete (i.e. the tag "engine of uncertain size" is present in the ground truth), then we fall back to coarse-level evaluation for the sample at hand, and count the small engine prediction as a true positive, in aggregation with potential predictions of medium engines and large engines.</p>
+<p>The computations can be summarized by the following expressions defined for each coarse category, where <span class="math">\(t_0\)</span> and <span class="math">\(y_0\)</span> correspond to the presence of an incomplete tag in the ground truth and prediction (respectively), and <span class="math">\(t_k\)</span> and <span class="math">\(y_k\)</span> (for <span class="math">\(k \in \{1, \ldots, K\}\)</span>) correspond to the presence of fine tag <span class="math">\(k\)</span> in the ground truth and prediction (respectively).</p>
+<div class="math">$$\text{TP} = \left(\sum_{k=1}^K t_k y_k \right) + t_0 \left( 1 - \prod_{k=1}^K t_k y_k\right) \left(1 - \prod_{k=0}^K (1-y_k) \right) $$</div>
+<div class="math">$$\text{FP} = (1-t_0) \left( \left(\sum_{k=1}^K (1-t_k)y_k \right) + y_0 \left( \prod_{k=1}^K (1-t_k) \right) \left( 1 - \prod_{k=1}^K y_k \right) \right) $$</div>
+<div class="math">$$\text{FN} = \left(\sum_{k=1}^K t_k(1-y_k) \right) + t_0 \left( \prod_{k=1}^K (1-t_k) \right) \left(\prod_{k=0}^K (1-y_k) \right)$$</div>
+<p>As a secondary metric, we report the micro-averaged F-score of the system, after fixing the value of the threshold to 0.5. This score is the harmonic mean between precision and recall: <span class="math">\(F = 2 \cdot P \cdot R / (P + R)\)</span>. We only provide the F-score metric for purposes of post-hoc error analysis and do not use it at the time of producing the official leaderboard.</p>
+<p>We provide evaluation code that computes these metrics for participants to use for evaluating their system output in the <a href="https://github.com/sonyc-project/urban-sound-tagging-baseline">source code repository</a> containing the baseline model. The evaluation code accepts the output format we expect for submission, so participants can use this to help ensure that their system output is formatted correctly, as well as assessing the performance of their system as they develop it. We encourage participants to use this code as a starting point for manipulating the dataset and for evaluating their system outputs.</p>
+<h1 id="results">Results</h1>
+<h2 id="coarse-level-prediction">Coarse-level prediction</h2>
+<p>These results only include systems for which the source code has been release.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="coarse_macro_auprc" data-scatter-y="coarse_micro_auprc" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="coarse_micro_auprc" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="4">Submission Information</th>
+<th class="sep-left-cell" colspan="3">Evaluation dataset</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Submission name
+            </th>
+<th class="sep-left-cell sm-cell" data-field="corresponding_author" data-sortable="false">
+                Author
+            </th>
+<th class="sm-cell" data-field="corresponding_affiliation" data-sortable="false">
+                Affiliation
+            </th>
+<th class="sep-left-cell text-center" data-field="external_anchor" data-sortable="false" data-value-type="url">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="coarse_macro_auprc" data-sortable="true" data-value-type="float3">
+                Macro-<br/>AUPRC
+            </th>
+<th class="text-center" data-chartable="true" data-field="coarse_micro_f_score" data-sortable="true" data-value-type="float3">
+                Micro-<br/>F1
+            </th>
+<th class="text-center" data-chartable="true" data-field="coarse_micro_auprc" data-sortable="true" data-value-type="float3">
+                Micro-<br/>AUPRC
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adapa_FH_task5_1</td>
+<td>Sainath Adapa</td>
+<td>Customer Acquisition, FindHotel, Amsterdam, Netherlands</td>
+<td>task-urban-sound-tagging-results#Adapa2019</td>
+<td>0.718</td>
+<td>0.631</td>
+<td>0.860</td>
+</tr>
+<tr>
+<td></td>
+<td>Adapa_FH_task5_2</td>
+<td>Sainath Adapa</td>
+<td>Customer Acquisition, FindHotel, Amsterdam, Netherlands</td>
+<td>task-urban-sound-tagging-results#Adapa2019</td>
+<td>0.723</td>
+<td>0.745</td>
+<td>0.847</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_1</td>
+<td>Jisheng Bai</td>
+<td>School of Marine science, Northwestern Polytechnical University, Xi'an, China</td>
+<td>task-urban-sound-tagging-results#Bai2019</td>
+<td>0.618</td>
+<td>0.696</td>
+<td>0.763</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_2</td>
+<td>Jisheng Bai</td>
+<td>School of Marine science, Northwestern Polytechnical University, Xi'an, China</td>
+<td>task-urban-sound-tagging-results#Bai2019</td>
+<td>0.649</td>
+<td>0.701</td>
+<td>0.769</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_3</td>
+<td>Jisheng Bai</td>
+<td>School of Marine science, Northwestern Polytechnical University, Xi'an, China</td>
+<td>task-urban-sound-tagging-results#Bai2019</td>
+<td>0.558</td>
+<td>0.631</td>
+<td>0.680</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_4</td>
+<td>Jisheng Bai</td>
+<td>School of Marine science, Northwestern Polytechnical University, Xi'an, China</td>
+<td>task-urban-sound-tagging-results#Bai2019</td>
+<td>0.647</td>
+<td>0.709</td>
+<td>0.782</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2019 baseline</td>
+<td>Mark Cartwright</td>
+<td>Music and Audio Research Laboratory, Department of Computer Science and Engineering, Center for Urban Science and Progress, New York University, New York, New York, USA</td>
+<td>task-urban-sound-tagging-results#Cartwright2019</td>
+<td>0.619</td>
+<td>0.664</td>
+<td>0.742</td>
+</tr>
+<tr>
+<td></td>
+<td>Cui_YSU_task5_1</td>
+<td>Lin Cui</td>
+<td>school of Information Science and  Engineering, department of Electronic communication, Yanshan University, Qin Huangdao, Hebei, China</td>
+<td>task-urban-sound-tagging-results#Cui2019</td>
+<td>0.674</td>
+<td>0.525</td>
+<td>0.807</td>
+</tr>
+<tr>
+<td></td>
+<td>Gousseau_OL_task5_1</td>
+<td>Clément Gousseau</td>
+<td>Ambient Intelligence and Mobility, Orange Labs (company where I do my master thesis internship), Lannion, France</td>
+<td>task-urban-sound-tagging-results#Gousseau2019</td>
+<td>0.650</td>
+<td>0.667</td>
+<td>0.745</td>
+</tr>
+<tr>
+<td></td>
+<td>Gousseau_OL_task5_2</td>
+<td>Clément Gousseau</td>
+<td>Ambient Intelligence and Mobility, Orange Labs (company where I do my master thesis internship), Lannion, France</td>
+<td>task-urban-sound-tagging-results#Gousseau2019</td>
+<td>0.612</td>
+<td>0.639</td>
+<td>0.748</td>
+</tr>
+<tr>
+<td></td>
+<td>Kim_NU_task5_1</td>
+<td>Bongjun Kim</td>
+<td>Department of Computer Science, Northwestern University, Evnaston, Illinois, USA</td>
+<td>task-urban-sound-tagging-results#Kim2019</td>
+<td>0.653</td>
+<td>0.686</td>
+<td>0.761</td>
+</tr>
+<tr>
+<td></td>
+<td>Kim_NU_task5_2</td>
+<td>Bongjun Kim</td>
+<td>Department of Computer Science, Northwestern University, Evnaston, Illinois, USA</td>
+<td>task-urban-sound-tagging-results#Kim2019</td>
+<td>0.696</td>
+<td>0.734</td>
+<td>0.825</td>
+</tr>
+<tr>
+<td></td>
+<td>Kim_NU_task5_3</td>
+<td>Bongjun Kim</td>
+<td>Department of Computer Science, Northwestern University, Evnaston, Illinois, USA</td>
+<td>task-urban-sound-tagging-results#Kim2019</td>
+<td>0.697</td>
+<td>0.730</td>
+<td>0.809</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_SURREY_task5_1</td>
+<td>Qiuqiang Kong</td>
+<td>Centre for Vision, Speech and Signal Processing (CVSSP), University of Surrey, Guildford, England</td>
+<td>task-urban-sound-tagging-results#Kong2019</td>
+<td>0.567</td>
+<td>0.467</td>
+<td>0.674</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_SURREY_task5_2</td>
+<td>Qiuqiang Kong</td>
+<td>Centre for Vision, Speech and Signal Processing (CVSSP), University of Surrey, Guildford, England</td>
+<td>task-urban-sound-tagging-results#Kong2019</td>
+<td>0.613</td>
+<td>0.516</td>
+<td>0.777</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_1</td>
+<td>Linus Ng</td>
+<td>Smart Nation Translational Lab, Centre for Infocomm Technology (INFINITUS), School of Electrical and Electronic Engineering, Nanyang Technological University, Nanyang Technological University, Singapore</td>
+<td>task-urban-sound-tagging-results#Ng2019</td>
+<td>0.657</td>
+<td>0.670</td>
+<td>0.759</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_2</td>
+<td>Linus Ng</td>
+<td>Smart Nation Translational Lab, Centre for Infocomm Technology (INFINITUS), School of Electrical and Electronic Engineering, Nanyang Technological University, Nanyang Technological University, Singapore</td>
+<td>task-urban-sound-tagging-results#Ng2019</td>
+<td>0.666</td>
+<td>0.677</td>
+<td>0.767</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_3</td>
+<td>Linus Ng</td>
+<td>Smart Nation Translational Lab, Centre for Infocomm Technology (INFINITUS), School of Electrical and Electronic Engineering, Nanyang Technological University, Nanyang Technological University, Singapore</td>
+<td>task-urban-sound-tagging-results#Ng2019</td>
+<td>0.660</td>
+<td>0.671</td>
+<td>0.762</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_4</td>
+<td>Linus Ng</td>
+<td>Smart Nation Translational Lab, Centre for Infocomm Technology (INFINITUS), School of Electrical and Electronic Engineering, Nanyang Technological University, Nanyang Technological University, Singapore</td>
+<td>task-urban-sound-tagging-results#Ng2019</td>
+<td>0.660</td>
+<td>0.666</td>
+<td>0.770</td>
+</tr>
+<tr>
+<td></td>
+<td>Orga_URL_task5_1</td>
+<td>Ferran Orga</td>
+<td>GTM - Grup de recerca en Tecnologies Mèdia, La Salle - Universitat Ramon Llull (URL), C/Quatre Camins, 30, 08022 Barcelona (Spain)</td>
+<td>task-urban-sound-tagging-results#Orga2019</td>
+<td>0.501</td>
+<td>0.557</td>
+<td>0.562</td>
+</tr>
+<tr>
+<td></td>
+<td>Tompkins_MS_task5_1</td>
+<td>Daniel Tompkins</td>
+<td>Dynamics 365 AI Research, Microsoft, Redmond, WA</td>
+<td>task-urban-sound-tagging-results#Tompkins2019</td>
+<td>0.646</td>
+<td>0.631</td>
+<td>0.779</td>
+</tr>
+<tr>
+<td></td>
+<td>Tompkins_MS_task5_2</td>
+<td>Daniel Tompkins</td>
+<td>Dynamics 365 AI Research, Microsoft, Redmond, WA</td>
+<td>task-urban-sound-tagging-results#Tompkins2019</td>
+<td>0.666</td>
+<td>0.552</td>
+<td>0.788</td>
+</tr>
+<tr>
+<td></td>
+<td>Tompkins_MS_task5_3</td>
+<td>Daniel Tompkins</td>
+<td>Dynamics 365 AI Research, Microsoft, Redmond, WA</td>
+<td>task-urban-sound-tagging-results#Tompkins2019</td>
+<td>0.646</td>
+<td>0.631</td>
+<td>0.779</td>
+</tr>
+</tbody>
+</table>
+<p>Complete results and technical reports can be found in the <a class="btn btn-primary" href="http://localhost:3000/challenge2019/task-urban-sound-tagging-results">results page</a></p>
+<h2 id="fine-level-prediction">Fine-level prediction</h2>
+<p>These results only include systems for which the source code has been release.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="fine_macro_auprc" data-scatter-y="fine_micro_auprc" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="fine_micro_auprc" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="4">Submission Information</th>
+<th class="sep-left-cell" colspan="3">Evaluation dataset</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Submission name
+            </th>
+<th class="sep-left-cell sm-cell" data-field="corresponding_author" data-sortable="false">
+                Author
+            </th>
+<th class="sm-cell" data-field="corresponding_affiliation" data-sortable="false">
+                Affiliation
+            </th>
+<th class="sep-left-cell text-center" data-field="external_anchor" data-sortable="false" data-value-type="url">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="fine_macro_auprc" data-sortable="true" data-value-type="float3">
+                Macro-<br/>AUPRC
+            </th>
+<th class="text-center" data-chartable="true" data-field="fine_micro_f_score" data-sortable="true" data-value-type="float3">
+                Micro-<br/>F1
+            </th>
+<th class="text-center" data-chartable="true" data-field="fine_micro_auprc" data-sortable="true" data-value-type="float3">
+                Micro-<br/>AUPRC
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adapa_FH_task5_1</td>
+<td>Sainath Adapa</td>
+<td>Customer Acquisition, FindHotel, Amsterdam, Netherlands</td>
+<td>task-urban-sound-tagging-results#Adapa2019</td>
+<td>0.645</td>
+<td>0.484</td>
+<td>0.751</td>
+</tr>
+<tr>
+<td></td>
+<td>Adapa_FH_task5_2</td>
+<td>Sainath Adapa</td>
+<td>Customer Acquisition, FindHotel, Amsterdam, Netherlands</td>
+<td>task-urban-sound-tagging-results#Adapa2019</td>
+<td>0.622</td>
+<td>0.575</td>
+<td>0.721</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_1</td>
+<td>Jisheng Bai</td>
+<td>School of Marine science, Northwestern Polytechnical University, Xi'an, China</td>
+<td>task-urban-sound-tagging-results#Bai2019</td>
+<td>0.534</td>
+<td>0.514</td>
+<td>0.572</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_2</td>
+<td>Jisheng Bai</td>
+<td>School of Marine science, Northwestern Polytechnical University, Xi'an, China</td>
+<td>task-urban-sound-tagging-results#Bai2019</td>
+<td>0.523</td>
+<td>0.594</td>
+<td>0.615</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_3</td>
+<td>Jisheng Bai</td>
+<td>School of Marine science, Northwestern Polytechnical University, Xi'an, China</td>
+<td>task-urban-sound-tagging-results#Bai2019</td>
+<td>0.553</td>
+<td>0.600</td>
+<td>0.639</td>
+</tr>
+<tr>
+<td></td>
+<td>Bai_NPU_task5_4</td>
+<td>Jisheng Bai</td>
+<td>School of Marine science, Northwestern Polytechnical University, Xi'an, China</td>
+<td>task-urban-sound-tagging-results#Bai2019</td>
+<td>0.554</td>
+<td>0.571</td>
+<td>0.623</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2019 baseline</td>
+<td>Mark Cartwright</td>
+<td>Music and Audio Research Laboratory, Department of Computer Science and Engineering, Center for Urban Science and Progress, New York University, New York, New York, USA</td>
+<td>task-urban-sound-tagging-results#Cartwright2019</td>
+<td>0.531</td>
+<td>0.450</td>
+<td>0.619</td>
+</tr>
+<tr>
+<td></td>
+<td>Cui_YSU_task5_1</td>
+<td>Lin Cui</td>
+<td>school of Information Science and  Engineering, department of Electronic communication, Yanshan University, Qin Huangdao, Hebei, China</td>
+<td>task-urban-sound-tagging-results#Cui2019</td>
+<td>0.552</td>
+<td>0.286</td>
+<td>0.637</td>
+</tr>
+<tr>
+<td></td>
+<td>Gousseau_OL_task5_1</td>
+<td>Clément Gousseau</td>
+<td>Ambient Intelligence and Mobility, Orange Labs (company where I do my master thesis internship), Lannion, France</td>
+<td>task-urban-sound-tagging-results#Gousseau2019</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td></td>
+<td>Gousseau_OL_task5_2</td>
+<td>Clément Gousseau</td>
+<td>Ambient Intelligence and Mobility, Orange Labs (company where I do my master thesis internship), Lannion, France</td>
+<td>task-urban-sound-tagging-results#Gousseau2019</td>
+<td>0.500</td>
+<td>0.560</td>
+<td>0.621</td>
+</tr>
+<tr>
+<td></td>
+<td>Kim_NU_task5_1</td>
+<td>Bongjun Kim</td>
+<td>Department of Computer Science, Northwestern University, Evnaston, Illinois, USA</td>
+<td>task-urban-sound-tagging-results#Kim2019</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td></td>
+<td>Kim_NU_task5_2</td>
+<td>Bongjun Kim</td>
+<td>Department of Computer Science, Northwestern University, Evnaston, Illinois, USA</td>
+<td>task-urban-sound-tagging-results#Kim2019</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td></td>
+<td>Kim_NU_task5_3</td>
+<td>Bongjun Kim</td>
+<td>Department of Computer Science, Northwestern University, Evnaston, Illinois, USA</td>
+<td>task-urban-sound-tagging-results#Kim2019</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_SURREY_task5_1</td>
+<td>Qiuqiang Kong</td>
+<td>Centre for Vision, Speech and Signal Processing (CVSSP), University of Surrey, Guildford, England</td>
+<td>task-urban-sound-tagging-results#Kong2019</td>
+<td>0.378</td>
+<td>0.391</td>
+<td>0.496</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_SURREY_task5_2</td>
+<td>Qiuqiang Kong</td>
+<td>Centre for Vision, Speech and Signal Processing (CVSSP), University of Surrey, Guildford, England</td>
+<td>task-urban-sound-tagging-results#Kong2019</td>
+<td>0.462</td>
+<td>0.206</td>
+<td>0.584</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_1</td>
+<td>Linus Ng</td>
+<td>Smart Nation Translational Lab, Centre for Infocomm Technology (INFINITUS), School of Electrical and Electronic Engineering, Nanyang Technological University, Nanyang Technological University, Singapore</td>
+<td>task-urban-sound-tagging-results#Ng2019</td>
+<td>0.560</td>
+<td>0.551</td>
+<td>0.639</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_2</td>
+<td>Linus Ng</td>
+<td>Smart Nation Translational Lab, Centre for Infocomm Technology (INFINITUS), School of Electrical and Electronic Engineering, Nanyang Technological University, Nanyang Technological University, Singapore</td>
+<td>task-urban-sound-tagging-results#Ng2019</td>
+<td>0.564</td>
+<td>0.540</td>
+<td>0.638</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_3</td>
+<td>Linus Ng</td>
+<td>Smart Nation Translational Lab, Centre for Infocomm Technology (INFINITUS), School of Electrical and Electronic Engineering, Nanyang Technological University, Nanyang Technological University, Singapore</td>
+<td>task-urban-sound-tagging-results#Ng2019</td>
+<td>0.564</td>
+<td>0.521</td>
+<td>0.632</td>
+</tr>
+<tr>
+<td></td>
+<td>Ng_NTU_task5_4</td>
+<td>Linus Ng</td>
+<td>Smart Nation Translational Lab, Centre for Infocomm Technology (INFINITUS), School of Electrical and Electronic Engineering, Nanyang Technological University, Nanyang Technological University, Singapore</td>
+<td>task-urban-sound-tagging-results#Ng2019</td>
+<td>0.571</td>
+<td>0.534</td>
+<td>0.646</td>
+</tr>
+<tr>
+<td></td>
+<td>Orga_URL_task5_1</td>
+<td>Ferran Orga</td>
+<td>GTM - Grup de recerca en Tecnologies Mèdia, La Salle - Universitat Ramon Llull (URL), C/Quatre Camins, 30, 08022 Barcelona (Spain)</td>
+<td>task-urban-sound-tagging-results#Orga2019</td>
+<td>0.391</td>
+<td>0.457</td>
+<td>0.428</td>
+</tr>
+<tr>
+<td></td>
+<td>Tompkins_MS_task5_1</td>
+<td>Daniel Tompkins</td>
+<td>Dynamics 365 AI Research, Microsoft, Redmond, WA</td>
+<td>task-urban-sound-tagging-results#Tompkins2019</td>
+<td>0.521</td>
+<td>0.444</td>
+<td>0.618</td>
+</tr>
+<tr>
+<td></td>
+<td>Tompkins_MS_task5_2</td>
+<td>Daniel Tompkins</td>
+<td>Dynamics 365 AI Research, Microsoft, Redmond, WA</td>
+<td>task-urban-sound-tagging-results#Tompkins2019</td>
+<td>0.555</td>
+<td>0.381</td>
+<td>0.649</td>
+</tr>
+<tr>
+<td></td>
+<td>Tompkins_MS_task5_3</td>
+<td>Daniel Tompkins</td>
+<td>Dynamics 365 AI Research, Microsoft, Redmond, WA</td>
+<td>task-urban-sound-tagging-results#Tompkins2019</td>
+<td>0.522</td>
+<td>0.461</td>
+<td>0.599</td>
+</tr>
+</tbody>
+</table>
+<p>Complete results and technical reports can be found in the <a class="btn btn-primary" href="http://localhost:3000/challenge2019/task-urban-sound-tagging-results">results page</a></p>
+<h1 id="awards">Awards</h1>
+<p>This task will offer two awards, not necessarily based on the evaluation set performance ranking. These awards aim to encourage contestants to openly publish their code, and to use novel and problem-specific approaches which leverage knowledge of the audio domain. We also highly encourage student authorship.</p>
+<div class="row">
+<div class="col-md-2 col-xs-top text-center">
+<a href="http://localhost:3000/challenge2019/awards#reproducible-system-award">
+<span class="fa-stack fa-4x">
+<i class="fa fa-circle fa-stack-2x" style="color:#75ce75;"></i>
+<i class="fa fa-trophy fa-stack-1x fa-inverse" style="color:#82ec82;"></i>
+<span class="fa-stack-1x" style="font-size:48%;color:white;font-weight:bold;line-height:20px;margin-top:1em;">Open source</span>
+<span class="fa-stack-1x dcase-icon-bottom-text">Award</span>
+</span>
+</a>
+</div>
+<div class="col-md-10">
+<a href="http://localhost:3000/challenge2019/awards#reproducible-system-award">
+<h3 id="open-source-award">Reproducible system award</h3>
+</a>
+<p>Reproducible system award of <strong>500 USD</strong> will be offered for the highest scoring method that is open-source and fully reproducible. For full reproducibility, the authors must provide all the information needed to run the system and achieve the reported performance. The choice of licence is left to the author, but should ideally be selected among the ones approved by the <a href="https://opensource.org/licenses" target="_blank">Open Source Initiative</a>.
+</p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-2 col-xs-top text-center">
+<a href="http://localhost:3000/challenge2019/awards#judges’-award">
+<span class="fa-stack fa-4x">
+<i class="fa fa-circle fa-stack-2x" style="color:#75ce75;"></i>
+<i class="fa fa-trophy fa-stack-1x fa-inverse" style="color:#82ec82;"></i>
+<span class="fa-stack-1x" style="font-size:48%;color:white;font-weight:bold;">Judges</span>
+<span class="fa-stack-1x dcase-icon-bottom-text">Award</span>
+</span>
+</a>
+</div>
+<div class="col-md-10">
+<a href="http://localhost:3000/challenge2019/awards#judges’-award">
+<h3 id="judges-award">Judges’ award</h3>
+</a>
+<p>Judges’ award of <strong>500 USD</strong> will be offered for the method considered by the judges to be the most interesting or innovative. Criteria considered for this award include but are not limited to: originality, complexity, student participation, open-source, etc. Single model approaches are strongly preferred over ensembles;  occasionally, small ensembles of different models can be considered, if the approach is innovative.</p>
+</div>
+</div>
+<p>More information can be found on the <a href="http://localhost:3000/challenge2019/awards">Award page</a>.</p>
+<p><br/></p>
+<h4 class="text-center">The awards are sponsored by</h4>
+<table style="background-color:#fafafa;border-collapse:collapse;border-radius:1em;overflow:hidden;margin-bottom:20px;">
+<tbody>
+<tr>
+<td colspan="6" style="width:50%;padding-top:10px;padding-bottom:0px;padding-left:10px;"><span class="text-muted">Gold sponsor</span></td>
+<td colspan="6" style="width:50%;padding-top:10px;padding-bottom:0px;padding-left:10px;"><span class="text-muted">Silver sponsor</span></td>
+</tr>
+<tr>
+<td colspan="6" style="width:50%;padding-top:0px;padding-bottom:0px;padding-left:10px;padding-right:20px;">
+<a href="https://www.sonos.com/" target="_blank">
+<img alt="Sonos" class="img img-responsive" src="http://localhost:3000/images/sponsors/sonos_logo.png" style="margin-left: auto;margin-right: auto;"/>
+</a>
+</td>
+<td colspan="6" style="width:50%;padding-top:0px;padding-bottom:0px;padding-left:20px;padding-right:10px;">
+<a href="https://www.harman.com/" target="_blank">
+<img alt="Harman" class="img img-responsive" src="http://localhost:3000/images/sponsors/harman_logo.png" style="margin-left: auto;margin-right: auto;"/>
+</a>
+</td>
+</tr>
+<tr>
+<td colspan="12" style="width:100%;padding-top:0px;padding-bottom:0px;padding-left:10px;"><span class="text-muted">Bronze sponsors</span></td>
+</tr>
+<tr>
+<td colspan="4" style="width:33.3333%;padding-top:0px;padding-bottom:0px;padding-left:10px;padding-right:20px;">
+<a href="http://cochlear.ai/" target="_blank">
+<img alt="Cochlear.ai" class="img img-responsive" src="http://localhost:3000/images/sponsors/cochlearai_logo_2019.png" style="margin-left: auto;margin-right: auto;"/>
+</a>
+</td>
+<td colspan="4" style="width:33.3333%;padding-top:0px;padding-bottom:0px;padding-right:20px;padding-left:20px;">
+<a href="https://www.oticon.global/" target="_blank">
+<img alt="Oticon" class="img img-responsive" src="http://localhost:3000/images/sponsors/oticon_logo.png" style="margin-left: auto;margin-right: auto;"/>
+</a>
+</td>
+<td colspan="4" style="width:33.3333%;padding-top:0px;padding-bottom:0px;padding-left:20px;padding-right:10px;">
+<a href="https://www.soundintel.com/" target="_blank">
+<img alt="Sound Intelligence" class="img img-responsive" src="http://localhost:3000/images/sponsors/sound_intelligence_logo.png" style="margin-left: auto;margin-right: auto;"/>
+</a>
+</td>
+</tr>
+<tr>
+<td colspan="12" style="width:100%;padding-top:10px;padding-bottom:0px;padding-left:10px;"><span class="text-muted">Technical sponsor</span></td>
+</tr>
+<tr>
+<td colspan="4" style="width:33.3333%;padding-top:0px;padding-left:10px;padding-right:20px;padding-bottom:10px;">
+<a href="https://www.inria.fr/en/" target="_blank">
+<img alt="Inria" class="img img-responsive" src="http://localhost:3000/images/logos/organizers/inria.png" style="margin-left: auto;margin-right: auto;"/>
+</a>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="baseline-system">Baseline system</h1>
+<p>For the baseline model, we simply use a multi-label logistic regression model. Because of the size of the dataset, we opted for a simple and shallow model for our baseline. Our model took <a href="https://ai.google/research/pubs/pub45611">VGGish embeddings</a> as its input representation, which by default uses a window size and hop size of 0.96 seconds, giving us ten 128-dimensional embeddings for each clip in our dataset. We use the weak tags for each audio clip as the targets for each clip. For the <code>train</code> data (which has no verified target), we simply count a positive for a tag if at least one annotator has labeled the audio clip with that tag.</p>
+<p>We trained the model using stochastic gradient descent to minimize binary cross-entropy loss. For training models to predict tags at the fine level, the loss is modified such that if "unknown/other" is annotated for a particular coarse tag, the loss for the fine tags corresponding to this coarse tag are masked out. We use early stopping using loss on the <code>validate</code> set to mitigate overfitting.</p>
+<p>One model was trained to predict fine-level tags, with coarse-level tag predictions obtained by taking the maximum probability over fine-tags predictions within a coarse category. Another model was trained only to predict coarse-level tags.</p>
+<p>For inference, we predict tags at the frame level and simply take the average of output tag probabilities as the clip-level tag probabilities.</p>
+<h2 id="repository">Repository</h2>
+<p>The code for the baseline and evaluation can be found in our source code repository:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/sonyc-project/urban-sound-tagging-baseline" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/sonyc-project/urban-sound-tagging-baseline" target="_blank">
+<span style="font-size:20px;">DCASE2019 Task 5 <strong>baseline</strong>, repository <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<p>Again, we encourage participants to use this code as a starting point for manipulating the dataset and for evaluating their system outputs.</p>
+<h2 id="baseline-results">Baseline results</h2>
+<p>The results for the baseline systems can be found below:</p>
+<h3>Fine-level model</h3>
+<h4>Fine-level evaluation:</h4>
+<ul>
+<li>Micro AUPRC: 0.6717253550113078</li>
+<li>Micro F1-score (@0.5): 0.5015353121801432</li>
+<li>Macro AUPRC: 0.427463730110938</li>
+<li>
+<p>Coarse Tag AUPRC:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Coarse Tag Name  </th>
+<th style="text-align: left;">AUPRC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">engine  </td>
+<td style="text-align: left;">0.7122944027927718</td>
+</tr>
+<tr>
+<td style="text-align: left;">machinery-impact  </td>
+<td style="text-align: left;">0.19788462073882798</td>
+</tr>
+<tr>
+<td style="text-align: left;">non-machinery-impact  </td>
+<td style="text-align: left;">0.36403054299960413</td>
+</tr>
+<tr>
+<td style="text-align: left;">powered-saw  </td>
+<td style="text-align: left;">0.3855391333457478</td>
+</tr>
+<tr>
+<td style="text-align: left;">alert-signal  </td>
+<td style="text-align: left;">0.6359773072562782</td>
+</tr>
+<tr>
+<td style="text-align: left;">music  </td>
+<td style="text-align: left;">0.21516455980970542</td>
+</tr>
+<tr>
+<td style="text-align: left;">human-voice  </td>
+<td style="text-align: left;">0.8798293427878373</td>
+</tr>
+<tr>
+<td style="text-align: left;">dog  </td>
+<td style="text-align: left;">0.0289899311567318</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h4>Coarse-level evaluation:</h4>
+<ul>
+<li>Micro AUPRC: 0.7424913328250053</li>
+<li>Micro F1-score (@0.5): 0.5065590312815338</li>
+<li>
+<p>Macro AUPRC: 0.5297273551638281</p>
+</li>
+<li>
+<p>Coarse Tag AUPRC:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Coarse Tag Name  </th>
+<th style="text-align: left;">AUPRC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">engine  </td>
+<td style="text-align: left;">0.8594524913674696</td>
+</tr>
+<tr>
+<td style="text-align: left;">machinery-impact  </td>
+<td style="text-align: left;">0.28532090723421905</td>
+</tr>
+<tr>
+<td style="text-align: left;">non-machinery-impact  </td>
+<td style="text-align: left;">0.36403054299960413</td>
+</tr>
+<tr>
+<td style="text-align: left;">powered-saw  </td>
+<td style="text-align: left;">0.7200903371047481</td>
+</tr>
+<tr>
+<td style="text-align: left;">alert-signal  </td>
+<td style="text-align: left;">0.7536308641644877</td>
+</tr>
+<tr>
+<td style="text-align: left;">music  </td>
+<td style="text-align: left;">0.282907929536143</td>
+</tr>
+<tr>
+<td style="text-align: left;">human-voice  </td>
+<td style="text-align: left;">0.9433958377472215</td>
+</tr>
+<tr>
+<td style="text-align: left;">dog  </td>
+<td style="text-align: left;">0.0289899311567318</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h3>Coarse-level model</h3>
+<h4>Coarse-level evaluation:</h4>
+<ul>
+<li>Micro AUPRC: 0.761602033798918</li>
+<li>Micro F1-score (@0.5): 0.6741035856573705</li>
+<li>Macro AUPRC: 0.5422528970239988</li>
+<li>
+<p>Coarse Tag AUPRC:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Coarse Tag Name  </th>
+<th style="text-align: left;">AUPRC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">engine  </td>
+<td style="text-align: left;">0.8552225117097685</td>
+</tr>
+<tr>
+<td style="text-align: left;">machinery-impact  </td>
+<td style="text-align: left;">0.3595869306870976</td>
+</tr>
+<tr>
+<td style="text-align: left;">non-machinery-impact  </td>
+<td style="text-align: left;">0.36067068831072385</td>
+</tr>
+<tr>
+<td style="text-align: left;">powered-saw  </td>
+<td style="text-align: left;">0.6779980935124421</td>
+</tr>
+<tr>
+<td style="text-align: left;">alert-signal  </td>
+<td style="text-align: left;">0.8126810682348001</td>
+</tr>
+<tr>
+<td style="text-align: left;">music  </td>
+<td style="text-align: left;">0.2988632647455638</td>
+</tr>
+<tr>
+<td style="text-align: left;">human-voice  </td>
+<td style="text-align: left;">0.94516997783423</td>
+</tr>
+<tr>
+<td style="text-align: left;">dog  </td>
+<td style="text-align: left;">0.02783064115736446</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h1 id="feedback-and-questions">Feedback and questions</h1>
+<p>For questions and comments on this task, please refer to our <a href="https://groups.google.com/forum/#!forum/dcase-urban-sound-tagging">Google Groups page</a>.</p>
+<h1 id="citation">Citation</h1>
+<p>If you are participating to this task or using the dataset code please consider citing the following papers:</p>
+<div class="btex-item" data-item="Bello2019sonyc" data-source="content/data/challenge2019/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Bello2019sonyc"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Juan P. Bello, Claudio Silva, Oded Nov, R. Luke Dubois, Anish Arora, Justin Salamon, Charles Mydlarz, and Harish Doraiswamy.
+<em>Sonyc: a system for monitoring, analyzing, and mitigating urban noise pollution.</em>
+<em>Communications of the ACM</em>, 62(2):68–77, Feb 2019.
+<a href="https://doi.org/10.1145/3224204">doi:10.1145/3224204</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexBello2019sonycc2e5fa28704b4f18bb0a49d96ddb3bff" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://cacm.acm.org/magazines/2019/2/234354-sonyc/pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseBello2019sonycc2e5fa28704b4f18bb0a49d96ddb3bff" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseBello2019sonycc2e5fa28704b4f18bb0a49d96ddb3bff" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingBello2019sonycc2e5fa28704b4f18bb0a49d96ddb3bff" class="panel-collapse collapse" id="collapseBello2019sonycc2e5fa28704b4f18bb0a49d96ddb3bff" role="tabpanel">
+<h4>SONYC: A System for Monitoring, Analyzing, and Mitigating Urban Noise Pollution</h4>
+<h5>Abstract</h5>
+<p class="text-justify">Noise is unwanted or harmful sound from environmental sources, including traffic, construction, industrial, and social activity. Noise pollution is one of the topmost quality-of-life concerns for urban residents in the U.S., with more than 70 million people nationwide exposed to noise levels beyond the limit the U.S. Environmental Protection Agency (EPA) considers harmful.12 Such levels have proven effects on health, including sleep disruption, hypertension, heart disease, and hearing loss.5,11,12 In addition, there is evidence of harmful effects on educational performance, with studies showing noise pollution causing learning and cognitive impairment in children, resulting in decreased memory capacity, reading skills, and test scores.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexBello2019sonycc2e5fa28704b4f18bb0a49d96ddb3bff" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://cacm.acm.org/magazines/2019/2/234354-sonyc/pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexBello2019sonycc2e5fa28704b4f18bb0a49d96ddb3bfflabel" class="modal fade" id="bibtexBello2019sonycc2e5fa28704b4f18bb0a49d96ddb3bff" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexBello2019sonycc2e5fa28704b4f18bb0a49d96ddb3bfflabel">SONYC: A System for Monitoring, Analyzing, and Mitigating Urban Noise Pollution</h4>
+</div>
+<div class="modal-body">
+<pre>@article{Bello2019sonyc,
+    author = "Bello, Juan P. and Silva, Claudio and Nov, Oded and Dubois, R. Luke and Arora, Anish and Salamon, Justin and Mydlarz, Charles and Doraiswamy, Harish",
+    title = "SONYC: A System for Monitoring, Analyzing, and Mitigating Urban Noise Pollution",
+    volume = "62",
+    doi = "10.1145/3224204",
+    number = "2",
+    journal = "Communications of the ACM",
+    year = "2019",
+    month = "Feb",
+    pages = "68-77",
+    abstract = "Noise is unwanted or harmful sound from environmental sources, including traffic, construction, industrial, and social activity. Noise pollution is one of the topmost quality-of-life concerns for urban residents in the U.S., with more than 70 million people nationwide exposed to noise levels beyond the limit the U.S. Environmental Protection Agency (EPA) considers harmful.12 Such levels have proven effects on health, including sleep disruption, hypertension, heart disease, and hearing loss.5,11,12 In addition, there is evidence of harmful effects on educational performance, with studies showing noise pollution causing learning and cognitive impairment in children, resulting in decreased memory capacity, reading skills, and test scores."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

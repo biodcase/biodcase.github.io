@@ -1,0 +1,1555 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Few-shot Bioacoustic Event Detection - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Few-shot Bioacoustic Event Detection - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2023/task-few-shot-bioacoustic-event-detection">
+    <meta property="og:url" content="https://dcase.community/challenge2023/task-few-shot-bioacoustic-event-detection" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="This task focuses on sound event detection in a few-shot learning setting for animal (mammal and bird) vocalisations. Participants will be expected to create a method that can extract information from five exemplar vocalisations (shots) of mammals or birds and detect and classify sounds in field recordings. Challenge has ended …" />
+    <meta name="og:description" content="This task focuses on sound event detection in a few-shot..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2023</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2023/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-low-complexity-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-low-complexity-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-low-complexity-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-localization-and-detection-evaluated-in-real-spatial-sound-scenes" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-localization-and-detection-evaluated-in-real-spatial-sound-scenes"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-localization-and-detection-evaluated-in-real-spatial-sound-scenes-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-and-soft-labels" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-and-soft-labels"><i class="fa fa-info-circle fa-fw"></i>&nbsp;Introduction</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>A: Sound Event Detection with Weak Labels and Synthetic Soundscapes</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-labels-and-synthetic-soundscapes"><i class="fa fa-random fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-weak-labels-and-synthetic-soundscapes-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>B: Sound Event Detection with Soft Labels</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-soft-labels"><i class="fa fa-info-circle fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-sound-event-detection-with-soft-labels-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2023/task-few-shot-bioacoustic-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-bird text-danger"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-few-shot-bioacoustic-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-few-shot-bioacoustic-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-automated-audio-captioning-and-language-based-audio-retrieval" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-captioning text-task1"></i>&nbsp;Task6&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-automated-audio-captioning-and-language-based-audio-retrieval"><i class="fa fa-info-circle fa-fw"></i>&nbsp;Introduction</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>A: Automated Audio-Captioning</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-automated-audio-captioning"><i class="fa dc-captioning fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-automated-audio-captioning-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>B: Language-Based Audio Retrieval</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-language-based-audio-retrieval"><i class="fa fa-file-text fa-fw"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-language-based-audio-retrieval-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2023/task-foley-sound-synthesis" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-synthesis text-task2"></i>&nbsp;Task7&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-foley-sound-synthesis"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2023/task-foley-sound-synthesis-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2023/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2023/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/wood-08.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-danger"></i><i class="fa dc-bird fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text dcase-icon-top-text-sm">Bio</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 5</span></span><img src="../images/logos/dcase/dcase2023_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Few-shot Bioacoustic Event Detection</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Task description</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Coordinators</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Ines Nolasco" class="img img-circle" src="http://localhost:3000/images/person/ines_nolasco.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Ines Nolasco</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://c4dm.eecs.qmul.ac.uk/">
+                                Queen Mary University of London
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Shubhr Singh" class="img img-circle" src="http://localhost:3000/images/person/shubhr_singh.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Shubhr Singh</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://c4dm.eecs.qmul.ac.uk/">
+                                Queen Mary University of London
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Vincent Lostanlen" class="img img-circle" src="http://localhost:3000/images/person/vincent_lostanlen.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Vincent Lostanlen</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.cnrs.fr/">Centre National de la Recherche Scientifique(CNRS)</a><br/>
+<a class="text" href="https://www.ls2n.fr/">Laboratoire des Sciences du Numérique de Nantes (LS2N)</a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Ariana Strandburg-Peshkin" class="img img-circle" src="http://localhost:3000/images/person/ariana_peshkin.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Ariana Strandburg-Peshkin</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.biologie.uni-konstanz.de/en/">University of Konstanz</a><br/>
+<a class="text" href="https://www.ab.mpg.de/crofoot">Max Planck Institute of Animal Behavior</a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Lisa Gill" class="img img-circle" src="http://localhost:3000/images/person/lisa_gill.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Lisa Gill</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.biotopia.net/de/dawnchorus2020/dawnchoruscitizenscience-de">
+                                BIOTOPIA Naturkundemuseum Bayern
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Hanna Pamula" class="img img-circle" src="http://localhost:3000/images/person/hanna_pamula.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Hanna Pamula</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.agh.edu.pl/en/">
+                                AGH University of Science and Technology
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Ester Vidana Vila" class="img img-circle" src="http://localhost:3000/images/person/Ester_Villa.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Ester Vidana Vila</strong>
+<a class="icon" href="mailto:fhjensen@syr.edu"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                La Salle, Universitat Ramon Llull
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Helen Whitehead" class="img img-circle" src="http://localhost:3000/images/person/Helen_Whitehead.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Helen Whitehead</strong>
+<a class="icon" href="mailto:h.c.whitehead1@salford.ac.uk"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                University of Salford
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Ivan Kiskin" class="img img-circle" src="http://localhost:3000/images/person/Ivan_Kiskin.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Ivan Kiskin</strong>
+<a class="icon" href="mailto:i.kiskin@surrey.ac.uk"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.surrey.ac.uk/people/ivan-kiskin">
+                                University of Surrey
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Frants Jensen" class="img img-circle" src="http://localhost:3000/images/person/Frants_Jensen.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Frants Jensen</strong>
+<a class="icon" href="mailto:fhjensen@syr.edu"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                Syracuse University
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Joe Morford" class="img img-circle" src="http://localhost:3000/images/person/Joe_Morford.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Joe Morford</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                University of Oxford
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Michael Emmerson" class="img img-circle" src="http://localhost:3000/images/person/Michael Emmerson.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Michael Emmerson</strong>
+<a class="icon" href="mailto:m.emmerson@qmul.ac.uk"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                Queen Mary University of London
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Veronica Morfi" class="img img-circle" src="http://localhost:3000/images/person/veronica_morfi.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Veronica Morfi</strong>
+<a class="icon" href="mailto:g.v.morfi@qmul.ac.uk"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://c4dm.eecs.qmul.ac.uk/">
+                                Queen Mary University of London
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Burooj Ghani" class="img img-circle" src="http://localhost:3000/images/person/Burooj_ghani.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Burooj Ghani</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.naturalis.nl/en">Tilburg University</a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Dan Stowell" class="img img-circle" src="http://localhost:3000/images/person/dan_stowell.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Dan Stowell</strong>
+<a class="icon" href="mailto:D.Stowell@tilburguniversity.edu"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.naturalis.nl/en">Tilburg University</a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#description">Description</a></li>
+<li><a href="#development-set">Development Set</a>
+<ul>
+<li><a href="#training-set">Training Set</a></li>
+<li><a href="#validation-set">Validation Set</a></li>
+<li><a href="#download">Download</a></li>
+</ul>
+</li>
+<li><a href="#evaluation-set">Evaluation Set</a></li>
+<li><a href="#task-setup">Task setup</a></li>
+<li><a href="#task-rules">Task rules</a></li>
+<li><a href="#submission">Submission</a>
+<ul>
+<li><a href="#metadata-file">Metadata file</a></li>
+</ul>
+</li>
+<li><a href="#evaluation-metric">Evaluation Metric</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#baseline-system">Baseline system</a>
+<ul>
+<li><a href="#baseline-results">Baseline Results</a></li>
+</ul>
+</li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p class="lead">This task focuses on sound event detection in a few-shot learning setting for animal (mammal and bird) vocalisations. Participants will be expected to create a method that can extract information from five exemplar vocalisations (shots) of mammals or birds and detect and classify sounds in field recordings.</p>
+<p class="alert alert-info">
+<strong>Challenge has ended.</strong> Full results for this task can be found in the <a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2023/task-few-shot-bioacoustic-event-detection-results">Results <i class="fa fa-caret-right"></i></a> page.
+</p>
+<div class="alert alert-info">
+    If you are interested in the task, you can join us on  <strong><a href="https://join.slack.com/t/dcase/shared_invite/zt-12zfa5kw0-dD41gVaPU3EZTCAw1mHTCA">dedicated slack : task-fewshot-bio-sed</a></strong>.
+</div>
+<h1 id="description">Description</h1>
+<p><strong>Few-shot learning is a highly promising paradigm for sound event detection. It is also an extremely good fit to the needs of users in bioacoustics, in which increasingly large acoustic datasets commonly need to be labelled for events of an identified category</strong> (e.g. species or call-type), even though this category might not be known in other datasets or have any yet-known label. While satisfying user needs, this will also benchmark few-shot learning for the wider domain of sound event detection (SED).</p>
+<figure>
+<div class="row row-centered">
+<div class="col-xs-10 col-md-8 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2021/few_shot_bioacoustics.png"/>
+</div>
+</div>
+</figure>
+<p><br/>
+<strong>Few-shot learning describes tasks in which an algorithm must make predictions given only a few instances of each class, contrary to standard supervised learning paradigm.</strong> The main objective is to find reliable algorithms that are capable of dealing with data sparsity, class imbalance and noisy/busy environments. Few-shot learning is usually studied using N-way-K-shot classification, where N denotes the number of classes and K the number of examples for each class.</p>
+<p><strong>Some reasons why few-shot learning has been of increasing interest</strong>:</p>
+<ul>
+<li>Scarcity of supervised data can lead to unreliable generalisations of
+     machine learning models.</li>
+<li>Explicitly labeling a huge dataset can be costly both in time and
+     resources.</li>
+<li>Fixed ontologies or class labels used in SED and other DCASE tasks are
+     often a poor fit to a given user’s goal.</li>
+</ul>
+<h1 id="development-set">Development Set</h1>
+<p>The development set is pre-split into training and validation sets. The training set consists of five sub-folders deriving from a different source each. Along with the audio files multi-class annotations are provided for each. The validation set consists of two sub-folders deriving from a different source each, with a single-class (class of interest) annotation file provided for each audio file. </p>
+<h2 id="training-set">Training Set</h2>
+<p>The training set contains four different sub-folders (BV, HV, JD, MT,WMW). Statistics are given overall and specific for each sub-folder.  </p>
+<h3>Overall</h3>
+<table class="table table-responsive table-hover table-striped table-sm">
+<thead>
+<tr class="active">
+<th class="col-md-6"><strong>Statistics</strong></th>
+<th><strong>Values</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of audio recordings</td>
+<td>174</td>
+</tr>
+<tr>
+<td>Total duration</td>
+<td>21 hours</td>
+</tr>
+<tr>
+<td>Total classes (excl. UNK)</td>
+<td>47</td>
+</tr>
+<tr>
+<td>Total events (excl. UNK)</td>
+<td>14229</td>
+</tr>
+</tbody>
+</table>
+<h3>BV</h3>
+<p>The BirdVox-DCASE-10h (BV for short) contains five audio files from four different autonomous recording units, each lasting two hours. These autonomous recording units are all located in Tompkins County, New York, United States. Furthermore, they follow the same hardware specification: the Recording and Observing Bird Identification Node (ROBIN) developed by the Cornell Lab of Ornithology. Andrew Farnsworth, an expert ornithologist, has annotated these recordings for the presence of flight calls from migratory passerines, namely: American sparrows, cardinals, thrushes, and warblers. In total, the annotator found 2,662 from 11 different species. We estimate these flight calls to have a duration of 150 milliseconds and a fundamental frequency between 2 kHz and 10 kHz.</p>
+<table class="table table-responsive table-hover table-striped table-sm">
+<thead>
+<tr class="active">
+<th class="col-md-6"><strong>Statistics</strong></th>
+<th><strong>Values</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of audio recordings</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Total duration</td>
+<td>10 hours</td>
+</tr>
+<tr>
+<td>Total classes (excl. UNK)</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Total events (excl. UNK)</td>
+<td>9026</td>
+</tr>
+<tr>
+<tr>
+<td>Ratio event/duration</td>
+<td>0.04</td>
+</tr>
+<tr>
+<td>Sampling rate</td>
+<td>24,000 Hz</td>
+</tr>
+</tr></tbody>
+</table>
+<h3>HT</h3>
+<p>Spotted hyenas are a highly social species that live in "fission-fusion" groups where group members range alone or in smaller subgroups that split and merge over time. Hyenas use a variety of types of vocalizations to coordinate with one another over both short and long distances. Spotted hyena vocalization data were recorded on custom-developed audio tags designed by Mark Johnson and integrated into combined GPS / acoustic collars (Followit Sweden AB) by Frants Jensen and Mark Johnson. Collars were deployed on female hyenas of the Talek West hyena clan at the <a href="https://www.holekamplab.org/">MSU-Mara Hyena Project</a> (directed by Kay Holekamp) in the Masai Mara, Kenya as part of a multi-species <a href="https://www.movecall.group/">study on communication and collective behavior</a>. Field work was carried out by Kay Holekamp, Andrew Gersick, Frants Jensen, Ariana Strandburg-Peshkin, and  Benson Pion; labeling was done by Kenna Lehmann and colleagues.</p>
+<table class="table table-responsive table-hover table-striped table-sm">
+<thead>
+<tr class="active">
+<th class="col-md-6"><strong>Statistics</strong></th>
+<th><strong>Values</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of audio recordings</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Total duration</td>
+<td>5 hours</td>
+</tr>
+<tr>
+<td>Total classes (excl. UNK)</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Total events (excl. UNK)</td>
+<td>611</td>
+</tr>
+<tr>
+<td>Ratio events/duration</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>Sampling rate</td>
+<td>6000 Hz</td>
+</tr>
+</tbody>
+</table>
+<h3>JD</h3>
+<p>Jackdaws are corvid songbirds which usually breed, forage and sleep in large groups, but form a pair bond with the same partner for life. They produce thousands of vocalisations per day, but many aspects of their vocal behaviour remained unexplored due to the difficulty in recording and assigning vocalisations to specific individuals, especially in natural settings. In a multi-year field study (Max-Planck-Institute for Ornithology, Seewiesen, Germany), wild jackdaws were equipped with small backpacks containing miniature voice recorders (Edic Mini Tiny A31, TS-Market Ltd., Russia) to investigate the vocal behaviour of individuals interacting normally with their group, and behaving freely in their natural environment. The jackdaw training dataset contains a 10-minute on-bird sound recording of one male jackdaw during the breeding season 2015. Field work was conducted by Lisa Gill, Magdalena Pelayo van Buuren and Magdalena Maier. Sound files were annotated by Lisa Gill, based on a previously established video-validation in a captive setting.</p>
+<table class="table table-responsive table-hover table-striped table-sm">
+<thead>
+<tr class="active">
+<th class="col-md-6"><strong>Statistics</strong></th>
+<th><strong>Values</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of audio recordings</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Total duration</td>
+<td>10 minutes</td>
+</tr>
+<tr>
+<td>Total classes (excl. UNK)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Total events (excl. UNK)</td>
+<td>357</td>
+</tr>
+<tr>
+<td>Ratio event/duration</td>
+<td>0.06</td>
+</tr>
+<tr>
+<td>Sampling rate</td>
+<td>22,050 Hz</td>
+</tr>
+</tbody>
+</table>
+<h3>MT</h3>
+<p>Meerkats are a highly social mongoose species that live in stable social groups and use a variety of distinct vocalizations to communicate and coordinate with one another. Meerkat vocalization data were recorded at the <a href="https://kalahari-meerkats.com/kmp/">Kalahari Meerkat Project</a> (Kuruman River Reserve, South Africa; directed by Marta Manser and Tim Clutton-Brock), as part of a multi-species <a href="https://www.movecall.group/">study on communication and collective behavior</a>. Data in the training set were recorded on small audio devices (TS Market, Edic Mini Tiny+ A77, 8 kHz) integrated into combined GPS/audio collars which were deployed on multiple members of meerkat groups to monitor their movements and vocalizations simultaneously. Recordings were carried out during daytime hours while meerkats were primarily foraging (digging in the ground for small prey items). Field work was carried out by Ariana Strandburg-Peshkin, Baptiste Averly, Vlad Demartsev, Gabriella Gall, Rebecca Schaefer and Marta Manser. Audio recordings were labeled by Baptiste Averly, Vlad Demartsev, Ariana Strandburg-Peshkin, and colleagues.</p>
+<table class="table table-responsive table-hover table-striped table-sm">
+<thead>
+<tr class="active">
+<th class="col-md-6"><strong>Statistics</strong></th>
+<th><strong>Values</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of audio recordings</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Total duration</td>
+<td>1 hour and 10 mins</td>
+</tr>
+<tr>
+<td>Total classes (excl. UNK)</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Total events (excl. UNK)</td>
+<td>1294</td>
+</tr>
+<tr>
+<td>Ratio event/duration</td>
+<td>0.04</td>
+</tr>
+<tr>
+<td>Sampling rate</td>
+<td>8,000 Hz</td>
+</tr>
+</tbody>
+</table>
+<h3>WMW</h3>
+<p>WMW consist on a selection of recordings from the <a href="https://zenodo.org/record/5093173?token=eyJhbGciOiJIUzUxMiIsImV4cCI6MTYzOTc4MTk5OSwiaWF0IjoxNjM3MTY3Nzc3fQ.eyJkYXRhIjp7InJlY2lkIjo1MDkzMTczfSwiaWQiOjE4NDAxLCJybmQiOiI5ZjBjODY3ZCJ9.Jbxn_ia64IvfYAfOvet0IBHoacyvMAasfXUatUSqBKa339Xqeo0Ee5Ccg2Lf8QoGhEjqy5NZ_6D1dQijRT0xVw#.Yh9t5OjP1D9">Western Mediterranean Wetlands Bird dataset</a>. The recordings are taken from the Xeno-Canto portal. The present selection consists in 161 audio recordings of different lengths that have at least 10 positive events. These have been annotated for 26 different classes of 20 species of birds.</p>
+<table class="table table-responsive table-hover table-striped table-sm">
+<thead>
+<tr class="active">
+<th class="col-md-6"><strong>Statistics</strong></th>
+<th><strong>Values</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of audio recordings</td>
+<td>161</td>
+</tr>
+<tr>
+<td>Total duration</td>
+<td>4 hour and 40 mins</td>
+</tr>
+<tr>
+<td>Total classes (excl. UNK)</td>
+<td>26</td>
+</tr>
+<tr>
+<td>Total events (excl. UNK)</td>
+<td>2941</td>
+</tr>
+<tr>
+<td>Ratio event/duration</td>
+<td>0.24</td>
+</tr>
+<tr>
+<td>Sampling rate</td>
+<td>various</td>
+</tr>
+</tbody>
+</table>
+<h3>Training annotation format</h3>
+<p>Annotation files have the same name as their corresponding audiofiles with extension <code>*.csv</code>. For the training set multi-class annotations are provided, with positive (POS), negative (NEG) and unknown (UNK) values for each class. UNK indicates uncertainty about a class and participants can choose to ignore it. 
+Example of an annotation file for <code>audio.wav</code>:</p>
+<div class="highlight"><pre><span></span><code>Audiofilename,Starttime,Endtime,CLASS_1,CLASS_2,...,CLASS_N
+audio.wav,1.1,2.2,POS,NEG,...,NEG
+.
+.
+.
+audio.wav,99.9,100.0,UNK,UNK,...,NEG
+</code></pre></div>
+<h2 id="validation-set">Validation Set</h2>
+<p>The validation set comprises of four sub-folders (HV, PB,ME,ML). Specific information about the source of the recordings are not provided for the participants for the duration of the challenge, as to make information available for the validation set as similar to the evaluation set (once that is also published). More information about both will be made available after the end of the challenge.</p>
+<p><strong>There is no overlap between the training set and validation set classes.</strong> </p>
+<h3>Overall</h3>
+<table class="table table-responsive table-hover table-striped table-sm">
+<thead>
+<tr class="active">
+<th class="col-md-6"><strong>Statistics</strong></th>
+<th><strong>Values</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of audio recordings</td>
+<td>18</td>
+</tr>
+<tr>
+<td>Total duration</td>
+<td>5 hours and 57 minutes</td>
+</tr>
+<tr>
+<td>Total classes (excl. UNK)</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Total events (excl. UNK)</td>
+<td>1077</td>
+</tr>
+</tbody>
+</table>
+<h3>HB</h3>
+<table class="table table-responsive table-hover table-striped table-sm">
+<thead>
+<tr class="active">
+<th class="col-md-6"><strong>Statistics</strong></th>
+<th><strong>Values</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of audio recordings</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Total duration</td>
+<td>2 hours and 38 minutes</td>
+</tr>
+<tr>
+<td>Total classes (excl. UNK)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Total events (excl. UNK)</td>
+<td>712</td>
+</tr>
+<tr>
+<td>Ratio event/duration</td>
+<td>0.7</td>
+</tr>
+<tr>
+<td>Sampling rate</td>
+<td>44100 Hz</td>
+</tr>
+</tbody>
+</table>
+<h3>PB</h3>
+<table class="table table-responsive table-hover table-striped table-sm">
+<thead>
+<tr class="active">
+<th class="col-md-6"><strong>Statistics</strong></th>
+<th><strong>Values</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of audio recordings</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Total duration</td>
+<td>3 hours</td>
+</tr>
+<tr>
+<td>Total classes (excl. UNK)</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Total events (excl. UNK)</td>
+<td>292</td>
+</tr>
+<tr>
+<td>Sampling rate</td>
+<td>44,100 Hz</td>
+</tr>
+</tbody>
+</table>
+<h3>ME</h3>
+<table class="table table-responsive table-hover table-striped table-sm">
+<thead>
+<tr class="active">
+<th class="col-md-6"><strong>Statistics</strong></th>
+<th><strong>Values</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of audio recordings</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Total duration</td>
+<td>20 minutes</td>
+</tr>
+<tr>
+<td>Total classes (excl. UNK)</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Total events (excl. UNK)</td>
+<td>73</td>
+</tr>
+<tr>
+<td>Ratio event/duration</td>
+<td>0.01</td>
+</tr>
+<tr>
+<td>Sampling rate</td>
+<td>48000 Hz</td>
+</tr>
+</tbody>
+</table>
+<h3>Validation annotation format</h3>
+<p>Annotation files have the same name as their corresponding audiofiles with extension <code>*.csv</code>. For the validation set single-class (class of interest) annotations are provided, with positive (POS), unkwown (UNK) values. UNK indicates uncertainty about a class and participants can choose to ignore it. Each audio file should be treated separately of the rest, as there is possible overlap between the classes of the evaluation set across different audio files.</p>
+<p><strong>Participants must treat the task as a 5-shot setting and only use the first five POS annotations for the class of interest for each file, when trying to predict the rest.</strong></p>
+<p>Example of an annotation file for <code>audio_val.wav</code>:</p>
+<div class="highlight"><pre><span></span><code>Audiofilename,Starttime,Endtime,Q
+audio_val.wav,1.1,2.2,POS
+.
+.
+.
+audio_val.wav,99.9,100.0,UNK
+</code></pre></div>
+<h2 id="download">Download</h2>
+<p><strong>Training and Validation set remain unchanged from 2022 challenge.</strong> </p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://doi.org/10.5281/zenodo.6012309" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://doi.org/10.5281/zenodo.6012309" target="_blank">
+<span style="font-size:20px;">DCASE 2022 Task 5: Few-shot Bioacoustic Event Detection Development Set <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(4.8 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.6012309">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.6012309.svg"/>
+</a>
+<span class="text-muted">
+                
+                version 3.0
+                
+                
+                </span>
+</div>
+</div>
+<p><br/></p>
+<h1 id="evaluation-set">Evaluation Set</h1>
+<p>The Evaluation set consists of 66 audio files acquired from different bioacoustic sources organized by 8 subsets (CHE, CHE23, CT, CW, DC, MGE, MS, QU) At this time only the first 5 annotations are provided for each file, with events marked as positive (POS) for the class of interest. The annotation files follow the same format as for the validation set. This dataset is to be used for evaluation purposes during the task.</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://doi.org/10.5281/zenodo.7879692" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://doi.org/10.5281/zenodo.7879692" target="_blank">
+<span style="font-size:20px;">DCASE 2023 Task 5: Few-shot Bioacoustic Event Detection Evaluation Set <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(3.2 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.7879692">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.7879692.svg"/>
+</a>
+<span class="text-muted">
+                
+                version 1.0
+                
+                
+                </span>
+</div>
+</div>
+<h1 id="task-setup">Task setup</h1>
+<p><strong>This few-shot task will run as a 5-shot task.</strong> Hence, five annotated calls from each recording in the evaluation set will be provided to the participants. Each recording of the evaluation set will have a single class of interest which the participants will then need to detect through the recording. Each recording can have multiple types of calls or species present in it, as well as background noise, however only the label of interest needs to be detected.</p>
+<p><strong>During the development period the participants are required to treat the validation set in the same way as the evaluation set by using the first five positive (POS) events for their models.</strong> Participants should keep in mind that our evaluation metric ignores anything before the end time of the fifth positive event, hence using randomly selected events from the validation set may lead to incorrect performance values.</p>
+<h1 id="task-rules">Task rules</h1>
+<ul>
+<li>Use of external data (e.g. audio files, annotations) is <strong>allowed only after approval</strong> from the task coordinators (contact: <code>i.dealmeidanolasco@qmul.ac.uk</code>). Typically these external datasets should be public, open datasets.</li>
+<li>Use of pre-trained models is <strong>allowed only after approval</strong> from the task coordinators (contact: <code>i.dealmeidanolasco@qmul.ac.uk</code>).</li>
+<li>List of external datasets and models allowed:</li>
+</ul>
+<table class="datatable table table-hover table-condensed" data-filter-control="false" data-filter-show-clear="false" data-id-field="name" data-pagination="true" data-show-pagination-switch="true" data-sort-name="name" data-sort-order="asc">
+<thead>
+<tr>
+<th data-field="name" data-sortable="true">Dataset name</th>
+<th data-field="type" data-filter-control="select" data-sortable="true" data-tag="true">Type</th>
+<th data-field="date" data-sortable="true">Added</th>
+<th data-field="link" data-value-type="url">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AudioSet</td>
+<td>audio, video</td>
+<td>01.03.2023</td>
+<td>https://research.google.com/audioset/</td>
+</tr>
+<tr>
+<td>OpenL3</td>
+<td>model</td>
+<td>01.03.2023</td>
+<td>https://openl3.readthedocs.io/</td>
+</tr>
+<tr>
+<td>ECAPA-TDNN</td>
+<td>model</td>
+<td>01.03.2023</td>
+<td>https://github.com/speechbrain/speechbrain</td>
+</tr>
+<tr>
+<td>PANN</td>
+<td>model</td>
+<td>01.03.2023</td>
+<td>https://github.com/qiuqiangkong/audioset_tagging_cnn</td>
+</tr>
+<tr>
+<td>BEATs</td>
+<td>model</td>
+<td>01.03.2023</td>
+<td>https://github.com/microsoft/unilm/tree/master/beats</td>
+</tr>
+<tr>
+<td>ESC50</td>
+<td>audio dataset</td>
+<td>01.03.2023</td>
+<td>http://www.cs.cmu.edu/~alnu/tlwled/esc50.htm</td>
+</tr>
+<tr>
+<td>ImageNet</td>
+<td>image dataset</td>
+<td>14.05.2021</td>
+<td>http://www.image-net.org/</td>
+</tr>
+<tr>
+<td>VoxCeleb</td>
+<td>audio,visual dataset</td>
+<td>01.03.2023</td>
+<td>https://www.robots.ox.ac.uk/~vgg/data/voxceleb/</td>
+</tr>
+<tr>
+<td>TUT Acoustic scenes 2016</td>
+<td>audio dataset</td>
+<td>01.03.2023</td>
+<td>https://zenodo.org/record/45739#.YJ76v5NKidY</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<ul>
+<li>The development dataset (i.e. training and validation) can be augmented <strong>without</strong> the use of external data.</li>
+<li>Participants are <strong>not allowed</strong> to use <a href="https://www.robots.ox.ac.uk/~vgg/data/vggsound/">VGG Sound dataset</a>, <a href="http://dcase.community/challenge2018/task-bird-audio-detection">DCASE2018 Bird Audio Detection task dataset</a> and <a href="https://research.google.com/audioset/download_strong.html">AudioSet Strong</a></li>
+<li>Participants are <strong>not allowed</strong> to make subjective judgments of the evaluation data, nor to annotate it.</li>
+<li>Participants are <strong>not allowed</strong> to use extra annotations for the provided data.</li>
+<li>Participants are <strong>only allowed to use the first five positive (POS) annotations from each validation set annotation file</strong> and use the rest for evaluation of their method.</li>
+<li>Participants <strong>must treat each file in the validation set independently</strong> of the others (e.g. for prototypical networks do not save prototypes between audio files). This is due to the fact that the classes of the validation set are hidden and there is possible overlap between them inside the validation set.</li>
+<li>Ensemble models are  <strong>not allowed</strong>. </li>
+</ul>
+<h1 id="submission">Submission</h1>
+<p>Official challenge submission consists of:</p>
+<ul>
+<li>System output file (<code>*.csv</code>)</li>
+<li>Metadata file (<code>*.yaml</code>)</li>
+<li>Technical report explaining in sufficient detail the method (<code>*.pdf</code>)</li>
+</ul>
+<p>System output should be presented as a <strong>single</strong> text-file (in CSV format, with a header row as shown in the example output below). </p>
+<p>For each system, meta information should be provided in a separate file, containing the task-specific information. This meta information enables fast processing of the submissions and analysis of submitted systems. Participants are advised to fill the meta information carefully while making sure all information is correctly provided.</p>
+<p>We allow up to 4 system output submissions per participant/team. For each system, metadata should be provided in a separate file, containing the task specific information. All files should be packaged into a zip file for submission. Please make a clear connection between the system name in the submitted metadata (the <code>*.yaml</code> file), submitted system output (the <code>*.csv</code> file), and the technical report. The detailed information regarding the challenge information can be found in the Submission page.
+Finally, for supporting reproducible research, we kindly ask from each participant/team to consider making available the code of their method (e.g. in GitHub) and pre-trained models, after the challenge is over.</p>
+<p><strong>Please note:</strong> automated procedures will be used for the evaluation of the submitted results. Therefore, the column names should be exactly as indicated in the example output below. Events in each file should be in order of start time.</p>
+<p>Example output:</p>
+<pre class="tab18">Audiofilename,Starttime,Endtime
+BUK5_20161101_002104a.wav,356.0134694,356.1384127
+BUK5_20161101_002104a.wav,356.18839,356.488254
+BUK5_20161101_002104a.wav,356.5882086,356.7131519</pre>
+<h2 id="metadata-file">Metadata file</h2>
+<p>Example meta information file for task 5 baseline system <code>task5/Morfi_QMUL_task5_1/Morfi_QMUL_task5_1.meta.yaml</code>:</p>
+<div aria-multiselectable="true" class="panel-group" id="metadata-A-accordion" role="tablist">
+<div class="panel panel-default">
+<div class="panel-heading" id="task1a-example-header" role="tab">
+<h4 class="panel-title">
+<a aria-controls="collapseOne" aria-expanded="true" class="collapsed accordion-toggle" data-parent="#metadata-A-accordion" data-toggle="collapse" href="#task1a-example-collapse" role="button">               
+                   Task 5 / Metadata
+                </a>
+</h4>
+</div>
+<div aria-labelledby="task1a-example-header" class="panel-collapse collapse" id="task1a-example-collapse" role="tabpanel">
+<div class="panel-body" style="padding: 0px">
+<pre class="font110" style="padding:0;border:0;border-radius:0;"><code class="yaml"># Submission information
+submission:
+  # Submission label
+  # Label is used to index submissions, to avoid overlapping codes among submissions
+  # use the following way to form your label:
+  # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number]_[index number of your submission (1-4)]
+  label: Morfi_QMUL_task5_1
+
+  # Submission name
+  # This name will be used in the results tables when space permits
+  name: Cross-correlation baseline
+
+  # Submission name abbreviated
+  # This abbreviated name will be used in the results table when space is tight, maximum 10 characters
+  abbreviation: xcorr_base
+
+  # Submission authors in order, mark one of the authors as corresponding author.
+  authors:
+    # First author
+    - lastname: Morfi
+      firstname: Veronica
+      email: g.v.morfi@qmul.ac.uk                     # Contact email address
+      corresponding: true                             # Mark true for one of the authors
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: QMUL
+        institute: Queen Mary University of London
+        department: Centre for Digital Music
+        location: London, UK
+
+    # Second author
+    - lastname: Stowell
+      firstname: Dan
+      email: dan.stowell@qmul.ac.uk                  # Contact email address
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: QMUL
+        institute: Queen Mary University of London
+        department: Centre for Digital Music
+        location: London, UK
+
+        #...
+
+
+# System information
+system:
+  # SED system description, meta data provided here will be used to do
+  # meta analysis of the submitted system. Use general level tags, if possible use the tags provided in comments.
+  # If information field is not applicable to the system, use "!!null".
+  description:
+
+    # Audio input
+    input_sampling_rate: any               # In kHz
+
+    # Acoustic representation
+    acoustic_features: spectrogram   # e.g one or multiple [MFCC, log-mel energies, spectrogram, CQT, PCEN, ...]
+
+    # Data augmentation methods
+    data_augmentation: !!null             # [time stretching, block mixing, pitch shifting, ...]
+
+    # Embeddings
+    # e.g. VGGish, OpenL3, ...
+    embeddings: !!null
+
+    # Machine learning
+    # In case using ensemble methods, please specify all methods used (comma separated list).
+    machine_learning_method: template matching         # e.g one or multiple [GMM, HMM, SVM, kNN, MLP, CNN, RNN, CRNN, NMF, random forest, ensemble, transformer, ...]
+    # the system adaptation for "few shot" scenario.
+    # For example, if machine_learning_method is "CNN", the few_shot_method might use one of [fine tuning, prototypical, MAML] in addition to the standard CNN architecture.
+    few_shot_method: template matching         # e.g [fine tuning, prototypical, MAML, nearest neighbours...]
+
+    # External data usage method
+    # e.g. directly, embeddings, pre-trained model, ...
+    external_data_usage: !!null
+
+    # Ensemble method subsystem count
+    # In case ensemble method is not used, mark !!null.
+    ensemble_method_subsystem_count: !!null # [2, 3, 4, 5, ... ]
+
+    # Decision making methods (for ensemble)
+    decision_making: !!null                 # [majority vote, ...]
+
+    # Post-processing, followed by the time span (in ms) in case of smoothing
+    post-processing: peak picking, threshold				# [median filtering, time aggregation...]
+
+  # System complexity, meta data provided here will be used to evaluate
+  # submitted systems from the computational load perspective.
+  complexity:
+
+    # Total amount of parameters used in the acoustic model. For neural networks, this
+    # information is usually given before training process in the network summary.
+    # For other than neural networks, if parameter count information is not directly available,
+    # try estimating the count as accurately as possible.
+    # In case of ensemble approaches, add up parameters for all subsystems.
+    total_parameters: !!null    # note that for simple template matching, the "parameters"==the pixel count of the templates, plus 1 for each param such as thresholding. 
+    # Approximate training time followed by the hardware used
+    trainining_time: !!null
+    # Model size in MB
+    model_size: !!null
+
+
+  # URL to the source code of the system [optional, highly recommended]
+  source_code:   
+
+  # List of external datasets used in the submission.
+  # A previous DCASE development dataset is used here only as example! List only external datasets
+  external_datasets:
+    # Dataset name
+    - name: !!null
+      # Dataset access url
+      url: !!null
+      # Total audio length in minutes
+      total_audio_length: !!null            # minutes
+
+# System results 
+results:
+  # Full results are not mandatory, but for through analysis of the challenge submissions recommended.
+  # If you cannot provide all result details, also incomplete results can be reported.
+  validation_set:
+    overall:
+      F-score: 2.01 # percentile
+
+    # Per-dataset
+    dataset_wise:
+      HV:
+        F-score: 1.22 #percentile
+      PB:
+        F-score: 5.84 #percentile
+
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<h1 id="evaluation-metric">Evaluation Metric</h1>
+<p>We implemented an event-based F-measure, macro-averaged evaluation metric. We use IoU followed by bipartite graph matching. The evaluation metric ignores the part of the file that contains the first five positive (POS) events and measure are estimated after the end time of the fifth positive event for each file. Furthermore, real-world datasets contain a small number of ambiguous or unknown labels marked as UNK in the annotation files provided. This evaluation metrics treats these separately during evaluation, so as not to penalise algorithms that can perform better than a human annotator. <strong>Final ranking of methods will be based on the overall F-measure for the whole of the evaluation set.</strong></p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/c4dm/dcase-few-shot-bioacoustic/tree/main/evaluation_metrics" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/c4dm/dcase-few-shot-bioacoustic/tree/main/evaluation_metrics" target="_blank">
+<span style="font-size:20px;">DCASE2022 Task 5 <strong>evaluation metric</strong>, repository <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<h1 id="results">Results</h1>
+<table class="datatable table" data-bar-hline="false" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar" data-filter-control="true" data-filter-show-clear="true" data-id-field="label" data-page-list="[10, 25, 50, All]" data-page-size="10" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="results_evaluation_set_overall_F-score" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="3">Submission Information</th>
+<th class="sep-left-cell" colspan="2"></th>
+</tr>
+<tr>
+<th data-field="label" data-sortable="true">
+                Code
+            </th>
+<th class="sep-left-cell" data-field="corresponding_author" data-sortable="false">
+                Author
+            </th>
+<th class="sm-cell" data-field="corresponding_affiliation" data-sortable="false">
+                Affiliation
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Event-based F-score (Evaluation dataset)" data-chartable="true" data-field="results_evaluation_set_overall_F-score" data-sortable="true" data-value-type="float1-percentage-interval-muted">
+                Event-based<br/>F-score <br/><small class="text-muted">with 95% confidence interval</small> <br/>(Evaluation dataset)
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Baseline_TempMatch_task5_1</td>
+<td>Ines Nolasco</td>
+<td>Centre for Digital Music, EECS, Queen Mary University of London, UK</td>
+<td>14.9 (14.0 - 15.3)</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Baseline_PROTO_task5_1</td>
+<td>Shubhr Singh</td>
+<td>Centre for Digital Music, EECS, Queen Mary University of London, UK</td>
+<td>2.92 ( 2.32 - 3.08 )</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Moummad_IMT_task5_3</td>
+<td>Ilyass Moummad</td>
+<td>Institut Mines Telecom Atlantique, Mathematical and Electrical  Engineering, Brest, France</td>
+<td>38.3 (37.9 - 38.7)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Moummad_IMT_task5_4</td>
+<td>Ilyass Moummad</td>
+<td>Institut Mines Telecom Atlantique, Mathematical and Electrical  Engineering, Brest, France</td>
+<td>34.4 (33.9 - 34.8)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Moummad_IMT_task5_1</td>
+<td>Ilyass Moummad</td>
+<td>Institut Mines Telecom Atlantique, Mathematical and Electrical  Engineering, Brest, France</td>
+<td>35.6 (35.3 - 36.0)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Moummad_IMT_task5_2</td>
+<td>Ilyass Moummad</td>
+<td>Institut Mines Telecom Atlantique, Mathematical and Electrical  Engineering, Brest, France</td>
+<td>42.7 (42.2 - 43.1)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Gelderblom_SINTEF_task5_2</td>
+<td>Femke Gelderblom</td>
+<td>Acoustics SINTEF Digital, Trondheim, Norway</td>
+<td>31.1 (30.5 - 31.6)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Gelderblom_SINTEF_task5_1</td>
+<td>Femke Gelderblom</td>
+<td>Acoustics SINTEF Digital, Trondheim, Norway</td>
+<td>23.4 (22.9 - 23.8)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>XuQianHu_NUDT_BIT_task5_3</td>
+<td>Kun Qian</td>
+<td>Key Laboratory of Brain Health Intelligent Evaluation and Intervention,  School of Medical Technology , Beijing Institute of Technology, P.R. China</td>
+<td>42.5 (41.8 - 43.0)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>XuQianHu_NUDT_BIT_task5_1</td>
+<td>Kun Qian</td>
+<td>Key Laboratory of Brain Health Intelligent Evaluation and Intervention,  School of Medical Technology , Beijing Institute of Technology, P.R. China</td>
+<td>21.7 (21.1 - 22.1)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>XuQianHu_NUDT_BIT_task5_2</td>
+<td>Kun Qian</td>
+<td>Key Laboratory of Brain Health Intelligent Evaluation and Intervention,  School of Medical Technology , Beijing Institute of Technology, P.R. China</td>
+<td>34.1 (33.6 - 34.4)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>XuQianHu_NUDT_BIT_task5_4</td>
+<td>Kun Qian</td>
+<td>Key Laboratory of Brain Health Intelligent Evaluation and Intervention,  School of Medical Technology , Beijing Institute of Technology, P.R. China</td>
+<td>21.7 (21.2 - 22.1)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Wilkinghoff_FKIE_task5_4</td>
+<td>Kevin Wilkinghoff</td>
+<td>Fraunhofer FKIE, Communication Systems, Wachtberg, Germany</td>
+<td>16.0 (15.5 - 16.4)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Wilkinghoff_FKIE_task5_1</td>
+<td>Kevin Wilkinghoff</td>
+<td>Fraunhofer FKIE, Communication Systems, Wachtberg, Germany</td>
+<td>10.1 (9.6 - 10.5)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Wilkinghoff_FKIE_task5_3</td>
+<td>Kevin Wilkinghoff</td>
+<td>Fraunhofer FKIE, Communication Systems, Wachtberg, Germany</td>
+<td>9.4 (8.9 - 9.8)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Wilkinghoff_FKIE_task5_2</td>
+<td>Kevin Wilkinghoff</td>
+<td>Fraunhofer FKIE, Communication Systems, Wachtberg, Germany</td>
+<td>9.9 (9.3 - 10.2)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Jung_KT_task5_4</td>
+<td>JaeHoon Jung</td>
+<td>KT Corporation, Acoustic Intelligence Project, AI2XL Lab., Institute of Convergence Technology, Seoul, Korea'</td>
+<td>26.3 (25.8 - 26.8)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Jung_KT_task5_2</td>
+<td>JaeHoon Jung</td>
+<td>KT Corporation, Acoustic Intelligence Project, AI2XL Lab., Institute of Convergence Technology, Seoul, Korea'</td>
+<td>15.7 (14.8 - 16.3)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Jung_KT_task5_3</td>
+<td>JaeHoon Jung</td>
+<td>KT Corporation, Acoustic Intelligence Project, AI2XL Lab., Institute of Convergence Technology, Seoul, Korea'</td>
+<td>27.1 (26.5 - 27.6)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Jung_KT_task5_1</td>
+<td>JaeHoon Jung</td>
+<td>KT Corporation, Acoustic Intelligence Project, AI2XL Lab., Institute of Convergence Technology, Seoul, Korea'</td>
+<td>14.1 (13.2 - 14.6)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Du_NERCSLIP_task5_2</td>
+<td>Du Jun</td>
+<td>USTC, University of Science and Technology of China, Hefei, China</td>
+<td>63.8 (63.3 - 64.2)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Du_NERCSLIP_task5_1</td>
+<td>Du Jun</td>
+<td>USTC, University of Science and Technology of China, Hefei, China</td>
+<td>61.2 (60.7 - 61.6)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Du_NERCSLIP_task5_3</td>
+<td>Du Jun</td>
+<td>USTC, University of Science and Technology of China, Hefei, China</td>
+<td>63.6 (63.2 - 64.0)</td>
+</tr>
+<tr data-hline="true">
+<td></td>
+<td>Du_NERCSLIP_task5_4</td>
+<td>Du Jun</td>
+<td>USTC, University of Science and Technology of China, Hefei, China</td>
+<td>63.6 (63.2 - 64.0)</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<p>Complete results and technical reports can be found in the <a class="btn btn-primary" href="http://localhost:3000/challenge2023/task-few-shot-bioacoustic-event-detection-results">results page</a></p>
+<h1 id="baseline-system">Baseline system</h1>
+<p>Two baselines are provided:</p>
+<ul>
+<li>Spectrogram correlation template matching (common in bioacoustics)</li>
+<li>Deep learning prototypical network (a good modern approach)</li>
+<li>The reported result for deep learning baseline is the best performance of the model.</li>
+</ul>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/c4dm/dcase-few-shot-bioacoustic/tree/main/baselines" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/c4dm/dcase-few-shot-bioacoustic/tree/main/baselines" target="_blank">
+<span style="font-size:20px;">DCASE2022 Task 5 <strong>baseline</strong>, repository <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<h2 id="baseline-results">Baseline Results</h2>
+<table class="table table-responsive table-hover table-striped table-sm">
+<thead>
+<tr class="active">
+<th><strong>System</strong></th>
+<th><strong>F-measure</strong></th>
+<th><strong>Precision</strong></th>
+<th><strong>Recall</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Template Matching</td>
+<td>4.28%</td>
+<td>2.42%</td>
+<td>18.32%</td>
+</tr>
+<tr>
+<td>Prototypical Network</td>
+<td>29.59%</td>
+<td>36.34%</td>
+<td>24.96%</td>
+</tr>
+</tbody>
+</table>
+<p>Sound event detection via few-shot learning is a novel and challenging task, as reflected in the performance of the baseline systems. There is thus lots of scope for improving on these scores, and making a significant contribution to animal monitoring.</p>
+<h1 id="contact">Contact</h1>
+<p>Participants can contact the task organisers via email (i.dealmeidanolasco@qmul.ac.uk) or in the Slack channel: <a href="https://join.slack.com/t/dcase/shared_invite/zt-12zfa5kw0-dD41gVaPU3EZTCAw1mHTCA">task-fewshot-bio-sed</a></p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

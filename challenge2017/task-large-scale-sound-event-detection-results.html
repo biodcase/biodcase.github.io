@@ -1,0 +1,5817 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Large-scale weakly supervised sound event detection for smart cars - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Large-scale weakly supervised sound event detection for smart cars - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2017/task-large-scale-sound-event-detection-results">
+    <meta property="og:url" content="https://dcase.community/challenge2017/task-large-scale-sound-event-detection-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="Toni Heittola" />
+    <meta name="description" content="Task description The task evaluates systems for the large-scale detection of sound events using weakly labeled training data. The task employs a subset of AudioSet dataset by using 17 sound event classes from two categories (“Warning sounds” and “Vehicle sounds”). Detailed task description can be found in the task description …" />
+    <meta name="og:description" content="Task description The task evaluates systems for the..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btex.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2017</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2017/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2017/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2017/task-rare-sound-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-alarm text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-rare-sound-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-rare-sound-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2017/task-sound-event-detection-in-real-life-audio" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-events text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-sound-event-detection-in-real-life-audio"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-sound-event-detection-in-real-life-audio-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2017/task-large-scale-sound-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-large-scale-sound-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2017/task-large-scale-sound-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Download data">
+        <a href="http://localhost:3000/challenge2017/download"><i class="fa fa-download"></i>&nbsp;Download</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2017/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2017/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge organizers">
+        <a href="http://localhost:3000/challenge2017/organizers"><i class="fa fa-users"></i>&nbsp;Organizers</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/wall-malaga-01.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-info"></i><i class="fa dc-large-scale fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text">Large-scale</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 4</span></span><img src="../images/logos/dcase/dcase2017_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Large-scale weakly supervised <br>sound event detection for smart cars</h1><hr class="small right bold"><span class="subheading">Challenge results</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#task-description">Task description</a></li>
+<li><a href="#challenge-results">Challenge results</a>
+<ul>
+<li><a href="#systems-ranking">Systems ranking</a></li>
+<li><a href="#teams-ranking">Teams ranking</a></li>
+<li><a href="#class-wise-performance">Class-wise performance</a></li>
+</ul>
+</li>
+<li><a href="#system-characteristics">System characteristics</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h2 id="task-description">Task description</h2>
+<p>The task evaluates systems for the large-scale detection of sound events using weakly labeled training data. The task employs a subset of <a href="https://research.google.com/audioset/">AudioSet dataset</a> by using 17 sound event classes from two categories (“Warning sounds” and “Vehicle sounds”).</p>
+<p>Detailed task description can be found in the <a class="btn btn-primary" href="http://localhost:3000/challenge2017/task-large-scale-sound-event-detection">task description page</a></p>
+<h2 id="challenge-results">Challenge results</h2>
+<p>Detailed description of metrics used can be found <a href="http://localhost:3000/challenge2017/metrics">here</a>.</p>
+<p>System outputs:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/2598364" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/2598364" target="_blank">
+<span style="font-size:20px;">DCASE2017 Challenge Submissions Package <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(28.7 MB)</span>
+<br/>
+<a href="http://dx.doi.org/10.5281/zenodo.2598364">
+<img alt="10.5281/zenodo.2598364" src="https://zenodo.org/badge/doi/10.5281/zenodo.2598364.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<h3 id="systems-ranking">Systems ranking</h3>
+<h4>Subtask A - Audio tagging</h4>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="A_micro_F1_overall_eval" data-scatter-y="A_micro_F1_overall_dev" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="A_micro_F1_overall_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="3">Evaluation dataset (overall)</th>
+<th class="sep-left-cell text-center" colspan="3">Development dataset (overall)</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="A_micro_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(overall / evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="A_micro_Pre_overall_eval" data-sortable="true" data-value-type="float1">
+                Precision <small class="hidden">(overall / evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="A_micro_Re_overall_eval" data-sortable="true" data-value-type="float1">
+                Recall <small class="hidden">(overall / evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="A_micro_F1_overall_dev" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(overall / development dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="A_micro_Pre_overall_dev" data-sortable="true" data-value-type="float1">
+                Precision <small class="hidden">(overall / development dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="A_micro_Re_overall_dev" data-sortable="true" data-value-type="float1">
+                Recall <small class="hidden">(overall / development dataset)</small>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_1</td>
+<td>Ash_1</td>
+<td>45.5</td>
+<td>57.2</td>
+<td>37.9</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_2</td>
+<td>Ash_2</td>
+<td>46.6</td>
+<td>58.0</td>
+<td>38.9</td>
+<td>43.2</td>
+<td>47.5</td>
+<td>39.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_3</td>
+<td>Ash_3</td>
+<td>44.5</td>
+<td>55.8</td>
+<td>37.1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_4</td>
+<td>Ash_4</td>
+<td>26.3</td>
+<td>33.2</td>
+<td>21.8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Chou2017</td>
+<td>Chou_SINICA_task4_1</td>
+<td>FCNN_SM_1</td>
+<td>47.6</td>
+<td>43.8</td>
+<td>52.2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Chou2017</td>
+<td>Chou_SINICA_task4_2</td>
+<td>FCNN_SM_2</td>
+<td>49.0</td>
+<td>51.9</td>
+<td>46.4</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Chou2017</td>
+<td>Chou_SINICA_task4_3</td>
+<td>FCNN_SM_3</td>
+<td>47.9</td>
+<td>48.4</td>
+<td>47.4</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Chou2017</td>
+<td>Chou_SINICA_task4_4</td>
+<td>FCNN_SM_3</td>
+<td>49.0</td>
+<td>53.8</td>
+<td>45.0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Badlani2017</td>
+<td>DCASE2017 baseline</td>
+<td>Baseline</td>
+<td>18.2</td>
+<td>15.0</td>
+<td>23.1</td>
+<td>10.9</td>
+<td>7.8</td>
+<td>17.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Kukanov2017</td>
+<td>Kukanov_UEF_task4_1</td>
+<td>K-CRNN-MFoM</td>
+<td>39.6</td>
+<td>47.6</td>
+<td>33.9</td>
+<td>33.5</td>
+<td>35.1</td>
+<td>32.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_1</td>
+<td>SDCNN_MAC</td>
+<td>40.3</td>
+<td>31.3</td>
+<td>56.7</td>
+<td>35.3</td>
+<td>25.6</td>
+<td>56.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_2</td>
+<td>MLMS5_MAC</td>
+<td>47.3</td>
+<td>48.0</td>
+<td>46.6</td>
+<td>41.2</td>
+<td>37.6</td>
+<td>45.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_3</td>
+<td>MLMS3_MAC</td>
+<td>47.2</td>
+<td>49.6</td>
+<td>45.0</td>
+<td>38.7</td>
+<td>37.3</td>
+<td>40.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_4</td>
+<td>MLMS8_MAC</td>
+<td>47.1</td>
+<td>48.5</td>
+<td>45.9</td>
+<td>40.1</td>
+<td>37.4</td>
+<td>43.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_1</td>
+<td>EMSI1</td>
+<td>52.3</td>
+<td>77.1</td>
+<td>39.6</td>
+<td>47.6</td>
+<td>68.3</td>
+<td>36.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_2</td>
+<td>EMSI2</td>
+<td>52.3</td>
+<td>77.1</td>
+<td>39.6</td>
+<td>47.5</td>
+<td>66.7</td>
+<td>36.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_3</td>
+<td>EMSI3</td>
+<td>52.6</td>
+<td>69.7</td>
+<td>42.3</td>
+<td>57.0</td>
+<td>70.3</td>
+<td>47.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_4</td>
+<td>EMSI4</td>
+<td>52.1</td>
+<td>77.4</td>
+<td>39.3</td>
+<td>48.9</td>
+<td>70.3</td>
+<td>37.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_1</td>
+<td>Salamon_1</td>
+<td>46.0</td>
+<td>50.7</td>
+<td>42.1</td>
+<td>45.9</td>
+<td>44.7</td>
+<td>47.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_2</td>
+<td>Salamon_2</td>
+<td>45.3</td>
+<td>46.8</td>
+<td>43.8</td>
+<td>44.0</td>
+<td>39.9</td>
+<td>49.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_3</td>
+<td>Salamon_3</td>
+<td>44.9</td>
+<td>62.8</td>
+<td>35.0</td>
+<td>45.5</td>
+<td>53.7</td>
+<td>39.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_4</td>
+<td>Salamon_4</td>
+<td>38.1</td>
+<td>73.9</td>
+<td>25.7</td>
+<td>38.0</td>
+<td>63.0</td>
+<td>27.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2017</td>
+<td>Toan_NCU_task4_1</td>
+<td>ToanVu1</td>
+<td>48.5</td>
+<td>54.7</td>
+<td>43.6</td>
+<td>51.8</td>
+<td>54.2</td>
+<td>49.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2017</td>
+<td>Toan_NCU_task4_2</td>
+<td>ToanVu2</td>
+<td>46.5</td>
+<td>47.3</td>
+<td>45.6</td>
+<td>49.5</td>
+<td>45.2</td>
+<td>54.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Tseng2017</td>
+<td>Tseng_Bosch_task4_1</td>
+<td>Bosch1</td>
+<td>35.0</td>
+<td>34.1</td>
+<td>36.0</td>
+<td>29.5</td>
+<td>26.8</td>
+<td>32.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Tseng2017</td>
+<td>Tseng_Bosch_task4_2</td>
+<td>Bosch2</td>
+<td>35.1</td>
+<td>34.0</td>
+<td>36.2</td>
+<td>29.0</td>
+<td>26.5</td>
+<td>31.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Tseng2017</td>
+<td>Tseng_Bosch_task4_3</td>
+<td>Bosch3</td>
+<td>35.2</td>
+<td>31.6</td>
+<td>39.7</td>
+<td>33.1</td>
+<td>27.9</td>
+<td>40.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Tseng2017</td>
+<td>Tseng_Bosch_task4_4</td>
+<td>Bosch4</td>
+<td>35.2</td>
+<td>33.9</td>
+<td>36.7</td>
+<td>31.2</td>
+<td>28.0</td>
+<td>35.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_1</td>
+<td>Surrey1AB</td>
+<td>54.4</td>
+<td>57.8</td>
+<td>51.3</td>
+<td>61.9</td>
+<td>59.4</td>
+<td>64.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_2</td>
+<td>Surrey2AB</td>
+<td>55.6</td>
+<td>61.4</td>
+<td>50.8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_3</td>
+<td>Surrey3AB</td>
+<td>54.2</td>
+<td>58.9</td>
+<td>50.2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_4</td>
+<td>Surrey4AB</td>
+<td>52.8</td>
+<td>53.5</td>
+<td>52.1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Subtask B - Sound event detection</h4>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="B_segment_based_ER_overall_eval" data-scatter-y="B_segment_based_F1_overall_eval" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="B_segment_based_ER_overall_eval" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="2">Evaluation dataset (segment-based, overall)</th>
+<th class="sep-left-cell text-center" colspan="2">Development dataset (segment-based, overall)</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_segment_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(evaluation dataset)
+            </small></th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_segment_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(evaluation dataset)
+            </small></th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_segment_based_ER_overall_dev" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(development dataset)
+            </small></th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_segment_based_F1_overall_dev" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(development dataset)
+            </small></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_1</td>
+<td>Ash_1</td>
+<td>0.8100</td>
+<td>47.9</td>
+<td>0.8400</td>
+<td>38.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_2</td>
+<td>Ash_2</td>
+<td>0.8000</td>
+<td>48.3</td>
+<td>0.8400</td>
+<td>38.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_3</td>
+<td>Ash_3</td>
+<td>0.8200</td>
+<td>48.9</td>
+<td>0.8400</td>
+<td>38.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_4</td>
+<td>Ash_4</td>
+<td>0.7900</td>
+<td>49.0</td>
+<td>0.8100</td>
+<td>41.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Chou2017</td>
+<td>Chou_SINICA_task4_1</td>
+<td>FCNN_SM_1</td>
+<td>0.8300</td>
+<td>42.4</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Badlani2017</td>
+<td>DCASE2017 baseline</td>
+<td>Baseline</td>
+<td>0.9300</td>
+<td>28.4</td>
+<td>1.0200</td>
+<td>13.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_1</td>
+<td>SDCNN_MAC</td>
+<td>0.8200</td>
+<td>39.4</td>
+<td>0.8800</td>
+<td>28.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_2</td>
+<td>MLMS5_MAC</td>
+<td>0.7800</td>
+<td>42.6</td>
+<td>0.8600</td>
+<td>30.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_3</td>
+<td>MLMS3_MAC</td>
+<td>0.7800</td>
+<td>44.2</td>
+<td>0.8600</td>
+<td>31.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_4</td>
+<td>MLMS8_MAC</td>
+<td>0.7500</td>
+<td>47.1</td>
+<td>0.8400</td>
+<td>34.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_1</td>
+<td>EMSI1</td>
+<td>0.6700</td>
+<td>54.4</td>
+<td>0.7200</td>
+<td>45.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_2</td>
+<td>EMSI2</td>
+<td>0.6700</td>
+<td>54.4</td>
+<td>0.8300</td>
+<td>42.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_3</td>
+<td>EMSI3</td>
+<td>0.6700</td>
+<td>55.4</td>
+<td>0.7000</td>
+<td>47.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_4</td>
+<td>EMSI4</td>
+<td>0.6600</td>
+<td>55.5</td>
+<td>0.7100</td>
+<td>47.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_1</td>
+<td>Salamon_1</td>
+<td>0.8200</td>
+<td>46.2</td>
+<td>0.8400</td>
+<td>40.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_2</td>
+<td>Salamon_2</td>
+<td>0.8500</td>
+<td>45.6</td>
+<td>0.8605</td>
+<td>39.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_3</td>
+<td>Salamon_3</td>
+<td>0.7700</td>
+<td>45.9</td>
+<td>0.7607</td>
+<td>41.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_4</td>
+<td>Salamon_4</td>
+<td>0.7700</td>
+<td>45.9</td>
+<td>0.7607</td>
+<td>41.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2017</td>
+<td>Toan_NCU_task4_2</td>
+<td>ToanVu2</td>
+<td>0.9400</td>
+<td>43.0</td>
+<td>0.9300</td>
+<td>40.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2017</td>
+<td>Toan_NCU_task4_3</td>
+<td>ToanVu3</td>
+<td>0.9000</td>
+<td>42.7</td>
+<td>0.9000</td>
+<td>39.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2017</td>
+<td>Toan_NCU_task4_4</td>
+<td>ToanVu4</td>
+<td>0.8700</td>
+<td>41.6</td>
+<td>0.8900</td>
+<td>37.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_1</td>
+<td>Surrey1AB</td>
+<td>0.7300</td>
+<td>51.8</td>
+<td>0.7200</td>
+<td>49.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_2</td>
+<td>Surrey2AB</td>
+<td>0.7800</td>
+<td>47.5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_3</td>
+<td>Surrey3AB</td>
+<td>1.0100</td>
+<td>52.1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_4</td>
+<td>Surrey4AB</td>
+<td>0.8000</td>
+<td>50.4</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="teams-ranking">Teams ranking</h3>
+<p>Table including only the best performing system per submitting team.</p>
+<h4>Subtask A - Audio tagging</h4>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="A_micro_F1_overall_eval" data-scatter-y="A_micro_F1_overall_dev" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="A_micro_F1_overall_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="3">Evaluation dataset (overall)</th>
+<th class="sep-left-cell text-center" colspan="3">Development dataset (overall)</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="A_micro_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(overall / evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="A_micro_Pre_overall_eval" data-sortable="true" data-value-type="float1">
+                Precision <small class="hidden">(overall / evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="A_micro_Re_overall_eval" data-sortable="true" data-value-type="float1">
+                Recall <small class="hidden">(overall / evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="A_micro_F1_overall_dev" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(overall / development dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="A_micro_Pre_overall_dev" data-sortable="true" data-value-type="float1">
+                Precision <small class="hidden">(overall / development dataset)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="A_micro_Re_overall_dev" data-sortable="true" data-value-type="float1">
+                Recall <small class="hidden">(overall / development dataset)</small>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_2</td>
+<td>Ash_2</td>
+<td>46.6</td>
+<td>58.0</td>
+<td>38.9</td>
+<td>43.2</td>
+<td>47.5</td>
+<td>39.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Chou2017</td>
+<td>Chou_SINICA_task4_3</td>
+<td>FCNN_SM_3</td>
+<td>47.9</td>
+<td>48.4</td>
+<td>47.4</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Badlani2017</td>
+<td>DCASE2017 baseline</td>
+<td>Baseline</td>
+<td>18.2</td>
+<td>15.0</td>
+<td>23.1</td>
+<td>10.9</td>
+<td>7.8</td>
+<td>17.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Kukanov2017</td>
+<td>Kukanov_UEF_task4_1</td>
+<td>K-CRNN-MFoM</td>
+<td>39.6</td>
+<td>47.6</td>
+<td>33.9</td>
+<td>33.5</td>
+<td>35.1</td>
+<td>32.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_2</td>
+<td>MLMS5_MAC</td>
+<td>47.3</td>
+<td>48.0</td>
+<td>46.6</td>
+<td>41.2</td>
+<td>37.6</td>
+<td>45.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_3</td>
+<td>EMSI3</td>
+<td>52.6</td>
+<td>69.7</td>
+<td>42.3</td>
+<td>57.0</td>
+<td>70.3</td>
+<td>47.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_1</td>
+<td>Salamon_1</td>
+<td>46.0</td>
+<td>50.7</td>
+<td>42.1</td>
+<td>45.9</td>
+<td>44.7</td>
+<td>47.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2017</td>
+<td>Toan_NCU_task4_1</td>
+<td>ToanVu1</td>
+<td>48.5</td>
+<td>54.7</td>
+<td>43.6</td>
+<td>51.8</td>
+<td>54.2</td>
+<td>49.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Tseng2017</td>
+<td>Tseng_Bosch_task4_3</td>
+<td>Bosch3</td>
+<td>35.2</td>
+<td>31.6</td>
+<td>39.7</td>
+<td>33.1</td>
+<td>27.9</td>
+<td>40.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_2</td>
+<td>Surrey2AB</td>
+<td>55.6</td>
+<td>61.4</td>
+<td>50.8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Subtask B - Sound event detection</h4>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="B_segment_based_ER_overall_eval" data-scatter-y="B_segment_based_F1_overall_eval" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="B_segment_based_ER_overall_eval" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="2">Evaluation dataset (segment-based, overall)</th>
+<th class="sep-left-cell text-center" colspan="2">Development dataset (segment-based, overall)</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_segment_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(evaluation dataset)
+            </small></th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_segment_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(evaluation dataset)
+            </small></th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_segment_based_ER_overall_dev" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(development dataset)
+            </small></th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_segment_based_F1_overall_dev" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(development dataset)
+            </small></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_4</td>
+<td>Ash_4</td>
+<td>0.7900</td>
+<td>49.0</td>
+<td>0.8100</td>
+<td>41.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Chou2017</td>
+<td>Chou_SINICA_task4_1</td>
+<td>FCNN_SM_1</td>
+<td>0.8300</td>
+<td>42.4</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Badlani2017</td>
+<td>DCASE2017 baseline</td>
+<td>Baseline</td>
+<td>0.9300</td>
+<td>28.4</td>
+<td>1.0200</td>
+<td>13.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_4</td>
+<td>MLMS8_MAC</td>
+<td>0.7500</td>
+<td>47.1</td>
+<td>0.8400</td>
+<td>34.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_4</td>
+<td>EMSI4</td>
+<td>0.6600</td>
+<td>55.5</td>
+<td>0.7100</td>
+<td>47.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_3</td>
+<td>Salamon_3</td>
+<td>0.7700</td>
+<td>45.9</td>
+<td>0.7607</td>
+<td>41.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2017</td>
+<td>Toan_NCU_task4_4</td>
+<td>ToanVu4</td>
+<td>0.8700</td>
+<td>41.6</td>
+<td>0.8900</td>
+<td>37.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_1</td>
+<td>Surrey1AB</td>
+<td>0.7300</td>
+<td>51.8</td>
+<td>0.7200</td>
+<td>49.7</td>
+</tr>
+</tbody>
+</table>
+<h3 id="class-wise-performance">Class-wise performance</h3>
+<h4>Subtask A - Audio tagging</h4>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="off" data-chart-modes="bar,scatter,comparison" data-comparison-a-row="Xu_CVSSP_task4_1" data-comparison-active-set="Class-wise performance (All)" data-comparison-b-row="Xu_CVSSP_task4_2" data-comparison-row-id-field="code" data-comparison-sets-json='[
+    {"title": "Class-wise performance (All)",
+    "data_axis_title": "F1",
+    "fields": ["A_class_F1_air_horn_eval","A_class_F1_ambulance_siren_eval","A_class_F1_car_alarm_eval","A_class_F1_civil_defense_siren_eval","A_class_F1_fire_engine_eval","A_class_F1_police_car_siren_eval","A_class_F1_reverse_beeps_eval","A_class_F1_screaming_eval","A_class_F1_train_horn_eval","A_class_F1_bicycle_eval","A_class_F1_bus_eval","A_class_F1_car_eval","A_class_F1_car_passing_by_eval","A_class_F1_motorcycle_eval","A_class_F1_skateboard_eval","A_class_F1_train_eval","A_class_F1_truck_eval"],
+    "field_titles": ["Air horn","Ambulance","Car alarm","Civil defense siren","Fire engine","Police car","Reversing beeps","Screaming","Train horn","Bicycle","Bus","Car","Car passing by","Motorcycle","Skateboard","Train","Truck"]
+    },
+    {"title": "Class-wise performance (Warning sounds)",
+    "data_axis_title": "F1",
+    "fields": ["A_class_F1_air_horn_eval","A_class_F1_ambulance_siren_eval","A_class_F1_car_alarm_eval","A_class_F1_civil_defense_siren_eval","A_class_F1_fire_engine_eval","A_class_F1_police_car_siren_eval","A_class_F1_reverse_beeps_eval","A_class_F1_screaming_eval","A_class_F1_train_horn_eval"],
+    "field_titles": ["Air horn","Ambulance","Car alarm","Civil defense siren","Fire engine","Police car","Reversing beeps","Screaming","Train horn"]
+    },
+    {"title": "Class-wise performance (Vehicle sounds)",
+    "data_axis_title": "F1",
+    "fields": ["A_class_F1_bicycle_eval","A_class_F1_bus_eval","A_class_F1_car_eval","A_class_F1_car_passing_by_eval","A_class_F1_motorcycle_eval","A_class_F1_skateboard_eval","A_class_F1_train_eval","A_class_F1_truck_eval"],
+    "field_titles": ["Bicycle","Bus","Car","Car passing by","Motorcycle","Skateboard","Train","Truck"]
+    }]' data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="A_micro_F1_overall_eval" data-scatter-y="A_class_F1_ambulance_siren_eval" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="A_micro_F1_overall_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="A_micro_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage" rowspan="2">
+                Overall<br/> F1 <small class="hidden">(evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" colspan="9">Warning sounds</th>
+<th class="sep-left-cell text-center" colspan="8">Vehicle sounds</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="A_class_F1_air_horn_eval" data-sortable="true" data-value-type="float1-percentage">
+                Air horn, <br/>truck horn
+            </th>
+<th class="text-center" data-chartable="true" data-field="A_class_F1_ambulance_siren_eval" data-sortable="true" data-value-type="float1-percentage">
+                Ambulance <br/>(siren)
+            </th>
+<th class="text-center" data-chartable="true" data-field="A_class_F1_car_alarm_eval" data-sortable="true" data-value-type="float1-percentage">
+                Car <br/>alarm
+            </th>
+<th class="text-center" data-chartable="true" data-field="A_class_F1_civil_defense_siren_eval" data-sortable="true" data-value-type="float1-percentage">
+                Civil defense <br/>siren
+            </th>
+<th class="text-center" data-chartable="true" data-field="A_class_F1_fire_engine_eval" data-sortable="true" data-value-type="float1-percentage">
+                Fire engine, <br/>fire truck (siren)
+            </th>
+<th class="text-center" data-chartable="true" data-field="A_class_F1_police_car_siren_eval" data-sortable="true" data-value-type="float1-percentage">
+                Police <br/>car (siren)
+            </th>
+<th class="text-center" data-chartable="true" data-field="A_class_F1_reverse_beeps_eval" data-sortable="true" data-value-type="float1-percentage">
+                Reversing <br/>beeps
+            </th>
+<th class="text-center" data-chartable="true" data-field="A_class_F1_screaming_eval" data-sortable="true" data-value-type="float1-percentage">
+                Screaming
+            </th>
+<th class="text-center" data-chartable="true" data-field="A_class_F1_train_horn_eval" data-sortable="true" data-value-type="float1-percentage">
+                Train <br/>horn
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="A_class_F1_bicycle_eval" data-sortable="true" data-value-type="float1-percentage">
+                Bicycle
+            </th>
+<th class="text-center" data-chartable="true" data-field="A_class_F1_bus_eval" data-sortable="true" data-value-type="float1-percentage">
+                Bus
+            </th>
+<th class="text-center" data-chartable="true" data-field="A_class_F1_car_eval" data-sortable="true" data-value-type="float1-percentage">
+                Car
+            </th>
+<th class="text-center" data-chartable="true" data-field="A_class_F1_car_passing_by_eval" data-sortable="true" data-value-type="float1-percentage">
+                Car <br/>passing by
+            </th>
+<th class="text-center" data-chartable="true" data-field="A_class_F1_motorcycle_eval" data-sortable="true" data-value-type="float1-percentage">
+                Motorcycle
+            </th>
+<th class="text-center" data-chartable="true" data-field="A_class_F1_skateboard_eval" data-sortable="true" data-value-type="float1-percentage">
+                Skateboard
+            </th>
+<th class="text-center" data-chartable="true" data-field="A_class_F1_train_eval" data-sortable="true" data-value-type="float1-percentage">
+                Train
+            </th>
+<th class="text-center" data-chartable="true" data-field="A_class_F1_truck_eval" data-sortable="true" data-value-type="float1-percentage">
+                Truck
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>45.5</td>
+<td>Adavanne_TUT_task4_1</td>
+<td>Ash_1</td>
+<td>7.8</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>78.6</td>
+<td>51.7</td>
+<td>48.9</td>
+<td>8.5</td>
+<td>77.9</td>
+<td>21.8</td>
+<td>39.0</td>
+<td>21.1</td>
+<td>67.2</td>
+<td>0.0</td>
+<td>54.7</td>
+<td>79.5</td>
+<td>71.8</td>
+<td>50.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>46.6</td>
+<td>Adavanne_TUT_task4_2</td>
+<td>Ash_2</td>
+<td>43.2</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>82.3</td>
+<td>50.8</td>
+<td>45.0</td>
+<td>0.0</td>
+<td>78.7</td>
+<td>27.9</td>
+<td>37.5</td>
+<td>23.9</td>
+<td>68.5</td>
+<td>0.0</td>
+<td>60.2</td>
+<td>80.2</td>
+<td>70.6</td>
+<td>53.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>44.5</td>
+<td>Adavanne_TUT_task4_3</td>
+<td>Ash_3</td>
+<td>16.8</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>80.7</td>
+<td>54.0</td>
+<td>48.9</td>
+<td>0.0</td>
+<td>70.5</td>
+<td>9.1</td>
+<td>32.4</td>
+<td>7.6</td>
+<td>68.3</td>
+<td>0.0</td>
+<td>62.3</td>
+<td>80.5</td>
+<td>66.7</td>
+<td>52.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>26.3</td>
+<td>Adavanne_TUT_task4_4</td>
+<td>Ash_4</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>54.9</td>
+<td>53.6</td>
+<td>28.6</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>63.7</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>2.2</td>
+<td>4.3</td>
+<td>19.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Chou2017</td>
+<td>47.6</td>
+<td>Chou_SINICA_task4_1</td>
+<td>FCNN_SM_1</td>
+<td>55.5</td>
+<td>48.8</td>
+<td>48.4</td>
+<td>80.3</td>
+<td>56.2</td>
+<td>57.3</td>
+<td>37.5</td>
+<td>84.0</td>
+<td>68.8</td>
+<td>39.6</td>
+<td>36.7</td>
+<td>64.6</td>
+<td>28.9</td>
+<td>52.8</td>
+<td>78.8</td>
+<td>68.7</td>
+<td>46.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Chou2017</td>
+<td>49.0</td>
+<td>Chou_SINICA_task4_2</td>
+<td>FCNN_SM_2</td>
+<td>50.7</td>
+<td>37.8</td>
+<td>47.3</td>
+<td>82.0</td>
+<td>57.1</td>
+<td>60.1</td>
+<td>33.3</td>
+<td>80.8</td>
+<td>69.5</td>
+<td>42.1</td>
+<td>36.9</td>
+<td>67.0</td>
+<td>32.9</td>
+<td>58.7</td>
+<td>79.3</td>
+<td>68.5</td>
+<td>52.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Chou2017</td>
+<td>47.9</td>
+<td>Chou_SINICA_task4_3</td>
+<td>FCNN_SM_3</td>
+<td>55.1</td>
+<td>60.3</td>
+<td>57.8</td>
+<td>81.6</td>
+<td>57.3</td>
+<td>47.0</td>
+<td>36.9</td>
+<td>84.0</td>
+<td>68.8</td>
+<td>40.8</td>
+<td>35.3</td>
+<td>66.0</td>
+<td>32.1</td>
+<td>56.6</td>
+<td>76.4</td>
+<td>67.5</td>
+<td>52.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Chou2017</td>
+<td>49.0</td>
+<td>Chou_SINICA_task4_4</td>
+<td>FCNN_SM_3</td>
+<td>48.2</td>
+<td>36.6</td>
+<td>45.6</td>
+<td>82.8</td>
+<td>58.1</td>
+<td>61.7</td>
+<td>33.9</td>
+<td>80.8</td>
+<td>69.5</td>
+<td>37.4</td>
+<td>36.4</td>
+<td>67.4</td>
+<td>29.3</td>
+<td>57.8</td>
+<td>79.8</td>
+<td>67.9</td>
+<td>53.5</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Badlani2017</td>
+<td>18.2</td>
+<td>DCASE2017 baseline</td>
+<td>Baseline</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>48.0</td>
+<td>19.4</td>
+<td>38.8</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>14.2</td>
+<td>4.2</td>
+<td>0.0</td>
+<td>30.0</td>
+<td>0.0</td>
+<td>14.3</td>
+<td>0.0</td>
+<td>7.8</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Kukanov2017</td>
+<td>39.6</td>
+<td>Kukanov_UEF_task4_1</td>
+<td>K-CRNN-MFoM</td>
+<td>0.0</td>
+<td>3.8</td>
+<td>0.0</td>
+<td>80.7</td>
+<td>0.5</td>
+<td>55.1</td>
+<td>0.0</td>
+<td>45.4</td>
+<td>27.9</td>
+<td>21.4</td>
+<td>10.8</td>
+<td>57.1</td>
+<td>0.0</td>
+<td>63.5</td>
+<td>57.4</td>
+<td>61.8</td>
+<td>41.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>40.3</td>
+<td>Lee_KAIST_task4_1</td>
+<td>SDCNN_MAC</td>
+<td>34.1</td>
+<td>52.7</td>
+<td>22.8</td>
+<td>70.2</td>
+<td>48.4</td>
+<td>52.9</td>
+<td>45.9</td>
+<td>79.4</td>
+<td>59.8</td>
+<td>33.5</td>
+<td>31.7</td>
+<td>46.0</td>
+<td>35.4</td>
+<td>57.3</td>
+<td>76.6</td>
+<td>68.4</td>
+<td>33.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>47.3</td>
+<td>Lee_KAIST_task4_2</td>
+<td>MLMS5_MAC</td>
+<td>30.0</td>
+<td>50.0</td>
+<td>15.8</td>
+<td>82.2</td>
+<td>59.3</td>
+<td>53.4</td>
+<td>33.3</td>
+<td>79.2</td>
+<td>72.0</td>
+<td>48.4</td>
+<td>34.5</td>
+<td>60.9</td>
+<td>15.1</td>
+<td>61.7</td>
+<td>74.7</td>
+<td>72.0</td>
+<td>42.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>47.2</td>
+<td>Lee_KAIST_task4_3</td>
+<td>MLMS3_MAC</td>
+<td>26.2</td>
+<td>36.8</td>
+<td>5.6</td>
+<td>78.2</td>
+<td>56.7</td>
+<td>57.7</td>
+<td>30.2</td>
+<td>78.2</td>
+<td>53.9</td>
+<td>33.7</td>
+<td>40.0</td>
+<td>62.5</td>
+<td>21.1</td>
+<td>63.9</td>
+<td>78.5</td>
+<td>70.0</td>
+<td>48.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>47.1</td>
+<td>Lee_KAIST_task4_4</td>
+<td>MLMS8_MAC</td>
+<td>24.1</td>
+<td>38.4</td>
+<td>10.9</td>
+<td>80.0</td>
+<td>53.9</td>
+<td>57.0</td>
+<td>30.2</td>
+<td>78.0</td>
+<td>54.8</td>
+<td>35.7</td>
+<td>37.2</td>
+<td>63.8</td>
+<td>18.2</td>
+<td>64.3</td>
+<td>74.3</td>
+<td>69.8</td>
+<td>44.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>52.3</td>
+<td>Lee_SNU_task4_1</td>
+<td>EMSI1</td>
+<td>58.8</td>
+<td>3.8</td>
+<td>35.3</td>
+<td>89.5</td>
+<td>59.6</td>
+<td>43.6</td>
+<td>26.4</td>
+<td>72.4</td>
+<td>50.3</td>
+<td>23.1</td>
+<td>9.4</td>
+<td>78.9</td>
+<td>0.0</td>
+<td>66.7</td>
+<td>82.3</td>
+<td>84.8</td>
+<td>39.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>52.3</td>
+<td>Lee_SNU_task4_2</td>
+<td>EMSI2</td>
+<td>58.8</td>
+<td>3.8</td>
+<td>35.3</td>
+<td>89.5</td>
+<td>59.6</td>
+<td>43.6</td>
+<td>26.4</td>
+<td>72.4</td>
+<td>50.3</td>
+<td>23.1</td>
+<td>9.4</td>
+<td>78.9</td>
+<td>0.0</td>
+<td>66.7</td>
+<td>82.3</td>
+<td>84.8</td>
+<td>39.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>52.6</td>
+<td>Lee_SNU_task4_3</td>
+<td>EMSI3</td>
+<td>58.8</td>
+<td>0.0</td>
+<td>37.6</td>
+<td>87.2</td>
+<td>53.7</td>
+<td>52.0</td>
+<td>31.0</td>
+<td>74.1</td>
+<td>64.0</td>
+<td>24.6</td>
+<td>8.8</td>
+<td>74.6</td>
+<td>0.0</td>
+<td>65.5</td>
+<td>81.5</td>
+<td>85.2</td>
+<td>45.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>52.1</td>
+<td>Lee_SNU_task4_4</td>
+<td>EMSI4</td>
+<td>57.8</td>
+<td>3.8</td>
+<td>35.3</td>
+<td>87.5</td>
+<td>54.2</td>
+<td>44.4</td>
+<td>29.6</td>
+<td>71.6</td>
+<td>50.3</td>
+<td>25.9</td>
+<td>6.5</td>
+<td>79.1</td>
+<td>0.0</td>
+<td>66.0</td>
+<td>81.5</td>
+<td>85.2</td>
+<td>39.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>46.0</td>
+<td>Salamon_NYU_task4_1</td>
+<td>Salamon_1</td>
+<td>52.0</td>
+<td>36.6</td>
+<td>31.5</td>
+<td>79.0</td>
+<td>55.8</td>
+<td>57.1</td>
+<td>48.5</td>
+<td>66.2</td>
+<td>68.4</td>
+<td>38.9</td>
+<td>21.1</td>
+<td>31.5</td>
+<td>2.4</td>
+<td>59.5</td>
+<td>61.7</td>
+<td>63.0</td>
+<td>31.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>45.3</td>
+<td>Salamon_NYU_task4_2</td>
+<td>Salamon_2</td>
+<td>0.5</td>
+<td>41.4</td>
+<td>39.1</td>
+<td>80.0</td>
+<td>56.6</td>
+<td>44.3</td>
+<td>36.1</td>
+<td>65.5</td>
+<td>74.7</td>
+<td>36.2</td>
+<td>20.2</td>
+<td>61.9</td>
+<td>0.0</td>
+<td>56.4</td>
+<td>65.3</td>
+<td>67.7</td>
+<td>36.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>44.9</td>
+<td>Salamon_NYU_task4_3</td>
+<td>Salamon_3</td>
+<td>45.9</td>
+<td>16.4</td>
+<td>18.4</td>
+<td>81.1</td>
+<td>48.6</td>
+<td>60.4</td>
+<td>32.1</td>
+<td>62.7</td>
+<td>59.4</td>
+<td>27.3</td>
+<td>6.2</td>
+<td>70.9</td>
+<td>2.8</td>
+<td>63.6</td>
+<td>55.8</td>
+<td>59.2</td>
+<td>30.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>38.1</td>
+<td>Salamon_NYU_task4_4</td>
+<td>Salamon_4</td>
+<td>26.8</td>
+<td>0.0</td>
+<td>2.9</td>
+<td>81.5</td>
+<td>47.3</td>
+<td>39.6</td>
+<td>20.0</td>
+<td>32.8</td>
+<td>38.8</td>
+<td>11.1</td>
+<td>0.0</td>
+<td>75.7</td>
+<td>0.0</td>
+<td>56.2</td>
+<td>41.4</td>
+<td>49.4</td>
+<td>17.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2017</td>
+<td>48.5</td>
+<td>Toan_NCU_task4_1</td>
+<td>ToanVu1</td>
+<td>47.0</td>
+<td>57.1</td>
+<td>38.6</td>
+<td>82.9</td>
+<td>54.1</td>
+<td>55.8</td>
+<td>51.5</td>
+<td>0.8</td>
+<td>69.9</td>
+<td>28.6</td>
+<td>31.1</td>
+<td>70.5</td>
+<td>35.2</td>
+<td>60.5</td>
+<td>63.9</td>
+<td>73.5</td>
+<td>42.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2017</td>
+<td>46.5</td>
+<td>Toan_NCU_task4_2</td>
+<td>ToanVu2</td>
+<td>54.8</td>
+<td>46.3</td>
+<td>51.0</td>
+<td>67.9</td>
+<td>57.0</td>
+<td>44.6</td>
+<td>61.0</td>
+<td>66.7</td>
+<td>67.3</td>
+<td>31.1</td>
+<td>31.2</td>
+<td>66.1</td>
+<td>24.1</td>
+<td>58.5</td>
+<td>65.9</td>
+<td>73.1</td>
+<td>43.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Tseng2017</td>
+<td>35.0</td>
+<td>Tseng_Bosch_task4_1</td>
+<td>Bosch1</td>
+<td>44.4</td>
+<td>36.4</td>
+<td>14.1</td>
+<td>69.7</td>
+<td>46.4</td>
+<td>49.8</td>
+<td>4.2</td>
+<td>47.1</td>
+<td>33.3</td>
+<td>20.0</td>
+<td>17.1</td>
+<td>61.1</td>
+<td>17.9</td>
+<td>37.5</td>
+<td>35.6</td>
+<td>31.0</td>
+<td>34.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Tseng2017</td>
+<td>35.1</td>
+<td>Tseng_Bosch_task4_2</td>
+<td>Bosch2</td>
+<td>44.4</td>
+<td>36.4</td>
+<td>16.3</td>
+<td>69.7</td>
+<td>46.1</td>
+<td>49.5</td>
+<td>6.9</td>
+<td>57.6</td>
+<td>41.3</td>
+<td>20.2</td>
+<td>17.1</td>
+<td>60.5</td>
+<td>17.9</td>
+<td>37.5</td>
+<td>37.5</td>
+<td>26.5</td>
+<td>34.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Tseng2017</td>
+<td>35.2</td>
+<td>Tseng_Bosch_task4_3</td>
+<td>Bosch3</td>
+<td>42.9</td>
+<td>35.9</td>
+<td>21.2</td>
+<td>70.1</td>
+<td>40.5</td>
+<td>46.8</td>
+<td>15.1</td>
+<td>46.6</td>
+<td>41.8</td>
+<td>18.0</td>
+<td>19.7</td>
+<td>54.8</td>
+<td>20.6</td>
+<td>36.9</td>
+<td>36.9</td>
+<td>46.1</td>
+<td>36.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Tseng2017</td>
+<td>35.2</td>
+<td>Tseng_Bosch_task4_4</td>
+<td>Bosch4</td>
+<td>43.4</td>
+<td>36.4</td>
+<td>16.3</td>
+<td>69.7</td>
+<td>46.4</td>
+<td>48.2</td>
+<td>16.1</td>
+<td>49.7</td>
+<td>40.5</td>
+<td>20.0</td>
+<td>17.1</td>
+<td>60.7</td>
+<td>17.9</td>
+<td>37.5</td>
+<td>36.9</td>
+<td>30.0</td>
+<td>34.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>54.4</td>
+<td>Xu_CVSSP_task4_1</td>
+<td>Surrey1AB</td>
+<td>54.3</td>
+<td>59.5</td>
+<td>78.8</td>
+<td>83.9</td>
+<td>63.2</td>
+<td>62.2</td>
+<td>65.8</td>
+<td>86.6</td>
+<td>80.2</td>
+<td>39.1</td>
+<td>32.5</td>
+<td>71.5</td>
+<td>41.8</td>
+<td>64.5</td>
+<td>71.6</td>
+<td>80.1</td>
+<td>46.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>55.6</td>
+<td>Xu_CVSSP_task4_2</td>
+<td>Surrey2AB</td>
+<td>63.7</td>
+<td>35.6</td>
+<td>72.9</td>
+<td>86.4</td>
+<td>65.7</td>
+<td>63.8</td>
+<td>60.3</td>
+<td>91.2</td>
+<td>73.6</td>
+<td>40.5</td>
+<td>39.7</td>
+<td>72.9</td>
+<td>27.1</td>
+<td>63.5</td>
+<td>74.5</td>
+<td>79.2</td>
+<td>52.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>54.2</td>
+<td>Xu_CVSSP_task4_3</td>
+<td>Surrey3AB</td>
+<td>59.5</td>
+<td>52.7</td>
+<td>72.5</td>
+<td>85.0</td>
+<td>53.2</td>
+<td>43.0</td>
+<td>65.9</td>
+<td>88.9</td>
+<td>74.9</td>
+<td>44.2</td>
+<td>41.7</td>
+<td>73.0</td>
+<td>39.1</td>
+<td>69.4</td>
+<td>73.1</td>
+<td>80.5</td>
+<td>46.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>52.8</td>
+<td>Xu_CVSSP_task4_4</td>
+<td>Surrey4AB</td>
+<td>63.1</td>
+<td>58.9</td>
+<td>70.9</td>
+<td>81.5</td>
+<td>62.1</td>
+<td>57.6</td>
+<td>66.7</td>
+<td>82.3</td>
+<td>76.5</td>
+<td>28.6</td>
+<td>36.6</td>
+<td>69.4</td>
+<td>32.8</td>
+<td>65.0</td>
+<td>72.0</td>
+<td>75.1</td>
+<td>44.0</td>
+</tr>
+</tbody>
+</table>
+<h4>Subtask B - Sound event detection</h4>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="off" data-chart-modes="bar,scatter,comparison" data-comparison-a-row="Xu_CVSSP_task4_1" data-comparison-active-set="Class-wise performance (ER / All)" data-comparison-b-row="Xu_CVSSP_task4_2" data-comparison-row-id-field="code" data-comparison-sets-json='[
+    {"title": "Class-wise performance (ER / All)",
+    "data_axis_title": "ER",
+    "fields": ["B_class_ER_air_horn_eval","B_class_ER_ambulance_siren_eval","B_class_ER_car_alarm_eval","B_class_ER_civil_defense_siren_eval","B_class_ER_fire_engine_eval","B_class_ER_police_car_siren_eval","B_class_ER_reverse_beeps_eval","B_class_ER_screaming_eval","B_class_ER_train_horn_eval","B_class_ER_bicycle_eval","B_class_ER_bus_eval","B_class_ER_car_eval","B_class_ER_car_passing_by_eval","B_class_ER_motorcycle_eval","B_class_ER_skateboard_eval","B_class_ER_train_eval","B_class_ER_truck_eval"],
+    "field_titles": ["Air horn","Ambulance","Car alarm","Civil defense siren","Fire engine","Police car","Reversing beeps","Screaming","Train horn","Bicycle","Bus","Car","Car passing by","Motorcycle","Skateboard","Train","Truck"]
+    },
+    {"title": "Class-wise performance (F1 / All)",
+    "data_axis_title": "F1",
+    "fields": ["B_class_F1_air_horn_eval","B_class_F1_ambulance_siren_eval","B_class_F1_car_alarm_eval","B_class_F1_civil_defense_siren_eval","B_class_F1_fire_engine_eval","B_class_F1_police_car_siren_eval","B_class_F1_reverse_beeps_eval","B_class_F1_screaming_eval","B_class_F1_train_horn_eval","B_class_F1_bicycle_eval","B_class_F1_bus_eval","B_class_F1_car_eval","B_class_F1_car_passing_by_eval","B_class_F1_motorcycle_eval","B_class_F1_skateboard_eval","B_class_F1_train_eval","B_class_F1_truck_eval"],
+    "field_titles": ["Air horn","Ambulance","Car alarm","Civil defense siren","Fire engine","Police car","Reversing beeps","Screaming","Train horn","Bicycle","Bus","Car","Car passing by","Motorcycle","Skateboard","Train","Truck"]
+    },
+    {"title": "Class-wise performance (ER / Warning sounds)",
+    "data_axis_title": "ER",
+    "fields": ["B_class_ER_air_horn_eval","B_class_ER_ambulance_siren_eval","B_class_ER_car_alarm_eval","B_class_ER_civil_defense_siren_eval","B_class_ER_fire_engine_eval","B_class_ER_police_car_siren_eval","B_class_ER_reverse_beeps_eval","B_class_ER_screaming_eval","B_class_ER_train_horn_eval"],
+    "field_titles": ["Air horn","Ambulance","Car alarm","Civil defense siren","Fire engine","Police car","Reversing beeps","Screaming","Train horn"]
+    },
+    {"title": "Class-wise performance (F1 / Warning sounds)",
+    "data_axis_title": "F1",
+    "fields": ["B_class_F1_air_horn_eval","B_class_F1_ambulance_siren_eval","B_class_F1_car_alarm_eval","B_class_F1_civil_defense_siren_eval","B_class_F1_fire_engine_eval","B_class_F1_police_car_siren_eval","B_class_F1_reverse_beeps_eval","B_class_F1_screaming_eval","B_class_F1_train_horn_eval"],
+    "field_titles": ["Air horn","Ambulance","Car alarm","Civil defense siren","Fire engine","Police car","Reversing beeps","Screaming","Train horn"]
+    },
+    {"title": "Class-wise performance (ER / Vehicle sounds)",
+    "data_axis_title": "ER",
+    "fields": ["B_class_ER_bicycle_eval","B_class_ER_bus_eval","B_class_ER_car_eval","B_class_ER_car_passing_by_eval","B_class_ER_motorcycle_eval","B_class_ER_skateboard_eval","B_class_ER_train_eval","B_class_ER_truck_eval"],
+    "field_titles": ["Bicycle","Bus","Car","Car passing by","Motorcycle","Skateboard","Train","Truck"]
+    },
+    {"title": "Class-wise performance (F1 / Vehicle sounds)",
+    "data_axis_title": "F1",
+    "fields": ["B_class_F1_bicycle_eval","B_class_F1_bus_eval","B_class_F1_car_eval","B_class_F1_car_passing_by_eval","B_class_F1_motorcycle_eval","B_class_F1_skateboard_eval","B_class_F1_train_eval","B_class_F1_truck_eval"],
+    "field_titles": ["Bicycle","Bus","Car","Car passing by","Motorcycle","Skateboard","Train","Truck"]
+    }]' data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="B_segment_based_ER_overall_eval" data-scatter-y="B_segment_based_F1_overall_eval" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="B_segment_based_ER_overall_eval" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="3">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="3">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="2">Segment-based <br/>(overall / evaluation dataset)</th>
+<th class="sep-left-cell text-center" colspan="18">Warning sounds</th>
+<th class="sep-left-cell text-center" colspan="16">Vehicle sounds</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true" rowspan="2">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true" rowspan="2">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_segment_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4" rowspan="2">
+                ER <small class="hidden">(overall/evaluation dataset)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_segment_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage" rowspan="2">
+                F1 <small class="hidden">(overall/evaluation dataset)</small>
+</th>
+<th class="sep-left-cell text-center" colspan="2">
+                Air horn, <br/>truck horn
+            </th>
+<th class="sep-left-cell text-center" colspan="2">
+                Ambulance <br/>(siren)
+            </th>
+<th class="sep-left-cell text-center" colspan="2">
+                Car <br/>alarm
+            </th>
+<th class="sep-left-cell text-center" colspan="2">
+                Civil defense <br/>siren
+            </th>
+<th class="sep-left-cell text-center" colspan="2">
+                Fire engine, <br/>fire truck (siren)
+            </th>
+<th class="sep-left-cell text-center" colspan="2">
+                Police<br/> car (siren)
+            </th>
+<th class="sep-left-cell text-center" colspan="2">
+                Reversing <br/>beeps
+            </th>
+<th class="sep-left-cell text-center" colspan="2">
+                Screaming
+            </th>
+<th class="sep-left-cell text-center" colspan="2">
+                Train <br/>horn
+            </th>
+<th class="sep-left-cell text-center" colspan="2">
+                Bicycle
+            </th>
+<th class="sep-left-cell text-center" colspan="2">
+                Bus
+            </th>
+<th class="sep-left-cell text-center" colspan="2">
+                Car
+            </th>
+<th class="sep-left-cell text-center" colspan="2">
+                Car passing by
+            </th>
+<th class="sep-left-cell text-center" colspan="2">
+                Motorcycle
+            </th>
+<th class="sep-left-cell text-center" colspan="2">
+                Skateboard
+            </th>
+<th class="sep-left-cell text-center" colspan="2">
+                Train
+            </th>
+<th class="sep-left-cell text-center" colspan="2">
+                Truck
+            </th>
+</tr>
+<tr>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_class_ER_air_horn_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Air horn, <br/>truck horn (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_class_F1_air_horn_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Air horn, truck horn (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_class_ER_ambulance_siren_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Ambulance (siren) (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_class_F1_ambulance_siren_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Ambulance (siren) (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_class_ER_car_alarm_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Car alarm (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_class_F1_car_alarm_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Car alarm (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_class_ER_civil_defense_siren_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Civil defense siren (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_class_F1_civil_defense_siren_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Civil defense siren (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_class_ER_fire_engine_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Fire engine, fire truck (siren) (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_class_F1_fire_engine_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Fire engine, fire truck (siren) (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_class_ER_police_car_siren_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Police car (siren) (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_class_F1_police_car_siren_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Police car (siren) (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_class_ER_reverse_beeps_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Reversing beeps (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_class_F1_reverse_beeps_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Reversing beeps (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_class_ER_screaming_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Screaming (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_class_F1_screaming_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Screaming (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_class_ER_train_horn_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Train horn (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_class_F1_train_horn_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Train horn (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_class_ER_bicycle_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Bicycle (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_class_F1_bicycle_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Bicycle (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_class_ER_bus_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Bus (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_class_F1_bus_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Bus (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_class_ER_car_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Car (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_class_F1_car_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Car (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_class_ER_car_passing_by_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Car passing by (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_class_F1_car_passing_by_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Car passing by (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_class_ER_motorcycle_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Motorcycle (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_class_F1_motorcycle_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Motorcycle (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_class_ER_skateboard_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Skateboard (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_class_F1_skateboard_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Skateboard (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_class_ER_train_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Train (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_class_F1_train_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Train (eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_class_ER_truck_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">/ Truck (eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_class_F1_truck_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">/ Truck (eval/seg)</small>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_1</td>
+<td>Ash_1</td>
+<td>0.8100</td>
+<td>47.9</td>
+<td>1.0700</td>
+<td>0.0</td>
+<td>1.0000</td>
+<td></td>
+<td>1.0300</td>
+<td>2.8</td>
+<td>0.3400</td>
+<td>83.0</td>
+<td>0.9700</td>
+<td>54.4</td>
+<td>1.1700</td>
+<td>42.3</td>
+<td>0.9700</td>
+<td>6.8</td>
+<td>1.3200</td>
+<td>51.2</td>
+<td>0.9600</td>
+<td>47.3</td>
+<td>1.5300</td>
+<td>24.6</td>
+<td>1.0100</td>
+<td>8.1</td>
+<td>1.3300</td>
+<td>53.0</td>
+<td>1.1000</td>
+<td>3.3</td>
+<td>0.9200</td>
+<td>50.8</td>
+<td>0.8500</td>
+<td>62.6</td>
+<td>0.7800</td>
+<td>62.0</td>
+<td>0.9900</td>
+<td>44.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_2</td>
+<td>Ash_2</td>
+<td>0.8000</td>
+<td>48.3</td>
+<td>1.0000</td>
+<td>0.6</td>
+<td>1.0000</td>
+<td></td>
+<td>1.3200</td>
+<td>0.4</td>
+<td>0.4300</td>
+<td>80.4</td>
+<td>1.2000</td>
+<td>44.5</td>
+<td>1.2000</td>
+<td>31.5</td>
+<td>1.0000</td>
+<td></td>
+<td>0.9100</td>
+<td>58.1</td>
+<td>1.1500</td>
+<td>45.3</td>
+<td>1.3000</td>
+<td>26.0</td>
+<td>1.0400</td>
+<td>10.3</td>
+<td>1.0700</td>
+<td>56.4</td>
+<td>1.0000</td>
+<td></td>
+<td>0.8200</td>
+<td>57.2</td>
+<td>1.0400</td>
+<td>57.7</td>
+<td>0.8300</td>
+<td>62.9</td>
+<td>1.0000</td>
+<td>46.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_3</td>
+<td>Ash_3</td>
+<td>0.8200</td>
+<td>48.9</td>
+<td>1.1600</td>
+<td>2.5</td>
+<td>1.0000</td>
+<td></td>
+<td>1.0000</td>
+<td></td>
+<td>0.3100</td>
+<td>84.8</td>
+<td>0.9900</td>
+<td>49.8</td>
+<td>1.0800</td>
+<td>38.1</td>
+<td>1.0700</td>
+<td>27.9</td>
+<td>1.0500</td>
+<td>55.7</td>
+<td>0.9900</td>
+<td>48.8</td>
+<td>1.7300</td>
+<td>25.3</td>
+<td>1.0900</td>
+<td>20.4</td>
+<td>1.2800</td>
+<td>54.1</td>
+<td>1.0000</td>
+<td></td>
+<td>0.7100</td>
+<td>60.1</td>
+<td>1.0700</td>
+<td>59.7</td>
+<td>0.7100</td>
+<td>63.5</td>
+<td>1.5500</td>
+<td>44.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_4</td>
+<td>Ash_4</td>
+<td>0.7900</td>
+<td>49.0</td>
+<td>1.1000</td>
+<td>38.3</td>
+<td>1.0000</td>
+<td></td>
+<td>1.0000</td>
+<td></td>
+<td>0.3200</td>
+<td>84.0</td>
+<td>1.1300</td>
+<td>50.9</td>
+<td>1.1800</td>
+<td>31.2</td>
+<td>1.0200</td>
+<td>29.3</td>
+<td>0.9900</td>
+<td>54.5</td>
+<td>1.0900</td>
+<td>47.0</td>
+<td>1.3200</td>
+<td>32.5</td>
+<td>1.1900</td>
+<td>32.5</td>
+<td>1.2200</td>
+<td>55.1</td>
+<td>1.0000</td>
+<td></td>
+<td>0.9200</td>
+<td>54.8</td>
+<td>0.8800</td>
+<td>62.4</td>
+<td>0.7800</td>
+<td>60.5</td>
+<td>1.0400</td>
+<td>46.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Chou2017</td>
+<td>Chou_SINICA_task4_1</td>
+<td>FCNN_SM_1</td>
+<td>0.8300</td>
+<td>42.4</td>
+<td>0.8800</td>
+<td>32.3</td>
+<td>0.9000</td>
+<td>25.7</td>
+<td>0.8600</td>
+<td>30.7</td>
+<td>0.5900</td>
+<td>73.5</td>
+<td>1.3900</td>
+<td>41.0</td>
+<td>1.1500</td>
+<td>47.9</td>
+<td>1.0100</td>
+<td>29.8</td>
+<td>0.8700</td>
+<td>51.9</td>
+<td>0.9000</td>
+<td>40.9</td>
+<td>1.4400</td>
+<td>15.4</td>
+<td>1.3200</td>
+<td>17.2</td>
+<td>0.9600</td>
+<td>47.3</td>
+<td>1.1200</td>
+<td>3.2</td>
+<td>0.9400</td>
+<td>46.4</td>
+<td>1.3900</td>
+<td>46.5</td>
+<td>0.9300</td>
+<td>46.3</td>
+<td>1.6700</td>
+<td>35.3</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Badlani2017</td>
+<td>DCASE2017 baseline</td>
+<td>Baseline</td>
+<td>0.9300</td>
+<td>28.4</td>
+<td>1.0000</td>
+<td></td>
+<td>1.0000</td>
+<td></td>
+<td>1.0000</td>
+<td></td>
+<td>0.6400</td>
+<td>67.4</td>
+<td>0.9800</td>
+<td>16.5</td>
+<td>1.0100</td>
+<td>34.0</td>
+<td>1.0000</td>
+<td></td>
+<td>1.0000</td>
+<td></td>
+<td>0.9800</td>
+<td>3.9</td>
+<td>0.9900</td>
+<td>2.5</td>
+<td>1.0000</td>
+<td></td>
+<td>1.7500</td>
+<td>46.0</td>
+<td>1.0000</td>
+<td></td>
+<td>0.9700</td>
+<td>6.1</td>
+<td>1.0000</td>
+<td></td>
+<td>0.9900</td>
+<td>1.9</td>
+<td>1.0000</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_1</td>
+<td>SDCNN_MAC</td>
+<td>0.8200</td>
+<td>39.4</td>
+<td>0.9500</td>
+<td>14.6</td>
+<td>1.0000</td>
+<td></td>
+<td>0.9500</td>
+<td>9.0</td>
+<td>0.5000</td>
+<td>75.1</td>
+<td>1.0000</td>
+<td>39.4</td>
+<td>1.0100</td>
+<td>34.3</td>
+<td>0.8900</td>
+<td>21.0</td>
+<td>0.9100</td>
+<td>31.2</td>
+<td>0.9000</td>
+<td>24.8</td>
+<td>1.1000</td>
+<td>15.6</td>
+<td>1.0400</td>
+<td>4.1</td>
+<td>1.3900</td>
+<td>50.7</td>
+<td>1.0000</td>
+<td></td>
+<td>0.8000</td>
+<td>44.7</td>
+<td>0.9400</td>
+<td>42.4</td>
+<td>0.8300</td>
+<td>37.4</td>
+<td>0.9400</td>
+<td>23.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_2</td>
+<td>MLMS5_MAC</td>
+<td>0.7800</td>
+<td>42.6</td>
+<td>0.9000</td>
+<td>23.9</td>
+<td>0.9900</td>
+<td>5.3</td>
+<td>0.9400</td>
+<td>11.1</td>
+<td>0.4300</td>
+<td>77.7</td>
+<td>1.0700</td>
+<td>42.0</td>
+<td>1.0300</td>
+<td>37.8</td>
+<td>0.8600</td>
+<td>24.5</td>
+<td>0.8800</td>
+<td>34.4</td>
+<td>0.9100</td>
+<td>27.1</td>
+<td>1.1900</td>
+<td>13.6</td>
+<td>1.0300</td>
+<td>7.2</td>
+<td>1.2100</td>
+<td>53.5</td>
+<td>1.0000</td>
+<td></td>
+<td>0.7600</td>
+<td>48.5</td>
+<td>0.9200</td>
+<td>47.0</td>
+<td>0.8100</td>
+<td>43.1</td>
+<td>0.9400</td>
+<td>37.0</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_3</td>
+<td>MLMS3_MAC</td>
+<td>0.7800</td>
+<td>44.2</td>
+<td>0.9600</td>
+<td>13.9</td>
+<td>1.0000</td>
+<td>1.0</td>
+<td>0.9400</td>
+<td>10.6</td>
+<td>0.4200</td>
+<td>79.1</td>
+<td>0.9900</td>
+<td>43.1</td>
+<td>0.9500</td>
+<td>42.7</td>
+<td>0.8500</td>
+<td>26.0</td>
+<td>0.8600</td>
+<td>46.4</td>
+<td>0.9500</td>
+<td>27.7</td>
+<td>1.1900</td>
+<td>17.6</td>
+<td>1.0500</td>
+<td>4.4</td>
+<td>1.2300</td>
+<td>54.8</td>
+<td>1.0000</td>
+<td></td>
+<td>0.7500</td>
+<td>49.0</td>
+<td>0.8300</td>
+<td>52.3</td>
+<td>0.7800</td>
+<td>46.8</td>
+<td>0.9600</td>
+<td>33.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_4</td>
+<td>MLMS8_MAC</td>
+<td>0.7500</td>
+<td>47.1</td>
+<td>0.9500</td>
+<td>15.1</td>
+<td>1.0000</td>
+<td>0.5</td>
+<td>0.9000</td>
+<td>17.6</td>
+<td>0.3900</td>
+<td>79.6</td>
+<td>0.9700</td>
+<td>44.4</td>
+<td>0.9400</td>
+<td>42.5</td>
+<td>0.7800</td>
+<td>38.6</td>
+<td>0.8900</td>
+<td>53.7</td>
+<td>0.9100</td>
+<td>33.3</td>
+<td>1.4000</td>
+<td>17.9</td>
+<td>1.0000</td>
+<td>4.6</td>
+<td>1.1700</td>
+<td>55.9</td>
+<td>1.0000</td>
+<td></td>
+<td>0.7400</td>
+<td>54.4</td>
+<td>0.7900</td>
+<td>56.1</td>
+<td>0.7500</td>
+<td>55.5</td>
+<td>0.9300</td>
+<td>37.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_1</td>
+<td>EMSI1</td>
+<td>0.6700</td>
+<td>54.4</td>
+<td>0.6600</td>
+<td>53.9</td>
+<td>1.0000</td>
+<td>5.0</td>
+<td>0.8300</td>
+<td>31.1</td>
+<td>0.2900</td>
+<td>85.4</td>
+<td>0.9100</td>
+<td>52.7</td>
+<td>0.9300</td>
+<td>37.5</td>
+<td>0.9000</td>
+<td>22.6</td>
+<td>0.7800</td>
+<td>51.8</td>
+<td>0.9100</td>
+<td>38.2</td>
+<td>0.9300</td>
+<td>22.6</td>
+<td>1.0600</td>
+<td>2.0</td>
+<td>0.7300</td>
+<td>66.0</td>
+<td>1.0000</td>
+<td></td>
+<td>0.6300</td>
+<td>59.2</td>
+<td>0.7200</td>
+<td>63.6</td>
+<td>0.5100</td>
+<td>75.4</td>
+<td>0.9300</td>
+<td>32.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_2</td>
+<td>EMSI2</td>
+<td>0.6700</td>
+<td>54.4</td>
+<td>0.6600</td>
+<td>53.9</td>
+<td>1.0000</td>
+<td>0.5</td>
+<td>0.8300</td>
+<td>31.1</td>
+<td>0.2900</td>
+<td>85.4</td>
+<td>0.9100</td>
+<td>52.7</td>
+<td>0.9300</td>
+<td>37.5</td>
+<td>0.9000</td>
+<td>22.6</td>
+<td>0.7800</td>
+<td>51.8</td>
+<td>0.9100</td>
+<td>38.2</td>
+<td>0.9300</td>
+<td>22.6</td>
+<td>1.0600</td>
+<td>2.0</td>
+<td>0.7300</td>
+<td>0.7</td>
+<td>1.0000</td>
+<td></td>
+<td>0.6300</td>
+<td>59.2</td>
+<td>0.7200</td>
+<td>63.6</td>
+<td>0.5100</td>
+<td>75.4</td>
+<td>0.9300</td>
+<td>32.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_3</td>
+<td>EMSI3</td>
+<td>0.6700</td>
+<td>55.4</td>
+<td>0.6600</td>
+<td>54.1</td>
+<td>1.0000</td>
+<td></td>
+<td>0.7700</td>
+<td>39.8</td>
+<td>0.3000</td>
+<td>84.6</td>
+<td>0.8700</td>
+<td>54.8</td>
+<td>0.9200</td>
+<td>38.6</td>
+<td>0.8600</td>
+<td>29.4</td>
+<td>0.8000</td>
+<td>56.6</td>
+<td>0.9400</td>
+<td>40.2</td>
+<td>0.9000</td>
+<td>31.2</td>
+<td>1.0400</td>
+<td>1.3</td>
+<td>0.7300</td>
+<td>66.7</td>
+<td>1.0000</td>
+<td></td>
+<td>0.6200</td>
+<td>59.6</td>
+<td>0.7500</td>
+<td>64.0</td>
+<td>0.5300</td>
+<td>74.4</td>
+<td>0.9300</td>
+<td>33.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_4</td>
+<td>EMSI4</td>
+<td>0.6600</td>
+<td>55.5</td>
+<td>0.6700</td>
+<td>53.2</td>
+<td>1.0000</td>
+<td>0.5</td>
+<td>0.7800</td>
+<td>38.2</td>
+<td>0.3000</td>
+<td>84.7</td>
+<td>0.8600</td>
+<td>54.4</td>
+<td>0.9100</td>
+<td>39.1</td>
+<td>0.8800</td>
+<td>26.4</td>
+<td>0.7800</td>
+<td>55.8</td>
+<td>0.9800</td>
+<td>37.8</td>
+<td>0.8800</td>
+<td>31.2</td>
+<td>1.0400</td>
+<td>1.3</td>
+<td>0.7300</td>
+<td>67.0</td>
+<td>1.0000</td>
+<td></td>
+<td>0.6100</td>
+<td>61.2</td>
+<td>0.7300</td>
+<td>64.1</td>
+<td>0.5200</td>
+<td>74.9</td>
+<td>0.9200</td>
+<td>33.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_1</td>
+<td>Salamon_1</td>
+<td>0.8200</td>
+<td>46.2</td>
+<td>0.9500</td>
+<td>39.8</td>
+<td>0.9700</td>
+<td>18.2</td>
+<td>0.9200</td>
+<td>20.3</td>
+<td>0.3900</td>
+<td>80.6</td>
+<td>1.0100</td>
+<td>53.1</td>
+<td>1.0700</td>
+<td>42.2</td>
+<td>0.7400</td>
+<td>48.0</td>
+<td>0.9800</td>
+<td>44.2</td>
+<td>0.9500</td>
+<td>47.3</td>
+<td>1.8000</td>
+<td>24.8</td>
+<td>1.1500</td>
+<td>11.5</td>
+<td>1.3100</td>
+<td>53.5</td>
+<td>1.0900</td>
+<td>1.1</td>
+<td>0.9000</td>
+<td>50.6</td>
+<td>0.9900</td>
+<td>50.8</td>
+<td>0.8300</td>
+<td>56.5</td>
+<td>1.3100</td>
+<td>23.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_2</td>
+<td>Salamon_2</td>
+<td>0.8500</td>
+<td>45.6</td>
+<td>1.0000</td>
+<td>38.8</td>
+<td>1.0500</td>
+<td>17.4</td>
+<td>0.9300</td>
+<td>22.5</td>
+<td>0.3700</td>
+<td>81.6</td>
+<td>1.0600</td>
+<td>52.0</td>
+<td>1.1600</td>
+<td>37.2</td>
+<td>1.0000</td>
+<td>33.0</td>
+<td>1.0400</td>
+<td>46.2</td>
+<td>0.9600</td>
+<td>55.5</td>
+<td>2.1200</td>
+<td>21.6</td>
+<td>1.1900</td>
+<td>10.0</td>
+<td>1.4400</td>
+<td>50.9</td>
+<td>1.0600</td>
+<td>0.0</td>
+<td>1.0100</td>
+<td>45.7</td>
+<td>0.9200</td>
+<td>50.8</td>
+<td>0.7600</td>
+<td>59.8</td>
+<td>1.2000</td>
+<td>26.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_3</td>
+<td>Salamon_3</td>
+<td>0.7700</td>
+<td>45.9</td>
+<td>0.8700</td>
+<td>33.1</td>
+<td>1.0100</td>
+<td>4.3</td>
+<td>0.9600</td>
+<td>8.4</td>
+<td>0.3500</td>
+<td>81.9</td>
+<td>0.9100</td>
+<td>50.1</td>
+<td>0.9300</td>
+<td>42.5</td>
+<td>0.8500</td>
+<td>27.6</td>
+<td>0.8700</td>
+<td>40.7</td>
+<td>0.8200</td>
+<td>45.6</td>
+<td>1.2700</td>
+<td>16.7</td>
+<td>1.0300</td>
+<td>1.7</td>
+<td>0.9900</td>
+<td>59.3</td>
+<td>1.0100</td>
+<td>0.0</td>
+<td>0.6900</td>
+<td>55.1</td>
+<td>0.8900</td>
+<td>39.1</td>
+<td>0.8000</td>
+<td>49.5</td>
+<td>1.0100</td>
+<td>22.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_4</td>
+<td>Salamon_4</td>
+<td>0.7700</td>
+<td>45.9</td>
+<td>0.8700</td>
+<td>33.1</td>
+<td>1.0100</td>
+<td>4.3</td>
+<td>0.9600</td>
+<td>8.4</td>
+<td>0.3500</td>
+<td>81.9</td>
+<td>0.9100</td>
+<td>50.1</td>
+<td>0.9300</td>
+<td>42.5</td>
+<td>0.8500</td>
+<td>27.6</td>
+<td>0.8700</td>
+<td>40.7</td>
+<td>0.8200</td>
+<td>45.6</td>
+<td>1.2700</td>
+<td>16.7</td>
+<td>1.0300</td>
+<td>1.7</td>
+<td>0.9900</td>
+<td>59.3</td>
+<td>1.0100</td>
+<td>0.0</td>
+<td>0.6900</td>
+<td>55.1</td>
+<td>0.8900</td>
+<td>39.1</td>
+<td>0.8000</td>
+<td>49.5</td>
+<td>1.0100</td>
+<td>22.7</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2017</td>
+<td>Toan_NCU_task4_2</td>
+<td>ToanVu2</td>
+<td>0.9400</td>
+<td>43.0</td>
+<td>0.9100</td>
+<td>38.3</td>
+<td>1.1300</td>
+<td>42.8</td>
+<td>0.8500</td>
+<td>38.6</td>
+<td>0.6800</td>
+<td>68.1</td>
+<td>1.4200</td>
+<td>45.3</td>
+<td>0.9700</td>
+<td>34.7</td>
+<td>0.9400</td>
+<td>43.9</td>
+<td>1.0200</td>
+<td>41.1</td>
+<td>1.0400</td>
+<td>44.4</td>
+<td>2.3300</td>
+<td>21.0</td>
+<td>2.4000</td>
+<td>26.4</td>
+<td>0.9000</td>
+<td>48.4</td>
+<td>1.8900</td>
+<td>22.0</td>
+<td>1.0000</td>
+<td>52.0</td>
+<td>1.1900</td>
+<td>41.2</td>
+<td>0.8300</td>
+<td>54.5</td>
+<td>1.3100</td>
+<td>33.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2017</td>
+<td>Toan_NCU_task4_3</td>
+<td>ToanVu3</td>
+<td>0.9000</td>
+<td>42.7</td>
+<td>0.9100</td>
+<td>36.5</td>
+<td>1.1300</td>
+<td>40.1</td>
+<td>0.8100</td>
+<td>39.8</td>
+<td>0.6300</td>
+<td>69.5</td>
+<td>1.3800</td>
+<td>44.9</td>
+<td>0.9800</td>
+<td>31.9</td>
+<td>0.8900</td>
+<td>45.0</td>
+<td>0.9300</td>
+<td>40.2</td>
+<td>0.9300</td>
+<td>45.1</td>
+<td>2.1400</td>
+<td>21.0</td>
+<td>2.0900</td>
+<td>27.8</td>
+<td>0.8900</td>
+<td>48.5</td>
+<td>1.8600</td>
+<td>20.4</td>
+<td>0.9400</td>
+<td>53.1</td>
+<td>1.1100</td>
+<td>41.3</td>
+<td>0.8100</td>
+<td>52.4</td>
+<td>1.3100</td>
+<td>32.4</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2017</td>
+<td>Toan_NCU_task4_4</td>
+<td>ToanVu4</td>
+<td>0.8700</td>
+<td>41.6</td>
+<td>0.9000</td>
+<td>34.1</td>
+<td>1.1000</td>
+<td>37.1</td>
+<td>0.8200</td>
+<td>36.0</td>
+<td>0.5700</td>
+<td>70.5</td>
+<td>1.3100</td>
+<td>45.5</td>
+<td>0.9700</td>
+<td>32.7</td>
+<td>0.8200</td>
+<td>45.5</td>
+<td>0.9000</td>
+<td>35.0</td>
+<td>0.8500</td>
+<td>43.2</td>
+<td>1.8600</td>
+<td>21.1</td>
+<td>1.7500</td>
+<td>26.3</td>
+<td>0.8800</td>
+<td>48.4</td>
+<td>1.7600</td>
+<td>22.0</td>
+<td>0.9400</td>
+<td>52.8</td>
+<td>1.0200</td>
+<td>41.1</td>
+<td>0.8300</td>
+<td>43.7</td>
+<td>1.2600</td>
+<td>32.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_1</td>
+<td>Surrey1AB</td>
+<td>0.7300</td>
+<td>51.8</td>
+<td>0.9000</td>
+<td>47.6</td>
+<td>0.9100</td>
+<td>29.7</td>
+<td>0.6700</td>
+<td>53.3</td>
+<td>0.2900</td>
+<td>85.8</td>
+<td>0.8500</td>
+<td>55.9</td>
+<td>0.8700</td>
+<td>45.0</td>
+<td>0.7900</td>
+<td>48.1</td>
+<td>0.7800</td>
+<td>65.5</td>
+<td>0.9700</td>
+<td>53.7</td>
+<td>1.1900</td>
+<td>34.9</td>
+<td>1.1400</td>
+<td>21.6</td>
+<td>0.7600</td>
+<td>48.7</td>
+<td>1.4000</td>
+<td>18.1</td>
+<td>0.8900</td>
+<td>59.7</td>
+<td>0.8600</td>
+<td>58.7</td>
+<td>0.6700</td>
+<td>65.9</td>
+<td>1.0900</td>
+<td>35.2</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_2</td>
+<td>Surrey2AB</td>
+<td>0.7800</td>
+<td>47.5</td>
+<td>0.8700</td>
+<td>48.4</td>
+<td>0.9600</td>
+<td>20.4</td>
+<td>0.6600</td>
+<td>58.6</td>
+<td>0.3500</td>
+<td>83.2</td>
+<td>0.9800</td>
+<td>52.4</td>
+<td>0.9000</td>
+<td>43.8</td>
+<td>1.0100</td>
+<td>39.7</td>
+<td>0.8200</td>
+<td>56.8</td>
+<td>0.9900</td>
+<td>53.3</td>
+<td>1.4200</td>
+<td>27.6</td>
+<td>1.2500</td>
+<td>23.2</td>
+<td>0.8000</td>
+<td>45.2</td>
+<td>1.5100</td>
+<td>17.8</td>
+<td>0.9900</td>
+<td>57.4</td>
+<td>0.9600</td>
+<td>50.1</td>
+<td>0.7600</td>
+<td>60.0</td>
+<td>1.1800</td>
+<td>23.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_3</td>
+<td>Surrey3AB</td>
+<td>1.0100</td>
+<td>52.1</td>
+<td>1.0600</td>
+<td>45.0</td>
+<td>1.1800</td>
+<td>57.7</td>
+<td>1.2500</td>
+<td>53.9</td>
+<td>0.3500</td>
+<td>82.7</td>
+<td>0.9400</td>
+<td>60.2</td>
+<td>0.9200</td>
+<td>55.7</td>
+<td>1.2500</td>
+<td>51.7</td>
+<td>1.6200</td>
+<td>53.5</td>
+<td>1.6700</td>
+<td>50.2</td>
+<td>2.4700</td>
+<td>25.0</td>
+<td>2.4900</td>
+<td>29.3</td>
+<td>0.8400</td>
+<td>59.7</td>
+<td>4.6800</td>
+<td>24.1</td>
+<td>1.1900</td>
+<td>57.9</td>
+<td>1.2600</td>
+<td>52.8</td>
+<td>0.9300</td>
+<td>65.5</td>
+<td>1.3400</td>
+<td>44.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_4</td>
+<td>Surrey4AB</td>
+<td>0.8000</td>
+<td>50.4</td>
+<td>0.9700</td>
+<td>45.9</td>
+<td>0.9400</td>
+<td>34.2</td>
+<td>0.8900</td>
+<td>50.7</td>
+<td>0.3100</td>
+<td>85.0</td>
+<td>0.8600</td>
+<td>56.2</td>
+<td>0.9100</td>
+<td>44.0</td>
+<td>0.9200</td>
+<td>52.4</td>
+<td>1.0400</td>
+<td>61.0</td>
+<td>0.8000</td>
+<td>65.1</td>
+<td>1.9900</td>
+<td>24.2</td>
+<td>1.7100</td>
+<td>28.9</td>
+<td>0.9000</td>
+<td>48.0</td>
+<td>1.8100</td>
+<td>21.0</td>
+<td>1.0100</td>
+<td>58.2</td>
+<td>1.0100</td>
+<td>55.4</td>
+<td>0.8000</td>
+<td>65.1</td>
+<td>1.3000</td>
+<td>38.3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="system-characteristics">System characteristics</h2>
+<h4>Subtask A - Audio tagging</h4>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="off" data-chart-modes="bar" data-chart-tooltip-fields="code" data-fields="code:Submission&lt;br&gt;&lt;/br&gt;code:str:visible;sortable;sep-left,
+         name:Submission&lt;br&gt;&lt;/br&gt;name:str:visible;sortable;small,
+         anchor:Tech.&lt;br&gt;&lt;/br&gt;Report:anchor:visible;sep-left;text-center,
+         accuracy_eval:Accuracy &lt;br&gt;&lt;/br&gt;(Eval):float:visible;sortable;chartable;sep-left;text-center:percentage,
+         system_input:Input:tag:visible;sortable;filterable;sep-left,
+         system_features:Features:tag:visible;sortable;filterable,
+         system_classifier:Classifier:tag:visible;sortable;filterable" data-filter-control="true" data-filter-show-clear="true" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="A_micro_F1_overall_eval" data-sort-order="desc" data-striped="true" data-tag-mode="column">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="1">(overall)</th>
+<th class="sep-left-cell text-center" colspan="6">System characteristics</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="A_micro_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(eval)</small>
+</th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_input" data-filter-control="select" data-sortable="true" data-tag="true">
+                Input
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_sampling_rate" data-filter-control="select" data-sortable="true" data-tag="true">
+                Sampling <br/>rate
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_data_augmentation" data-filter-control="select" data-sortable="true" data-tag="true">
+                Data <br/>augmentation
+            </th>
+<th class="text-center narrow-col" data-field="system_features" data-filter-control="select" data-sortable="true" data-tag="true">
+                Features
+            </th>
+<th class="text-center narrow-col" data-field="system_classifier" data-filter-control="select" data-sortable="true" data-tag="true">
+                Classifier
+            </th>
+<th class="text-center narrow-col" data-field="system_decision_making" data-filter-control="select" data-sortable="true" data-tag="true">
+                Decision <br/>making
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_1</td>
+<td>Ash_1</td>
+<td>45.5</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_2</td>
+<td>Ash_2</td>
+<td>46.6</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_3</td>
+<td>Ash_3</td>
+<td>44.5</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_4</td>
+<td>Ash_4</td>
+<td>26.3</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Chou2017</td>
+<td>Chou_SINICA_task4_1</td>
+<td>FCNN_SM_1</td>
+<td>47.6</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>spectrogram</td>
+<td>CNN</td>
+<td>majority vote</td>
+</tr>
+<tr>
+<td></td>
+<td>Chou2017</td>
+<td>Chou_SINICA_task4_2</td>
+<td>FCNN_SM_2</td>
+<td>49.0</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>spectrogram</td>
+<td>CNN</td>
+<td>majority vote</td>
+</tr>
+<tr>
+<td></td>
+<td>Chou2017</td>
+<td>Chou_SINICA_task4_3</td>
+<td>FCNN_SM_3</td>
+<td>47.9</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>spectrogram</td>
+<td>CNN</td>
+<td>majority vote</td>
+</tr>
+<tr>
+<td></td>
+<td>Chou2017</td>
+<td>Chou_SINICA_task4_4</td>
+<td>FCNN_SM_3</td>
+<td>49.0</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>spectrogram</td>
+<td>CNN</td>
+<td>majority vote</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Badlani2017</td>
+<td>DCASE2017 baseline</td>
+<td>Baseline</td>
+<td>18.2</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>MLP</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Kukanov2017</td>
+<td>Kukanov_UEF_task4_1</td>
+<td>K-CRNN-MFoM</td>
+<td>39.6</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN-MFoM</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_1</td>
+<td>SDCNN_MAC</td>
+<td>40.3</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>raw waveforms</td>
+<td>CNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_2</td>
+<td>MLMS5_MAC</td>
+<td>47.3</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>raw waveforms</td>
+<td>CNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_3</td>
+<td>MLMS3_MAC</td>
+<td>47.2</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>raw waveforms</td>
+<td>CNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_4</td>
+<td>MLMS8_MAC</td>
+<td>47.1</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>raw waveforms</td>
+<td>CNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_1</td>
+<td>EMSI1</td>
+<td>52.3</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CNN, ensemble</td>
+<td>mean probability</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_2</td>
+<td>EMSI2</td>
+<td>52.3</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CNN, ensemble</td>
+<td>mean probability</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_3</td>
+<td>EMSI3</td>
+<td>52.6</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CNN, ensemble</td>
+<td>weighted mean probability</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_4</td>
+<td>EMSI4</td>
+<td>52.1</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CNN, ensemble</td>
+<td>weighted mean probability</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_1</td>
+<td>Salamon_1</td>
+<td>46.0</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>pitch shifting</td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>raw output</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_2</td>
+<td>Salamon_2</td>
+<td>45.3</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>pitch shifting</td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>raw output</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_3</td>
+<td>Salamon_3</td>
+<td>44.9</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>pitch shifting, dynamic range compression</td>
+<td>log-mel energies</td>
+<td>ensemble</td>
+<td>raw output</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_4</td>
+<td>Salamon_4</td>
+<td>38.1</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>pitch shifting, dynamic range compression</td>
+<td>log-mel energies</td>
+<td>ensemble</td>
+<td>raw output</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2017</td>
+<td>Toan_NCU_task4_1</td>
+<td>ToanVu1</td>
+<td>48.5</td>
+<td>mono</td>
+<td>22050 Hz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>DenseNet</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2017</td>
+<td>Toan_NCU_task4_2</td>
+<td>ToanVu2</td>
+<td>46.5</td>
+<td>mono</td>
+<td>22050 Hz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>DenseNet</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Tseng2017</td>
+<td>Tseng_Bosch_task4_1</td>
+<td>Bosch1</td>
+<td>35.0</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>ensemble</td>
+<td>max pooling</td>
+</tr>
+<tr>
+<td></td>
+<td>Tseng2017</td>
+<td>Tseng_Bosch_task4_2</td>
+<td>Bosch2</td>
+<td>35.1</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>ensemble</td>
+<td>max pooling</td>
+</tr>
+<tr>
+<td></td>
+<td>Tseng2017</td>
+<td>Tseng_Bosch_task4_3</td>
+<td>Bosch3</td>
+<td>35.2</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>ensemble</td>
+<td>max pooling</td>
+</tr>
+<tr>
+<td></td>
+<td>Tseng2017</td>
+<td>Tseng_Bosch_task4_4</td>
+<td>Bosch4</td>
+<td>35.2</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>ensemble</td>
+<td>max pooling</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_1</td>
+<td>Surrey1AB</td>
+<td>54.4</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_2</td>
+<td>Surrey2AB</td>
+<td>55.6</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_3</td>
+<td>Surrey3AB</td>
+<td>54.2</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_4</td>
+<td>Surrey4AB</td>
+<td>52.8</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Subtask B - Sound event detection</h4>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="off" data-chart-modes="bar,scatter" data-chart-tooltip-fields="code" data-fields="code:Submission&lt;br&gt;&lt;/br&gt;code:str:visible;sortable;sep-left,
+                 name:Submission&lt;br&gt;&lt;/br&gt;name:str:visible;sortable;small,
+                 anchor:Tech.&lt;br&gt;&lt;/br&gt;Report:anchor:visible;sep-left;text-center,
+                 accuracy_eval:Accuracy &lt;br&gt;&lt;/br&gt;(Eval):float:visible;sortable;chartable;sep-left;text-center:percentage,
+                 system_input:Input:tag:visible;sortable;filterable;sep-left,
+                 system_features:Features:tag:visible;sortable;filterable,
+                 system_classifier:Classifier:tag:visible;sortable;filterable" data-filter-control="true" data-filter-show-clear="true" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="B_segment_based_ER_overall_eval" data-scatter-y="B_segment_based_F1_overall_eval" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="B_segment_based_ER_overall_eval" data-sort-order="asc" data-striped="true" data-tag-mode="column">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Submission Information</th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor" rowspan="2">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" colspan="2">Segment based (overall)</th>
+<th class="sep-left-cell text-center" colspan="6">System characteristics</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="B_segment_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER <small class="hidden">(eval/seg)</small>
+</th>
+<th class="text-center" data-chartable="true" data-field="B_segment_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1 <small class="hidden">(eval/seg)</small>
+</th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_input" data-filter-control="select" data-sortable="true" data-tag="true">
+                Input
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_sampling_rate" data-filter-control="select" data-sortable="true" data-tag="true">
+                Sampling <br/>rate
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_data_augmentation" data-filter-control="select" data-sortable="true" data-tag="true">
+                Data <br/>augmentation
+            </th>
+<th class="text-center narrow-col" data-field="system_features" data-filter-control="select" data-sortable="true" data-tag="true">
+                Features
+            </th>
+<th class="text-center narrow-col" data-field="system_classifier" data-filter-control="select" data-sortable="true" data-tag="true">
+                Classifier
+            </th>
+<th class="text-center narrow-col" data-field="system_decision_making" data-filter-control="select" data-sortable="true" data-tag="true">
+                Decision <br/>making
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_1</td>
+<td>Ash_1</td>
+<td>0.8100</td>
+<td>47.9</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_2</td>
+<td>Ash_2</td>
+<td>0.8000</td>
+<td>48.3</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_3</td>
+<td>Ash_3</td>
+<td>0.8200</td>
+<td>48.9</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne2017</td>
+<td>Adavanne_TUT_task4_4</td>
+<td>Ash_4</td>
+<td>0.7900</td>
+<td>49.0</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Chou2017</td>
+<td>Chou_SINICA_task4_1</td>
+<td>FCNN_SM_1</td>
+<td>0.8300</td>
+<td>42.4</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>spectrogram</td>
+<td>CNN</td>
+<td>majority vote</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Badlani2017</td>
+<td>DCASE2017 baseline</td>
+<td>Baseline</td>
+<td>0.9300</td>
+<td>28.4</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>MLP</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_1</td>
+<td>SDCNN_MAC</td>
+<td>0.8200</td>
+<td>39.4</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>raw waveforms</td>
+<td>CNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_2</td>
+<td>MLMS5_MAC</td>
+<td>0.7800</td>
+<td>42.6</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>raw waveforms</td>
+<td>CNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_3</td>
+<td>MLMS3_MAC</td>
+<td>0.7800</td>
+<td>44.2</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>raw waveforms</td>
+<td>CNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017</td>
+<td>Lee_KAIST_task4_4</td>
+<td>MLMS8_MAC</td>
+<td>0.7500</td>
+<td>47.1</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>raw waveforms</td>
+<td>CNN</td>
+<td>thresholding</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_1</td>
+<td>EMSI1</td>
+<td>0.6700</td>
+<td>54.4</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CNN, ensemble</td>
+<td>mean probability</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_2</td>
+<td>EMSI2</td>
+<td>0.6700</td>
+<td>54.4</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CNN, ensemble</td>
+<td>mean probability</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_3</td>
+<td>EMSI3</td>
+<td>0.6700</td>
+<td>55.4</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CNN, ensemble</td>
+<td>weighted mean probability</td>
+</tr>
+<tr>
+<td></td>
+<td>Lee2017a</td>
+<td>Lee_SNU_task4_4</td>
+<td>EMSI4</td>
+<td>0.6600</td>
+<td>55.5</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CNN, ensemble</td>
+<td>weighted mean probability</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_1</td>
+<td>Salamon_1</td>
+<td>0.8200</td>
+<td>46.2</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>pitch shifting</td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>raw output</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_2</td>
+<td>Salamon_2</td>
+<td>0.8500</td>
+<td>45.6</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>pitch shifting</td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td>raw output</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_3</td>
+<td>Salamon_3</td>
+<td>0.7700</td>
+<td>45.9</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>pitch shifting, dynamic range compression</td>
+<td>log-mel energies</td>
+<td>ensemble</td>
+<td>raw output</td>
+</tr>
+<tr>
+<td></td>
+<td>Salamon2017</td>
+<td>Salamon_NYU_task4_4</td>
+<td>Salamon_4</td>
+<td>0.7700</td>
+<td>45.9</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td>pitch shifting, dynamic range compression</td>
+<td>log-mel energies</td>
+<td>ensemble</td>
+<td>raw output</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2017</td>
+<td>Toan_NCU_task4_2</td>
+<td>ToanVu2</td>
+<td>0.9400</td>
+<td>43.0</td>
+<td>mono</td>
+<td>22050 Hz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>DenseNet</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2017</td>
+<td>Toan_NCU_task4_3</td>
+<td>ToanVu3</td>
+<td>0.9000</td>
+<td>42.7</td>
+<td>mono</td>
+<td>22050 Hz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>DenseNet</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu2017</td>
+<td>Toan_NCU_task4_4</td>
+<td>ToanVu4</td>
+<td>0.8700</td>
+<td>41.6</td>
+<td>mono</td>
+<td>22050 Hz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>DenseNet</td>
+<td>median filtering</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_1</td>
+<td>Surrey1AB</td>
+<td>0.7300</td>
+<td>51.8</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_2</td>
+<td>Surrey2AB</td>
+<td>0.7800</td>
+<td>47.5</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_3</td>
+<td>Surrey3AB</td>
+<td>1.0100</td>
+<td>52.1</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Xu2017</td>
+<td>Xu_CVSSP_task4_4</td>
+<td>Surrey4AB</td>
+<td>0.8000</td>
+<td>50.4</td>
+<td>mono</td>
+<td>44.1kHz</td>
+<td></td>
+<td>log-mel energies</td>
+<td>CRNN</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="technical-reports">Technical reports</h2>
+<div class="btex" data-source="content/data/challenge2017/technical_reports_task4.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="Adavanne2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Adavanne2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Sound Event Detection Using Weakly Labeled Dataset with Stacked Convolutional and Recurrent Neural Network
+       </h4>
+<p style="text-align:left">
+        Sharath Adavanne and Tuomas Virtanen
+       </p>
+<p style="text-align:left">
+<em>
+         Laboratory of Signal Processing, Tampere University of Technology, Tampere, Finland
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Adavanne_TUT_task4_1</span> <span class="label label-primary">Adavanne_TUT_task4_2</span> <span class="label label-primary">Adavanne_TUT_task4_3</span> <span class="label label-primary">Adavanne_TUT_task4_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Adavanne2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Adavanne2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Adavanne2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Adavanne_128.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Adavanne2017" class="panel-collapse collapse" id="collapse-Adavanne2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Sound Event Detection Using Weakly Labeled Dataset with Stacked Convolutional and Recurrent Neural Network
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       This paper proposes a neural network architecture and training scheme to learn the start and end time of sound events (strong labels) in an audio recording given just the list of sound events existing in the audio without time information (weak labels). We achieve this by using a stacked convolutional and recurrent neural network with two prediction layers in sequence one for the strong followed by the weak label. The network is trained using frame-wise log mel-band energy as the input audio feature, and weak labels provided in the dataset as labels for the weak label prediction layer. Strong labels are generated by replicating the weak labels as many number of times as the frames in the input audio feature, and used for strong label layer during training. We propose to control what the network learns from the weak and strong labels by different weighting for the loss computed in the two prediction layers. The proposed method is evaluated on a publicly available dataset of 155 hours with 17 sound event classes. The method achieves the best error rate of 0.84 for strong labels and F-score of 43.3% for weak labels on the unseen test split.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CRNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         thresholding
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Adavanne2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Adavanne_128.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Adavanne2017label" class="modal fade" id="bibtex-Adavanne2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexAdavanne2017label">
+        Sound Event Detection Using Weakly Labeled Dataset with Stacked Convolutional and Recurrent Neural Network
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Adavanne2017,
+    Author = "Adavanne, Sharath and Virtanen, Tuomas",
+    title = "Sound Event Detection Using Weakly Labeled Dataset with Stacked Convolutional and Recurrent Neural Network",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "This paper proposes a neural network architecture and training scheme to learn the start and end time of sound events (strong labels) in an audio recording given just the list of sound events existing in the audio without time information (weak labels). We achieve this by using a stacked convolutional and recurrent neural network with two prediction layers in sequence one for the strong followed by the weak label. The network is trained using frame-wise log mel-band energy as the input audio feature, and weak labels provided in the dataset as labels for the weak label prediction layer. Strong labels are generated by replicating the weak labels as many number of times as the frames in the input audio feature, and used for strong label layer during training. We propose to control what the network learns from the weak and strong labels by different weighting for the loss computed in the two prediction layers. The proposed method is evaluated on a publicly available dataset of 155 hours with 17 sound event classes. The method achieves the best error rate of 0.84 for strong labels and F-score of 43.3\% for weak labels on the unseen test split."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Badlani2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Badlani2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DCASE 2017 Challenge Setup: Tasks, Datasets and Baseline System
+       </h4>
+<p style="text-align:left">
+        Rohan Badlani<sup>1</sup>, Ankit Shah<sup>2</sup> and Benjamin Elizalde<sup>2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Birla Institute of Technology &amp; Science, Rajasthan, India, <sup>2</sup>Electrical and Computer Engineering, Carnegie Mellon University, Pittsburgh, USA
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Elizalde_CMU_task4_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Badlani2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Badlani2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Badlani2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/dcase-2017-challenge-paper.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Badlani2017').collapse('show');window.location.hash='#Badlani2017';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Badlani2017" class="panel-collapse collapse" id="collapse-Badlani2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DCASE 2017 Challenge Setup: Tasks, Datasets and Baseline System
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       DCASE 2017 Challenge consists of four tasks: acoustic scene classification, detection of rare sound events, sound event detection in real-life audio, and large-scale weakly supervised sound event detection for smart cars. This paper presents the setup of these tasks: task definition, dataset, experimental setup, and baseline system results on the development dataset. The baseline systems for all tasks rely on the same implementation using multilayer perceptron and log mel-energies, but differ in the structure of the output layer and the decision making process, as well as the evaluation of system output using task specific metrics.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         MLP
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         median filtering
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Badlani2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/dcase-2017-challenge-paper.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/ankitshah009/Task-4-Large-scale-weakly-supervised-sound-event-detection-for-smart-cars" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Badlani2017label" class="modal fade" id="bibtex-Badlani2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexBadlani2017label">
+        DCASE 2017 Challenge Setup: Tasks, Datasets and Baseline System
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Badlani2017,
+    Author = "Badlani, Rohan and Shah, Ankit and Elizalde, Benjamin",
+    title = "{DCASE} 2017 Challenge Setup: Tasks, Datasets and Baseline System",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "DCASE 2017 Challenge consists of four tasks: acoustic scene classification, detection of rare sound events, sound event detection in real-life audio, and large-scale weakly supervised sound event detection for smart cars. This paper presents the setup of these tasks: task definition, dataset, experimental setup, and baseline system results on the development dataset. The baseline systems for all tasks rely on the same implementation using multilayer perceptron and log mel-energies, but differ in the structure of the output layer and the decision making process, as well as the evaluation of system output using task specific metrics."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Chou2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Chou2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        FrameCNN: A Weakly-Supervised Learning Framework for Frame-Wise Acoustic Event Detection and Classification
+       </h4>
+<p style="text-align:left">
+        Szu-Yu Chou<sup>1</sup>, Jyh-Shing Jang<sup>2</sup> and Yi-Hsuan Yang<sup>1</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Research Center for IT innovation, Academia Sinica, Taipei, Taiwan, <sup>2</sup>Graduate Institute of Networking and Multimedia, National Taiwan University, Taipei, Taiwan
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Chou_SINICA_task4_1</span> <span class="label label-primary">Chou_SINICA_task4_2</span> <span class="label label-primary">Chou_SINICA_task4_3</span> <span class="label label-primary">Chou_SINICA_task4_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Chou2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Chou2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Chou2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Chou_102.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Chou2017" class="panel-collapse collapse" id="collapse-Chou2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       FrameCNN: A Weakly-Supervised Learning Framework for Frame-Wise Acoustic Event Detection and Classification
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this paper, we describe our contribution to the challenge of detection and classification of acoustic scenes and events (DCASE2017).We propose framCNN, a novel weakly supervised learning frame-work that improves the performance of convolutional neural net-work (CNN) for acoustic event detection by attending to details of each sound at various temporal levels. Most existing weakly-supervised frameworks replace fully-connected network with global average pooling after the final convolution layer. Such a method tends to identify only a few discriminative parts, leading to sub-optimal localization and classification accuracy. The key idea of our approach is to consciously classify the sound of each frame given by the corresponding label. The idea is general and can be applied to any network for achieving sound event detection and improving the performance of sound event classification. In acoustic scene classification (Task1), our approach obtained an average accuracy of 99.2% on the four-fold cross-validation for acoustic scene recognition, comparing to the provided baseline of 74.8%. In the large-scale weakly supervised sound event detection for smart cars(Task4), we obtained a F-score 53.8% for sound event audio tagging (subtask A), compared to the baseline of 19.8%, and a F-score32.8% for sound event detection (subtask B), compared to the base-line of 11.4%
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         spectrogram
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         majority vote
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Chou2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Chou_102.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Chou2017label" class="modal fade" id="bibtex-Chou2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexChou2017label">
+        FrameCNN: A Weakly-Supervised Learning Framework for Frame-Wise Acoustic Event Detection and Classification
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Chou2017,
+    Author = "Chou, Szu-Yu and Jang, Jyh-Shing and Yang, Yi-Hsuan",
+    title = "{FrameCNN}: A Weakly-Supervised Learning Framework for Frame-Wise Acoustic Event Detection and Classification",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "In this paper, we describe our contribution to the challenge of detection and classification of acoustic scenes and events (DCASE2017).We propose framCNN, a novel weakly supervised learning frame-work that improves the performance of convolutional neural net-work (CNN) for acoustic event detection by attending to details of each sound at various temporal levels. Most existing weakly-supervised frameworks replace fully-connected network with global average pooling after the final convolution layer. Such a method tends to identify only a few discriminative parts, leading to sub-optimal localization and classification accuracy. The key idea of our approach is to consciously classify the sound of each frame given by the corresponding label. The idea is general and can be applied to any network for achieving sound event detection and improving the performance of sound event classification. In acoustic scene classification (Task1), our approach obtained an average accuracy of 99.2\% on the four-fold cross-validation for acoustic scene recognition, comparing to the provided baseline of 74.8\%. In the large-scale weakly supervised sound event detection for smart cars(Task4), we obtained a F-score 53.8\% for sound event audio tagging (subtask A), compared to the baseline of 19.8\%, and a F-score32.8\% for sound event detection (subtask B), compared to the base-line of 11.4\%"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Kukanov2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Kukanov2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Recurrent Neural Network and Maximal Figure of Merit for Acoustic Event Detection
+       </h4>
+<p style="text-align:left">
+        Ivan Kukanov<sup>1</sup>, Ville Hautamäki<sup>1</sup> and Kong Aik Lee<sup>2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>School of Computing, University of Eastern Finland, Joensuu, Finland, <sup>2</sup>Institute for Infocomm Research, A*Star, Singapore
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Kukanov_UEF_task4_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Kukanov2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Kukanov2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Kukanov2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Kukanov_196.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Kukanov2017" class="panel-collapse collapse" id="collapse-Kukanov2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Recurrent Neural Network and Maximal Figure of Merit for Acoustic Event Detection
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this report, we describe the systems submitted to the DCASE 2017 challenge. In particular, we explored convolutional recurrent neural network (CRNN) for acoustic scene classification (Task 1). For the weakly supervised sound event detection (Task 4), we utilized CRNN by embedding maximal figure-of-merit (CRNN-MFoM) into the binary cross-entropy objective function. On the development data set, the CRNN model achieves an average 14.7% relative accuracy improvement on the classification Task 1, the CRNN-MFoM improves F1-score from 10.9% to 33.5% on the detection Task 4 compared to the baseline system.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CRNN-MFoM
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         median filtering
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Kukanov2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Kukanov_196.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Kukanov2017label" class="modal fade" id="bibtex-Kukanov2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexKukanov2017label">
+        Recurrent Neural Network and Maximal Figure of Merit for Acoustic Event Detection
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Kukanov2017,
+    Author = "Kukanov, Ivan and Hautamäki, Ville and Lee, Kong Aik",
+    title = "Recurrent Neural Network and Maximal Figure of Merit for Acoustic Event Detection",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "In this report, we describe the systems submitted to the DCASE 2017 challenge. In particular, we explored convolutional recurrent neural network (CRNN) for acoustic scene classification (Task 1). For the weakly supervised sound event detection (Task 4), we utilized CRNN by embedding maximal figure-of-merit (CRNN-MFoM) into the binary cross-entropy objective function. On the development data set, the CRNN model achieves an average 14.7\% relative accuracy improvement on the classification Task 1, the CRNN-MFoM improves F1-score from 10.9\% to 33.5\% on the detection Task 4 compared to the baseline system."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Lee2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Lee2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Combining Multi-Scale Features Using Sample-Level Deep Convolutional Neural Networks for Weakly Supervised Sound Event Detection
+       </h4>
+<p style="text-align:left">
+        Jongpil Lee, Jiyoung Park and Juhan Nam
+       </p>
+<p style="text-align:left">
+<em>
+         Graduate School of Culture Technology, Korea Advanced Institute of Science and Technology, Daejeon, Korea
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Lee_KAIST_task4_1</span> <span class="label label-primary">Lee_KAIST_task4_2</span> <span class="label label-primary">Lee_KAIST_task4_3</span> <span class="label label-primary">Lee_KAIST_task4_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Lee2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Lee2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Lee2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Lee_118.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Lee2017').collapse('show');window.location.hash='#Lee2017';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Lee2017" class="panel-collapse collapse" id="collapse-Lee2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Combining Multi-Scale Features Using Sample-Level Deep Convolutional Neural Networks for Weakly Supervised Sound Event Detection
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       This paper describes our method submitted to large-scale weakly supervised sound event detection for smart cars in DCASE Challenge 2017. It it based on two techniques that have been previously suggested for music auto-tagging. One is training sample-level deep convolutional neural networks using raw waveforms as feature extractors. The other is aggregating features on multi-scaled models of the CNNs and making final predictions. With this approach, we achieved the best results, 44.3% in F-score on subtask A (audio tagging) and 0.84 in error rate on subtask B (sound event detection). Finally, we visualize hierarchically learned filters from the challenge dataset in each layer of the raw waveform based model to explain how they discriminate the events.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         raw waveforms
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         thresholding
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Lee2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Lee_118.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/jongpillee/dcase2017submission" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Lee2017label" class="modal fade" id="bibtex-Lee2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexLee2017label">
+        Combining Multi-Scale Features Using Sample-Level Deep Convolutional Neural Networks for Weakly Supervised Sound Event Detection
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Lee2017,
+    Author = "Lee, Jongpil and Park, Jiyoung and Nam, Juhan",
+    title = "Combining Multi-Scale Features Using Sample-Level Deep Convolutional Neural Networks for Weakly Supervised Sound Event Detection",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "This paper describes our method submitted to large-scale weakly supervised sound event detection for smart cars in DCASE Challenge 2017. It it based on two techniques that have been previously suggested for music auto-tagging. One is training sample-level deep convolutional neural networks using raw waveforms as feature extractors. The other is aggregating features on multi-scaled models of the CNNs and making final predictions. With this approach, we achieved the best results, 44.3\% in F-score on subtask A (audio tagging) and 0.84 in error rate on subtask B (sound event detection). Finally, we visualize hierarchically learned filters from the challenge dataset in each layer of the raw waveform based model to explain how they discriminate the events."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Lee2017a" style="box-shadow: none">
+<div class="panel-heading" id="heading-Lee2017a" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Ensemble of Convolutional Neural Networks for Weakly-Supervised Sound Event Detection Using Multiple Scale Input
+       </h4>
+<p style="text-align:left">
+        Donmoon Lee<sup>1,2</sup>, Subin Lee<sup>1,2</sup>, Yoonchang Han<sup>2</sup> and Kyogu Lee<sup>1</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Music and Audio Research Group, Seoul National University, Seoul, Korea, <sup>2</sup>Cochlear.ai, Seoul, Korea
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Lee_SNU_task4_1</span> <span class="label label-primary">Lee_SNU_task4_2</span> <span class="label label-primary">Lee_SNU_task4_3</span> <span class="label label-primary">Lee_SNU_task4_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Lee2017a" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Lee2017a" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Lee2017a" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Lee_199.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Lee2017a" class="panel-collapse collapse" id="collapse-Lee2017a" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Ensemble of Convolutional Neural Networks for Weakly-Supervised Sound Event Detection Using Multiple Scale Input
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this paper, we use ensemble of convolutional neural network models that use the various analysis window to detect audio events in the automotive environment. When detecting the presence of audio events, global input based model that uses the entire audio clip works better. On the other hand, segmented input based models works better in finding the accurate position of the event. Experimental results for weakly-labeled audio data confirm the performance trade-off between the two tasks, depending on the length of input audio. By combining the predictions of various models, the proposed system achieved 0.4762 in the clip-based F1-score and 0.7167 in the segment-based error rate.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CNN, ensemble
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         mean probability; weighted mean probability
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Lee2017a" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Lee_199.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Lee2017alabel" class="modal fade" id="bibtex-Lee2017a" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexLee2017alabel">
+        Ensemble of Convolutional Neural Networks for Weakly-Supervised Sound Event Detection Using Multiple Scale Input
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Lee2017a,
+    Author = "Lee, Donmoon and Lee, Subin and Han, Yoonchang and Lee, Kyogu",
+    title = "Ensemble of Convolutional Neural Networks for Weakly-Supervised Sound Event Detection Using Multiple Scale Input",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "In this paper, we use ensemble of convolutional neural network models that use the various analysis window to detect audio events in the automotive environment. When detecting the presence of audio events, global input based model that uses the entire audio clip works better. On the other hand, segmented input based models works better in finding the accurate position of the event. Experimental results for weakly-labeled audio data confirm the performance trade-off between the two tasks, depending on the length of input audio. By combining the predictions of various models, the proposed system achieved 0.4762 in the clip-based F1-score and 0.7167 in the segment-based error rate."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Salamon2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Salamon2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        DCASE 2017 Submission: Multiple Instance Learning for Sound Event Detection
+       </h4>
+<p style="text-align:left">
+        Justin Salamon<sup>1,2</sup>, Brian McFee<sup>1,3</sup> and Peter Li<sup>1</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Music and Audio Research Laboratory, New York University, New York City, USA, <sup>2</sup>Center of Urban Science and Progress, New York University, New York City, USA, <sup>3</sup>Center for Data Science, New York University, New York City, USA
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Salamon_NYU_task4_1</span> <span class="label label-primary">Salamon_NYU_task4_2</span> <span class="label label-primary">Salamon_NYU_task4_3</span> <span class="label label-primary">Salamon_NYU_task4_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Salamon2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Salamon2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Salamon2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Salamon_192.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Salamon2017').collapse('show');window.location.hash='#Salamon2017';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Salamon2017" class="panel-collapse collapse" id="collapse-Salamon2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       DCASE 2017 Submission: Multiple Instance Learning for Sound Event Detection
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       This extended abstract describes the design and implementation of a multiple instance learning model for sound event detection. The submitted systems use a convolutional-recurrent neural network (CRNN) architecture to learn strong (temporally localized) predictors from weakly labeled data. Four variants of the proposed methods were submitted to DCASE 2017, Task 4.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         pitch shifting; pitch shifting, dynamic range compression
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CRNN; ensemble
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         raw output
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Salamon2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Salamon_192.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/justinsalamon/milsed" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Salamon2017label" class="modal fade" id="bibtex-Salamon2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexSalamon2017label">
+        DCASE 2017 Submission: Multiple Instance Learning for Sound Event Detection
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Salamon2017,
+    Author = "Salamon, Justin and McFee, Brian and Li, Peter",
+    title = "{DCASE} 2017 Submission: Multiple Instance Learning for Sound Event Detection",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "This extended abstract describes the design and implementation of a multiple instance learning model for sound event detection. The submitted systems use a convolutional-recurrent neural network (CRNN) architecture to learn strong (temporally localized) predictors from weakly labeled data. Four variants of the proposed methods were submitted to DCASE 2017, Task 4."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Tseng2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Tseng2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Large-Scale Weakly Supervised Sound Event Detection
+       </h4>
+<p style="text-align:left">
+        Shaoyen Tseng<sup>1</sup> and Juncheng Billy Li<sup>2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Department of Electrical Engineering, University of Southern California, Los Angeles, USA, <sup>2</sup>Research and Technology Center, Robert Bosch LLC, Pittsburgh, USA
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Tseng_Bosch_task4_1</span> <span class="label label-primary">Tseng_Bosch_task4_2</span> <span class="label label-primary">Tseng_Bosch_task4_3</span> <span class="label label-primary">Tseng_Bosch_task4_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Tseng2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Tseng2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Tseng2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Tseng_177.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Tseng2017" class="panel-collapse collapse" id="collapse-Tseng2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Large-Scale Weakly Supervised Sound Event Detection
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       State-of-the-art audio event detection (AED) systems fully rely on supervised-learning based on strongly labeled data.The dependence on strong labels severely limits the scalability of AED work. Large-scale manually annotated datasets are difficult and expensive to collect [1], whereas weakly labeled data could be much easier to acquire. In weakly labeled data, we only need to determine whether an event in the recording is present or absent. This not only makes manual labeling significantly easier but also makes automatically infer-ring labels from online multimedia or audio meta-information(titles, tags, etc) possible [2]. This work employs a subset of Google’s AudioSet [3], which is a large number of weakly labeled YouTube video excerpts. The subset focuses on transportation and warning sounds and consists of 17 sound events divided into two categories: Warning and Vehicle.We perform experiments on 3 sets of features, including standard Mel frequency cepstral coefficients (MFCC) and log-Mel spectrograms and pre-trained embeddings extracted from a deep convolutional network. Our system employs multiple instance learning (MIL) [4] approaches to deal with weak labels by bagging them to positive or negative bags. We apply 4 models, Deep Neural Network (DNN), Recurrent Neural Network (RNN) and Convolutional Deep NeuralNetwork. Using the late-fusion approach, we improve the performance of the baseline audio tagging (Subtask A) F1score 13.1% by 18.1%.The embeddings extracted by the convolutional neural networks significantly boosts the performance of all the models.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         ensemble
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         max pooling
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Tseng2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Tseng_177.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Tseng2017label" class="modal fade" id="bibtex-Tseng2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexTseng2017label">
+        Large-Scale Weakly Supervised Sound Event Detection
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Tseng2017,
+    Author = "Tseng, Shaoyen and Li, Juncheng Billy",
+    title = "Large-Scale Weakly Supervised Sound Event Detection",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "State-of-the-art audio event detection (AED) systems fully rely on supervised-learning based on strongly labeled data.The dependence on strong labels severely limits the scalability of AED work. Large-scale manually annotated datasets are difficult and expensive to collect [1], whereas weakly labeled data could be much easier to acquire. In weakly labeled data, we only need to determine whether an event in the recording is present or absent. This not only makes manual labeling significantly easier but also makes automatically infer-ring labels from online multimedia or audio meta-information(titles, tags, etc) possible [2]. This work employs a subset of Google’s AudioSet [3], which is a large number of weakly labeled YouTube video excerpts. The subset focuses on transportation and warning sounds and consists of 17 sound events divided into two categories: Warning and Vehicle.We perform experiments on 3 sets of features, including standard Mel frequency cepstral coefficients (MFCC) and log-Mel spectrograms and pre-trained embeddings extracted from a deep convolutional network. Our system employs multiple instance learning (MIL) [4] approaches to deal with weak labels by bagging them to positive or negative bags. We apply 4 models, Deep Neural Network (DNN), Recurrent Neural Network (RNN) and Convolutional Deep NeuralNetwork. Using the late-fusion approach, we improve the performance of the baseline audio tagging (Subtask A) F1score 13.1\% by 18.1\%.The embeddings extracted by the convolutional neural networks significantly boosts the performance of all the models."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Vu2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Vu2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Deep Learning for DCASE2017 Challenge
+       </h4>
+<p style="text-align:left">
+        Toan Vu, An Dang and Jia-Ching Wang
+       </p>
+<p style="text-align:left">
+<em>
+         Department of Computer Science and Information Engineering, National Central University, Taiwan
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Toan_NCU_task4_1</span> <span class="label label-primary">Toan_NCU_task4_2</span> <span class="label label-primary">Toan_NCU_task4_3</span> <span class="label label-primary">Toan_NCU_task4_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Vu2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Vu2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Vu2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Toan_209.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Vu2017" class="panel-collapse collapse" id="collapse-Vu2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Deep Learning for DCASE2017 Challenge
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       This paper reports our results on all tasks of DCASE challenge 2017 which are acoustic scene classification, detection of rare sound events, sound event detection in real life audio, and large-scale weakly supervised sound event detection for smart cars. Our proposed methods are developed based on two favorite neural networks which are convolutional neural networks (CNNs) and recurrent neural networks (RNNs). Experiments show that our proposed methods outperform the baseline.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         22050 Hz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         DenseNet
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decision making
+        </td>
+<td>
+         median filtering
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Vu2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Toan_209.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Vu2017label" class="modal fade" id="bibtex-Vu2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexVu2017label">
+        Deep Learning for DCASE2017 Challenge
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Vu2017,
+    Author = "Vu, Toan and Dang, An and Wang, Jia-Ching",
+    title = "Deep Learning for {DCASE2017} Challenge",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "This paper reports our results on all tasks of DCASE challenge 2017 which are acoustic scene classification, detection of rare sound events, sound event detection in real life audio, and large-scale weakly supervised sound event detection for smart cars. Our proposed methods are developed based on two favorite neural networks which are convolutional neural networks (CNNs) and recurrent neural networks (RNNs). Experiments show that our proposed methods outperform the baseline."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Xu2017" style="box-shadow: none">
+<div class="panel-heading" id="heading-Xu2017" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Surrey-CVSSP System for DCASE2017 Challenge Task4
+       </h4>
+<p style="text-align:left">
+        Yong Xu, Qiuqiang Kong, Wenwu Wang and Mark D. Plumbley
+       </p>
+<p style="text-align:left">
+<em>
+         Center for Vision, Speech and Signal Processing, University of Surrey, Guildford, UK
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Xu_CVSSP_task4_1</span> <span class="label label-primary">Xu_CVSSP_task4_2</span> <span class="label label-primary">Xu_CVSSP_task4_3</span> <span class="label label-primary">Xu_CVSSP_task4_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Xu2017" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Xu2017" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Xu2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Xu_146.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-Xu2017').collapse('show');window.location.hash='#Xu2017';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Xu2017" class="panel-collapse collapse" id="collapse-Xu2017" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Surrey-CVSSP System for DCASE2017 Challenge Task4
+      </h4>
+<h5>
+       Abstract
+      </h5>
+<p class="text-justify">
+       In this technique report, we present a bunch of methods for the task 4 of Detection and Classification of Acoustic Scenes and Events 2017 (DCASE2017) challenge. This task evaluates systems for the large-scale detection of sound events using weakly labeled training data. The data are YouTube video excerpts focusing on transportation and warnings due to their industry applications. There are two tasks, audio tagging and sound event detection from weakly labeled data. Convolutional neural network (CNN) and gated recurrent unit (GRU) based recurrent neural network (RNN) are adopted as our basic framework. We proposed a learnable gating activation function for selecting informative local features. Attention-based scheme is used for localizing the specific events in a weakly-supervised mode. A new batch-level balancing strategy is also proposed to tackle the data unbalancing problem. Fusion of posteriors from different systems are found effective to improve the performance. In a summary, we get 61% F-value for the audio tagging subtask and 0.72 error rate (ER) for the sound event detection subtask on the development set. While the official multilayer perceptron (MLP) based baseline just obtained 13.1% F-value for the audio tagging and 1.02 for the sound event detection.
+      </p>
+<h5>
+       System characteristics
+      </h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Input
+        </td>
+<td>
+         mono
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         CRNN
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Xu2017" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2017/technical_reports/DCASE2017_Xu_146.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/yongxuUSTC/dcase2017_task4_cvssp" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Source code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Xu2017label" class="modal fade" id="bibtex-Xu2017" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexXu2017label">
+        Surrey-CVSSP System for DCASE2017 Challenge Task4
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Xu2017,
+    Author = "Xu, Yong and Kong, Qiuqiang and Wang, Wenwu and Plumbley, Mark D.",
+    title = "Surrey-{CVSSP} System for {DCASE2017} Challenge Task4",
+    institution = "DCASE2017 Challenge",
+    year = "2017",
+    month = "September",
+    abstract = "In this technique report, we present a bunch of methods for the task 4 of Detection and Classification of Acoustic Scenes and Events 2017 (DCASE2017) challenge. This task evaluates systems for the large-scale detection of sound events using weakly labeled training data. The data are YouTube video excerpts focusing on transportation and warnings due to their industry applications. There are two tasks, audio tagging and sound event detection from weakly labeled data. Convolutional neural network (CNN) and gated recurrent unit (GRU) based recurrent neural network (RNN) are adopted as our basic framework. We proposed a learnable gating activation function for selecting informative local features. Attention-based scheme is used for localizing the specific events in a weakly-supervised mode. A new batch-level balancing strategy is also proposed to tackle the data unbalancing problem. Fusion of posteriors from different systems are found effective to improve the performance. In a summary, we get 61\% F-value for the audio tagging subtask and 0.72 error rate (ER) for the sound event detection subtask on the development set. While the official multilayer perceptron (MLP) based baseline just obtained 13.1\% F-value for the audio tagging and 1.02 for the sound event detection."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script>
+(function($) {
+    $(document).ready(function() {
+        var hash = window.location.hash.substr(1);
+        var anchor = window.location.hash;
+
+        var shiftWindow = function() {
+            var hash = window.location.hash.substr(1);
+            if($('#collapse-'+hash).length){
+                scrollBy(0, -100);
+            }
+        };
+        window.addEventListener("hashchange", shiftWindow);
+
+        if (window.location.hash){
+            window.scrollTo(0, 0);
+            history.replaceState(null, document.title, "#");
+
+            $('#collapse-'+hash).collapse('show');
+            setTimeout(function(){
+                window.location.hash = anchor;
+                shiftWindow();
+            }, 2000);
+        }
+    });
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

@@ -1,0 +1,1553 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Automated Audio Captioning - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Automated Audio Captioning - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2020/task-automatic-audio-captioning">
+    <meta property="og:url" content="https://dcase.community/challenge2020/task-automatic-audio-captioning" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="Automatic creation of textual content descriptions for general audio signals. Challenge has ended. Full results for this task can be found in the Results page. Description Automated audio captioning is the task of general audio content description using free text. It is an intermodal translation task (not speech-to-text), where a …" />
+    <meta name="og:description" content="Automatic creation of textual content descriptions for..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2020</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2020/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2020/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>Results</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-acoustic-scene-classification-results-a"><i class="fa fa-bar-chart"></i>&nbsp;Subtask A</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-acoustic-scene-classification-results-b"><i class="fa fa-bar-chart"></i>&nbsp;Subtask B</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2020/task-unsupervised-detection-of-anomalous-sounds" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-unsupervised-detection-of-anomalous-sounds"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-unsupervised-detection-of-anomalous-sounds-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-localization-and-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-localization-and-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-localization-and-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-detection-and-separation-in-domestic-environments" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-detection-and-separation-in-domestic-environments"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-detection-and-separation-in-domestic-environments-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2020/task-urban-sound-tagging-with-spatiotemporal-context" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-urban text-danger"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-urban-sound-tagging-with-spatiotemporal-context"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-urban-sound-tagging-with-spatiotemporal-context-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2020/task-automatic-audio-captioning" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-captioning text-task1"></i>&nbsp;Task6&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-automatic-audio-captioning"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-automatic-audio-captioning-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2020/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2020/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge awards">
+        <a href="http://localhost:3000/challenge2020/awards"><i class="fa fa-trophy"></i>&nbsp;Awards</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/wall-27.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-task1"></i><i class="fa dc-captioning fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text dcase-icon-top-text-sm">Caption</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 6</span></span><img src="../images/logos/dcase/dcase2020_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Automated Audio Captioning</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Task description</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Coordinators</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Konstantinos Drossos" class="img img-circle" src="http://localhost:3000/images/person/konstantinos_drossos.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Konstantinos Drossos</strong>
+<a class="icon" href="mailto:konstantinos.drossos@tuni.fi"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://arg.cs.tut.fi/">
+                                Tampere University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Samuel Lipping" class="img img-circle" src="http://localhost:3000/images/person/samuel_lipping.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Samuel Lipping</strong>
+<a class="icon" href="mailto:samuel.lipping@tuni.fi"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://arg.cs.tut.fi/">
+                                Tampere University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Tuomas Virtanen" class="img img-circle" src="http://localhost:3000/images/person/tuomas_virtanen.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Tuomas Virtanen</strong>
+<a class="icon" href="mailto:tuomas.virtanen@tuni.fi"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://arg.cs.tut.fi/">
+                                Tampere University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#description">Description</a></li>
+<li><a href="#audio-dataset">Audio dataset</a>
+<ul>
+<li><a href="#audio-samples">Audio samples</a></li>
+<li><a href="#captions">Captions</a></li>
+<li><a href="#development-and-evaluation-datasets">Development and evaluation datasets</a></li>
+<li><a href="#download">Download</a></li>
+</ul>
+</li>
+<li><a href="#task-setup">Task setup</a>
+<ul>
+<li><a href="#development-dataset">Development dataset</a></li>
+<li><a href="#evaluation-dataset">Evaluation dataset</a></li>
+</ul>
+</li>
+<li><a href="#submission">Submission</a></li>
+<li><a href="#task-rules">Task rules</a></li>
+<li><a href="#evaluation">Evaluation</a></li>
+<li><a href="#results">Results</a>
+<ul>
+<li><a href="#submissions">Submissions</a></li>
+<li><a href="#ranking-of-submissions">Ranking of submissions</a></li>
+</ul>
+</li>
+<li><a href="#baseline-system">Baseline system</a>
+<ul>
+<li><a href="#caption-evaluation">Caption evaluation</a></li>
+<li><a href="#dataset-pre-processingfeature-extraction">Dataset pre-processing/feature extraction</a></li>
+<li><a href="#data-handling-for-pytorch-library">Data handling for Pytorch library</a></li>
+<li><a href="#deep-neural-network-dnn-method">Deep neural network (DNN) method</a></li>
+<li><a href="#hyper-parameters">Hyper-parameters</a></li>
+<li><a href="#results-for-the-development-dataset">Results for the development dataset</a></li>
+</ul>
+</li>
+<li><a href="#citation">Citation</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p class="lead">Automatic creation of textual content descriptions
+for general audio signals.</p>
+<p class="alert alert-info">
+<strong>Challenge has ended.</strong> Full results for this task can be found in the <a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2020/task-automatic-audio-captioning-results">Results <i class="fa fa-caret-right"></i></a> page.
+</p>
+<h1 id="description">Description</h1>
+<p>Automated audio captioning is the task of general audio content
+description using free text. It is an intermodal translation task (not
+speech-to-text), where a system accepts as an input an audio signal and
+outputs the textual description (i.e. the caption) of that signal. Audio 
+captioning methods can model concepts (e.g. "<strong>muffled</strong> sound"), physical
+properties of objects and environment (e.g. "the sound of a <strong>big</strong> car", 
+"people talking in a <strong>small and empty</strong> room"), and high level knowledge
+("a clock rings <strong>three times</strong>"). This modeling can be used in various
+applications, ranging from automatic content description to intelligent
+and content oriented machine-to-machine interaction. </p>
+<figure>
+<div class="row row-centered">
+<div class="col-xs-10 col-md-8 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2020/task6_automated_audio_captioning_task.png"/>
+<figcaption>Figure 1: Illustration of automated audio captioning
+            system and process.</figcaption>
+</div>
+</div>
+</figure>
+<p><br/></p>
+<h1 id="audio-dataset">Audio dataset</h1>
+<p>This task will be using the freely available
+<a href="https://zenodo.org/record/3490684">Clotho dataset</a>, 
+presented in IEEE ICASSP 2020. Clotho consists of audio samples of 15 to
+30 seconds duration, each audio sample having five captions of eight to
+20 words length. There is a total of 4981 audio samples in Clotho, with 24
+905 captions (i.e. 4981 audio samples * 5 captions per each sample). Clotho
+is built with focus on audio content and caption diversity, and the splits
+of the data are not hampering the training or evaluation of methods. All
+audio samples are from the Freesound platform, and captions are crowdsourced
+using Amazon Mechanical Turk and annotators from English speaking countries.
+Unique words, named entities, and speech transcription are removed with
+post-processing. </p>
+<p>Clotho has a total of 4365 unique words and is divided in three splits: development,
+evaluation, and testing. Development and evaluation splits are publicly available.
+Testing split will be released according to the schedule of DCASE challenge. One
+audio sample in Clotho appears only in one split. Also, in Clotho there is not a
+word that appears only in one split. Additionally, all words appear proportionally
+between splits (the word distribution is kept similar across splits), i.e. 60% in
+the development, 20% in the evaluation, and 20% in the testing split.</p>
+<p>Words that could not be divided using the above scheme of 60-20-20 (e.g.
+words that appear only two times in the all three splits combined),
+appear at least one time in the development split and at least one time
+to one of the other two splits. More detailed info can be found on the 
+<strong>paper presenting Clotho</strong>, freely available online 
+<a href="https://arxiv.org/pdf/1910.09387.pdf">here</a> and cited as: </p>
+<div class="btex-item" data-item="Drossos_2020_icassp" data-source="content/data/challenge2020/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Drossos_2020_icassp"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Konstantinos Drossos, Samuel Lipping, and Tuomas Virtanen.
+<em>Clotho: An audio captioning dataset.</em>
+In 45th IEEE International Conference on Acoustics, Speech, and Signal Processing (<span class="bibtex-protected">ICASSP</span>). Barcelona, Spain, May 2020.
+URL: <a href="https://arxiv.org/abs/1910.09387">https://arxiv.org/abs/1910.09387</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexDrossos_2020_icassp7d5cd0264742455db39c8e0a1ebae568" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/1910.09387.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseDrossos_2020_icassp7d5cd0264742455db39c8e0a1ebae568" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseDrossos_2020_icassp7d5cd0264742455db39c8e0a1ebae568" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingDrossos_2020_icassp7d5cd0264742455db39c8e0a1ebae568" class="panel-collapse collapse" id="collapseDrossos_2020_icassp7d5cd0264742455db39c8e0a1ebae568" role="tabpanel">
+<h4>Clotho: An Audio Captioning Dataset</h4>
+<h5>Abstract</h5>
+<p class="text-justify">Audio captioning is the novel task of general audio content description using free text. It is an intermodal translation task (not speech-to-text), where a system accepts as an input an audio signal and outputs the textual description (i.e. the caption) of that signal. In this paper we present Clotho, a dataset for audio captioning consisting of 4981 audio samples of 15 to 30 seconds duration and 24 905 captions of eight to 20 words length, and a baseline method to provide initial results. Clotho is built with focus on audio content and caption diversity, and the splits of the data are not hampering the training or evaluation of methods. All sounds are from the Freesound platform, and captions are crowdsourced using Amazon Mechanical Turk and annotators from English speaking countries. Unique words, named entities, and speech transcription are removed with post-processing. Clotho is freely available online (https://zenodo.org/record/3490684).</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexDrossos_2020_icassp7d5cd0264742455db39c8e0a1ebae568" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/1910.09387.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexDrossos_2020_icassp7d5cd0264742455db39c8e0a1ebae568label" class="modal fade" id="bibtexDrossos_2020_icassp7d5cd0264742455db39c8e0a1ebae568" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexDrossos_2020_icassp7d5cd0264742455db39c8e0a1ebae568label">Clotho: An Audio Captioning Dataset</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Drossos_2020_icassp,
+    Author = "Drossos, Konstantinos and Lipping, Samuel and Virtanen, Tuomas",
+    title = "Clotho: {An} Audio Captioning Dataset",
+    booktitle = "45th IEEE International Conference on Acoustics, Speech, and Signal Processing ({ICASSP})",
+    address = "Barcelona, Spain",
+    year = "2020",
+    month = "May",
+    abstract = "Audio captioning is the novel task of general audio content description using free text. It is an intermodal translation task (not speech-to-text), where a system accepts as an input an audio signal and outputs the textual description (i.e. the caption) of that signal. In this paper we present Clotho, a dataset for audio captioning consisting of 4981 audio samples of 15 to 30 seconds duration and 24 905 captions of eight to 20 words length, and a baseline method to provide initial results. Clotho is built with focus on audio content and caption diversity, and the splits of the data are not hampering the training or evaluation of methods. All sounds are from the Freesound platform, and captions are crowdsourced using Amazon Mechanical Turk and annotators from English speaking countries. Unique words, named entities, and speech transcription are removed with post-processing. Clotho is freely available online (https://zenodo.org/record/3490684).",
+    url = "https://arxiv.org/abs/1910.09387"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The data collection of Clotho received funding from the European Research
+Council, grant agreement 637422 EVERYSOUND.</p>
+<p><a href="https://erc.europa.eu/"><img alt="ERC" src="../images/sponsors/erc.jpg" title="ERC"/></a></p>
+<h2 id="audio-samples">Audio samples</h2>
+<p>Clotho audio data are extracted from an initial set of 12 000 audio files
+collected from <a href="https://freesound.org/">Freesound</a>. The 12k audio files
+have durations ranging from 10s to 300s, no spelling errors in the first
+sentence of the description on Freesound, good quality (44.1kHz and 16-bit),
+and no tags on Freesound indicating sound effects, music or speech. 
+Before extraction, all 12k files were normalized and the preceding and
+trailing silences were trimmed.</p>
+<p>The content of audio samples in Clotho greatly varies, ranging from
+<em>ambiance in a forest</em> (e.g. water flowing over some rocks), <em>animal sounds</em>
+(e.g. goats bleating), and <em>crowd yelling or murmuring</em>, to <em>machines and
+engines operating</em> (e.g. inside a factory) or <em>revving</em> (e.g. cars, motorbikes), 
+and <em>devices functioning</em> (e.g. container with contents moving, doors
+opening/closing). For a thorough description how the audio samples are
+selected and filtered, you can check the paper that presents Clotho dataset.</p>
+<p>In the following figure is the distribution of the duration of audio files
+in Clotho. </p>
+<figure>
+<div class="row row-centered">
+<div class="col-xs-10 col-md-8 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2020/task_6_automated_audio_captiong_audio_duration.png"/>
+<figcaption>Figure 2: Audio duration distribution for Clotho
+            dataset.</figcaption>
+</div>
+</div>
+</figure>
+<p><br/></p>
+<h2 id="captions">Captions</h2>
+<p>The captions in the Clotho dataset range from 8 to 20 words in length,
+and were gathered by employing the crowdsourcing platform
+<a href="https://www.mturk.com/">Amazon Mechanical Turk</a> and a three-step
+framework. The three steps are: </p>
+<ol>
+<li>audio description,</li>
+<li>description editing, and</li>
+<li>description scoring. </li>
+</ol>
+<p>In step 1, five initial captions were gathered for each audio clip from distinct
+annotators. In step 2, these initial captions were edited to fix grammatical
+errors. Grammatically correct captions were instead rephrased, in order to acquire
+diverse captions for the same audio clip. In step 3, the initial and edited captions
+were scored based on accuracy, i.e. how well the caption describes the audio clip,
+and fluency, i.e. the English fluency in the caption itself. The initial and edited
+captions were scored by three distinct annotators. The scores were then summed
+together and the captions were sorted by the total accuracy score first, total
+fluency score second. The top five captions, after sorting, were selected as the
+final captions of the audio clip. More information about the caption scoring (e.g.
+scoring values, scoring threshold, etc.) is at the corresponding paper of the
+three-step framework. </p>
+<p>We then manually sanitized the final captions of the dataset by removing apostrophes,
+making compound words consistent, removing phrases describing the content of
+speech, and replacing named entities. We used in-house annotators to replace
+transcribed speech in the captions. If the resulting caption were under 8 words,
+we attempt to find captions in the lower-scored captions (i.e. that were not selected
+in step 3) that still have decent scores for accuracy and fluency. If there were no
+such captions or these captions could not be rephrased to 8 words or less, the
+audio file was removed from the dataset entirely. The same in-house annotators were
+used to also replace unique words that only appeared in the captions of one audio clip.
+Since audio clips are not shared between splits, if there are words that appear
+only in the captions of one audio clip, then these words will appear only in one
+split. This process yields a total of 4981 audio samples, each having five captions
+and amounting to a total of 24 905 captions. </p>
+<p>A thorough description of the three-step framework can be found at the corresponding
+paper, freely available online <a href="https://arxiv.org/abs/1907.09238">here</a> and cited
+as: </p>
+<div class="btex-item" data-item="Drossos_2019_dcase" data-source="content/data/challenge2020/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Drossos_2019_dcase"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Samuel Lipping, Konstantinos Drossos, and Tuoams Virtanen.
+<em>Crowdsourcing a dataset of audio captions.</em>
+In Proceedings of the Detection and Classification of Acoustic Scenes and Events Workshop (<span class="bibtex-protected">DCASE</span>). Nov. 2019.
+URL: <a href="https://arxiv.org/abs/1907.09238">https://arxiv.org/abs/1907.09238</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexDrossos_2019_dcase860a63feae6449e0be64c23488e90efe" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/1907.09238.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseDrossos_2019_dcase860a63feae6449e0be64c23488e90efe" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseDrossos_2019_dcase860a63feae6449e0be64c23488e90efe" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingDrossos_2019_dcase860a63feae6449e0be64c23488e90efe" class="panel-collapse collapse" id="collapseDrossos_2019_dcase860a63feae6449e0be64c23488e90efe" role="tabpanel">
+<h4>Crowdsourcing a Dataset of Audio Captions</h4>
+<h5>Abstract</h5>
+<p class="text-justify">Audio captioning is a novel field of multi-modal translation and it is the task of creating a textual description of the content of an audio signal (e.g. “people talking in a big room”). The creation of a dataset for this task requires a considerable amount of work, rendering the crowdsourcing a very attractive option. In this paper we present a three steps based framework for crowdsourcing an audio captioning dataset, based on concepts and practises followed for the creation of widely used image captioning and machine translations datasets. During the first step initial captions are gathered. A grammatically corrected and/or rephrased version of each initial caption is obtained in second step. Finally, the initial and edited captions are rated, keeping the top ones for the produced dataset. We objectively evaluate the impact of our framework during the process of creating an audio captioning dataset, in terms of diversity and amount of typographical errors in the obtained captions. The obtained results show that the resulting dataset has less typographical errors than the initial captions, and on average each sound in the produced dataset has captions with a Jaccard similarity of 0.24, roughly equivalent to two ten-word captions having in common four words with the same root, indicating that the captions are dissimilar while they still contain some of the same information.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexDrossos_2019_dcase860a63feae6449e0be64c23488e90efe" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/1907.09238.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexDrossos_2019_dcase860a63feae6449e0be64c23488e90efelabel" class="modal fade" id="bibtexDrossos_2019_dcase860a63feae6449e0be64c23488e90efe" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexDrossos_2019_dcase860a63feae6449e0be64c23488e90efelabel">Crowdsourcing a Dataset of Audio Captions</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Drossos_2019_dcase,
+    Author = "Lipping, Samuel and Drossos, Konstantinos and Virtanen, Tuoams",
+    title = "Crowdsourcing a Dataset of Audio Captions",
+    year = "2019",
+    booktitle = "Proceedings of the Detection and Classification of Acoustic Scenes and Events Workshop ({DCASE})",
+    month = "Nov.",
+    abstract = "Audio captioning is a novel field of multi-modal translation and it is the task of creating a textual description of the content of an audio signal (e.g. “people talking in a big room”). The creation of a dataset for this task requires a considerable amount of work, rendering the crowdsourcing a very attractive option. In this paper we present a three steps based framework for crowdsourcing an audio captioning dataset, based on concepts and practises followed for the creation of widely used image captioning and machine translations datasets. During the first step initial captions are gathered. A grammatically corrected and/or rephrased version of each initial caption is obtained in second step. Finally, the initial and edited captions are rated, keeping the top ones for the produced dataset. We objectively evaluate the impact of our framework during the process of creating an audio captioning dataset, in terms of diversity and amount of typographical errors in the obtained captions. The obtained results show that the resulting dataset has less typographical errors than the initial captions, and on average each sound in the produced dataset has captions with a Jaccard similarity of 0.24, roughly equivalent to two ten-word captions having in common four words with the same root, indicating that the captions are dissimilar while they still contain some of the same information.",
+    url = "https://arxiv.org/abs/1907.09238"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="development-and-evaluation-datasets">Development and evaluation datasets</h2>
+<p>Clotho is divided into a development split of 2893 audio clips with 14465 captions,
+an evaluation split of 1045 audio clips with 5225 captions, and a testing split
+of 1043 audio clips with 5215 captions. These splits are created by first constructing
+the sets of unique words of the captions of each audio clip. These sets of words
+are combined to form the bag of words of the whole dataset, from which we can
+derive the frequency of a given word. With the unique words of audio files as
+classes, we use 
+<a href="https://github.com/trent-b/iterative-stratification">multi-label stratification</a>.
+More information on the splits of Clotho can be found at the corresponding paper.</p>
+<p>The name of the splits for Clotho differ from the DCASE terminology. To avoid
+confusion for participants, the correspondence of splits between Clotho and
+DCASE challenge is: </p>
+<table class="table table-responsive table-hover table-striped">
+<thead>
+<tr class="active">
+<td><strong>Clotho naming of splits</strong></td>
+<td><strong>DCASE Challenge naming of splits</strong></td>
+</tr>
+</thead>
+<tbody>
+<tr class="success">
+<td>development</td>
+<td rowspan="2" style="vertical-align: middle;">development</td>
+</tr>
+<tr class="success">
+<td>evaluation</td>
+</tr>
+<tr class="danger">
+<td>testing</td>
+<td>evaluation</td>
+</tr>
+</tbody></table>
+<p>Clotho development split is meant for optimizing audio captioning methods. The
+performance of the audio captioning methods can then be assessed (e.g. for reporting
+results in a conference or journal paper) using Clotho evaluation split. Clotho
+testing split is meant only for usage in scientific challenges, e.g. DCASE challenge.
+For the rest of this text, the DCASE challenge terminology will be used. For
+differentiating between Clotho development and evaluation, the terms
+development-training and development-testing will be used, wherever
+necessary. <strong>Development-training</strong> refers to Clotho development split and
+<strong>development-testing</strong> refers to Clotho evaluation split.   </p>
+<h2 id="download">Download</h2>
+<p>DCASE Development split of Clotho can be found at the online Zenodo repository. </p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/3490684" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-database fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/3490684" target="_blank">
+<span style="font-size:20px;">Clotho audio captioning dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(4.8 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.3490684">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3490684.svg"/>
+</a>
+<span class="text-muted">
+                
+                version 1
+                
+                
+                </span>
+</div>
+</div>
+<p><br/></p>
+<p>Development-training data are: </p>
+<ul>
+<li><code>clotho_audio_development.7z</code>: The development-training audio clips.</li>
+<li><code>clotho_captions_development.csv</code>: The captions of the development-training
+  audio clips.</li>
+<li><code>clotho_metadata_development.csv</code>: The meta-data of the development-training
+  audio clips. </li>
+</ul>
+<p>Development-testing data are: </p>
+<ul>
+<li><code>clotho_audio_evaluation.7z</code>: The development-testing audio clips.</li>
+<li><code>clotho_captions_evaluation.csv</code>: The captions of the development-testing
+  audio clips.</li>
+<li><code>clotho_metadata_evaluation.csv</code>: The meta-data of the development-testing
+  audio clips. </li>
+</ul>
+<p><br/><br/>
+DCASE Evaluation split of Clotho can be found at the online Zenodo repository. </p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/3865658" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-database fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/3865658" target="_blank">
+<span style="font-size:20px;">Task 6 Evaluation dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(1.2 GB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.3865658">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3865658.svg"/>
+</a>
+<span class="text-muted">
+                
+                version 1
+                
+                
+                </span>
+</div>
+</div>
+<p><br/> </p>
+<p>Development-testing data are: </p>
+<ul>
+<li><code>clotho_audio_test.7z</code>: The development-testing audio clips.</li>
+<li><code>clotho_metadata_test.csv</code>: The meta-data of the development-testing
+  audio clips, containing only authors and licence. </li>
+</ul>
+<p><strong>NOTE BOLD:</strong> Participants are strongly prohibited to use any additional information
+for the DCASE evaluation (testing) of their method, apart the provided audio files from
+the DCASE Evaluation split. </p>
+<h1 id="task-setup">Task setup</h1>
+<p>The development-training split is meant for optimizing the parameters
+of an audio captioning method, and the development-testing for assessing
+the performance of the method. Currently there are no folds or other
+splits publicly available.</p>
+<p>The assessment of the submitted methods will be performed using a
+withheld split, the evaluation split. The evaluation split will be
+released according to the schedule of DCASE Challenge. </p>
+<p>Participants are free to use the two provided splits of Clotho in
+whatever way the deem proper, in order to optimize and assess the
+generalization of their audio captioning methods. For example, the
+parameters in the provided baseline system are optimized until the
+loss on the development-training split saturates.  </p>
+<h2 id="development-dataset">Development dataset</h2>
+<p>The development dataset of the challenge consists of the
+development-training and development-testing splits. The
+development-training split of Clotho consists of 2893 audio samples
+and two CSV files: </p>
+<ol>
+<li><code>clotho_captions_development.csv</code></li>
+<li><code>clotho_metadata_development.csv</code></li>
+</ol>
+<p>In the <code>clotho_captions_development.csv</code> file there are six columns:
+<code>file_name</code>, <code>caption_1</code>, <code>caption_2</code>, <code>caption_3</code>, <code>caption_4</code>, and
+<code>caption_5</code>. The <code>file_name</code> contains the file name of the corresponding
+audio file in the development-training split, and other columns the
+corresponding captions for that particular file. </p>
+<p>The <code>clotho_metadata_development.csv</code> file has seven columns: <code>file_name</code>,
+<code>keywords</code>, <code>sound_id</code>, <code>sound_link</code>, <code>start_end_samples</code>, <code>manufacturer</code>,
+and <code>license</code>. Again, the <code>file_name</code> column has the file name of the
+audio sample in the development-training split. The other columns, contain
+metadata from the Freesound platform. <code>keywords</code> column contain the
+tags that the sound has in Freesound. <code>sound_id</code> and <code>sound_link</code> are
+the sound ID and URL in Freesound. The values in <code>start_end_samples</code>
+show the exact samples that are used in the Clotho data, from the original
+sound in Freesound. Finally, <code>manufacturer</code> and <code>license</code> have the user
+name of the uploader in Freesound and the associated license of the sound,
+respectively. </p>
+<p>The development-testing split of Clotho consists of 1045 audio samples
+and similar files and structure of these files as in the development-training
+dataset: </p>
+<ol>
+<li><code>clotho_captions_evaluation.csv</code></li>
+<li><code>clotho_metadata_evaluation.csv</code></li>
+</ol>
+<p>The above CSV files of the development-testing dataset have the same columns
+at the corresponding CSV files in the development-training dataset. That is, the
+<code>clotho_captions_development.csv</code> is similar to <code>clotho_captions_evaluation.csv</code>
+and the <code>clotho_metadata_development.csv</code> is similar to 
+<code>clotho_metadata_evaluation.csv</code>. </p>
+<p><strong>Please note bold</strong>: Development-testing set of Clotho is offered for evaluating
+the methods of audio captioning. For testing purposes, there is another set,
+the evaluation split (Clotho testing split), which will be made available according
+to the schedule of the DCASE challenge. </p>
+<h2 id="evaluation-dataset">Evaluation dataset</h2>
+<p>The evaluation dataset of the challenge is separate than the development dataset and
+consists of 1043 audio samples and one CSV file: </p>
+<ol>
+<li><code>clotho_metadata_test.csv</code></li>
+</ol>
+<p>In the <code>clotho_metadata_test.csv</code> there are four columns: <code>file_name</code>,
+<code>start_end_samples</code>, <code>manufacturer</code>, and <code>license</code>. The <code>file_name</code> column
+has the file name of the audio sample in the split. The other columns, contain
+metadata from the Freesound platform. The values in <code>start_end_samples</code>
+show the exact samples that are used in the Clotho data, from the original
+sound in Freesound. Finally, <code>manufacturer</code> and <code>license</code> have the user
+name of the uploader in Freesound and the associated license of the sound,
+respectively. </p>
+<h1 id="submission">Submission</h1>
+<p>All participants should submit:</p>
+<ul>
+<li>the output of their audio captioning with the evaluation split (<code>*.csv</code> file)</li>
+<li>metadata for their submission (<code>*.yaml</code> file), and</li>
+<li>a technical report for their submission (<code>*.pdf</code> file).</li>
+</ul>
+<p>The <code>*.csv</code> file should have the following two columns:  </p>
+<ol>
+<li><code>file_name</code>, which will contain the file name of the audio file.</li>
+<li><code>caption_predicted</code>, which will contain the output of the audio
+  captioning method for the file with file name as specified in the
+  <code>file_name</code> column. </li>
+</ol>
+<p>For example, if a file has a file name <code>0001.wav</code> and the predicted
+caption of the audio captioning  method for the file <code>0001.wav</code>
+is <code>hello world</code>, then the CSV file should have the entry: </p>
+<div class="highlight"><pre><span></span><code>    file_name      caption_predicted
+        .               .
+        .               .
+        .               .
+   test_0001.wav    hello world
+</code></pre></div>
+<p><strong>Please note bold:</strong> automated procedures will be used for the
+evaluation of the submitted results. Therefore, the column names
+should be exactly as indicated above.</p>
+<p>In addition to the CSV files, the participants are asked to update
+the information of their method in the provided file metadata file 
+and submit a technical report describing the method. We allow up to 4
+system output submissions per participant/team. For each system, 
+metadata should be provided in a separate file, containing the task specific
+information. All files should be packaged into a zip file for submission.
+Please make a clear connection between the system name in the submitted metadata
+(the <code>*.yaml</code> file), submitted system output (the <code>*.csv</code> file), and the technical 
+report! Instead of system name you can use submission label too. The detailed 
+information regarding the challenge information can be found in the 
+<a href="http://dcase.community/challenge2020/submission">Submission page</a>.</p>
+<p>Finally, for <strong>supporting reproducible research</strong>, we kindly ask from
+each participant/team to consider making available the code of their
+method (e.g. in GitHub) and pre-trained models, <em>after the challenge is over</em>.   </p>
+<h1 id="task-rules">Task rules</h1>
+<ul>
+<li>Use of external data (e.g. audio files, text, annotations) is not allowed.</li>
+<li>Use of pre-trained models (e.g. text models like Word2Vec, audio tagging
+ models, sound event detection models) is not allowed.</li>
+<li>The development dataset (i.e. development-training and development-testing)
+ can be augmented without the use of external data.</li>
+<li>Participants are not allowed to make subjective judgments of the evaluation
+ data, nor to annotate it. </li>
+<li>Participants are not allowed to use extra annotations for the provided data. </li>
+<li>Participants are allowed to use all the available metadata provided, but they 
+ <strong>must explicitly state it and indicate if they use the available metadata</strong>. 
+ This will not affect the rating of their method.  </li>
+<li>Participants are not allowed to use any external description/caption of the
+ audio files/samples.</li>
+<li>Participants <strong>are strongly prohibited of using additional information of the
+ DCASE evaluation (testing) for their method, apart the provided audio files from
+ the DCASE Evaluation split</strong>.  </li>
+</ul>
+<h1 id="evaluation">Evaluation</h1>
+<p>The submitted systems will be evaluated according to their performance on the 
+withheld evaluation split. For the evaluation, the captions will not have any 
+punctuation and all letters will be small case. Therefore, <strong>the participants
+are advised to optimized their methods using captions which do not have
+punctuation and all letters are small case</strong>. The freely and online available
+tools of Clotho dataset, provide already such functionality. </p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/audio-captioning/clotho-dataset" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/audio-captioning/clotho-dataset" target="_blank">
+<span style="font-size:20px;">Clotho dataset tools <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/> </p>
+<p>All of the following metrics will be reported for every submitted method:  </p>
+<ol>
+<li>BLEU<sub>1</sub></li>
+<li>BLEU<sub>2</sub></li>
+<li>BLEU<sub>3</sub></li>
+<li>BLEU<sub>4</sub></li>
+<li>ROUGE<sub>L</sub></li>
+<li>METEOR      </li>
+<li>CIDEr</li>
+<li>SPICE</li>
+<li>SPIDEr</li>
+</ol>
+<p>Ranking of the methods will be performed according to the SPIDEr
+metric, which is a combination of CIDEr and SPICE.
+Specifically, the evaluation will be performed based on the average
+of CIDEr and SPICE, referred to as SPIDEr and
+shown to have the combined benefits of CIDEr and SPICE.
+More information is available on the corresponding paper, 
+<a href="https://arxiv.org/abs/1612.00370">available online here</a>.</p>
+<p>For a brief introduction and more pointers on the above mentioned metrics,
+you can referer to the original paper of audio captioning: </p>
+<div class="btex-item" data-item="Drossos_2017_waspaa" data-source="content/data/challenge2020/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Drossos_2017_waspaa"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Konstantinos Drossos, Sharath Adavanne, and Tuomas Virtanen.
+<em>Automated audio captioning with recurrent neural networks.</em>
+In IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (<span class="bibtex-protected">WASPAA</span>). New Paltz, New York, U.S.A., Oct. 2017.
+URL: <a href="https://arxiv.org/abs/1706.10006">https://arxiv.org/abs/1706.10006</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexDrossos_2017_waspaa9313e70e801d49e288a2ab5a660b31a1" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/1706.10006.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseDrossos_2017_waspaa9313e70e801d49e288a2ab5a660b31a1" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseDrossos_2017_waspaa9313e70e801d49e288a2ab5a660b31a1" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingDrossos_2017_waspaa9313e70e801d49e288a2ab5a660b31a1" class="panel-collapse collapse" id="collapseDrossos_2017_waspaa9313e70e801d49e288a2ab5a660b31a1" role="tabpanel">
+<h4>Automated Audio Captioning with Recurrent Neural Networks</h4>
+<h5>Abstract</h5>
+<p class="text-justify">We present the first approach to automated audio captioning. We employ an encoder-decoder scheme with an alignment model in between. The input to the encoder is a sequence of log mel-band energies calculated from an audio file, while the output is a sequence of words, i.e. a caption. The encoder is a multi-layered, bi-directional gated recurrent unit (GRU) and the decoder a multi-layered GRU with a classification layer connected to the last GRU of the decoder. The classification layer and the alignment model are fully connected layers with shared weights between timesteps. The proposed method is evaluated using data drawn from a commercial sound effects library, ProSound Effects. The resulting captions were rated through metrics utilized in machine translation and image captioning fields. Results from metrics show that the proposed method can predict words appearing in the original caption, but not always correctly ordered.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexDrossos_2017_waspaa9313e70e801d49e288a2ab5a660b31a1" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/1706.10006.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexDrossos_2017_waspaa9313e70e801d49e288a2ab5a660b31a1label" class="modal fade" id="bibtexDrossos_2017_waspaa9313e70e801d49e288a2ab5a660b31a1" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexDrossos_2017_waspaa9313e70e801d49e288a2ab5a660b31a1label">Automated Audio Captioning with Recurrent Neural Networks</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Drossos_2017_waspaa,
+    Author = "Drossos, Konstantinos and Adavanne, Sharath and Virtanen, Tuomas",
+    title = "Automated Audio Captioning with Recurrent Neural Networks",
+    booktitle = "IEEE Workshop on Applications of Signal Processing to Audio and Acoustics ({WASPAA})",
+    address = "New Paltz, New York, U.S.A.",
+    year = "2017",
+    month = "Oct.",
+    abstract = "We present the first approach to automated audio captioning. We employ an encoder-decoder scheme with an alignment model in between. The input to the encoder is a sequence of log mel-band energies calculated from an audio file, while the output is a sequence of words, i.e. a caption. The encoder is a multi-layered, bi-directional gated recurrent unit (GRU) and the decoder a multi-layered GRU with a classification layer connected to the last GRU of the decoder. The classification layer and the alignment model are fully connected layers with shared weights between timesteps. The proposed method is evaluated using data drawn from a commercial sound effects library, ProSound Effects. The resulting captions were rated through metrics utilized in machine translation and image captioning fields. Results from metrics show that the proposed method can predict words appearing in the original caption, but not always correctly ordered.",
+    url = "https://arxiv.org/abs/1706.10006"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h1 id="results">Results</h1>
+<p>Here you can see the ranking of the systems and information about the
+submissions to the task of automated audio captioning. </p>
+<h2 id="submissions">Submissions</h2>
+<p>The task of automated audio captioning received multiple submissions, from
+different institutions all over the world. Below you can the amount of total
+submissions and some statistics regarding the submissions at the task of automated
+audio captioning. </p>
+<table class="table table-responsive table-hover table-striped">
+<thead>
+<tr class="active">
+<th>Total submissions</th>
+<th>Teams</th>
+<th>Authors</th>
+<th>Average authors per team</th>
+<th>Institutions</th>
+<th>Average institutions per team</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-center">34</td>
+<td class="text-center">10</td>
+<td class="text-center">33</td>
+<td class="text-center">3.3</td>
+<td class="text-center">13</td>
+<td class="text-center">1.3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ranking-of-submissions">Ranking of submissions</h2>
+<p>The ranking of the submissions is based on the SPIDEr metric, measured on the generated
+captions of the systems when using the testing split of the Clotho dataset (i.e. the DCASE
+Challenge evaluation dataset). Below you can see a table with the best submission of
+each team, and all the submissions ranked according to their SPIDEr metric. </p>
+<p>For faster information flow, here is listed only the code of the submission, the name
+of the corresponding author, the affiliation of the corresponding author, and the achieved
+SPIDEr value. Complete results and technical reports can be found in the <a class="btn btn-primary" href="http://localhost:3000/challenge2020/task-automatic-audio-captioning-results">results page</a></p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="evaluation_dataset_spider" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="4">Submission Information</th>
+<th class="sep-left-cell" colspan="1"></th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+                Submission code
+            </th>
+<th class="sep-left-cell" data-field="corresponding_author" data-sortable="false">
+                Author
+            </th>
+<th class="sm-cell" data-field="corresponding_affiliation" data-sortable="false">
+                Affiliation
+            </th>
+<th class="sep-left-cell text-center" data-field="external_anchor" data-sortable="false" data-value-type="url">
+              Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="SPIDEr" data-chartable="true" data-field="evaluation_dataset_spider" data-sortable="false" data-value-type="float3">
+                SPIDEr
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Wang_PKU_task6_1</td>
+<td>Yuexian Zou</td>
+<td>School of ECE, Peking University, Shenzhen, China</td>
+<td>task-automatic-audio-captioning-results#wang2020_t6</td>
+<td>0.196</td>
+</tr>
+<tr>
+<td></td>
+<td>Shi_SFF_task6_3</td>
+<td>Anna Shi</td>
+<td>ShuangFeng First, Beijing, China</td>
+<td>task-automatic-audio-captioning-results#shi2020_t6</td>
+<td>0.121</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_UESTC_task6_1</td>
+<td>Qianyang Wu</td>
+<td>Information and Communication Engineering, University of Electronic Science and Technology of China, Chengdu, Sichuan</td>
+<td>task-automatic-audio-captioning-results#wu2020_t6</td>
+<td>0.012</td>
+</tr>
+<tr>
+<td></td>
+<td>Naranjo-Alcazar_UV_task6_2</td>
+<td>Javier Naranjo-Alcazar</td>
+<td>Computer Science Department, Universitat de Valencia, Burjassot, Spain</td>
+<td>task-automatic-audio-captioning-results#naranjoalcazar2020_t6</td>
+<td>0.150</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task6_4</td>
+<td>Xuenan Xu</td>
+<td>Computing Sciences and Technology, Shanghai Jiao Tong University, Shanghai, China</td>
+<td>task-automatic-audio-captioning-results#xu2020_t6</td>
+<td>0.194</td>
+</tr>
+<tr>
+<td></td>
+<td>Sampathkumar_TUC_task6_1</td>
+<td>Arunodhayan Sampathkumar</td>
+<td>Juniorprofessur MEDIA COMPUTING, Techniche universität Chemnitz, Chemnitz, Germany</td>
+<td>task-automatic-audio-captioning-results#sampathkumar2020_t6</td>
+<td>0.017</td>
+</tr>
+<tr>
+<td></td>
+<td>Yuma_NTT_task6_1</td>
+<td>Koizumi Yuma</td>
+<td>NTT Corporation, Tokyo, Japan</td>
+<td>task-automatic-audio-captioning-results#koizumi2020_t1</td>
+<td>0.222</td>
+</tr>
+<tr>
+<td></td>
+<td>Pellegrini_IRIT_task6_2</td>
+<td>Thomas Pellegrini</td>
+<td>Computing Sciences, Université Paul Sabatier, Toulouse, France</td>
+<td>task-automatic-audio-captioning-results#pellegrini2020_t6</td>
+<td>0.130</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_BUPT_task6_4</td>
+<td>Yusong Wu</td>
+<td>Beijing University of Posts and Telecommunications, Beijing, China</td>
+<td>task-automatic-audio-captioning-results#wuyusong2020_t6</td>
+<td>0.214</td>
+</tr>
+<tr>
+<td></td>
+<td>Kuzmin_MSU_task6_1</td>
+<td>Nikita Kuzmin</td>
+<td>Mathematical Methods of Forecasting, Lomonosov Moscow State University, Moscow, Russia</td>
+<td>task-automatic-audio-captioning-results#kuzmin2020_t6</td>
+<td>0.021</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Task6_baseline</td>
+<td>Konstantinos Drossos</td>
+<td>Audio Research Group, Tampere Univeristy, Tampere, Finland</td>
+<td></td>
+<td>0.018</td>
+</tr>
+</tbody>
+</table>
+<h1 id="baseline-system">Baseline system</h1>
+<p>To provide a starting point and some initial results for the challenge,
+there is a baseline system for the task of automated audio captioning.
+The baseline system is freely available online, is a sequence-to-sequence 
+model, and is implemented using PyTorch.</p>
+<p>The baseline system consists of four parts: </p>
+<ol>
+<li>the caption evaluation part,</li>
+<li>the dataset pre-processing/feature extraction part,</li>
+<li>the data handling part for Pytorch library, and</li>
+<li>the deep neural network (DNN) method part</li>
+</ol>
+<p>You can find the baseline system of automated audio captioning task at
+GitHub. </p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/audio-captioning/dcase-2020-baseline" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/audio-captioning/dcase-2020-baseline" target="_blank">
+<span style="font-size:20px;">Audio captioning baseline system <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<h2 id="caption-evaluation">Caption evaluation</h2>
+<p>Caption evaluation is performed using a version of the caption evaluation
+tools used for the MS COCO challenge. This version of the code has been
+updated in order to be compliant with Python 3.6 and above and with the 
+needs of the automated audio captioning task. The code can for the evaluation
+is included in the baseline system, but also can be found online.</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/audio-captioning/caption-evaluation-tools" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/audio-captioning/caption-evaluation-tools" target="_blank">
+<span style="font-size:20px;">Audio captioning evaluation tools <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<h2 id="dataset-pre-processingfeature-extraction">Dataset pre-processing/feature extraction</h2>
+<p>Clotho data are WAV and CSV files. In order to be used for an audio
+captioning method, features have to be extracted from the audio clips
+(i.e. WAV files) and the captions in the CSV files have to be turned to a more
+computational friendly form (e.g. one-hot encoding). Finally, the extracted
+features and processed words, have to be matched and used as input-output
+pairs for optimizing the parameters of an audio captioning method.</p>
+<p>In the baseline system there is code that implements the above. This
+code is also available as stand-alone, in the following repository:    </p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/audio-captioning/clotho-dataset" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/audio-captioning/clotho-dataset" target="_blank">
+<span style="font-size:20px;">Clotho dataset tools <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/> </p>
+<h2 id="data-handling-for-pytorch-library">Data handling for Pytorch library</h2>
+<p>In PyTorch there is the DataLoader class, which offers a convenient
+way of handling the data iteration. Clotho dataset has associated data
+loader for PyTorch, available in the baseline system and online.</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/audio-captioning/clotho-dataloader" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/audio-captioning/clotho-dataloader" target="_blank">
+<span style="font-size:20px;">Clotho dataloader for PyTorch <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/> </p>
+<h2 id="deep-neural-network-dnn-method">Deep neural network (DNN) method</h2>
+<p>Finally, the DNN of the baseline is a sequence-to-sequence system,
+consisting of an encoder and a decoder. The encoder takes as an
+input 64 log mel-band energies, consists of three bi-directional GRU,
+and outputs the summary of the input sequence of features. Each
+GRU of the encoder has 256 output features.</p>
+<p>The input sequence to the encoder (i.e. the extracted audio features
+has different length from the targeted output sequence (i.e. the
+words). For that reason, there has to be some kind of alignment between
+these two sequences. Our baseline system does not employ any alignment
+mechanism. Instead, the encoder outputs the summary vector of the
+input sequence, and this summary vector is then repeated as an input
+to the decoder. </p>
+<p>The decoder consists of one GRU and one classifier (a trainable affine
+transform with bias and a non-linearity at the end), accepts the output
+of the encoder, and outputs a probability for each of the unique words. 
+The decoder iterates for 22 time steps, which is the length of the longer
+caption.</p>
+<p><strong>Please not bold:</strong> The DNN method serves as an example. It is not
+meant to be used as a solid method for audio captioning, used in further
+hyper-parameter optimization.</p>
+<h2 id="hyper-parameters">Hyper-parameters</h2>
+<p><strong>Feature extraction and caption processing:</strong> The baseline system uses
+the following hyper-parameters for the feature extraction: </p>
+<ul>
+<li>64 log mel-band energies</li>
+<li>Hamming window of 46 ms length with 50% overlap</li>
+</ul>
+<p>Captions are pre-processed according to the following: </p>
+<ul>
+<li>Removal of all punctuation</li>
+<li>All letters to small case</li>
+<li>Tokenization</li>
+<li>Pre-pending of start-of-sentence token (i.e. <code>&lt;sos&gt;</code>)</li>
+<li>Appending of end-of-sentence token (i.e. <code>&lt;eos&gt;</code>)</li>
+</ul>
+<p><strong>Neural network and optimization hyper-parameters:</strong> The deep neural
+network used in the baseline system has the following hyper-parameters: </p>
+<ul>
+<li>Three layers of bi-directional gated recurrent units (GRUs).<ul>
+<li>First GRU has 64 input dimensionality and outputs 256 features
+(i.e. 256 * 2 = 512 for the two directions)</li>
+<li>Second and third GRUs have 512 input dimensionality and output
+256 features (i.e. 256 * 2 = 512 for the two directions)</li>
+<li>The outputs from the second GRU are added with the inputs to
+the second GRU, before used as an input to the third GRU (i.e.
+there is a residual connection between the second and third GRU).</li>
+<li>The outputs from the third are also added to the input of the
+third GRU, before used by the attention mechanism. </li>
+</ul>
+</li>
+<li>One GRU layer, with input dimensionality 512 and output 256 </li>
+<li>One trainable affine transform with bias, acting as a classifier,
+  with input dimensionality of 256 and output of 4637 (i.e. the length
+  of the one-hot encoding of the words).</li>
+</ul>
+<p>The optimization of the parameters of the DNN performed using Adam
+optimizer for 300 epochs, a batch size of 16 and the cross-entropy loss.
+The learning rate of Adam is 10<sup>-4</sup> and before every weight
+update, the 2-norm of the gradients clipped using as a threshold the
+value of 2.</p>
+<p>All input audio features and captions in a batch are padded to the longest
+length in the batch. That is, the input audio features are padded with
+zero vectors to the beginning, in order all of the input audio features
+sequences to have the same amount of vectors. The output sequences of words,
+are padded with <code>&lt;eos&gt;</code> tokens at the end, so all sequences of word will
+have the same amount of words.  </p>
+<h2 id="results-for-the-development-dataset">Results for the development dataset</h2>
+<p>The results of the baseline system for the development dataset are:</p>
+<table class="table table-responsive table-hover table-striped table-sm">
+<thead>
+<tr class="active">
+<td><strong>Metric</strong></td>
+<td><strong>Value</strong></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BLEU<sub>1</sub></td>
+<td>0.389</td>
+</tr>
+<tr>
+<td>BLEU<sub>2</sub></td>
+<td>0.136</td>
+</tr>
+<tr>
+<td>BLEU<sub>3</sub></td>
+<td>0.055</td>
+</tr>
+<tr>
+<td>BLEU<sub>4</sub></td>
+<td>0.015</td>
+</tr>
+<tr>
+<td>ROUGE<sub>L</sub></td>
+<td>0.262</td>
+</tr>
+<tr>
+<td>METEOR</td>
+<td>0.084</td>
+</tr>
+<tr>
+<td>CIDEr</td>
+<td>0.074</td>
+</tr>
+<tr>
+<td>SPICE</td>
+<td>0.033</td>
+</tr>
+<tr class="danger">
+<td><strong>SPIDEr</strong></td>
+<td><strong>0.054</strong></td>
+</tr>
+</tbody></table>
+<p>The pre-trained weights for the DNN of the baseline system yielding
+the above results are freely available on Zenodo:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/3697687" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-table fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/3697687" target="_blank">
+<span style="font-size:20px;">Baseline DNN pre-trained weights <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(18.3 MB)</span>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.3697687">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.3697687.svg"/>
+</a>
+<span class="text-muted">
+                
+                version 1
+                
+                
+                </span>
+</div>
+</div>
+<p><br/> </p>
+<h1 id="citation">Citation</h1>
+<p>If you participating in this task, you might want to check the
+following papers.</p>
+<ul>
+<li>The initial publication on audio captioning:</li>
+</ul>
+<div class="btex-item" data-item="Drossos_2017_waspaa" data-source="content/data/challenge2020/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Drossos_2017_waspaa"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Konstantinos Drossos, Sharath Adavanne, and Tuomas Virtanen.
+<em>Automated audio captioning with recurrent neural networks.</em>
+In IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (<span class="bibtex-protected">WASPAA</span>). New Paltz, New York, U.S.A., Oct. 2017.
+URL: <a href="https://arxiv.org/abs/1706.10006">https://arxiv.org/abs/1706.10006</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexDrossos_2017_waspaa3cc5d8d19f014e8795fbeb19b2740b0f" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/1706.10006.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseDrossos_2017_waspaa3cc5d8d19f014e8795fbeb19b2740b0f" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseDrossos_2017_waspaa3cc5d8d19f014e8795fbeb19b2740b0f" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingDrossos_2017_waspaa3cc5d8d19f014e8795fbeb19b2740b0f" class="panel-collapse collapse" id="collapseDrossos_2017_waspaa3cc5d8d19f014e8795fbeb19b2740b0f" role="tabpanel">
+<h4>Automated Audio Captioning with Recurrent Neural Networks</h4>
+<h5>Abstract</h5>
+<p class="text-justify">We present the first approach to automated audio captioning. We employ an encoder-decoder scheme with an alignment model in between. The input to the encoder is a sequence of log mel-band energies calculated from an audio file, while the output is a sequence of words, i.e. a caption. The encoder is a multi-layered, bi-directional gated recurrent unit (GRU) and the decoder a multi-layered GRU with a classification layer connected to the last GRU of the decoder. The classification layer and the alignment model are fully connected layers with shared weights between timesteps. The proposed method is evaluated using data drawn from a commercial sound effects library, ProSound Effects. The resulting captions were rated through metrics utilized in machine translation and image captioning fields. Results from metrics show that the proposed method can predict words appearing in the original caption, but not always correctly ordered.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexDrossos_2017_waspaa3cc5d8d19f014e8795fbeb19b2740b0f" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/1706.10006.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexDrossos_2017_waspaa3cc5d8d19f014e8795fbeb19b2740b0flabel" class="modal fade" id="bibtexDrossos_2017_waspaa3cc5d8d19f014e8795fbeb19b2740b0f" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexDrossos_2017_waspaa3cc5d8d19f014e8795fbeb19b2740b0flabel">Automated Audio Captioning with Recurrent Neural Networks</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Drossos_2017_waspaa,
+    Author = "Drossos, Konstantinos and Adavanne, Sharath and Virtanen, Tuomas",
+    title = "Automated Audio Captioning with Recurrent Neural Networks",
+    booktitle = "IEEE Workshop on Applications of Signal Processing to Audio and Acoustics ({WASPAA})",
+    address = "New Paltz, New York, U.S.A.",
+    year = "2017",
+    month = "Oct.",
+    abstract = "We present the first approach to automated audio captioning. We employ an encoder-decoder scheme with an alignment model in between. The input to the encoder is a sequence of log mel-band energies calculated from an audio file, while the output is a sequence of words, i.e. a caption. The encoder is a multi-layered, bi-directional gated recurrent unit (GRU) and the decoder a multi-layered GRU with a classification layer connected to the last GRU of the decoder. The classification layer and the alignment model are fully connected layers with shared weights between timesteps. The proposed method is evaluated using data drawn from a commercial sound effects library, ProSound Effects. The resulting captions were rated through metrics utilized in machine translation and image captioning fields. Results from metrics show that the proposed method can predict words appearing in the original caption, but not always correctly ordered.",
+    url = "https://arxiv.org/abs/1706.10006"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>The three-step framework, employed for collecting the annotations
+of Clotho (if you use the three-step framework, consider citing the
+paper):</li>
+</ul>
+<div class="btex-item" data-item="Drossos_2019_dcase" data-source="content/data/challenge2020/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Drossos_2019_dcase"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Samuel Lipping, Konstantinos Drossos, and Tuoams Virtanen.
+<em>Crowdsourcing a dataset of audio captions.</em>
+In Proceedings of the Detection and Classification of Acoustic Scenes and Events Workshop (<span class="bibtex-protected">DCASE</span>). Nov. 2019.
+URL: <a href="https://arxiv.org/abs/1907.09238">https://arxiv.org/abs/1907.09238</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexDrossos_2019_dcase7dd1f89c6f0f4f41a7672abf1531e427" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/1907.09238.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseDrossos_2019_dcase7dd1f89c6f0f4f41a7672abf1531e427" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseDrossos_2019_dcase7dd1f89c6f0f4f41a7672abf1531e427" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingDrossos_2019_dcase7dd1f89c6f0f4f41a7672abf1531e427" class="panel-collapse collapse" id="collapseDrossos_2019_dcase7dd1f89c6f0f4f41a7672abf1531e427" role="tabpanel">
+<h4>Crowdsourcing a Dataset of Audio Captions</h4>
+<h5>Abstract</h5>
+<p class="text-justify">Audio captioning is a novel field of multi-modal translation and it is the task of creating a textual description of the content of an audio signal (e.g. “people talking in a big room”). The creation of a dataset for this task requires a considerable amount of work, rendering the crowdsourcing a very attractive option. In this paper we present a three steps based framework for crowdsourcing an audio captioning dataset, based on concepts and practises followed for the creation of widely used image captioning and machine translations datasets. During the first step initial captions are gathered. A grammatically corrected and/or rephrased version of each initial caption is obtained in second step. Finally, the initial and edited captions are rated, keeping the top ones for the produced dataset. We objectively evaluate the impact of our framework during the process of creating an audio captioning dataset, in terms of diversity and amount of typographical errors in the obtained captions. The obtained results show that the resulting dataset has less typographical errors than the initial captions, and on average each sound in the produced dataset has captions with a Jaccard similarity of 0.24, roughly equivalent to two ten-word captions having in common four words with the same root, indicating that the captions are dissimilar while they still contain some of the same information.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexDrossos_2019_dcase7dd1f89c6f0f4f41a7672abf1531e427" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/1907.09238.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexDrossos_2019_dcase7dd1f89c6f0f4f41a7672abf1531e427label" class="modal fade" id="bibtexDrossos_2019_dcase7dd1f89c6f0f4f41a7672abf1531e427" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexDrossos_2019_dcase7dd1f89c6f0f4f41a7672abf1531e427label">Crowdsourcing a Dataset of Audio Captions</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Drossos_2019_dcase,
+    Author = "Lipping, Samuel and Drossos, Konstantinos and Virtanen, Tuoams",
+    title = "Crowdsourcing a Dataset of Audio Captions",
+    year = "2019",
+    booktitle = "Proceedings of the Detection and Classification of Acoustic Scenes and Events Workshop ({DCASE})",
+    month = "Nov.",
+    abstract = "Audio captioning is a novel field of multi-modal translation and it is the task of creating a textual description of the content of an audio signal (e.g. “people talking in a big room”). The creation of a dataset for this task requires a considerable amount of work, rendering the crowdsourcing a very attractive option. In this paper we present a three steps based framework for crowdsourcing an audio captioning dataset, based on concepts and practises followed for the creation of widely used image captioning and machine translations datasets. During the first step initial captions are gathered. A grammatically corrected and/or rephrased version of each initial caption is obtained in second step. Finally, the initial and edited captions are rated, keeping the top ones for the produced dataset. We objectively evaluate the impact of our framework during the process of creating an audio captioning dataset, in terms of diversity and amount of typographical errors in the obtained captions. The obtained results show that the resulting dataset has less typographical errors than the initial captions, and on average each sound in the produced dataset has captions with a Jaccard similarity of 0.24, roughly equivalent to two ten-word captions having in common four words with the same root, indicating that the captions are dissimilar while they still contain some of the same information.",
+    url = "https://arxiv.org/abs/1907.09238"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>The Clotho dataset (if you use Clotho consider citing the Clotho paper):</li>
+</ul>
+<div class="btex-item" data-item="Drossos_2020_icassp" data-source="content/data/challenge2020/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Drossos_2020_icassp"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Konstantinos Drossos, Samuel Lipping, and Tuomas Virtanen.
+<em>Clotho: An audio captioning dataset.</em>
+In 45th IEEE International Conference on Acoustics, Speech, and Signal Processing (<span class="bibtex-protected">ICASSP</span>). Barcelona, Spain, May 2020.
+URL: <a href="https://arxiv.org/abs/1910.09387">https://arxiv.org/abs/1910.09387</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexDrossos_2020_icassp224e2e3317eb47ab84cfd48cb44de2d1" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/1910.09387.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseDrossos_2020_icassp224e2e3317eb47ab84cfd48cb44de2d1" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseDrossos_2020_icassp224e2e3317eb47ab84cfd48cb44de2d1" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingDrossos_2020_icassp224e2e3317eb47ab84cfd48cb44de2d1" class="panel-collapse collapse" id="collapseDrossos_2020_icassp224e2e3317eb47ab84cfd48cb44de2d1" role="tabpanel">
+<h4>Clotho: An Audio Captioning Dataset</h4>
+<h5>Abstract</h5>
+<p class="text-justify">Audio captioning is the novel task of general audio content description using free text. It is an intermodal translation task (not speech-to-text), where a system accepts as an input an audio signal and outputs the textual description (i.e. the caption) of that signal. In this paper we present Clotho, a dataset for audio captioning consisting of 4981 audio samples of 15 to 30 seconds duration and 24 905 captions of eight to 20 words length, and a baseline method to provide initial results. Clotho is built with focus on audio content and caption diversity, and the splits of the data are not hampering the training or evaluation of methods. All sounds are from the Freesound platform, and captions are crowdsourced using Amazon Mechanical Turk and annotators from English speaking countries. Unique words, named entities, and speech transcription are removed with post-processing. Clotho is freely available online (https://zenodo.org/record/3490684).</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexDrossos_2020_icassp224e2e3317eb47ab84cfd48cb44de2d1" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/1910.09387.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexDrossos_2020_icassp224e2e3317eb47ab84cfd48cb44de2d1label" class="modal fade" id="bibtexDrossos_2020_icassp224e2e3317eb47ab84cfd48cb44de2d1" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexDrossos_2020_icassp224e2e3317eb47ab84cfd48cb44de2d1label">Clotho: An Audio Captioning Dataset</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Drossos_2020_icassp,
+    Author = "Drossos, Konstantinos and Lipping, Samuel and Virtanen, Tuomas",
+    title = "Clotho: {An} Audio Captioning Dataset",
+    booktitle = "45th IEEE International Conference on Acoustics, Speech, and Signal Processing ({ICASSP})",
+    address = "Barcelona, Spain",
+    year = "2020",
+    month = "May",
+    abstract = "Audio captioning is the novel task of general audio content description using free text. It is an intermodal translation task (not speech-to-text), where a system accepts as an input an audio signal and outputs the textual description (i.e. the caption) of that signal. In this paper we present Clotho, a dataset for audio captioning consisting of 4981 audio samples of 15 to 30 seconds duration and 24 905 captions of eight to 20 words length, and a baseline method to provide initial results. Clotho is built with focus on audio content and caption diversity, and the splits of the data are not hampering the training or evaluation of methods. All sounds are from the Freesound platform, and captions are crowdsourced using Amazon Mechanical Turk and annotators from English speaking countries. Unique words, named entities, and speech transcription are removed with post-processing. Clotho is freely available online (https://zenodo.org/record/3490684).",
+    url = "https://arxiv.org/abs/1910.09387"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/>
+<br/></p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

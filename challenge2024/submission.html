@@ -1,0 +1,3070 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Submission - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Submission - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2024/submission">
+    <meta property="og:url" content="https://dcase.community/challenge2024/submission" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="Toni Heittola" />
+    <meta name="description" content="The submission deadline is June 15th 2024 23:59 Anywhere on Earth (AoE) Introduction Challenge submission consists of a submission package (one zip package) containing system outputs, system meta information, and technical report (pdf file). Submission process shortly: Participants run their system with an evaluation dataset, and produce the system …" />
+    <meta name="og:description" content="The submission deadline is June 15th 2024 23:59 Anywhere..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right navbar-tighter" id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2024</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2024/"><i class="fa fa-home"></i>&nbsp;Intro</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-t1"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-t2"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-t3"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-t4"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-bird text-t5"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-captioning text-t6"></i>&nbsp;Task6&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-synthesis text-t7"></i>&nbsp;Task7&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-retrieval text-t8"></i>&nbsp;Task8&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-separation text-t9"></i>&nbsp;Task9&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-traffic text-t10"></i>&nbsp;Task10&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2024/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2024/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/wall-malaga-01.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><h1 class="bold">Submission</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Instructions</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#submission-system">Submission system</a></li>
+<li><a href="#submission-package">Submission package</a>
+<ul>
+<li><a href="#submission-label">Submission label</a></li>
+<li><a href="#package-structure">Package structure</a></li>
+</ul>
+</li>
+<li><a href="#system-outputs">System outputs</a></li>
+<li><a href="#meta-information">Meta information</a></li>
+<li><a href="#technical-report">Technical report</a>
+<ul>
+<li><a href="#template">Template</a></li>
+</ul>
+</li></ul></div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p class="bg-danger">
+<strong>The submission deadline is June 15th 2024 23:59 Anywhere on Earth (AoE)</strong>
+</p>
+<h1 id="introduction">Introduction</h1>
+<p>Challenge submission consists of a <strong>submission package (one zip package)</strong> containing system outputs, system meta information, and <strong>technical report (pdf file)</strong>.</p>
+<p>Submission process shortly:</p>
+<ol>
+<li>Participants run their system with an evaluation dataset, and produce the <strong>system output</strong> in the specified format. Participants are allowed to submit 4 different system outputs per task or subtask.</li>
+<li>Participants create a <strong>meta-information file</strong> to go along the system output to describe the system used to produce this particular output. Meta information file has a predefined format to help the automatic handling of the challenge submissions. Information provided in the meta file will be later used to produce challenge results. Participants should fill in all meta information and make sure meta information file follows defined formatting.</li>
+<li>Participants describe their system in a <strong>technical report</strong> in sufficient detail. A template will be provided for the document.</li>
+<li>Participants prepare the <strong>submission package</strong> (zip-file). The submission package contains system outputs, a maximum of 4 per task, systems meta information, and the technical report.</li>
+<li>Participants submit the submission package and the technical report to DCASE2024 Challenge.</li>
+</ol>
+<p class="bg-danger">
+Please read carefully the requirements for the files included in the submission package!
+</p>
+<h1 id="submission-system">Submission system</h1>
+<p>The submission system is now available:</p>
+<p><a class="btn btn-success" href="https://cmt3.research.microsoft.com/DCASEChallenge2024/" style="" target="_blank">Submission system</a></p>
+<p>Submission guideline:</p>
+<ul>
+<li>Create a user account and login</li>
+<li>Go to the "All Conferences" tab in the system and type DCASE to filter the list</li>
+<li>Select "2024 Challenge on Detection and Classification of Acoustic Scenes and Events"</li>
+<li>Create a new submission</li>
+</ul>
+<p><strong>The technical report in the submission package must contain at least the title, authors, and abstract. An updated camera-ready version of the technical report can be submitted separately until 22 June 2024 (AOE).</strong></p>
+<p>By submitting to the challenge, participants agree for the system output to be evaluated and to be published together with the results and the technical report on the DCASE Challenge website under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY license</a>.</p>
+<h1 id="submission-package">Submission package</h1>
+<p>Participants are instructed to pack their system output(s), system meta information, and technical report into one zip-package. Example package:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="../documents/challenge2024/dcase2024_challenge_submission_package_example.zip" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="../documents/challenge2024/dcase2024_challenge_submission_package_example.zip" target="_blank">
+<span style="font-size:20px;">DCASE2024 challenge submission example package <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(21.1 MB)</span>
+<br/>
+<span class="text-muted">
+                
+                
+                (.zip)
+                
+                </span>
+</div>
+</div>
+<p><br/></p>
+<p>Please prepare your submission zip-file as the provided example. Follow the same file structure and fill meta information with a similar structure as the one in <code>*.meta.yaml</code> -files. The zip-file should contain system outputs for all tasks/subtasks, maximum of 4 submissions per task/subtask, separate meta information for each system, and technical report(s) covering all submitted systems.</p>
+<p>If you submit similar systems for multiple tasks, you can describe everything in one technical report. If your approaches for different tasks are significantly different, prepare one technical report for each and include it in the corresponding task folder.</p>
+<p>More detailed instructions for constructing the package can be found in the following sections.
+The technical report template is available <a href="http://localhost:3000/challenge2024/submission#template">here</a>.</p>
+<p>Scripts for checking the content of the submission package is provided for selected tasks, please validate your submission package accordingly.   </p>
+<p>For <strong>task 1</strong>, use validator code from repository  <div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/toni-heittola/dcase2024_task1_submission_validator" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/toni-heittola/dcase2024_task1_submission_validator" target="_blank">
+<span style="font-size:20px;">DCASE2024 Task 1 <strong>submission validator</strong> <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+</p>
+<p>For <strong>task 4</strong>, use validator script <code>task4/validate_submissions.py</code> from the example submission package  <div class="row">
+<div class="col-md-1">
+<a class="icon" href="../documents/challenge2024/dcase2024_challenge_submission_package_example.zip" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="../documents/challenge2024/dcase2024_challenge_submission_package_example.zip" target="_blank">
+<span style="font-size:20px;">DCASE2024 challenge submission example package <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(21.1 MB)</span>
+<br/>
+<span class="text-muted">
+                
+                
+                (.zip)
+                
+                </span>
+</div>
+</div>
+</p>
+<p>For <strong>task 3</strong>, you can submit up to 4 systems per one of the two task tracks, up to 4 systems for models using audio-only input, and up to 4 systems for models using audio and video input. To make easier the distinction between the two tracks, please use <em>task_3a</em> for audio-only systems and <em>task_3b</em> for audiovisual systems. If you submit systems of both types, you can describe them in a single report, or even better a separate on systems of each type.</p>
+<h2 id="submission-label">Submission label</h2>
+<p>A submission label is used to index all your submissions (systems per tasks). To avoid overlapping labels among all submitted systems, use the following way to form your label:</p>
+<p><code>[Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number][subtask letter (optional)]_[index number of your submission (1-4)]</code></p>
+<p>For example, the baseline systems would have the following labels:</p>
+<ul>
+<li><code>Schmid_CPJKU_task1_1</code></li>
+<li><code>Nishida_HIT_task2_1</code></li>
+<li><code>Politis_TAU_task3a_1</code></li>
+<li><code>Shimada_SONY_task3b_1</code></li>
+<li><code>Cornell_CMU_task4_1</code></li>
+<li><code>Morfi_QMUL_task5_1</code></li>
+<li><code>Labbe_IRIT_task6_1</code></li>
+<li><code>Lee_GLI_task7_1</code></li>
+<li><code>Xie_TAU_task8_1</code></li>
+<li><code>NNNN_NNN_task9_1</code></li>
+<li><code>Bondi_BSCH_task10_1</code></li>
+</ul>
+<p>A script for checking the content of the submission package will be provided for selected tasks. In that case, please validate your submission package accordingly.   </p>
+<h2 id="package-structure">Package structure</h2>
+<p>Make sure your zip-package follows provided file naming convention and directory structure:</p>
+<pre>
+Zip-package root
+│  
+└───task1                                              Task 1 submissions
+│   │   Schmid_CPJKU_task1.technical_report.pdf        Technical report covering all subtasks
+│   │
+│   └───Schmid_CPJKU_task1_1                           System 1 submission files
+│   │       Schmid_CPJKU_task1_1.meta.yaml             System 1 meta information
+│   │       Schmid_CPJKU_task1_1.output.split_5.csv    System 1 output, system trained with split 5 data
+│   │       Schmid_CPJKU_task1_1.output.split_10.csv   System 1 output, system trained with split 10 data
+│   │       Schmid_CPJKU_task1_1.output.split_25.csv   System 1 output, system trained with split 25 data
+│   │       Schmid_CPJKU_task1_1.output.split_50.csv   System 1 output, system trained with split 50 data
+│   │       Schmid_CPJKU_task1_1.output.split_100.csv  System 1 output, system trained with split 100 data
+│   :
+│   └───Schmid_CPJKU_task1_4                           System 4 submission files
+│           Schmid_CPJKU_task1_4.meta.yaml             System 4 meta information
+│           Schmid_CPJKU_task1_4.output.split_5.csv    System 4 output, system trained with split 5 data
+│           Schmid_CPJKU_task1_4.output.split_10.csv   System 4 output, system trained with split 10 data
+│           Schmid_CPJKU_task1_4.output.split_25.csv   System 4 output, system trained with split 25 data
+│           Schmid_CPJKU_task1_4.output.split_50.csv   System 4 output, system trained with split 50 data
+│           Schmid_CPJKU_task1_4.output.split_100.csv  System 4 output, system trained with split 100 data
+│                    
+└───task2                                                  Task 2 submissions
+│   │   Nishida_HIT_task2_1.technical_report.pdf           Technical report                       
+│   │
+│   └───Nishida_HIT_task2_1                                System 1 submission files
+│   │       Nishida_HIT_task2_1.meta.yaml                  System 1 meta information
+│   │       anomaly_score_3DPrinter_section_00_test.csv    System 1 output for each section and domain in the evaluation dataset   
+│   │       anomaly_score_AirCompressor_section_00_test.csv
+│   │       anomaly_score_BrushlessMotor_section_00_test.csv
+│   :       :
+│   │       anomaly_score_ToyCircuit_section_00_test.csv
+│   │       decision_result_3DPrinter_section_00_test.csv
+│   │       decision_result_AirCompressor_section_00_test.csv
+│   │       decision_result_BrushlessMotor_section_00_test.csv
+│   :       :
+│   │       decision_result_ToyCircuit_section_00_test.csv
+│   │
+│   └───Nishida_HIT_task2_4                                System 4 submission files
+│           Nishida_HIT_task2_4.meta.yaml                  System 4 meta information
+│           anomaly_score_3DPrinter_section_00_test.csv    System 4 output for each section and domain in the evaluation dataset   
+│           anomaly_score_AirCompressor_section_00_test.csv        
+│           anomaly_score_BrushlessMotor_section_00_test.csv
+│           :
+│           anomaly_score_ToyCircuit_section_00_test.csv
+│           decision_result_3DPrinter_section_00_test.csv
+│           decision_result_AirCompressor_section_00_test.csv
+│           decision_result_BrushlessMotor_section_00_test.csv
+│           :
+│           decision_result_ToyCircuit_section_00_test.csv
+│   
+└───task3                                              Task 3 submissions
+│   │   Politis-Shimada_TAU-SONY_task3.technical_report.pdf     Technical report
+│   │   Politis_TAU_task3a.technical_report.pdf                  (Optional) Technical report only for audio-only system (Track A)
+│   │   Shimada_SONY_task3b.technical_report.pdf                 (Optional) Technical report only for audiovisual system (Track B)
+│   │
+│   └───Politis_TAU_task3a_1                           Track A (audio-only) System 1 submission files 
+│   │     Politis_TAU_task3_1.meta.yaml                Track A (audio-only) System 1 meta information
+│   └─────Politis_TAU_task3_1                          Track A (audio-only) System 1 output files in a folder
+|   |       mix001.csv
+|   |       ...
+│   :
+│   │
+│   └───Politis_TAU_task3a_4                           Track A (audio-only) System 4 submission files
+│   |     Politis_TAU_task3_4.meta.yaml                Track A (audio-only) System 4 meta information
+│   └─────Politis_TAU_task3_4                          Track A (audio-only) System 4 output files in a folder
+|   |       mix001.csv
+|   |       ...
+|   |
+│   └───Shimada_SONY_task3b_1                          Track B (audiovisual) System 1 submission files
+│   │     Shimada_SONY_task3b_1.meta.yaml              Track B (audiovisual) System 1 meta information
+│   └─────Shimada_SONY_task3b_1                        Track B (audiovisual) System 1 output files in a folder
+|   |       mix001.csv
+|   |       ...
+│   :
+│   │
+│   └───Shimada_SONY_task3b_4                          Track B (audiovisual) System 4 submission files (audiovisual)
+│   |     Shimada_SONY_task3b_4.meta.yaml              Track B (audiovisual) System 4 meta information (audiovisual)
+│   └─────Shimada_SONY_task3b_4                        Track B (audiovisual) System 4 output files in a folder (audiovisual)
+|   |       mix001.csv
+|   |       ...
+│
+└───task4                                              Task 4 submissions
+│   │   Cornell_CMU_task4.technical_report.pdf              Technical report
+│   │   validate_submissions.py                             Submission validation code           
+│   │   readme.md                                           Instructions how to use the submission validation code
+│   │
+│   └───Cornell_CMU_task4_1                                 System 1 submission files
+│   │     Cornell_CMU_task4_1.meta.yaml                     System 1 meta information
+│   │     Cornell_CMU_task4_1_run1.output                   System 1 run 1 output files
+│   │     Cornell_CMU_task4_1_run2.output                   System 1 run 2 output files
+│   │     Cornell_CMU_task4_1_run2_unprocessed.output       System 1 run 2 unprocessed output files
+│   │     Cornell_CMU_task4_1_run3.output                   System 1 run 3 output files
+│   │     Cornell_CMU_task4_1_run3_unprocessed.output       System 1 run 3 output files
+│   └─────codecarbon                                        Energy consumption reports
+│   │       emissions_baseline_test.csv                     Baseline energy consumption (test)
+│   │       emissions_baseline_trainin.csv                  Baseline energy consumption (training)
+│   │       emissions_Cornell_CMU_task4_1_run1_test.csv     Submission energy consumption (test)
+│   │       emissions_Cornell_CMU_task4_1_run1_training.csv Submission energy consumption (training)
+│   :
+│   └───Cornell_CMU_task4_4                                 System 4 submission files
+│   │     Cornell_CMU_task4_4.meta.yaml                     System 4 meta information
+│   │     Cornell_CMU_task4_4_run1.output                   System 4 run 1 output files
+│   │     Cornell_CMU_task4_4_run2.output                   System 4 run 2 output files
+│   │     Cornell_CMU_task4_4_run2_unprocessed.output       System 4 run 2 unprocessed output files
+│   │     Cornell_CMU_task4_4_run3.output                   System 4 run 3 output files
+│   │     Cornell_CMU_task4_4_run3_unprocessed.output       System 4 run 3 output files
+│   └─────codecarbon                                        Energy consumption reports
+│           emissions_baseline_test.csv                     Baseline energy consumption (test)
+│           ...
+│    
+└───task5                                              Task 5 submissions
+│   │   Morfi_QMUL_task5.technical_report.pdf          Technical report
+│   │
+│   └───Morfi_QMUL_task5_1                             System 1 submission files
+│   │     Morfi_QMUL_task5_1.meta.yaml                 System 1 meta information
+│   │     Morfi_QMUL_task5_1.output.csv                System 1 output
+│   :
+│   │
+│   └───Morfi_QMUL_task5_4                             System 4 submission files
+│         Morfi_QMUL_task5_4.meta.yaml                 System 4 meta information
+│         Morfi_QMUL_task5_4.output.csv                System 4 output
+│
+└───task6                                              Task 6 submissions
+│   │   Labbe_IRIT_task6_1.technical_report.pdf        Technical report 
+│   │
+│   └───Labbe_IRIT_task6_1                             System 1 submission files
+│   │     Labbe_IRIT_task6_1.meta.yaml                 System 1 meta information
+│   │     Labbe_IRIT_task6_1.output.csv                System 1 output
+│   :
+│   │
+│   └───Labbe_IRIT_task6_5                             System 4 submission files
+│         Labbe_IRIT_task6_4.meta.yaml                 System 4 meta information
+│         Labbe_IRIT_task6_4.output.csv                System 4 output
+│
+└───task7                                              Task 7 submissions
+│   │   Lee_GLI_task7.technical_report.pdf             Technical report 
+│   │
+│   └───Lee_GLI_task7_1                                System 1 submission files
+│         Lee_GLI_task7_1.meta.yaml                    System 1 meta information
+│
+└───task8                                              Task 8 submissions
+│   │   Xie_TAU_task8_1.technical_report.pdf           Technical report 
+│   │
+│   └───Xie_TAU_task8_1                                System 1 submission files
+│   │     Xie_TAU_task8_1.meta.yaml                    System 1 meta information
+│   │     Xie_TAU_task8_1.output.csv                   System 1 output
+│   :
+│   │
+│   └───Xie_TAU_task8_4                                System 4 submission files
+│         Xie_TAU_task8_4.meta.yaml                    System 4 meta information
+│         Xie_TAU_task8_4.output.csv                   System 4 output
+│
+└───task9                                              Task 9 submissions
+│   │   Liu_Surrey_task9.technical_report.pdf          Technical report 
+│   │   Liu_Surrey_task9.audio_url.txt                 Google Drive link of the separated audios
+│   │
+│   └───Liu_Surrey_task9_1                             System 1 submission files
+│   │     Liu_Surrey_task9_1.meta.yaml                 System 1 meta information
+│   :
+│   │
+│   └───Liu_Surrey_task9_4                             System 4 submission files
+│         Liu_Surrey_task9_4.meta.yaml                 System 4 meta information
+│
+└───task10                                             Task 10 submissions
+    │   Bondi_BSCH_task10.technical_report.pdf         Technical report 
+    │
+    └───Bondi_BSCH_task10_1                            System 1 submission files
+    │     Bondi_BSCH_task10_1.meta.yaml                System 1 meta information
+    │     Bondi_BSCH_task10_1.output.loc1.csv          System 1 output, location 1
+    │     Bondi_BSCH_task10_1.output.loc2.csv          System 1 output, location 2
+    │     Bondi_BSCH_task10_1.output.loc3.csv          System 1 output, location 3
+    │     Bondi_BSCH_task10_1.output.loc4.csv          System 1 output, location 4
+    │     Bondi_BSCH_task10_1.output.loc5.csv          System 1 output, location 5
+    │     Bondi_BSCH_task10_1.output.loc6.csv          System 1 output, location 6
+    : 
+    │
+    └───Bondi_BSCH_task10_4                            System 4 submission files
+          Bondi_BSCH_task10_4.meta.yaml                System 4 meta information
+          Bondi_BSCH_task10_4.output.loc1.csv          System 4 output, location 1
+          Bondi_BSCH_task10_4.output.loc2.csv          System 4 output, location 2
+          Bondi_BSCH_task10_4.output.loc3.csv          System 4 output, location 3
+          Bondi_BSCH_task10_4.output.loc4.csv          System 4 output, location 4
+          Bondi_BSCH_task10_4.output.loc5.csv          System 4 output, location 5
+          Bondi_BSCH_task10_4.output.loc6.csv          System 4 output, location 6
+
+</pre>
+<h1 id="system-outputs">System outputs</h1>
+<p>Participants must submit the results for the provided evaluation datasets.</p>
+<ul>
+<li>
+<p><strong>Follow the system output format specified in the task description.</strong></p>
+</li>
+<li>
+<p><strong>Tasks are independent.</strong> You can participate in a single task or multiple tasks.</p>
+</li>
+<li>
+<p><strong>Multiple submissions for the same task</strong> are allowed (maximum 4 per task). Use a running index in the submission label, and give more detailed names for the submitted systems in the system meta information files. Please mark carefully the connection between the submitted systems and system parameters description in the technical report (for example by referring to the systems by using the submission label or system name given in the system meta information file).</p>
+</li>
+<li>
+<p><strong>Submitted system outputs will be published</strong> online on the DCASE2024 website later to allow future evaluations.</p>
+</li>
+</ul>
+<h1 id="meta-information">Meta information</h1>
+<p>In order to enable fast processing of the submissions and meta analysis of submitted systems, participants should provide meta information presented in a structured and correctly formatted <a href="https://en.wikipedia.org/wiki/YAML">YAML-file</a>. Participants are advised to fill in the meta information carefully while making sure all asked information is correctly provided.  </p>
+<p>A complete meta file will help us notice possible errors before officially publishing the results (for example unexpectedly large difference in performance between development and evaluation set) and allow contacting the authors in case we consider it necessary. Please note that task organizers may ask you to update the meta file after the challenge submission deadline.   </p>
+<p>See the example meta files below for each baseline system. These examples are also available in the <a href="../documents/challenge2024/dcase2024_challenge_submission_package_example.zip">example submission package</a>. Meta file structure is mostly the same for all tasks, only the metrics collected in <code>results-&gt;development_dataset</code>-section differ per challenge task.</p>
+<div aria-multiselectable="true" class="panel-group" id="submission-package-example-accordion" role="tablist">
+<div class="panel panel-t1">
+<div class="panel-heading" id="task1-example-header" role="tab">
+<h4 class="panel-title">
+<a aria-controls="collapseOne" aria-expanded="true" class="collapsed accordion-toggle" data-parent="#submission-package-example-accordion" data-toggle="collapse" href="#task1-example-collapse" role="button">
+<span class="fa-stack fa-1x">
+<i class="fa fa-square fa-stack-2x text-t1"></i>
+<i class="fa dc-scene fa-stack-1x fa-inverse"></i>
+</span>
+<strong>Task 1</strong> - Data-Efficient Low-Complexity Acoustic Scene Classification
+                </a>
+</h4>
+</div>
+<div aria-labelledby="task1-example-header" class="panel-collapse collapse" id="task1-example-collapse" role="tabpanel">
+<div class="panel-body">
+<p>Example meta information file for Task 1 baseline system <code>task1/Schmid_CPJKU_task1_1/Schmid_CPJKU_task1_1.meta.yaml</code>:
+                </p>
+<pre class="font110"><code class="yaml"># Submission information
+submission:
+  # Submission label
+  # Label is used to index submissions.
+  # Generate your label following way to avoid
+  # overlapping codes among submissions:
+  # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number]_[index number of your submission (1-3)]
+  label: Schmid_CPJKU_task1_1
+
+  # Submission name
+  # This name will be used in the results tables when space permits
+  name: DCASE2024 baseline system
+
+  # Submission name abbreviated
+  # This abbreviated name will be used in the results table when space is tight.
+  # Use maximum 10 characters.
+  abbreviation: Baseline
+
+  # Authors of the submitted system. Mark authors in
+  # the order you want them to appear in submission lists.
+  # One of the authors has to be marked as corresponding author,
+  # this will be listed next to the submission in the results tables.
+  authors:
+    # First author
+    - lastname: Schmid
+      firstname: Florian
+      email: florian.schmid@jku.at           # Contact email address
+      corresponding: true                    # Mark true for one of the authors
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: JKU
+        institute: Johannes Kepler University (JKU) Linz
+        department: Institute of Computational Perception (CP)   # Optional
+        location: Linz, Austria
+
+    # Second author
+    - lastname: Primus
+      firstname: Paul
+      email: paul.primus@jku.at   
+      affiliation:
+        abbreviation: JKU
+        institute: Johannes Kepler University (JKU) Linz
+        department: Institute of Computational Perception (CP)  
+        location: Linz, Austria      
+
+    # Third author
+    - lastname: Heittola
+      firstname: Toni
+      email: toni.heittola@tuni.fi
+      affiliation:
+        abbreviation: TAU
+        institute: Tampere University
+        department: Computing Sciences            
+        location: Tampere, Finland
+    
+    # Fourth author
+    - lastname: Mesaros
+      firstname: Annamaria
+      email: annamaria.mesaros@tuni.fi
+      affiliation:
+        abbreviation: TAU
+        institute: Tampere University
+        department: Computing Sciences            
+        location: Tampere, Finland
+    
+    # Fifth author
+    - lastname: MartÃ­n MoratÃ³
+      firstname: Irene
+      email: irene.martinmorato@tuni.fi
+      affiliation:
+        abbreviation: TAU
+        institute: Tampere University
+        department: Computing Sciences           
+        location: Tampere, Finland
+
+    # Sixth author
+    - lastname: Koutini
+      firstname: Khaled
+      email: khaled.koutini@jku.at     
+      affiliation:
+        abbreviation: JKU
+        institute: Johannes Kepler University (JKU) Linz
+        department: Institute of Computational Perception (CP)  
+        location: Linz, Austria
+
+    # Seventh author
+    - lastname: Widmer
+      firstname: Gerhard
+      email: gerhard.widmer@jku.at
+      affiliation:
+        abbreviation: JKU
+        institute: Johannes Kepler University (JKU) Linz
+        department: Institute of Computational Perception (CP)  
+        location: Linz, Austria           
+
+# System information
+system:
+  # System description, meta data provided here will be used to do
+  # meta analysis of the submitted system.
+  # Use general level tags, when possible use the tags provided in comments.
+  # If information field is not applicable to the system, use "!!null".
+  description:
+
+    # Audio input / sampling rate
+    # e.g. 16kHz, 22.05kHz, 32kHz, 44.1kHz, 48.0kHz
+    input_sampling_rate: 32kHz
+
+    # Acoustic representation
+    # one or multiple labels, e.g. MFCC, log-mel energies, spectrogram, CQT, raw waveform, ...
+    acoustic_features: log-mel energies
+
+    # Data augmentation methods
+    # e.g. mixup, freq-mixstyle, dir augmentation, pitch shifting, time rolling, frequency masking, time masking, frequency warping, ...
+    data_augmentation: freq-mixstyle, pitch shifting, time rolling
+
+    # Machine learning
+    # e.g., (RF-regularized) CNN, RNN, CRNN, Transformer, ...
+    machine_learning_method: RF-regularized CNN
+
+    # External data usage method
+    # e.g. "dataset", "embeddings", "pre-trained model", ...
+    external_data_usage: !!null
+
+    # Method for handling the complexity restrictions
+    # e.g. "knowledge distillation", "pruning", "precision_16", "weight quantization", "network design", ...
+    complexity_management: precision_16, network design
+
+    # System training/processing pipeline stages
+    # e.g. "train teachers", "ensemble teachers", "train student using knowledge distillation", "quantization-aware training"
+    pipeline: training
+
+    # Machine learning framework
+    # e.g. keras/tensorflow, pytorch, ...
+    framework: pytorch
+
+    # List all basic hyperparameters that were adapted for the different subsets (or leave !!null in case no adaptations were made)
+    # e.g. "lr", "epochs", "batch size", "weight decay", "freq-mixstyle probability", "frequency mask size", "time mask size", 
+    #      "time rolling range", "dir augmentation probability", ...
+    split_adaptations: !!null
+
+    # List most important properties that make this system different from other submitted systems (or leave !!null if you submit only one system)
+    # e.g. "architecture", "model size", "input resolution", "data augmentation techniques", "pre-training", "knowledge distillation", ...
+    system_adaptations: !!null
+
+  # System complexity
+  complexity:
+    # Total model size in bytes. Calculated as [parameter count]*[bit per parameter]/8
+    total_model_size: 122296  # 61,148 * 16 bits = 61,148 * 2 B = 122,296 B for the baseline system
+
+    # Total amount of parameters used in the acoustic model.
+    # For neural networks, this information is usually given before training process
+    # in the network summary.
+    # For other than neural networks, if parameter count information is not directly
+    # available, try estimating the count as accurately as possible.
+    # In case of ensemble approaches, add up parameters for all subsystems.
+    # In case embeddings are used, add up parameter count of the embedding
+    # extraction networks and classification network
+    # Use numerical value.
+    total_parameters: 61148 
+
+    # MACS - as calculated by NeSsi
+    macs: 29419156
+
+  # List of external datasets used in the submission.
+  external_datasets:
+    # Below are two examples (NOT used in the baseline system)
+    #- name: EfficientAT
+    #  url: https://github.com/fschmid56/EfficientAT
+    #  total_audio_length: !!null
+    #- name: MicIRP
+    #  url: http://micirp.blogspot.com/?m=1
+    #  total_audio_length: 2   # specify in minutes
+
+  # URL to the source code of the system [optional]
+  source_code: https://github.com/CPJKU/dcase2024_task1_baseline
+
+# System results
+results:
+  development_dataset:
+    # System results on the development-test set for all provided data splits (5%, 10%, 25%, 50%, 100%).
+    # Full results are not mandatory, however, they are highly recommended
+    # as they are needed for through analysis of the challenge submissions.
+    # If you are unable to provide all results, also incomplete
+    # results can be reported.
+
+    split_5:  # results on 5% subset
+      # Overall metrics
+      overall:
+        logloss: !!null   # !!null, if you don't have the corresponding result
+        accuracy: 42.4    # mean of class-wise accuracies
+
+      # Class-wise metrics
+      class_wise:
+        airport:
+          logloss: !!null  # !!null, if you don't have the corresponding result
+          accuracy: 34.77
+        bus:
+          logloss: !!null
+          accuracy: 45.21
+        metro:
+          logloss: !!null
+          accuracy: 30.79
+        metro_station:
+          logloss: !!null
+          accuracy: 40.03
+        park:
+          logloss: !!null
+          accuracy: 62.06
+        public_square:
+          logloss: !!null
+          accuracy: 22.28
+        shopping_mall:
+          logloss: !!null
+          accuracy: 52.07
+        street_pedestrian:
+          logloss: !!null
+          accuracy: 31.32
+        street_traffic:
+          logloss: !!null
+          accuracy: 70.23
+        tram:
+          logloss: !!null
+          accuracy: 35.20
+
+      # Device-wise
+      device_wise:
+        a:
+          logloss: !!null
+          accuracy: 54.45
+        b:
+          logloss: !!null
+          accuracy: 45.73
+        c:
+          logloss: !!null
+          accuracy: 48.42
+        s1:
+          logloss: !!null
+          accuracy: 39.66
+        s2:
+          logloss: !!null
+          accuracy: 36.13
+        s3:
+          logloss: !!null
+          accuracy: 44.30
+        s4:
+          logloss: !!null
+          accuracy: 38.90
+        s5:
+          logloss: !!null
+          accuracy: 40.47
+        s6:
+          logloss: !!null
+          accuracy: 33.58
+
+    split_10: # results on 10% subset
+      # Overall metrics
+      overall:
+        logloss: !!null
+        accuracy: 45.29    # mean of class-wise accuracies
+
+      # Class-wise metrics
+      class_wise:
+        airport:
+          logloss: !!null
+          accuracy: 38.50
+        bus:
+          logloss: !!null
+          accuracy: 47.99
+        metro:
+          logloss: !!null
+          accuracy: 36.93
+        metro_station:
+          logloss: !!null
+          accuracy: 43.71
+        park:
+          logloss: !!null
+          accuracy: 65.43
+        public_square:
+          logloss: !!null
+          accuracy: 27.05
+        shopping_mall:
+          logloss: !!null
+          accuracy: 52.46
+        street_pedestrian:
+          logloss: !!null
+          accuracy: 31.82
+        street_traffic:
+          logloss: !!null
+          accuracy: 72.64
+        tram:
+          logloss: !!null
+          accuracy: 36.41
+
+      # Device-wise
+      device_wise:
+        a:
+          logloss: !!null
+          accuracy: 57.84                        
+        b:
+          logloss: !!null
+          accuracy: 48.60
+        c:
+          logloss: !!null
+          accuracy: 51.13
+        s1:
+          logloss: !!null
+          accuracy: 42.16
+        s2:
+          logloss: !!null
+          accuracy: 40.30
+        s3:
+          logloss: !!null
+          accuracy: 46.00
+        s4:
+          logloss: !!null
+          accuracy: 43.13
+        s5:
+          logloss: !!null
+          accuracy: 41.30
+        s6:
+          logloss: !!null
+          accuracy: 37.26
+
+    split_25:  # results on 25% subset
+      # Overall metrics
+      overall:
+        logloss: !!null
+        accuracy: 50.29    # mean of class-wise accuracies
+
+      # Class-wise metrics
+      class_wise:
+        airport:
+          logloss: !!null
+          accuracy: 41.81                           
+        bus:
+          logloss: !!null
+          accuracy: 61.19
+        metro:
+          logloss: !!null
+          accuracy: 38.88
+        metro_station:
+          logloss: !!null
+          accuracy: 40.84
+        park:
+          logloss: !!null
+          accuracy: 69.74
+        public_square:
+          logloss: !!null
+          accuracy: 33.54
+        shopping_mall:
+          logloss: !!null
+          accuracy: 58.84
+        street_pedestrian:
+          logloss: !!null
+          accuracy: 30.31
+        street_traffic:
+          logloss: !!null
+          accuracy: 75.93
+        tram:
+          logloss: !!null
+          accuracy: 51.77
+
+      # Device-wise
+      device_wise:
+        a:
+          logloss: !!null
+          accuracy: 62.27                        
+        b:
+          logloss: !!null
+          accuracy: 53.27
+        c:
+          logloss: !!null
+          accuracy: 55.39
+        s1:
+          logloss: !!null
+          accuracy: 47.52
+        s2:
+          logloss: !!null
+          accuracy: 46.68
+        s3:
+          logloss: !!null
+          accuracy: 51.59
+        s4:
+          logloss: !!null
+          accuracy: 47.39
+        s5:
+          logloss: !!null
+          accuracy: 46.75
+        s6:
+          logloss: !!null
+          accuracy: 41.75
+
+    split_50: # results on 50% subset
+      # Overall metrics
+      overall:
+        logloss: !!null
+        accuracy: 53.19    # mean of class-wise accuracies
+
+      # Class-wise metrics
+      class_wise:
+        airport:
+          logloss: !!null
+          accuracy: 41.51                         
+        bus:
+          logloss: !!null
+          accuracy: 63.23
+        metro:
+          logloss: !!null
+          accuracy: 43.37
+        metro_station:
+          logloss: !!null
+          accuracy: 48.71
+        park:
+          logloss: !!null
+          accuracy: 72.55
+        public_square:
+          logloss: !!null
+          accuracy: 34.25
+        shopping_mall:
+          logloss: !!null
+          accuracy: 60.09
+        street_pedestrian:
+          logloss: !!null
+          accuracy: 37.26
+        street_traffic:
+          logloss: !!null
+          accuracy: 79.71
+        tram:
+          logloss: !!null
+          accuracy: 51.16
+
+      # Device-wise
+      device_wise:
+        a:
+          logloss: !!null
+          accuracy: 65.39                        
+        b:
+          logloss: !!null
+          accuracy: 56.30
+        c:
+          logloss: !!null
+          accuracy: 57.23
+        s1:
+          logloss: !!null
+          accuracy: 52.99
+        s2:
+          logloss: !!null
+          accuracy: 50.85
+        s3:
+          logloss: !!null
+          accuracy: 54.78
+        s4:
+          logloss: !!null
+          accuracy: 48.35
+        s5:
+          logloss: !!null
+          accuracy: 47.93
+        s6:
+          logloss: !!null
+          accuracy: 44.90
+
+    split_100:  # results on 100% subset
+      # Overall metrics
+      overall:
+        logloss: !!null
+        accuracy: 56.99    # mean of class-wise accuracies
+
+      # Class-wise metrics
+      class_wise:
+        airport:
+          logloss: !!null
+          accuracy: 46.45
+        bus:
+          logloss: !!null
+          accuracy: 72.95
+        metro:
+          logloss: !!null
+          accuracy: 52.86
+        metro_station:
+          logloss: !!null
+          accuracy: 41.56
+        park:
+          logloss: !!null
+          accuracy: 76.11
+        public_square:
+          logloss: !!null
+          accuracy: 37.07
+        shopping_mall:
+          logloss: !!null
+          accuracy: 66.91
+        street_pedestrian:
+          logloss: !!null
+          accuracy: 38.73
+        street_traffic:
+          logloss: !!null
+          accuracy: 80.66
+        tram:
+          logloss: !!null
+          accuracy: 56.58
+
+      # Device-wise
+      device_wise:
+        a:
+          logloss: !!null
+          accuracy: 67.17                        
+        b:
+          logloss: !!null
+          accuracy: 59.67
+        c:
+          logloss: !!null
+          accuracy: 61.99
+        s1:
+          logloss: !!null
+          accuracy: 56.28
+        s2:
+          logloss: !!null
+          accuracy: 55.69
+        s3:
+          logloss: !!null
+          accuracy: 58.16
+        s4:
+          logloss: !!null
+          accuracy: 53.05
+        s5:
+          logloss: !!null
+          accuracy: 52.35
+        s6:
+          logloss: !!null
+          accuracy: 48.58
+</code></pre>
+</div>
+</div>
+</div>
+<div class="panel panel-t2">
+<div class="panel-heading" id="task2-example-header" role="tab">
+<h4 class="panel-title">
+<a aria-controls="collapseOne" aria-expanded="true" class="collapsed accordion-toggle" data-parent="#submission-package-example-accordion" data-toggle="collapse" href="#task2-example-collapse" role="button">
+<span class="fa-stack fa-1x">
+<i class="fa fa-square fa-stack-2x text-t2"></i>
+<i class="fa dc-large-scale fa-stack-1x fa-inverse"></i>
+</span>
+<strong>Task 2</strong> - First-Shot Unsupervised Anomalous Sound Detection for Machine Condition Monitoring
+                </a>
+</h4>
+</div>
+<div aria-labelledby="task2-example-header" class="panel-collapse collapse" id="task2-example-collapse" role="tabpanel">
+<div class="panel-body">
+<p>Example meta information file for Task 2 baseline system <code>task2/Nishida_HIT_task2_1/Nishida_HIT_task2_1.meta.yaml</code>:
+                </p>
+<pre class="font110"><code class="yaml"># Submission information
+submission:
+  # Submission label
+  # Label is used to index submissions.
+  # Generate your label following way to avoid overlapping codes among submissions:
+  # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number]_[index number of your submission (1-4)]
+  label: Nishida_HIT_task2_1
+
+  # Submission name
+  # This name will be used in the results tables when space permits.
+  name: DCASE2024 baseline system
+
+  # Submission name abbreviated
+  # This abbreviated name will be used in the results table when space is tight.
+  # Use a maximum of 10 characters.
+  abbreviation: Baseline
+
+  # Authors of the submitted system.
+  # Mark authors in the order you want them to appear in submission lists.
+  # One of the authors has to be marked as corresponding author, this will be listed next to the submission in the results tables.
+  authors:
+    # First author
+    - firstname: Tomoya
+      lastname: Nishida
+      email: tomoya.nishida.ax@hitachi.com # Contact email address
+      corresponding: true # Mark true for one of the authors
+
+      # Affiliation information for the author
+      affiliation:
+        institution: Hitachi, Ltd.
+        department: Research and Development Group # Optional
+        location: Tokyo, Japan
+
+    # Second author
+    - firstname: Noboru
+      lastname: Harada
+      email: noboru@ieee.org
+
+      # Affiliation information for the author
+      affiliation:
+        institution: NTT Corporation
+        location: Kanagawa, Japan
+
+    # Third author
+    - firstname: Daisuke
+      lastname: Niizumi
+      email: daisuke.niizumi.dt@hco.ntt.co.jp
+
+      # Affiliation information for the author
+      affiliation:
+        institution: NTT Corporation
+        location: Kanagawa, Japan
+
+
+# System information
+system:
+  # System description, metadata provided here will be used to do a meta-analysis of the submitted system.
+  # Use general level tags, when possible use the tags provided in comments.
+  # If information field is not applicable to the system, use "!!null".
+  description:
+    # Audio input
+    # Please specify all sampling rates (comma-separated list).
+    # e.g. 16kHz, 22.05kHz, 44.1kHz
+    input_sampling_rate: 16kHz
+
+    # Data augmentation methods
+    # Please specify all methods used (comma-separated list).
+    # e.g. mixup, time stretching, block mixing, pitch shifting, ...
+    data_augmentation: !!null
+
+    # Front-end (preprocessing) methods
+    # Please specify all methods used (comma-separated list).
+    # e.g. HPSS, WPE, NMF, NN filter, RPCA, ...
+    front_end: !!null
+
+    # Acoustic representation
+    # one or multiple labels, e.g. MFCC, log-mel energies, spectrogram, CQT, raw waveform, ...
+    acoustic_features: log-mel energies
+
+    # Embeddings
+    # Please specify all pre-trained embedings used (comma-separated list).
+    # one or multiple, e.g. VGGish, OpenL3, ...
+    embeddings: !!null
+
+    # Machine learning
+    # In case using ensemble methods, please specify all methods used (comma-separated list).
+    # e.g. AE, VAE, GAN, GMM, k-means, OCSVM, normalizing flow, CNN, LSTM, random forest, ensemble, ...
+    machine_learning_method: AE
+
+    # Method for aggregating predictions over time
+    # Please specify all methods used (comma-separated list).
+    # e.g. average, median, maximum, minimum, ...
+    aggregation_method: average
+
+    # Method for domain generalizatoin and domain adaptation
+    # Please specify all methods used (comma-separated list).
+    # e.g. fine-tuning, invariant feature extraction, ...
+    domain_adaptation_method: !!null
+    domain_generalization_method: !!null
+
+    # Ensemble method subsystem count
+    # In case ensemble method is not used, mark !!null.
+    # e.g. 2, 3, 4, 5, ...
+    ensemble_method_subsystem_count: !!null
+
+    # Decision making in ensemble
+    # e.g. average, median, maximum, minimum, ...
+    decision_making: !!null
+
+    # Usage of the attribute information in the file names and attribute csv files
+    # Please specify all usages (comma-separated list).
+    # e.g. interpolation, extrapolation, condition ...
+    attribute_usage: !!null
+
+    # External data usage method
+    # Please specify all usages (comma-separated list).
+    # e.g. simulation of anomalous samples, embeddings, pre-trained model, ...
+    external_data_usage: !!null
+
+    # Usage of the development dataset
+    # Please specify all usages (comma-separated list).
+    # e.g. development, pre-training, fine-tuning
+    development_data_usage: development
+
+  # System complexity, metadata provided here may be used to evaluate submitted systems from the computational load perspective.
+  complexity:
+    # Total amount of parameters used in the acoustic model.
+    # For neural networks, this information is usually given before training process in the network summary.
+    # For other than neural networks, if parameter count information is not directly available, try estimating the count as accurately as possible.
+    # In case of ensemble approaches, add up parameters for all subsystems.
+    # In case embeddings are used, add up parameter count of the embedding extraction networks and classification network.
+    # Use numerical value.
+    total_parameters: 269992
+
+  # List of external datasets used in the submission.
+  # Development dataset is used here only as an example, list only external datasets
+  external_datasets:
+    # Dataset name
+    - name: DCASE 2024 Challenge Task 2 Development Dataset
+
+      # Dataset access URL
+      url: https://zenodo.org/records/10902294
+
+  # URL to the source code of the system [optional, highly recommended]
+  # Reproducibility will be used to evaluate submitted systems.
+  source_code: https://github.com/nttcslab/dcase2023_task2_baseline_ae
+
+# System results
+results:
+  development_dataset:
+    # System results for development dataset.
+    # Full results are not mandatory, however, they are highly recommended as they are needed for a thorough analysis of the challenge submissions.
+    # If you are unable to provide all results, also incomplete results can be reported.
+
+    # AUC for all domains [%]
+    # No need to round numbers
+    ToyCar:
+      auc_source: 66.98
+      auc_target: 33.75
+      pauc: 48.77
+
+    ToyTrain:
+      auc_source: 76.63
+      auc_target: 46.92
+      pauc: 47.95
+
+    bearing:
+      auc_source: 62.01
+      auc_target: 61.40
+      pauc: 57.58
+
+    fan:
+      auc_source: 67.71
+      auc_target: 55.24
+      pauc: 57.53
+
+    gearbox:
+      auc_source: 70.40
+      auc_target: 69.34
+      pauc: 55.65
+
+    slider:
+      auc_source: 66.51
+      auc_target: 56.01
+      pauc: 51.77
+
+    valve:
+      auc_source: 51.07
+      auc_target: 46.25
+      pauc: 52.42
+</code></pre>
+</div>
+</div>
+</div>
+<div class="panel panel-t3">
+<div class="panel-heading" id="task3-example-header" role="tab">
+<h4 class="panel-title">
+<a aria-controls="collapseOne" aria-expanded="true" class="collapsed accordion-toggle" data-parent="#submission-package-example-accordion" data-toggle="collapse" href="#task3-example-collapse" role="button">
+<span class="fa-stack fa-1x">
+<i class="fa fa-square fa-stack-2x text-t3"></i>
+<i class="fa dc-localization fa-stack-1x fa-inverse"></i>
+</span>
+<strong>Task 3</strong> - Audio and Audiovisual Sound Event Localization and Detection with Source Distance Estimation
+                </a>
+</h4>
+</div>
+<div aria-labelledby="task3-example-header" class="panel-collapse collapse" id="task3-example-collapse" role="tabpanel">
+<div class="panel-body">
+<p>Example meta information file for Task 3 baseline system <code>task3/Politis_TAU_task3a_1/Politis_TAU_task3a_1.meta.yaml</code>:
+                </p>
+<pre class="font110"><code class="yaml"># Submission information
+submission:
+  # Submission label
+  # Label is used to index submissions, to avoid overlapping codes among submissions
+  # use following way to form your label:
+  # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number]_[index number of your submission (1-4)]
+  label: Politis_TAU_task3a_1
+
+  # Submission name
+  # This name will be used in the results tables when space permits
+  name: DCASE2024 Audio-only Ambisonic baseline
+
+  # Submission name abbreviated
+  # This abbreviated name will be used in the results table when space is tight, maximum 10 characters
+  abbreviation: FOA_AO_base
+
+  # Submission authors in order, mark one of the authors as corresponding author.
+  authors:
+    # First author
+    - lastname: Politis
+      firstname: Archontis
+      email: archontis.politis@tuni.fi                  # Contact email address
+      corresponding: true                             	# Mark true for one of the authors
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: TAU
+        institute: Tampere University
+        department: Audio Research Group
+        location: Tampere, Finland
+
+    # Second author
+    - lastname: Shimada
+      firstname: Kazuki
+      email: kazuki.shimada@sony.com                   # Contact email address
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: SONY
+        institute: SONY
+        department:
+        location: Tokyo, Japan
+
+
+# System information
+system:
+  # System description, meta data provided here will be used to do
+  # meta analysis of the submitted system. Use general level tags, if possible use the tags provided in comments.
+  # If information field is not applicable to the system, use "!!null".
+  description:
+  
+    # Model type (audio-only or audiovisual track)
+    model_type: Audio                       # Audio or Audiovisual
+
+    # Audio input
+    input_format: Ambisonic                 # Ambisonic or Microphone Array or both
+    input_sampling_rate: 24kHz
+
+    # Acoustic representation
+    acoustic_features: mel spectra, intensity vector   # e.g one or multiple [phase and magnitude spectra, mel spectra, GCC-PHAT, TDOA, intensity vector ...]
+    visual_features: !!null
+
+    # Data augmentation methods
+    data_augmentation: !!null             	# [time stretching, block mixing, pitch shifting, ...]
+
+    # Machine learning
+    # In case of using ensemble methods, please specify all methods used (comma separated list).
+    machine_learning_method: CRNN, MHSA     # e.g one or multiple [GMM, HMM, SVM, kNN, MLP, CNN, RNN, CRNN, NMF, MHSA, random forest, ensemble, ...]
+    
+    #List external datasets in case of use for training
+    external_datasets:  !!null              #AudioSet, ImageNet...
+
+    #List here pre-trained models in case of use
+    pre_trained_models: !!null              #AST, PANNs...
+
+
+  # System complexity, meta data provided here will be used to evaluate
+  # submitted systems from the computational load perspective.
+  complexity:
+
+    # Total amount of parameters used in the acoustic model. For neural networks, this
+    # information is usually given before training process in the network summary.
+    # For other than neural networks, if parameter count information is not directly available,
+    # try estimating the count as accurately as possible.
+    # In case of ensemble approaches, add up parameters for all subsystems.
+    total_parameters: 500000
+
+  # URL to the source code of the system [optional]
+  source_code: https://github.com/partha2409/DCASE2024_seld_baseline
+
+# System results
+results:
+
+  development_dataset:
+    # System result for development dataset on the provided testing split.
+
+    # Overall score 
+    overall:
+      F_20_1: 13.1
+      DOAE: 36.9
+      RDE: 0.33
+</code></pre>
+</div>
+</div>
+</div>
+<div class="panel panel-t4">
+<div class="panel-heading" id="task4-example-header" role="tab">
+<h4 class="panel-title">
+<a aria-controls="collapseOne" aria-expanded="true" class="collapsed accordion-toggle" data-parent="#submission-package-example-accordion" data-toggle="collapse" href="#task4-example-collapse" role="button">
+<span class="fa-stack fa-1x">
+<i class="fa fa-square fa-stack-2x text-t4"></i>
+<i class="fa dc-domestic fa-stack-1x fa-inverse"></i>
+</span>
+<strong>Task 4</strong> - Sound Event Detection with Heterogeneous Training Dataset and Potentially Missing Labels
+                </a>
+</h4>
+</div>
+<div aria-labelledby="task4-example-header" class="panel-collapse collapse" id="task4-example-collapse" role="tabpanel">
+<div class="panel-body">
+<p>Example meta information file for Task 4 baseline system <code>task4/Cornell_CMU_task4_1/Cornell_CMU_task4_1.meta.yaml</code>:
+                </p>
+<pre class="font110"><code class="yaml"># Submission information
+submission:
+  # Submission label
+  # Label is used to index submissions, to avoid overlapping codes among submissions
+  # use following way to form your label:
+  # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number]_[index number of your submission (1-4)]
+  label: Cornell_CMU_task4_1
+
+  # Submission name
+  # This name will be used in the results tables when space permits
+  name: DCASE2024 baseline system
+
+  # Submission name abbreviated
+  # This abbreviated name will be used in the results table when space is tight, maximum 10 characters
+  abbreviation: Baseline
+
+  # Submission authors in order, mark one of the authors as corresponding author.
+  authors:
+    # First author
+    - lastname: Cornell
+      firstname: Samuele
+      email: cornellsamuele@gmail.com                 # Contact email address
+      corresponding: true                             # Mark true for one of the authors
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: CMU
+        institute: Carnegie Mellon University
+        department: Language Technologies Institute
+        location: Pittsburgh, PA, United States
+
+    # Second author
+    - lastname: Ebbers
+      firstname: Janek
+      email: ebbers@merl.com                  # Contact email address
+
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: MERL
+        institute: Mitsubishi Electric Research Laboratories
+        department: Speech &amp; Audio
+        location: Cambridge, MA, United States
+
+    #...
+
+
+
+# System information
+system:
+  # System description, meta data provided here will be used to do
+  # meta analysis of the submitted system. Use general level tags, if possible use the tags provided in comments.
+  # If information field is not applicable to the system, use "!!null".
+  description:
+
+    # Audio input
+    input_channels: mono                  # e.g. one or multiple [mono, binaural, left, right, mixed, ...]
+    input_sampling_rate: 16               # In kHz
+
+    # Acoustic representation
+    acoustic_features: log-mel energies   # e.g one or multiple [MFCC, log-mel energies, spectrogram, CQT, ...]
+
+    # Data augmentation methods
+    data_augmentation: !!null             # [time stretching, block mixing, pitch shifting, ...]
+
+    # Machine learning
+    # In case using ensemble methods, please specify all methods used (comma separated list).
+    machine_learning_method: CRNN      # e.g one or multiple [GMM, HMM, SVM, kNN, MLP, CNN, RNN, CRNN, NMF, random forest, ensemble, ...]
+
+    # Ensemble method subsystem count
+    # In case ensemble method is not used, mark !!null.
+    ensemble_method_subsystem_count: !!null # [2, 3, 4, 5, ... ]
+
+    # Decision making methods
+    decision_making: !!null                 # [majority vote, ...]
+
+    # Semi-supervised method used to exploit both labelled and unlabelled data
+    machine_learning_semi_supervised: mean-teacher student         # e.g one or multiple [pseudo-labelling, mean-teacher student...]
+
+    # Segmentation method
+    segmentation_method: !!null					            # E.g. [RBM, attention layers...]
+
+    # Post-processing
+    post-processing: median filtering       				# [median filtering, time aggregation...]
+
+  # System complexity, meta data provided here will be used to evaluate
+  # submitted systems from the computational load perspective.
+  complexity:
+
+    # Total amount of parameters used in the acoustic model. For neural networks, this
+    # information is usually given before training process in the network summary.
+    # For other than neural networks, if parameter count information is not directly available,
+    # try estimating the count as accurately as possible.
+    # In case of ensemble approaches, add up parameters for all subsystems.
+    total_parameters: 1800000
+    MACS: 1.036 G
+    # Approximate training time followed by the hardware used
+    trainining_time: 3h (1 GTX 1080 Ti)
+    # Model size in MB
+    model_size: 14.281
+  #Report here the energy consumption measured with e.g. codecarbon
+  energy_consumption:
+    training: 1.667
+    test: 0.145
+    #Energy consumption of the baseline (10 epochs) on your hardware
+    baseline: 0.039
+    
+  #Report here the energy consumption measured with e.g. codecarbon
+  energy_consumption:
+    #Total energy
+    energy_consumed:
+      #Submission
+      training: 1.180
+      test: 0.119
+      #Baseline
+      baseline 10 epochs: 0.039
+      baseline devtest: 0.119
+    #GPU energy
+    gpu_energy:
+      #Submission
+      training: 0.113
+      test: 0.013
+      #Baseline		
+      baseline 10 epochs: 0.004
+      baseline devtest: 0.0123
+
+  # The training subsets used to train the model. Followed the amount of data (number of clips) used per subset.
+  subsets: desed_weak (1578), desed_unlabel_in_domain (14412), desed_synthetic (30000), maestro_real (9592) 				# [desed_weak (xx), desed_unlabel_in_domain (xx), desed_synthetic (xx), maestro_real (xx), ...]
+
+  #List here the external datasets you used for training
+  external_datasets: AudioSet #AudioSet, ImageNet...
+
+  #List here the pre-trained models you used
+  pre_trained_models: BEATs  #BEATs, AST, PANNs...
+
+  # URL to the source code of the system [optional, highly recommended]
+  source_code: https://github.com/DCASE-REPO/DESED_task/tree/master/recipes/dcase2024_task4_baseline
+
+# System results
+results:
+  devtest:
+    # System result for development test datasets.
+    desed:
+      PSDS1: 0.491
+    maestro:
+      mPAUC: 0.695
+</code></pre>
+</div>
+</div>
+</div>
+<div class="panel panel-t5">
+<div class="panel-heading" id="task5-example-header" role="tab">
+<h4 class="panel-title">
+<a aria-controls="collapseOne" aria-expanded="true" class="collapsed accordion-toggle" data-parent="#submission-package-example-accordion" data-toggle="collapse" href="#task5-example-collapse" role="button">
+<span class="fa-stack fa-1x">
+<i class="fa fa-square fa-stack-2x text-t5"></i>
+<i class="fa dc-bird fa-stack-1x fa-inverse"></i>
+</span>
+<strong>Task 5</strong> - Few-shot Bioacoustic Event Detection
+                </a>
+</h4>
+</div>
+<div aria-labelledby="task5-example-header" class="panel-collapse collapse" id="task5-example-collapse" role="tabpanel">
+<div class="panel-body">
+<p>Example meta information file for Task 5 baseline system <code>task5/Morfi_QMUOL_task5_1/Morfi_QMUOL_task5_1.meta.yaml</code>:
+                </p>
+<pre class="font110"><code class="yaml"># Submission information
+submission:
+  # Submission label
+  # Label is used to index submissions, to avoid overlapping codes among submissions
+  # use the following way to form your label:
+  # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number]_[index number of your submission (1-4)]
+  label: Morfi_QMUL_task5_1
+
+  # Submission name
+  # This name will be used in the results tables when space permits
+  name: Cross-correlation baseline
+
+  # Submission name abbreviated
+  # This abbreviated name will be used in the results table when space is tight, maximum 10 characters
+  abbreviation: xcorr_base
+
+  # Submission authors in order, mark one of the authors as corresponding author.
+  authors:
+    # First author
+    - lastname: Morfi
+      firstname: Veronica
+      email: g.v.morfi@qmul.ac.uk                     # Contact email address
+      corresponding: true                             # Mark true for one of the authors
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: QMUL
+        institute: Queen Mary University of London
+        department: Centre for Digital Music
+        location: London, UK
+
+    # Second author
+    - lastname: Stowell
+      firstname: Dan
+      email: dan.stowell@qmul.ac.uk                  # Contact email address
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: QMUL
+        institute: Queen Mary University of London
+        department: Centre for Digital Music
+        location: London, UK
+
+        #...
+
+
+# System information
+system:
+  # SED system description, meta data provided here will be used to do
+  # meta analysis of the submitted system. Use general level tags, if possible use the tags provided in comments.
+  # If information field is not applicable to the system, use "!!null".
+  description:
+
+    # Audio input
+    input_sampling_rate: any               # In kHz
+
+    # Acoustic representation
+    acoustic_features: spectrogram   # e.g one or multiple [MFCC, log-mel energies, spectrogram, CQT, PCEN, ...]
+
+    # Data augmentation methods
+    data_augmentation: !!null             # [time stretching, block mixing, pitch shifting, ...]
+
+    # Embeddings
+    # e.g. VGGish, OpenL3, ...
+    embeddings: !!null
+
+    # Machine learning
+    # In case using ensemble methods, please specify all methods used (comma separated list).
+    machine_learning_method: template matching         # e.g one or multiple [GMM, HMM, SVM, kNN, MLP, CNN, RNN, CRNN, NMF, random forest, ensemble, transformer, ...]
+    # the system adaptation for "few shot" scenario.
+    # For example, if machine_learning_method is "CNN", the few_shot_method might use one of [fine tuning, prototypical, MAML] in addition to the standard CNN architecture.
+    few_shot_method: template matching         # e.g [fine tuning, prototypical, MAML, nearest neighbours...]
+
+    # External data usage method
+    # e.g. directly, embeddings, pre-trained model, ...
+    external_data_usage: !!null
+
+    # Ensemble method subsystem count
+    # In case ensemble method is not used, mark !!null.
+    ensemble_method_subsystem_count: !!null # [2, 3, 4, 5, ... ]
+
+    # Decision making methods (for ensemble)
+    decision_making: !!null                 # [majority vote, ...]
+
+    # Post-processing, followed by the time span (in ms) in case of smoothing
+    post-processing: peak picking, threshold				# [median filtering, time aggregation...]
+
+  # System complexity, meta data provided here will be used to evaluate
+  # submitted systems from the computational load perspective.
+  complexity:
+
+    # Total amount of parameters used in the acoustic model. For neural networks, this
+    # information is usually given before training process in the network summary.
+    # For other than neural networks, if parameter count information is not directly available,
+    # try estimating the count as accurately as possible.
+    # In case of ensemble approaches, add up parameters for all subsystems.
+    total_parameters: !!null    # note that for simple template matching, the "parameters"==the pixel count of the templates, plus 1 for each param such as thresholding. 
+    # Approximate training time followed by the hardware used
+    trainining_time: !!null
+    # Model size in MB
+    model_size: !!null
+
+
+  # URL to the source code of the system [optional, highly recommended]
+  source_code:   
+
+  # List of external datasets used in the submission.
+  # A previous DCASE development dataset is used here only as example! List only external datasets
+  external_datasets:
+    # Dataset name
+    - name: !!null
+      # Dataset access url
+      url: !!null
+      # Total audio length in minutes
+      total_audio_length: !!null            # minutes
+
+# System results 
+results:
+  # Full results are not mandatory, but for through analysis of the challenge submissions recommended.
+  # If you cannot provide all result details, also incomplete results can be reported.
+  validation_set:
+    overall:
+      F-score: 2.01 # percentile
+
+    # Per-dataset
+    dataset_wise:
+      HV:
+        F-score: 1.22 #percentile
+      PB:
+        F-score: 5.84 #percentile
+
+</code></pre>
+</div>
+</div>
+</div>
+<div class="panel panel-t6">
+<div class="panel-heading" id="task6-example-header" role="tab">
+<h4 class="panel-title">
+<a aria-controls="collapseOne" aria-expanded="true" class="collapsed accordion-toggle" data-parent="#submission-package-example-accordion" data-toggle="collapse" href="#task6-example-collapse" role="button">
+<span class="fa-stack fa-1x">
+<i class="fa fa-square fa-stack-2x text-t6"></i>
+<i class="fa dc-captioning fa-stack-1x fa-inverse"></i>
+</span>
+<strong>Task 6</strong> - Automated Audio Captioning
+                </a>
+</h4>
+</div>
+<div aria-labelledby="task6-example-header" class="panel-collapse collapse" id="task6-example-collapse" role="tabpanel">
+<div class="panel-body">
+<p>Example meta information file for Task 6 baseline system <code>task6/Labbe_IRIT_task6_1/Labbe_IRIT_task6_1.meta.yaml</code>:
+                </p>
+<pre class="font110"><code class="yaml"># Submission information for task 6
+submission:
+  # Submission label
+  # Label is used to index submissions.
+  # Generate your label following way to avoid
+  # overlapping codes among submissions
+  # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number]_[index number of your submission (1-4)]
+  label: Labbe_IRIT_task6_1
+  #
+  # Submission name
+  # This name will be used in the results tables when space permits
+  name: DCASE2024 baseline system
+  #
+  # Submission name abbreviated
+  # This abbreviated name will be used in the results table when space is tight.
+  # Use maximum 10 characters.
+  abbreviation: Baseline
+
+# Authors of the submitted system. Mark authors in
+# the order you want them to appear in submission lists.
+# One of the authors has to be marked as corresponding author,
+# this will be listed next to the submission in the results tables.
+authors:
+  # First author
+  - lastname: LabbÃ©
+    firstname: Ã‰tienne
+    email: etienne.labbe@irit.fr               # Contact email address
+    corresponding: true                         # Mark true for one of the authors
+
+    # Affiliation information for the author
+    affiliation:
+      abbreviation: IRIT
+      institute: Institut de Recherche en Informatique de Toulouse
+      department: Signaux et Images            # Optional
+      location: Toulouse, France
+
+  # Second author
+  # ...
+
+# System information
+system:
+  # System description, meta data provided here will be used to do
+  # meta analysis of the submitted system.
+  # Use general level tags, when possible use the tags provided in comments.
+  # If information field is not applicable to the system, use "!!null".
+  description:
+    # Audio input / sampling rate
+    # e.g., 16kHz, 22.05kHz, 44.1kHz, 48.0kHz
+    input_sampling_rate: 32kHz
+
+    # Acoustic representation
+    # Here you should indicate what can or audio representation
+    # you used. If your system used hand-crafted features (e.g.
+    # mel band energies), then you can do
+    #
+    # `acoustic_features: mel energies`
+    #
+    # Else, if you used some pre-trained audio feature extractor, 
+    # you can indicate the name of the system, for example
+    #
+    # `acoustic_features: cnn10`
+    acoustic_features: ConvNeXt-Tiny
+    # acoustic_features_url: 
+
+    # Word embeddings
+    # Here you can indicate how you treated word embeddings.
+    # If your method learned its own word embeddings (i.e. you
+    # did not used any pre-trained word embeddings) then you can
+    # do
+    #
+    # `word_embeddings: learned`
+    #  
+    # Else, specify the pre-trained word embeddings that you used
+    # (e.g., Word2Vec, BERT, etc).
+    # If possible, please use the fullname of the model involved. (e.g., BART-base)
+    word_embeddings: learned
+
+    # Data augmentation methods
+    # e.g., mixup, time stretching, block mixing, pitch shifting, ...
+    data_augmentation: mixup + label smoothing
+
+    # Method scheme
+    # Here you should indicate the scheme of the method that you
+    # used. For example
+    machine_learning_method: encoder-decoder
+
+    # Learning scheme
+    # Here you should indicate the learning scheme. 
+    # For example, you could specify either
+    # supervised, self-supervised, or even 
+    # reinforcement learning. 
+    learning_scheme: supervised
+
+    # Ensemble
+    # - Here you should indicate the number of systems involved if you used ensembling.
+    # - If you did not use ensembling, just write 1.
+    ensemble_num_systems: 1
+
+    # Audio modelling
+    # Here you should indicate the type of system used for
+    # audio modelling. For example, if you used some stacked CNNs, then
+    # you could do
+    #
+    # audio_modelling: cnn
+    #
+    # If you used some pre-trained system for audio modelling,
+    # then you should indicate the system used (e.g., COALA, COLA,
+    # transformer).
+    audio_modelling: !!null
+
+    # Word modelling
+    # Similarly, here you should indicate the type of system used
+    # for word modelling. For example, if you used some RNNs,
+    # then you could do
+    #
+    # word_modelling: rnn
+    #
+    # If you used some pre-trained system for word modelling, then you should indicate the system used (e.g., transformer).
+    word_modelling: transformer
+
+    # Loss function
+    # - Here you should indicate the loss fuction that you employed.
+    loss_function: cross_entropy
+
+    # Optimizer
+    # - Here you should indicate the name of the optimizer that you used. 
+    optimizer: AdamW
+
+    # Learning rate
+    # - Here you should indicate the learning rate of the optimizer that you used.
+    learning_rate: 5e-4
+
+    # Weight decay
+    # - Here you should indicate if you used any weight decay of your optimizer.
+    # - Be careful because most optimizers uses a non-zero value by default.
+    # - Use 0 for no weight decay.
+    weight_decay: 2
+
+    # Gradient clipping
+    # - Here you should indicate if you used any gradient clipping. 
+    # - Use 0 for no clipping.
+    gradient_clipping: 1
+
+    # Gradient norm
+    # - Here you should indicate the norm of the gradient that you used for gradient clipping.
+    # - Use !!null for no clipping.
+    gradient_norm: "L2"
+
+    # Metric monitored
+    # - Here you should report the monitored metric for optimizing your method.
+    # - For example, did you monitored the loss on the validation data (i.e. validation loss)?
+    # - Or you monitored the SPIDEr metric? Maybe the training loss?
+    metric_monitored: validation_loss
+
+  # System complexity, meta data provided here will be used to evaluate
+  # submitted systems from the computational load perspective.
+  complexity:
+    # About the amount of parameters used in the acoustic model.
+    # - For neural networks, this information is usually given before training process in the network summary.
+    # - For other than neural networks, if parameter count information is not directly available, try estimating the count as accurately as possible.
+    # - In case embeddings are used, add up parameter count of the embedding extraction networks and classification network
+    # - Use numerical value (do not use comma for thousands-separator).
+    # - WARNING: In case of ensembling, add up parameters for all subsystems.
+
+    # Learnable parameters
+    learnable_parameters: 11914777
+    # Frozen parameters (from the feature extractor and other parts of the model)
+    frozen_parameters: 29388303
+    # Total amount of parameters involved at inference time
+    # Unless you used a complex method for prediction (e.g., re-ranking methods that use additional pretrained models), this value is equal to the sum of the learnable and frozen parameters.
+    inference_parameters: 41303080
+
+    # Training duration of your entire system in SECONDS.
+    # - WARNING: In case of ensembling, add up durations for all subsystems trained.
+    duration: 8840
+    # Number of GPUs used for training
+    gpu_count: 1
+    # GPU model name
+    gpu_model: NVIDIA GeForce RTX 2080 Ti
+
+    # Optionally, number of multiply-accumulate operations (macs) to generate a caption
+    # - You should use the same audio file ('Santa Motor.wav' from Clotho development-testing subset) for fair comparison with other models.
+    # - You should include all the operations involved, including: feature extraction, beam search, etc. However, you can exclude operations used to resample the waveform.
+    inference_macs: 48762319200
+
+  # List of datasets used for training your system.
+  # Unless you also used them to train your captioning system, you do not not need to include datasets involved to pretrain your encoder and/or decoder. (e.g., AudioSet for ConvNeXt in the baseline)
+  # However, you should:
+  # - Keep the Clotho development-training if you used it to train your system.
+  # - Include here Clotho development-validation subset if you used it to train your system.
+  # - Please always specify the correct subset of the dataset involved.
+  train_datasets:
+    - # Dataset name
+      name: Clotho
+      # Subset name (DCASE convention for Clotho)
+      subset: development-training
+      # Audio source (use !!null if not applicable)
+      source: Freesound
+      # Dataset access url
+      url: https://doi.org/10.5281/zenodo.3490683
+      # Has audio:
+      has_audio: Yes
+      # Has images
+      has_images: No
+      # Has video
+      has_video: No
+      # Has captions
+      has_captions: Yes
+      # Number of captions per audio
+      nb_captions_per_audio: 5
+      # Total amount of examples used
+      total_audio_length: 3839
+      # Used for (e.g., audio_modelling, word_modelling, audio_and_word_modelling)
+      used_for: audio_and_word_modelling
+
+  # List of datasets used for validation (checkpoint selection).
+  # However, you should:
+  # - Keep the Clotho development-validation if you used it to validate your system.
+  # - If you did not used any validation dataset, just write `validation_datasets: []`.
+  # - Please always specify the correct subset involved.
+  validation_datasets:
+    - # Dataset name
+      name: Clotho
+      # Subset name (DCASE convention for Clotho)
+      subset: development-validation
+      # Audio source (use !!null if not applicable)
+      source: Freesound
+      # Dataset access url
+      url: https://doi.org/10.5281/zenodo.3490683
+      # Has audio:
+      has_audio: Yes
+      # Has images
+      has_images: No
+      # Has video
+      has_video: No
+      # Has captions
+      has_captions: Yes
+      # Number of captions per audio
+      nb_captions_per_audio: 5
+      # Total amount of examples used
+      total_audio_length: 1045
+
+  # URL to the source code of the system (optional, write !!null if you do not want to share code)
+  source_code: https://github.com/Labbeti/dcase2024-task6-baseline
+
+# System results
+results:
+  development_testing:
+    # System results on the development-testing split.
+    # - Full results are not mandatory, however, they are highly recommended as they are needed for thorough analysis of the challenge submissions.
+    # - If you are unable to provide all the results, incomplete results can also be reported.
+    # - Each score should contain at least 3 decimals.
+    meteor: 0.18979284501354263
+    cider: 0.4619283292849137
+    spice: 0.1335348395173806
+    spider: 0.2977315844011471
+    spider_fl: 0.2962828356306173
+    fense: 0.5040896972480929
+    vocabulary: 551.000
+</code></pre>
+</div>
+</div>
+</div>
+<div class="panel panel-t7">
+<div class="panel-heading" id="task7-example-header" role="tab">
+<h4 class="panel-title text-white">
+<a aria-controls="collapseOne" aria-expanded="true" class="collapsed accordion-toggle" data-parent="#submission-package-example-accordion" data-toggle="collapse" href="#task7-example-collapse" role="button">
+<span class="fa-stack fa-1x">
+<i class="fa fa-square fa-stack-2x text-t7"></i>
+<i class="fa dc-synthesis fa-stack-1x fa-inverse"></i>
+</span>
+<strong>Task 7</strong> - Sound Scene Synthesis
+                </a>
+</h4>
+</div>
+<div aria-labelledby="task7-example-header" class="panel-collapse collapse" id="task7-example-collapse" role="tabpanel">
+<div class="panel-body">
+<p>Example meta information file for Task 7 baseline system <code>task7/Lee_GLI_task7_1/Lee_GLI_task7_1.meta.yaml</code>:
+                </p>
+<pre class="font110"><code class="yaml"># Submission information
+submission:
+  # Submission label
+  # Label is used to index submissions.
+  # Generate your label following way to avoid overlapping codes among submissions:
+  # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task7_1(Index number of your submission. For task7, only 1 submission per team will be accepted.)
+  label: Lee_GLI_task7_1
+
+  # Submission name
+  # This name will be used in the results tables when space permits.
+  name: DCASE2024 baseline system
+
+  # Submission name abbreviated
+  # This abbreviated name will be used in the results table when space is tight.
+  # Use a maximum of 10 characters.
+  abbreviation: Baseline
+
+  # Authors of the submitted system.
+  # Mark authors in the order you want them to appear in submission lists.
+  # One of the authors has to be marked as corresponding author, this will be listed next to the submission in the results tables.
+  authors:
+    # First author
+    - firstname: Junwon
+      lastname: Lee
+      email: junwon.lee@gaudiolab.com
+
+      # Affiliation information for the author
+      affiliation:
+        institution: Gaudio Lab, Inc./Korea Advanced Institute of Science &amp; Technology (KAIST)
+        department: AI Research/Music and Audio Computing Lab # Optional
+        location: Seoul, Korea/Daejeon, Korea
+
+    # Second author
+    - firstname: Mathieu
+      lastname: Lagrange
+      email: mathieu.lagrange@ls2n.fr # Contact email address
+      corresponding: true # Mark true for one of the authors
+
+      # Affiliation information for the author
+      affiliation:
+        institution: CNRS, Ecole Centrale Nantes, Nantes UniversitÃ©
+        department: LS2N # Optional
+        location: Nantes, France
+
+    # Third author
+    - firstname: Modan
+      lastname: Tailleur
+      email: modan.tailleur@ls2n.fr
+
+      # Affiliation information for the author
+      affiliation:
+        institution: CNRS, Ecole Centrale Nantes, Nantes UniversitÃ©
+        department: Signal, IMage et Son (SIMS) # Optional
+        location: Nantes, France
+
+# System results
+results:
+  # Google Colab URL to generate sounds for evaluation [mandatory]
+  # The sounds must be unique and must be generated by the code supplied in the colab.
+  colab_url: https://colab.research.google.com/drive/1g5e89nnJBENteb-qASJxazgvuD2D_0EQ
+
+  development_dataset:
+    # System results for development dataset
+    FAD: 61.2761
+
+    # If you are unable to provide FAD for development dataset, also FAD results for other dataset than deverlopment dataset can be reported.
+    # If information field is not applicable to the system, use "!!null".
+    FAD_for_other_dataset: 61.2761 # Optional
+
+    # Audio dataset used for calculating FAD
+    evaluation_audio_datasets:
+      # Dataset name
+      - name: DCASE2024 Challenge Task 7 Development Dataset
+
+        # Dataset access URL
+        url: https://zenodo.org/records/10869644
+
+        # Total audio length in minutes
+        total_audio_length: 100
+
+# System information
+system:
+  # System description, metadata provided here will be used to do a meta-analysis of the submitted system.
+  # Use general level tags, when possible use the tags provided in comments.
+  # If information field is not applicable to the system, use "!!null".
+  description:
+    # System input
+    # Please specify all system input used (comma-separated list).
+    input: text prompt
+
+    # Machine learning methods
+    # In case using ensemble methods, please specify all methods used (comma-separated list).
+    # e.g. AE, VAE, GAN, Transformer, diffusion model, ensemble...
+    machine_learning_method: VAE, CLAP, U-Net-based latent diffusion model
+    phase_reconstruction: HiFi-GAN
+
+    # Generated acoustic feature input to phase reconstructor
+    # One or multiple labels, e.g. MFCC, log-mel energies, spectrogram, mel-spectrogram, CQT, ...
+    acoustic_feature: mel-spectrogram
+
+    # System training/processing pipeline stages
+    # e.g. "contrastive language-audio pretraining", "encoding", "decoding", "phase reconstruction", ...
+    pipeline: contrastive language-audio pretraining, encoding, decoding, phase reconstruction
+
+    # Data augmentation methods
+    # Please specify all methods used (comma-separated list).
+    # e.g. mixup, time stretching, block mixing, pitch shifting, conditioning augmentation, ...
+    data_augmentation: conditioning augmentation
+
+    # Ensemble method subsystem count
+    # In case ensemble method is not used, mark !!null.
+    # e.g. 2, 3, 4, 5, ...
+    ensemble_method_subsystem_count: !!null
+
+  # System complexity
+  complexity:
+    # Total amount of parameters used in the acoustic model(s) and phase reconstruction method(s).
+    # For neural networks, this information is usually given before training process in the network summary.
+    # For other than neural networks, if parameter count information is not directly available, try estimating the count as accurately as possible.
+    # In case of ensemble approaches, add up parameters for all subsystems.
+    # In case embeddings are used, add up parameter count of the embedding extraction networks and phase reconstruction methods.
+    # Use numerical value.
+    total_parameters: 269992
+
+  # List of ALL external audio datasets used in the submission. [mandatory]
+  # Development dataset is used here only as an example, list only external datasets
+  # If multiple external audio datasets are used, please copy the lines after [# Dataset name] and list information on all the audio datasets.
+  # e.g. AudioSet, AudioCaps, Clotho, ...
+  external_audio_datasets:
+    # Dataset name
+    - name: DCASE2024 Challenge Task 7 Development Dataset
+
+      # Dataset access URL
+      url: https://zenodo.org/records/10869644
+
+      # Total audio length in minutes
+      total_audio_length: 100
+
+  # List of ALL external pre-trained models used in the submission.
+  # If multiple external pre-trained models are used, please copy the lines after [# Model name] and list information on all the pre-trained models.
+  # e.g. PANNs, VGGish, AST, BYOL-A, AudioLDM, ...
+  external_models:
+    # Model name
+    - name: HiFi-GAN
+
+      # Access URL for pre-trained model
+      url: https://drive.google.com/drive/folders/1-eEYTB5Av9jNql0WGBlRoi-WH2J7bp5Y
+
+      # How to use pre-trained model
+      # e.g. encoder, decoder, weight quantization, vocoder, ... (comma-separated list)
+      usage: vocoder
+
+  # URL to the source code of the system [optional, highly recommended]
+  # Reproducibility will be used to evaluate submitted systems.
+  source_code: https://github.com/DCASE2024-Task7-Sound-Scene-Synthesis/AudioLDM-training-finetuning
+
+# Questionnaire
+questionnaire:
+  # Do you agree to allow the DCASE distribution of 250 audio samples to evaluator(s) for the subjective evaluation? [mandatory]
+  # The audio samples will not be distributed for any purpose other than subjective evaluation without other explicit permissions.
+  distribute_audio_samples: Yes
+
+  # Do you give permission for the task organizer to conduct a meta-analysis on 250 audio samples and to publish a technical report and paper using the results? [mandatory]
+  # This does not mean that the copyright of audio samples is transferred to the DCASE community or task 7 organizers.
+  publish_audio_samples: Yes
+
+  # Do you agree to allow the DCASE use of 250 audio samples in a future version of this DCASE competition? (not required for competition entry, optional).
+  # This may be used in future baseline comparisons or classification challenges related to this Foley challenge.
+  # This does not mean that the copyright of audio samples is transferred to the DCASE community or task 7 organizers.
+  use_audio_samples: Yes
+
+
+</code></pre>
+</div>
+</div>
+</div>
+<div class="panel panel-t8">
+<div class="panel-heading" id="task8-example-header" role="tab">
+<h4 class="panel-title text-white">
+<a aria-controls="collapseOne" aria-expanded="true" class="collapsed accordion-toggle" data-parent="#submission-package-example-accordion" data-toggle="collapse" href="#task8-example-collapse" role="button">
+<span class="fa-stack fa-1x">
+<i class="fa fa-square fa-stack-2x text-t8"></i>
+<i class="fa dc-retrieval fa-stack-1x fa-inverse"></i>
+</span>
+<strong>Task 8</strong> - Language-Based Audio Retrieval
+                </a>
+</h4>
+</div>
+<div aria-labelledby="task8-example-header" class="panel-collapse collapse" id="task8-example-collapse" role="tabpanel">
+<div class="panel-body">
+<p>Example meta information file for Task 8 baseline system <code>task8/Xie_TAU_task8_1/Xie_TAU_task8_1.meta.yaml</code>:
+                </p>
+<pre class="font110"><code class="yaml"># Submission information for task 8
+submission:
+    # Submission label
+    # Label is used to index submissions.
+    # Generate your label following way to avoid overlapping codes among submissions:
+    # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number]_[index number of your submission (1-4)]
+    label: Xie_TAU_task8_1
+    #
+    # Submission name
+    # This name will be used in the results tables when space permits
+    name: DCASE2024 baseline system
+    #
+    # Submission name abbreviated
+    # This abbreviated name will be used in the result table when space is tight.
+    # Use maximum 10 characters.
+    abbreviation: Baseline
+
+    # Authors of the submitted system.
+    # Mark authors in the order you want them to appear in submission lists.
+    # One of the authors has to be marked as corresponding author,
+    # this will be listed next to the submission in the results tables.
+    authors:
+        # First author
+        -   lastname: Xie
+            firstname: Huang
+            email: huang.xie@tuni.fi                    # Contact email address
+            corresponding: true                         # Mark true for one of the authors
+
+            # Affiliation information for the author
+            affiliation:
+                abbreviation: TAU
+                institute: Tampere University
+                department: Computing Sciences
+                location: Tampere, Finland
+
+        # Second author
+        -   lastname: Virtanen
+            firstname: Tuomas
+            email: tuomas.virtanen@tuni.fi
+
+            affiliation:
+                abbreviation: TAU
+                institute: Tampere University
+                department: Computing Sciences
+                location: Tampere, Finland
+
+# System information
+system:
+    # System description, meta-data provided here will be used to do meta analysis of the submitted system.
+    # Use general level tags, when possible use the tags provided in comments.
+    # If information field is not applicable to the system, use "!!null".
+    description:
+
+        # Audio input / sampling rate, e.g. 16kHz, 22.05kHz, 44.1kHz, 48.0kHz
+        input_sampling_rate: 44.1kHz
+
+        # Acoustic representation
+        # Here you should indicate what can or audio representation you used.
+        # If your system used hand-crafted features (e.g. mel band energies), then you can do:
+        #
+        # `acoustic_features: mel energies`
+        #
+        # Else, if you used some pre-trained audio feature extractor, you can indicate the name of the system, for example:
+        #
+        # `acoustic_features: audioset`
+        acoustic_features: log-mel energies
+
+        # Text embeddings
+        # Here you can indicate how you treated text embeddings.
+        # If your method learned its own text embeddings (i.e. you did not use any pre-trained or fine-tuned NLP embeddings),
+        # then you can do:
+        #
+        # `text_embeddings: learned`
+        #
+        # Else, specify the pre-trained or fine-tuned NLP embeddings that you used, for example:
+        #
+        # `text_embeddings: Sentece-BERT`
+        text_embeddings: Sentece-BERT
+
+        # Data augmentation methods for audio
+        # e.g. mixup, time stretching, block mixing, pitch shifting, ...
+        audio_augmentation: !!null
+
+          # Data augmentation methods for text
+        # e.g. random swapping, synonym replacement, ...
+        text_augmentation: !!null
+
+          # Learning scheme
+          # Here you should indicate the learning scheme.
+        # For example, you could specify either supervised, self-supervised, or even reinforcement learning.
+        learning_scheme: self-supervised
+
+        # Ensemble
+        # Here you should indicate if you used ensemble of systems or not.
+        ensemble: No
+
+        # Audio modelling
+        # Here you should indicate the type of system used for audio modelling.
+        # For example, if you used some stacked CNNs, then you could do:
+        #
+        # audio_modelling: cnn
+        #
+        # If you used some pre-trained system for audio modelling, then you should indicate the system used,
+        # for example, PANNs-CNN14, PANNs-ResNet38.
+        audio_modelling: PANNs-CNN14
+
+        # Text modelling
+        # Similarly, here you should indicate the type of system used for text modelling.
+        # For example, if you used some RNNs, then you could do:
+        #
+        # text_modelling: rnn
+        #
+        # If you used some pre-trained system for text modelling,
+        # then you should indicate the system used (e.g. BERT).
+        text_modelling: Sentece-BERT
+
+        # Loss function
+        # Here you should indicate the loss function that you employed.
+        loss_function: InfoNCE
+
+        # Optimizer
+        # Here you should indicate the name of the optimizer that you used.
+        optimizer: adam
+
+        # Learning rate
+        # Here you should indicate the learning rate of the optimizer that you used.
+        learning_rate: 1e-3
+
+        # Metric monitored
+        # Here you should report the monitored metric for optimizing your method.
+        # For example, did you monitor the loss on the validation data (i.e. validation loss)?
+        # Or you monitored the training mAP?
+        metric_monitored: validation_loss
+
+    # System complexity, meta-data provided here will be used to evaluate
+    # submitted systems from the computational load perspective.
+    complexity:
+        # Total amount of parameters used in the acoustic model.
+        # For neural networks, this information is usually given before training process in the network summary.
+        # For other than neural networks, if parameter count information is not directly
+        # available, try estimating the count as accurately as possible.
+        # In case of ensemble approaches, add up parameters for all subsystems.
+        # In case embeddings are used, add up parameter count of the embedding
+        # extraction networks and classification network
+        # Use numerical value (do not use comma for thousands-separator).
+        total_parameters: 732354
+
+    # List of datasets used for the system (e.g., pre-training, fine-tuning, training).
+    # Development-training data is used here only as example.
+    training_datasets:
+        -   name: Clotho-development
+            purpose: training                           # Used for training system
+            url: https://doi.org/10.5281/zenodo.4783391
+            data_types: audio, caption                  # Contained data types, e.g., audio, caption, label.
+            data_instances:
+                audio: 3839                             # Number of contained audio instances
+                caption: 19195                          # Number of contained caption instances
+            data_volume:
+                audio: 86353                            # Total amount durations (in seconds) of audio instances
+                caption: 6453                           # Total word types in caption instances
+
+        # More datasets
+        #-   name:
+        #    purpose: pre-training
+        #    url:
+        #    data_types: A, B, C
+        #    data_instances:
+        #        A: xxx
+        #        B: xxx
+        #        C: xxx
+        #    data_volume:
+        #        A: xxx
+        #        B: xxx
+        #        C: xxx
+
+    # List of datasets used for validating the system, for example, optimizing hyperparameter.
+    # Development-validation data is used here only as example.
+    validation_datasets:
+        -   name: Clotho-validation
+            url: https://doi.org/10.5281/zenodo.4783391
+            data_types: audio, caption
+            data_instances:
+                audio: 1045
+                caption: 5225
+            data_volume:
+                audio: 23636
+                caption: 2763
+
+        # More datasets
+        #-   name:
+        #    url:
+        #    data_types: A, B, C
+        #    data_instances:
+        #        A: xxx
+        #        B: xxx
+        #        C: xxx
+        #    data_volume:
+        #        A: xxx
+        #        B: xxx
+        #        C: xxx
+
+    # URL to the source code of the system [optional]
+    source_code: https://github.com/xieh97/dcase2023-audio-retrieval
+
+# System results
+results:
+    development_testing:
+        # System results for the development-testing split.
+        # Full results are not mandatory, however, they are highly recommended as they are needed for through analysis of the challenge submissions.
+        # If you are unable to provide all results, also incomplete results can be reported.
+        R@1: 0.130
+        R@5: 0.343
+        R@10: 0.480
+        mAP@10: 0.222
+</code></pre>
+</div>
+</div>
+</div>
+<div class="panel panel-t9">
+<div class="panel-heading" id="task9-example-header" role="tab">
+<h4 class="panel-title text-white">
+<a aria-controls="collapseOne" aria-expanded="true" class="collapsed accordion-toggle" data-parent="#submission-package-example-accordion" data-toggle="collapse" href="#task9-example-collapse" role="button">
+<span class="fa-stack fa-1x">
+<i class="fa fa-square fa-stack-2x text-t9"></i>
+<i class="fa dc-separation fa-stack-1x fa-inverse"></i>
+</span>
+<strong>Task 9</strong> - Language-Queried Audio Source Separation
+                </a>
+</h4>
+</div>
+<div aria-labelledby="task9-example-header" class="panel-collapse collapse" id="task9-example-collapse" role="tabpanel">
+<div class="panel-body">
+<p>Example meta information file for Task 9 baseline system <code>task9/Liu_Surrey_task9_1/Liu_Surrey_task9_1.meta.yaml</code>:
+                </p>
+<pre class="font110"><code class="yaml"># Submission information for task 9
+submission:
+  # Submission label
+  # Label is used to index submissions.
+  # Generate your label following way to avoid overlapping codes among submissions
+  # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number]_submission_[index number of your submission (1-4)]  
+  label: Liu_Surrey_task9_1
+
+  # Submission name
+  # This name will be used in the results tables when space permits
+  name: DCASE2024 baseline system
+
+  # Submission name abbreviated
+  # This abbreviated name will be used in the results table when space is tight.
+  # Use maximum 10 characters.
+  abbreviation: Baseline
+
+# Authors of the submitted system. Mark authors in
+# the order you want them to appear in submission lists.
+# One of the authors has to be marked as corresponding author,
+# this will be listed next to the submission in the results tables.
+authors:
+  # First author
+  - lastname: Liu
+    firstname: Xubo
+    email: xubo.liu@surrey.ac.uk                # Contact email address
+    corresponding: true                         # Mark true for one of the authors
+
+    # Affiliation information for the author
+    affiliation:
+      abbreviation: Surrey
+      institute: University of Surrey
+      department: Centre for Vision, Speech and Signal Processing   # Optional
+      location: Guilford, Surrey
+
+  # Second author
+  # ...
+
+# System information
+system:
+  # System description, meta data provided here will be used to do
+  # meta analysis of the submitted system.
+  # Use general level tags, when possible use the tags provided in comments.
+  # If information field is not applicable to the system, use "!!null".
+  description:
+    # Audio input sampling rate
+    # e.g., 16kHz, 32kHz
+    input_sampling_rate: 16kHz
+
+    # Input Acoustic representation
+    # Here you should indicate which audio representation you used as system input. 
+    input_acoustic_features: waveform
+
+    # Data augmentation methods
+    # e.g., volume augmentation
+    data_augmentation: volume augmentation
+
+    # Method scheme
+    # Here you should indicate the scheme of the method that you used. For example
+    machine_learning_method: CLAP, ResUNet-based separation model, time-frequency masking
+
+    # Ensemble
+    # - Here you should indicate the number of systems involved if you used ensembling.
+    # - If you did not use ensembling, just write 1.
+    ensemble_num_systems: 1
+
+    # Loss function
+    # - Here you should indicate the loss fuction that you employed.
+    loss_function: waveform l1 loss
+
+    # List of ALL pre-trained models used in the submission.
+    # If multiple pre-trained models are used, please copy the lines after [# Model name] and list information on all the pre-trained models.
+    # e.g. CLAP, AudioSep ...
+    - name: CLAP
+      # Access URL for pre-trained model
+      url: https://github.com/LAION-AI/CLAP
+
+      # How to use pre-trained model
+      # e.g. text encoder, separation model
+      usage: text encoder
+  
+  # Training configurations
+  train_config:
+    # Optimizer
+    # - Here you should indicate the name of the optimizer that you used. 
+    optimizer: AdamW
+    # Learning rate
+    # - Here you should indicate the learning rate of the optimizer that you used.
+    learning_rate: 1e-4
+    # Weight decay
+    # - Here you should indicate if you used any weight decay of your optimizer.
+    # - Be careful because most optimizers uses a non-zero value by default.
+    # - Use 0 for no weight decay.
+    weight_decay: 2
+    # Gradient clipping
+    # - Here you should indicate if you used any gradient clipping. 
+    # - Use 0 for no clipping.
+    gradient_clipping: 1
+    # Gradient norm
+    # - Here you should indicate the norm of the gradient that you used for gradient clipping.
+    # - Use !!null for no clipping.
+    gradient_norm: "L2"
+    # Training steps of your entire system.
+    # - WARNING: In case of ensembling, add up steps for all subsystems trained.
+    steps: 200000
+    # Number of GPUs used for training
+    gpu_count: 1
+    # Total number of batch size used for training
+    batch_size: 16
+    # GPU model name
+    gpu_model: NVIDIA A100
+
+  # submitted systems from the computational load perspective.
+  complexity:
+    # Learnable parameters
+    learnable_parameters: 26.45M
+    # Total amount of parameters involved at inference time
+    total_parameters: 238.60M 
+  
+  # List of datasets used for training your system.
+  # Unless you also used them to train your LASS system, you do not need to include datasets involved to your pre-trained modules (e.g., datasets used to train CLAP models).
+  # If the audio clips have caption annotations, you should specify their type (e.g., text labels, human-annotated caption, machine-generated caption).
+  train_datasets:
+    - # Dataset name
+      name: LASS Task9 Development (Clotho)
+      # Audio source (use !!null if not applicable)
+      source: Freesound
+      # Dataset access url
+      url: https://doi.org/10.5281/zenodo.3490683
+      # Is private
+      is_private: No
+      # Has audio:
+      has_audio: Yes
+      # Has images
+      has_images: No
+      # Has video
+      has_video: No
+      # Has captions
+      has_captions: Yes
+      # Captions type
+      captions_type: human-annotated caption
+      # Number of captions per audio
+      nb_captions_per_audio: 5
+      # Total amount of examples used
+      total_audio_length: 6972
+      # Total duration of audio clips (hours)
+      total_duration: 37
+      # Used for (e.g., lass_modelling)
+      used_for: lass_modelling
+
+    - # Dataset name
+      name: LASS Task9 Development (FSD50K)
+      # Audio source (use !!null if not applicable)
+      source: Freesound
+      # Dataset access url
+      url: https://zenodo.org/record/4060432
+      # Is private
+      is_private: No
+      # Has audio:
+      has_audio: Yes
+      # Has images
+      has_images: No
+      # Has video
+      has_video: No
+      # Has captions
+      has_captions: Yes
+      # Captions type
+      captions_type: machine-generated caption
+      # Number of captions per audio
+      nb_captions_per_audio: 1
+      # Total amount of examples used
+      total_audio_length: 51197
+      # Total duration of audio clips (hours)
+      total_duration: 108
+      # Used for (e.g., lass_modelling)
+      used_for: lass_modelling
+
+  # URL to the source code of the system (optional, write !!null if you do not want to share code)
+  source_code: https://github.com/Audio-AGI/dcase2024_task9_baseline
+
+# System results
+results:
+  validation_results:
+    # System results on the validation (synth) split.
+    # - Full results are not mandatory, however, they are highly recommended as they are needed for thorough analysis of the challenge submissions.
+    # - If you are unable to provide all the results, incomplete results can also be reported.
+    # - Each score should contain at least 3 decimals.
+    SDR: 5.708
+    SDRi: 5.673
+    SISDR: 3.862
+
+# Additional question
+additional_question:
+  # Does the submitted system need to be manually checked? For example, generative model-based approachs (e.g., diffusion model) 
+  # usually perform not well in SDR-based metrics. In this case, organizers will randomly select a few separated audio files on 
+  # which they will check algorithms that obtained lower SDR results with informal listening tests, 
+  # and at their discretion will decide to include them in the subjective evaluation.
+  need_manual_check: no
+  detailed_reason: "null"
+
+# Questionnaire
+questionnaire:
+  # Do you agree to allow the DCASE distribution of 200 separated audio samples in evaluation (real) to evaluator(s) for the subjective evaluation? [mandatory]
+  # The audio samples will not be distributed for any purpose other than subjective evaluation without other explicit permissions.
+  distribute_audio_samples: Yes
+
+  # Do you give permission for the task organizer to conduct a meta-analysis on your submitted audio samples and to publish a technical report and paper using the results? [mandatory]
+  # This does not mean that the copyright of audio samples is transferred to the DCASE community or task 9 organizers.
+  publish_audio_samples: Yes
+
+  # Do you agree to allow the DCASE use of your submitted separated audio samples in a future version of this DCASE competition? (not required for competition entry, optional).
+  # This may be used in future baseline comparisons or separation challenges.
+  # This does not mean that the copyright of audio samples is transferred to the DCASE community or task 9 organizers.
+  use_audio_samples: Yes
+</code></pre>
+</div>
+</div>
+</div>
+<div class="panel panel-t10">
+<div class="panel-heading" id="task10-example-header" role="tab">
+<h4 class="panel-title text-white">
+<a aria-controls="collapseOne" aria-expanded="true" class="collapsed accordion-toggle" data-parent="#submission-package-example-accordion" data-toggle="collapse" href="#task10-example-collapse" role="button">
+<span class="fa-stack fa-1x">
+<i class="fa fa-square fa-stack-2x text-t10"></i>
+<i class="fa dc-traffic fa-stack-1x fa-inverse"></i>
+</span>
+<strong>Task 10</strong> - Acoustic-based Traffic Monitoring
+                </a>
+</h4>
+</div>
+<div aria-labelledby="task10-example-header" class="panel-collapse collapse" id="task10-example-collapse" role="tabpanel">
+<div class="panel-body">
+<p>Example meta information file for Task 10 baseline system <code>task10/Bondi_BSCH_task10_1/Bondi_BSCH_task10_1.meta.yaml</code>:
+                </p>
+<pre class="font110"><code class="yaml"># Submission information
+submission:
+  # Submission label
+  # Label is used to index submissions.
+  # Generate your label following way to avoid
+  # overlapping codes among submissions:
+  # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number]_[index number of your submission (1-4)]
+  label: Bondi_BSCH_task10_1
+
+  # Submission name
+  # This name will be used in the results tables when space permits
+  name: DCASE2024 baseline system
+
+  # Submission name abbreviated
+  # This abbreviated name will be used in the results table when space is tight.
+  # Use maximum 10 characters.
+  abbreviation: Baseline
+
+  # Authors of the submitted system. Mark authors in
+  # the order you want them to appear in submission lists.
+  # One of the authors has to be marked as corresponding author,
+  # this will be listed next to the submission in the results tables.
+  authors:
+    # First author
+    - lastname: Bondi
+      firstname: Luca
+      email: Luca.Bondi@us.bosch.com                         # Contact email address
+      corresponding: true                                    # Mark true for one of the authors
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: bsch
+        institute: Bosch Research
+        department: Human Machine Collaboration             # Optional
+        location: USA
+
+    # Second author
+    - lastname: Ghaffarzadegan
+      firstname: Shabnam
+      email: Shabnam.Ghaffarzadegan@us.bosch.com   
+      affiliation:
+        abbreviation: bsch
+        institute: Bosch Research
+        department: Human Machine Collaboration             # Optional
+        location: USA    
+
+    # Third author
+    - lastname: Lin
+      firstname: Winston
+      email: Winston.Lin@us.bosch.com
+      affiliation:
+        abbreviation: bsch
+        institute: Bosch Research
+        department: Human Machine Collaboration             # Optional
+        location: USA  
+ 
+# System information
+system:
+  # System description, meta data provided here will be used to do
+  # meta analysis of the submitted system.
+  # Use general level tags, when possible use the tags provided in comments.
+  # If information field is not applicable to the system, use "!!null".
+  description:
+
+    # Audio input / sampling rate
+    # e.g. 16kHz, 22.05kHz, 32kHz, 44.1kHz, 48.0kHz
+    input_sampling_rate: 16kHz
+
+    # Acoustic representation
+    # one or multiple labels, e.g. MFCC, log-mel energies, spectrogram, CQT, raw waveform, ...
+    acoustic_features: Generalized Cross-Correlation with Phase transform and Log Mel Spectrogram
+
+    # Data augmentation methods
+    # e.g. mixup, freq-mixstyle, dir augmentation, pitch shifting, time rolling, frequency masking, time masking, frequency warping, ...
+    data_augmentation: !!null
+
+    # Machine learning
+    # e.g., (RF-regularized) CNN, RNN, CRNN, Transformer, ...
+    machine_learning_method: CRNN
+
+    # External data usage method
+    # e.g. "dataset", "embeddings", "pre-trained model", ...
+    external_data_usage: !!null
+
+    # Method for handling the complexity restrictions
+    # e.g. "knowledge distillation", "pruning", "precision_16", "weight quantization", "network design", ...
+    complexity_management: !!null
+
+    # System training/processing pipeline stages
+    # e.g. "train teachers", "ensemble teachers", "train student using knowledge distillation", "quantization-aware training"
+    pipeline: training
+
+    # Machine learning framework
+    # e.g. keras/tensorflow, pytorch, ...
+    framework: pytorch
+
+    # List all basic hyperparameters that were adapted for the different locations (or leave !!null in case no adaptations were made)
+    # e.g. "lr", "epochs", "batch size", "weight decay", "freq-mixstyle probability", "frequency mask size", "time mask size", 
+    #      "time rolling range", "dir augmentation probability", ...
+    location_adaptations: !!null
+
+    # List most important properties that make this system different from other submitted systems (or leave !!null if you submit only one system)
+    # e.g. "architecture", "model size", "input resolution", "data augmentation techniques", "pre-training", "knowledge distillation", ...
+    system_adaptations: !!null
+
+  # System complexity
+  complexity:
+    # Total amount of parameters used in the acoustic model.
+    # For neural networks, this information is usually given before training process
+    # in the network summary.
+    # For other than neural networks, if parameter count information is not directly
+    # available, try estimating the count as accurately as possible.
+    # In case of ensemble approaches, add up parameters for all subsystems.
+    # In case embeddings are used, add up parameter count of the embedding
+    # extraction networks and classification network
+    # Use numerical value.
+    total_parameters: 507396
+
+  # List of external datasets used in the submission.
+  external_datasets:
+        #-   name:
+        #    purpose: pre-training
+        #    url:
+        #    data_types: A, B, C
+        #    data_instances:
+        #        A: xxx
+        #        B: xxx
+        #        C: xxx
+        #    data_volume:
+        #        A: xxx
+        #        B: xxx
+        #        C: xxx
+
+  # URL to the source code of the system [optional]
+  source_code: https://github.com/boschresearch/acoustic-traffic-simulation-counting/
+
+# System results
+results:
+  development_dataset:
+    # System results on the development-test set for all provided locations.
+    # Full results are not mandatory, however, they are highly recommended
+    # as they are needed for through analysis of the challenge submissions.
+    # If you are unable to provide all results, also incomplete
+    # results can be reported.
+
+    loc1:  # results on location 1
+      car_left:
+        Kendall's Tau Corr: 0.470
+        RMSE: 2.449
+      car_right:
+        Kendall's Tau Corr: 0.478
+        RMSE: 2.687
+      cv_left:
+        Kendall's Tau Corr: 0.231
+        RMSE: 0.732
+      cv_right:
+        Kendall's Tau Corr: 0.189
+        RMSE: 0.777
+
+    loc2:  # results on location 2
+      car_left:
+        Kendall's Tau Corr: 0.446
+        RMSE: 3.308
+      car_right:
+        Kendall's Tau Corr: 0.221
+        RMSE: 3.560
+      cv_left:
+        Kendall's Tau Corr: 0.135
+        RMSE: 0.468
+      cv_right:
+        Kendall's Tau Corr: -0.026
+        RMSE: 0.610
+
+    loc3:  # results on location 3
+      car_left:
+        Kendall's Tau Corr: 0.619
+        RMSE: 1.629
+      car_right:
+        Kendall's Tau Corr: 0.593
+        RMSE: 1.209
+      cv_left:
+        Kendall's Tau Corr: 0.102
+        RMSE: 0.308
+      cv_right:
+        Kendall's Tau Corr: 0.272
+        RMSE: 0.199
+
+    loc4:  # results on location 4
+      car_left:
+        Kendall's Tau Corr: 0.456
+        RMSE: 1.698
+      car_right:
+        Kendall's Tau Corr: 0.248
+        RMSE: 2.210
+      cv_left:
+        Kendall's Tau Corr: 0
+        RMSE: 0.548
+      cv_right:
+        Kendall's Tau Corr: 0.438
+        RMSE: 0.728
+
+    loc5:  # results on location 5
+      car_left:
+        Kendall's Tau Corr: 0.484
+        RMSE: 0.662
+      car_right:
+        Kendall's Tau Corr: 0.575
+        RMSE: 0.607
+      cv_left:
+        Kendall's Tau Corr: 0.092
+        RMSE: 0.491
+      cv_right:
+        Kendall's Tau Corr: 0.108
+        RMSE: 0.676
+
+    loc6:  # results on location 6
+      car_left:
+        Kendall's Tau Corr: 0.825
+        RMSE: 1.672
+      car_right:
+        Kendall's Tau Corr: 0.736
+        RMSE: 1.950
+      cv_left:
+        Kendall's Tau Corr: 0.711
+        RMSE: 0.535
+      cv_right:
+        Kendall's Tau Corr: 0.648
+        RMSE: 0.441</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p><br/>
+<br/></p>
+<h1 id="technical-report">Technical report</h1>
+<p>All participants are expected to submit a technical report about the submitted system, to help the DCASE community better understand how the algorithm works.</p>
+<p><strong>Technical reports are not peer-reviewed.</strong> The technical reports will be published on the challenge website together with all other information about the submitted system. For the technical report, it is not necessary to follow closely the scientific publication structure (for example there is no need for extensive literature review). The report should however contain a sufficient description of the system.</p>
+<p>Please report the system performance using the provided cross-validation setup or development set, according to the task. For participants taking part in multiple tasks, one technical report covering all tasks is sufficient, if the systems have only small differences. Describe the task-specific parameters in the report.</p>
+<p class="bg-success">
+Participants can also submit the same report as a <strong>scientific paper</strong> to DCASE2024 Workshop. In this case, the paper must respect the structure of a scientific publication, and be prepared according to the provided Workshop paper instructions and template. Please note that the template is slightly different, and you will have to create a separate submission to the DCASE2024 Workshop track in the submission system. Please refer to the workshop webpage for more details.
+  <strong>DCASE2024 Workshop papers will be peer-reviewed.</strong>
+</p>
+<h2 id="template">Template</h2>
+<p>Reports are in format <strong>4+1</strong> pages. Papers are maximum 5 pages, including all text, figures, and references, with the 5th page containing only references. The templates for technical report are available here:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="../documents/challenge2024/dcase2024_challenge_tech_report_template.zip" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="../documents/challenge2024/dcase2024_challenge_tech_report_template.zip" target="_blank">
+<span style="font-size:20px;">Latex template <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(137 KB)</span>
+<br/>
+<span class="text-muted">
+                
+                version 1.0
+                
+                
+                (.zip)
+                
+                </span>
+</div>
+</div>
+<p><br/></p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="../documents/challenge2024/dcase2024_challenge_word_template.docx" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-word-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="../documents/challenge2024/dcase2024_challenge_word_template.docx" target="_blank">
+<span style="font-size:20px;">Word template <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(37 KB)</span>
+<br/>
+<span class="text-muted">
+                
+                version 1.0
+                
+                
+                (.docx)
+                
+                </span>
+</div>
+</div>
+<p><br/></p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="../documents/challenge2024/dcase2024_challenge_tech_report_template.pdf" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="../documents/challenge2024/dcase2024_challenge_tech_report_template.pdf" target="_blank">
+<span style="font-size:20px;">Sample PDF produced with Latex template <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(158 KB)</span>
+<br/>
+<span class="text-muted">
+                
+                version 1.0
+                
+                
+                (.pdf)
+                
+                </span>
+</div>
+</div>
+<p><br/>
+<br/>
+<br/></p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

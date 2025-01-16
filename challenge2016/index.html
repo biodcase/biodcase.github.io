@@ -1,0 +1,505 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>DCASE2016 Challenge - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="DCASE2016 Challenge - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2016/index">
+    <meta property="og:url" content="https://dcase.community/challenge2016/index" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="Toni Heittola" />
+    <meta name="description" content="Challenge has ended. Challenge results and analysis of submitted systems have been published in: Publication A. Mesaros, T. Heittola, E. Benetos, P. Foster, M. Lagrange, T. Virtanen, and M. D. Plumbley. Detection and classification of acoustic scenes and events: outcome of the DCASE 2016 challenge. IEEE/ACM Transactions on Audio …" />
+    <meta name="og:description" content="Challenge has ended. Challenge results and analysis of..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/bnews.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/bdates.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2016</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2016/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-synthetic text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-events text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-tags text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Download data">
+        <a href="http://localhost:3000/challenge2016/download"><i class="fa fa-download"></i>&nbsp;Download</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2016/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2016/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge organizers">
+        <a href="http://localhost:3000/challenge2016/organizers"><i class="fa fa-users"></i>&nbsp;Organizers</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/stones-01.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-right"><object class="img img-responsive sr-header-overlay" type="image/svg+xml" data="..//images/overlays/wave.svg"></object></div><h1 class="bold">DCASE2016 Challenge</h1><span class="subheading">IEEE AASP Challenge on Detection and Classification of Acoustic Scenes and Events</span><hr class="small right bold">
+                        <span class="subheading subheading-secondary">8 February - 7 September 2016</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default hidden-print">
+<div class="panel-heading">
+<h3 class="panel-title">Important dates</h3>
+</div>
+<ul class="bdates-container list-group">
+<a class="list-group-item" href="http://localhost:3000/challenge2016/download">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>08 Feb 2016</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Release of development datasets and baselines
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="http://localhost:3000/challenge2016/download">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>01 Jun 2016</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Release of evaluation datasets
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="http://localhost:3000/challenge2016/submission">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>07 Jul 2016</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Challenge submission (results and technical report)
+                    
+                    </h5>
+</div>
+</div>
+</a>
+</ul>
+</div>
+
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Contact</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>DCASE2016 Challenge</strong>
+<a class="icon" href="mailto:dcase.challenge@gmail.com"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="panel panel-success hidden-print">
+<div class="panel-heading">
+<h3 class="panel-title"><a href="http://localhost:3000/news">Recent news</a></h3>
+</div>
+<ul class="bnews-container list-group">
+<a class="list-group-item" href="http://localhost:3000/articles/reference-data-for-task-2-evaluation-dataset-published" target="_self">
+<div class="row">
+<div class="col-md-12 col-sm-12"><h5 class="list-group-item-heading">Reference data for Task 2 evaluation dataset published</h5></div>
+<div class="col-md-12 col-sm-12">
+<p class="list-group-item-text text-muted">
+<small><span class="bnews-time" datetime="2016-11-14 14:00:00"></span><small>
+</small></small></p>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="http://localhost:3000/articles/reference-data-for-task-1-evaluation-dataset-published" target="_self">
+<div class="row">
+<div class="col-md-12 col-sm-12"><h5 class="list-group-item-heading">Reference data for Task 1 evaluation dataset published</h5></div>
+<div class="col-md-12 col-sm-12">
+<p class="list-group-item-text text-muted">
+<small><span class="bnews-time" datetime="2016-11-10 14:00:00"></span><small>
+</small></small></p>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="http://localhost:3000/articles/2016-challenge-results-published" target="_self">
+<div class="row">
+<div class="col-md-12 col-sm-12"><h5 class="list-group-item-heading">2016 Challenge results published</h5></div>
+<div class="col-md-12 col-sm-12">
+<p class="list-group-item-text text-muted">
+<small><span class="bnews-time" datetime="2016-07-26 18:46:00"></span><small>
+</small></small></p>
+</div>
+</div>
+</a>
+</ul>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <div class="alert alert-info">
+<strong>Challenge has ended.</strong>
+</div>
+<p>Challenge results and analysis of submitted systems have been published in:</p>
+<div class="btex-item" data-item="Mesaros2018_TASLP" data-source="content/data/challenge2016/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Mesaros2018_TASLP"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            A. Mesaros, T. Heittola, E. Benetos, P. Foster, M. Lagrange, T. Virtanen, and M. D. Plumbley.
+<em>Detection and classification of acoustic scenes and events: outcome of the DCASE 2016 challenge.</em>
+<em>IEEE/ACM Transactions on Audio, Speech, and Language Processing</em>, 26(2):379–393, Feb 2018.
+<a href="https://doi.org/10.1109/TASLP.2017.2778423">doi:10.1109/TASLP.2017.2778423</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexMesaros2018_TASLPed27252fbcea4f87a81c34f5a67f6863" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://trepo.tuni.fi//bitstream/handle/10024/126402/dcase2016_taslp.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseMesaros2018_TASLPed27252fbcea4f87a81c34f5a67f6863" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseMesaros2018_TASLPed27252fbcea4f87a81c34f5a67f6863" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingMesaros2018_TASLPed27252fbcea4f87a81c34f5a67f6863" class="panel-collapse collapse" id="collapseMesaros2018_TASLPed27252fbcea4f87a81c34f5a67f6863" role="tabpanel">
+<h4>Detection and Classification of Acoustic Scenes and Events: Outcome of the DCASE 2016 Challenge</h4>
+<h5>Abstract</h5>
+<p class="text-justify">Public evaluation campaigns and datasets promote active development in target research areas, allowing direct comparison of algorithms. The second edition of the challenge on detection and classification of acoustic scenes and events (DCASE 2016) has offered such an opportunity for development of the state-of-the-art methods, and succeeded in drawing together a large number of participants from academic and industrial backgrounds. In this paper, we report on the tasks and outcomes of the DCASE 2016 challenge. The challenge comprised four tasks: acoustic scene classification, sound event detection in synthetic audio, sound event detection in real-life audio, and domestic audio tagging. We present each task in detail and analyze the submitted systems in terms of design and performance. We observe the emergence of deep learning as the most popular classification method, replacing the traditional approaches based on Gaussian mixture models and support vector machines. By contrast, feature representations have not changed substantially throughout the years, as mel frequency-based representations predominate in all tasks. The datasets created for and used in DCASE 2016 are publicly available and are a valuable resource for further research.</p>
+<h5>Keywords</h5>
+<p class="text-justify">Acoustics;Event detection;Hidden Markov models;Speech;Speech processing;Tagging;Acoustic scene classification;audio datasets;pattern recognition;sound event detection</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexMesaros2018_TASLPed27252fbcea4f87a81c34f5a67f6863" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://trepo.tuni.fi//bitstream/handle/10024/126402/dcase2016_taslp.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexMesaros2018_TASLPed27252fbcea4f87a81c34f5a67f6863label" class="modal fade" id="bibtexMesaros2018_TASLPed27252fbcea4f87a81c34f5a67f6863" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexMesaros2018_TASLPed27252fbcea4f87a81c34f5a67f6863label">Detection and Classification of Acoustic Scenes and Events: Outcome of the DCASE 2016 Challenge</h4>
+</div>
+<div class="modal-body">
+<pre>@article{Mesaros2018_TASLP,
+    author = "Mesaros, A. and Heittola, T. and Benetos, E. and Foster, P. and Lagrange, M. and Virtanen, T. and Plumbley, M. D.",
+    journal = "IEEE/ACM Transactions on Audio, Speech, and Language Processing",
+    title = "Detection and Classification of Acoustic Scenes and Events: Outcome of the {DCASE} 2016 Challenge",
+    year = "2018",
+    volume = "26",
+    number = "2",
+    pages = "379--393",
+    abstract = "Public evaluation campaigns and datasets promote active development in target research areas, allowing direct comparison of algorithms. The second edition of the challenge on detection and classification of acoustic scenes and events (DCASE 2016) has offered such an opportunity for development of the state-of-the-art methods, and succeeded in drawing together a large number of participants from academic and industrial backgrounds. In this paper, we report on the tasks and outcomes of the DCASE 2016 challenge. The challenge comprised four tasks: acoustic scene classification, sound event detection in synthetic audio, sound event detection in real-life audio, and domestic audio tagging. We present each task in detail and analyze the submitted systems in terms of design and performance. We observe the emergence of deep learning as the most popular classification method, replacing the traditional approaches based on Gaussian mixture models and support vector machines. By contrast, feature representations have not changed substantially throughout the years, as mel frequency-based representations predominate in all tasks. The datasets created for and used in DCASE 2016 are publicly available and are a valuable resource for further research.",
+    keywords = "Acoustics;Event detection;Hidden Markov models;Speech;Speech processing;Tagging;Acoustic scene classification;audio datasets;pattern recognition;sound event detection",
+    doi = "10.1109/TASLP.2017.2778423",
+    issn = "2329-9290",
+    month = "Feb"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Results for each tasks are presented in task specific results pages:</p>
+<div aria-label="..." class="btn-group" role="group">
+<a class="btn btn-primary" href="http://localhost:3000/challenge2016/task-acoustic-scene-classification-results">Task 1</a>
+<a class="btn btn-success" href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio-results">Task 2</a>
+<a class="btn btn-warning" href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio-results">Task 3</a>
+<a class="btn btn-info" href="http://localhost:3000/challenge2016/task-audio-tagging-results">Task 4</a>
+</div>
+<p>System outputs:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/926660" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/926660" target="_blank">
+<span style="font-size:20px;">DCASE2016 Challenge Submissions Package <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(28.7 MB)</span>
+<br/>
+<a href="http://dx.doi.org/10.5281/zenodo.926660">
+<img alt="10.5281/zenodo.926660" src="https://zenodo.org/badge/doi/10.5281/zenodo.926660.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<h1>Introduction</h1>
+<p>Sounds carry a large amount of information about our everyday environment and physical events that take place in it. We can perceive the sound scene we are within (busy street, office, etc.), and recognize individual sound sources (car passing by, footsteps, etc.). Developing signal processing methods to automatically extract this information has huge potential in several applications, for example searching for multimedia based on its audio content, making context-aware mobile devices, robots, cars etc., and intelligent monitoring systems to recognize activities in their environments using acoustic information. However, a significant amount of research is still needed to reliably recognize sound scenes and individual sound sources in realistic soundscapes, where multiple sounds are present, often simultaneously, and distorted by the environment.</p>
+<h2>Previous challenges</h2>
+<p>Public evaluations are common in many areas of research, with some challenges being active for many consecutive years. They help push the boundaries of algorithm developments to deal with more and more complex tasks. <a href="https://www-nlpir.nist.gov/projects/trecvid/">TRECVID Multimedia Event detection</a> is another of the long tradition evaluations, with focus on audiovisual, multi-modal event detection in video recordings. Such public evaluations provide a good opportunity for code dissemination, unification and definition of terms, procedures, benchmark datasets and evaluation metrics. It is our wish to provide a similar tool for computational auditory scene analysis, specifically for detection and classification of sound scenes and events.</p>
+<p>The previously organized <a href="http://c4dm.eecs.qmul.ac.uk/sceneseventschallenge/">DCASE2013 challenge</a> (sponsored by the IEEE AASP TC, and held at WASPAA 2013) attracted the interest of the research community and had a good participation rate. It also contributed on creating benchmark datasets and fostered reproducible research (6 out of 18 participating teams had their source code released through the challenge). Based on its success, we propose to organize the follow-up challenge on the performance evaluation of systems for the detection and classification of sound events. This challenge will move the DCASE setup closer to real world applications, by providing more complex problems. This will help defining a common ground for researchers that actively pursue research on this field, and offer a reference point for systems developed to perform parts of this task.</p>
+<h1>Tasks</h1>
+<p>Continuing the tasks of the previous DCASE, the proposed tasks for the challenge are acoustic scene classification and sound event detection within a scene.</p>
+<div class="row">
+<div class="col-lg-12"><h3>Acoustic scene classification</h3></div>
+</div>
+<div class="row">
+<div class="col-md-2">
+<a class="icon" href="http://localhost:3000/challenge2016/task-acoustic-scene-classification">
+<span class="fa-stack fa-4x">
+<i class="fa fa-square fa-stack-2x text-primary"></i>
+<i class="fa dc-scene fa-stack-1x fa-inverse"></i>
+<strong class="fa-stack-1x dcase-icon-top-text">Scenes</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 1</span>
+</span>
+</a>
+</div>
+<div class="col-md-10">
+<p>
+    The goal of acoustic scene classification is to classify a test recording into one of predefined classes that characterizes the environment in which it was recorded -- for example "park", "street", "office". The acoustic data will include recordings from 15 contexts, approximately one hour of data from each context. The setup is similar to the previous DCASE challenge, but with a higher number of classes and diversity of data.
+    </p>
+<a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2016/task-acoustic-scene-classification">Task description <i class="fa fa-caret-right"></i></a>
+<a class="btn btn-primary btn-xs" href="http://localhost:3000/challenge2016/task-acoustic-scene-classification-results">Results <i class="fa fa-caret-right"></i></a>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12"><h3>Sound event detection in synthetic audio</h3></div>
+</div>
+<div class="row">
+<div class="col-lg-2">
+<a class="icon" href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio">
+<span class="fa-stack fa-4x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa dc-synthetic fa-stack-1x fa-inverse"></i>
+<strong class="fa-stack-1x dcase-icon-top-text">Events</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 2</span>
+</span>
+</a>
+</div>
+<div class="col-lg-10">
+<p>
+    The goal of sound event detection is to detect the sound events (for example “bird singing”, “car passing by”) that are present within an audio signal, estimate their start and end times, and give a class label to each of the events.
+    </p>
+<p>
+    The sound event detection challenge will consist of 2 distinct tasks. This task will focus on event detection of office sounds, and will use training material provided as isolated sound events for each class, and synthetic mixtures of the same examples in multiple SNR and event density conditions (sounds have been recorded at IRCCYN, École Centrale de Nantes). The participants will be allowed to use any combination of them for training their system. The test data will consist of synthetic mixtures of (source-independent) sound examples at various SNR levels, event density conditions and polyphony. Thus, the aim of this task is to study the behaviour of tested algorithms when facing different levels of complexity, with an added benefit that the ground truth will be most accurate, even for polyphonic mixtures.
+    </p>
+<a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio">Task description <i class="fa fa-caret-right"></i></a>
+<a class="btn btn-success btn-xs" href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio-results">Results <i class="fa fa-caret-right"></i></a>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12"><h3>Sound event detection in real life audio</h3></div>
+</div>
+<div class="row">
+<div class="col-lg-2">
+<a class="icon" href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio">
+<span class="fa-stack fa-4x">
+<i class="fa fa-square fa-stack-2x text-warning"></i>
+<i class="fa dc-events fa-stack-1x fa-inverse"></i>
+<strong class="fa-stack-1x dcase-icon-top-text">Events</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 3</span>
+</span>
+</a>
+</div>
+<div class="col-lg-10">
+<p>
+    The third task will use training and testing material recorded in real life environments. This task evaluates performance of the sound event detection systems in multisource conditions similar to our everyday life, where the sound sources are rarely heard in isolation. In this case, there is no control over the number of overlapping sound events at each time, not in the training nor the testing audio data. The annotations of event activities are done manually, and can therefore be somewhat subjective.
+    </p>
+<a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio">Task description <i class="fa fa-caret-right"></i></a>
+<a class="btn btn-warning btn-xs" href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio-results">Results <i class="fa fa-caret-right"></i></a>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12"><h3>Domestic audio tagging</h3></div>
+</div>
+<div class="row">
+<div class="col-lg-2">
+<a class="icon" href="http://localhost:3000/challenge2016/task-audio-tagging">
+<span class="fa-stack fa-4x">
+<i class="fa fa-square fa-stack-2x text-info"></i>
+<i class="fa dc-tags fa-stack-1x fa-inverse"></i>
+<strong class="fa-stack-1x dcase-icon-top-text">Tags</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 4</span>
+</span>
+</a>
+</div>
+<div class="col-lg-10">
+<p>
+    This task will use binaural audio recordings made in a domestic environment. Prominent sound sources in the acoustic environment are two adults and two children, television and electronic gadgets, kitchen appliances, footsteps and knocks produced by human activity, in addition to sound originating from outside the house. The audio data is provided as four-second chunks. The objective of the task is to label each chunk with one or more of a multi-label set of labels such as Child speech, Adult male speech and/or Video game/TV.
+    </p>
+<a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2016/task-audio-tagging">Task description <i class="fa fa-caret-right"></i></a>
+<a class="btn btn-info btn-xs" href="http://localhost:3000/challenge2016/task-audio-tagging-results">Results <i class="fa fa-caret-right"></i></a>
+</div>
+</div>
+<h1>Challenge setup</h1>
+<p>For each challenge task, a <strong>development dataset</strong> and <strong>baseline system</strong> will be provided. Challenge evaluation will be done using an <strong>evaluation dataset</strong> that will be published shortly before the deadline.
+Task-specific rules are available on the task pages.</p>
+<p><a class="btn btn-default" href="rules">General challenge rules <i class="fa fa-caret-right"></i></a></p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/timeago.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/bnews.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

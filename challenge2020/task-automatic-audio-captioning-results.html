@@ -1,0 +1,5449 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Automated Audio Captioning - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Automated Audio Captioning - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2020/task-automatic-audio-captioning-results">
+    <meta property="og:url" content="https://dcase.community/challenge2020/task-automatic-audio-captioning-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="Task description Automated audio captioning is the task of general audio content description using free text. It is an intermodal translation task (not speech-to-text), where a system accepts as an input an audio signal and outputs the textual description (i.e. the caption) of that signal. Given the novelty of …" />
+    <meta name="og:description" content="Task description Automated audio captioning is the task of..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btex.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2020</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2020/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2020/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class=" dropdown-header ">
+        <strong>Results</strong>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-acoustic-scene-classification-results-a"><i class="fa fa-bar-chart"></i>&nbsp;Subtask A</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-acoustic-scene-classification-results-b"><i class="fa fa-bar-chart"></i>&nbsp;Subtask B</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2020/task-unsupervised-detection-of-anomalous-sounds" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-unsupervised-detection-of-anomalous-sounds"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-unsupervised-detection-of-anomalous-sounds-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-localization-and-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-localization-and-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-localization-and-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-detection-and-separation-in-domestic-environments" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-detection-and-separation-in-domestic-environments"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-sound-event-detection-and-separation-in-domestic-environments-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2020/task-urban-sound-tagging-with-spatiotemporal-context" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-urban text-danger"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-urban-sound-tagging-with-spatiotemporal-context"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-urban-sound-tagging-with-spatiotemporal-context-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2020/task-automatic-audio-captioning" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-captioning text-task1"></i>&nbsp;Task6&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-automatic-audio-captioning"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2020/task-automatic-audio-captioning-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2020/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2020/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge awards">
+        <a href="http://localhost:3000/challenge2020/awards"><i class="fa fa-trophy"></i>&nbsp;Awards</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/wall-09.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-task1"></i><i class="fa dc-captioning fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text dcase-icon-top-text-sm">Caption</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 6</span></span><img src="../images/logos/dcase/dcase2020_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Automated Audio Captioning</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Challenge results</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#task-description">Task description</a></li>
+<li><a href="#teams-ranking">Teams ranking</a></li>
+<li><a href="#systems-ranking">Systems ranking</a>
+<ul>
+<li><a href="#systems-ranking-all-metrics">Systems ranking, all metrics</a></li>
+<li><a href="#systems-ranking-machine-translation-metrics">Systems ranking, machine translation metrics</a></li>
+<li><a href="#systems-ranking-captioning-metrics">Systems ranking, captioning metrics</a></li>
+</ul>
+</li>
+<li><a href="#system-characteristics">System characteristics</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h1 id="task-description">Task description</h1>
+<p>Automated audio captioning is the task of general audio content
+description using free text. It is an intermodal translation task
+(not speech-to-text), where a system accepts as an input an audio
+signal and outputs the textual description (i.e. the caption) of
+that signal. Given the novelty of the task of audio captioning,
+current focus is on exploring and developing different methods
+that can provide some kind of captions for a general audio recording.
+To this aim, the novel Clotho dataset is used, which provides
+good quality captions, without speech transcription, named entities,
+and hapax legomena (i.e. words that appear once in a split). </p>
+<p>Participants used the freely available splits of Clotho development
+and evaluation, which splits provide both audio and corresponding
+captions. The systems are developed without the usage of any external
+data. The developed systems are evaluated on their generated captions,
+using the testing split of Clotho, which does not provide the corresponding
+captions for the audio. More information about Task 6: Automated
+Audio Captioning can be found at the
+<a class="btn btn-primary" href="http://localhost:3000/challenge2020/task-automatic-audio-captioning" style="">task description page.</a></p>
+<p>The ranking of the submitted systems is based on the achieved SPIDEr
+metric. Though, in this page is provided a more thorough presentation,
+grouping the metrics into those that are originated from machine translation
+and to those that originated from captioning. </p>
+<h1 id="teams-ranking">Teams ranking</h1>
+<p>Here are listed the best systems all from all teams. The ranking is based on the
+SPIDEr metric. For more elaborated exploration of the performance of the
+different systems, at the same table are listed the values achieved for
+all the metrics employed in the task. The values for the metrics are for
+the Clotho testing split and the Clotho evaluation split. The values for the
+Clotho evaluation split, are provided in order to allow further comparison
+with systems and methods developed outside of this task, since Clotho
+evaluation split is freely available. </p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="false" data-show-rank="true" data-sort-name="evaluation_dataset_spider" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Selected metric<br/>rank</th>
+<th class="sep-left-cell text-center" colspan="4">Submission Information</th>
+<th class="sep-left-cell text-center" colspan="9">Clotho testing split</th>
+<th class="sep-left-cell text-center" colspan="9">Clotho evaluation split</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+              Submission code
+            </th>
+<th class="text-center" data-chartable="true" data-field="anchor_sys_rank" data-sortable="true" data-value-type="int">
+              Best official <br/>system rank
+            </th>
+<th data-field="corresponding_author" data-sortable="false">
+              Corresponding author
+            </th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+              Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="evaluation_dataset_bleu_1" data-reversed="true" data-sortable="true" data-value-type="float3">
+              BLEU<sub>1</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_bleu_2" data-reversed="true" data-sortable="true" data-value-type="float3">
+              BLEU<sub>2</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_bleu_3" data-reversed="true" data-sortable="true" data-value-type="float3">
+              BLEU<sub>3</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_bleu_4" data-reversed="true" data-sortable="true" data-value-type="float3">
+              BLEU<sub>4</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_meteor" data-reversed="true" data-sortable="true" data-value-type="float3">
+              METEOR
+            </th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_rouge_l" data-reversed="true" data-sortable="true" data-value-type="float3">
+              ROUGE<sub>L</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_cider" data-reversed="true" data-sortable="true" data-value-type="float3">
+              CIDEr
+            </th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_spice" data-reversed="true" data-sortable="true" data-value-type="float3">
+              SPICE
+            </th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_spider" data-reversed="true" data-sortable="true" data-value-type="float3">
+              SPIDEr
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="development_dataset_bleu_1" data-reversed="true" data-sortable="true" data-value-type="float3">
+              BLEU<sub>1</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_bleu_2" data-reversed="true" data-sortable="true" data-value-type="float3">
+              BLEU<sub>2</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_bleu_3" data-reversed="true" data-sortable="true" data-value-type="float3">
+              BLEU<sub>3</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_bleu_4" data-reversed="true" data-sortable="true" data-value-type="float3">
+              BLEU<sub>4</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_meteor" data-reversed="true" data-sortable="true" data-value-type="float3">
+              METEOR
+            </th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_rouge_l" data-reversed="true" data-sortable="true" data-value-type="float3">
+              ROUGE<sub>L</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_cider" data-reversed="true" data-sortable="true" data-value-type="float3">
+              CIDEr
+            </th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_spice" data-reversed="true" data-sortable="true" data-value-type="float3">
+              SPICE
+            </th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_spider" data-reversed="true" data-sortable="true" data-value-type="float3">
+              SPIDEr
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Wang_PKU_task6_1</td>
+<td>3</td>
+<td>Yuexian Zou</td>
+<td>wang2020_t6</td>
+<td>0.491</td>
+<td>0.296</td>
+<td>0.189</td>
+<td>0.119</td>
+<td>0.153</td>
+<td>0.331</td>
+<td>0.290</td>
+<td>0.102</td>
+<td>0.196</td>
+<td>0.489</td>
+<td>0.285</td>
+<td>0.177</td>
+<td>0.107</td>
+<td>0.148</td>
+<td>0.325</td>
+<td>0.252</td>
+<td>0.091</td>
+<td>0.172</td>
+</tr>
+<tr>
+<td></td>
+<td>Shi_SFF_task6_3</td>
+<td>7</td>
+<td>Anna Shi</td>
+<td>shi2020_t6</td>
+<td>0.435</td>
+<td>0.254</td>
+<td>0.163</td>
+<td>0.099</td>
+<td>0.117</td>
+<td>0.299</td>
+<td>0.172</td>
+<td>0.069</td>
+<td>0.121</td>
+<td>0.423</td>
+<td>0.247</td>
+<td>0.158</td>
+<td>0.097</td>
+<td>0.115</td>
+<td>0.294</td>
+<td>0.168</td>
+<td>0.066</td>
+<td>0.117</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_UESTC_task6_1</td>
+<td>11</td>
+<td>Qianyang Wu</td>
+<td>wu2020_t6</td>
+<td>0.378</td>
+<td>0.030</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.063</td>
+<td>0.262</td>
+<td>0.024</td>
+<td>0.000</td>
+<td>0.012</td>
+<td>0.379</td>
+<td>0.020</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.063</td>
+<td>0.261</td>
+<td>0.024</td>
+<td>0.001</td>
+<td>0.012</td>
+</tr>
+<tr>
+<td></td>
+<td>Naranjo-Alcazar_UV_task6_2</td>
+<td>5</td>
+<td>Javier Naranjo-Alcazar</td>
+<td>naranjoalcazar2020_t6</td>
+<td>0.469</td>
+<td>0.265</td>
+<td>0.162</td>
+<td>0.096</td>
+<td>0.136</td>
+<td>0.310</td>
+<td>0.214</td>
+<td>0.086</td>
+<td>0.150</td>
+<td>0.464</td>
+<td>0.217</td>
+<td>0.107</td>
+<td>0.056</td>
+<td></td>
+<td>0.313</td>
+<td>0.144</td>
+<td>0.065</td>
+<td>0.104</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task6_4</td>
+<td>4</td>
+<td>Xuenan Xu</td>
+<td>xu2020_t6</td>
+<td>0.525</td>
+<td>0.330</td>
+<td>0.219</td>
+<td>0.136</td>
+<td>0.153</td>
+<td>0.351</td>
+<td>0.284</td>
+<td>0.104</td>
+<td>0.194</td>
+<td>0.529</td>
+<td>0.335</td>
+<td>0.226</td>
+<td>0.146</td>
+<td>0.149</td>
+<td>0.352</td>
+<td>0.280</td>
+<td>0.099</td>
+<td>0.190</td>
+</tr>
+<tr>
+<td></td>
+<td>Sampathkumar_TUC_task6_1</td>
+<td>10</td>
+<td>Arunodhayan Sampathkumar</td>
+<td>sampathkumar2020_t6</td>
+<td>0.335</td>
+<td>0.077</td>
+<td>0.018</td>
+<td>0.007</td>
+<td>0.061</td>
+<td>0.225</td>
+<td>0.024</td>
+<td>0.009</td>
+<td>0.017</td>
+<td>0.432</td>
+<td>0.128</td>
+<td>0.141</td>
+<td>0.010</td>
+<td>0.078</td>
+<td>0.251</td>
+<td>0.071</td>
+<td>0.024</td>
+<td>0.024</td>
+</tr>
+<tr>
+<td></td>
+<td>Yuma_NTT_task6_1</td>
+<td>1</td>
+<td>Koizumi Yuma</td>
+<td>koizumi2020_t1</td>
+<td>0.544</td>
+<td>0.355</td>
+<td>0.239</td>
+<td>0.157</td>
+<td>0.157</td>
+<td>0.365</td>
+<td>0.340</td>
+<td>0.103</td>
+<td>0.222</td>
+<td>0.619</td>
+<td>0.439</td>
+<td>0.313</td>
+<td>0.220</td>
+<td>0.186</td>
+<td>0.417</td>
+<td>0.521</td>
+<td>0.129</td>
+<td>0.325</td>
+</tr>
+<tr>
+<td></td>
+<td>Pellegrini_IRIT_task6_2</td>
+<td>6</td>
+<td>Thomas Pellegrini</td>
+<td>pellegrini2020_t6</td>
+<td>0.439</td>
+<td>0.252</td>
+<td>0.160</td>
+<td>0.094</td>
+<td>0.137</td>
+<td>0.310</td>
+<td>0.178</td>
+<td>0.082</td>
+<td>0.130</td>
+<td>0.430</td>
+<td>0.248</td>
+<td>0.160</td>
+<td>0.096</td>
+<td>0.305</td>
+<td>0.133</td>
+<td>0.169</td>
+<td>0.079</td>
+<td>0.124</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_BUPT_task6_4</td>
+<td>2</td>
+<td>Yusong Wu</td>
+<td>wuyusong2020_t6</td>
+<td>0.519</td>
+<td>0.327</td>
+<td>0.217</td>
+<td>0.141</td>
+<td>0.154</td>
+<td>0.349</td>
+<td>0.323</td>
+<td>0.106</td>
+<td>0.214</td>
+<td>0.532</td>
+<td>0.341</td>
+<td>0.227</td>
+<td>0.149</td>
+<td>0.157</td>
+<td>0.354</td>
+<td>0.340</td>
+<td>0.108</td>
+<td>0.224</td>
+</tr>
+<tr>
+<td></td>
+<td>Kuzmin_MSU_task6_1</td>
+<td>8</td>
+<td>Nikita Kuzmin</td>
+<td>kuzmin2020_t6</td>
+<td>0.312</td>
+<td>0.052</td>
+<td>0.007</td>
+<td>0.000</td>
+<td>0.082</td>
+<td>0.252</td>
+<td>0.020</td>
+<td>0.023</td>
+<td>0.021</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Task6_baseline</td>
+<td>9</td>
+<td>Konstantinos Drossos</td>
+<td></td>
+<td>0.344</td>
+<td>0.082</td>
+<td>0.023</td>
+<td>0.000</td>
+<td>0.066</td>
+<td>0.234</td>
+<td>0.022</td>
+<td>0.013</td>
+<td>0.018</td>
+<td>0.389</td>
+<td>0.136</td>
+<td>0.055</td>
+<td>0.015</td>
+<td>0.084</td>
+<td>0.262</td>
+<td>0.074</td>
+<td>0.033</td>
+<td>0.054</td>
+</tr>
+</tbody>
+</table>
+<h1 id="systems-ranking">Systems ranking</h1>
+<p>Here are listed all systems and their ranking according to the different
+metrics and grouping of metrics. First, is a table with all metrics and 
+all systems. Then, is a table with all systems but with only machine
+translation metrics, and then a table with all systems but with only
+captioning metrics. </p>
+<p>Detailed information of each system is at the next section.</p>
+<h2 id="systems-ranking-all-metrics">Systems ranking, all metrics</h2>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="evaluation_dataset_spider" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Selected metric<br/>rank</th>
+<th class="sep-left-cell text-center" colspan="3">Submission Information</th>
+<th class="sep-left-cell text-center" colspan="9">Clotho testing split</th>
+<th class="sep-left-cell text-center" colspan="9">Clotho evaluation split</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+              Submission code
+            </th>
+<th class="text-center" data-chartable="true" data-field="anchor_sys_rank" data-sortable="true" data-value-type="int">
+              Best official <br/>system rank
+            </th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+              Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="evaluation_dataset_bleu_1" data-reversed="true" data-sortable="true" data-value-type="float3">
+              BLEU<sub>1</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_bleu_2" data-reversed="true" data-sortable="true" data-value-type="float3">
+              BLEU<sub>2</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_bleu_3" data-reversed="true" data-sortable="true" data-value-type="float3">
+              BLEU<sub>3</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_bleu_4" data-reversed="true" data-sortable="true" data-value-type="float3">
+              BLEU<sub>4</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_meteor" data-reversed="true" data-sortable="true" data-value-type="float3">
+              METEOR
+            </th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_rouge_l" data-reversed="true" data-sortable="true" data-value-type="float3">
+              ROUGE<sub>L</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_cider" data-reversed="true" data-sortable="true" data-value-type="float3">
+              CIDEr
+            </th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_spice" data-reversed="true" data-sortable="true" data-value-type="float3">
+              SPICE
+            </th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_spider" data-reversed="true" data-sortable="true" data-value-type="float3">
+              SPIDEr
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="development_dataset_bleu_1" data-reversed="true" data-sortable="true" data-value-type="float3">
+              BLEU<sub>1</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_bleu_2" data-reversed="true" data-sortable="true" data-value-type="float3">
+              BLEU<sub>2</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_bleu_3" data-reversed="true" data-sortable="true" data-value-type="float3">
+              BLEU<sub>3</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_bleu_4" data-reversed="true" data-sortable="true" data-value-type="float3">
+              BLEU<sub>4</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_meteor" data-reversed="true" data-sortable="true" data-value-type="float3">
+              METEOR
+            </th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_rouge_l" data-reversed="true" data-sortable="true" data-value-type="float3">
+              ROUGE<sub>L</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_cider" data-reversed="true" data-sortable="true" data-value-type="float3">
+              CIDEr
+            </th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_spice" data-reversed="true" data-sortable="true" data-value-type="float3">
+              SPICE
+            </th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_spider" data-reversed="true" data-sortable="true" data-value-type="float3">
+              SPIDEr
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Wang_PKU_task6_1</td>
+<td>9</td>
+<td>wang2020_t6</td>
+<td>0.491</td>
+<td>0.296</td>
+<td>0.189</td>
+<td>0.119</td>
+<td>0.153</td>
+<td>0.331</td>
+<td>0.290</td>
+<td>0.102</td>
+<td>0.196</td>
+<td>0.489</td>
+<td>0.285</td>
+<td>0.177</td>
+<td>0.107</td>
+<td>0.148</td>
+<td>0.325</td>
+<td>0.252</td>
+<td>0.091</td>
+<td>0.172</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang_PKU_task6_2</td>
+<td>11</td>
+<td>wang2020_t6</td>
+<td>0.498</td>
+<td>0.304</td>
+<td>0.195</td>
+<td>0.121</td>
+<td>0.154</td>
+<td>0.335</td>
+<td>0.287</td>
+<td>0.101</td>
+<td>0.194</td>
+<td>0.489</td>
+<td>0.285</td>
+<td>0.177</td>
+<td>0.107</td>
+<td>0.148</td>
+<td>0.325</td>
+<td>0.252</td>
+<td>0.091</td>
+<td>0.172</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang_PKU_task6_3</td>
+<td>10</td>
+<td>wang2020_t6</td>
+<td>0.495</td>
+<td>0.301</td>
+<td>0.193</td>
+<td>0.121</td>
+<td>0.155</td>
+<td>0.336</td>
+<td>0.288</td>
+<td>0.101</td>
+<td>0.195</td>
+<td>0.489</td>
+<td>0.285</td>
+<td>0.177</td>
+<td>0.107</td>
+<td>0.148</td>
+<td>0.325</td>
+<td>0.252</td>
+<td>0.091</td>
+<td>0.172</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang_PKU_task6_4</td>
+<td>11</td>
+<td>wang2020_t6</td>
+<td>0.500</td>
+<td>0.299</td>
+<td>0.191</td>
+<td>0.120</td>
+<td>0.153</td>
+<td>0.334</td>
+<td>0.287</td>
+<td>0.100</td>
+<td>0.194</td>
+<td>0.489</td>
+<td>0.285</td>
+<td>0.177</td>
+<td>0.107</td>
+<td>0.148</td>
+<td>0.325</td>
+<td>0.252</td>
+<td>0.091</td>
+<td>0.172</td>
+</tr>
+<tr>
+<td></td>
+<td>Shi_SFF_task6_1</td>
+<td>24</td>
+<td>shi2020_t6</td>
+<td>0.432</td>
+<td>0.251</td>
+<td>0.162</td>
+<td>0.098</td>
+<td>0.117</td>
+<td>0.302</td>
+<td>0.161</td>
+<td>0.070</td>
+<td>0.115</td>
+<td>0.419</td>
+<td>0.238</td>
+<td>0.150</td>
+<td>0.092</td>
+<td>0.114</td>
+<td>0.292</td>
+<td>0.149</td>
+<td>0.064</td>
+<td>0.106</td>
+</tr>
+<tr>
+<td></td>
+<td>Shi_SFF_task6_2</td>
+<td>25</td>
+<td>shi2020_t6</td>
+<td>0.429</td>
+<td>0.246</td>
+<td>0.158</td>
+<td>0.096</td>
+<td>0.117</td>
+<td>0.300</td>
+<td>0.161</td>
+<td>0.065</td>
+<td>0.113</td>
+<td>0.421</td>
+<td>0.239</td>
+<td>0.148</td>
+<td>0.089</td>
+<td>0.115</td>
+<td>0.292</td>
+<td>0.153</td>
+<td>0.063</td>
+<td>0.108</td>
+</tr>
+<tr>
+<td></td>
+<td>Shi_SFF_task6_3</td>
+<td>20</td>
+<td>shi2020_t6</td>
+<td>0.435</td>
+<td>0.254</td>
+<td>0.163</td>
+<td>0.099</td>
+<td>0.117</td>
+<td>0.299</td>
+<td>0.172</td>
+<td>0.069</td>
+<td>0.121</td>
+<td>0.423</td>
+<td>0.247</td>
+<td>0.158</td>
+<td>0.097</td>
+<td>0.115</td>
+<td>0.294</td>
+<td>0.168</td>
+<td>0.066</td>
+<td>0.117</td>
+</tr>
+<tr>
+<td></td>
+<td>Shi_SFF_task6_4</td>
+<td>23</td>
+<td>shi2020_t6</td>
+<td>0.428</td>
+<td>0.242</td>
+<td>0.156</td>
+<td>0.099</td>
+<td>0.116</td>
+<td>0.301</td>
+<td>0.172</td>
+<td>0.063</td>
+<td>0.118</td>
+<td>0.425</td>
+<td>0.241</td>
+<td>0.154</td>
+<td>0.098</td>
+<td>0.115</td>
+<td>0.298</td>
+<td>0.169</td>
+<td>0.063</td>
+<td>0.116</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_UESTC_task6_1</td>
+<td>31</td>
+<td>wu2020_t6</td>
+<td>0.378</td>
+<td>0.030</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.063</td>
+<td>0.262</td>
+<td>0.024</td>
+<td>0.000</td>
+<td>0.012</td>
+<td>0.379</td>
+<td>0.020</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.063</td>
+<td>0.261</td>
+<td>0.024</td>
+<td>0.001</td>
+<td>0.012</td>
+</tr>
+<tr>
+<td></td>
+<td>Naranjo-Alcazar_UV_task6_1</td>
+<td>17</td>
+<td>naranjoalcazar2020_t6</td>
+<td>0.464</td>
+<td>0.260</td>
+<td>0.157</td>
+<td>0.092</td>
+<td>0.135</td>
+<td>0.308</td>
+<td>0.195</td>
+<td>0.083</td>
+<td>0.139</td>
+<td>0.453</td>
+<td>0.206</td>
+<td>0.098</td>
+<td>0.049</td>
+<td></td>
+<td>0.307</td>
+<td>0.122</td>
+<td>0.060</td>
+<td>0.091</td>
+</tr>
+<tr>
+<td></td>
+<td>Naranjo-Alcazar_UV_task6_2</td>
+<td>13</td>
+<td>naranjoalcazar2020_t6</td>
+<td>0.469</td>
+<td>0.265</td>
+<td>0.162</td>
+<td>0.096</td>
+<td>0.136</td>
+<td>0.310</td>
+<td>0.214</td>
+<td>0.086</td>
+<td>0.150</td>
+<td>0.464</td>
+<td>0.217</td>
+<td>0.107</td>
+<td>0.056</td>
+<td></td>
+<td>0.313</td>
+<td>0.144</td>
+<td>0.065</td>
+<td>0.104</td>
+</tr>
+<tr>
+<td></td>
+<td>Naranjo-Alcazar_UV_task6_3</td>
+<td>14</td>
+<td>naranjoalcazar2020_t6</td>
+<td>0.466</td>
+<td>0.261</td>
+<td>0.156</td>
+<td>0.091</td>
+<td>0.137</td>
+<td>0.310</td>
+<td>0.207</td>
+<td>0.086</td>
+<td>0.147</td>
+<td>0.448</td>
+<td>0.208</td>
+<td>0.102</td>
+<td>0.054</td>
+<td></td>
+<td>0.310</td>
+<td>0.124</td>
+<td>0.063</td>
+<td>0.093</td>
+</tr>
+<tr>
+<td></td>
+<td>Naranjo-Alcazar_UV_task6_4</td>
+<td>15</td>
+<td>naranjoalcazar2020_t6</td>
+<td>0.464</td>
+<td>0.259</td>
+<td>0.154</td>
+<td>0.086</td>
+<td>0.137</td>
+<td>0.310</td>
+<td>0.205</td>
+<td>0.087</td>
+<td>0.146</td>
+<td>0.445</td>
+<td>0.205</td>
+<td>0.105</td>
+<td>0.057</td>
+<td></td>
+<td>0.309</td>
+<td>0.125</td>
+<td>0.064</td>
+<td>0.095</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task6_1</td>
+<td>16</td>
+<td>xu2020_t6</td>
+<td>0.456</td>
+<td>0.253</td>
+<td>0.150</td>
+<td>0.087</td>
+<td>0.135</td>
+<td>0.311</td>
+<td>0.198</td>
+<td>0.086</td>
+<td>0.142</td>
+<td>0.457</td>
+<td>0.248</td>
+<td>0.143</td>
+<td>0.083</td>
+<td>0.135</td>
+<td>0.306</td>
+<td>0.203</td>
+<td>0.081</td>
+<td>0.142</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task6_2</td>
+<td>18</td>
+<td>xu2020_t6</td>
+<td>0.459</td>
+<td>0.254</td>
+<td>0.151</td>
+<td>0.086</td>
+<td>0.134</td>
+<td>0.313</td>
+<td>0.182</td>
+<td>0.085</td>
+<td>0.133</td>
+<td>0.459</td>
+<td>0.253</td>
+<td>0.151</td>
+<td>0.086</td>
+<td>0.133</td>
+<td>0.314</td>
+<td>0.192</td>
+<td>0.083</td>
+<td>0.138</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task6_4</td>
+<td>11</td>
+<td>xu2020_t6</td>
+<td>0.525</td>
+<td>0.330</td>
+<td>0.219</td>
+<td>0.136</td>
+<td>0.153</td>
+<td>0.351</td>
+<td>0.284</td>
+<td>0.104</td>
+<td>0.194</td>
+<td>0.529</td>
+<td>0.335</td>
+<td>0.226</td>
+<td>0.146</td>
+<td>0.149</td>
+<td>0.352</td>
+<td>0.280</td>
+<td>0.099</td>
+<td>0.190</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task6_3</td>
+<td>12</td>
+<td>xu2020_t6</td>
+<td>0.470</td>
+<td>0.266</td>
+<td>0.160</td>
+<td>0.095</td>
+<td>0.138</td>
+<td>0.318</td>
+<td>0.215</td>
+<td>0.090</td>
+<td>0.153</td>
+<td>0.479</td>
+<td>0.274</td>
+<td>0.167</td>
+<td>0.099</td>
+<td>0.143</td>
+<td>0.328</td>
+<td>0.232</td>
+<td>0.088</td>
+<td>0.142</td>
+</tr>
+<tr>
+<td></td>
+<td>Sampathkumar_TUC_task6_1</td>
+<td>30</td>
+<td>sampathkumar2020_t6</td>
+<td>0.335</td>
+<td>0.077</td>
+<td>0.018</td>
+<td>0.007</td>
+<td>0.061</td>
+<td>0.225</td>
+<td>0.024</td>
+<td>0.009</td>
+<td>0.017</td>
+<td>0.432</td>
+<td>0.128</td>
+<td>0.141</td>
+<td>0.010</td>
+<td>0.078</td>
+<td>0.251</td>
+<td>0.071</td>
+<td>0.024</td>
+<td>0.024</td>
+</tr>
+<tr>
+<td></td>
+<td>Yuma_NTT_task6_1</td>
+<td>1</td>
+<td>koizumi2020_t1</td>
+<td>0.544</td>
+<td>0.355</td>
+<td>0.239</td>
+<td>0.157</td>
+<td>0.157</td>
+<td>0.365</td>
+<td>0.340</td>
+<td>0.103</td>
+<td>0.222</td>
+<td>0.619</td>
+<td>0.439</td>
+<td>0.313</td>
+<td>0.220</td>
+<td>0.186</td>
+<td>0.417</td>
+<td>0.521</td>
+<td>0.129</td>
+<td>0.325</td>
+</tr>
+<tr>
+<td></td>
+<td>Yuma_NTT_task6_2</td>
+<td>2</td>
+<td>koizumi2020_t1</td>
+<td>0.540</td>
+<td>0.351</td>
+<td>0.236</td>
+<td>0.155</td>
+<td>0.156</td>
+<td>0.363</td>
+<td>0.338</td>
+<td>0.103</td>
+<td>0.220</td>
+<td>0.618</td>
+<td>0.439</td>
+<td>0.314</td>
+<td>0.221</td>
+<td>0.186</td>
+<td>0.416</td>
+<td>0.515</td>
+<td>0.130</td>
+<td>0.322</td>
+</tr>
+<tr>
+<td></td>
+<td>Yuma_NTT_task6_3</td>
+<td>4</td>
+<td>koizumi2020_t1</td>
+<td>0.537</td>
+<td>0.349</td>
+<td>0.233</td>
+<td>0.150</td>
+<td>0.156</td>
+<td>0.358</td>
+<td>0.330</td>
+<td>0.103</td>
+<td>0.216</td>
+<td>0.618</td>
+<td>0.441</td>
+<td>0.315</td>
+<td>0.221</td>
+<td>0.186</td>
+<td>0.417</td>
+<td>0.527</td>
+<td>0.129</td>
+<td>0.328</td>
+</tr>
+<tr>
+<td></td>
+<td>Yuma_NTT_task6_4</td>
+<td>3</td>
+<td>koizumi2020_t1</td>
+<td>0.535</td>
+<td>0.347</td>
+<td>0.233</td>
+<td>0.153</td>
+<td>0.156</td>
+<td>0.359</td>
+<td>0.332</td>
+<td>0.102</td>
+<td>0.217</td>
+<td>0.619</td>
+<td>0.441</td>
+<td>0.317</td>
+<td>0.224</td>
+<td>0.188</td>
+<td>0.418</td>
+<td>0.531</td>
+<td>0.130</td>
+<td>0.331</td>
+</tr>
+<tr>
+<td></td>
+<td>Pellegrini_IRIT_task6_1</td>
+<td>26</td>
+<td>pellegrini2020_t6</td>
+<td>0.426</td>
+<td>0.225</td>
+<td>0.131</td>
+<td>0.072</td>
+<td>0.125</td>
+<td>0.295</td>
+<td>0.136</td>
+<td>0.072</td>
+<td>0.104</td>
+<td>0.436</td>
+<td>0.234</td>
+<td>0.138</td>
+<td>0.076</td>
+<td>0.301</td>
+<td>0.124</td>
+<td>0.140</td>
+<td>0.072</td>
+<td>0.106</td>
+</tr>
+<tr>
+<td></td>
+<td>Pellegrini_IRIT_task6_2</td>
+<td>19</td>
+<td>pellegrini2020_t6</td>
+<td>0.439</td>
+<td>0.252</td>
+<td>0.160</td>
+<td>0.094</td>
+<td>0.137</td>
+<td>0.310</td>
+<td>0.178</td>
+<td>0.082</td>
+<td>0.130</td>
+<td>0.430</td>
+<td>0.248</td>
+<td>0.160</td>
+<td>0.096</td>
+<td>0.305</td>
+<td>0.133</td>
+<td>0.169</td>
+<td>0.079</td>
+<td>0.124</td>
+</tr>
+<tr>
+<td></td>
+<td>Pellegrini_IRIT_task6_3</td>
+<td>22</td>
+<td>pellegrini2020_t6</td>
+<td>0.430</td>
+<td>0.248</td>
+<td>0.154</td>
+<td>0.089</td>
+<td>0.116</td>
+<td>0.292</td>
+<td>0.171</td>
+<td>0.068</td>
+<td>0.119</td>
+<td>0.426</td>
+<td>0.247</td>
+<td>0.157</td>
+<td>0.094</td>
+<td>0.283</td>
+<td>0.112</td>
+<td>0.165</td>
+<td>0.063</td>
+<td>0.114</td>
+</tr>
+<tr>
+<td></td>
+<td>Pellegrini_IRIT_task6_4</td>
+<td>21</td>
+<td>pellegrini2020_t6</td>
+<td>0.421</td>
+<td>0.232</td>
+<td>0.145</td>
+<td>0.086</td>
+<td>0.130</td>
+<td>0.301</td>
+<td>0.164</td>
+<td>0.076</td>
+<td>0.120</td>
+<td>0.415</td>
+<td>0.230</td>
+<td>0.143</td>
+<td>0.085</td>
+<td>0.298</td>
+<td>0.125</td>
+<td>0.162</td>
+<td>0.071</td>
+<td>0.116</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_BUPT_task6_1</td>
+<td>6</td>
+<td>wuyusong2020_t6</td>
+<td>0.519</td>
+<td>0.331</td>
+<td>0.221</td>
+<td>0.144</td>
+<td>0.155</td>
+<td>0.347</td>
+<td>0.316</td>
+<td>0.106</td>
+<td>0.211</td>
+<td>0.534</td>
+<td>0.343</td>
+<td>0.230</td>
+<td>0.151</td>
+<td>0.160</td>
+<td>0.356</td>
+<td>0.346</td>
+<td>0.108</td>
+<td>0.227</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_BUPT_task6_2</td>
+<td>8</td>
+<td>wuyusong2020_t6</td>
+<td>0.510</td>
+<td>0.318</td>
+<td>0.210</td>
+<td>0.137</td>
+<td>0.149</td>
+<td>0.342</td>
+<td>0.302</td>
+<td>0.101</td>
+<td>0.202</td>
+<td>0.530</td>
+<td>0.340</td>
+<td>0.228</td>
+<td>0.151</td>
+<td>0.155</td>
+<td>0.355</td>
+<td>0.339</td>
+<td>0.108</td>
+<td>0.223</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_BUPT_task6_3</td>
+<td>7</td>
+<td>wuyusong2020_t6</td>
+<td>0.515</td>
+<td>0.324</td>
+<td>0.213</td>
+<td>0.137</td>
+<td>0.152</td>
+<td>0.348</td>
+<td>0.304</td>
+<td>0.102</td>
+<td>0.203</td>
+<td>0.529</td>
+<td>0.340</td>
+<td>0.229</td>
+<td>0.154</td>
+<td>0.156</td>
+<td>0.357</td>
+<td>0.339</td>
+<td>0.104</td>
+<td>0.221</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_BUPT_task6_4</td>
+<td>5</td>
+<td>wuyusong2020_t6</td>
+<td>0.519</td>
+<td>0.327</td>
+<td>0.217</td>
+<td>0.141</td>
+<td>0.154</td>
+<td>0.349</td>
+<td>0.323</td>
+<td>0.106</td>
+<td>0.214</td>
+<td>0.532</td>
+<td>0.341</td>
+<td>0.227</td>
+<td>0.149</td>
+<td>0.157</td>
+<td>0.354</td>
+<td>0.340</td>
+<td>0.108</td>
+<td>0.224</td>
+</tr>
+<tr>
+<td></td>
+<td>Kuzmin_MSU_task6_1</td>
+<td>27</td>
+<td>kuzmin2020_t6</td>
+<td>0.312</td>
+<td>0.052</td>
+<td>0.007</td>
+<td>0.000</td>
+<td>0.082</td>
+<td>0.252</td>
+<td>0.020</td>
+<td>0.023</td>
+<td>0.021</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Kuzmin_MSU_task6_2</td>
+<td>28</td>
+<td>kuzmin2020_t6</td>
+<td>0.361</td>
+<td>0.094</td>
+<td>0.028</td>
+<td>0.007</td>
+<td>0.069</td>
+<td>0.248</td>
+<td>0.027</td>
+<td>0.014</td>
+<td>0.020</td>
+<td>0.424</td>
+<td>0.159</td>
+<td>0.067</td>
+<td>0.027</td>
+<td>0.093</td>
+<td>0.288</td>
+<td>0.115</td>
+<td>0.042</td>
+<td>0.078</td>
+</tr>
+<tr>
+<td></td>
+<td>Kuzmin_MSU_task6_3</td>
+<td>28</td>
+<td>kuzmin2020_t6</td>
+<td>0.359</td>
+<td>0.094</td>
+<td>0.033</td>
+<td>0.010</td>
+<td>0.071</td>
+<td>0.250</td>
+<td>0.027</td>
+<td>0.014</td>
+<td>0.020</td>
+<td>0.425</td>
+<td>0.158</td>
+<td>0.065</td>
+<td>0.025</td>
+<td>0.094</td>
+<td>0.290</td>
+<td>0.112</td>
+<td>0.042</td>
+<td>0.077</td>
+</tr>
+<tr>
+<td></td>
+<td>Kuzmin_MSU_task6_4</td>
+<td>30</td>
+<td>kuzmin2020_t6</td>
+<td>0.312</td>
+<td>0.072</td>
+<td>0.028</td>
+<td>0.000</td>
+<td>0.065</td>
+<td>0.232</td>
+<td>0.023</td>
+<td>0.011</td>
+<td>0.017</td>
+<td>0.370</td>
+<td>0.133</td>
+<td>0.059</td>
+<td>0.021</td>
+<td>0.085</td>
+<td>0.269</td>
+<td>0.107</td>
+<td>0.038</td>
+<td>0.072</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Task6_baseline</td>
+<td>29</td>
+<td></td>
+<td>0.344</td>
+<td>0.082</td>
+<td>0.023</td>
+<td>0.000</td>
+<td>0.066</td>
+<td>0.234</td>
+<td>0.022</td>
+<td>0.013</td>
+<td>0.018</td>
+<td>0.389</td>
+<td>0.136</td>
+<td>0.055</td>
+<td>0.015</td>
+<td>0.084</td>
+<td>0.262</td>
+<td>0.074</td>
+<td>0.033</td>
+<td>0.054</td>
+</tr>
+</tbody>
+</table>
+<h2 id="systems-ranking-machine-translation-metrics">Systems ranking, machine translation metrics</h2>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="evaluation_dataset_meteor" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Selected metric<br/>rank</th>
+<th class="sep-left-cell text-center" colspan="3">Submission Information</th>
+<th class="sep-left-cell text-center" colspan="6">Clotho testing split</th>
+<th class="sep-left-cell text-center" colspan="6">Clotho evaluation split</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+              Submission code
+            </th>
+<th class="text-center" data-chartable="true" data-field="anchor_sys_rank" data-sortable="true" data-value-type="int">
+              Best official <br/>system rank
+            </th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+              Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="evaluation_dataset_bleu_1" data-reversed="true" data-sortable="true" data-value-type="float3">
+              BLEU<sub>1</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_bleu_2" data-reversed="true" data-sortable="true" data-value-type="float3">
+                BLEU<sub>2</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_bleu_3" data-reversed="true" data-sortable="true" data-value-type="float3">
+                BLEU<sub>3</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_bleu_4" data-reversed="true" data-sortable="true" data-value-type="float3">
+                BLEU<sub>4</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_meteor" data-reversed="true" data-sortable="true" data-value-type="float3">
+                METEOR
+            </th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_rouge_l" data-reversed="true" data-sortable="true" data-value-type="float3">
+                ROUGE<sub>L</sub>
+</th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="development_dataset_bleu_1" data-reversed="true" data-sortable="true" data-value-type="float3">
+                BLEU<sub>1</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_bleu_2" data-reversed="true" data-sortable="true" data-value-type="float3">
+                BLEU<sub>2</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_bleu_3" data-reversed="true" data-sortable="true" data-value-type="float3">
+                BLEU<sub>3</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_bleu_4" data-reversed="true" data-sortable="true" data-value-type="float3">
+                BLEU<sub>4</sub>
+</th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_meteor" data-reversed="true" data-sortable="true" data-value-type="float3">
+                METEOR
+            </th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_rouge_l" data-reversed="true" data-sortable="true" data-value-type="float3">
+                ROUGE<sub>L</sub>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Wang_PKU_task6_1</td>
+<td>9</td>
+<td>wang2020_t6</td>
+<td>0.491</td>
+<td>0.296</td>
+<td>0.189</td>
+<td>0.119</td>
+<td>0.153</td>
+<td>0.331</td>
+<td>0.489</td>
+<td>0.285</td>
+<td>0.177</td>
+<td>0.107</td>
+<td>0.148</td>
+<td>0.325</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang_PKU_task6_2</td>
+<td>11</td>
+<td>wang2020_t6</td>
+<td>0.498</td>
+<td>0.304</td>
+<td>0.195</td>
+<td>0.121</td>
+<td>0.154</td>
+<td>0.335</td>
+<td>0.489</td>
+<td>0.285</td>
+<td>0.177</td>
+<td>0.107</td>
+<td>0.148</td>
+<td>0.325</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang_PKU_task6_3</td>
+<td>10</td>
+<td>wang2020_t6</td>
+<td>0.495</td>
+<td>0.301</td>
+<td>0.193</td>
+<td>0.121</td>
+<td>0.155</td>
+<td>0.336</td>
+<td>0.489</td>
+<td>0.285</td>
+<td>0.177</td>
+<td>0.107</td>
+<td>0.148</td>
+<td>0.325</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang_PKU_task6_4</td>
+<td>11</td>
+<td>wang2020_t6</td>
+<td>0.500</td>
+<td>0.299</td>
+<td>0.191</td>
+<td>0.120</td>
+<td>0.153</td>
+<td>0.334</td>
+<td>0.489</td>
+<td>0.285</td>
+<td>0.177</td>
+<td>0.107</td>
+<td>0.148</td>
+<td>0.325</td>
+</tr>
+<tr>
+<td></td>
+<td>Shi_SFF_task6_1</td>
+<td>24</td>
+<td>shi2020_t6</td>
+<td>0.432</td>
+<td>0.251</td>
+<td>0.162</td>
+<td>0.098</td>
+<td>0.117</td>
+<td>0.302</td>
+<td>0.419</td>
+<td>0.238</td>
+<td>0.150</td>
+<td>0.092</td>
+<td>0.114</td>
+<td>0.292</td>
+</tr>
+<tr>
+<td></td>
+<td>Shi_SFF_task6_2</td>
+<td>25</td>
+<td>shi2020_t6</td>
+<td>0.429</td>
+<td>0.246</td>
+<td>0.158</td>
+<td>0.096</td>
+<td>0.117</td>
+<td>0.300</td>
+<td>0.421</td>
+<td>0.239</td>
+<td>0.148</td>
+<td>0.089</td>
+<td>0.115</td>
+<td>0.292</td>
+</tr>
+<tr>
+<td></td>
+<td>Shi_SFF_task6_3</td>
+<td>20</td>
+<td>shi2020_t6</td>
+<td>0.435</td>
+<td>0.254</td>
+<td>0.163</td>
+<td>0.099</td>
+<td>0.117</td>
+<td>0.299</td>
+<td>0.423</td>
+<td>0.247</td>
+<td>0.158</td>
+<td>0.097</td>
+<td>0.115</td>
+<td>0.294</td>
+</tr>
+<tr>
+<td></td>
+<td>Shi_SFF_task6_4</td>
+<td>23</td>
+<td>shi2020_t6</td>
+<td>0.428</td>
+<td>0.242</td>
+<td>0.156</td>
+<td>0.099</td>
+<td>0.116</td>
+<td>0.301</td>
+<td>0.425</td>
+<td>0.241</td>
+<td>0.154</td>
+<td>0.098</td>
+<td>0.115</td>
+<td>0.298</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_UESTC_task6_1</td>
+<td>31</td>
+<td>wu2020_t6</td>
+<td>0.378</td>
+<td>0.030</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.063</td>
+<td>0.262</td>
+<td>0.379</td>
+<td>0.020</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.063</td>
+<td>0.261</td>
+</tr>
+<tr>
+<td></td>
+<td>Naranjo-Alcazar_UV_task6_1</td>
+<td>17</td>
+<td>naranjoalcazar2020_t6</td>
+<td>0.464</td>
+<td>0.260</td>
+<td>0.157</td>
+<td>0.092</td>
+<td>0.135</td>
+<td>0.308</td>
+<td>0.453</td>
+<td>0.206</td>
+<td>0.098</td>
+<td>0.049</td>
+<td></td>
+<td>0.307</td>
+</tr>
+<tr>
+<td></td>
+<td>Naranjo-Alcazar_UV_task6_2</td>
+<td>13</td>
+<td>naranjoalcazar2020_t6</td>
+<td>0.469</td>
+<td>0.265</td>
+<td>0.162</td>
+<td>0.096</td>
+<td>0.136</td>
+<td>0.310</td>
+<td>0.464</td>
+<td>0.217</td>
+<td>0.107</td>
+<td>0.056</td>
+<td></td>
+<td>0.313</td>
+</tr>
+<tr>
+<td></td>
+<td>Naranjo-Alcazar_UV_task6_3</td>
+<td>14</td>
+<td>naranjoalcazar2020_t6</td>
+<td>0.466</td>
+<td>0.261</td>
+<td>0.156</td>
+<td>0.091</td>
+<td>0.137</td>
+<td>0.310</td>
+<td>0.448</td>
+<td>0.208</td>
+<td>0.102</td>
+<td>0.054</td>
+<td></td>
+<td>0.310</td>
+</tr>
+<tr>
+<td></td>
+<td>Naranjo-Alcazar_UV_task6_4</td>
+<td>15</td>
+<td>naranjoalcazar2020_t6</td>
+<td>0.464</td>
+<td>0.259</td>
+<td>0.154</td>
+<td>0.086</td>
+<td>0.137</td>
+<td>0.310</td>
+<td>0.445</td>
+<td>0.205</td>
+<td>0.105</td>
+<td>0.057</td>
+<td></td>
+<td>0.309</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task6_1</td>
+<td>16</td>
+<td>xu2020_t6</td>
+<td>0.456</td>
+<td>0.253</td>
+<td>0.150</td>
+<td>0.087</td>
+<td>0.135</td>
+<td>0.311</td>
+<td>0.457</td>
+<td>0.248</td>
+<td>0.143</td>
+<td>0.083</td>
+<td>0.135</td>
+<td>0.306</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task6_2</td>
+<td>18</td>
+<td>xu2020_t6</td>
+<td>0.459</td>
+<td>0.254</td>
+<td>0.151</td>
+<td>0.086</td>
+<td>0.134</td>
+<td>0.313</td>
+<td>0.459</td>
+<td>0.253</td>
+<td>0.151</td>
+<td>0.086</td>
+<td>0.133</td>
+<td>0.314</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task6_4</td>
+<td>11</td>
+<td>xu2020_t6</td>
+<td>0.525</td>
+<td>0.330</td>
+<td>0.219</td>
+<td>0.136</td>
+<td>0.153</td>
+<td>0.351</td>
+<td>0.529</td>
+<td>0.335</td>
+<td>0.226</td>
+<td>0.146</td>
+<td>0.149</td>
+<td>0.352</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task6_3</td>
+<td>12</td>
+<td>xu2020_t6</td>
+<td>0.470</td>
+<td>0.266</td>
+<td>0.160</td>
+<td>0.095</td>
+<td>0.138</td>
+<td>0.318</td>
+<td>0.479</td>
+<td>0.274</td>
+<td>0.167</td>
+<td>0.099</td>
+<td>0.143</td>
+<td>0.328</td>
+</tr>
+<tr>
+<td></td>
+<td>Sampathkumar_TUC_task6_1</td>
+<td>30</td>
+<td>sampathkumar2020_t6</td>
+<td>0.335</td>
+<td>0.077</td>
+<td>0.018</td>
+<td>0.007</td>
+<td>0.061</td>
+<td>0.225</td>
+<td>0.432</td>
+<td>0.128</td>
+<td>0.141</td>
+<td>0.010</td>
+<td>0.078</td>
+<td>0.251</td>
+</tr>
+<tr>
+<td></td>
+<td>Yuma_NTT_task6_1</td>
+<td>1</td>
+<td>koizumi2020_t1</td>
+<td>0.544</td>
+<td>0.355</td>
+<td>0.239</td>
+<td>0.157</td>
+<td>0.157</td>
+<td>0.365</td>
+<td>0.619</td>
+<td>0.439</td>
+<td>0.313</td>
+<td>0.220</td>
+<td>0.186</td>
+<td>0.417</td>
+</tr>
+<tr>
+<td></td>
+<td>Yuma_NTT_task6_2</td>
+<td>2</td>
+<td>koizumi2020_t1</td>
+<td>0.540</td>
+<td>0.351</td>
+<td>0.236</td>
+<td>0.155</td>
+<td>0.156</td>
+<td>0.363</td>
+<td>0.618</td>
+<td>0.439</td>
+<td>0.314</td>
+<td>0.221</td>
+<td>0.186</td>
+<td>0.416</td>
+</tr>
+<tr>
+<td></td>
+<td>Yuma_NTT_task6_3</td>
+<td>4</td>
+<td>koizumi2020_t1</td>
+<td>0.537</td>
+<td>0.349</td>
+<td>0.233</td>
+<td>0.150</td>
+<td>0.156</td>
+<td>0.358</td>
+<td>0.618</td>
+<td>0.441</td>
+<td>0.315</td>
+<td>0.221</td>
+<td>0.186</td>
+<td>0.417</td>
+</tr>
+<tr>
+<td></td>
+<td>Yuma_NTT_task6_4</td>
+<td>3</td>
+<td>koizumi2020_t1</td>
+<td>0.535</td>
+<td>0.347</td>
+<td>0.233</td>
+<td>0.153</td>
+<td>0.156</td>
+<td>0.359</td>
+<td>0.619</td>
+<td>0.441</td>
+<td>0.317</td>
+<td>0.224</td>
+<td>0.188</td>
+<td>0.418</td>
+</tr>
+<tr>
+<td></td>
+<td>Pellegrini_IRIT_task6_1</td>
+<td>26</td>
+<td>pellegrini2020_t6</td>
+<td>0.426</td>
+<td>0.225</td>
+<td>0.131</td>
+<td>0.072</td>
+<td>0.125</td>
+<td>0.295</td>
+<td>0.436</td>
+<td>0.234</td>
+<td>0.138</td>
+<td>0.076</td>
+<td>0.301</td>
+<td>0.124</td>
+</tr>
+<tr>
+<td></td>
+<td>Pellegrini_IRIT_task6_2</td>
+<td>19</td>
+<td>pellegrini2020_t6</td>
+<td>0.439</td>
+<td>0.252</td>
+<td>0.160</td>
+<td>0.094</td>
+<td>0.137</td>
+<td>0.310</td>
+<td>0.430</td>
+<td>0.248</td>
+<td>0.160</td>
+<td>0.096</td>
+<td>0.305</td>
+<td>0.133</td>
+</tr>
+<tr>
+<td></td>
+<td>Pellegrini_IRIT_task6_3</td>
+<td>22</td>
+<td>pellegrini2020_t6</td>
+<td>0.430</td>
+<td>0.248</td>
+<td>0.154</td>
+<td>0.089</td>
+<td>0.116</td>
+<td>0.292</td>
+<td>0.426</td>
+<td>0.247</td>
+<td>0.157</td>
+<td>0.094</td>
+<td>0.283</td>
+<td>0.112</td>
+</tr>
+<tr>
+<td></td>
+<td>Pellegrini_IRIT_task6_4</td>
+<td>21</td>
+<td>pellegrini2020_t6</td>
+<td>0.421</td>
+<td>0.232</td>
+<td>0.145</td>
+<td>0.086</td>
+<td>0.130</td>
+<td>0.301</td>
+<td>0.415</td>
+<td>0.230</td>
+<td>0.143</td>
+<td>0.085</td>
+<td>0.298</td>
+<td>0.125</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_BUPT_task6_1</td>
+<td>6</td>
+<td>wuyusong2020_t6</td>
+<td>0.519</td>
+<td>0.331</td>
+<td>0.221</td>
+<td>0.144</td>
+<td>0.155</td>
+<td>0.347</td>
+<td>0.534</td>
+<td>0.343</td>
+<td>0.230</td>
+<td>0.151</td>
+<td>0.160</td>
+<td>0.356</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_BUPT_task6_2</td>
+<td>8</td>
+<td>wuyusong2020_t6</td>
+<td>0.510</td>
+<td>0.318</td>
+<td>0.210</td>
+<td>0.137</td>
+<td>0.149</td>
+<td>0.342</td>
+<td>0.530</td>
+<td>0.340</td>
+<td>0.228</td>
+<td>0.151</td>
+<td>0.155</td>
+<td>0.355</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_BUPT_task6_3</td>
+<td>7</td>
+<td>wuyusong2020_t6</td>
+<td>0.515</td>
+<td>0.324</td>
+<td>0.213</td>
+<td>0.137</td>
+<td>0.152</td>
+<td>0.348</td>
+<td>0.529</td>
+<td>0.340</td>
+<td>0.229</td>
+<td>0.154</td>
+<td>0.156</td>
+<td>0.357</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_BUPT_task6_4</td>
+<td>5</td>
+<td>wuyusong2020_t6</td>
+<td>0.519</td>
+<td>0.327</td>
+<td>0.217</td>
+<td>0.141</td>
+<td>0.154</td>
+<td>0.349</td>
+<td>0.532</td>
+<td>0.341</td>
+<td>0.227</td>
+<td>0.149</td>
+<td>0.157</td>
+<td>0.354</td>
+</tr>
+<tr>
+<td></td>
+<td>Kuzmin_MSU_task6_1</td>
+<td>27</td>
+<td>kuzmin2020_t6</td>
+<td>0.312</td>
+<td>0.052</td>
+<td>0.007</td>
+<td>0.000</td>
+<td>0.082</td>
+<td>0.252</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Kuzmin_MSU_task6_2</td>
+<td>28</td>
+<td>kuzmin2020_t6</td>
+<td>0.361</td>
+<td>0.094</td>
+<td>0.028</td>
+<td>0.007</td>
+<td>0.069</td>
+<td>0.248</td>
+<td>0.424</td>
+<td>0.159</td>
+<td>0.067</td>
+<td>0.027</td>
+<td>0.093</td>
+<td>0.288</td>
+</tr>
+<tr>
+<td></td>
+<td>Kuzmin_MSU_task6_3</td>
+<td>28</td>
+<td>kuzmin2020_t6</td>
+<td>0.359</td>
+<td>0.094</td>
+<td>0.033</td>
+<td>0.010</td>
+<td>0.071</td>
+<td>0.250</td>
+<td>0.425</td>
+<td>0.158</td>
+<td>0.065</td>
+<td>0.025</td>
+<td>0.094</td>
+<td>0.290</td>
+</tr>
+<tr>
+<td></td>
+<td>Kuzmin_MSU_task6_4</td>
+<td>30</td>
+<td>kuzmin2020_t6</td>
+<td>0.312</td>
+<td>0.072</td>
+<td>0.028</td>
+<td>0.000</td>
+<td>0.065</td>
+<td>0.232</td>
+<td>0.370</td>
+<td>0.133</td>
+<td>0.059</td>
+<td>0.021</td>
+<td>0.085</td>
+<td>0.269</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Task6_baseline</td>
+<td>29</td>
+<td></td>
+<td>0.344</td>
+<td>0.082</td>
+<td>0.023</td>
+<td>0.000</td>
+<td>0.066</td>
+<td>0.234</td>
+<td>0.389</td>
+<td>0.136</td>
+<td>0.055</td>
+<td>0.015</td>
+<td>0.084</td>
+<td>0.262</td>
+</tr>
+</tbody>
+</table>
+<h2 id="systems-ranking-captioning-metrics">Systems ranking, captioning metrics</h2>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="bar" data-chart-modes="bar" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="evaluation_dataset_spider" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Selected metric<br/>rank</th>
+<th class="sep-left-cell text-center" colspan="3">Submission Information</th>
+<th class="sep-left-cell text-center" colspan="3">Clotho testing split</th>
+<th class="sep-left-cell text-center" colspan="3">Clotho evaluation split</th>
+</tr>
+<tr>
+<th data-field="code" data-sortable="true">
+              Submission code
+            </th>
+<th class="text-center" data-chartable="true" data-field="anchor_sys_rank" data-sortable="true" data-value-type="int">
+        Best official <br/>system rank
+        </th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+              Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="evaluation_dataset_cider" data-reversed="true" data-sortable="true" data-value-type="float3">
+              CIDEr
+            </th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_spice" data-reversed="true" data-sortable="true" data-value-type="float3">
+              SPICE
+            </th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_spider" data-reversed="true" data-sortable="true" data-value-type="float3">
+              SPIDEr
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="development_dataset_cider" data-reversed="true" data-sortable="true" data-value-type="float3">
+              CIDEr
+            </th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_spice" data-reversed="true" data-sortable="true" data-value-type="float3">
+              SPICE
+            </th>
+<th class="text-center" data-chartable="true" data-field="development_dataset_spider" data-reversed="true" data-sortable="true" data-value-type="float3">
+              SPIDEr
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Wang_PKU_task6_1</td>
+<td>9</td>
+<td>wang2020_t6</td>
+<td>0.290</td>
+<td>0.102</td>
+<td>0.196</td>
+<td>0.252</td>
+<td>0.091</td>
+<td>0.172</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang_PKU_task6_2</td>
+<td>11</td>
+<td>wang2020_t6</td>
+<td>0.287</td>
+<td>0.101</td>
+<td>0.194</td>
+<td>0.252</td>
+<td>0.091</td>
+<td>0.172</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang_PKU_task6_3</td>
+<td>10</td>
+<td>wang2020_t6</td>
+<td>0.288</td>
+<td>0.101</td>
+<td>0.195</td>
+<td>0.252</td>
+<td>0.091</td>
+<td>0.172</td>
+</tr>
+<tr>
+<td></td>
+<td>Wang_PKU_task6_4</td>
+<td>11</td>
+<td>wang2020_t6</td>
+<td>0.287</td>
+<td>0.100</td>
+<td>0.194</td>
+<td>0.252</td>
+<td>0.091</td>
+<td>0.172</td>
+</tr>
+<tr>
+<td></td>
+<td>Shi_SFF_task6_1</td>
+<td>24</td>
+<td>shi2020_t6</td>
+<td>0.161</td>
+<td>0.070</td>
+<td>0.115</td>
+<td>0.149</td>
+<td>0.064</td>
+<td>0.106</td>
+</tr>
+<tr>
+<td></td>
+<td>Shi_SFF_task6_2</td>
+<td>25</td>
+<td>shi2020_t6</td>
+<td>0.161</td>
+<td>0.065</td>
+<td>0.113</td>
+<td>0.153</td>
+<td>0.063</td>
+<td>0.108</td>
+</tr>
+<tr>
+<td></td>
+<td>Shi_SFF_task6_3</td>
+<td>20</td>
+<td>shi2020_t6</td>
+<td>0.172</td>
+<td>0.069</td>
+<td>0.121</td>
+<td>0.168</td>
+<td>0.066</td>
+<td>0.117</td>
+</tr>
+<tr>
+<td></td>
+<td>Shi_SFF_task6_4</td>
+<td>23</td>
+<td>shi2020_t6</td>
+<td>0.172</td>
+<td>0.063</td>
+<td>0.118</td>
+<td>0.169</td>
+<td>0.063</td>
+<td>0.116</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_UESTC_task6_1</td>
+<td>31</td>
+<td>wu2020_t6</td>
+<td>0.024</td>
+<td>0.000</td>
+<td>0.012</td>
+<td>0.024</td>
+<td>0.001</td>
+<td>0.012</td>
+</tr>
+<tr>
+<td></td>
+<td>Naranjo-Alcazar_UV_task6_1</td>
+<td>17</td>
+<td>naranjoalcazar2020_t6</td>
+<td>0.195</td>
+<td>0.083</td>
+<td>0.139</td>
+<td>0.122</td>
+<td>0.060</td>
+<td>0.091</td>
+</tr>
+<tr>
+<td></td>
+<td>Naranjo-Alcazar_UV_task6_2</td>
+<td>13</td>
+<td>naranjoalcazar2020_t6</td>
+<td>0.214</td>
+<td>0.086</td>
+<td>0.150</td>
+<td>0.144</td>
+<td>0.065</td>
+<td>0.104</td>
+</tr>
+<tr>
+<td></td>
+<td>Naranjo-Alcazar_UV_task6_3</td>
+<td>14</td>
+<td>naranjoalcazar2020_t6</td>
+<td>0.207</td>
+<td>0.086</td>
+<td>0.147</td>
+<td>0.124</td>
+<td>0.063</td>
+<td>0.093</td>
+</tr>
+<tr>
+<td></td>
+<td>Naranjo-Alcazar_UV_task6_4</td>
+<td>15</td>
+<td>naranjoalcazar2020_t6</td>
+<td>0.205</td>
+<td>0.087</td>
+<td>0.146</td>
+<td>0.125</td>
+<td>0.064</td>
+<td>0.095</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task6_1</td>
+<td>16</td>
+<td>xu2020_t6</td>
+<td>0.198</td>
+<td>0.086</td>
+<td>0.142</td>
+<td>0.203</td>
+<td>0.081</td>
+<td>0.142</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task6_2</td>
+<td>18</td>
+<td>xu2020_t6</td>
+<td>0.182</td>
+<td>0.085</td>
+<td>0.133</td>
+<td>0.192</td>
+<td>0.083</td>
+<td>0.138</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task6_4</td>
+<td>11</td>
+<td>xu2020_t6</td>
+<td>0.284</td>
+<td>0.104</td>
+<td>0.194</td>
+<td>0.280</td>
+<td>0.099</td>
+<td>0.190</td>
+</tr>
+<tr>
+<td></td>
+<td>Xu_SJTU_task6_3</td>
+<td>12</td>
+<td>xu2020_t6</td>
+<td>0.215</td>
+<td>0.090</td>
+<td>0.153</td>
+<td>0.232</td>
+<td>0.088</td>
+<td>0.142</td>
+</tr>
+<tr>
+<td></td>
+<td>Sampathkumar_TUC_task6_1</td>
+<td>30</td>
+<td>sampathkumar2020_t6</td>
+<td>0.024</td>
+<td>0.009</td>
+<td>0.017</td>
+<td>0.071</td>
+<td>0.024</td>
+<td>0.024</td>
+</tr>
+<tr>
+<td></td>
+<td>Yuma_NTT_task6_1</td>
+<td>1</td>
+<td>koizumi2020_t1</td>
+<td>0.340</td>
+<td>0.103</td>
+<td>0.222</td>
+<td>0.521</td>
+<td>0.129</td>
+<td>0.325</td>
+</tr>
+<tr>
+<td></td>
+<td>Yuma_NTT_task6_2</td>
+<td>2</td>
+<td>koizumi2020_t1</td>
+<td>0.338</td>
+<td>0.103</td>
+<td>0.220</td>
+<td>0.515</td>
+<td>0.130</td>
+<td>0.322</td>
+</tr>
+<tr>
+<td></td>
+<td>Yuma_NTT_task6_3</td>
+<td>4</td>
+<td>koizumi2020_t1</td>
+<td>0.330</td>
+<td>0.103</td>
+<td>0.216</td>
+<td>0.527</td>
+<td>0.129</td>
+<td>0.328</td>
+</tr>
+<tr>
+<td></td>
+<td>Yuma_NTT_task6_4</td>
+<td>3</td>
+<td>koizumi2020_t1</td>
+<td>0.332</td>
+<td>0.102</td>
+<td>0.217</td>
+<td>0.531</td>
+<td>0.130</td>
+<td>0.331</td>
+</tr>
+<tr>
+<td></td>
+<td>Pellegrini_IRIT_task6_1</td>
+<td>26</td>
+<td>pellegrini2020_t6</td>
+<td>0.136</td>
+<td>0.072</td>
+<td>0.104</td>
+<td>0.140</td>
+<td>0.072</td>
+<td>0.106</td>
+</tr>
+<tr>
+<td></td>
+<td>Pellegrini_IRIT_task6_2</td>
+<td>19</td>
+<td>pellegrini2020_t6</td>
+<td>0.178</td>
+<td>0.082</td>
+<td>0.130</td>
+<td>0.169</td>
+<td>0.079</td>
+<td>0.124</td>
+</tr>
+<tr>
+<td></td>
+<td>Pellegrini_IRIT_task6_3</td>
+<td>22</td>
+<td>pellegrini2020_t6</td>
+<td>0.171</td>
+<td>0.068</td>
+<td>0.119</td>
+<td>0.165</td>
+<td>0.063</td>
+<td>0.114</td>
+</tr>
+<tr>
+<td></td>
+<td>Pellegrini_IRIT_task6_4</td>
+<td>21</td>
+<td>pellegrini2020_t6</td>
+<td>0.164</td>
+<td>0.076</td>
+<td>0.120</td>
+<td>0.162</td>
+<td>0.071</td>
+<td>0.116</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_BUPT_task6_1</td>
+<td>6</td>
+<td>wuyusong2020_t6</td>
+<td>0.316</td>
+<td>0.106</td>
+<td>0.211</td>
+<td>0.346</td>
+<td>0.108</td>
+<td>0.227</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_BUPT_task6_2</td>
+<td>8</td>
+<td>wuyusong2020_t6</td>
+<td>0.302</td>
+<td>0.101</td>
+<td>0.202</td>
+<td>0.339</td>
+<td>0.108</td>
+<td>0.223</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_BUPT_task6_3</td>
+<td>7</td>
+<td>wuyusong2020_t6</td>
+<td>0.304</td>
+<td>0.102</td>
+<td>0.203</td>
+<td>0.339</td>
+<td>0.104</td>
+<td>0.221</td>
+</tr>
+<tr>
+<td></td>
+<td>Wu_BUPT_task6_4</td>
+<td>5</td>
+<td>wuyusong2020_t6</td>
+<td>0.323</td>
+<td>0.106</td>
+<td>0.214</td>
+<td>0.340</td>
+<td>0.108</td>
+<td>0.224</td>
+</tr>
+<tr>
+<td></td>
+<td>Kuzmin_MSU_task6_1</td>
+<td>27</td>
+<td>kuzmin2020_t6</td>
+<td>0.020</td>
+<td>0.023</td>
+<td>0.021</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Kuzmin_MSU_task6_2</td>
+<td>28</td>
+<td>kuzmin2020_t6</td>
+<td>0.027</td>
+<td>0.014</td>
+<td>0.020</td>
+<td>0.115</td>
+<td>0.042</td>
+<td>0.078</td>
+</tr>
+<tr>
+<td></td>
+<td>Kuzmin_MSU_task6_3</td>
+<td>28</td>
+<td>kuzmin2020_t6</td>
+<td>0.027</td>
+<td>0.014</td>
+<td>0.020</td>
+<td>0.112</td>
+<td>0.042</td>
+<td>0.077</td>
+</tr>
+<tr>
+<td></td>
+<td>Kuzmin_MSU_task6_4</td>
+<td>30</td>
+<td>kuzmin2020_t6</td>
+<td>0.023</td>
+<td>0.011</td>
+<td>0.017</td>
+<td>0.107</td>
+<td>0.038</td>
+<td>0.072</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Task6_baseline</td>
+<td>29</td>
+<td></td>
+<td>0.022</td>
+<td>0.013</td>
+<td>0.018</td>
+<td>0.074</td>
+<td>0.033</td>
+<td>0.054</td>
+</tr>
+</tbody>
+</table>
+<h1 id="system-characteristics">System characteristics</h1>
+<table class="datatable table table-hover table-condensed" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-chart-tooltip-fields="code" data-filter-control="true" data-filter-show-clear="true" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="inference_parameters" data-scatter-y="evaluation_dataset_spider" data-show-bar-chart-xaxis="false" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="anchor_sys_rank" data-sort-order="asc" data-striped="true" data-tag-mode="column">
+<thead>
+<tr>
+<th data-field="anchor_sys_rank" data-sortable="true" data-value-type="int">
+            Rank
+            </th>
+<th class="sm-cell" data-field="code" data-sortable="true">
+              Submission<br/>code
+            </th>
+<th class="text-center" data-chartable="true" data-field="evaluation_dataset_spider" data-reversed="false" data-sortable="true" data-value-type="float3">
+              SPIDEr
+            </th>
+<th class="sep-left-cell text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+              Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="machine_learning_method" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Method scheme/architecture
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-axis-scale="log10_unit" data-chartable="true" data-field="inference_parameters" data-sortable="true" data-value-type="numeric-unit">
+              Amount of parameters
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="encoder" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Encoder
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="decoder" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Decoder
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="classifier" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Classifier
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="acoustic_features" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Acoustic<br/>features
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="word_features" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Word<br/>representation
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="data_augmentation" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Data<br/>augmentation
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="input_sampling_rate" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Sampling <br/>rate
+            </th>
+<th class="sep-left-cell text-center narrow-col" data-field="used_metadata" data-filter-control="select" data-filter-strict-search="true" data-sortable="true" data-tag="true">
+              Used <br/>meta-data
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9</td>
+<td>Wang_PKU_task6_1</td>
+<td>0.196</td>
+<td>wang2020_t6</td>
+<td>encoder-decoder</td>
+<td>12577360</td>
+<td>CNN</td>
+<td>RNN-LSTM</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td>SpecAugment</td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Wang_PKU_task6_2</td>
+<td>0.194</td>
+<td>wang2020_t6</td>
+<td>encoder-decoder</td>
+<td>12577360</td>
+<td>CNN</td>
+<td>RNN-LSTM</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td>SpecAugment</td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Wang_PKU_task6_3</td>
+<td>0.195</td>
+<td>wang2020_t6</td>
+<td>encoder-decoder</td>
+<td>12577360</td>
+<td>CNN</td>
+<td>RNN-LSTM</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td>SpecAugment</td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Wang_PKU_task6_4</td>
+<td>0.194</td>
+<td>wang2020_t6</td>
+<td>encoder-decoder</td>
+<td>12577360</td>
+<td>CNN</td>
+<td>RNN-LSTM</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td>SpecAugment</td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Shi_SFF_task6_1</td>
+<td>0.115</td>
+<td>shi2020_t6</td>
+<td>seq2seq</td>
+<td></td>
+<td>transformer encoder</td>
+<td></td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td>temporal-frequency shift</td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Shi_SFF_task6_2</td>
+<td>0.113</td>
+<td>shi2020_t6</td>
+<td>seq2seq</td>
+<td></td>
+<td>transformer encoder</td>
+<td></td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td>temporal-frequency shift</td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Shi_SFF_task6_3</td>
+<td>0.121</td>
+<td>shi2020_t6</td>
+<td>seq2seq</td>
+<td></td>
+<td>transformer encoder</td>
+<td>transformer decoder</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td>temporal-frequency shift</td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Shi_SFF_task6_4</td>
+<td>0.118</td>
+<td>shi2020_t6</td>
+<td>seq2seq</td>
+<td></td>
+<td>transformer encoder</td>
+<td>transformer decoder</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td>temporal-frequency shift</td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Wu_UESTC_task6_1</td>
+<td>0.012</td>
+<td>wu2020_t6</td>
+<td>seq2seq</td>
+<td>60730943</td>
+<td>CNN</td>
+<td>multi-layer RNN-GRU</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td></td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Naranjo-Alcazar_UV_task6_1</td>
+<td>0.139</td>
+<td>naranjoalcazar2020_t6</td>
+<td>encoder-decoder</td>
+<td>38734544</td>
+<td>CNN</td>
+<td>RNN-LSTM</td>
+<td>feed-forward</td>
+<td>log-Gammatone spectrogram</td>
+<td>one-hot</td>
+<td></td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Naranjo-Alcazar_UV_task6_2</td>
+<td>0.150</td>
+<td>naranjoalcazar2020_t6</td>
+<td>encoder-decoder</td>
+<td>57726672</td>
+<td>CNN</td>
+<td>RNN-LSTM</td>
+<td>feed-forward</td>
+<td>log-Gammatone spectrogram</td>
+<td>one-hot</td>
+<td></td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Naranjo-Alcazar_UV_task6_3</td>
+<td>0.147</td>
+<td>naranjoalcazar2020_t6</td>
+<td>encoder-decoder</td>
+<td>73370320</td>
+<td>CNN</td>
+<td>RNN-LSTM</td>
+<td>feed-forward</td>
+<td>log-Gammatone spectrogram</td>
+<td>one-hot</td>
+<td></td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Naranjo-Alcazar_UV_task6_4</td>
+<td>0.146</td>
+<td>naranjoalcazar2020_t6</td>
+<td>encoder-decoder</td>
+<td>140064208</td>
+<td>CNN</td>
+<td>RNN-LSTM</td>
+<td>feed-forward</td>
+<td>log-Gammatone spectrogram</td>
+<td>one-hot</td>
+<td></td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Xu_SJTU_task6_1</td>
+<td>0.142</td>
+<td>xu2020_t6</td>
+<td>seq2seq</td>
+<td>5224055</td>
+<td>CRNN-BGRU</td>
+<td>RNN-GRU</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>embeddings</td>
+<td></td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Xu_SJTU_task6_2</td>
+<td>0.133</td>
+<td>xu2020_t6</td>
+<td>seq2seq</td>
+<td>5224055</td>
+<td>CRNN-BGRU</td>
+<td>RNN-GRU</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>embeddings</td>
+<td></td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Xu_SJTU_task6_4</td>
+<td>0.194</td>
+<td>xu2020_t6</td>
+<td>seq2seq</td>
+<td>5224055</td>
+<td>CRNN-BGRU</td>
+<td>RNN-GRU</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>embeddings</td>
+<td></td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Xu_SJTU_task6_3</td>
+<td>0.153</td>
+<td>xu2020_t6</td>
+<td>seq2seq</td>
+<td>10448110</td>
+<td>CRNN-BGRU</td>
+<td>RNN-GRU</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>embeddings</td>
+<td></td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Sampathkumar_TUC_task6_1</td>
+<td>0.017</td>
+<td>sampathkumar2020_t6</td>
+<td>seq2seq</td>
+<td>5756431</td>
+<td>multi-layer RNN-BGRU</td>
+<td>RNN-GRU</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>embedding</td>
+<td></td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Yuma_NTT_task6_1</td>
+<td>0.222</td>
+<td>koizumi2020_t1</td>
+<td>seq2seq, keyword estimation, sentence length estimation</td>
+<td>32994840</td>
+<td>multi-layer RNN-BLSTM</td>
+<td>RNN-LSTM</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>embeddings</td>
+<td>mix-up, TF-IDF-based word replacement, random data cropping</td>
+<td>22.05kHz</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Yuma_NTT_task6_2</td>
+<td>0.220</td>
+<td>koizumi2020_t1</td>
+<td>seq2seq, keyword estimation, sentence length estimation</td>
+<td>82487110</td>
+<td>multi-layer RNN-BLSTM</td>
+<td>RNN-LSTM</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>embeddings</td>
+<td>mix-up, TF-IDF-based word replacement, random data cropping</td>
+<td>22.05kHz</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Yuma_NTT_task6_3</td>
+<td>0.216</td>
+<td>koizumi2020_t1</td>
+<td>seq2seq, keyword estimation, sentence length estimation</td>
+<td>20670182</td>
+<td>multi-layer RNN-BLSTM</td>
+<td>RNN-LSTM</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>embeddings</td>
+<td>mix-up, TF-IDF-based word replacement, random data cropping</td>
+<td>22.05kHz</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Yuma_NTT_task6_4</td>
+<td>0.217</td>
+<td>koizumi2020_t1</td>
+<td>seq2seq, keyword estimation, sentence length estimation</td>
+<td>51675455</td>
+<td>multi-layer RNN-BLSTM</td>
+<td>RNN-LSTM</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>embeddings</td>
+<td>mix-up, TF-IDF-based word replacement, random data cropping</td>
+<td>22.05kHz</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Pellegrini_IRIT_task6_1</td>
+<td>0.104</td>
+<td>pellegrini2020_t6</td>
+<td>seq2seq</td>
+<td>2887375</td>
+<td>multi-layer RNN-pBLSTM</td>
+<td>multi-layer RNN-LSTM</td>
+<td>feed-forward, greedy search</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td></td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Pellegrini_IRIT_task6_2</td>
+<td>0.130</td>
+<td>pellegrini2020_t6</td>
+<td>seq2seq</td>
+<td>2887375</td>
+<td>multi-layer RNN-pBLSTM</td>
+<td>multi-layer RNN-LSTM</td>
+<td>feed-forward, beam search</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td></td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Pellegrini_IRIT_task6_3</td>
+<td>0.119</td>
+<td>pellegrini2020_t6</td>
+<td>seq2seq</td>
+<td>2887375</td>
+<td>multi-layer RNN-pBLSTM</td>
+<td>multi-layer RNN-LSTM</td>
+<td>feed-forward, beam search with LM</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td></td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Pellegrini_IRIT_task6_4</td>
+<td>0.120</td>
+<td>pellegrini2020_t6</td>
+<td>seq2seq</td>
+<td>2120744</td>
+<td>multi-layer RNN-pBLSTM</td>
+<td>multi-layer RNN-LSTM</td>
+<td>feed-forward, greedy search</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td></td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Wu_BUPT_task6_1</td>
+<td>0.211</td>
+<td>wuyusong2020_t6</td>
+<td>encoder-decoder</td>
+<td>8901648</td>
+<td>CNN</td>
+<td>Transformer</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>embeddings</td>
+<td>SpecAugment</td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Wu_BUPT_task6_2</td>
+<td>0.202</td>
+<td>wuyusong2020_t6</td>
+<td>encoder-decoder</td>
+<td>8901648</td>
+<td>CNN</td>
+<td>Transformer</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>embeddings</td>
+<td>SpecAugment</td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Wu_BUPT_task6_3</td>
+<td>0.203</td>
+<td>wuyusong2020_t6</td>
+<td>encoder-decoder</td>
+<td>8901648</td>
+<td>CNN</td>
+<td>Transformer</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>embeddings</td>
+<td>SpecAugment</td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Wu_BUPT_task6_4</td>
+<td>0.214</td>
+<td>wuyusong2020_t6</td>
+<td>encoder-decoder</td>
+<td>8901648</td>
+<td>CNN</td>
+<td>Transformer</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>embeddings</td>
+<td>SpecAugment</td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Kuzmin_MSU_task6_1</td>
+<td>0.021</td>
+<td>kuzmin2020_t6</td>
+<td>seq2seq</td>
+<td>4804112</td>
+<td>multi-layer RNN-GRU</td>
+<td>RNN-GRU</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td>mix-up, reverb, pitch, overdrive, speed</td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Kuzmin_MSU_task6_2</td>
+<td>0.020</td>
+<td>kuzmin2020_t6</td>
+<td>seq2seq</td>
+<td>15178255</td>
+<td>multi-layer RNN-GRU</td>
+<td>RNN-GRU</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td>mix-up</td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Kuzmin_MSU_task6_3</td>
+<td>0.020</td>
+<td>kuzmin2020_t6</td>
+<td>seq2seq</td>
+<td>15178255</td>
+<td>multi-layer RNN-GRU</td>
+<td>RNN-GRU</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td>mix-up, reverb, pitch, overdrive, speed</td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Kuzmin_MSU_task6_4</td>
+<td>0.017</td>
+<td>kuzmin2020_t6</td>
+<td>seq2seq</td>
+<td>4804112</td>
+<td>multi-layer RNN-GRU</td>
+<td>RNN-GRU</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td>mix-up</td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+<tr class="info" data-hline="true">
+<td>29</td>
+<td>Task6_baseline</td>
+<td>0.018</td>
+<td></td>
+<td>seq2seq</td>
+<td>5012931</td>
+<td>multi-layer RNN-GRU</td>
+<td>multi-layer RNN-GRU</td>
+<td>feed-forward</td>
+<td>log-mel energies</td>
+<td>one-hot</td>
+<td></td>
+<td>44.1kHz</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><br/>
+<br/></p>
+<h1 id="technical-reports">Technical reports</h1>
+<div class="btex" data-source="content/data/challenge2020/technical_reports_task6.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="koizumi2020_t1" style="box-shadow: none">
+<div class="panel-heading" id="heading-koizumi2020_t1" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        The NTT DCASE2020 Challenge Task 6 System: Automated Audio Captioning With Keywords and Sentence Length Estimation
+       </h4>
+<p style="text-align:left">
+        Yuma Koizumi and Daiki Takeuchi and Yasunori Ohishi and Noboru Harada and Kunio Kashino
+       </p>
+<p style="text-align:left">
+<em>
+         NTT Corporation, Japan
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Koizumi_NTT_task6_1</span> <span class="label label-primary">Koizumi_NTT_task6_2</span> <span class="label label-primary">Koizumi_NTT_task6_3</span> <span class="label label-primary">Koizumi_NTT_task6_4</span> <span class="clearfix"></span><span class="clearfix"></span><span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-koizumi2020_t1" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-koizumi2020_t1" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-koizumi2020_t1" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Koizumi_63_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-koizumi2020_t1" class="panel-collapse collapse" id="collapse-koizumi2020_t1" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       The NTT DCASE2020 Challenge Task 6 System: Automated Audio Captioning With Keywords and Sentence Length Estimation
+      </h4>
+<p style="text-align:left">
+<small>
+        Yuma Koizumi and Daiki Takeuchi and Yasunori Ohishi and Noboru Harada and Kunio Kashino
+       </small>
+<br/>
+<small>
+<em>
+         NTT Corporation, Japan
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report describes the system participating to the Detection and Classification of Acoustic Scenes and Events (DCASE) 2020 Challenge, Task 6: automated audio captioning. Our submission focuses on solving two indeterminacy problems in automated audio captioning: word selection indeterminacy and sentence length indeterminacy. We simultaneously solve the main caption generation and sub indeterminacy problems by estimating keywords and sentence length through multi-task learning. We tested a simplified model of our submission using the development-testing dataset. Our model achieved 20.7 SPIDEr score where that of the baseline system was 5.4.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Method scheme/architecture
+        </td>
+<td>
+         seq2seq, keyword estimation, sentence length estimation
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Encoder
+        </td>
+<td>
+         RNN-BLSTM
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decoder
+        </td>
+<td>
+         RNN-LSTM
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Alignment mechanism
+        </td>
+<td>
+         self-attention
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         feed-forward
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Amount of parameters
+        </td>
+<td>
+         3299484
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         22.05kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Audio features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Word representation
+        </td>
+<td>
+         embeddings
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         mix-up, TF-IDF-based word replacement, random data cropping
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-koizumi2020_t1" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Koizumi_63_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-koizumi2020_t1label" class="modal fade" id="bibtex-koizumi2020_t1" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexkoizumi2020_t1label">
+        The NTT DCASE2020 Challenge Task 6 System: Automated Audio Captioning With Keywords and Sentence Length Estimation
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{koizumi2020_t1,
+    Author = "Koizumi, Yuma and Takeuchi, Daiki and Ohishi, Yasunori and Harada, Noboru and Kashino, Kunio",
+    title = "The {NTT} {DCASE2020} Challenge Task 6 System: Automated Audio Captioning With Keywords and Sentence Length Estimation",
+    institution = "DCASE2020 Challenge",
+    year = "2020",
+    month = "June",
+    abstract = "This technical report describes the system participating to the Detection and Classification of Acoustic Scenes and Events (DCASE) 2020 Challenge, Task 6: automated audio captioning. Our submission focuses on solving two indeterminacy problems in automated audio captioning: word selection indeterminacy and sentence length indeterminacy. We simultaneously solve the main caption generation and sub indeterminacy problems by estimating keywords and sentence length through multi-task learning. We tested a simplified model of our submission using the development-testing dataset. Our model achieved 20.7 SPIDEr score where that of the baseline system was 5.4."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="kuzmin2020_t6" style="box-shadow: none">
+<div class="panel-heading" id="heading-kuzmin2020_t6" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Automated Audio Captioning
+       </h4>
+<p style="text-align:left">
+        Nikita Kuzmin and Alexander Dyakonov
+       </p>
+<p style="text-align:left">
+<em>
+         Moscow State University, CMC Faculty, Mathematical Methods of Forecasting Dept. GSP-1, 1-52, Leninskiye Gory Moscow, 119991, Russia
+        </em>
+</p>
+<p style="text-align:left">
+<span class="clearfix"></span><span class="label label-primary">Kuzmin_MSU_task6_1</span> <span class="label label-primary">Kuzmin_MSU_task6_2</span> <span class="label label-primary">Kuzmin_MSU_task6_3</span> <span class="label label-primary">Kuzmin_MSU_task6_4</span> <span class="clearfix"></span><span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-kuzmin2020_t6" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-kuzmin2020_t6" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-kuzmin2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Kuzmin_137_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-primary" data-placement="bottom" href="" onclick="$('#collapse-kuzmin2020_t6').collapse('show');window.location.hash='#kuzmin2020_t6';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-database">
+</i>
+         System weights
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-kuzmin2020_t6').collapse('show');window.location.hash='#kuzmin2020_t6';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-kuzmin2020_t6" class="panel-collapse collapse" id="collapse-kuzmin2020_t6" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Automated Audio Captioning
+      </h4>
+<p style="text-align:left">
+<small>
+        Nikita Kuzmin and Alexander Dyakonov
+       </small>
+<br/>
+<small>
+<em>
+         Moscow State University, CMC Faculty, Mathematical Methods of Forecasting Dept. GSP-1, 1-52, Leninskiye Gory Moscow, 119991, Russia
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This task can be stated as an automated generation textual content description from the raw audio file. We propose a method for the automated audio captioning task. We examined the impact of augmentations (MixUp, Reverb, Pitch, Over-drive, Speed) on method performance. Our method based on modified encoder-decoder architecture. The encoder consists of three bidirectional gated recurrent units (GRU). The decoder consists of one gated recurrent unit (GRU) and one fully-connected layer for classification. The encoder input is log-mel spectrogram features for every part of audio file segmented by Hann window [1] of 1024 samples with a 50% overlap. The decoder output is a matrix with probabilities of words for each position in a sentence. We used BLEU1, BLEU2, BLEU3, BLEU4, ROUGEL, METEOR, CIDEr, SPICE, SPIDEr metrics to compare methods.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Method scheme/architecture
+        </td>
+<td>
+         seq2seq
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Encoder
+        </td>
+<td>
+         RNN-GRU
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decoder
+        </td>
+<td>
+         RNN-GRU
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Alignment mechanism
+        </td>
+<td>
+         attention, vector2sequence
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         feed-forward
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Amount of parameters
+        </td>
+<td>
+         4804112
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Audio features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Word representation
+        </td>
+<td>
+         one-hot
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         mix-up, reverb, pitch, overdrive, speed
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-kuzmin2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Kuzmin_137_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-primary" data-placement="bottom" href="https://zenodo.org/record/3895543" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="System weights">
+<i class="fa fa-database">
+</i>
+</a>
+<a class="btn btn-sm btn-success" href="https://github.com/paniquex/Automated_Audio_Captioning_DCASE2020" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-kuzmin2020_t6label" class="modal fade" id="bibtex-kuzmin2020_t6" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexkuzmin2020_t6label">
+        Automated Audio Captioning
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{kuzmin2020_t6,
+    Author = "Kuzmin, Nikita and Dyakonov, Alexander",
+    title = "Automated Audio Captioning",
+    institution = "DCASE2020 Challenge",
+    year = "2020",
+    month = "June",
+    abstract = "This task can be stated as an automated generation textual content description from the raw audio file. We propose a method for the automated audio captioning task. We examined the impact of augmentations (MixUp, Reverb, Pitch, Over-drive, Speed) on method performance. Our method based on modified encoder-decoder architecture. The encoder consists of three bidirectional gated recurrent units (GRU). The decoder consists of one gated recurrent unit (GRU) and one fully-connected layer for classification. The encoder input is log-mel spectrogram features for every part of audio file segmented by Hann window [1] of 1024 samples with a 50\% overlap. The decoder output is a matrix with probabilities of words for each position in a sentence. We used BLEU1, BLEU2, BLEU3, BLEU4, ROUGEL, METEOR, CIDEr, SPICE, SPIDEr metrics to compare methods."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="naranjoalcazar2020_t6" style="box-shadow: none">
+<div class="panel-heading" id="heading-naranjoalcazar2020_t6" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Task 6 DCASE 2020: Listen Carefully and Tell: An Audio Captioning System Based on Residual Learning and Gammatone Audio Representation
+       </h4>
+<p style="text-align:left">
+        Javier Naranjo-Alcazar<sup>1</sup>, and Sergi Perez-Castanos, and Pedro Zuccarello<sup>1</sup>, and Maximo Cobos<sup>1</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Computer Science Department, Universitat de València, Burjassot, Spain
+        </em>
+</p>
+<p style="text-align:left">
+<span class="clearfix"></span><span class="label label-primary">Naranjo-Alcazar_UV_task6_1</span> <span class="label label-primary">Naranjo-Alcazar_UV_task6_2</span> <span class="label label-primary">Naranjo-Alcazar_UV_task6_3</span> <span class="label label-primary">Naranjo-Alcazar_UV_task6_4</span> <span class="clearfix"></span><span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-naranjoalcazar2020_t6" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-naranjoalcazar2020_t6" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-naranjoalcazar2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Naranjo_Alcazar_34_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-naranjoalcazar2020_t6').collapse('show');window.location.hash='#naranjoalcazar2020_t6';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-naranjoalcazar2020_t6" class="panel-collapse collapse" id="collapse-naranjoalcazar2020_t6" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Task 6 DCASE 2020: Listen Carefully and Tell: An Audio Captioning System Based on Residual Learning and Gammatone Audio Representation
+      </h4>
+<p style="text-align:left">
+<small>
+        Javier Naranjo-Alcazar<sup>1</sup>, and Sergi Perez-Castanos, and Pedro Zuccarello<sup>1</sup>, and Maximo Cobos<sup>1</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Computer Science Department, Universitat de València, Burjassot, Spain
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       Automated audio captioning is machine listening task whose goal is to describe an audio using free text. An automated audio captioning system has to be implemented as it accepts an audio as input and outputs a textual description, that is, the caption of the signal. This task can be useful in many applications such as automatic content description or machine-to-machine interaction. In this technical report, a automatic audio captioning based on residual learning on the encoder phase is proposed. The encoder phase implemented via different Residual Networks configurations. The decoder phase (create the caption) is run using recurrent layers plus attention mechanism. The audio representation chosen has been Gammatone. Results show that the framework proposed in this work surpass the baseline system improving all metrics.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Method scheme/architecture
+        </td>
+<td>
+         encoder-decoder
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Encoder
+        </td>
+<td>
+         CNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decoder
+        </td>
+<td>
+         RNN-LSTM
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Alignment mechanism
+        </td>
+<td>
+         attention
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         feed-forward
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Amount of parameters
+        </td>
+<td>
+         38734544
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Audio features
+        </td>
+<td>
+         log-Gammatone spectrogram
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Word representation
+        </td>
+<td>
+         one-hot
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-naranjoalcazar2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Naranjo_Alcazar_34_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-success" href="https://github.com/sergipc22/dcase20_task6" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-naranjoalcazar2020_t6label" class="modal fade" id="bibtex-naranjoalcazar2020_t6" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexnaranjoalcazar2020_t6label">
+        Task 6 DCASE 2020: Listen Carefully and Tell: An Audio Captioning System Based on Residual Learning and Gammatone Audio Representation
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{naranjoalcazar2020_t6,
+    Author = "Naranjo-Alcazar, Javier and Perez-Castanos, Sergi and Zuccarello, Pedro and Cobos, Maximo",
+    title = "Task 6 {DCASE} 2020: Listen Carefully and Tell: An Audio Captioning System Based on Residual Learning and Gammatone Audio Representation",
+    institution = "DCASE2020 Challenge",
+    year = "2020",
+    month = "June",
+    abstract = "Automated audio captioning is machine listening task whose goal is to describe an audio using free text. An automated audio captioning system has to be implemented as it accepts an audio as input and outputs a textual description, that is, the caption of the signal. This task can be useful in many applications such as automatic content description or machine-to-machine interaction. In this technical report, a automatic audio captioning based on residual learning on the encoder phase is proposed. The encoder phase implemented via different Residual Networks configurations. The decoder phase (create the caption) is run using recurrent layers plus attention mechanism. The audio representation chosen has been Gammatone. Results show that the framework proposed in this work surpass the baseline system improving all metrics."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="pellegrini2020_t6" style="box-shadow: none">
+<div class="panel-heading" id="heading-pellegrini2020_t6" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        IRIT-UPS DCASE 2020 audio captioning system
+       </h4>
+<p style="text-align:left">
+        Thomas Pellegrini
+       </p>
+<p style="text-align:left">
+<em>
+         IRIT (UMR 5505), Université Paul Sabatier, CNRS, Toulouse, France
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Pellegrini_IRIT_task6_1</span> <span class="label label-primary">Pellegrini_IRIT_task6_2</span> <span class="label label-primary">Pellegrini_IRIT_task6_3</span> <span class="label label-primary">Pellegrini_IRIT_task6_4</span> <span class="clearfix"></span><span class="clearfix"></span><span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-pellegrini2020_t6" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-pellegrini2020_t6" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-pellegrini2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Pellegrini_131_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-primary" data-placement="bottom" href="" onclick="$('#collapse-pellegrini2020_t6').collapse('show');window.location.hash='#pellegrini2020_t6';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-database">
+</i>
+         System weights
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-pellegrini2020_t6').collapse('show');window.location.hash='#pellegrini2020_t6';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-pellegrini2020_t6" class="panel-collapse collapse" id="collapse-pellegrini2020_t6" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       IRIT-UPS DCASE 2020 audio captioning system
+      </h4>
+<p style="text-align:left">
+<small>
+        Thomas Pellegrini
+       </small>
+<br/>
+<small>
+<em>
+         IRIT (UMR 5505), Université Paul Sabatier, CNRS, Toulouse, France
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report is a short description of the sequence-to-sequence model used in the DCASE 2020 task 6 dedicated to audio captioning. Four submissions were made: i) a baseline one using greedy search, ii) beam search, iii) beam search integrating a 2g language model, iv) with a model trained with a vocabulary limited to the most frequent word types (1k words instead of about 5k words).
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Method scheme/architecture
+        </td>
+<td>
+         seq2seq
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Encoder
+        </td>
+<td>
+         RNN-pBLSTM
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decoder
+        </td>
+<td>
+         RNN-LSTM
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Alignment mechanism
+        </td>
+<td>
+         attention
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         feed-forward, greedy search
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Amount of parameters
+        </td>
+<td>
+         2887375
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Audio features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Word representation
+        </td>
+<td>
+         one-hot
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-pellegrini2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Pellegrini_131_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-primary" data-placement="bottom" href="https://zenodo.org/record/3893974" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="System weights">
+<i class="fa fa-database">
+</i>
+</a>
+<a class="btn btn-sm btn-success" href="https://github.com/topel/listen-attend-tell" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-pellegrini2020_t6label" class="modal fade" id="bibtex-pellegrini2020_t6" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexpellegrini2020_t6label">
+        IRIT-UPS DCASE 2020 audio captioning system
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{pellegrini2020_t6,
+    Author = "Pellegrini, Thomas",
+    title = "{IRIT}-{UPS} {DCASE} 2020 audio captioning system",
+    institution = "DCASE2020 Challenge",
+    year = "2020",
+    month = "June",
+    abstract = "This technical report is a short description of the sequence-to-sequence model used in the DCASE 2020 task 6 dedicated to audio captioning. Four submissions were made: i) a baseline one using greedy search, ii) beam search, iii) beam search integrating a 2g language model, iv) with a model trained with a vocabulary limited to the most frequent word types (1k words instead of about 5k words)."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="sampathkumar2020_t6" style="box-shadow: none">
+<div class="panel-heading" id="heading-sampathkumar2020_t6" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Automated Audio Captioning
+       </h4>
+<p style="text-align:left">
+        Arunodhayan Sampathkumar and Danny Kowerko
+       </p>
+<p style="text-align:left">
+<em>
+         Technische Universität Chemnitz, Juniorprofessur Media Computing, Chemnitz, Germany
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Sampathkumar_TUC_task6_1</span> <span class="clearfix"></span><span class="clearfix"></span><span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-sampathkumar2020_t6" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-sampathkumar2020_t6" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-sampathkumar2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Sampathkumar_44_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-sampathkumar2020_t6" class="panel-collapse collapse" id="collapse-sampathkumar2020_t6" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Automated Audio Captioning
+      </h4>
+<p style="text-align:left">
+<small>
+        Arunodhayan Sampathkumar and Danny Kowerko
+       </small>
+<br/>
+<small>
+<em>
+         Technische Universität Chemnitz, Juniorprofessur Media Computing, Chemnitz, Germany
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       The audio captioning is a novel approach to describe an audio scene based on human like perception. The human like perception of audio events not only perform detection and localization, but also tries to summarize the relationship between different audio events. The DCASE2020 has developed a strongly labelled caption dataset to perform automated audio captioning. In this research, mel spectrogram is used to extract the audio features. A Recurrent Neural Network (RNN) encoder-decoder is employed to train the dataset. Finally the network is evaluated using the MS COCO metrics where BLEU3 &amp; BLEU1 scores were strong and is discussed in detail in section 5.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Method scheme/architecture
+        </td>
+<td>
+         seq2seq
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Encoder
+        </td>
+<td>
+         RNN-BGRU
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decoder
+        </td>
+<td>
+         RNN-GRU
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Alignment mechanism
+        </td>
+<td>
+         identity
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         feed-forward
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Amount of parameters
+        </td>
+<td>
+         16521
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Audio features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Word representation
+        </td>
+<td>
+         embeddings
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-sampathkumar2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Sampathkumar_44_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-sampathkumar2020_t6label" class="modal fade" id="bibtex-sampathkumar2020_t6" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexsampathkumar2020_t6label">
+        Automated Audio Captioning
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{sampathkumar2020_t6,
+    Author = "Sampathkumar, Arunodhayan and Kowerko, Danny",
+    title = "Automated Audio Captioning",
+    institution = "DCASE2020 Challenge",
+    year = "2020",
+    month = "June",
+    abstract = "The audio captioning is a novel approach to describe an audio scene based on human like perception. The human like perception of audio events not only perform detection and localization, but also tries to summarize the relationship between different audio events. The DCASE2020 has developed a strongly labelled caption dataset to perform automated audio captioning. In this research, mel spectrogram is used to extract the audio features. A Recurrent Neural Network (RNN) encoder-decoder is employed to train the dataset. Finally the network is evaluated using the MS COCO metrics where BLEU3 \&amp; BLEU1 scores were strong and is discussed in detail in section 5."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="shi2020_t6" style="box-shadow: none">
+<div class="panel-heading" id="heading-shi2020_t6" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Audio Captioning With the Transformer
+       </h4>
+<p style="text-align:left">
+        Anna Shi
+       </p>
+<p style="text-align:left">
+<em>
+         ShuangFeng First, Beijing, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Shi_SFF_task6_1</span> <span class="label label-primary">Shi_SFF_task6_2</span> <span class="label label-primary">Shi_SFF_task6_3</span> <span class="label label-primary">Shi_SFF_task6_4</span><span class="clearfix"></span><span class="clearfix"></span><span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-shi2020_t6" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-shi2020_t6" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-shi2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Shi_8_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-shi2020_t6" class="panel-collapse collapse" id="collapse-shi2020_t6" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Audio Captioning With the Transformer
+      </h4>
+<p style="text-align:left">
+<small>
+        Anna Shi
+       </small>
+<br/>
+<small>
+<em>
+         ShuangFeng First, Beijing, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       In this technical report, we present the techniques and models applied to our submission for DCASE 2020 task 6: automated audio captioning. We aim to focus primarily on how to apply transformer methods efficiently to deal with large amount of audio data. Our experiments with the public DCASE2020 challenge task 6 Clotho evaluation data resulted in a SPIDEr of 0.1171, while the SPIDEr of the official baseline is 0.054.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Method scheme/architecture
+        </td>
+<td>
+         seq2seq
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Encoder
+        </td>
+<td>
+         transformer encoder
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decoder
+        </td>
+<td>
+         transformer decoder
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Alignment mechanism
+        </td>
+<td>
+         self-attention
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         feed-forward
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Amount of parameters
+        </td>
+<td>
+         Not reported
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Audio features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Word representation
+        </td>
+<td>
+         one-hot
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         temporal-frequency shift
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-shi2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Shi_8_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-shi2020_t6label" class="modal fade" id="bibtex-shi2020_t6" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexshi2020_t6label">
+        Audio Captioning With the Transformer
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{shi2020_t6,
+    Author = "Shi, Anna",
+    title = "Audio Captioning With the Transformer",
+    institution = "DCASE2020 Challenge",
+    year = "2020",
+    month = "June",
+    abstract = "In this technical report, we present the techniques and models applied to our submission for DCASE 2020 task 6: automated audio captioning. We aim to focus primarily on how to apply transformer methods efficiently to deal with large amount of audio data. Our experiments with the public DCASE2020 challenge task 6 Clotho evaluation data resulted in a SPIDEr of 0.1171, while the SPIDEr of the official baseline is 0.054."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="wang2020_t6" style="box-shadow: none">
+<div class="panel-heading" id="heading-wang2020_t6" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Automated Audio Captioning With Temporal Attention
+       </h4>
+<p style="text-align:left">
+        Helin Wang<sup>1</sup>, Bang Yang<sup>1</sup>, Yuexian Zou<sup>1,2</sup> and Dading Chong<sup>1</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>ADSPLAB, School of ECE, Peking University, Shenzhen, China, <sup>2</sup>Peng Cheng Laboratory, Shenzhen, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Helin_ADSPLAB_task6_1</span> <span class="label label-primary">Helin_ADSPLAB_task6_2</span> <span class="label label-primary">Helin_ADSPLAB_task6_3</span> <span class="label label-primary">Helin_ADSPLAB_task6_4</span><span class="clearfix"></span><span class="clearfix"></span><span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-wang2020_t6" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-wang2020_t6" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-wang2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Wang_5_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-wang2020_t6" class="panel-collapse collapse" id="collapse-wang2020_t6" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Automated Audio Captioning With Temporal Attention
+      </h4>
+<p style="text-align:left">
+<small>
+        Helin Wang<sup>1</sup>, Bang Yang<sup>1</sup>, Yuexian Zou<sup>1,2</sup> and Dading Chong<sup>1</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>ADSPLAB, School of ECE, Peking University, Shenzhen, China, <sup>2</sup>Peng Cheng Laboratory, Shenzhen, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report describes the ADSPLAB team’s submission for Task6 of DCASE2020 challenge (automated audio captioning). Our audio captioning system is based on the sequence-to-sequence model. Convolutional neural network (CNN) is used as the encoder and a long-short term memory (LSTM)-based decoder with temporal attention is used to generate the captions. No extra data or pre-trained models are employed and no extra annotations are used. The experimental results show that our system could achieve the SPIDEr of 0.172 (official baseline: 0.054) on the evaluation split of the Clotho dataset.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Method scheme/architecture
+        </td>
+<td>
+         encoder-decoder
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Encoder
+        </td>
+<td>
+         CNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decoder
+        </td>
+<td>
+         RNN-LSTM
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Alignment mechanism
+        </td>
+<td>
+         attention
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         feed-forward
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Amount of parameters
+        </td>
+<td>
+         12577360
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Audio features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Word representation
+        </td>
+<td>
+         one-hot
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         SpecAugment
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-wang2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Wang_5_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-wang2020_t6label" class="modal fade" id="bibtex-wang2020_t6" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexwang2020_t6label">
+        Automated Audio Captioning With Temporal Attention
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{wang2020_t6,
+    Author = "Wang, Helin and Yang, Bang and Zou, Yuexian and Chong, Dading",
+    title = "Automated Audio Captioning With Temporal Attention",
+    institution = "DCASE2020 Challenge",
+    year = "2020",
+    month = "June",
+    abstract = "This technical report describes the ADSPLAB team’s submission for Task6 of DCASE2020 challenge (automated audio captioning). Our audio captioning system is based on the sequence-to-sequence model. Convolutional neural network (CNN) is used as the encoder and a long-short term memory (LSTM)-based decoder with temporal attention is used to generate the captions. No extra data or pre-trained models are employed and no extra annotations are used. The experimental results show that our system could achieve the SPIDEr of 0.172 (official baseline: 0.054) on the evaluation split of the Clotho dataset."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="wu2020_t6" style="box-shadow: none">
+<div class="panel-heading" id="heading-wu2020_t6" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Automatic Audio Captioning System Based on Convolutional Neural Network
+       </h4>
+<p style="text-align:left">
+        Qianyang Wu, Shengqi Tao, and Xingyu Yang
+       </p>
+<p style="text-align:left">
+<em>
+         University of Electronic Science and Technology of China Communication Engineering Dept Chengdu,China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Wu_UESTC_task6_1</span><span class="clearfix"></span><span class="clearfix"></span><span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-wu2020_t6" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-wu2020_t6" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-wu2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Wu_32_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-primary" data-placement="bottom" href="" onclick="$('#collapse-wu2020_t6').collapse('show');window.location.hash='#wu2020_t6';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-database">
+</i>
+         System weights
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-wu2020_t6').collapse('show');window.location.hash='#wu2020_t6';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-wu2020_t6" class="panel-collapse collapse" id="collapse-wu2020_t6" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Automatic Audio Captioning System Based on Convolutional Neural Network
+      </h4>
+<p style="text-align:left">
+<small>
+        Qianyang Wu, Shengqi Tao, and Xingyu Yang
+       </small>
+<br/>
+<small>
+<em>
+         University of Electronic Science and Technology of China Communication Engineering Dept Chengdu,China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       Automated audio captioning has been a new issue in natural language processing (NLP) for recent years. The key point of automatic audio captioning system is that it describes non-audio sig- nals in the form of natural language. The system should take audio as input, and output as descriptive audio sentences. Most of approaches use seq2seq model with RNNs as both the encoder and decoder. It results in considerable time to get the training process finished. This paper proposed a neural network with CNN as the encoder and GRU as the decoder. Encoder is based on VGG16, which has deeper networks and three fully-connected layers. Despite the low accuracy of prediction, our model decreases the train- ing time significantly. It proves that the application of CNN can be a choice for automated audio captioning.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Method scheme/architecture
+        </td>
+<td>
+         encoder-decoder
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Encoder
+        </td>
+<td>
+         CNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decoder
+        </td>
+<td>
+         RNN-GRU
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Alignment mechanism
+        </td>
+<td>
+         attention
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         feed-forward
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Amount of parameters
+        </td>
+<td>
+         60730943
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Audio features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Word representation
+        </td>
+<td>
+         one-hot
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-wu2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Wu_32_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-primary" data-placement="bottom" href="https://zenodo.org/record/3876464" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="System weights">
+<i class="fa fa-database">
+</i>
+</a>
+<a class="btn btn-sm btn-success" href="https://github.com/SolarQY/dcase-2020-Wu_UESTC_task6_1-master" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-wu2020_t6label" class="modal fade" id="bibtex-wu2020_t6" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexwu2020_t6label">
+        Automatic Audio Captioning System Based on Convolutional Neural Network
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{wu2020_t6,
+    Author = "Wu, Qianyang and Tao, Shengqi and Yang, Xingyu",
+    title = "Automatic Audio Captioning System Based on Convolutional Neural Network",
+    institution = "DCASE2020 Challenge",
+    year = "2020",
+    month = "June",
+    abstract = "Automated audio captioning has been a new issue in natural language processing (NLP) for recent years. The key point of automatic audio captioning system is that it describes non-audio sig- nals in the form of natural language. The system should take audio as input, and output as descriptive audio sentences. Most of approaches use seq2seq model with RNNs as both the encoder and decoder. It results in considerable time to get the training process finished. This paper proposed a neural network with CNN as the encoder and GRU as the decoder. Encoder is based on VGG16, which has deeper networks and three fully-connected layers. Despite the low accuracy of prediction, our model decreases the train- ing time significantly. It proves that the application of CNN can be a choice for automated audio captioning."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="wuyusong2020_t6" style="box-shadow: none">
+<div class="panel-heading" id="heading-wuyusong2020_t6" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Audio Captioning Based on Transformer and Pre-Training for 2020 DCASE Audio Captioning Challenge
+       </h4>
+<p style="text-align:left">
+        Yusong Wu<sup>1</sup>, Kun Chen<sup>1</sup>, Ziyue Wang<sup>2</sup>, Xuan Zhang<sup>2</sup>, Fudong Nian<sup>3</sup>, Shengchen Li<sup>1</sup>, and Xi Shao<sup>2</sup>
+</p>
+<p style="text-align:left">
+<em>
+<sup>1</sup>Beijing University of Posts and Telecommunications, Beijing, China, <sup>2</sup>Nanjing University of Posts and Telecommunications, Nanjing, China, <sup>3</sup>Anhui University, Anhui, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Wu_BUPT_task6_1</span> <span class="label label-primary">Wu_BUPT_task6_2</span><span class="label label-primary">Wu_BUPT_task6_3</span><span class="label label-primary">Wu_BUPT_task6_4</span><span class="clearfix"></span><span class="clearfix"></span><span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-wuyusong2020_t6" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-wuyusong2020_t6" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-wuyusong2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Wu_136_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+<a class="btn btn-xs btn-primary" data-placement="bottom" href="" onclick="$('#collapse-wuyusong2020_t6').collapse('show');window.location.hash='#wuyusong2020_t6';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-database">
+</i>
+         System weights
+        </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="" onclick="$('#collapse-wuyusong2020_t6').collapse('show');window.location.hash='#wuyusong2020_t6';return false;" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="">
+<i class="fa fa-file-code-o">
+</i>
+         Code
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-wuyusong2020_t6" class="panel-collapse collapse" id="collapse-wuyusong2020_t6" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Audio Captioning Based on Transformer and Pre-Training for 2020 DCASE Audio Captioning Challenge
+      </h4>
+<p style="text-align:left">
+<small>
+        Yusong Wu<sup>1</sup>, Kun Chen<sup>1</sup>, Ziyue Wang<sup>2</sup>, Xuan Zhang<sup>2</sup>, Fudong Nian<sup>3</sup>, Shengchen Li<sup>1</sup>, and Xi Shao<sup>2</sup>
+</small>
+<br/>
+<small>
+<em>
+<sup>1</sup>Beijing University of Posts and Telecommunications, Beijing, China, <sup>2</sup>Nanjing University of Posts and Telecommunications, Nanjing, China, <sup>3</sup>Anhui University, Anhui, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This report proposes an automated audio captioning model for the 2020 DCASE audio captioning challenge. In this challenge, a model is required to be trained from scratch to generate natural language descriptions of a given audio signal. However, as limited data available and restrictions on using pre-trained models trained by external data, training directly from scratch can result in poor performance where acoustic events and language are poorly modeled. For better acoustic event and language modeling, a sequence-to-sequence model is proposed which consists of a CNN encoder and a Transformer decoder. In the proposed model, the encoder and word embedding are firstly pre-trained. Regulations and data augmentations are applied during training, while fine-tuning is applied after training. Experiments show that the proposed model can achieve a SPIDEr score of 0.227 on audio captioning performance.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Method scheme/architecture
+        </td>
+<td>
+         encoder-decoder
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Encoder
+        </td>
+<td>
+         CNN
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decoder
+        </td>
+<td>
+         Transformer
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Alignment mechanism
+        </td>
+<td>
+         attention, self-attention
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         feed-forward
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Amount of parameters
+        </td>
+<td>
+         8901648
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Audio features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Word representation
+        </td>
+<td>
+         embeddings
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Data augmentation
+        </td>
+<td>
+         SpecAugment
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-wuyusong2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Wu_136_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+<a class="btn btn-sm btn-primary" data-placement="bottom" href="https://github.com/lukewys/dcase_2020_T6" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="System weights">
+<i class="fa fa-database">
+</i>
+</a>
+<a class="btn btn-sm btn-success" href="https://github.com/lukewys/dcase_2020_T6" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="">
+<i class="fa fa-file-code-o">
+</i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-wuyusong2020_t6label" class="modal fade" id="bibtex-wuyusong2020_t6" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexwuyusong2020_t6label">
+        Audio Captioning Based on Transformer and Pre-Training for 2020 DCASE Audio Captioning Challenge
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{wuyusong2020_t6,
+    Author = "Wu, Yusong and Chen, Kun and Wang, Ziyue and Zhang, Xuan and Nian, Fudong and Li, Shengchen and Shao, Xi",
+    title = "Audio Captioning Based on Transformer and Pre-Training for 2020 {DCASE} Audio Captioning Challenge",
+    institution = "DCASE2020 Challenge",
+    year = "2020",
+    month = "June",
+    abstract = "This report proposes an automated audio captioning model for the 2020 DCASE audio captioning challenge. In this challenge, a model is required to be trained from scratch to generate natural language descriptions of a given audio signal. However, as limited data available and restrictions on using pre-trained models trained by external data, training directly from scratch can result in poor performance where acoustic events and language are poorly modeled. For better acoustic event and language modeling, a sequence-to-sequence model is proposed which consists of a CNN encoder and a Transformer decoder. In the proposed model, the encoder and word embedding are firstly pre-trained. Regulations and data augmentations are applied during training, while fine-tuning is applied after training. Experiments show that the proposed model can achieve a SPIDEr score of 0.227 on audio captioning performance."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="xu2020_t6" style="box-shadow: none">
+<div class="panel-heading" id="heading-xu2020_t6" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        The SJTU Submission for DCASE2020 Task 6: A CRNN-GRU Based Reinforcement Learning Approach to Audiocaption
+       </h4>
+<p style="text-align:left">
+        Xuenan Xu, Heinrich Dinkel, Mengyue Wu, and Kai Yu
+       </p>
+<p style="text-align:left">
+<em>
+         MoE Key Lab of Artificial Intelligence SpeechLab, Department of Computer Science and Engineering AI Institute, Shanghai Jiao Tong University, Shanghai, China
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Xu_SJTU_task6_1</span> <span class="label label-primary">Xu_SJTU_task6_2</span> <span class="label label-primary">Xu_SJTU_task6_3</span> <span class="label label-primary">Xu_SJTU_task6_4</span> <span class="clearfix"></span><span class="clearfix"></span><span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-xu2020_t6" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-xu2020_t6" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-xu2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Xu_43_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-xu2020_t6" class="panel-collapse collapse" id="collapse-xu2020_t6" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       The SJTU Submission for DCASE2020 Task 6: A CRNN-GRU Based Reinforcement Learning Approach to Audiocaption
+      </h4>
+<p style="text-align:left">
+<small>
+        Xuenan Xu, Heinrich Dinkel, Mengyue Wu, and Kai Yu
+       </small>
+<br/>
+<small>
+<em>
+         MoE Key Lab of Artificial Intelligence SpeechLab, Department of Computer Science and Engineering AI Institute, Shanghai Jiao Tong University, Shanghai, China
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This paper proposes the SJTU AudioCaption system for the DCASE2020 Task 6 challenge. Our system consists of a powerful CRNN encoder combined with a GRU decoder. In addition to standard cross-entropy Audiocaption, reinforcement learning is also investigated. Our approach significantly improves against the challenge baseline model on all shown metrics achieving a relative improvement of at least 34%. Our best submission achieves a {BLEU4} of 0.146, {Rouge}-{L} of 0.352, {CIDEr} of 0.280, {METEOR} of 0.149, and {SPICE} of 0.099 on Clotho evaluation set.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Method scheme/architecture
+        </td>
+<td>
+         seq2seq
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Encoder
+        </td>
+<td>
+         CRNN-BGRU
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Decoder
+        </td>
+<td>
+         RNN-GRU
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Alignment mechanism
+        </td>
+<td>
+         vector2sequence
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         feed-forward
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Amount of parameters
+        </td>
+<td>
+         5224055
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Sampling rate
+        </td>
+<td>
+         44.1kHz
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Audio features
+        </td>
+<td>
+         log-mel energies
+        </td>
+</tr>
+<tr>
+<td class="col-md-3">
+         Word representation
+        </td>
+<td>
+         embeddings
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-xu2020_t6" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2020/technical_reports/DCASE2020_Xu_43_t6.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-xu2020_t6label" class="modal fade" id="bibtex-xu2020_t6" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexxu2020_t6label">
+        The SJTU Submission for DCASE2020 Task 6: A CRNN-GRU Based Reinforcement Learning Approach to Audiocaption
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{xu2020_t6,
+    Author = "Xu, Xuenan and Dinkel, Heinrich and Wu, Mengyue and Yu, Kai",
+    title = "The {SJTU} Submission for {DCASE2020} Task 6: A {CRNN}-{GRU} Based Reinforcement Learning Approach to Audiocaption",
+    institution = "DCASE2020 Challenge",
+    year = "2020",
+    month = "June",
+    abstract = "This paper proposes the SJTU AudioCaption system for the DCASE2020 Task 6 challenge. Our system consists of a powerful CRNN encoder combined with a GRU decoder. In addition to standard cross-entropy Audiocaption, reinforcement learning is also investigated. Our approach significantly improves against the challenge baseline model on all shown metrics achieving a relative improvement of at least 34\%. Our best submission achieves a {BLEU4} of 0.146, {Rouge}-{L} of 0.352, {CIDEr} of 0.280, {METEOR} of 0.149, and {SPICE} of 0.099 on Clotho evaluation set."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script>
+(function($) {
+    $(document).ready(function() {
+        var hash = window.location.hash.substr(1);
+        var anchor = window.location.hash;
+
+        var shiftWindow = function() {
+            var hash = window.location.hash.substr(1);
+            if($('#collapse-'+hash).length){
+                scrollBy(0, -100);
+            }
+        };
+        window.addEventListener("hashchange", shiftWindow);
+
+        if (window.location.hash){
+            window.scrollTo(0, 0);
+            history.replaceState(null, document.title, "#");
+            $('#collapse-'+hash).collapse('show');
+            setTimeout(function(){
+                window.location.hash = anchor;
+                shiftWindow();
+            }, 2000);
+        }
+    });
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

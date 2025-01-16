@@ -1,0 +1,781 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>DCASE2018 Workshop - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="DCASE2018 Workshop - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/workshop2018/index">
+    <meta property="og:url" content="https://dcase.community/workshop2018/index" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="The workshop aims to provide a venue for researchers working on computational analysis of sound events and scene analysis to present and discuss their results. DCASE 2018 Workshop is the third workshop on Detection and Classification of Acoustic Scenes and Events, being organized for the third time in conjunction with …" />
+    <meta name="og:description" content="The workshop aims to provide a venue for researchers..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/bnews.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/bdates.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Workshop2018</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Workshop home">
+        <a href="http://localhost:3000/workshop2018/"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list fa-fw"></i>&nbsp;Program&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/workshop2018/technical-program"><i class="fa fa-list-alt fa-fw"></i>&nbsp;Schedule & Talks</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2018/keynotes"><i class="fa fa-list-alt fa-fw"></i>&nbsp;Keynotes</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2018/poster_session_I"><i class="fa fa-list-alt fa-fw"></i>&nbsp;Poster session I</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2018/poster_session_II"><i class="fa fa-list-alt fa-fw"></i>&nbsp;Poster session II</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Proceedings">
+        <a href="http://localhost:3000/workshop2018/proceedings"><i class="fa fa-file fa-fw"></i>&nbsp;Proceedings</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Registration">
+        <a href="http://localhost:3000/workshop2018/registration"><i class="fa fa-key fa-fw"></i>&nbsp;Registration</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Travel & Accommodation">
+        <a href="http://localhost:3000/workshop2018/travel"><i class="fa fa-info fa-fw"></i>&nbsp;Travel & Accommodation</a>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>&nbsp;Authors&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/workshop2018/author-instructions"><i class="fa fa-info fa-fw"></i>&nbsp;Instructions for Authors</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2018/presentations"><i class="fa fa-comments-o fa-fw"></i>&nbsp;Talks & Posters</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2018/call-for-papers"><i class="fa fa-info fa-fw"></i>&nbsp;Call for papers</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2018/submission"><i class="fa fa-upload fa-fw"></i>&nbsp;Submission</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Organizing Committee">
+        <a href="http://localhost:3000/workshop2018/organizers"><i class="fa fa-users fa-fw"></i>&nbsp;Organizers</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/wall-02.jpg);box-shadow: 0px 1000px rgba(120, 72, 0, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-right"><object class="img img-responsive sr-header-overlay" type="image/svg+xml" data="..//images/overlays/wave.svg"></object></div><h1 class="bold">DCASE2018 Workshop</h1><span class="subheading">Workshop on Detection and Classification of Acoustic Scenes and Events</span><hr class="small right bold">
+                        <span class="subheading subheading-secondary">19-20 November 2018, Surrey, UK</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default hidden-print">
+<div class="panel-heading">
+<h3 class="panel-title">Schedule</h3>
+</div>
+<ul class="bdates-container list-group">
+<a class="list-group-item" href="http://localhost:3000/workshop2018/author-instructions">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>06 Aug 2018</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Workshop paper submission
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="http://localhost:3000/workshop2018/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>17 Sep 2018</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Notification of paper acceptance
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="http://localhost:3000/workshop2018/author-instructions">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>01 Oct 2018</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Camera ready submission
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>01 Oct 2018</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Workshop registration deadline for authors
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>20 Oct 2018</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Early registration deadline
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>01 Nov 2018</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Final workshop registration deadline
+                    
+                    </h5>
+</div>
+</div>
+</a>
+</ul>
+</div>
+
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Contact</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>DCASE Workshop</strong>
+<a class="icon" href="mailto:dcase.workshop@gmail.com"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="panel panel-warning hidden-print">
+<div class="panel-heading">
+<h3 class="panel-title"><a href="http://localhost:3000/news">Recent news</a></h3>
+</div>
+<ul class="bnews-container list-group">
+<a class="list-group-item" href="http://localhost:3000/articles/dcase-workshop-2025-call-for-proposals" target="_self">
+<div class="row">
+<div class="col-md-12 col-sm-12"><h5 class="list-group-item-heading">DCASE Workshop 2025 Call for proposals</h5></div>
+<div class="col-md-12 col-sm-12">
+<p class="list-group-item-text text-muted">
+<small><span class="bnews-time" datetime="2024-03-21 12:00:00"></span><small>
+</small></small></p>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="http://localhost:3000/articles/dcase-workshop-2024-and-2025-call-for-proposals" target="_self">
+<div class="row">
+<div class="col-md-12 col-sm-12"><h5 class="list-group-item-heading">DCASE Workshop 2024 and 2025 Call for proposals</h5></div>
+<div class="col-md-12 col-sm-12">
+<p class="list-group-item-text text-muted">
+<small><span class="bnews-time" datetime="2023-03-06 16:00:00"></span><small>
+</small></small></p>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="http://localhost:3000/articles/dcase-workshop-2022-and-2023-locations-selected" target="_self">
+<div class="row">
+<div class="col-md-12 col-sm-12"><h5 class="list-group-item-heading">DCASE Workshop 2022 and 2023 locations selected</h5></div>
+<div class="col-md-12 col-sm-12">
+<p class="list-group-item-text text-muted">
+<small><span class="bnews-time" datetime="2021-10-05 14:30:00"></span><small>
+</small></small></p>
+</div>
+</div>
+</a>
+</ul>
+</div>
+
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Sponsors</h3>
+</div>
+<table class="table bsponsors-container">
+<tr>
+<td class="">
+<a href="https://www.adobe.com/uk/" target="_blank">
+<img alt="Adobe" class="img img-responsive" src="http://localhost:3000/images/sponsors/adobe_logo.png" style="margin-left: auto;margin-right: auto;max-height:160px;"/>
+</a>
+</td>
+</tr>
+<tr>
+<td class="">
+<a href="https://www.audioanalytic.com/" target="_blank">
+<img alt="Audio Analytic" class="img img-responsive" src="http://localhost:3000/images/sponsors/audio-analytic-2017.png" style="margin-left: auto;margin-right: auto;max-height:160px;"/>
+</a>
+</td>
+</tr>
+<tr>
+<td class="">
+<a href="http://cochlear.ai/" target="_blank">
+<img alt="cochlear.ai" class="img img-responsive" src="http://localhost:3000/images/sponsors/cochlearai_logo_black.png" style="margin-left: auto;margin-right: auto;max-height:160px;"/>
+</a>
+</td>
+</tr>
+<tr>
+<td class="">
+<a href="https://research.google.com/" target="_blank">
+<img alt="Google" class="img img-responsive" src="http://localhost:3000/images/sponsors/google_2015.png" style="margin-left: auto;margin-right: auto;max-height:160px;"/>
+<p class="text-muted text-center">Research at Google</p>
+</a>
+</td>
+</tr>
+<tr>
+<td class="">
+<a href="https://www.huawei.com/uk/about-huawei/corporate-information/research-development" target="_blank">
+<img alt="Huawei" class="img img-responsive" src="http://localhost:3000/images/sponsors/huawei_logo.png" style="margin-left: auto;margin-right: auto;max-height:160px;"/>
+</a>
+</td>
+</tr>
+<tr>
+<td class="">
+<a href="https://www.soundintel.com/" target="_blank">
+<img alt="Sound Intelligence" class="img img-responsive" src="http://localhost:3000/images/sponsors/sound_intelligence_logo.png" style="margin-left: auto;margin-right: auto;max-height:160px;"/>
+</a>
+</td>
+</tr>
+</table>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p class="lead">
+The workshop aims to provide a venue for researchers working on computational analysis of sound events and scene analysis to present and discuss their results.
+</p>
+<p>DCASE 2018 Workshop is the third workshop on Detection and Classification of Acoustic Scenes and Events, being organized for the third time in conjunction with the DCASE challenge. We aim to bring together researchers from many different universities and companies with interest in the topic, and provide the opportunity for scientific exchange of ideas and opinions. </p>
+<p>The technical program will include invited speakers on the topic of computational everyday sound analysis and recognition, and oral and poster presentations of accepted papers. In addition, a special poster session will be dedicated to the DCASE 2018 challenge entries.  </p>
+<h1>Topics</h1>
+<p>We invite submissions on the topics of computational analysis of acoustic scenes and sound events, including but not limited to: </p>
+<p><strong>Tasks in computational environmental audio analysis</strong></p>
+<ul>
+<li>Acoustic scene classification</li>
+<li>Sound event detection and localization</li>
+<li>Audio tagging</li>
+<li>Challenges in real-life applications (e.g., rare events, overlapping sound events, weak labels)</li>
+</ul>
+<p><strong>Methods for computational environmental audio analysis</strong></p>
+<ul>
+<li>Signal processing methods </li>
+<li>Machine learning methods</li>
+<li>Auditory-motivated methods</li>
+<li>Cross-disciplinary methods involving, e.g., acoustics, biology, psychology, geography, materials science, transports science</li>
+</ul>
+<p><strong>Resources, applications, and evaluation of computational environmental audio analysis</strong></p>
+<ul>
+<li>Publicly available datasets or software, taxonomies and ontologies, evaluation procedures</li>
+<li>Ethics, privacy, responsible research</li>
+<li>Applications </li>
+<li>Description of systems submitted to the DCASE 2018 Challenge</li>
+</ul>
+<p>The results of the Detection and Classification of Acoustic Scenes and Events (DCASE) challenge 2018 will also be announced at the workshop. </p>
+<p> </p>
+<h2>Program Overview</h2>
+<p><a class="btn btn-success btn-sm" href="http://localhost:3000/workshop2018/technical-program" style="">Full program here</a></p>
+<p> </p>
+<div class="row">
+<div class="col-md-6">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4>Day 1   <small><i aria-hidden="true" class="fa fa-clock-o"></i> Monday 19/11/2018, 9:00 - 17:00</small> </h4>
+</div>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="width:50px;"> </th>
+<th style="width:100px;"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr style="height:45px">
+<td>9:00</td>
+<td class="active">Registration &amp; <br/>Coffee/Tea</td>
+<td></td>
+</tr>
+<tr style="height:5px">
+<td style="padding-bottom:0px;">9:20</td>
+<td class="success">Welcome</td>
+<td>
+<table class="table" style="margin-bottom:0px; height:100%; border-bottom: none;padding-top:0px;padding-bottom:0px;">
+<tr>
+<td style="border-top: none;padding-top:0px;padding-bottom:0px;">
+<p>Mark Plumbley <br/><span class="text-muted"><em>CVSSP, University of Surrey</em></span></p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:100px">
+<td>9:30</td>
+<td class="danger">Keynote</td>
+<td>
+<table class="table" style="height:100%; border-bottom: none;padding-top:0px;">
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<!--
+                            <p><a href="">
+                            Stereophonic autoencoder on bio- transient to enhance biodiversity tracking, and other 
+                            methods to monitor abyssea </a></p>
+                            -->
+<p>Stereophonic autoencoder on bio- transient to enhance biodiversity tracking, and other 
+                            methods to monitor abyssea</p>
+<p><b>Hervé Glotin</b></p>
+<p><span class="text-muted"><em>Université de Toulon, CNRS, LIS</em></span></p>
+<!--
+                            <a class="icon" href="#keynote-1" role="button">Abstract <i aria-hidden="true" class="fa fa-caret-down"></i></a>
+                            -->
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:5px">
+<td>10:20</td>
+<td class="success">Challenge <br/>spotlights</td>
+<td>
+<table class="table" style="height:100%; border-bottom: none;padding-top:0px;">
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>Reports on the 5 tasks of the DCASE 2018 challenge<br/><span class="text-muted"><em></em></span></p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:40px">
+<td>10:50</td>
+<td class="active">Coffee/Tea</td>
+<td></td>
+</tr>
+<tr style="height:55px">
+<td>11:20</td>
+<td class="success">Oral session I</td>
+<td>
+<table class="table" style="height:100%; border-bottom: none;padding-top:0px;">
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>Human and animal sound detection<br/><span class="text-muted"><span class="text-muted">4 presentations</span></span></p>
+</td>
+</tr>
+</table>
+</td>
+<tr style="height:80px">
+<td>12:40</td>
+<td class="active">Lunch</td>
+<td></td>
+</tr>
+<tr style="height:50px">
+<td>13:40</td>
+<td class="info">Poster session I</td>
+<td>
+<table class="table" style="height:100%; border-bottom: none;padding-top:0px;">
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>Workshop papers and reports on challenge tasks<br/><span class="text-muted">17 posters</span></p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:40px">
+<td>15:10</td>
+<td class="active">Coffee/Tea</td>
+<td></td>
+</tr>
+<tr style="height:40px">
+<td rowspan="1">15:40</td>
+<td class="success" rowspan="1">Oral session II</td>
+<td>
+<table class="table" style="height:100%; border-bottom: none;padding-top:0px;">
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p> Learning from weakly-labeled data<br/><span class="text-muted">4 presentations</span></p>
+</td>
+</tr>
+</table></td></tr>
+<tr style="height:40px">
+<td>17:00</td>
+<td class="active">End of sessions</td>
+<td></td>
+</tr>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div class="col-md-6">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4>Day 2   <small><i aria-hidden="true" class="fa fa-clock-o"></i> Tuesday 20/11/2018, 9:00 - 17:00</small>
+</h4>
+</div>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="width:50px;"> </th>
+<th style="width:100px;"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr style="height:40px">
+<td>9:00</td>
+<td class="active">Arrival &amp; <br/>Coffee/Tea</td>
+<td></td>
+</tr>
+<tr style="height:210px">
+<td>9:20</td>
+<td class="danger">Keynote</td>
+<td>
+<table class="table" style="height:100%; border-bottom: none;padding-top:0px;">
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>Acoustic condition monitoring for smart city and industry environments</p>
+<p><b>Hanna Lukashevich</b></p>
+<p><span class="text-muted"><em>Fraunhofer Institute for Digital Media Technology IDMT</em></span></p>
+<!--
+                                <a class="icon" href="#keynote-2" role="button">Abstract <i aria-hidden="true" class="fa fa-caret-down"></i></a><br>
+                                -->
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:80px">
+<td>10:10</td>
+<td class="success">Oral session III</td>
+<td>
+<table class="table" style="height:100%; border-bottom: none;padding-top:0px;">
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>Acoustic scene classification <br/><span class="text-muted">2 presentations</span></p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:40px">
+<td>10:50</td>
+<td class="active">Coffee/Tea</td>
+<td></td>
+</tr>
+<tr style="height:80px">
+<td>11:20</td>
+<td class="success">Oral session IV</td>
+<td>
+<table class="table" style="height:100%; border-bottom: none;padding-top:0px;">
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p> Multi-label audio event classification<br/><span class="text-muted">4 presentations<span></span></span></p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:80px">
+<td>12:40</td>
+<td class="active">Lunch</td>
+<td></td>
+</tr>
+<tr style="height:80px">
+<td>13:40</td>
+<td class="info">Poster session II</td>
+<td>
+<table class="table" style="height:100%; border-bottom: none;padding-top:0px;">
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>Workshop papers <br/><span class="text-muted">17 posters</span></p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:40px">
+<td>15:10</td>
+<td class="active">Coffee/Tea</td>
+<td></td>
+</tr>
+<tr style="height:100px">
+<td>15:40</td>
+<td class="danger">Panel discussion</td>
+<td>
+<table class="table" style="height:100%; border-bottom: none;padding-top:0px;">
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>TBA</p>
+<!--
+                                <p>-<span class="text-muted"><em>-</em></span></p>
+                                <a class="icon" href="#keynote-2" role="button">Abstract <i aria-hidden="true" class="fa fa-caret-down"></i></  a><br>
+                                -->
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:5px">
+<td>16:40</td>
+<td class="success">Closing remarks</td>
+<td></td>
+</tr>
+<tr style="height:10px">
+<td>17:00</td>
+<td class="active">End of workshop</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4>17:15 - 19:00   Welcome Reception</h4>
+</div>
+</div>
+</div>
+</div>
+<p> </p>
+<h1>Venue</h1>
+<p><a href="http://www.wwf.org.uk/get-involved/living-planet-centre" target="_blank">WWF Living Planet Centre</a>, Woking, Surrey, UK.</p>
+<p> </p>
+<h2>Important Dates</h2>
+<div class="panel panel-default hidden-print">
+<ul class="bdates-container list-group">
+<a class="list-group-item" href="http://localhost:3000/workshop2018/author-instructions">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>06 Aug 2018</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Workshop paper submission
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="http://localhost:3000/workshop2018/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>17 Sep 2018</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Notification of paper acceptance
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="http://localhost:3000/workshop2018/author-instructions">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>01 Oct 2018</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Camera ready submission
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>01 Oct 2018</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Workshop registration deadline for authors
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>20 Oct 2018</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Early registration deadline
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>01 Nov 2018</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Final workshop registration deadline
+                    
+                    </h5>
+</div>
+</div>
+</a>
+</ul>
+</div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/timeago.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/bnews.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

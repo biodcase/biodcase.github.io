@@ -1,0 +1,1004 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Sound event detection in real life audio - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Sound event detection in real life audio - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio">
+    <meta property="og:url" content="https://dcase.community/challenge2016/task-sound-event-detection-in-real-life-audio" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="Toni Heittola" />
+    <meta name="description" content="Challenge has ended. Full results for this task can be found here Description This task evaluates performance of the sound event detection systems in multisource conditions similar to our everyday life, where the sound sources are rarely heard in isolation. Contrary to task 2, there is no control over the …" />
+    <meta name="og:description" content="Challenge has ended. Full results for this task can be..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2016</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2016/"><i class="fa fa-home"></i>&nbsp;Introduction</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-primary"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-synthetic text-success"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-events text-warning"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-tags text-info"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2016/task-audio-tagging-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Download data">
+        <a href="http://localhost:3000/challenge2016/download"><i class="fa fa-download"></i>&nbsp;Download</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2016/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2016/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge organizers">
+        <a href="http://localhost:3000/challenge2016/organizers"><i class="fa fa-users"></i>&nbsp;Organizers</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/marina-bay-01.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-success"></i><i class="fa dc-events fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text">Events</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 3</span></span><img src="../images/logos/dcase/dcase2016_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Sound event detection <br>in real life audio</h1><hr class="small right bold"><span class="subheading">Task description</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Coordinators</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Annamaria Mesaros" class="img img-circle" src="http://localhost:3000/images/person/annamaria_mesaros.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Annamaria Mesaros</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://arg.cs.tut.fi/">
+                                Tampere University of Technology
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Toni Heittola" class="img img-circle" src="http://localhost:3000/images/person/toni_heittola.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Toni Heittola</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://arg.cs.tut.fi/">
+                                Tampere University of Technology
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#description">Description</a></li>
+<li><a href="#audio-dataset">Audio dataset</a>
+<ul>
+<li><a href="#recording-and-annotation-procedure">Recording and annotation procedure</a></li>
+<li><a href="#challenge-setup">Challenge setup</a></li>
+<li><a href="#download">Download</a></li>
+<li><a href="#cross-validation-with-development-dataset">Cross-validation with development dataset</a></li>
+</ul>
+</li>
+<li><a href="#submission">Submission</a></li>
+<li><a href="#task-rules">Task rules</a></li>
+<li><a href="#evaluation">Evaluation</a>
+<ul>
+<li><a href="#sed_eval---evaluation-toolbox-for-sound-event-detection">sed_eval - Evaluation toolbox for Sound Event Detection</a></li>
+</ul>
+</li>
+<li><a href="#results">Results</a></li>
+<li><a href="#baseline-system">Baseline system</a>
+<ul>
+<li><a href="#results-for-tut-sound-events-2016-development-set">Results for TUT Sound events 2016, development set</a></li>
+</ul>
+</li>
+<li><a href="#citation">Citation</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p class="alert alert-info">
+<strong>Challenge has ended.</strong> Full results for this task can be found <a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio-results">here <i class="fa fa-caret-right"></i></a>
+</p>
+<h1 id="description">Description</h1>
+<p>This task evaluates performance of the sound event detection systems in multisource conditions similar to our everyday life, where the sound sources are rarely heard in isolation. Contrary to <a href="http://localhost:3000/challenge2016/task-sound-event-detection-in-synthetic-audio">task 2</a>, there is no control over the number of overlapping sound events at each time, not in the training nor in the testing audio data.</p>
+<figure>
+<div class="row-fluid row-centered">
+<div class="col-xs-10 col-md-5 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2016/task3_overview.png"/>
+<figcaption>Figure 1: Overview of sound event detection system.</figcaption>
+</div>
+</div>
+</figure>
+<h1 id="audio-dataset">Audio dataset</h1>
+<p><strong>TUT Sound events 2016</strong> dataset will be used for task 3. Audio in the dataset is a subset of <em>TUT Acoustic scenes 2016</em> dataset (used for <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification">task 1</a>). The TUT Sound events 2016 dataset consisting of recordings from two acoustic scenes:</p>
+<ul>
+<li>Home (indoor)</li>
+<li>Residential area (outdoor).</li>
+</ul>
+<p>These acoustic scenes were selected to represent common environments of interest in applications for safety and surveillance (outside home) and human activity monitoring or home surveillance.</p>
+<p>The dataset was collected in Finland by Tampere University of Technology between 06/2015 - 01/2016. The data collection has received funding from the European Research Council.</p>
+<p><a href="https://erc.europa.eu/"><img alt="ERC" src="http://localhost:3000/images/sponsors/erc.jpg" title="ERC"/></a></p>
+<h2 id="recording-and-annotation-procedure">Recording and annotation procedure</h2>
+<p>The recordings were captured each in a different location: different streets, different homes. For each recording location, 3-5 minute long audio recording was captured. The equipment used for recording consists of a binaural <a href="http://www.soundman.de/en/products/">Soundman OKM II Klassik/studio A3</a> electret in-ear microphone and a <a href="http://www.rolandus.com/products/r-09/">Roland Edirol R-09</a> wave recorder using 44.1 kHz sampling rate and 24 bit resolution. For audio material recorded in private places, written consent was obtained from all people involved.</p>
+<p>Individual sound events in each recording were annotated by two research assistants using freely chosen labels for sounds. Nouns were used to characterize each sound source, and verbs the sound production mechanism, whenever this was possible. Annotators were trained first on few example recordings. They were instructed to annotate all audible sound events, decide the start time and end time of the sounds as they see fit, and choose event labels freely. This resulted in a large set of raw labels. There was no verification of the annotations and no evaluation of annotator inter-annotator agreement due to the high level of subjectivity inherent to the problem.</p>
+<p><em>Target sound event</em> classes were selected based on the frequency of the obtained labels, to ensure that the selected sounds are common for an acoustic scene, and there are sufficient examples for learning acoustic models. Mapping of the raw labels was performed, merging for example "car engine running" to "engine running", and grouping various impact sounds with only verb description such as "banging", "clacking" into "object impact".</p>
+<p>Selected sound event classes:</p>
+<p><strong>Home</strong></p>
+<ul>
+<li>(object) Rustling</li>
+<li>(object) Snapping</li>
+<li>Cupboard</li>
+<li>Cutlery</li>
+<li>Dishes</li>
+<li>Drawer</li>
+<li>Glass jingling</li>
+<li>Object impact</li>
+<li>People walking</li>
+<li>Washing dishes</li>
+<li>Water tap running</li>
+</ul>
+<p><strong>Residential area</strong></p>
+<ul>
+<li>(object) Banging</li>
+<li>Bird singing</li>
+<li>Car passing by</li>
+<li>Children shouting</li>
+<li>People speaking</li>
+<li>People walking</li>
+<li>Wind blowing</li>
+</ul>
+<p>For residential area, the sound event classes are mostly related to concrete physical sound sources - bird singing, car passing by. Home scenes are dominated by abstract object impact sounds, besides some more well defined sound events (still impact) like dishes, cutlery, etc.</p>
+<h2 id="challenge-setup">Challenge setup</h2>
+<p><em>TUT Sound events 2016</em> dataset consists of two subsets: <strong>development dataset</strong> and <strong>evaluation dataset</strong>. Partitioning of data into these subsets was done based on the amount of examples available for each sound event class, while also taking into account recording location. Ideally the subsets should have the same amount of data for each class, or at least the same relative amount, such as a 70-30% split. Because the event instances belonging to different classes are distributed unevenly within the recordings, the partitioning of individual classes can be controlled only to a certain extent.</p>
+<p>The split condition was relaxed from 70-30%. For home, 40-80% of instances of each class were selected into the development set. For residential area, 60-80% of instances of each class were selected into the development set.</p>
+<p>Participants are <strong>not allowed</strong> to use external data for system development. Manipulation of provided data <strong>is allowed</strong>. Acoustic scene label can be used as external information in the detection (acoustic scene-dependent sound event detection system).</p>
+<h2 id="download">Download</h2>
+<p>** Development dataset **</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/45759" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/45759" target="_blank">
+<span style="font-size:20px;">TUT Sound events 2016, development dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(0.9 GB)</span>
+<br/>
+<a href="http://dx.doi.org/10.5281/zenodo.45759">
+<img alt="10.5281/zenodo.45759" src="https://zenodo.org/badge/doi/10.5281/zenodo.45759.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<p>** Evaluation dataset **</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/record/996424" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/record/996424" target="_blank">
+<span style="font-size:20px;">TUT Sound events 2016, evaluation dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(0.4 GB)</span>
+<br/>
+<a href="http://dx.doi.org/10.5281/zenodo.996424">
+<img alt="10.5281/zenodo.996424" src="https://zenodo.org/badge/doi/10.5281/zenodo.996424.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<p><strong>In publications using the datasets, cite as:</strong></p>
+<div class="btex-item" data-item="Mesaros2016_EUSIPCO" data-source="content/data/challenge2016/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Mesaros2016_EUSIPCO"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Annamaria Mesaros, Toni Heittola, and Tuomas Virtanen.
+<em>TUT database for acoustic scene classification and sound event detection.</em>
+In 24th European Signal Processing Conference 2016 (EUSIPCO 2016). Budapest, Hungary, 2016.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexMesaros2016_EUSIPCO61ea86ef914940c3b4e4cede7a0ba631" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://homepages.tuni.fi/annamaria.mesaros/pubs/mesaros_eusipco2016-dcase.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseMesaros2016_EUSIPCO61ea86ef914940c3b4e4cede7a0ba631" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseMesaros2016_EUSIPCO61ea86ef914940c3b4e4cede7a0ba631" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingMesaros2016_EUSIPCO61ea86ef914940c3b4e4cede7a0ba631" class="panel-collapse collapse" id="collapseMesaros2016_EUSIPCO61ea86ef914940c3b4e4cede7a0ba631" role="tabpanel">
+<h4>TUT Database for Acoustic Scene Classification and Sound Event Detection</h4>
+<h5>Abstract</h5>
+<p class="text-justify">We introduce TUT Acoustic Scenes 2016 database for environmental sound research, consisting ofbinaural recordings from 15 different acoustic environments. A subset of this database, called TUT Sound Events 2016, contains annotations for individual sound events, specifically created for sound event detection. TUT Sound Events 2016 consists of residential area and home environments, and is manually annotated to mark onset, offset and label of sound events. In this paper we present the recording and annotation procedure, the database content, a recommended cross-validation setup and performance of supervised acoustic scene classification system and event detection baseline system using mel frequency cepstral coefficients and Gaussian mixture models. The database is publicly released to provide support for algorithm development and common ground for comparison of different techniques.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexMesaros2016_EUSIPCO61ea86ef914940c3b4e4cede7a0ba631" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://homepages.tuni.fi/annamaria.mesaros/pubs/mesaros_eusipco2016-dcase.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexMesaros2016_EUSIPCO61ea86ef914940c3b4e4cede7a0ba631label" class="modal fade" id="bibtexMesaros2016_EUSIPCO61ea86ef914940c3b4e4cede7a0ba631" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexMesaros2016_EUSIPCO61ea86ef914940c3b4e4cede7a0ba631label">TUT Database for Acoustic Scene Classification and Sound Event Detection</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Mesaros2016_EUSIPCO,
+    author = "Mesaros, Annamaria and Heittola, Toni and Virtanen, Tuomas",
+    title = "{TUT} Database for Acoustic Scene Classification and Sound Event Detection",
+    abstract = "We introduce TUT Acoustic Scenes 2016 database for environmental sound research, consisting ofbinaural recordings from 15 different acoustic environments. A subset of this database, called TUT Sound Events 2016, contains annotations for individual sound events, specifically created for sound event detection. TUT Sound Events 2016 consists of residential area and home environments, and is manually annotated to mark onset, offset and label of sound events. In this paper we present the recording and annotation procedure, the database content, a recommended cross-validation setup and performance of supervised acoustic scene classification system and event detection baseline system using mel frequency cepstral coefficients and Gaussian mixture models. The database is publicly released to provide support for algorithm development and common ground for comparison of different techniques.",
+    year = "2016",
+    address = "Budapest, Hungary",
+    booktitle = "24th European Signal Processing Conference 2016 (EUSIPCO 2016)"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="cross-validation-with-development-dataset">Cross-validation with development dataset</h2>
+<p>A cross-validation setup is provided in order to make results reported with this dataset uniform. The setup consists of four folds, so that each recording is used exactly once as test data. While creating the cross-validation folds, the only condition imposed was that the test subset does not contain classes unavailable in training subset. The folds are provided with the dataset in the directory <code>evaluation_setup</code>.</p>
+<h1 id="submission">Submission</h1>
+<p>Detailed information for the challenge submission can found from <a href="http://localhost:3000/challenge2016/submission">submission page</a>.</p>
+<p>One should submit single text-file (in CSV format) per evaluated acoustic scene (home and residential area), each file containing detected sound event from each audio file. Events can be in any order. Format:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">filename (string)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">event onset time in seconds (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">event offset time in seconds (float)</span><span class="o">][</span><span class="n">tab</span><span class="o">][</span><span class="n">event label (string)</span><span class="o">]</span>
+</code></pre></div>
+<h1 id="task-rules">Task rules</h1>
+<ul>
+<li>Only the provided development dataset can be used to train the submitted system.</li>
+<li>The development dataset can be augmented only by mixing data sampled from a pdf; use of real recordings is forbidden.</li>
+<li>The evaluation dataset cannot be used to train the submitted system; the use of statistics about the evaluation dataset in the decision making is also forbidden.</li>
+<li>Technical report with sufficient description of the system has to be submitted along with the system outputs.</li>
+</ul>
+<p>More information on <a href="http://localhost:3000/challenge2016/submission">submission process</a>.</p>
+<h1 id="evaluation">Evaluation</h1>
+<p><strong>Total error rate (ER)</strong> is the main metric for this task. Error rate will be evaluated in one-second segments over the entire test set. Ranking of submitted systems will be done using this metric. Additionally, other metrics will be calculated.</p>
+<p>Detailed description of metrics can be found <a href="http://localhost:3000/challenge2016/metrics">here</a>.</p>
+<p>Code for evaluation is available with the baseline system:</p>
+<ul>
+<li>Python implementation <code>from src.evaluation import DCASE2016_EventDetection_SegmentBasedMetrics</code> and <code>from src.evaluation import DCASE2016_EventDetection_EventBasedMetrics</code>.</li>
+<li>Matlab implementation, use classes <code>src/evaluation/DCASE2016_EventDetection_SegmentBasedMetrics.m</code> and <code>src/evaluation/DCASE2016_EventDetection_EventBasedMetrics.m</code>.</li>
+</ul>
+<h2 id="sed_eval---evaluation-toolbox-for-sound-event-detection">sed_eval - Evaluation toolbox for Sound Event Detection</h2>
+<p><code>sed_eval</code> contains same metrics as baseline system, and they are tested to give same values. Use parameters <code>time_resolution=1</code> and <code>t_collar=0.250</code> to align it with the baseline system results.</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/TUT-ARG/sed_eval" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/TUT-ARG/sed_eval" target="_blank">
+<span style="font-size:20px;">sed_eval - Evaluation toolbox for Sound Event Detection <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<p><br/></p>
+<h1 id="results">Results</h1>
+<table class="datatable table" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="false" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="segment_based_ER_overall_eval" data-scatter-y="segment_based_F1_overall_eval" data-show-chart="true" data-show-pagination-switch="false" data-show-rank="true" data-sort-name="segment_based_ER_overall_eval" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell" data-rank="true" rowspan="2">Rank</th>
+<th class="sep-left-cell" colspan="4">Submission Information</th>
+<th class="sep-left-cell" colspan="2">Segment-based (overall)</th>
+</tr>
+<tr>
+<th class="sm-cell" data-field="code" data-sortable="true">
+                Code
+            </th>
+<th class="sep-left-cell" data-field="corresponding_author" data-sortable="false">
+                Author
+            </th>
+<th class="sm-cell" data-field="corresponding_affiliation" data-sortable="false">
+                Affiliation
+            </th>
+<th class="sep-left-cell text-center" data-field="external_anchor" data-sortable="false" data-value-type="url">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_ER_overall_eval" data-reversed="true" data-sortable="true" data-value-type="float4">
+                ER
+            </th>
+<th class="sep-left-cell text-center" data-chartable="true" data-field="segment_based_F1_overall_eval" data-sortable="true" data-value-type="float1-percentage">
+                F1
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Adavanne_task3_1</td>
+<td>Sharath Adavanne</td>
+<td>Department of Signal Processing, Tampere University of Technology, Tampere, Finland</td>
+<td>task-sound-event-detection-in-real-life-audio-results#Adavanne2016</td>
+<td>0.8051</td>
+<td>47.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Adavanne_task3_2</td>
+<td>Sharath Adavanne</td>
+<td>Department of Signal Processing, Tampere University of Technology, Tampere, Finland</td>
+<td>task-sound-event-detection-in-real-life-audio-results#Adavanne2016</td>
+<td>0.8887</td>
+<td>37.9</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>DCASE2016 baseline</td>
+<td>Toni Heittola</td>
+<td>Department of Signal Processing, Tampere University of Technology, Tampere, Finland</td>
+<td>task-sound-event-detection-in-real-life-audio-results#Heittola2016</td>
+<td>0.8773</td>
+<td>34.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Elizalde_task3_1</td>
+<td>Benjamin Elizalde</td>
+<td>Carnegie Mellon University, Pittsburgh, USA</td>
+<td>task-sound-event-detection-in-real-life-audio-results#Elizalde2016</td>
+<td>1.0730</td>
+<td>22.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Elizalde_task3_2</td>
+<td>Benjamin Elizalde</td>
+<td>Carnegie Mellon University, Pittsburgh, USA</td>
+<td>task-sound-event-detection-in-real-life-audio-results#Elizalde2016</td>
+<td>1.1056</td>
+<td>20.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Elizalde_task3_3</td>
+<td>Benjamin Elizalde</td>
+<td>Carnegie Mellon University, Pittsburgh, USA</td>
+<td>task-sound-event-detection-in-real-life-audio-results#Elizalde2016</td>
+<td>0.9635</td>
+<td>33.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Elizalde_task3_4</td>
+<td>Benjamin Elizalde</td>
+<td>Carnegie Mellon University, Pittsburgh, USA</td>
+<td>task-sound-event-detection-in-real-life-audio-results#Elizalde2016</td>
+<td>0.9613</td>
+<td>33.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Gorin_task3_1</td>
+<td>Arseniy Gorin</td>
+<td>ACTechnologies LLC, Moscow, Russia</td>
+<td>task-sound-event-detection-in-real-life-audio-results#Gorin2016</td>
+<td>0.9799</td>
+<td>41.1</td>
+</tr>
+<tr>
+<td></td>
+<td>Kong_task3_1</td>
+<td>Qiuqiang Kong</td>
+<td>Centre for Vision, Speech and Signal Processing, University of Surrey, Surrey, United Kingdom</td>
+<td>task-sound-event-detection-in-real-life-audio-results#Kong2016</td>
+<td>0.9557</td>
+<td>36.3</td>
+</tr>
+<tr>
+<td></td>
+<td>Kroos_task3_1</td>
+<td>Christian Kroos</td>
+<td>Centre for Vision, Speech and Signal Processing (CVSSP), University of Surrey, Surrey, SUnited Kingdom</td>
+<td>task-sound-event-detection-in-real-life-audio-results#Kroos2016</td>
+<td>1.1488</td>
+<td>16.8</td>
+</tr>
+<tr>
+<td></td>
+<td>Liu_task3_1</td>
+<td>Christian Kroos</td>
+<td>Centre for Vision, Speech and Signal Processing (CVSSP), University of Surrey, Surrey, SUnited Kingdom</td>
+<td>task-sound-event-detection-in-real-life-audio-results#Lai2016</td>
+<td>0.9287</td>
+<td>34.5</td>
+</tr>
+<tr>
+<td></td>
+<td>Pham_task3_1</td>
+<td>Phuong Pham</td>
+<td>University of Pittsburgh, Pittsburgh, USA</td>
+<td>task-sound-event-detection-in-real-life-audio-results#Dai2016</td>
+<td>0.9583</td>
+<td>11.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Phan_task3_1</td>
+<td>Huy Phan</td>
+<td>Institute for Signal Processing, University of Luebeck, Luebeck, Germany; Graduate School for Computing in Medicine and Life Sciences, University of Luebeck, Luebeck, Germany</td>
+<td>task-sound-event-detection-in-real-life-audio-results#Phan2016</td>
+<td>0.9644</td>
+<td>23.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Schroeder_task3_1</td>
+<td>Jens Schröder</td>
+<td>Fraunhofer Institute for Digital Media Technology IDMT, Oldenburg, Germany; Cluster of Excellence, Hearing4all, Germany</td>
+<td>task-sound-event-detection-in-real-life-audio-results#Schroeder2016</td>
+<td>1.3092</td>
+<td>33.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Ubskii_task3_1</td>
+<td>Dmitrii Ubskii</td>
+<td>Chair of Speech Information Systems, ITMO University, St. Petersburg, Russia</td>
+<td>task-sound-event-detection-in-real-life-audio-results#Ubskii2016</td>
+<td>0.9971</td>
+<td>39.6</td>
+</tr>
+<tr>
+<td></td>
+<td>Vu_task3_1</td>
+<td>Toan H. Vu</td>
+<td>Department of Computer Science and Information Engineering, National Central University, Taoyuan, Taiwan</td>
+<td>task-sound-event-detection-in-real-life-audio-results#Vu2016</td>
+<td>0.9124</td>
+<td>41.9</td>
+</tr>
+<tr>
+<td></td>
+<td>Zoehrer_task3_1</td>
+<td>Matthias Zöhrer</td>
+<td>Signal Processing and Speech Communication Laboratory, Graz University of Technology, Graz, Austria</td>
+<td>task-sound-event-detection-in-real-life-audio-results#Zoehrer2016</td>
+<td>0.9056</td>
+<td>39.6</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<p>Complete results and technical reports can be found at <a class="btn btn-primary" href="http://localhost:3000/challenge2016/task-sound-event-detection-in-real-life-audio-results">Task 3 result page</a></p>
+<h1 id="baseline-system">Baseline system</h1>
+<p>The baseline system for the task is provided. The system is meant to implement basic approach for sound event detection, and provide some comparison point for the participants while developing their systems. The baseline systems for <a href="http://localhost:3000/challenge2016/task-acoustic-scene-classification#baseline-system">task 1</a> and task 3 share the code base, and implements quite similar approach for both tasks. The baseline system will download the needed datasets and produces the results below when ran with the default parameters.</p>
+<p>The baseline system is based on <a href="https://en.wikipedia.org/wiki/Mel-frequency_cepstrum">MFCC</a> acoustic features and <a href="https://en.wikipedia.org/wiki/Mixture_model">GMM</a> classifier. The acoustic features include MFCC static coefficients (0th coefficient excluded), delta coefficients and acceleration coefficients. For each event class, a binary classifier is set up. The class model is trained using the audio segments annotated as belonging to the modeled event class, and a negative model is trained using the rest of the audio. The decision is based on likelihood ratio between the positive and negative models for each individual class, with a sliding window of one second.</p>
+<p>The baseline system provides also reference implementation of evaluation metrics. Baseline systems are provided for both Python and Matlab. Python implementation is regarded as the main implementation.</p>
+<p>Participants are allowed to build their system on top of the given baseline systems. The systems have all needed functionality for dataset handling, storing / accessing features and models, and evaluating the results, making the adaptation for one's needs rather easy. The baseline systems are also good starting point for entry level researchers.</p>
+<p>**In publications using the baseline, cite as: **</p>
+<div class="btex-item" data-item="Mesaros2016_EUSIPCO" data-source="content/data/challenge2016/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Mesaros2016_EUSIPCO"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Annamaria Mesaros, Toni Heittola, and Tuomas Virtanen.
+<em>TUT database for acoustic scene classification and sound event detection.</em>
+In 24th European Signal Processing Conference 2016 (EUSIPCO 2016). Budapest, Hungary, 2016.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexMesaros2016_EUSIPCO1e5c04136fa445d7af047140f433dac1" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://homepages.tuni.fi/annamaria.mesaros/pubs/mesaros_eusipco2016-dcase.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseMesaros2016_EUSIPCO1e5c04136fa445d7af047140f433dac1" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseMesaros2016_EUSIPCO1e5c04136fa445d7af047140f433dac1" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingMesaros2016_EUSIPCO1e5c04136fa445d7af047140f433dac1" class="panel-collapse collapse" id="collapseMesaros2016_EUSIPCO1e5c04136fa445d7af047140f433dac1" role="tabpanel">
+<h4>TUT Database for Acoustic Scene Classification and Sound Event Detection</h4>
+<h5>Abstract</h5>
+<p class="text-justify">We introduce TUT Acoustic Scenes 2016 database for environmental sound research, consisting ofbinaural recordings from 15 different acoustic environments. A subset of this database, called TUT Sound Events 2016, contains annotations for individual sound events, specifically created for sound event detection. TUT Sound Events 2016 consists of residential area and home environments, and is manually annotated to mark onset, offset and label of sound events. In this paper we present the recording and annotation procedure, the database content, a recommended cross-validation setup and performance of supervised acoustic scene classification system and event detection baseline system using mel frequency cepstral coefficients and Gaussian mixture models. The database is publicly released to provide support for algorithm development and common ground for comparison of different techniques.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexMesaros2016_EUSIPCO1e5c04136fa445d7af047140f433dac1" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://homepages.tuni.fi/annamaria.mesaros/pubs/mesaros_eusipco2016-dcase.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexMesaros2016_EUSIPCO1e5c04136fa445d7af047140f433dac1label" class="modal fade" id="bibtexMesaros2016_EUSIPCO1e5c04136fa445d7af047140f433dac1" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexMesaros2016_EUSIPCO1e5c04136fa445d7af047140f433dac1label">TUT Database for Acoustic Scene Classification and Sound Event Detection</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Mesaros2016_EUSIPCO,
+    author = "Mesaros, Annamaria and Heittola, Toni and Virtanen, Tuomas",
+    title = "{TUT} Database for Acoustic Scene Classification and Sound Event Detection",
+    abstract = "We introduce TUT Acoustic Scenes 2016 database for environmental sound research, consisting ofbinaural recordings from 15 different acoustic environments. A subset of this database, called TUT Sound Events 2016, contains annotations for individual sound events, specifically created for sound event detection. TUT Sound Events 2016 consists of residential area and home environments, and is manually annotated to mark onset, offset and label of sound events. In this paper we present the recording and annotation procedure, the database content, a recommended cross-validation setup and performance of supervised acoustic scene classification system and event detection baseline system using mel frequency cepstral coefficients and Gaussian mixture models. The database is publicly released to provide support for algorithm development and common ground for comparison of different techniques.",
+    year = "2016",
+    address = "Budapest, Hungary",
+    booktitle = "24th European Signal Processing Conference 2016 (EUSIPCO 2016)"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h4>Python implementation</h4>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/TUT-ARG/DCASE2016-baseline-system-python" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/TUT-ARG/DCASE2016-baseline-system-python" target="_blank">
+<span style="font-size:20px;">DCASE2016 Task 1&amp;3 Python baseline, repository <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/TUT-ARG/DCASE2016-baseline-system-python/archive/v1.0.7.zip" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-warning"></i>
+<i class="fa fa-gears fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/TUT-ARG/DCASE2016-baseline-system-python/archive/v1.0.7.zip" target="_blank">
+<span style="font-size:20px;">DCASE2016 Task 1&amp;3  Python baseline, release <i class="fa fa-download"></i></span>
+</a>
+<br/>
+<span class="text-muted">
+                
+                version 1.0.7
+                
+                
+                (.zip)
+                
+                </span>
+</div>
+</div>
+<p><br/></p>
+<h4>Matlab implementation</h4>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/TUT-ARG/DCASE2016-baseline-system-matlab" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/TUT-ARG/DCASE2016-baseline-system-matlab" target="_blank">
+<span style="font-size:20px;">DCASE2016 Task 1&amp;3 Matlab baseline, repository <i class="fa fa-download"></i></span>
+</a>
+<br/>
+</div>
+</div>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/TUT-ARG/DCASE2016-baseline-system-matlab/archive/v1.0.6.zip" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-info"></i>
+<i class="fa fa-gears fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/TUT-ARG/DCASE2016-baseline-system-matlab/archive/v1.0.6.zip" target="_blank">
+<span style="font-size:20px;">DCASE2016 Task 1&amp;3 Matlab baseline, release <i class="fa fa-download"></i></span>
+</a>
+<br/>
+<span class="text-muted">
+                
+                version 1.0.6
+                
+                
+                (.zip)
+                
+                </span>
+</div>
+</div>
+<p><br/></p>
+<h2 id="results-for-tut-sound-events-2016-development-set">Results for TUT Sound events 2016, development set</h2>
+<p><em>Evaluation setup</em></p>
+<ul>
+<li>4-fold cross-validation</li>
+</ul>
+<p><em>System parameters</em></p>
+<ul>
+<li>Frame size: 40 ms (with 50% hop size)</li>
+<li>Number of Gaussians per sound event model (positive and negative): 16</li>
+<li>Feature vector: 20 MFCC static coefficients (excluding 0th) + 20 delta MFCC coefficients + 20 acceleration MFCC coefficients = 60 values</li>
+</ul>
+<p><strong>PLEASE NOTE</strong>: The four cross-validation folds are treated as single experiment, meaning that metrics are calculated only after training and testing all folds (not calculating fold-wise metric). Intermediate measures (insertion, deletion, substitution) from all folds are accumulated for calculating error rate. <a href="http://kdd.org/exploration_files/v12-1-p49-forman-sigkdd.pdf">More details</a></p>
+<div class="table-responsive col-md-8">
+<table class="table table-striped">
+<caption>Sound event detection results over evaluation folds.</caption>
+<thead>
+<tr>
+<th></th>
+<th colspan="2">Segment-based overall metrics</th>
+</tr>
+<tr>
+<th>Acoustic scene</th>
+<th class="col-md-3">ER</th>
+<th class="col-md-3">F-score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Home</td>
+<td>0.96</td>
+<td>15.9 %</td>
+</tr>
+<tr>
+<td>Residential area</td>
+<td>0.86</td>
+<td>31.5 %</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td><strong>Average</strong></td>
+<td><strong>0.91</strong></td>
+<td><strong>23.7 %</strong></td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div class="clearfix"></div>
+<h1 id="citation">Citation</h1>
+<p>If you are using the <strong>dataset</strong> or <strong>baseline</strong> code please cite the following paper:</p>
+<div class="btex-item" data-item="Mesaros2016_EUSIPCO" data-source="content/data/challenge2016/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Mesaros2016_EUSIPCO"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Annamaria Mesaros, Toni Heittola, and Tuomas Virtanen.
+<em>TUT database for acoustic scene classification and sound event detection.</em>
+In 24th European Signal Processing Conference 2016 (EUSIPCO 2016). Budapest, Hungary, 2016.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexMesaros2016_EUSIPCOde2ead958b12470887ded147d2dd7af3" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://homepages.tuni.fi/annamaria.mesaros/pubs/mesaros_eusipco2016-dcase.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseMesaros2016_EUSIPCOde2ead958b12470887ded147d2dd7af3" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseMesaros2016_EUSIPCOde2ead958b12470887ded147d2dd7af3" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingMesaros2016_EUSIPCOde2ead958b12470887ded147d2dd7af3" class="panel-collapse collapse" id="collapseMesaros2016_EUSIPCOde2ead958b12470887ded147d2dd7af3" role="tabpanel">
+<h4>TUT Database for Acoustic Scene Classification and Sound Event Detection</h4>
+<h5>Abstract</h5>
+<p class="text-justify">We introduce TUT Acoustic Scenes 2016 database for environmental sound research, consisting ofbinaural recordings from 15 different acoustic environments. A subset of this database, called TUT Sound Events 2016, contains annotations for individual sound events, specifically created for sound event detection. TUT Sound Events 2016 consists of residential area and home environments, and is manually annotated to mark onset, offset and label of sound events. In this paper we present the recording and annotation procedure, the database content, a recommended cross-validation setup and performance of supervised acoustic scene classification system and event detection baseline system using mel frequency cepstral coefficients and Gaussian mixture models. The database is publicly released to provide support for algorithm development and common ground for comparison of different techniques.</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexMesaros2016_EUSIPCOde2ead958b12470887ded147d2dd7af3" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://homepages.tuni.fi/annamaria.mesaros/pubs/mesaros_eusipco2016-dcase.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexMesaros2016_EUSIPCOde2ead958b12470887ded147d2dd7af3label" class="modal fade" id="bibtexMesaros2016_EUSIPCOde2ead958b12470887ded147d2dd7af3" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexMesaros2016_EUSIPCOde2ead958b12470887ded147d2dd7af3label">TUT Database for Acoustic Scene Classification and Sound Event Detection</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Mesaros2016_EUSIPCO,
+    author = "Mesaros, Annamaria and Heittola, Toni and Virtanen, Tuomas",
+    title = "{TUT} Database for Acoustic Scene Classification and Sound Event Detection",
+    abstract = "We introduce TUT Acoustic Scenes 2016 database for environmental sound research, consisting ofbinaural recordings from 15 different acoustic environments. A subset of this database, called TUT Sound Events 2016, contains annotations for individual sound events, specifically created for sound event detection. TUT Sound Events 2016 consists of residential area and home environments, and is manually annotated to mark onset, offset and label of sound events. In this paper we present the recording and annotation procedure, the database content, a recommended cross-validation setup and performance of supervised acoustic scene classification system and event detection baseline system using mel frequency cepstral coefficients and Gaussian mixture models. The database is publicly released to provide support for algorithm development and common ground for comparison of different techniques.",
+    year = "2016",
+    address = "Budapest, Hungary",
+    booktitle = "24th European Signal Processing Conference 2016 (EUSIPCO 2016)"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<p>When citing <strong>challenge task</strong> and <strong>results</strong> please cite the following paper:</p>
+<div class="btex-item" data-item="Mesaros2018_TASLP" data-source="content/data/challenge2016/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Mesaros2018_TASLP"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            A. Mesaros, T. Heittola, E. Benetos, P. Foster, M. Lagrange, T. Virtanen, and M. D. Plumbley.
+<em>Detection and classification of acoustic scenes and events: outcome of the DCASE 2016 challenge.</em>
+<em>IEEE/ACM Transactions on Audio, Speech, and Language Processing</em>, 26(2):379–393, Feb 2018.
+<a href="https://doi.org/10.1109/TASLP.2017.2778423">doi:10.1109/TASLP.2017.2778423</a>.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexMesaros2018_TASLPdd91318cbaa84a59b9b08de275fc4e79" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://trepo.tuni.fi//bitstream/handle/10024/126402/dcase2016_taslp.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseMesaros2018_TASLPdd91318cbaa84a59b9b08de275fc4e79" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseMesaros2018_TASLPdd91318cbaa84a59b9b08de275fc4e79" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingMesaros2018_TASLPdd91318cbaa84a59b9b08de275fc4e79" class="panel-collapse collapse" id="collapseMesaros2018_TASLPdd91318cbaa84a59b9b08de275fc4e79" role="tabpanel">
+<h4>Detection and Classification of Acoustic Scenes and Events: Outcome of the DCASE 2016 Challenge</h4>
+<h5>Abstract</h5>
+<p class="text-justify">Public evaluation campaigns and datasets promote active development in target research areas, allowing direct comparison of algorithms. The second edition of the challenge on detection and classification of acoustic scenes and events (DCASE 2016) has offered such an opportunity for development of the state-of-the-art methods, and succeeded in drawing together a large number of participants from academic and industrial backgrounds. In this paper, we report on the tasks and outcomes of the DCASE 2016 challenge. The challenge comprised four tasks: acoustic scene classification, sound event detection in synthetic audio, sound event detection in real-life audio, and domestic audio tagging. We present each task in detail and analyze the submitted systems in terms of design and performance. We observe the emergence of deep learning as the most popular classification method, replacing the traditional approaches based on Gaussian mixture models and support vector machines. By contrast, feature representations have not changed substantially throughout the years, as mel frequency-based representations predominate in all tasks. The datasets created for and used in DCASE 2016 are publicly available and are a valuable resource for further research.</p>
+<h5>Keywords</h5>
+<p class="text-justify">Acoustics;Event detection;Hidden Markov models;Speech;Speech processing;Tagging;Acoustic scene classification;audio datasets;pattern recognition;sound event detection</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexMesaros2018_TASLPdd91318cbaa84a59b9b08de275fc4e79" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://trepo.tuni.fi//bitstream/handle/10024/126402/dcase2016_taslp.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexMesaros2018_TASLPdd91318cbaa84a59b9b08de275fc4e79label" class="modal fade" id="bibtexMesaros2018_TASLPdd91318cbaa84a59b9b08de275fc4e79" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexMesaros2018_TASLPdd91318cbaa84a59b9b08de275fc4e79label">Detection and Classification of Acoustic Scenes and Events: Outcome of the DCASE 2016 Challenge</h4>
+</div>
+<div class="modal-body">
+<pre>@article{Mesaros2018_TASLP,
+    author = "Mesaros, A. and Heittola, T. and Benetos, E. and Foster, P. and Lagrange, M. and Virtanen, T. and Plumbley, M. D.",
+    journal = "IEEE/ACM Transactions on Audio, Speech, and Language Processing",
+    title = "Detection and Classification of Acoustic Scenes and Events: Outcome of the {DCASE} 2016 Challenge",
+    year = "2018",
+    volume = "26",
+    number = "2",
+    pages = "379--393",
+    abstract = "Public evaluation campaigns and datasets promote active development in target research areas, allowing direct comparison of algorithms. The second edition of the challenge on detection and classification of acoustic scenes and events (DCASE 2016) has offered such an opportunity for development of the state-of-the-art methods, and succeeded in drawing together a large number of participants from academic and industrial backgrounds. In this paper, we report on the tasks and outcomes of the DCASE 2016 challenge. The challenge comprised four tasks: acoustic scene classification, sound event detection in synthetic audio, sound event detection in real-life audio, and domestic audio tagging. We present each task in detail and analyze the submitted systems in terms of design and performance. We observe the emergence of deep learning as the most popular classification method, replacing the traditional approaches based on Gaussian mixture models and support vector machines. By contrast, feature representations have not changed substantially throughout the years, as mel frequency-based representations predominate in all tasks. The datasets created for and used in DCASE 2016 are publicly available and are a valuable resource for further research.",
+    keywords = "Acoustics;Event detection;Hidden Markov models;Speech;Speech processing;Tagging;Acoustic scene classification;audio datasets;pattern recognition;sound event detection",
+    doi = "10.1109/TASLP.2017.2778423",
+    issn = "2329-9290",
+    month = "Feb"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

@@ -1,0 +1,1004 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Sound Scene Synthesis - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Sound Scene Synthesis - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/challenge2024/task-sound-scene-synthesis">
+    <meta property="og:url" content="https://dcase.community/challenge2024/task-sound-scene-synthesis" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="This task expands the scope from Foley sound to general sound scenes and aims at adding further controllability with natural language prompts in the form of text prompts. Challenge has ended. Full results for this task can be found in the Results page. If you are interested in the task …" />
+    <meta name="og:description" content="This task expands the scope from Foley sound to general..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right navbar-tighter" id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Challenge2024</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge introduction">
+        <a href="http://localhost:3000/challenge2024/"><i class="fa fa-home"></i>&nbsp;Intro</a>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-scene text-t1"></i>&nbsp;Task1&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-data-efficient-low-complexity-acoustic-scene-classification-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-large-scale text-t2"></i>&nbsp;Task2&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-first-shot-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-localization text-t3"></i>&nbsp;Task3&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-audio-and-audiovisual-sound-event-localization-and-detection-with-source-distance-estimation-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-domestic text-t4"></i>&nbsp;Task4&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-event-detection-with-heterogeneous-training-dataset-and-potentially-missing-labels-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-bird text-t5"></i>&nbsp;Task5&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-few-shot-bioacoustic-event-detection-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-captioning text-t6"></i>&nbsp;Task6&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-automated-audio-captioning-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group  active">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-synthesis text-t7"></i>&nbsp;Task7&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-sound-scene-synthesis-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-retrieval text-t8"></i>&nbsp;Task8&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-based-audio-retrieval-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-separation text-t9"></i>&nbsp;Task9&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-language-queried-audio-source-separation-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring" class="dropdown-toggle" data-toggle="dropdown"><i class="fa dc-traffic text-t10"></i>&nbsp;Task10&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring"><i class="fa fa-info-circle"></i>&nbsp;Description</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2024/task-acoustic-based-traffic-monitoring-results"><i class="fa fa-bar-chart"></i>&nbsp;Results</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Challenge rules">
+        <a href="http://localhost:3000/challenge2024/rules"><i class="fa fa-list-alt"></i>&nbsp;Rules</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Submission instructions">
+        <a href="http://localhost:3000/challenge2024/submission"><i class="fa fa-upload"></i>&nbsp;Submission</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/wave-02.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><div class="pull-left">
+                    <span class="fa-stack fa-5x sr-fade-logo"><i class="fa fa-square fa-stack-2x text-t7"></i><i class="fa dc-synthesis fa-stack-1x fa-inverse"></i><strong class="fa-stack-1x dcase-icon-top-text">Synthesis</strong><span class="fa-stack-1x dcase-icon-bottom-text">Task 7</span></span><img src="../images/logos/dcase/dcase2024_logo.png" class="sr-fade-logo" style="display:block;margin:0 auto;padding-top:15px;"></img>
+                    </div><h1 class="bold">Sound Scene Synthesis</h1><hr class="small right bold">
+                        <span class="subheading subheading-secondary">Task description</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Coordinators</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Mathieu Lagrange" class="img img-circle" src="http://localhost:3000/images/person/Mathieu_Lagrange_02.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Mathieu Lagrange</strong>
+<a class="icon" href="mailto:mathieu.lagrange@ls2n.fr"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                CNRS, Ecole Centrale Nantes, Nantes Université
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Junwon Lee" class="img img-circle" src="http://localhost:3000/images/person/junwon_lee.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Junwon Lee</strong>
+<a class="icon" href="mailto:junwon.lee@gaudiolab.com"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://mac.kaist.ac.kr/">
+                                Gaudio Lab, Inc. / Korea Advanced Institute of Science &amp; Technology (KAIST)
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Modan Tailleur" class="img img-circle" src="http://localhost:3000/images/person/modan_tailleur.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Modan Tailleur</strong>
+<a class="icon" href="mailto:modan.tailleur@ls2n.fr"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="http://www.ls2n.fr/">
+                                Laboratoire des sciences du numérique de Nantes
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Laurie Heller" class="img img-circle" src="http://localhost:3000/images/person/Laurie_Heller.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Laurie Heller</strong>
+<a class="icon" href="mailto:laurieheller@cmu.edu"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                Carnegie Mellon University
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Keunwoo Choi" class="img img-circle" src="http://localhost:3000/images/person/Keunwoo_Choi.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Keunwoo Choi</strong>
+<a class="icon" href="mailto:keunwoo@gaudiolab.com"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                Gaudio Lab, Inc.
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Brian McFee" class="img img-circle" src="http://localhost:3000/images/person/Brian_McFee.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Brian McFee</strong>
+<a class="icon" href="mailto:brian.mcfee@nyu.edu"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                New York University
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Keisuke Imoto" class="img img-circle" src="http://localhost:3000/images/person/keisuke_imoto.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Keisuke Imoto</strong>
+<a class="icon" href="mailto:keisuke.imoto@ieee.org"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                Doshisha University
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Yuki Okamoto" class="img img-circle" src="http://localhost:3000/images/person/Yuki_Okamoto.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Yuki Okamoto</strong>
+<a class="icon" href="mailto:y-okamoto@ieee.org"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                The University of Tokyo
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#description">Description</a>
+<ul>
+<li><a href="#why-is-it-an-important-task">Why is it an important task?</a></li>
+</ul>
+</li>
+<li><a href="#task-setup">Task setup</a></li>
+<li><a href="#audio-dataset-sound-design-reference">Audio dataset: Sound Design Reference</a>
+<ul>
+<li><a href="#development-set">Development set</a></li>
+<li><a href="#download">Download</a></li>
+<li><a href="#evaluation-set">Evaluation set</a></li>
+</ul>
+</li>
+<li><a href="#task-rules">Task rules</a></li>
+<li><a href="#submission">Submission</a>
+<ul>
+<li><a href="#debug-phase">Debug Phase</a></li>
+</ul>
+</li>
+<li><a href="#evaluation">Evaluation</a>
+<ul>
+<li><a href="#evaluation-metric">Evaluation Metric</a></li>
+<li><a href="#subjective-test">Subjective Test</a></li>
+<li><a href="#ranking">Ranking</a></li>
+</ul>
+</li>
+<li><a href="#baseline-system">Baseline system</a>
+<ul>
+<li><a href="#fad-results-for-the-development-dataset">FAD results for the development dataset</a></li>
+</ul>
+</li>
+<li><a href="#citation">Citation</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p class="lead">This task expands the scope from Foley sound to general sound scenes and aims at adding further controllability with natural language prompts in the form of text prompts.</p>
+<p class="alert alert-info">
+<strong>Challenge has ended.</strong> Full results for this task can be found in the <a class="btn btn-default btn-xs" href="http://localhost:3000/challenge2024/task-sound-scene-synthesis-results">Results <i class="fa fa-caret-right"></i></a> page.
+</p>
+<div class="alert alert-info">
+    If you are interested in the task, you can join us on the <strong><a href="https://join.slack.com/t/dcase/shared_invite/zt-1r2mpewki-ES~LaTPIK1sEoOC3E0wc3Q">dedicated slack channel</a></strong>.
+</div>
+<h1 id="description">Description</h1>
+<p>Environmental Sound Scene Synthesis is the task of generating environmental sound given a textual description. Environmental sounds encompass any non-musical and unintelligible vocal sounds. This next-generation task expands the scope from last year’s Foley sounds to a more general sound scene. Further, it adds controllability with natural language in the form of text prompts.</p>
+<figure>
+<div class="row row-centered">
+<div class="col-xs-7 col-md-5 col-centered">
+<img class="img img-responsive" src="http://localhost:3000/images/tasks/challenge2024/task7_sound_scene_synthesis_01.png"/>
+<figcaption>Figure 1: Overview of sound synthesis system.</figcaption>
+</div>
+</div>
+</figure>
+<p><br/></p>
+<p>The organizers will provide: 1) a development set consisting of 60 prompts and corresponding audio embeddings (not raw audio), and 2) a colab template with the baseline. Any external resources for system training are allowed. We mandate that the authors provide extensive information about the datasets used in their technical report and metadata file (*.yaml). If a significant part of the training set is from private sources whose properties shall not be disclosed, the authors are asked to provide at least a rough estimate of the duration of audio of this private part. Before the inference starts, calls to external resources are allowed to install Python modules and download pre-trained models. However, during inference, calls to external resources are not allowed. In other words, the inference stage must be 100% self-contained.</p>
+<p>The evaluation will proceed as such:</p>
+<ol>
+<li>The participants submit a colab notebook with their contributions.</li>
+<li>A debugging phase will be opened two weeks before the challenge deadline, during which time the participants will be able to submit their system to check that their submitted code  is running correctly. The authors must submit their code by sharing it to dcasetask7@gmail.com, with a prompt given as a commented line in the colab. The organizers will run the submitted code with the given prompt and check that the generated audio meets the requirements. No content analysis will be performed. We encourage authors  to extensively check their system before submission and ask for checking as soon as possible, as the organizers may  not be able to handle multiple requests close to the deadline.</li>
+<li>Once the deadline has passed, the organizers will query the synthesizers submitted through the official submission website with a new set of prompts. If some issues arise, the organizers will contact the authors to fix obvious bugs. No resubmission will be allowed, only recommendations for bug fixes that the organizers will handle to modify the original submission. We advise authors to provide a contact email of someone that is available during the 2 weeks after the deadline. If the submitted code fails and no reply is promptly given, the organizers will discard the submission. The time limit is set to 24 hours for the generation of 250 4 seconds clips.</li>
+<li>The organizers will rank the submitted synthesizers in terms of Fréchet Audio Distance (FAD), using PANNs CNN14 Wavegram-Logmel (panns-wavegram-logmel) embeddings.</li>
+<li>The participants will be asked to perceptually rate a sample of the generated sounds from the highest ranked systems.</li>
+<li>Results will be published on **July 15th** due to the time needed to perform the subjective evaluation.</li>
+</ol>
+<p>Please be aware that, if you plan to submit a paper to the DCASE workshop, the deadline for submitting your paper will be July 4th which is <strong>before</strong> the publication of the results of the task. This should <strong>not</strong> prevent you from submitting a paper describing your submitted system for two main reasons: </p>
+<ol>
+<li>The ranking of the described system is not an evaluation criterion for reviewing a DCASE workshop paper.</li>
+<li>You will be allowed to add information related to the evaluation of your system at the rebuttal phase. However, no major changes to the overall claim of the accepted paper are permitted.</li>
+</ol>
+<h2 id="why-is-it-an-important-task">Why is it an important task?</h2>
+<p>Environmental Sound Synthesis from textual prompts underpins a multitude of applications, notably encompassing sound effects generation for multimedia content creation. Moreover, it serves as a relatively straightforward means to assess the proficiency of generative audio models. Given that nearly any conceivable sound can be generated using a text prompt, proficiency in this task suggests the potential of a similar architecture to tackle more intricate and difficult-to-evaluate generative tasks, such as generating audio from video inputs. </p>
+<h1 id="task-setup">Task setup</h1>
+<p>This task consists of generating sounds from text prompts. When a list of text prompts are given, the generative model should synthesize a 4-s long sound per prompt and provide output as a dictionary. The text prompt is given as a string, and the resulting dictionary should have string-type prompts as keys and numpy-ndarray audio waveforms as values.
+The participants in this challenge are allowed to use <strong>external resources</strong> along with the <strong>development set</strong> that the organizers provide to build their model.</p>
+<h1 id="audio-dataset-sound-design-reference">Audio dataset: Sound Design Reference</h1>
+<p>The Sound Design Reference audio datasets have been created by a sound engineer, using sounds from Freesound and from private audio datasets. The sound engineer has tried to match a given prompt by editing sounds from those datasets. The prompts comprise a foreground sound that could be any sound except for music and speech, and a background sound from among the categories “water”, “birds,” “traffic”, and two other categories which will not be revealed before systems are submitted. The foregrounds are a combination of a foreground source and a verb (e.g. a pig is grunting). Some foregrounds of the dataset also contain an adjective, when the organizers of the challenge decided that an adjective could add audible information (e.g. a small dog is barking). All created sounds are 4-s long. </p>
+<h2 id="development-set">Development set</h2>
+<p>The development dataset consists of 60 pairs of prompts and audio embeddings from foreground sounds. Its purpose is not to cover the entire audio spectrum of the evaluation set but to offer participants insight into the types of prompts that may be used during evaluation. No audio will be made publically available, only the embeddings of the corresponding audio are given for each prompt. The embeddings for PANNs CNN14 Wavegram-Logmel (panns-wavegram-logmel), MS-CLAP (clap-2023) and VGGish (vggish) are available. Please note that <strong>only the PANNs CNN14 Wavegram-Logmel (panns-wavegram-logmel) embeddings will be used for FAD evaluation</strong>; the other embeddings are only being provided as supplementary information to contestants. </p>
+<p>The evaluated system is expected to handle any prompt involving non-musical and non-intelligible speech. Given the narrowed scope of the provided development set, participants are encouraged to assess their systems on broader TTA datasets and tasks as well.</p>
+<h2 id="download">Download</h2>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://zenodo.org/records/10869644" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-database fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://zenodo.org/records/10869644" target="_blank">
+<span style="font-size:20px;">Task 7 Development dataset <i class="fa fa-download"></i></span>
+</a>
+<br/>
+<a href="https://doi.org/10.5281/zenodo.10869644">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.10869644.svg"/>
+</a>
+</div>
+</div>
+<p><br/></p>
+<h2 id="evaluation-set">Evaluation set</h2>
+<p>The evaluation set consists of 250 secret prompts and audios. The audios and prompts will remain secret even after the end of the challenge. The foreground prompts in the development set doesn't represent the exact sound sources that will be used in the evaluation phase, e.g. if <em>dog</em> is used in the development set and <em>cat</em> is not used, either one may appear in the evaluation set.  Apart from the backgrounds introduced in the development set, the evaluation dataset will include two additional types of backgrounds.</p>
+<h1 id="task-rules">Task rules</h1>
+<ol>
+<li>Participants are allowed to use external resources, including public/private datasets and pre-trained models, prior to inference.</li>
+<li>Participants are not allowed to submit systems that duplicate any pre-existing sounds (on the web or in private databases). They also may not submit systems that simply apply phase or spectrum alterations or audio effects to pre-existing sounds. The sounds must be unique and must be generated by the code supplied in the colab.</li>
+<li>When submitting a technical report and yaml file, participants are required to specify all the external resources they used with detailed specifications.</li>
+<li>Participants are allowed to submit a rule-based system that doesn't have trainable parameters </li>
+<li>The amount of assistance the organizers will provide to the participants to get their system running may be thresholded without notice</li>
+<li>It is mandatory that the participants respond within 24 hours to organizers' queries and feedback. Systems that do not function properly on colab (or take too much time) are the responsibility of the submitter, not the organizers, to debug. If the submitter does not respond with a fix before the deadline, their system will not be entered into the contest. We do not accept any modifications after the submission deadline.</li>
+<li>For participants, only 1 submission per team will be accepted. No overlap is allowed among team members, except for one supervisor, who must be identified as such. This policy was added to optimize the evaluation workload, which is significantly heavier than other DCASE tasks.</li>
+</ol>
+<h1 id="submission">Submission</h1>
+<p>A submission would consist of the following items.</p>
+<ul>
+<li>Metadata file (<code>*.yaml</code>) with the pre-defined format<ul>
+<li>The URL for the Colab notebook is included here. Copy the file to make your own one.</li>
+<li><a href="https://drive.google.com/file/d/1pFD0vaXJFMjNFZyuUA33jK0r7QqHRYoK/view?usp=drive_link"><strong>Colab template</strong></a></li>
+</ul>
+</li>
+<li>Technical report (<code>*.pdf</code>)</li>
+</ul>
+<p>The audio files will be generated by the organizers using the Colab notebook. On audio files: the duration, sample rate, bit depth, and the number of channels must follow those of the development set (<code>4 seconds</code>, <code>32 bit</code>, <code>32,000 Hz</code>, <code>mono</code>). The technical report should contain a description, including the implementation details of the submission.</p>
+<p>The confidentiality statement for the submitted Colab code and model checkpoint is included in the <a href="https://dcase.community/challenge2024/submission">submission package</a>.</p>
+<h2 id="debug-phase">Debug Phase</h2>
+<p>June 1: system submission opens for organizer reviewer
+June 7: System pre-submission Review Deadline to get pre-competition ORGANIZER REVIEW and testing.
+For systems pre-submitted by June 7th, organizers will conduct a test run of 7 prompts from your system to find out if it generates sounds within 30 minutes with gpu load in Colab Pro+. If it does not meet these standards, the organizers will notify you (by June 10th) and give you the opportunity to fix your problems, and will retest your system if required. If you do not respond within 24 hours of notice from the organizers, your opportunity for further organizer review&amp;help will be forfeited, but you may still submit a revised system any time until June 15th.
+*Note, if you submit after June 7th, no organizer review is guaranteed. If your submitted system does not run in a timely way, your system will not have sounds entered into the contest on June 15th.
+System submission deadline - June 15. - Submit a system that you know works after establishing that it runs in a timely way.</p>
+<h1 id="evaluation">Evaluation</h1>
+<p>Submissions will be evaluated by <a href="https://www.isca-speech.org/archive_v0/Interspeech_2019/pdfs/2219.pdf">Frechet Audio Distance</a> (FAD), using the evaluation set (Sound Design Reference audio datasets) and the PANNs CNN14 Wavegram-Logmel (panns-wavegram-logmel) for feature extraction, followed by a subjective test. </p>
+<h2 id="evaluation-metric">Evaluation Metric</h2>
+<p>FAD, based on <a href="https://proceedings.neurips.cc/paper/2017/file/8a1d694707eb0fefe65871369074926d-Paper.pdf">Frechet inception distance</a> (FID) widely used metric for generative models, is a reference-free evaluation metric. FAD is calculated in the following sequence. First, audio representations are extracted from both evaluation datasets and generated samples. Second, each set of representations is fitted to a multivariate Gaussian distribution. Finally, the FAD score of the generated samples is calculated by the Frechet distance of these two distributions as follows:</p>
+<p><span class="math">\(F ({\mathcal N}_{r}, {\mathcal N}_{g}) = \| \mu_{r} - \mu_{g} \|^{2} + \mathrm{tr} ( \Sigma_{r} + \Sigma_{g} - 2 \sqrt{\Sigma_{r} \Sigma_{g}} )\)</span></p>
+<p>where <span class="math">\({\mathcal N}_{r} (\mu_{r},\Sigma_{r})\)</span> and <span class="math">\({\mathcal N}_{g} (\mu_{g},\Sigma_{g})\)</span> are multivariate Gaussians of the VGGish embeddings, from the generated samples and evaluation set, respectively.</p>
+<p>FAD calculation is commonly computed using VGGish embedding. However, prior work suggests that VGGish-based FAD fails to reliably predict the perceptual quality of generative audio (<a href="https://arxiv.org/pdf/2311.01616.pdf">Gui et al., 2024</a>; <a href="https://arxiv.org/pdf/2403.17508.pdf">Tailleur et al. 2024</a>). The work by Tailleur et al. (<a href="https://arxiv.org/pdf/2403.17508.pdf">Tailleur et al. 2024</a>) showed that amongst the different tested embeddings, PANNs CNN14 Wavegram-Logmel (panns-wavegram-logmel) is the embedding that lead to the highest correlation scores with perceptual rating on DCASE Task 7 2023 dataset. Following those results, PANNs CNN14 Wavegram-Logmel, a classification model trained on AudioSet, is used as the embedding for FAD calculation for DCASE Task 7 2024.</p>
+<div class="btex-item" data-item="Gui_ICASSP2024_01" data-source="content/data/challenge2024/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Gui_ICASSP2024_01"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Azalea Gui, Hannes Gamper, Sebastian Braun, and Dimitra Emmanouilidou.
+<em>Adapting frechet audio distance for generative music evaluation.</em>
+<em>Proceedings of International Conference on Acoustics, Speech, and Signal Processing (ICASSP)</em>, pages 1331–1335, 2024.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexGui_ICASSP2024_01b4b017c40ae3476a8aa741701249b01e" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/2311.01616.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseGui_ICASSP2024_01b4b017c40ae3476a8aa741701249b01e" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseGui_ICASSP2024_01b4b017c40ae3476a8aa741701249b01e" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingGui_ICASSP2024_01b4b017c40ae3476a8aa741701249b01e" class="panel-collapse collapse" id="collapseGui_ICASSP2024_01b4b017c40ae3476a8aa741701249b01e" role="tabpanel">
+<h4>Adapting Frechet Audio Distance for Generative Music Evaluation</h4>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexGui_ICASSP2024_01b4b017c40ae3476a8aa741701249b01e" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/2311.01616.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexGui_ICASSP2024_01b4b017c40ae3476a8aa741701249b01elabel" class="modal fade" id="bibtexGui_ICASSP2024_01b4b017c40ae3476a8aa741701249b01e" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexGui_ICASSP2024_01b4b017c40ae3476a8aa741701249b01elabel">Adapting Frechet Audio Distance for Generative Music Evaluation</h4>
+</div>
+<div class="modal-body">
+<pre>@article{Gui_ICASSP2024_01,
+    author = "Gui, Azalea and Gamper, Hannes and Braun, Sebastian and Emmanouilidou, Dimitra",
+    title = "Adapting Frechet Audio Distance for Generative Music Evaluation",
+    journal = "Proceedings of International Conference on Acoustics, Speech, and Signal Processing (ICASSP)",
+    year = "2024",
+    pages = "1331--1335"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="btex-item" data-item="Tailleur_arXiv2024_01" data-source="content/data/challenge2024/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Tailleur_arXiv2024_01"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Modan Tailleur, Junwon Lee, Mathieu Lagrange, Keunwoo Choi, Laurie M. Heller, Keisuke Imoto, and Yuki Okamoto.
+<em>Correlation of fréchet audio distance with human perception of environmental audio is embedding dependent.</em>
+<em>arXiv:2403.17508</em>, 2024.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexTailleur_arXiv2024_01dd7dd73a477242189144e5dc585104b0" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/2403.17508.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseTailleur_arXiv2024_01dd7dd73a477242189144e5dc585104b0" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseTailleur_arXiv2024_01dd7dd73a477242189144e5dc585104b0" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingTailleur_arXiv2024_01dd7dd73a477242189144e5dc585104b0" class="panel-collapse collapse" id="collapseTailleur_arXiv2024_01dd7dd73a477242189144e5dc585104b0" role="tabpanel">
+<h4>Correlation of Fréchet Audio Distance With Human Perception of Environmental Audio Is Embedding Dependent</h4>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexTailleur_arXiv2024_01dd7dd73a477242189144e5dc585104b0" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/2403.17508.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexTailleur_arXiv2024_01dd7dd73a477242189144e5dc585104b0label" class="modal fade" id="bibtexTailleur_arXiv2024_01dd7dd73a477242189144e5dc585104b0" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexTailleur_arXiv2024_01dd7dd73a477242189144e5dc585104b0label">Correlation of Fréchet Audio Distance With Human Perception of Environmental Audio Is Embedding Dependent</h4>
+</div>
+<div class="modal-body">
+<pre>@article{Tailleur_arXiv2024_01,
+    author = "Tailleur, Modan and Lee, Junwon and Lagrange, Mathieu and Choi, Keunwoo and Heller, Laurie M. and Imoto, Keisuke and Okamoto, Yuki",
+    title = "Correlation of Fréchet Audio Distance With Human Perception of Environmental Audio Is Embedding Dependent",
+    journal = "arXiv:2403.17508",
+    year = "2024"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="subjective-test">Subjective Test</h2>
+<p>Complementary to quantitative evaluation, we will evaluate the performance through a subjective test. A small number of submissions with the highest FAD scores will be evaluated. A subset of the generated audio excerpts will be used for the subjective test. Each challenge submission is blindly evaluated by the other challenge teams. The test will follow an incomplete strategy where the evaluation of one team's sound samples will not incorporate ratings by anyone from that team. The listening evaluation will be separated for each category. Evaluators will listen to generated audio samples from challenge submissions in random order, intermixed with real samples (made by the organizers) and audio samples generated by the baseline model. <strong>Foreground fit</strong>, <strong>Background fit</strong>, and <strong>Audio quality</strong> will be evaluated. For foreground fit, given the current prompts, it is expected that the system outputs one source, with possibly multiple occurrences. For example, when the prompt says 'a small dog is barking', the dog can bark multiple times, but if there are multiple dogs in the audio, the system will be downgraded in the perceptual evaluation. The weighted average of the three ratings are based on a ratio of <strong>Foreground fit : Background fit : Audio quality</strong> that is  <strong>2:1:1</strong>. <strong>Each entering team must be available to spend up to a total of 4 hours (which can be split up among team members) during listening tests during the time frame of June 28-July 5th.</strong> This listening task time window may be pushed back several days depending upon how many systems are submitted, because each system takes time to process. The time window will be updated in mid-June. Only contest participants and organizers will be rating the systems.</p>
+<h2 id="ranking">Ranking</h2>
+<p>The final ranking is determined by the FAD score and the subjective tests. First, a few submissions with the highest FAD scores are selected. They are then ranked, finally, by the subjective tests regardless of their FAD scores.</p>
+<h1 id="baseline-system">Baseline system</h1>
+<p>The task organizers will provide a baseline system based on AudioLDM. AudioLDM is a Text-To-Audio (TTA) model that comprises VAE, latent diffusion, and multimodal encoders. AudioLDM is one of the foundational models of TTA.</p>
+<h3>Repository</h3>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/DCASE2024-Task7-Sound-Scene-Synthesis/AudioLDM-training-finetuning" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/DCASE2024-Task7-Sound-Scene-Synthesis/AudioLDM-training-finetuning" target="_blank">
+<span style="font-size:20px;">DCASE2024 Task 7 <strong>baseline</strong>, repository <i class="fa fa-download"></i></span>
+</a>
+<br/>
+<span class="text-muted">
+                
+                version 1.0
+                
+                
+                </span>
+</div>
+</div>
+<p><br/></p>
+<p>Detailed information can be found in the GitHub repository. The code of the baseline repository is mostly from <a href="https://github.com/haoheliu/AudioLDM-training-finetuning">this repository</a>. If you use this code, please cite the task description paper, which will be published in <strong>May</strong>, and the following paper:</p>
+<div class="btex-item" data-item="Liu_ICML2023_01" data-source="content/data/challenge2024/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Liu_ICML2023_01"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Haohe Liu, Zehua Chen, Yi Yuan, Xinhao Mei, Xubo Liu, Danilo Mandic, Wenwu Wang, and Mark D Plumbley.
+<em>AudioLDM: text-to-audio generation with latent diffusion models.</em>
+<em>Proceedings of the 40th International Conference on Machine Learning (ICML)</em>, pages 21450–21474, 2023.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexLiu_ICML2023_0135f1d0e785754879be4ae809e3ddd4c1" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://proceedings.mlr.press/v202/liu23f/liu23f.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseLiu_ICML2023_0135f1d0e785754879be4ae809e3ddd4c1" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseLiu_ICML2023_0135f1d0e785754879be4ae809e3ddd4c1" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingLiu_ICML2023_0135f1d0e785754879be4ae809e3ddd4c1" class="panel-collapse collapse" id="collapseLiu_ICML2023_0135f1d0e785754879be4ae809e3ddd4c1" role="tabpanel">
+<h4>AudioLDM: Text-to-Audio Generation with Latent Diffusion Models</h4>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexLiu_ICML2023_0135f1d0e785754879be4ae809e3ddd4c1" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://proceedings.mlr.press/v202/liu23f/liu23f.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexLiu_ICML2023_0135f1d0e785754879be4ae809e3ddd4c1label" class="modal fade" id="bibtexLiu_ICML2023_0135f1d0e785754879be4ae809e3ddd4c1" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexLiu_ICML2023_0135f1d0e785754879be4ae809e3ddd4c1label">AudioLDM: Text-to-Audio Generation with Latent Diffusion Models</h4>
+</div>
+<div class="modal-body">
+<pre>@article{Liu_ICML2023_01,
+    author = "Liu, Haohe and Chen, Zehua and Yuan, Yi and Mei, Xinhao and Liu, Xubo and Mandic, Danilo and Wang, Wenwu and Plumbley, Mark D",
+    title = "{AudioLDM}: Text-to-Audio Generation with Latent Diffusion Models",
+    journal = "Proceedings of the 40th International Conference on Machine Learning (ICML)",
+    year = "2023",
+    pages = "21450--21474"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Also, as the baseline model generates 10-second audio which is longer than our 4-second configuration, we provide a simple code to chop the loudest segment. Refer to the Colab submission template in <a href="#submission">Submission Section</a>. </p>
+<h3>Parameters</h3>
+<ul>
+<li>Audio output: 4 second, Log mel-band energies (64 bands), 16,000 Hz sampling frequency, frame length 1024 points with 160 hop size</li>
+<li>Neural Network: Parameter inherited from the original <a href="https://github.com/haoheliu/AudioLDM-training-finetuning">github repo</a><ul>
+<li>VAE encoder &amp; decoder</li>
+<li>CLAP</li>
+<li>Latent Diffusion (U-Net)</li>
+<li>HiFi-GAN</li>
+</ul>
+</li>
+</ul>
+<h2 id="fad-results-for-the-development-dataset">FAD results for the development dataset</h2>
+<p>We evaluated the FAD score of the baseline system on the development dataset. As mentioned previously, the FAD score is calculated using PANNs CNN14 Wavegram-Logmel  (panns-wavegram-logmel) embedding. For your own purposes, you may use any reference set or audio embedding for FAD calculation using fadtk (FAD ToolKit). The embedding panns-wavegram-logmel of this fadtk library is used for the FAD score evaluation of the challenge. Refer to the repository for more details.</p>
+<p>FAD score (PANNs CNN14 Wavegram-Logmel): <strong>61.2761</strong></p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://github.com/DCASE2024-Task7-Sound-Scene-Synthesis/fadtk" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://github.com/DCASE2024-Task7-Sound-Scene-Synthesis/fadtk" target="_blank">
+<span style="font-size:20px;">fadtk (FAD Toolkit) repository <i class="fa fa-download"></i></span>
+</a>
+<br/>
+<span class="text-muted">
+                
+                version 1.0
+                
+                
+                </span>
+</div>
+</div>
+<p><br/></p>
+<h1 id="citation">Citation</h1>
+<p>If you are participating in this task, using fadtk (FAD ToolKit), or using the baseline code, please cite the following papers.</p>
+<div class="btex-item" data-item="Tailleur_arXiv2024_01" data-source="content/data/challenge2024/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Tailleur_arXiv2024_01"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Modan Tailleur, Junwon Lee, Mathieu Lagrange, Keunwoo Choi, Laurie M. Heller, Keisuke Imoto, and Yuki Okamoto.
+<em>Correlation of fréchet audio distance with human perception of environmental audio is embedding dependent.</em>
+<em>arXiv:2403.17508</em>, 2024.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexTailleur_arXiv2024_0116c7b3fc954e4ad0b2b0dafd9d725067" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/2403.17508.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseTailleur_arXiv2024_0116c7b3fc954e4ad0b2b0dafd9d725067" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseTailleur_arXiv2024_0116c7b3fc954e4ad0b2b0dafd9d725067" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingTailleur_arXiv2024_0116c7b3fc954e4ad0b2b0dafd9d725067" class="panel-collapse collapse" id="collapseTailleur_arXiv2024_0116c7b3fc954e4ad0b2b0dafd9d725067" role="tabpanel">
+<h4>Correlation of Fréchet Audio Distance With Human Perception of Environmental Audio Is Embedding Dependent</h4>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexTailleur_arXiv2024_0116c7b3fc954e4ad0b2b0dafd9d725067" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/2403.17508.pdf" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexTailleur_arXiv2024_0116c7b3fc954e4ad0b2b0dafd9d725067label" class="modal fade" id="bibtexTailleur_arXiv2024_0116c7b3fc954e4ad0b2b0dafd9d725067" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexTailleur_arXiv2024_0116c7b3fc954e4ad0b2b0dafd9d725067label">Correlation of Fréchet Audio Distance With Human Perception of Environmental Audio Is Embedding Dependent</h4>
+</div>
+<div class="modal-body">
+<pre>@article{Tailleur_arXiv2024_01,
+    author = "Tailleur, Modan and Lee, Junwon and Lagrange, Mathieu and Choi, Keunwoo and Heller, Laurie M. and Imoto, Keisuke and Okamoto, Yuki",
+    title = "Correlation of Fréchet Audio Distance With Human Perception of Environmental Audio Is Embedding Dependent",
+    journal = "arXiv:2403.17508",
+    year = "2024"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="btex-item" data-item="Lee_NeurIPS2024_01" data-source="content/data/challenge2024/publications.bib">
+<div class="panel panel-default">
+<span class="label label-default" style="padding-top:0.4em;margin-left:0em;margin-top:0em;">Publication<a name="Lee_NeurIPS2024_01"></a></span>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-9">
+<p style="text-align:left">
+                            Junwon Lee, Modan Tailleur, Laurie M. Heller, Keunwoo Choi, Mathieu Lagrange, Brian McFee, Keisuke Imoto, and Yuki Okamoto.
+<em>Challenge on sound scene synthesis: evaluating text-to-audio generation.</em>
+In Audio Imagination: NeurIPS 2024 Workshop AI-Driven Speech, Music, and Sound Generation. 2024.
+                            
+                            
+                            </p>
+</div>
+<div class="col-md-3">
+<div class="btn-group pull-right">
+<button class="btn btn-xs btn-danger" data-target="#bibtexLee_NeurIPS2024_013478c05be153432cb41900da8ce5a480" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bib</button>
+<a class="btn btn-xs btn-warning btn-btex" data-placement="bottom" href="https://arxiv.org/pdf/2410.17589" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+<button aria-controls="collapseLee_NeurIPS2024_013478c05be153432cb41900da8ce5a480" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#btex-items-accordion" data-toggle="collapse" href="#collapseLee_NeurIPS2024_013478c05be153432cb41900da8ce5a480" type="button">
+<i class="fa fa-caret-down"></i>
+</button>
+</div>
+</div>
+</div>
+<div aria-labelledby="headingLee_NeurIPS2024_013478c05be153432cb41900da8ce5a480" class="panel-collapse collapse" id="collapseLee_NeurIPS2024_013478c05be153432cb41900da8ce5a480" role="tabpanel">
+<h4>Challenge on Sound Scene Synthesis: Evaluating Text-to-Audio Generation</h4>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtexLee_NeurIPS2024_013478c05be153432cb41900da8ce5a480" data-toggle="modal" type="button"><i class="fa fa-file-text-o"></i> Bibtex</button>
+<a class="btn btn-sm btn-warning btn-btex2" data-placement="bottom" href="https://arxiv.org/pdf/2410.17589" rel="tooltip" title="Download pdf"><i class="fa fa-file-pdf-o fa-1x"></i> PDF</a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtexLee_NeurIPS2024_013478c05be153432cb41900da8ce5a480label" class="modal fade" id="bibtexLee_NeurIPS2024_013478c05be153432cb41900da8ce5a480" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true" class="glyphicon glyphicon-remove-sign"></span><span class="sr-only">Close</span></button>
+<h4 class="modal-title" id="bibtexLee_NeurIPS2024_013478c05be153432cb41900da8ce5a480label">Challenge on Sound Scene Synthesis: Evaluating Text-to-Audio Generation</h4>
+</div>
+<div class="modal-body">
+<pre>@inproceedings{Lee_NeurIPS2024_01,
+    author = "Lee, Junwon and Tailleur, Modan and Heller, Laurie M. and Choi, Keunwoo and Lagrange, Mathieu and McFee, Brian and Imoto, Keisuke and Okamoto, Yuki",
+    title = "Challenge on Sound Scene Synthesis: Evaluating Text-to-Audio Generation",
+    booktitle = "Audio Imagination: NeurIPS 2024 Workshop AI-Driven Speech, Music, and Sound Generation",
+    year = "2024"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>

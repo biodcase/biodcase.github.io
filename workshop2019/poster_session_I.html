@@ -1,0 +1,466 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Poster Session I - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Poster Session I - BioDCASE" />
+    <link href="http://localhost:3000/favicon_bioDCASE.ico" rel="icon">
+    <link rel="canonical" href="http://localhost:3000/workshop2019/poster_session_I">
+    <meta property="og:url" content="https://dcase.community/workshop2019/poster_session_I" />
+    <meta property="og:image" content="https://dcase.community/images/logos/default_link_preview2.png" />
+    <meta name="author" content="Mark Cartwright" />
+    <meta name="description" content="Poster Session I 1. Robust non-negative block sparse coding for acoustic novelty detection Ritwik Giri, Arvindh Krishnaswamy, Karim Helwani 2. Language modelling for sound event detection with teacher forcing and scheduled sampling Konstantinos Drossos, Shayan Gharib, Paul Magron, Tuomas Virtanen 3. SpecAugment for sound event detection in domestic environments using …" />
+    <meta name="og:description" content="Poster Session I 1. Robust non-negative block sparse..." />
+
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/assets/dcaseicons/css/dcaseicons.css?v=1.1" type="text/css"/>
+        <link rel="stylesheet" href="http://localhost:3000/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="http://localhost:3000/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="http://localhost:3000/custom.css" type="text/css"/>
+    <script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <!-- <span class="icon-bar"></span> -->
+                </button>
+                <a href="http://localhost:3000/" class="navbar-brand hidden-lg hidden-md hidden-sm" ><img src="http://localhost:3000/images/logos/dcase/BioDCASE.png"/></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="http://localhost:3000/"><img class="img img-responsive" src="http://localhost:3000//images/logos/dcase/BioDCASE.png"/></a>
+    </li></ul>                <!-- THIS IS THE NAV BAR (RIGHT SIDE) --><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-calendar fa-1x fa-fw"></i>&nbsp;Editions&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/events"><i class="fa fa-list fa-fw"></i>&nbsp;Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2025/"><i class="fa fa-file-text fa-fw text-warning"></i>&nbsp;2025 Workshop</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/challenge2025/"><i class="fa fa-bar-chart fa-fw text-success"></i>&nbsp;2025 Challenge</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-1x fa-fw"></i>&nbsp;Community&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Information about the community">
+        <a href="http://localhost:3000/community_info"><i class="fa fa-info-circle fa-fw"></i>&nbsp;BioDCASE Community</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Venues to publish BioDCASE related work">
+        <a href="http://localhost:3000/publishing"><i class="fa fa-file fa-fw"></i>&nbsp;Publishing</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="Curated List of Open Datasets for BioDCASE Related Research">
+        <a href="https://dcase-repo.github.io/dcase_datalist/" target="_blank" ><i class="fa fa-database fa-fw"></i>&nbsp;Datasets</a>
+    </li>
+            <li class="" data-toggle="tooltip" data-placement="bottom" title="A collection of tools">
+        <a href="http://localhost:3000/tools"><i class="fa fa-gears fa-fw"></i>&nbsp;Tools</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Github repository">
+        <a href="https://github.com/biodcase" target="_blank" ><i class="fa fa-github fa-1x"></i>&nbsp;</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Contact us">
+        <a href="http://localhost:3000/contact-us"><i class="fa fa-envelope fa-1x"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div><div class="row">
+             <div id="navbar-sub" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right " id="menuitem-list-sub"><li class="disabled subheader" >
+        <a><strong>Workshop2019</strong></a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Workshop home">
+        <a href="http://localhost:3000/workshop2019/"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a>
+    </li><li class="btn-group  active">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list fa-fw"></i>&nbsp;Program&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/workshop2019/technical-program"><i class="fa fa-list-alt fa-fw"></i>&nbsp;Schedule & Talks</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2019/keynotes"><i class="fa fa-list-alt fa-fw"></i>&nbsp;Keynotes</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2019/poster_session_I"><i class="fa fa-list-alt fa-fw"></i>&nbsp;Poster session I</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2019/poster_session_II"><i class="fa fa-list-alt fa-fw"></i>&nbsp;Poster session II</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Proceedings">
+        <a href="http://localhost:3000/workshop2019/proceedings"><i class="fa fa-file fa-fw"></i>&nbsp;Proceedings</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Registration">
+        <a href="http://localhost:3000/workshop2019/registration"><i class="fa fa-key fa-fw"></i>&nbsp;Registration</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Travel & Accommodation">
+        <a href="http://localhost:3000/workshop2019/travel"><i class="fa fa-info fa-fw"></i>&nbsp;Travel & Accommodation</a>
+    </li><li class="btn-group ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i>&nbsp;Authors&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="http://localhost:3000/workshop2019/author-instructions"><i class="fa fa-info fa-fw"></i>&nbsp;Instructions for Authors</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2019/presentations"><i class="fa fa-comments-o fa-fw"></i>&nbsp;Talks & Posters</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2019/call-for-papers"><i class="fa fa-info fa-fw"></i>&nbsp;Call for papers</a>
+    </li>
+            <li class="">
+        <a href="http://localhost:3000/workshop2019/submission"><i class="fa fa-upload fa-fw"></i>&nbsp;Submission</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Code of conduct">
+        <a href="http://localhost:3000/workshop2019/code-of-conduct"><i class="fa fa-thumbs-up fa-fw"></i>&nbsp;Code of conduct</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Organizing Committee">
+        <a href="http://localhost:3000/workshop2019/organizers"><i class="fa fa-users fa-fw"></i>&nbsp;Organizers</a>
+    </li></ul>
+             </div>
+        </div></div>
+</nav>
+<header class="page-top" style="background-image: url(../theme/images/everyday-patterns/building-bangkok-01.jpg);box-shadow: 0px 1000px rgba(120, 72, 0, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-top:80px;padding-bottom:80px">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right"><h1 class="bold">Poster Session I</h1></div>
+            </div>
+        </div>
+    </div>
+    <!-- <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span> -->
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#poster-session-i">Poster Session I</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h2 id="poster-session-i">Poster Session I</h2>
+<p> </p>
+<table class="table" style="border-bottom: none;padding-top:0px;">
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          1. Robust non-negative block sparse coding for acoustic novelty detection
+          <br/>
+<span class="text-muted">
+            Ritwik Giri, Arvindh Krishnaswamy, Karim Helwani
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          2. Language modelling for sound event detection with teacher forcing and scheduled sampling
+          <br/>
+<span class="text-muted">
+            Konstantinos Drossos, Shayan Gharib, Paul Magron, Tuomas Virtanen
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          3. SpecAugment for sound event detection in domestic environments using ensemble of convolutional recurrent neural networks
+          <br/>
+<span class="text-muted">
+            Wootaek Lim
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          4. Improvement of DOA estimation by using quaternion output in sound event localization and detection
+          <br/>
+<span class="text-muted">
+            Yui Sudo, Katsutoshi Itoyama, Kenji Nishida, Kazuhiro Nakadai
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          5. GCC-PHAT Cross-Correlation audio features for simultaneous sound event localization and detection (SELD) on multiple rooms
+          <br/>
+<span class="text-muted">
+            Hector Cordourier, Paulo Lopez Meyer, Jonathan Huang, Juan Del Hoyo Ontiveros, Hong Lu
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          6. The impact of missing labels and overlapping sound events on multi-label multi-instance learning for sound event classification
+          <br/>
+<span class="text-muted">
+            Maarten Meire, Peter Karsmakers, Lode Vuegen
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          7. MIMII dataset: Sound dataset for malfunctioning industrial machine investigation and inspection
+          <br/>
+<span class="text-muted">
+            Harsh Purohit, Ryo Tanabe, Takeshi Ichige, Takashi Endo, Yuki Nikaido, Kaori Suefusa, Yohei Kawaguchi
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          8. Sound source localisation in Ambisonic audio using peak clustering
+          <br/>
+<span class="text-muted">
+            Marc C. Green, Damian Murphy
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          9. Sound event localization and detection using CRNN architecture with mixup for model generalization
+          <br/>
+<span class="text-muted">
+            Pranay Pratik, Wen Jie Jee, Srikanth Nagisetty, Rohith Mars, Chongsoon Lim
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          10. Multiple neural networks with ensemble method for audio tagging with noisy labels and minimal supervision
+          <br/>
+<span class="text-muted">
+            Kexin He, Yuhan Shen, Wei-Qiang Zhang
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          11. Deep multi-view features from raw audio for acoustic scene classification
+          <br/>
+<span class="text-muted">
+            Arshdeep Singh, Padmanabhan Rajan, Arnav Bhavsar
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          12. Hierarchical detection of sound events and their localization using convolutional neural networks with adaptive thresholds
+          <br/>
+<span class="text-muted">
+            Sotirios Panagiotis Chytas, Gerasimos Potamianos
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          13. Polyphonic sound event detection and localization using a two-stage strategy
+          <br/>
+<span class="text-muted">
+            Yin Cao, Qiuqiang Kong, Turab Iqbal, Fengyan An, Wenwu  Wang, Mark D. Plumbley
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          14. Acoustic scene classification using deep learning-based ensemble averaging
+          <br/>
+<span class="text-muted">
+            Jonathan Huang, Hong Lu, Paulo Lopez Meyer, Hector Cordourier, Juan Del Hoyo Ontiveros
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          15. Classifying non-speech vocals: Deep vs signal processing representations
+          <br/>
+<span class="text-muted">
+            Fatemeh Pishdadian, Prem Seetharaman, Bongjun Kim, Bryan Pardo
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          16. Long-distance detection of bioacoustic events with per-channel energy normalization
+          <br/>
+<span class="text-muted">
+            Vincent Lostanlen, Kaitlin Palmer, Elly Knight, Christopher Clark, Holger Klinck, Andrew Farnsworth, Tina Wong, Jason Cramer, Juan P Bello
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          17. Urban noise monitoring in the Stadtlärm Project - A field report
+          <br/>
+<span class="text-muted">
+            Jakob Abeßer, Marco Götze, Tobias Clauß, Dominik Zapf, Christian Kühn, Hanna Lukashevich, Stephanie Kühnlenz, Stylianos I. Mimilakis
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          18. Audio tagging using linear noise modelling layer
+          <br/>
+<span class="text-muted">
+            Shubhr Singh, Arjun Pankajakshan, Emmanouil Benetos
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          19. Acoustic scene classification based on a large-margin factorized CNN
+          <br/>
+<span class="text-muted">
+            Janghoon Cho, Sungrack Yun, Hyoungwoo Park, Jungyun Eum, Kyuwoong Hwang
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+<b>Challenge Task Reports</b>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          20. Acoustic scene classification in DCASE 2019 challenge: Closed and open set classification and data mismatch setups
+          <br/>
+<span class="text-muted">
+            Annamaria Mesaros, Toni Heittola, Tuomas Virtanen
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          21. Audio tagging with noisy labels and minimal supervision
+          <br/>
+<span class="text-muted">
+            Eduardo Fonseca, Manoj Plakal, Frederic Font, Dan Ellis, Xavier Serra
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          22. A multi-room reverberant dataset for sound event localization and detection
+          <br/>
+<span class="text-muted">
+            Sharath Adavanne, Archontis Politis, Tuomas Virtanen
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          23. Sound event detection in domestic environments with weakly labeled data and soundscape synthesis
+          <br/>
+<span class="text-muted">
+            Nicolas Turpault, Romain Serizel, Justin Salamon, Ankit Parag Shah
+          </span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-top: none;padding-top:0px;">
+<p>
+          24. SONYC Urban Sound Tagging (SONYC-UST): A multilabel dataset from an urban acoustic sensor network
+          <br/>
+<span class="text-muted">
+            Mark Cartwright, Ana Elisa Mendez Mendez, Jason Cramer, Vincent Lostanlen, Graham Dove, Ho-Hsiang Wu, Justin Salamon, Oded Nov, Juan P Bello
+          </span>
+</p>
+</td>
+</tr>
+</table>
+<p> </p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="http://localhost:3000/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/theme/js/theme.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114253890-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114253890-1');
+</script>
+</body>
+</html>
