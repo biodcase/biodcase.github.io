@@ -1,0 +1,16 @@
+#Options +FollowSymLinks
+RewriteEngine On
+Options -Indexes 
+
+# Remove trailing slashes.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=permanent,QSA]
+
+# Redirect to HTML if it exists.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L,QSA]
+
+RewriteCond %{REQUEST_URI} \.htm$
+RewriteRule ^(.*) %{REQUEST_URI}l [R=301,L]
