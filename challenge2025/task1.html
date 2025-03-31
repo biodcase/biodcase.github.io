@@ -197,6 +197,7 @@
 </li>
 <li><a href="#external-data-resources">External Data Resources</a></li>
 <li><a href="#task-rules">Task Rules</a></li>
+<li><a href="#citation">Citation</a></li>
 <li><a href="#support">Support</a></li>
 </ul>
 </div>
@@ -259,7 +260,7 @@
 <li><code>crosscor</code>, which maximises spectral cross-correlation</li>
 <li><code>deeplearning</code>, which is trained to predict whether clips are aligned or not. </li>
 </ul>
-<p>For evaluation, model outputs are expected to be in the same format as the provided keypoint annotations, i.e. a <code>.csv</code> file with three columns <code>Filename</code>, <code>Time Channel 0</code>, and <code>Time Channel 1</code>. </p>
+<p>For evaluation, model outputs are expected to be in the same format as the provided keypoint annotations, i.e. a <code>.csv</code> file with three columns <code>Filename</code>, <code>Time Channel 0</code>, and <code>Time Channel 1</code>. Systems will be ranked on the average of the MSE across the two test datasets.</p>
 <h2 id="deep-learning-baseline-description">Deep learning baseline description</h2>
 <h3>Overview</h3>
 <p>The deep learning baseline system is based on a binary classifier that is trained to determine, for a pair of 1-second mono audio clips, whether they are aligned in time or are not. The model takes two 1-second mono audio clips as input, and outputs either <code>1</code> (the clips are aligned in time) or <code>0</code> (the clips are not aligned in time).</p>
@@ -308,9 +309,12 @@ There are general rules valid for all tasks; these, along with information on te
 <ul>
 <li>Participants may submit predictions for up to <strong>three systems</strong>.</li>
 <li>The models' predictions on both <code>aru</code> and <code>zebra_finch</code> test datasets must be included in the submission.</li>
+<li>Ensemble methods are not allowed.</li>
 </ul>
+<h1 id="citation">Citation</h1>
+<p>If you use the data provided in a publication, please cite the DOI available <a href="https://zenodo.org/records/15085675">here</a>. If you use the code provided in a publication, please follow the citation format provided in the <a href="https://github.com/earthspecies/biodcase_2025_task1_public">github repo</a>.</p>
 <h1 id="support">Support</h1>
-<p>If you have questions please use the BioDCASE Google Groups <a href="https://groups.google.com/g/biodcase-community">community forum</a>.</p>
+<p>If you have questions please use the BioDCASE Google Groups <a href="https://groups.google.com/g/biodcase-community">community forum</a>, or contact the task organizers at: <code>benjamin</code> at <code>earthspecies</code> dot <code>org</code>.</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",

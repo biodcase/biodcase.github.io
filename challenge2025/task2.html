@@ -10,8 +10,8 @@
     <meta property="og:url" content="https://dcase.community/challenge2025/task2" />
     <meta property="og:image" content="https://dcase.community/images/logos/biodcase_preview.png" />
     <meta name="author" content="DCASE" />
-    <meta name="description" content="One of the most common use of underwater Passive Acoustic Monitoring is to examine long-term trends in the population growth, abundance, distribution, seasonal movements, and behaviour of different marine mammal species. In this challenge, we designed a supervised sound event detection task using strong labels, applied to the detection of …" />
-    <meta name="og:description" content="One of the most common use of underwater Passive Acoustic..." />
+    <meta name="description" content="Passive Acoustic Monitoring (PAM) is a technology used to listen to and analyze sounds in the Ocean, and has emerged as a transformative tool for applied ecology, conservation and biodiversity monitoring. In particular, it offers unique opportunities to examine long-term trends in the population growth, abundance, distribution, of different whale …" />
+    <meta name="og:description" content="Passive Acoustic Monitoring (PAM) is a technology used to..." />
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
     <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
@@ -501,10 +501,11 @@
         <div class="col-sm-9 content">
             <section id="content" class="body">
                 <div class="entry-content">
-                    <p class="lead">One of the most common use of underwater Passive Acoustic Monitoring is to examine long-term trends in the population growth, abundance, distribution, seasonal movements, and behaviour of different marine mammal species. In this challenge, we designed a supervised sound event detection task using strong labels, applied to the detection of 7 different call types from two emblematic whale species, the Antarctic blue and fin whales. These calls happen only 6 % of the time, on average, and can thus be considered rare. This task aims to challenge and assess the ability of models to adapt and perform in varying marine acoustic environments, reflecting the real-world variability encountered in marine mammal monitoring. To this end, Antarctica appeared to us as a very exciting playground to start a large-scale testing of model generalization capacity! </p>
+                    <p class="lead">Passive Acoustic Monitoring (PAM) is a technology used to listen to and analyze sounds in the Ocean, and has emerged as a transformative tool for applied ecology, conservation and biodiversity monitoring. In particular, it offers unique opportunities to examine long-term trends in the population growth, abundance, distribution, of different whale species. But to efficiently automate PAM data processing in this application, two major challenges need to be addressed: the scarcity of whale calls on one side, and the variability of the surrounding acoustic environment on the other side. </p>
+<p class="lead">In this context, a supervised sound event detection task was designed, and applied to the detection of 7 different call types from two emblematic whale species, the Antarctic blue and fin whales. This task aims to improve and assess the ability of models to address the two challenges just mentioned: firstly because the calls happen only 6 % of the time, and secondly because the recordings come from different sites and time periods. To put it in a nutshell, Antarctica appeared to us as a very exciting playground to start a large-scale evaluation of model generalization capacity! </p>
 <h1 id="scientific-context">Scientific context</h1>
 <p><a name="scientific_context"></a></p>
-<p>Antarctic blue (Balaenoptera musculus intermedia) and fin (Balaenoptera physalus quoyi) whales were nearly wiped out during industrial whaling. For the past twenty-five years, long-term passive acoustic monitoring has provided one of the few cost-effective means of studying them on their remote feeding grounds at high latitudes around the Antarctic continent. </p>
+<p>Antarctic blue (<em>Balaenoptera musculus intermedia</em>) and fin (<em>Balaenoptera physalus quoyi</em>) whales were nearly wiped out during industrial whaling. For the past twenty-five years, long-term passive acoustic monitoring has provided one of the few cost-effective means of studying them on their remote feeding grounds at high latitudes around the Antarctic continent. </p>
 <p>Long term acoustic monitoring efforts have been conducted by several nations in the Antarctic, and in recent years this work has been coordinated internationally via the Acoustic Trends Working Group of the Southern Ocean Research Partnership of the International Whaling Commission (IWC-SORP). Some of the overarching goals of the Acoustic Trends Project include “using acoustics to examine trends in Antarctic blue and fin whale population growth, abundance, distribution, seasonal movements, and behaviour” [1]. </p>
 <p>Within the IWC-SORP Acoustic Trends Project relevant ecological metrics include presence of acoustic calls over time scales ranging from minutes to months. Furthermore, recent work has highlighted additional value that can be derived from estimates of the number of calls per time-period [2].</p>
 <p>In 2020, the Acoustic Trends Project released publicly one of the largest annotated datasets for marine bioacoustics, the so-called <em>AcousticTrends_BlueFinLibrary</em> (ATBFL) [3]. Release of this annotated library was intended to help standardise analysis and compare the performance of different detectors across the range of locations, years, and instruments used to monitor these species. It has already been exploited in several benchmarking research papers [3][4][5]. </p>
@@ -520,143 +521,131 @@
 </figure>
 <p><br/></p>
 <h1 id="call-description">Call description</h1>
-<p>The 7 calls types to detect are as follows: </p>
-<ul>
-<li>Antarctic blue whale Z-Call (label: bmz): smooth transition of single unit presence from 27 to 16 Hz, composed of three-parts A, B and C</li>
-<li>Antarctic blue whale A-Call (label: bma): Z-call containing only the A part</li>
-<li>Antarctic blue whale B-Call (label: bmb): Z-call containing only the B part</li>
-<li>Antarctic blue whale D-Call (label: bmd): comprises downsweeping frequency component between 20 and 120 Hz, can also comprise more frequency modulations (e.g., upsweep at start)</li>
-<li>Fin whale 20 Hz Pulse without overtone (label: bp20): comprises downsweeping frequency component from 30 to 15 Hz</li>
-<li>Fin whale 20 Hz Pulse with overtone (label: bp20plus): 20 Hz pulse with a secondary energy at variyng frequencies (80 to 120 Hz variation)</li>
-<li>Fin whale 40Hz downsweep (label : bpd): downsweeping vocalisation ending around 40 Hz, usually below 90 Hz and above 30 Hz</li>
-</ul>
-<p>See more detailed information and examples of call spectrograms <a href="https://docs.google.com/presentation/d/1LjQ5tt_UZD4WBVVVIpkV5LljITiNK3XL/edit?slide=id.p1#slide=id.p1">here</a>.</p>
+<p>The 7 calls types to detect are as follows: 
+- Antarctic blue whale Z-Call (label: bmz) : smooth transition of single unit presence from 27 to 16 Hz, composed of three-parts A, B and C
+- Antarctic blue whale A-Call (label: bma) : Z-call containing only the A part
+- Antarctic blue whale B-Call (label: bmb) : Z-call containing only the B part
+- Antarctic blue whale D-Call (label: bmd) : comprises downsweeping frequency component between 20 and 120 Hz, can also comprise more frequency modulations (e.g., upsweep at start)
+- Fin whale 20 Hz Pulse without overtone (label: bp20) : comprises downsweeping frequency component from 30 to 15 Hz
+- Fin whale 20 Hz Pulse with overtone (label: bp20plus) : 20 Hz pulse with a secondary energy at variyng frequencies (80 to 120 Hz variation)
+- Fin whale 40Hz downsweep (label : bpd) : downsweeping vocalisation ending around 40 Hz, usually below 90 Hz and above 30 Hz</p>
+<p>See more detailed information and examples of call spectrograms <a href="https://docs.google.com/presentation/d/1LjQ5tt_UZD4WBVVVIpkV5LljITiNK3XL/edit?usp=sharing&amp;ouid=104566963275162196540&amp;rtpof=true&amp;sd=true">here</a>.</p>
 <h1 id="model-development">Model development</h1>
 <h2 id="train-and-validation-datasets">Train and validation datasets</h2>
 <p>The overall development dataset is composed of the entire IWC-SORP ATBFL dataset, already introduced in the <a href="#scientific_context">scientific context</a>. As described in Table 1, it is organized in 11 site-year deployments located all around Antarctica, with time periods of recording ranging from 2005 to 2017. It contains a total of 6591 audio files, totaling 1880 hours of recording, sampled at 250 Hz. </p>
 <p>The training dataset is composed of all site-year deployments with the exception of Kerguelen 2014, Kerguelen 2015 and Casey 2017, which have been left out from training to form the validation dataset. This makes a total of 6004 audio files for the training dataset over 8 site-year deployments, and 587 audio files for the validation dataset over 3 site-year deployments.</p>
-<table>
-<thead>
-<tr>
-<th>Deployment</th>
-<th>Number of audio recordings</th>
-<th>Total audio duration  (h)</th>
-<th>Positive duration (min:s)</th>
-<th>Total sound event</th>
+<table class="table">
+<tr class="active">
+<th><strong>Deployment</strong></th>
+<th><strong>Number of audio recordings</strong></th>
+<th><strong>Total duration (h)  </strong></th>
+<th><strong>Total events</strong></th>
+<th><strong>Ratio event/duration (%)</strong></th>
 </tr>
-</thead>
-<tbody>
 <tr>
 <td>ballenyisland2015</td>
 <td>205</td>
 <td>204</td>
-<td>02:46.32</td>
 <td>2222</td>
+<td>1.4</td>
 </tr>
 <tr>
 <td>casey2014</td>
 <td>194</td>
 <td>194</td>
-<td>14:12.00</td>
-<td>6866</td>
+<td>6868</td>
+<td>7.3</td>
 </tr>
 <tr>
 <td>elephantisland2013</td>
 <td>2247</td>
 <td>187</td>
-<td>16:06.58</td>
-<td>21966</td>
+<td>11425</td>
+<td>8.6</td>
 </tr>
 <tr>
 <td>elephantisland2014</td>
 <td>2595</td>
 <td>216</td>
-<td>28:08.25</td>
-<td>20964</td>
+<td>16102</td>
+<td>13</td>
 </tr>
 <tr>
 <td>greenwich2015</td>
 <td>190</td>
-<td>32</td>
-<td>02:03.11</td>
+<td>31.7</td>
 <td>1128</td>
+<td>6.5</td>
 </tr>
 <tr>
 <td>kerguelen2005</td>
 <td>200</td>
 <td>200</td>
-<td>03:31.37</td>
 <td>2960</td>
+<td>1.8</td>
 </tr>
 <tr>
 <td>maudrise2014</td>
 <td>200</td>
-<td>83</td>
-<td>05:42.45</td>
-<td>2360</td>
+<td>83.3</td>
+<td>2357</td>
+<td>6.9</td>
 </tr>
 <tr>
 <td>rosssea2014</td>
 <td>176</td>
 <td>176</td>
-<td>08:51.00</td>
 <td>104</td>
+<td>5</td>
 </tr>
 <tr>
-<td><strong>TOTAL TRAIN</strong></td>
+<td><strong>TOTAL TRAIN<strong></strong></strong></td>
 <td>6004</td>
 <td>1292</td>
-<td>72:40.20</td>
-<td>58570</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td>casey2017</td>
 <td>187</td>
 <td>187</td>
-<td>06:06.42</td>
 <td>3263</td>
+<td>3.3</td>
 </tr>
 <tr>
 <td>kerguelen2014</td>
 <td>200</td>
 <td>200</td>
-<td>11:23.02</td>
-<td>8822</td>
+<td>7094</td>
+<td>5.7</td>
 </tr>
 <tr>
 <td>kerguelen2015</td>
 <td>200</td>
 <td>200</td>
-<td>07:23.30</td>
-<td>5542</td>
+<td>2707</td>
+<td>3.7</td>
 </tr>
 <tr>
-<td><strong>TOTAL   VALIDATION</strong></td>
+<td><strong>TOTAL   VALIDATION<strong></strong></strong></td>
 <td>587</td>
 <td>587</td>
-<td>24:53.14</td>
-<td>17627</td>
+<td></td>
+<td></td>
 </tr>
-</tbody>
+<caption>
+    Table 1 : description of the development dataset, including details of the training and validation datasets.
+  </caption>
 </table>
-<p>Table 1: Description of the development dataset, including details of the training and validation datasets.</p>
-<p>A more complete version of this table is available <a href="https://docs.google.com/spreadsheets/d/19DeQK-1pIP7FO6fvDA4DfAwJrfKD3FCzf7WUF9G3COo/edit?gid=0#gid=0">here</a>, with more statistics within the different classes and more information on the recording deployments. </p>
+<p>A more complete version of this table is available <a href="https://docs.google.com/spreadsheets/d/19DeQK-1pIP7FO6fvDA4DfAwJrfKD3FCzf7WUF9G3COo/edit?usp=sharing">here</a>, with more statistics within the different classes and more information on the recording deployments. </p>
 <h2 id="annotation">Annotation</h2>
 <h3>Description</h3>
 <p>The annotation data of the development dataset correspond to the one published for IWC-SORP ATBFL dataset, where each site-year deployment comes with its own annotation file. The 11 csv annotation files were named after each corresponding site-year deployment. Each annotated sound event is defined by the tuple (label, low_frequency, high_frequency, start_datetime, end_datetime), with label taking a unique name in {bma, bmb, bmz, bmd, bpd, bp20, bp20plus}.</p>
 <h3>Protocol and feedbacks</h3>
-<p>The development dataset was annotated by a group of bioacoustician experts, with one expert per site-year deployment, following the <a href="https://docs.google.com/document/d/1AGDAlIFtAInKbo3LGng2HeKwv_shXiKX/edit">SORP annotation guideline</a>. Despite such precautions, and as in most bioacoustics annotated datasets, the annotation sets might still contain some defects that any model developer using this corpus should be aware of. Especially, despite the use of a common protocol, ensuring sufficient consistency between the different annotators, and thus between the different site-year annotation sets, is made particularly difficult for the following reasons, which would have required more standardized procedures: </p>
-<ul>
-<li>
-<p>different annotation styles and practices: different experts have different thresholds for when they mark a call. They also have different styles for marking starts and ends and high and low frequencies. Also, some analysts are precise and some are fast, impacting the overall accuracy of bounds - few are both;</p>
-</li>
-<li>
-<p>fragmentation, multipath and splitting vs lumping - Long tonal calls can be fragmented due to propagation and multipath. Some analysts are splitters and annotate every fragment independently. Others are lumpers and will mark a single long call for all the fragments and multipaths ;</p>
-</li>
-<li>
-<p>multipath: there is often confusion among expert analysts about whether a potential multipath is an echo or a separate animal calling. The broader context and sequence of calls will likely be helpful here.</p>
-</li>
-</ul>
+<p>The development dataset was annotated by a group of bioacoustician experts, with one expert per site-year deployment, following the <a href="https://docs.google.com/document/d/1AGDAlIFtAInKbo3LGng2HeKwv_shXiKX/edit">SORP annotation guideline</a>. Despite such precautions, and as in most bioacoustics annotated datasets, the annotation sets might still contain some defects that any model developer using this corpus should be aware of. Especially, despite the use of a common protocol, ensuring sufficient consistency between the different annotators, and thus between the different site-year annotation sets, is made particularly difficult for the following reasons, which would have required more standardized procedures: 
+- different annotation styles and practices: different experts have different thresholds for when they mark a call. They also have different styles for marking starts and ends and high and low frequencies. Also, some analysts are precise and some are fast, impacting the overall accuracy of bounds - few are both;
+- fragmentation, multipath and splitting vs lumping - Long tonal calls can be fragmented due to propagation and multipath. Some analysts are splitters and annotate every fragment independently. Others are lumpers and will mark a single long call for all the fragments and multipaths ;
+- multipath: there is often confusion among expert analysts about whether a potential multipath is an echo or a separate animal calling. The broader context and sequence of calls will likely be helpful here.</p>
 <p>All these causes are of course highly worsened within time periods with low SNR. For example, the site-year deployment Elephant island 2015 has already been recognized as a more difficult dataset to process due to this reason. </p>
 <p>Having said that, it is widely recognized that having high quality annotations on such a large scale dataset is a very complex and cumbersome process, both in terms of human resources and scientific expertise. As recognized in related audio processing fields [6], these potential defects in the annotations of the development set should be seen as an intrinsic component of this data challenge reflecting real-life annotation practices and that should be fully addressed by models. </p>
 <h2 id="download">Download</h2>
@@ -679,60 +668,166 @@
 <h2 id="rules-and-submission">Rules and submission</h2>
 <p>Participants are free to employ any preprocessing technique and network architecture. The only requirement is that the final output of your model MUST be a CSV file formatted following the annotation format of evaluation set described above. </p>
 <p>Official challenge submission consists of:
-* System output file (<em>.csv)
-* Metadata file (</em>.yaml)
-* Technical report explaining in sufficient detail the method (*.pdf)</p>
+- System output file (<em>.csv)
+- Metadata file (</em>.yaml)
+- Technical report explaining in sufficient detail the method (*.pdf)</p>
 <p>System output should be presented as a single text-file, in CSV format, with a header row as shown in the example output below:</p>
-<table>
-<thead>
-<tr>
-<th>dataset</th>
-<th>filename</th>
-<th>annotation</th>
-<th>start_datetime</th>
-<th>end_datetime</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>kerguelen2014</td>
-<td>2014-02-18T21-00-00_000.wav</td>
-<td>bma</td>
-<td>2014-02-18T21:32:03.876700+00:00</td>
-<td>2014-02-18T21:32:13.281600+00:00</td>
-</tr>
-<tr>
-<td>kerguelen2014</td>
-<td>2014-02-18T21-00-00_000.wav</td>
-<td>bma</td>
-<td>2014-02-18T21:37:42.187800+00:00</td>
-<td>2014-02-18T21:37:51.400800+00:00</td>
-</tr>
-<tr>
-<td>kerguelen2014</td>
-<td>2014-02-18T21-00-00_000.wav</td>
-<td>bmb</td>
-<td>2014-02-18T21:39:06.640300+00:00</td>
-<td>2014-02-18T21:39:15.277500+00:00</td>
-</tr>
-<tr>
-<td>kerguelen2014</td>
-<td>2014-02-18T21-00-00_000.wav</td>
-<td>bmz</td>
-<td>2014-02-18T21:48:19.270900+00:00</td>
-<td>2014-02-18T21:48:28.292000+00:00</td>
-</tr>
-</tbody>
-</table>
+<div class="highlight"><pre><span></span><code>dataset,filename,annotation,start_datetime,end_datetime
+kerguelen2014,2014-02-18T21-00-00_000.wav,bma,2014-02-18T21:32:03.876700+00:00,2014-02-18T21:32:13.281600+00:00
+kerguelen2014,2014-02-18T21-00-00_000.wav,bma,2014-02-18T21:37:42.187800+00:00,2014-02-18T21:37:51.400800+00:00
+kerguelen2014,2014-02-18T21-00-00_000.wav,bmb,2014-02-18T21:39:06.640300+00:00,2014-02-18T21:39:15.277500+00:00
+kerguelen2014,2014-02-18T21-00-00_000.wav,bmz,2014-02-18T21:48:19.270900+00:00,2014-02-18T21:48:28.292000+00:00
+</code></pre></div>
+<p>Example meta information file baseline system <code>Parcerisas_VLIZ_task2_1.meta.yaml</code>:</p>
+<div aria-multiselectable="true" class="panel-group" id="metadata-accordion" role="tablist">
+<div class="panel panel-default">
+<div aria-labelledby="task2-example-header" class="panel-collapse collapse" id="task1-example-collapse" role="tabpanel">
+<div class="panel-body" style="padding: 0px">
+<pre class="font110" style="padding:0;border:0;border-radius:0;"><code class="yaml"># Submission information
+submission:
+  # Submission label
+  # Label is used to index submissions, to avoid overlapping codes among submissions
+  # use the following way to form your label:
+  # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number]_[index number of your submission (1-4)]
+  label: Parcerisas_VLIZ_task2_1
+
+  # Submission name
+  # This name will be used in the results tables when space permits
+  name: yolo baseline
+
+  # Submission name abbreviated
+  # This abbreviated name will be used in the results table when space is tight, maximum 10 characters
+  abbreviation: yolo_base
+
+  # Submission authors in order, mark one of the authors as corresponding author.
+  authors:
+    # First author
+    - lastname: Parcerisas
+      firstname: Clea
+      email: clea.parcerisas@vliz.be                    # Contact email address
+      corresponding: true                             # Mark true for one of the authors
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: VLIZ
+        institute: Flanders Marine Institute
+        department: Marine Observation Centre
+        location: Ostend, BE
+
+        #... More authors can be specified by repeating the information
+
+
+# System information
+system:
+  # SED system description, meta data provided here will be used to do
+  # meta analysis of the submitted system. Use general level tags, if possible use the tags provided in comments.
+  # If information field is not applicable to the system, use "!!null".
+  description:
+
+    # Audio input
+    input_sampling_rate: 250               # In kHz (specify any if you take it into account)
+
+    # Acoustic representation
+    acoustic_features: spectrogram   # e.g one or multiple [MFCC, log-mel energies, spectrogram, CQT, PCEN, ...]
+    
+    # Noise precentage
+    noise_percentage: balanced   # specify "balanced" when taking the same amount of label samples. Otherwise specify percentage of the total noise as float from 0 to 1
+
+    # Data augmentation methods
+    data_augmentation: !!null             # [time stretching, block mixing, pitch shifting, ...] Specify !!null if none
+
+    # Embeddings
+    # e.g. VGGish, OpenL3, ...
+    embeddings: !!null
+
+    # Machine learning
+    # In case using ensemble methods, please specify all methods used (comma separated list).
+    machine_learning_method: YOLO         # e.g one or multiple [GMM, HMM, SVM, kNN, MLP, CNN, RNN, CRNN, NMF, random forest, ensemble, transformer, ...]
+
+    # External data usage method
+    # e.g. directly, embeddings, pre-trained model, ...
+    external_data_usage: !!null
+
+    # Ensemble method subsystem count
+    # In case ensemble method is not used, mark !!null.
+    ensemble_method_subsystem_count: !!null # [2, 3, 4, 5, ... ]
+
+    # Decision making methods (for ensemble)
+    decision_making: !!null                 # [majority vote, ...]
+
+    # Post-processing, followed by the time span (in ms) in case of smoothing
+    post-processing: YOLO default				# [median filtering, time aggregation...]
+
+  # System complexity, meta data provided here will be used to evaluate
+  # submitted systems from the computational load perspective.
+  complexity:
+
+    # Total amount of parameters used in the acoustic model. For neural networks, this
+    # information is usually given before training process in the network summary.
+    # For other than neural networks, if parameter count information is not directly available,
+    # try estimating the count as accurately as possible.
+    # In case of ensemble approaches, add up parameters for all subsystems.
+    total_parameters: 9,428,953    # note that for simple template matching, the "parameters"==the pixel count of the templates, plus 1 for each param such as thresholding. 
+    # Approximate training time followed by the hardware used
+    trainining_time: 10h 40min
+    # Model size in MB
+    model_size: 22
+
+
+  # URL to the source code of the system [optional, highly recommended]
+  source_code: https://github.com/marinebioCASE/task2_2025/tree/main/baselines/yolo 
+
+  # List of external datasets used in the submission.
+  # A previous DCASE development dataset is used here only as example! List only external datasets
+  external_datasets:
+    # Dataset name
+    - name: !!null
+      # Dataset access url
+      url: !!null
+      # Total audio length in minutes
+      total_audio_length: !!null            # minutes
+
+# System results 
+results:
+  # Full results are not mandatory, but for through analysis of the challenge submissions recommended.
+  # If you cannot provide all result details, also incomplete results can be reported.
+  validation_set:
+    overall:
+      F1: 0.43 # 0 to 1
+      precision: 0.67
+      recall: 0.32 
+
+    # Per-dataset
+    dataset_wise:
+      Casey2017: 
+        F1: 0.55 # 0 to 1
+        precision: 0.7
+        recall: 0.46
+      Kerguelen2014:
+        F1: 0.38 # 0 to 1
+        precision: 0.66
+        recall: 0.29
+      Kerguelen2015:
+        F1: 0.40 # 0 to 1
+        precision: 0.67
+        recall: 0.32
+
+
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>You can directly download those files <a href="https://drive.google.com/drive/folders/1hU7ADhN96iKABmPaH5rwAoMkCnev8yJb?usp=sharing">here</a>.</p>
 <h1 id="baseline">Baseline</h1>
-<p>An off-the-shelf object detector model YOLOv11 was run on the develoment dataset to get the baseline performance below. In addition to providing reference performance for the task, this baseline has also been prepared to serve as a getting started code example, where you will find some general routines to load audio and annotation files in different Python frameworks, compute spectrograms, train baseline models and use the evaluation code on the validation set. </p>
-<table>
+<p>An off-the-shelf object detector model YOLOv11 was run to get baseline performance on the validation set (see table 2). In addition to providing reference performance for the task, this baseline has also been prepared to serve as a getting started code example, where you will find some general routines to load audio and annotation files in different Python frameworks, compute spectrograms, train baseline models and use the evaluation code on the validation set. </p>
+<table class="table">
 <thead>
-<tr>
-<th>Model</th>
-<th>Recall</th>
-<th>Precision</th>
-<th>f1</th>
+<tr class="active">
+<td><strong>Model</strong></td>
+<td><strong>Recall</strong></td>
+<td><strong>Precision</strong></td>
+<td><strong>f1</strong></td>
 </tr>
 </thead>
 <tbody>
@@ -742,11 +837,14 @@
 <td>0.67</td>
 <td>0.43</td>
 </tr>
-</tbody>
-</table>
-<p>See more details in the <a href="https://github.com/marinebioCASE/task2_2025/tree/main/baselines">GITHUB repository</a></p>
+<caption>
+    Table 2 : baseline performance on the validation set.
+  </caption>
+</tbody></table>
+<p>See more detailed results per class and per dataset <a href="https://drive.google.com/file/d/17hX3S9woRBmTw2tUHsS__vgn42dB8OMf/view?usp=sharing">here</a>.</p>
+<p>Download codes on <a href="https://github.com/marinebioCASE/task2_2025/tree/main/baselines">GITHUB repository</a>.</p>
 <h1 id="support">Support</h1>
-<p>If you have questions please use the BioDCASE Google Groups <a href="https://groups.google.com/g/biodcase-community">community forum</a>.</p>
+<p>If you have questions please use the BioDCASE Google Groups <a href="https://groups.google.com/g/biodcase-community">community forum</a>, or directly contact task coordinators (dorian.cazau@ensta.fr).</p>
 <h1 id="references">References</h1>
 <p>[1] Miller et al. (2021). An open access dataset for developing automated detectors of Antarctic baleen whale sounds and performance evaluation of two commonly used detectors, Sci. Rep., 11, 806. doi:10.1038/s41598-020-78995-8 <br/>
 [2] Castro et al (2024). Beyond counting calls: estimating detection probability for Antarctic blue whales reveals biological trends in seasonal calling. Front. Mar. Sci. doi:10.3389/fmars.2024.1406678 <br/>
