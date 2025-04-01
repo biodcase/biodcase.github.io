@@ -646,17 +646,19 @@
 <h3>Description</h3>
 <p>The annotation data of the development dataset correspond to the one published for IWC-SORP ATBFL dataset, where each site-year deployment comes with its own annotation file. The 11 csv annotation files were named after each corresponding site-year deployment. Each annotated sound event is defined by the tuple (label, low_frequency, high_frequency, start_datetime, end_datetime), with label taking a unique name in {bma, bmb, bmz, bmd, bpd, bp20, bp20plus}.</p>
 <h3>Protocol and feedbacks</h3>
-<p>The development dataset was annotated by a group of bioacoustician experts, with one expert per site-year deployment, following the <a href="https://docs.google.com/document/d/1AGDAlIFtAInKbo3LGng2HeKwv_shXiKX/edit">SORP annotation guideline</a>. Despite such precautions, and as in most bioacoustics annotated datasets, the annotation sets might still contain some defects that any model developer using this corpus should be aware of. Especially, despite the use of a common protocol, ensuring sufficient consistency between the different annotators, and thus between the different site-year annotation sets, is made particularly difficult for the following reasons, which would have required more standardized procedures: 
-* different annotation styles and practices: different experts have different thresholds for when they mark a call. They also have different styles for marking starts and ends and high and low frequencies. Also, some analysts are precise and some are fast, impacting the overall accuracy of bounds - few are both;
-* fragmentation, multipath and splitting vs lumping - Long tonal calls can be fragmented due to propagation and multipath. Some analysts are splitters and annotate every fragment independently. Others are lumpers and will mark a single long call for all the fragments and multipaths ;
-* multipath: there is often confusion among expert analysts about whether a potential multipath is an echo or a separate animal calling. The broader context and sequence of calls will likely be helpful here.</p>
+<p>The development dataset was annotated by a group of bioacoustician experts, with one expert per site-year deployment, following the <a href="https://docs.google.com/document/d/1AGDAlIFtAInKbo3LGng2HeKwv_shXiKX/edit">SORP annotation guideline</a>. Despite such precautions, and as in most bioacoustics annotated datasets, the annotation sets might still contain some defects that any model developer using this corpus should be aware of. Especially, despite the use of a common protocol, ensuring sufficient consistency between the different annotators, and thus between the different site-year annotation sets, is made particularly difficult for the following reasons, which would have required more standardized procedures: </p>
+<ul>
+<li>different annotation styles and practices: different experts have different thresholds for when they mark a call. They also have different styles for marking starts and ends and high and low frequencies. Also, some analysts are precise and some are fast, impacting the overall accuracy of bounds - few are both;</li>
+<li>fragmentation, multipath and splitting vs lumping - Long tonal calls can be fragmented due to propagation and multipath. Some analysts are splitters and annotate every fragment independently. Others are lumpers and will mark a single long call for all the fragments and multipaths ;</li>
+<li>multipath: there is often confusion among expert analysts about whether a potential multipath is an echo or a separate animal calling. The broader context and sequence of calls will likely be helpful here.</li>
+</ul>
 <p>All these causes are of course highly worsened within time periods with low SNR. For example, the site-year deployment Elephant island 2015 has already been recognized as a more difficult dataset to process due to this reason. </p>
 <p>Having said that, it is widely recognized that having high quality annotations on such a large scale dataset is a very complex and cumbersome process, both in terms of human resources and scientific expertise. As recognized in related audio processing fields [6], these potential defects in the annotations of the development set should be seen as an intrinsic component of this data challenge reflecting real-life annotation practices and that should be fully addressed by models. </p>
 <h2 id="download">Download</h2>
 <p>Raw audio recordings of the development dataset, along with annotation data, can be downloaded from this <a href="https://zenodo.org/records/15092732?preview=1&amp;token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjhkMzVmYzFiLWFjM2ItNDA0ZS04MmU2LTE2MzQ4OTZhNmI0MCIsImRhdGEiOnt9LCJyYW5kb20iOiJhMjE4NDQyNTBlYjFiYmMzOWM0MzczZmYwMDEzNzI5NCJ9.9oDVeRP8kTzfkvLXQIXlNPtC-Lf2o6dOK7RFZAjRj0bX6obwMFH_yMPIZ23z-KQxQcHTTVeDVh7GSVmeVsxdgA">Zenodo entry</a>. Note that minor changes were made to the original ATBFL dataset such as adopting more consistent naming conventions, pooling together all annotation files per call type into a single file per dataset etc (see the complete list of minor changes on Zenodo).</p>
 <h2 id="supplementary-resources">Supplementary resources</h2>
 <ul>
-<li>All datasets, annotations and pre-trained models from this <a href="https://docs.google.com/spreadsheets/d/1uoPP6tNvj2WtCdjGyOFmHrmBoQx-BK8lwTTFCiCNXrg/edit?gid=0#gid=0">list</a> are allowed ;</li>
+<li>All datasets, annotations and pre-trained models from this <a href="https://docs.google.com/spreadsheets/d/1uoPP6tNvj2WtCdjGyOFmHrmBoQx-BK8lwTTFCiCNXrg/edit?gid=0#gid=0">list</a> are allowed;</li>
 <li>Use of other external data (e.g. audio files, annotations) and pre-trained models are allowed only after approval from the task coordinators (contact: dorian.cazau@ensta.fr). These external data and models should be public, open datasets.</li>
 </ul>
 <h1 id="model-evaluation">Model evaluation</h1>
@@ -671,10 +673,12 @@
 <p>This dataset will be released on the 1st June 2025. </p>
 <h2 id="rules-and-submission">Rules and submission</h2>
 <p>Participants are free to employ any preprocessing technique and network architecture. The only requirement is that the final output of your model MUST be a CSV file formatted following the annotation format of evaluation set described above. </p>
-<p>Official challenge submission consists of:
-* System output file (<em>.csv)
-* Metadata file (</em>.yaml)
-* Technical report explaining in sufficient detail the method (*.pdf)</p>
+<p>Official challenge submission consists of:</p>
+<ul>
+<li>System output file (*.csv)</li>
+<li>Metadata file (*.yaml)</li>
+<li>Technical report explaining in sufficient detail the method (*.pdf)</li>
+</ul>
 <p>System output should be presented as a single text-file, in CSV format, with a header row as shown in the example output below:</p>
 <div class="highlight"><pre><span></span><code>dataset,filename,annotation,start_datetime,end_datetime
 kerguelen2014,2014-02-18T21-00-00_000.wav,bma,2014-02-18T21:32:03.876700+00:00,2014-02-18T21:32:13.281600+00:00
