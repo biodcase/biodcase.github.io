@@ -521,14 +521,16 @@
 </figure>
 <p><br/></p>
 <h1 id="call-description">Call description</h1>
-<p>The 7 calls types to detect are as follows: 
-- Antarctic blue whale Z-Call (label: bmz) : smooth transition of single unit presence from 27 to 16 Hz, composed of three-parts A, B and C
-- Antarctic blue whale A-Call (label: bma) : Z-call containing only the A part
-- Antarctic blue whale B-Call (label: bmb) : Z-call containing only the B part
-- Antarctic blue whale D-Call (label: bmd) : comprises downsweeping frequency component between 20 and 120 Hz, can also comprise more frequency modulations (e.g., upsweep at start)
-- Fin whale 20 Hz Pulse without overtone (label: bp20) : comprises downsweeping frequency component from 30 to 15 Hz
-- Fin whale 20 Hz Pulse with overtone (label: bp20plus) : 20 Hz pulse with a secondary energy at variyng frequencies (80 to 120 Hz variation)
-- Fin whale 40Hz downsweep (label : bpd) : downsweeping vocalisation ending around 40 Hz, usually below 90 Hz and above 30 Hz</p>
+<p>The 7 calls types to detect are as follows: </p>
+<ul>
+<li>Antarctic blue whale Z-Call (label: bmz) : smooth transition of single unit presence from 27 to 16 Hz, composed of three-parts A, B and C</li>
+<li>Antarctic blue whale A-Call (label: bma) : Z-call containing only the A part</li>
+<li>Antarctic blue whale B-Call (label: bmb) : Z-call containing only the B part</li>
+<li>Antarctic blue whale D-Call (label: bmd) : comprises downsweeping frequency component between 20 and 120 Hz, can also comprise more frequency modulations (e.g., upsweep at start)</li>
+<li>Fin whale 20 Hz Pulse without overtone (label: bp20) : comprises downsweeping frequency component from 30 to 15 Hz</li>
+<li>Fin whale 20 Hz Pulse with overtone (label: bp20plus) : 20 Hz pulse with a secondary energy at variyng frequencies (80 to 120 Hz variation)</li>
+<li>Fin whale 40Hz downsweep (label : bpd) : downsweeping vocalisation ending around 40 Hz, usually below 90 Hz and above 30 Hz</li>
+</ul>
 <p>See more detailed information and examples of call spectrograms <a href="https://docs.google.com/presentation/d/1LjQ5tt_UZD4WBVVVIpkV5LljITiNK3XL/edit?usp=sharing&amp;ouid=104566963275162196540&amp;rtpof=true&amp;sd=true">here</a>.</p>
 <h1 id="model-development">Model development</h1>
 <h2 id="train-and-validation-datasets">Train and validation datasets</h2>
@@ -553,21 +555,21 @@
 <td>casey2014</td>
 <td>194</td>
 <td>194</td>
-<td>6868</td>
+<td>6866</td>
 <td>7.3</td>
 </tr>
 <tr>
 <td>elephantisland2013</td>
 <td>2247</td>
 <td>187</td>
-<td>11425</td>
+<td>21223</td>
 <td>8.6</td>
 </tr>
 <tr>
 <td>elephantisland2014</td>
 <td>2595</td>
 <td>216</td>
-<td>16102</td>
+<td>20964</td>
 <td>13</td>
 </tr>
 <tr>
@@ -588,7 +590,7 @@
 <td>maudrise2014</td>
 <td>200</td>
 <td>83.3</td>
-<td>2357</td>
+<td>2360</td>
 <td>6.9</td>
 </tr>
 <tr>
@@ -600,15 +602,17 @@
 </tr>
 <tr>
 <td><strong>TOTAL TRAIN<strong></strong></strong></td>
-<td>6004</td>
+<td>6007</td>
 <td>1292</td>
-<td></td>
-<td></td>
+<td>57827</td>
+<td>5.1</td>
+</tr>
+<tr>
 </tr>
 <tr>
 <td>casey2017</td>
 <td>187</td>
-<td>187</td>
+<td>185</td>
 <td>3263</td>
 <td>3.3</td>
 </tr>
@@ -616,25 +620,25 @@
 <td>kerguelen2014</td>
 <td>200</td>
 <td>200</td>
-<td>7094</td>
+<td>8822</td>
 <td>5.7</td>
 </tr>
 <tr>
 <td>kerguelen2015</td>
 <td>200</td>
 <td>200</td>
-<td>2707</td>
+<td>5542</td>
 <td>3.7</td>
 </tr>
 <tr>
 <td><strong>TOTAL   VALIDATION<strong></strong></strong></td>
 <td>587</td>
-<td>587</td>
-<td></td>
-<td></td>
+<td>585</td>
+<td>17627</td>
+<td>5.1</td>
 </tr>
 <caption>
-    Table 1 : description of the development dataset, including details of the training and validation datasets.
+    Table 1. Summary statistics on the development dataset.
   </caption>
 </table>
 <p>A more complete version of this table is available <a href="https://docs.google.com/spreadsheets/d/19DeQK-1pIP7FO6fvDA4DfAwJrfKD3FCzf7WUF9G3COo/edit?usp=sharing">here</a>, with more statistics within the different classes and more information on the recording deployments. </p>
@@ -643,9 +647,9 @@
 <p>The annotation data of the development dataset correspond to the one published for IWC-SORP ATBFL dataset, where each site-year deployment comes with its own annotation file. The 11 csv annotation files were named after each corresponding site-year deployment. Each annotated sound event is defined by the tuple (label, low_frequency, high_frequency, start_datetime, end_datetime), with label taking a unique name in {bma, bmb, bmz, bmd, bpd, bp20, bp20plus}.</p>
 <h3>Protocol and feedbacks</h3>
 <p>The development dataset was annotated by a group of bioacoustician experts, with one expert per site-year deployment, following the <a href="https://docs.google.com/document/d/1AGDAlIFtAInKbo3LGng2HeKwv_shXiKX/edit">SORP annotation guideline</a>. Despite such precautions, and as in most bioacoustics annotated datasets, the annotation sets might still contain some defects that any model developer using this corpus should be aware of. Especially, despite the use of a common protocol, ensuring sufficient consistency between the different annotators, and thus between the different site-year annotation sets, is made particularly difficult for the following reasons, which would have required more standardized procedures: 
-- different annotation styles and practices: different experts have different thresholds for when they mark a call. They also have different styles for marking starts and ends and high and low frequencies. Also, some analysts are precise and some are fast, impacting the overall accuracy of bounds - few are both;
-- fragmentation, multipath and splitting vs lumping - Long tonal calls can be fragmented due to propagation and multipath. Some analysts are splitters and annotate every fragment independently. Others are lumpers and will mark a single long call for all the fragments and multipaths ;
-- multipath: there is often confusion among expert analysts about whether a potential multipath is an echo or a separate animal calling. The broader context and sequence of calls will likely be helpful here.</p>
+* different annotation styles and practices: different experts have different thresholds for when they mark a call. They also have different styles for marking starts and ends and high and low frequencies. Also, some analysts are precise and some are fast, impacting the overall accuracy of bounds - few are both;
+* fragmentation, multipath and splitting vs lumping - Long tonal calls can be fragmented due to propagation and multipath. Some analysts are splitters and annotate every fragment independently. Others are lumpers and will mark a single long call for all the fragments and multipaths ;
+* multipath: there is often confusion among expert analysts about whether a potential multipath is an echo or a separate animal calling. The broader context and sequence of calls will likely be helpful here.</p>
 <p>All these causes are of course highly worsened within time periods with low SNR. For example, the site-year deployment Elephant island 2015 has already been recognized as a more difficult dataset to process due to this reason. </p>
 <p>Having said that, it is widely recognized that having high quality annotations on such a large scale dataset is a very complex and cumbersome process, both in terms of human resources and scientific expertise. As recognized in related audio processing fields [6], these potential defects in the annotations of the development set should be seen as an intrinsic component of this data challenge reflecting real-life annotation practices and that should be fully addressed by models. </p>
 <h2 id="download">Download</h2>
@@ -662,15 +666,15 @@
 <p>Within the IWC-SORP ATBFL project, the same annotation setup as the development dataset has been used for the evaluation dataset. In addition to that, to ensure the highest quality of evaluation annotations, a two-phase multi-annotator campaign has been specially designed for this challenge, including a complete re-annotation of all evaluation data, plus a double-checking procedure of the most conflictual cases. The complete protocol and associated results will be released at the end of the data challenge.</p>
 <h2 id="metrics">Metrics</h2>
 <p>The evaluation metrics used is a 1D IoU (standing for Intersection over Inion), which basically looks at all the time when the predicted event overlaps with the ground truth event, divided by the total time spanning from the minimum start time to the maximum end time. To emphasize the importance of estimating an accurate number of calls (for example, for a downstream task of population density estimation), this metrics was customized to penalize model outputs with several detections overlapping with one single ground truth. For example, if 3 predicted sound events overlap with one single ground truth event, only one of the predicted sound events will be marked as a true positive (TP) and assigned as correct, and the rest will be marked as false positives (FP). TP are then computed counting all the prediction events which have been marked as correct. FP are all the prediction events which were not assigned to a ground truth. FN are all the ground truth events which have not been assigned any prediction. Recall, Precision and f1-score are then computed per-class and per-deployment. </p>
-<p>See more details in the <a href="https://github.com/marinebioCASE/task2_2025/tree/main/evaluation">GITHUB repository</a></p>
+<p>See more details on <a href="https://github.com/marinebioCASE/task2_2025/tree/main/evaluation">Github</a>.</p>
 <h2 id="download-1">Download</h2>
 <p>This dataset will be released on the 1st June 2025. </p>
 <h2 id="rules-and-submission">Rules and submission</h2>
 <p>Participants are free to employ any preprocessing technique and network architecture. The only requirement is that the final output of your model MUST be a CSV file formatted following the annotation format of evaluation set described above. </p>
 <p>Official challenge submission consists of:
-- System output file (<em>.csv)
-- Metadata file (</em>.yaml)
-- Technical report explaining in sufficient detail the method (*.pdf)</p>
+* System output file (<em>.csv)
+* Metadata file (</em>.yaml)
+* Technical report explaining in sufficient detail the method (*.pdf)</p>
 <p>System output should be presented as a single text-file, in CSV format, with a header row as shown in the example output below:</p>
 <div class="highlight"><pre><span></span><code>dataset,filename,annotation,start_datetime,end_datetime
 kerguelen2014,2014-02-18T21-00-00_000.wav,bma,2014-02-18T21:32:03.876700+00:00,2014-02-18T21:32:13.281600+00:00
@@ -854,11 +858,11 @@ results:
 <td>0.43</td>
 </tr>
 <caption>
-    Table 2 : baseline performance on the validation set.
+    Table 2. Baseline performance on the validation set.
   </caption>
 </tbody></table>
 <p>See more detailed results per class and per dataset <a href="https://drive.google.com/file/d/17hX3S9woRBmTw2tUHsS__vgn42dB8OMf/view?usp=sharing">here</a>.</p>
-<p>Download codes on <a href="https://github.com/marinebioCASE/task2_2025/tree/main/baselines">GITHUB repository</a>.</p>
+<p>See baseline details and download codes on <a href="https://github.com/marinebioCASE/task2_2025/tree/main/baselines">Github</a>.</p>
 <h1 id="support">Support</h1>
 <p>If you have questions please use the BioDCASE Google Groups <a href="https://groups.google.com/g/biodcase-community">community forum</a>, or directly contact task coordinators (dorian.cazau@ensta.fr).</p>
 <h1 id="references">References</h1>
