@@ -10,7 +10,7 @@
     <meta property="og:url" content="https://dcase.community/challenge2025/task2" />
     <meta property="og:image" content="https://dcase.community/images/logos/biodcase_preview.png" />
     <meta name="author" content="DCASE" />
-    <meta name="description" content="Passive Acoustic Monitoring (PAM) is a technology used to listen to and analyze sounds in the Ocean, and has emerged as a transformative tool for applied ecology, conservation and biodiversity monitoring. In particular, it offers unique opportunities to examine long-term trends in the population growth, abundance, distribution, of different whale …" />
+    <meta name="description" content="Passive Acoustic Monitoring (PAM) is a technology used to analyze sounds in the Ocean, where our capacity of visual observation is highly limited. It has emerged as a transformative tool for applied ecology, conservation and biodiversity monitoring. In particular, it offers unique opportunities to examine long-term trends in population dynamics …" />
     <meta name="og:description" content="Passive Acoustic Monitoring (PAM) is a technology used to..." />
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
@@ -345,14 +345,11 @@
 <strong>Clea Parcerisas</strong>
 </div>
 <div class="col-md-12">
-<p class="small text-muted">       
-                                                                
-                                            
-                                
+<p class="small text-muted">
+<a class="text" href="www.vliz.be">
                                 VLIZ
-                                
-                            
-                            </p>
+                                </a>
+</p>
 </div>
 </div>
 </td>
@@ -475,7 +472,7 @@
 <li><a href="#call-description">Call description</a></li>
 <li><a href="#model-development">Model development</a>
 <ul>
-<li><a href="#train-and-validation-datasets">Train and validation datasets</a></li>
+<li><a href="#train-and-validation-sets">Train and validation sets</a></li>
 <li><a href="#annotation">Annotation</a></li>
 <li><a href="#download">Download</a></li>
 <li><a href="#supplementary-resources">Supplementary resources</a></li>
@@ -483,7 +480,7 @@
 </li>
 <li><a href="#model-evaluation">Model evaluation</a>
 <ul>
-<li><a href="#dataset">Dataset</a></li>
+<li><a href="#evaluation-set">Evaluation set</a></li>
 <li><a href="#annotation-1">Annotation</a></li>
 <li><a href="#metrics">Metrics</a></li>
 <li><a href="#download-1">Download</a></li>
@@ -501,44 +498,44 @@
         <div class="col-sm-9 content">
             <section id="content" class="body">
                 <div class="entry-content">
-                    <p class="lead">Passive Acoustic Monitoring (PAM) is a technology used to listen to and analyze sounds in the Ocean, and has emerged as a transformative tool for applied ecology, conservation and biodiversity monitoring. In particular, it offers unique opportunities to examine long-term trends in the population growth, abundance, distribution, of different whale species. But to efficiently automate PAM data processing in this application, two major challenges need to be addressed: the scarcity of whale calls on one side, and the variability of the surrounding acoustic environment on the other side. </p>
-<p class="lead">In this context, a supervised sound event detection task was designed, and applied to the detection of 7 different call types from two emblematic whale species, the Antarctic blue and fin whales. This task aims to improve and assess the ability of models to address the two challenges just mentioned: firstly because the calls happen only 6 % of the time, and secondly because the recordings come from different sites and time periods. To put it in a nutshell, Antarctica appeared to us as a very exciting playground to start a large-scale evaluation of model generalization capacity! </p>
+                    <p class="lead">Passive Acoustic Monitoring (PAM) is a technology used to analyze sounds in the Ocean, where our capacity of visual observation is highly limited. It has emerged as a transformative tool for applied ecology, conservation and biodiversity monitoring. In particular, it offers unique opportunities to examine long-term trends in population dynamics, abundance, distribution or behaviour of different whale species. But for this purpose, the automation of PAM data processing, involving the automatic detection of whale calls in long-term recordings, faces two major issues: the scarcity of calls and the variability of soundscapes.</p>
+<p class="lead">In this data challenge, a supervised sound event detection task was designed, and applied to the detection of 7 different call types from two emblematic whale species, the Antarctic blue and fin whale. This task aims to improve and assess the ability of models to address the two issues just mentioned, as models will have to deal with whale calls happening only 6 % of the time, and PAM recordings coming from different time periods and sites all around Antarctica presenting highly variable soundscapes. The White Continent appeared to be a very exciting playground to start a large-scale evaluation of model generalization capacity, but challenging for sure!</p>
 <h1 id="scientific-context">Scientific context</h1>
 <p><a name="scientific_context"></a></p>
 <p>Antarctic blue (<em>Balaenoptera musculus intermedia</em>) and fin (<em>Balaenoptera physalus quoyi</em>) whales were nearly wiped out during industrial whaling. For the past twenty-five years, long-term passive acoustic monitoring has provided one of the few cost-effective means of studying them on their remote feeding grounds at high latitudes around the Antarctic continent. </p>
-<p>Long term acoustic monitoring efforts have been conducted by several nations in the Antarctic, and in recent years this work has been coordinated internationally via the Acoustic Trends Working Group of the Southern Ocean Research Partnership of the International Whaling Commission (IWC-SORP). Some of the overarching goals of the Acoustic Trends Project include “using acoustics to examine trends in Antarctic blue and fin whale population growth, abundance, distribution, seasonal movements, and behaviour” [1]. </p>
-<p>Within the IWC-SORP Acoustic Trends Project relevant ecological metrics include presence of acoustic calls over time scales ranging from minutes to months. Furthermore, recent work has highlighted additional value that can be derived from estimates of the number of calls per time-period [2].</p>
+<p>Long term acoustic monitoring efforts have been conducted by several nations in the Antarctic, and in recent years this work has been coordinated internationally via the Acoustic Trends Working Group within the Southern Ocean Research Partnership of the International Whaling Commission (IWC-SORP). Some of the overarching goals of the Acoustic Trends Project include “using acoustics to examine trends in Antarctic blue and fin whale population growth, abundance, distribution, seasonal movements, and behaviour” [1], implementing ecological metrics on the presence of calls per time-period (ranging from minutes to months), and more recently on the number of calls per time-period [2].</p>
 <p>In 2020, the Acoustic Trends Project released publicly one of the largest annotated datasets for marine bioacoustics, the so-called <em>AcousticTrends_BlueFinLibrary</em> (ATBFL) [3]. Release of this annotated library was intended to help standardise analysis and compare the performance of different detectors across the range of locations, years, and instruments used to monitor these species. It has already been exploited in several benchmarking research papers [3][4][5]. </p>
 <h1 id="task-definition">Task definition</h1>
-<p>The task is a classical supervised multi-class and multi-label sound event detection task using strong labels, which depict the start and end time of the events. The target of the systems is to provide not only the event class but also the event time localization given that multiple events can be present in an audio recording (see Fig 1). In the context of the IWC-SORP Acoustic Trends Project described above, this task is applied to the detection of 7 different call types from Antarctic blue and fin whales, grouped together into 3 categories for evaluation. This task aims to challenge and assess the generalization ability of models to adapt and perform in varying acoustic environments, reflecting the real-world variability encountered in marine mammal monitoring. </p>
+<p>The task is a classical supervised multi-class and multi-label sound event detection task using strong labels. The latter depict the start and end time of the events, and consequently the target of the models is to provide not only the event class but also the event time localization given that multiple events can be present in an audio recording (see Fig 1). In the context of the IWC-SORP Acoustic Trends Project described above, this task is applied to the detection of 7 different call types from Antarctic blue and fin whales, grouped together into 3 categories for evaluation. This task aims to challenge and assess the generalization ability of models to adapt and perform in varying acoustic environments while being able to detect sound events with low presence rate (below 10 %), reflecting the real-world difficulties encountered in marine mammal monitoring. </p>
 <figure>
 <div class="row row-centered">
 <div class="col-xs-10 col-md-8 col-centered">
 <img class="img img-responsive" src="https://biodcase.github.io/images/tasks/challenge2025/task2_figure1.png"/>
-<figcaption>Figure 1: Overview of the sound event detection task. Blue whale (Bm) D and Z calls are present, as well as Fin whale (Bp) 20 Hz Pulse with (Bp20p) or without (Bp20) overtone and its 40Hz downsweep (BpD).</figcaption>
+<figcaption>Figure 1. Overview of the sound event detection task. Blue whale D and Z calls (BmD and BmZ) are present, as well as Fin whale 20 Hz Pulse with (Bp20p) or without (Bp20) overtone and its 40Hz downsweep (BpD).</figcaption>
 </div>
 </div>
 </figure>
 <p><br/></p>
 <h1 id="call-description">Call description</h1>
+<p><a name="call_desc"></a></p>
 <p>The 7 calls types to detect are as follows: </p>
 <ul>
-<li>Antarctic blue whale Z-Call (label: bmz) : smooth transition of single unit presence from 27 to 16 Hz, composed of three-parts A, B and C</li>
-<li>Antarctic blue whale A-Call (label: bma) : Z-call containing only the A part</li>
-<li>Antarctic blue whale B-Call (label: bmb) : Z-call containing only the B part</li>
-<li>Antarctic blue whale D-Call (label: bmd) : comprises downsweeping frequency component between 20 and 120 Hz, can also comprise more frequency modulations (e.g., upsweep at start)</li>
-<li>Fin whale 20 Hz Pulse without overtone (label: bp20) : comprises downsweeping frequency component from 30 to 15 Hz</li>
-<li>Fin whale 20 Hz Pulse with overtone (label: bp20plus) : 20 Hz pulse with a secondary energy at variyng frequencies (80 to 120 Hz variation)</li>
-<li>Fin whale 40Hz downsweep (label : bpd) : downsweeping vocalisation ending around 40 Hz, usually below 90 Hz and above 30 Hz</li>
+<li>Antarctic blue whale Z-Call (annotation label: BmZ) : smooth transition of single unit presence from 27 to 16 Hz, composed of three-parts A, B and C</li>
+<li>Antarctic blue whale A-Call (annotation label: BmA) : Z-call containing only the A part</li>
+<li>Antarctic blue whale B-Call (annotation label: BmB) : Z-call containing the A and B parts</li>
+<li>Antarctic blue whale D-Call (annotation label: BmD): comprises downsweeping frequency component between 20 and 120 Hz, can also comprise more frequency modulations (e.g., upsweep at start)</li>
+<li>Antarctic fin whale 20 Hz Pulse without overtone (annotation label: Bp20) : comprises downsweeping frequency component from 30 to 15 Hz</li>
+<li>Antarctic fin whale 20 Hz Pulse with overtone (annotation label: Bp20plus) : 20 Hz pulse with a secondary energy at varying frequencies (80 to 120 Hz variation)</li>
+<li>Antarctic fin whale 40Hz downsweep (annotation label: BpD) : downsweeping vocalisation ending around 40 Hz, usually below 90 Hz and above 30 Hz</li>
 </ul>
 <p>See more detailed information and examples of call spectrograms <a href="https://docs.google.com/presentation/d/1LjQ5tt_UZD4WBVVVIpkV5LljITiNK3XL/edit?usp=sharing&amp;ouid=104566963275162196540&amp;rtpof=true&amp;sd=true">here</a>.</p>
 <h1 id="model-development">Model development</h1>
-<h2 id="train-and-validation-datasets">Train and validation datasets</h2>
-<p>The overall development dataset is composed of the entire IWC-SORP ATBFL dataset, already introduced in the <a href="#scientific_context">scientific context</a>. As described in Table 1, it is organized in 11 site-year deployments located all around Antarctica, with time periods of recording ranging from 2005 to 2017. It contains a total of 6591 audio files, totaling 1880 hours of recording, sampled at 250 Hz. </p>
-<p>The training dataset is composed of all site-year deployments with the exception of Kerguelen 2014, Kerguelen 2015 and Casey 2017, which have been left out from training to form the validation dataset. This makes a total of 6004 audio files for the training dataset over 8 site-year deployments, and 587 audio files for the validation dataset over 3 site-year deployments.</p>
+<h2 id="train-and-validation-sets">Train and validation sets</h2>
+<p>The overall development set relies on the entire ATBFL library, already introduced in the <a href="#scientific_context">scientific context</a>. As described in Table 1, it is organized in 11 site-year datasets, corresponding to deployments located all around Antarctica with time periods of recording ranging from 2005 to 2017. It contains a total of 6591 audio files, totaling 1880 hours of recording, sampled at 250 Hz. </p>
+<p>The training set is composed of all site-year datasets with the exception of Kerguelen 2014, Kerguelen 2015 and Casey 2017, which have been left out from training to form the validation set. This makes a total of 6007 audio files for the training set over 8 site-year datasets, and 587 audio files for the validation set over 3 site-year datasets.</p>
 <table class="table">
 <tr class="active">
-<th><strong>Deployment</strong></th>
+<th><strong>Dataset</strong></th>
 <th><strong>Number of audio recordings</strong></th>
 <th><strong>Total duration (h)  </strong></th>
 <th><strong>Total events</strong></th>
@@ -602,10 +599,10 @@
 </tr>
 <tr>
 <td><strong>TOTAL TRAIN<strong></strong></strong></td>
-<td>6007</td>
-<td>1292</td>
-<td>57827</td>
-<td>5.1</td>
+<td><strong>6007<strong></strong></strong></td>
+<td><strong>1292<strong></strong></strong></td>
+<td><strong>57827<strong></strong></strong></td>
+<td><strong>5.1<strong></strong></strong></td>
 </tr>
 <tr>
 </tr>
@@ -632,70 +629,78 @@
 </tr>
 <tr>
 <td><strong>TOTAL   VALIDATION<strong></strong></strong></td>
-<td>587</td>
-<td>585</td>
-<td>17627</td>
-<td>5.1</td>
+<td><strong>587<strong></strong></strong></td>
+<td><strong>585<strong></strong></strong></td>
+<td><strong>17627<strong></strong></strong></td>
+<td><strong>5.1<strong></strong></strong></td>
 </tr>
 <caption>
-    Table 1. Summary statistics on the development dataset.
+    Table 1. Summary statistics on the development set.
   </caption>
 </table>
 <p>A more complete version of this table is available <a href="https://docs.google.com/spreadsheets/d/19DeQK-1pIP7FO6fvDA4DfAwJrfKD3FCzf7WUF9G3COo/edit?usp=sharing">here</a>, with more statistics within the different classes and more information on the recording deployments. </p>
+<p>See details about the dataset tree structure on the <a href="https://zenodo.org/records/15092732">Zenodo page</a>.</p>
 <h2 id="annotation">Annotation</h2>
+<p><a name="annotation_dev"></a></p>
 <h3>Description</h3>
-<p>The annotation data of the development dataset correspond to the one published for IWC-SORP ATBFL dataset, where each site-year deployment comes with its own annotation file. The 11 csv annotation files were named after each corresponding site-year deployment. Each annotated sound event is defined by the tuple (label, low_frequency, high_frequency, start_datetime, end_datetime), with label taking a unique name in {bma, bmb, bmz, bmd, bpd, bp20, bp20plus}.</p>
+<p>The annotation data of the development set correspond to those published with the ATBFL library, where each site-year dataset comes with its own annotation file. Each annotated sound event is defined by the tuple <code>(dataset,filename,annotation,annotator,low_frequency,high_frequency,start_datetime,end_datetime)</code>, with <code>annotation</code> representing the class label and taking a unique name in <code>{bma, bmb, bmz, bmd, bpd, bp20, bp20plus}</code>. Note that these labels correspond to a more machine-readable version of the list <code>{BmA, BmB, BmZ, BmD, BpD, Bp20, Bp20plus}</code> described above in <a href="#call_desc">Call description</a>. <code>Annotator</code> represents the short name of the expert annotator who have produced the annotation file. There is one single annotator per dataset but a same annotator may have annotated several datasets, as for example <code>balcazar</code> for the datasets <code>casey2014</code> and <code>kerguelen2015</code>. </p>
+<p>Here is an example of annotation file below: </p>
+<div class="highlight"><pre><span></span><code>dataset,filename,annotation,annotator,low_frequency,high_frequency,start_datetime,end_datetime
+ballenyislands2015,2015-02-04T03-00-00_000.wav,bma,nieukirk,21.9,28.4,2015-02-04T03:27:32.053000+00:00,2015-02-04T03:27:43.709000+00:00
+ballenyislands2015,2015-02-16T11-00-00_000.wav,bma,nieukirk,22.4,27.3,2015-02-16T11:54:10.436000+00:00,2015-02-16T11:54:16.414000+00:00
+ballenyislands2015,2015-02-16T11-00-00_000.wav,bma,nieukirk,24.5,27.3,2015-02-16T11:52:24.753000+00:00,2015-02-16T11:52:29.236000+00:00
+ballenyislands2015,2015-02-16T11-00-00_000.wav,bma,nieukirk,24.2,27.6,2015-02-16T11:50:47.251000+00:00,2015-02-16T11:50:53.004000+00:00
+ballenyislands2015,2015-02-20T00-00-00_000.wav,bma,nieukirk,22.7,27.3,2015-02-20T00:38:36.379000+00:00,2015-02-20T00:38:44.225000+00:00
+</code></pre></div>
+<p>See more details on the <a href="https://zenodo.org/records/15092732">Zenodo page</a>.</p>
 <h3>Protocol and feedbacks</h3>
-<p>The development dataset was annotated by a group of bioacoustician experts, with one expert per site-year deployment, following the <a href="https://docs.google.com/document/d/1AGDAlIFtAInKbo3LGng2HeKwv_shXiKX/edit">SORP annotation guideline</a>. Despite such precautions, and as in most bioacoustics annotated datasets, the annotation sets might still contain some defects that any model developer using this corpus should be aware of. Especially, despite the use of a common protocol, ensuring sufficient consistency between the different annotators, and thus between the different site-year annotation sets, is made particularly difficult for the following reasons, which would have required more standardized procedures: </p>
+<p>The development set was annotated by a group of bioacoustician experts, with one expert per site-year dataset, following the <a href="https://docs.google.com/document/d/1AGDAlIFtAInKbo3LGng2HeKwv_shXiKX/edit?usp=sharing&amp;ouid=104566963275162196540&amp;rtpof=true&amp;sd=true">SORP annotation guideline</a>. Despite such precautions, and as in most bioacoustics annotated datasets, the annotation data might still contain some defects that any model developer using this corpus should be aware of. Especially, despite the use of a common protocol, ensuring sufficient consistency between the different annotators, and thus between the different site-year annotation data, is made particularly difficult for the following reasons, which would have required more standardized procedures: </p>
 <ul>
 <li>different annotation styles and practices: different experts have different thresholds for when they mark a call. They also have different styles for marking starts and ends and high and low frequencies. Also, some analysts are precise and some are fast, impacting the overall accuracy of bounds - few are both;</li>
-<li>fragmentation, multipath and splitting vs lumping - Long tonal calls can be fragmented due to propagation and multipath. Some analysts are splitters and annotate every fragment independently. Others are lumpers and will mark a single long call for all the fragments and multipaths ;</li>
+<li>fragmentation, multipath and splitting vs lumping: long tonal calls can be fragmented due to propagation and multipath. Some analysts are splitters and annotate every fragment independently. Others are lumpers and will mark a single long call for all the fragments and multipaths ;</li>
 <li>multipath: there is often confusion among expert analysts about whether a potential multipath is an echo or a separate animal calling. The broader context and sequence of calls will likely be helpful here.</li>
 </ul>
-<p>All these causes are of course highly worsened within time periods with low SNR. For example, the site-year deployment Elephant island 2015 has already been recognized as a more difficult dataset to process due to this reason. </p>
-<p>Having said that, it is widely recognized that having high quality annotations on such a large scale dataset is a very complex and cumbersome process, both in terms of human resources and scientific expertise. As recognized in related audio processing fields [6], these potential defects in the annotations of the development set should be seen as an intrinsic component of this data challenge reflecting real-life annotation practices and that should be fully addressed by models. </p>
+<p>All these causes are of course highly worsened within time periods with low SNR. From past research works using the ATBFL library [4,7], we can also provide the following feedbacks specific to some site-year datasets:</p>
+<ul>
+<li>for Elephant Island and Balleny Island, missed annotations have been observed, and might represent a problem for model training;</li>
+<li>for Casey and Maud Rise, the strong chorus band caused by both fin whale 20Hz-Pulses and blue whale Z-Calls increases the challenge to detect single calls within that chorus band and sometimes higher frequency components (such as the 20Plus annotations) are the only way to differentiate single calls from the underlying chorus;</li>
+<li>see example spectrograms for these cases in [7]. </li>
+</ul>
+<p>Having said that, it is widely recognized that having high quality annotations on such a large scale dataset is a very complex and cumbersome process, both in terms of human resources and scientific expertise. As recognized in related audio processing fields [6], these potential defects in the annotations of the development set should be seen as an intrinsic component of this data challenge reflecting real-life annotation practices, and as such they should be fully addressed by models. </p>
 <h2 id="download">Download</h2>
-<p>Raw audio recordings of the development dataset, along with annotation data, can be downloaded from this <a href="https://zenodo.org/records/15092732?preview=1&amp;token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjhkMzVmYzFiLWFjM2ItNDA0ZS04MmU2LTE2MzQ4OTZhNmI0MCIsImRhdGEiOnt9LCJyYW5kb20iOiJhMjE4NDQyNTBlYjFiYmMzOWM0MzczZmYwMDEzNzI5NCJ9.9oDVeRP8kTzfkvLXQIXlNPtC-Lf2o6dOK7RFZAjRj0bX6obwMFH_yMPIZ23z-KQxQcHTTVeDVh7GSVmeVsxdgA">Zenodo entry</a>. Note that minor changes were made to the original ATBFL dataset such as adopting more consistent naming conventions, pooling together all annotation files per call type into a single file per dataset etc (see the complete list of minor changes on Zenodo).</p>
+<p>Raw audio recordings of the 11 site-year datasets of the development set, along with their annotation data, can be downloaded from this <a href="https://zenodo.org/records/15092732">Zenodo repository</a>. Note that minor changes were made to the original ATBFL library such as adopting more consistent naming conventions, pooling together all annotation files per call type into a single file per dataset etc (see the complete list of minor changes on Zenodo).</p>
 <h2 id="supplementary-resources">Supplementary resources</h2>
 <ul>
-<li>All datasets, annotations and pre-trained models from this <a href="https://docs.google.com/spreadsheets/d/1uoPP6tNvj2WtCdjGyOFmHrmBoQx-BK8lwTTFCiCNXrg/edit?gid=0#gid=0">list</a> are allowed;</li>
+<li>All datasets, annotations and pre-trained models from this <a href="https://docs.google.com/spreadsheets/d/1uoPP6tNvj2WtCdjGyOFmHrmBoQx-BK8lwTTFCiCNXrg/edit?usp=sharing">list</a> are allowed;</li>
 <li>Use of other external data (e.g. audio files, annotations) and pre-trained models are allowed only after approval from the task coordinators (contact: dorian.cazau@ensta.fr). These external data and models should be public, open datasets.</li>
 </ul>
 <h1 id="model-evaluation">Model evaluation</h1>
-<h2 id="dataset">Dataset</h2>
-<p>The evaluation dataset is composed of two new site-year deployments, not yet published as parts of the ATBFL dataset. They contain the same cetacean species as in the development dataset but from different sites in Antarctica and/or different time periods. Those datasets will be used as independent evaluation sets to get more detailed insights into the generalization performance of models, and an overall evaluation scoring will also be computed to have the global ranking of models. </p>
+<h2 id="evaluation-set">Evaluation set</h2>
+<p>The evaluation set is composed of two new site-year datasets, not yet published as parts of the ATBFL library. They contain the same whale species as in the development set but from different sites in Antarctica and/or different time periods. Those two datasets will be used as independent evaluation datasets to get more detailed insights into the generalization performance of models, and an overall evaluation scoring will also be computed to have the global ranking of models. </p>
 <h2 id="annotation-1">Annotation</h2>
-<p>Within the IWC-SORP ATBFL project, the same annotation setup as the development dataset has been used for the evaluation dataset. In addition to that, to ensure the highest quality of evaluation annotations, a two-phase multi-annotator campaign has been specially designed for this challenge, including a complete re-annotation of all evaluation data, plus a double-checking procedure of the most conflictual cases. The complete protocol and associated results will be released at the end of the data challenge.</p>
+<p>Still within the IWC-SORP Acoustic Trends Project, the same <a href="#annotation_dev">annotation setup</a> as for the development set was used for the evaluation set. In addition to that, to ensure the highest quality of evaluation annotations, a two-phase multi-annotator campaign has been specially designed for this challenge, including a complete re-annotation of all evaluation data, plus a double-checking procedure of the most conflictual cases. The complete protocol and associated results will be released at the end of the data challenge.</p>
 <h2 id="metrics">Metrics</h2>
-<p>The evaluation metrics used is a 1D IoU (standing for Intersection over Inion), which basically looks at all the time when the predicted event overlaps with the ground truth event, divided by the total time spanning from the minimum start time to the maximum end time. To emphasize the importance of estimating an accurate number of calls (for example, for a downstream task of population density estimation), this metrics was customized to penalize model outputs with several detections overlapping with one single ground truth. For example, if 3 predicted sound events overlap with one single ground truth event, only one of the predicted sound events will be marked as a true positive (TP) and assigned as correct, and the rest will be marked as false positives (FP). TP are then computed counting all the prediction events which have been marked as correct. FP are all the prediction events which were not assigned to a ground truth. FN are all the ground truth events which have not been assigned any prediction. Recall, Precision and f1-score are then computed per-class and per-deployment. </p>
+<p>The evaluation metrics used is a 1D IoU (standing for Intersection over Inion) over the temporal axis, which basically looks at all the time when the predicted event overlaps with the ground truth event, divided by the total time spanning from the minimum start time to the maximum end time. To emphasize the importance of estimating an accurate number of calls (for example, for a downstream task of population density estimation), this metrics was customized to penalize model outputs with several detections overlapping with one single ground truth. For example, if 3 predicted sound events overlap with one single ground truth event, only one of the predicted sound events will be marked as a True Positive (TP) and assigned as correct, and the rest will be marked as False Positives (FP). TP are then computed counting all the prediction events which have been marked as correct. FP are all the prediction events which were not assigned to a ground truth. FN are all the ground truth events which have not been assigned any prediction. Recall, Precision and f1-score are then computed per-class and per-dataset. </p>
 <p>See more details on <a href="https://github.com/marinebioCASE/task2_2025/tree/main/evaluation">Github</a>.</p>
 <h2 id="download-1">Download</h2>
-<p>This dataset will be released on the 1st June 2025. </p>
+<p>This evaluation set will be released on the 1st June 2025.  </p>
 <h2 id="rules-and-submission">Rules and submission</h2>
-<p>Participants are free to employ any preprocessing technique and network architecture. The only requirement is that the final output of your model MUST be a CSV file formatted following the annotation format of evaluation set described above. </p>
+<p><a name="rules_submission"></a></p>
 <p>Official challenge submission consists of:</p>
 <ul>
-<li>System output file (*.csv)</li>
+<li>Model output file (*.csv)</li>
 <li>Metadata file (*.yaml)</li>
-<li>Technical report explaining in sufficient detail the method (*.pdf)</li>
+<li>Technical report explaining in sufficient details the model (*.pdf)</li>
 </ul>
-<p>System output should be presented as a single text-file, in CSV format, with a header row as shown in the example output below:</p>
+<p>First, the final model output must be presented as a single text-file, in CSV format, with a header row as shown in the example output below:</p>
 <div class="highlight"><pre><span></span><code>dataset,filename,annotation,start_datetime,end_datetime
 kerguelen2014,2014-02-18T21-00-00_000.wav,bma,2014-02-18T21:32:03.876700+00:00,2014-02-18T21:32:13.281600+00:00
 kerguelen2014,2014-02-18T21-00-00_000.wav,bma,2014-02-18T21:37:42.187800+00:00,2014-02-18T21:37:51.400800+00:00
 kerguelen2014,2014-02-18T21-00-00_000.wav,bmb,2014-02-18T21:39:06.640300+00:00,2014-02-18T21:39:15.277500+00:00
 kerguelen2014,2014-02-18T21-00-00_000.wav,bmz,2014-02-18T21:48:19.270900+00:00,2014-02-18T21:48:28.292000+00:00
 </code></pre></div>
-<p>Example meta information file baseline system <code>Parcerisas_VLIZ_task2_1.meta.yaml</code>:</p>
-<!-- <div class="panel-group" id="metadata-accordion" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-default">
-        <div id="task1-example-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="task2-example-header">
-            <div class="panel-body" style="padding: 0px">
-                <pre class="font110" style="padding:0;border:0;border-radius:0;"><code class="yaml">{content/data/challenge2025/Parcerisas_VLIZ_task2_1.meta.yaml}</code></pre>
-            </div>
-        </div>
-    </div>
-</div> -->
+<p>Note that in comparison to the <a href="#annotation_dev">annotation</a> files used during the development phase, the fields related to frequency information and annotators are not necessary here any more. </p>
+<p>Second, a complete YAML metadata file describing the model should be provided. Here is an example <code>Parcerisas_VLIZ_task2_1.meta.yaml</code>:</p>
 <div aria-multiselectable="true" class="panel-group" id="metadata-accordion" role="tablist">
 <div class="panel panel-default">
 <div class="panel-heading" id="task1a-example-header" role="tab">
@@ -843,8 +848,9 @@ results:
 </div>
 </div>
 <p>You can directly download those files <a href="https://drive.google.com/drive/folders/1hU7ADhN96iKABmPaH5rwAoMkCnev8yJb?usp=sharing">here</a>.</p>
+<p>See more details on the technical report and challenge rules <a href="https://biodcase.github.io/challenge2025/rules">here</a>.</p>
 <h1 id="baseline">Baseline</h1>
-<p>An off-the-shelf object detector model YOLOv11 was run to get baseline performance on the validation set (see table 2). In addition to providing reference performance for the task, this baseline has also been prepared to serve as a getting started code example, where you will find some general routines to load audio and annotation files in different Python frameworks, compute spectrograms, train baseline models and use the evaluation code on the validation set. </p>
+<p>An off-the-shelf object detector model YOLOv11 was run to get baseline performance on the validation set (see Table 2). In addition to providing reference performance for the task, this baseline has also been prepared to serve as a getting started code example, where you will find some general routines to load audio and annotation files in different Python frameworks, compute spectrograms, train baseline models and use the evaluation code on the validation set. </p>
 <table class="table">
 <thead>
 <tr class="active">
@@ -865,6 +871,7 @@ results:
     Table 2. Baseline performance on the validation set.
   </caption>
 </tbody></table>
+<p>A second baseline based on a ResNet is coming very soon ....  </p>
 <p>See more detailed results per class and per dataset <a href="https://drive.google.com/file/d/17hX3S9woRBmTw2tUHsS__vgn42dB8OMf/view?usp=sharing">here</a>.</p>
 <p>See baseline details and download codes on <a href="https://github.com/marinebioCASE/task2_2025/tree/main/baselines">Github</a>.</p>
 <h1 id="support">Support</h1>
@@ -875,7 +882,8 @@ results:
 [3] Miller et al. (2020). An annotated library of underwater acoustic recordings for testing and training automated algorithms for detecting Antarctic blue and fin whale sounds. doi: 10.26179/5e6056035c01b <br/>
 [4] Schall et al. (2024).  Deep learning in marine bioacoustics: a benchmark for baleen whale detection. Remote Sens Ecol Conserv, 10: 642-654. https://doi.org/10.1002/rse2.392 <br/>
 [5] Dubus et al. (2024). Improving automatic detection with supervised contrastive learning: application with low-frequency vocalizations. Workshop DCLDE (2024) <br/>
-[6] Fonseca et al. (2022) FSD50K: An Open Dataset of Human-Labeled Sound Events. IEEE/ACM TALP, vol. 30 (1) <br/></p>
+[6] Fonseca et al. (2022) FSD50K: An Open Dataset of Human-Labeled Sound Events. IEEE/ACM TALP, vol. 30 (1) <br/>
+[7] Schall and Parcerisas (2022). A Robust Method to Automatically Detect Fin Whale Acoustic Presence in Large and Diverse Passive Acoustic Datasets. J. Mar. Sci. Eng. 2022, 10(12), 1831; https://doi.org/10.3390/jmse10121831 <br/></p>
                 </div>
             </section>
         </div>
