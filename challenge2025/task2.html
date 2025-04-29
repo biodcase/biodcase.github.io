@@ -492,7 +492,7 @@
 <li><a href="#rules-and-submission">Rules and submission</a></li>
 </ul>
 </li>
-<li><a href="#baseline">Baseline</a></li>
+<li><a href="#baselines">Baselines</a></li>
 <li><a href="#support">Support</a></li>
 <li><a href="#references">References</a></li>
 </ul>
@@ -504,7 +504,7 @@
             <section id="content" class="body">
                 <div class="entry-content">
                     <p class="lead">Passive Acoustic Monitoring (PAM) is a technology used to analyze sounds in the Ocean, where our capacity of visual observation is highly limited. It has emerged as a transformative tool for applied ecology, conservation and biodiversity monitoring. In particular, it offers unique opportunities to examine long-term trends in population dynamics, abundance, distribution or behaviour of different whale species. But for this purpose, the automation of PAM data processing, involving the automatic detection of whale calls in long-term recordings, faces two major issues: the scarcity of calls and the variability of soundscapes.</p>
-<p class="lead">In this data challenge, a supervised sound event detection task was designed, and applied to the detection of 7 different call types from two emblematic whale species, the Antarctic blue and fin whale. This task aims to improve and assess the ability of models to address the two issues just mentioned, as models will have to deal with whale calls happening only 6 % of the time, and PAM recordings coming from different time periods and sites all around Antarctica presenting highly variable soundscapes. The White Continent appeared to be a very exciting playground to start a large-scale evaluation of model generalization capacity, but challenging for sure!</p>
+<p class="lead">In this data challenge, a supervised sound event detection task was designed, and applied to the detection of 7 different call types from two emblematic whale species, the Antarctic blue and fin whales. This task aims to improve and assess the ability of models to address the two issues just mentioned, as models will have to deal with whale calls happening only 6 % of the time, and PAM recordings coming from different time periods and sites all around Antarctica that present highly variable soundscapes. The White Continent appeared to be a very exciting playground to start a large-scale evaluation of model generalization capacity, but challenging for sure!</p>
 <h1 id="scientific-context">Scientific context</h1>
 <p><a name="scientific_context"></a></p>
 <p>Antarctic blue (<em>Balaenoptera musculus intermedia</em>) and fin (<em>Balaenoptera physalus quoyi</em>) whales were nearly wiped out during industrial whaling. For the past twenty-five years, long-term passive acoustic monitoring has provided one of the few cost-effective means of studying them on their remote feeding grounds at high latitudes around the Antarctic continent. </p>
@@ -529,9 +529,9 @@
 <li>Antarctic blue whale A-Call (annotation label: BmA) : Z-call containing only the A part</li>
 <li>Antarctic blue whale B-Call (annotation label: BmB) : Z-call containing the A and B parts</li>
 <li>Antarctic blue whale D-Call (annotation label: BmD): comprises downsweeping frequency component between 20 and 120 Hz, can also comprise more frequency modulations (e.g., upsweep at start)</li>
-<li>Antarctic fin whale 20 Hz Pulse without overtone (annotation label: Bp20) : comprises downsweeping frequency component from 30 to 15 Hz</li>
-<li>Antarctic fin whale 20 Hz Pulse with overtone (annotation label: Bp20plus) : 20 Hz pulse with a secondary energy at varying frequencies (80 to 120 Hz variation)</li>
-<li>Antarctic fin whale 40Hz downsweep (annotation label: BpD) : downsweeping vocalisation ending around 40 Hz, usually below 90 Hz and above 30 Hz</li>
+<li>Fin whale 20 Hz Pulse without overtone (annotation label: Bp20) : comprises downsweeping frequency component from 30 to 15 Hz</li>
+<li>Fin whale 20 Hz Pulse with overtone (annotation label: Bp20plus) : 20 Hz pulse with a secondary energy at varying frequencies (80 to 120 Hz variation)</li>
+<li>Fin whale 40Hz downsweep (annotation label: BpD) : downsweeping vocalisation ending around 40 Hz, usually below 90 Hz and above 30 Hz</li>
 </ul>
 <p>See more detailed information and examples of call spectrograms <a href="https://docs.google.com/presentation/d/1LjQ5tt_UZD4WBVVVIpkV5LljITiNK3XL/edit?usp=sharing&amp;ouid=104566963275162196540&amp;rtpof=true&amp;sd=true">here</a>.</p>
 <h1 id="model-development">Model development</h1>
@@ -685,7 +685,7 @@ ballenyislands2015,2015-02-20T00-00-00_000.wav,bma,nieukirk,22.7,27.3,2015-02-20
 <h2 id="annotation-1">Annotation</h2>
 <p>Still within the IWC-SORP Acoustic Trends Project, the same <a href="#annotation_dev">annotation setup</a> as for the development set was used for the evaluation set. In addition to that, to ensure the highest quality of evaluation annotations, a two-phase multi-annotator campaign has been specially designed for this challenge, including a complete re-annotation of all evaluation data, plus a double-checking procedure of the most conflictual cases. The complete protocol and associated results will be released at the end of the data challenge.</p>
 <h2 id="metrics">Metrics</h2>
-<p>The evaluation metrics used is a 1D IoU (standing for Intersection over Inion) over the temporal axis, which basically looks at all the time when the predicted event overlaps with the ground truth event, divided by the total time spanning from the minimum start time to the maximum end time. To emphasize the importance of estimating an accurate number of calls (for example, for a downstream task of population density estimation), this metrics was customized to penalize model outputs with several detections overlapping with one single ground truth. For example, if 3 predicted sound events overlap with one single ground truth event, only one of the predicted sound events will be marked as a True Positive (TP) and assigned as correct, and the rest will be marked as False Positives (FP). TP are then computed counting all the prediction events which have been marked as correct. FP are all the prediction events which were not assigned to a ground truth. FN are all the ground truth events which have not been assigned any prediction. Recall, Precision and f1-score are then computed per-class and per-dataset. </p>
+<p>The evaluation metrics used is a 1D IoU (standing for Intersection over Union) over the temporal axis, which basically looks at all the time when the predicted event overlaps with the ground truth event, divided by the total time spanning from the minimum start time to the maximum end time. To emphasize the importance of estimating an accurate number of calls (for example, for a downstream task of population density estimation), this metrics was customized to penalize model outputs with several detections overlapping with one single ground truth. For example, if 3 predicted sound events overlap with one single ground truth event, only one of the predicted sound events will be marked as a True Positive (TP) and assigned as correct, and the rest will be marked as False Positives (FP). TP are then computed counting all the prediction events which have been marked as correct. FP are all the prediction events which were not assigned to a ground truth. FN are all the ground truth events which have not been assigned any prediction. Recall, Precision and f1-score are then computed per-class and per-dataset. </p>
 <p>See more details on <a href="https://github.com/marinebioCASE/task2_2025/tree/main/evaluation">Github</a>.</p>
 <h2 id="download-1">Download</h2>
 <p>This evaluation set will be released on the 1st June 2025.  </p>
@@ -854,8 +854,8 @@ results:
 </div>
 <p>You can directly download those files <a href="https://drive.google.com/drive/folders/1hU7ADhN96iKABmPaH5rwAoMkCnev8yJb?usp=sharing">here</a>.</p>
 <p>See more details on the technical report and challenge rules <a href="https://biodcase.github.io/challenge2025/rules">here</a>.</p>
-<h1 id="baseline">Baseline</h1>
-<p>An off-the-shelf object detector model YOLOv11 was run to get baseline performance on the validation set (see Table 2). In addition to providing reference performance for the task, this baseline has also been prepared to serve as a getting started code example, where you will find some general routines to load audio and annotation files in different Python frameworks, compute spectrograms, train baseline models and use the evaluation code on the validation set. </p>
+<h1 id="baselines">Baselines</h1>
+<p>Two off-the-shelf models, namely a YOLOv11 and a ResNet18, were run to get baseline performance on the validation set (see Table 2). In addition to providing reference performance for the task (but with a lot of room for improvement), these baselines have also been prepared to serve as getting started code examples, where you will find some general routines to load audio and annotation files in different Python frameworks, compute spectrograms, train baseline models and use the evaluation code on the validation set.</p>
 <table class="table">
 <thead>
 <tr class="active">
@@ -872,11 +872,16 @@ results:
 <td>0.67</td>
 <td>0.43</td>
 </tr>
+<tr>
+<td>ResNet18</td>
+<td>0.36</td>
+<td>0.29</td>
+<td>0.32</td>
+</tr>
 <caption>
     Table 2. Baseline performance on the validation set.
   </caption>
 </tbody></table>
-<p>A second baseline based on a ResNet is coming very soon ....  </p>
 <p>See more detailed results per class and per dataset <a href="https://drive.google.com/file/d/17hX3S9woRBmTw2tUHsS__vgn42dB8OMf/view?usp=sharing">here</a>.</p>
 <p>See baseline details and download codes on <a href="https://github.com/marinebioCASE/task2_2025/tree/main/baselines">Github</a>.</p>
 <h1 id="support">Support</h1>
