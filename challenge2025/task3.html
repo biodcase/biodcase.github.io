@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
     <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/dcaseicons/css/dcaseicons.css?v=1.2" type="text/css"/>
         <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btoc.min.css">
     <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.1" type="text/css"/>
     <link rel="stylesheet" href="https://biodcase.github.io/static/assets/bioicons/css/bioicons.css" type="text/css"/>
     <script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.min.js"></script>
@@ -306,12 +308,29 @@
 </table>
 </div>
 
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#description">Description</a></li>
+<li><a href="#dataset">Dataset</a></li>
+<li><a href="#evaluation-and-baseline-system">Evaluation and Baseline System</a></li>
+<li><a href="#external-data-resources">External Data Resources</a></li>
+<li><a href="#task-rules">Task Rules</a></li>
+<li><a href="#citation">Citation</a></li>
+<li><a href="#support">Support</a></li>
+</ul>
+</div>
+</div>
+
         </div>
         <div class="col-sm-9 content">
             <section id="content" class="body">
                 <div class="entry-content">
                     <p class="lead">The goal of the bioacoustics on tiny hardware task is to develop an automatic classifier of birdsong that complies with the resource constraints of low-cost and battery-powered autonomous recording units.</p>
-<h1>Description</h1>
+<h1 id="description">Description</h1>
 <p>The next generation of autonomous recording units contains programmable chips, thus offering the opportunity the opportunity to perform BioDCASE tasks. On-device processing has multiple advantages, such as high durability, low latency, and privacy preservation. However, such “tiny hardware” is limited in terms of memory and compute, which calls for the development of original methods in audio content analysis.</p>
 <p>In this context, task participants will revisit the well-known problem of automatic detection of birdsong while adjusting their systems to meet the specifications of a commercially available microcontroller. The challenge focuses specifically on the detection of Yellowhammer bird vocalizations using the ESP32-S3-Korvo-2 development board.</p>
 <figure>
@@ -326,7 +345,7 @@
 <p>The primary challenge is striking the optimal balance between classification accuracy and resource usage. While conventional deep learning approaches might achieve high accuracy, they may not be feasible on embedded hardware. Participants must explore techniques such efficient architecture design, and optimized feature extraction to create a solution that performs well within the hardware constraints.</p>
 <p>A baseline implementation is provided as a starting point, which participants can modify and improve upon. Solutions will be evaluated based on classification performance, model size, inference time, and memory usage.</p>
 <p><strong>Note:</strong> We encourage participants to buy the ESP32-S3-Korvo-2 development board to test their solutions. The board is available for purchase on various online platforms (e.g, at <a href="https://www.digikey.de/de/products/detail/espressif-systems/ESP32-S3-KORVO-2/15822448">DigiKey</a>). However, the competition can be completed without the board, as the evaluation will be performed on a hidden test set using the baseline system by the organizers.</p>
-<h1>Dataset</h1>
+<h1 id="dataset">Dataset</h1>
 <p>The BioDCASE-Tiny 2025 competition uses a specialized dataset of Yellowhammer bird vocalizations. Key features include:</p>
 <ul>
 <li>2+ hours of audio recordings</li>
@@ -353,8 +372,28 @@
 <li>Files under <code>Yellowhammer/</code> contain Yellowhammer vocalization (target species for detection)</li>
 <li>Files under <code>Negatives/</code> contain negatives samples which include vocalization from other species, as well as background noise recordings extracted for the full recordings.</li>
 </ul>
-<p>The dataset is available for download on Zenodo: <a href="https://doi.org/10.5281/zenodo.15228365">BioDCASE-Tiny 2025 Dataset</a></p>
-<h1>Evaluation and Baseline System</h1>
+<p>The dataset is available for download on Zenodo:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://doi.org/10.5281/zenodo.15228365" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://doi.org/10.5281/zenodo.15228365" target="_blank">
+<span style="font-size:20px;">BioDCASE-Tiny 2025 Dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(4 GB)</span>
+<br/>
+<a href="10.5281/zenodo.15228365">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.15228365.svg"/>
+</a>
+</div>
+</div>
+<h1 id="evaluation-and-baseline-system">Evaluation and Baseline System</h1>
 <p>We provide a baseline system that includes a complete pipeline for audio processing, feature extraction, model training, and deployment to the ESP32-S3-Korvo-2 development board. The baseline system is designed to be easily adaptable for participants to build upon.</p>
 <p>You can find the baseline system in the GitHub repository: <a href="https://github.com/birdnet-team/BioDCASE-Tiny-2025">BioDCASE-Tiny 2025 Baseline System</a></p>
 <p>Submissions will be evaluated based on both classification performance and resource efficiency:</p>
@@ -371,9 +410,9 @@
 <h3>Ranking</h3>
 <p>Participants will be ranked separately for each one of the evaluation criteria.</p>
 <p>A baseline system is provided in the GitHub repository, including a complete pipeline for audio processing, feature extraction, model training, and deployment to the ESP32-S3-Korvo-2 development board.</p>
-<h1>External Data Resources</h1>
+<h1 id="external-data-resources">External Data Resources</h1>
 <p>The competition focuses on the provided Yellowhammer dataset. External data use may be regulated according to the <a href="https://biodcase.github.io/challenge2025/rules">official competition rules</a></p>
-<h1>Task Rules</h1>
+<h1 id="task-rules">Task Rules</h1>
 <ol>
 <li>Solutions must be deployable on the ESP32-S3-Korvo-2 development board</li>
 <li>Models must process audio from the onboard microphone array in real-time</li>
@@ -381,7 +420,7 @@
 <li>Solutions will be evaluated on a hidden test set using the baseline system</li>
 <li>Participants must cite the competition framework and dataset in any publications</li>
 </ol>
-<h1>Citation</h1>
+<h1 id="citation">Citation</h1>
 <p>If you use the BioDCASE-Tiny framework or dataset in your research, please cite the following:</p>
 <h3>Framework Citation</h3>
 <div class="highlight"><pre><span></span><code><span class="nc">@misc</span><span class="p">{</span><span class="nl">biodcase_tiny_2025</span><span class="p">,</span>
@@ -405,7 +444,7 @@
 <span class="w">  </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://doi.org/10.5281/zenodo.15228365}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h1>Support</h1>
+<h1 id="support">Support</h1>
 <p>If you have questions please use the <a href="https://groups.google.com/g/biodcase-community">BioDCASE Google Groups community forum</a>, or contact the task organizers at: <a href="mailto:stefan.kahl@cornell.edu">stefan.kahl@cornell.edu</a></p>
                 </div>
             </section>
@@ -429,6 +468,7 @@
     hljs.initHighlightingOnLoad();
 </script>
 <script type="text/javascript" src="https://biodcase.github.io/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btoc.min.js"></script>
 <script type="text/javascript" src="https://biodcase.github.io/theme/js/theme.js"></script>
 </body>
 </html>
