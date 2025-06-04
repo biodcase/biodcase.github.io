@@ -324,7 +324,7 @@
 <li><a href="#dataset">Dataset</a></li>
 <li><a href="#evaluation-and-baseline-system">Evaluation and Baseline System</a></li>
 <li><a href="#external-data-resources">External Data Resources</a></li>
-<li><a href="#task-rules">Task Rules</a></li>
+<li><a href="#rules-and-submissions">Rules and Submissions</a></li>
 <li><a href="#citation">Citation</a></li>
 <li><a href="#support">Support</a></li>
 </ul>
@@ -435,7 +435,7 @@
 <p>A baseline system is provided in the GitHub repository, including a complete pipeline for audio processing, feature extraction, model training, and deployment to the ESP32-S3-Korvo-2 development board.</p>
 <h1 id="external-data-resources">External Data Resources</h1>
 <p>The competition focuses on the provided Yellowhammer dataset. External data use may be regulated according to the <a href="https://biodcase.github.io/challenge2025/rules">official competition rules</a></p>
-<h1 id="task-rules">Task Rules</h1>
+<h1 id="rules-and-submissions">Rules and Submissions</h1>
 <ol>
 <li>Solutions must be deployable on the ESP32-S3-Korvo-2 development board</li>
 <li>Models must process audio from the onboard microphone array in real-time</li>
@@ -443,6 +443,127 @@
 <li>Solutions will be evaluated on a hidden test set using the baseline system</li>
 <li>Participants must cite the competition framework and dataset in any publications</li>
 </ol>
+<p>A complete YAML metadata file with submission details should be provided. Here is an example <code>Lastname_task3_1.meta.yaml</code>:</p>
+<div aria-multiselectable="true" class="panel-group" id="metadata-accordion" role="tablist">
+<div class="panel panel-default">
+<div class="panel-heading" id="task3-example-header" role="tab">
+<h4 class="panel-title">
+<a aria-controls="collapseOne" aria-expanded="true" class="collapsed accordion-toggle" data-parent="#metadata-accordion" data-toggle="collapse" href="#task3-example-collapse" role="button">               
+                   Metadata
+                </a>
+</h4>
+</div>
+<div aria-labelledby="task3-example-header" class="panel-collapse collapse" id="task3-example-collapse" role="tabpanel">
+<div class="panel-body" style="padding: 0px">
+<pre class="font110" style="padding:0;border:0;border-radius:0;"><code class="yaml"># Submission information
+submission:
+  # Submission label
+  # Label is used to index submissions, to avoid overlapping codes among submissions
+  # use the following way to form your label:
+  # [Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number]_[index number of your submission (1-4)]
+  label: Lastname_Institute_task3_Index
+
+  # Submission name
+  # This name will be used in the results tables when space permits
+  name: Tiny Bioacoustics baseline
+
+  # Submission name abbreviated
+  # This abbreviated name will be used in the results table when space is tight, maximum 10 characters
+  abbreviation: tinybioac
+
+  # Submission authors in order, mark one of the authors as corresponding author.
+  authors:
+    # First author
+    - lastname: Lastname
+      firstname: Firstname
+      email: email@email.edu                          # Contact email address
+      corresponding: true                             # Mark true for one of the authors
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: CU
+        institute: College University
+        department: Computer Science
+        location: Boring, Denmark
+
+    # Second author
+    - lastname: Lastname2
+      firstname: Firstname2
+      email: email@email.com                           # Contact email address
+
+      # Affiliation information for the author
+      affiliation:
+        abbreviation: UC
+        institute: University College
+        department: Biology
+        location: Boring, Maryland, USA
+
+        #...
+
+
+# System information
+system:
+  # The meta data provided here will be used to do meta analysis of 
+  # the submitted system for the Bioacoustics for Tiny Hardware task.
+  # Use general level tags, if possible use the tags provided in comments.
+  # If information field is not applicable to the system, use "!!null".
+  description:
+
+    # Acoustic representation
+    acoustic_features: spectrogram   # e.g one or multiple [MFCC, log-mel energies, spectrogram, CQT, PCEN, ...]
+
+    # Data augmentation methods
+    data_augmentation: !!null             # [time stretching, block mixing, pitch shifting, ...]
+
+    # Embeddings
+    # e.g. VGGish, OpenL3, ...
+    embeddings: !!null
+
+    # Machine learning
+    # What kind of loss function was used during model training?
+    training_objective: binary cross entropy         # e.g one or multiple [None, binary cross entropy, L2, L1]
+
+    # Model compression
+    # What kind of model compression techniques were used, if any?
+    model_compression: None # e.g one or multiple [None, prunning, knowledge distillation, ...]
+
+    # External data usage method
+    # e.g. directly, embeddings, pre-trained model, ...
+    external_data_usage: !!null
+
+  # URL to the source code of the system [optional, highly recommended]
+  source_code:   
+
+  # List of external datasets used in the submission.
+  external_datasets:
+    # Dataset name
+    - name: !!null
+      # Dataset access url
+      url: !!null
+      # Total audio length in minutes
+      total_audio_length: !!null            # minutes
+
+# System results 
+results:
+  # Full results are not mandatory, but for through analysis of the challenge submissions recommended.
+  # If you cannot provide all result details, also incomplete results can be reported.
+    
+    # Classification Performance
+    average_precision: 0.5
+    
+    # Resource Efficiency on the ESP32-S3-Korvo-2 development board
+    resource_efficiency:
+      model_size: 10 # in (KB)
+      inference_time: 100 # in (ms)
+      peak_memory: 256 # in (KB)
+    
+
+
+</code></pre>
+</div>
+</div>
+</div>
+</div>
 <h1 id="citation">Citation</h1>
 <p>If you use the BioDCASE-Tiny framework or dataset in your research, please cite the following:</p>
 <h3>Framework Citation</h3>
