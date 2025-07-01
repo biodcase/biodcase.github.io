@@ -1,0 +1,648 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Multichannel Alignment - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Multichannel Alignment - BioDCASE" />
+    <link href="https://biodcase.github.io/favicon.ico" rel="icon">
+    <link rel="canonical" href="https://biodcase.github.io/challenge2025/task1-results">
+    <meta property="og:url" content="https://dcase.community/challenge2025/task1-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/biodcase_preview.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="More details can be found on the task page: Task description page Teams ranking Submission information Rank Test set Validation Rank Submission label Name TechnicalReport Official rank Rank score MSE (avg) MSE (aru) MSE (Zebra Finch) MSE (avg) MSE (aru) MSE (Zebra Finch) NoSync Nosync Baseline biodcase2025Task1 3 1 …" />
+    <meta name="og:description" content="More details can be found on the task page: Task..." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/dcaseicons/css/dcaseicons.css?v=1.2" type="text/css"/>
+        <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btex.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/static/assets/bioicons/css/bioicons.css" type="text/css"/>
+    <script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="https://biodcase.github.io/" class="navbar-brand hidden-lg hidden-md hidden-sm" ></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="https://biodcase.github.io/"><img class="img img-responsive" src="https://biodcase.github.io//images/logos/biodcase/BioDCASE_header_20px.svg"/></a>
+    </li></ul><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2025" class="dropdown-toggle" data-toggle="dropdown">CHALLENGES&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025">Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/task1">Task 1</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/task2">Task 2</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/task3">Task 3</a>
+    </li>
+        </ul>
+    </li><li class="">
+        <a href="https://biodcase.github.io/workshop2025">WORKSHOP</a>
+    </li><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2025/submission" class="dropdown-toggle" data-toggle="dropdown">SUBMISSION&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/submission">Submit</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/rules">Rules</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Organizing committee">
+        <a href="https://biodcase.github.io/organizers">ORGANIZERS</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div></div>
+</nav>
+<style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .bold{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .subheading {
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+    </style><style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-weight: 400 !important;
+        }
+        header .page-heading .bold{
+            font-weight: 400  !important;
+        }
+    </style><header class="page-top" style="background-image: url(..//images/header/tom-bradley-EOiscqXPmkM-unsplash_wide.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset; overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-bottom:20px;">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="custom_center">
+                <div class="page-heading text-center"><h1 class="thin">Multichannel Alignment</h1><hr class="small center thin">
+                        <span class="subheading subheading-secondary">Challenge results</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Tom Bradley"><i class="fa fa-creative-commons" aria-hidden="true"></i></span></header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#teams-ranking">Teams ranking</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p>More details can be found on the task page:</p>
+<p><a class="btn btn-primary" href="https://biodcase.github.io/challenge2025/task1" style="">Task description page</a></p>
+<h1 id="teams-ranking">Teams ranking</h1>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="rank_team" data-scatter-y="rank_score" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="rank_team" data-sort-order="asc">
+<thead>
+<tr>
+<th></th>
+<th class="sep-left-cell text-center" colspan="3">Submission information</th>
+<th class="sep-left-cell text-center" colspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="3">Test set</th>
+<th class="sep-left-cell text-center" colspan="3">Validation</th>
+</tr>
+<tr>
+<th class="sep-right-cell" data-rank="true">Rank</th>
+<th data-field="code" data-sortable="true">
+                Submission label
+            </th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Team rank" data-chartable="true" data-field="rank_team" data-sortable="true" data-value-type="int">
+                Official <br/>rank
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="rank_score" data-sortable="true" data-value-type="float2">
+                Rank <br/>score
+            </th>
+<th class="text-center" data-axis-label="MSE (avg) test" data-chartable="true" data-field="mse_avg_test" data-sortable="true" data-value-type="float2">
+                MSE (avg)
+            </th>
+<th class="text-center" data-axis-label="MSE (aru) test" data-chartable="true" data-field="mse_aru_test" data-sortable="true" data-value-type="float2">
+                MSE (aru)
+            </th>
+<th class="text-center" data-axis-label="mse (zebra finch) test" data-chartable="true" data-field="mse_zebra_finch_test" data-sortable="true" data-value-type="float2">
+                MSE (Zebra Finch)
+            </th>
+<th class="text-center" data-axis-label="MSE (avg) val" data-chartable="true" data-field="mse_avg_val" data-sortable="true" data-value-type="float2">
+                MSE (avg)
+            </th>
+<th class="text-center" data-axis-label="mse (aru) val" data-chartable="true" data-field="mse_aru_val" data-sortable="true" data-value-type="float2">
+                MSE (aru)
+            </th>
+<th class="text-center" data-axis-label="mse (zebra finch) val" data-chartable="true" data-field="mse_zebra_finch_val" data-sortable="true" data-value-type="float2">
+                MSE (Zebra Finch)
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>NoSync</td>
+<td>Nosync Baseline</td>
+<td>biodcase2025Task1</td>
+<td>3</td>
+<td>1.35</td>
+<td>1.35</td>
+<td>0.85</td>
+<td>1.84</td>
+<td>1.15</td>
+<td>0.98</td>
+<td>1.31</td>
+</tr>
+<tr>
+<td></td>
+<td>CCBaseline</td>
+<td>Crosscorrelation Baseline</td>
+<td>biodcase2025Task1</td>
+<td>5</td>
+<td>3.32</td>
+<td>3.32</td>
+<td>1.10</td>
+<td>5.55</td>
+<td>8.45</td>
+<td>6.86</td>
+<td>10.03</td>
+</tr>
+<tr>
+<td></td>
+<td>DLBaseline</td>
+<td>Deep Learning Baseline</td>
+<td>biodcase2025Task1</td>
+<td>2</td>
+<td>0.58</td>
+<td>0.58</td>
+<td>0.62</td>
+<td>0.55</td>
+<td>0.89</td>
+<td>0.52</td>
+<td>1.26</td>
+</tr>
+<tr>
+<td></td>
+<td>landmarks</td>
+<td>Landmark based synchronization</td>
+<td>harjuLandmark2025</td>
+<td>4</td>
+<td>1.60</td>
+<td>1.60</td>
+<td>1.17</td>
+<td>2.04</td>
+<td>0.84</td>
+<td>0.41</td>
+<td>1.27</td>
+</tr>
+<tr>
+<td></td>
+<td>BEATsCA</td>
+<td>BEATs with Cross-Attention</td>
+<td>nihalBeats2025</td>
+<td>1</td>
+<td>0.30</td>
+<td>0.30</td>
+<td>0.14</td>
+<td>0.45</td>
+<td>0.31</td>
+<td>0.10</td>
+<td>0.52</td>
+</tr>
+</tbody>
+</table>
+<h1 id="technical-reports">Technical reports</h1>
+<div class="btex" data-source="content/data/challenge2025/technical_reports_task1.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="biodcase2025Task1" style="box-shadow: none">
+<div class="panel-heading" id="heading-biodcase2025Task1" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        BioDCASE 2025 Task 1
+       </h4>
+<p style="text-align:left">
+        Hoffman, Benjamin and Gill, Lisa and Heath, Becky, and Narula, Gagan
+       </p>
+<p style="text-align:left">
+<em>
+</em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-biodcase2025Task1" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-biodcase2025Task1" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-biodcase2025Task1" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-biodcase2025Task1" class="panel-collapse collapse" id="collapse-biodcase2025Task1" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       BioDCASE 2025 Task 1
+      </h4>
+<p style="text-align:left">
+<small>
+        Hoffman, Benjamin and Gill, Lisa and Heath, Becky, and Narula, Gagan
+       </small>
+<br/>
+<small>
+<em>
+</em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       Coming soon!
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-biodcase2025Task1" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<div aria-hidden="true" aria-labelledby="bibtex-biodcase2025Task1label" class="modal fade" id="bibtex-biodcase2025Task1" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexbiodcase2025Task1label">
+        BioDCASE 2025 Task 1
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{biodcase2025Task1,
+    Author = "Lastname, Firstname",
+    title = "BioDCASE 2025 Task 1",
+    institution = "BioDCASE 2025 Challenge",
+    year = "2025",
+    month = "May",
+    abstract = "Coming soon!"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="harjuLandmark2025" style="box-shadow: none">
+<div class="panel-heading" id="heading-harjuLandmark2025" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Landmark-based synchronization for Drifting Audio Recordings
+       </h4>
+<p style="text-align:left">
+        Harju, Manu and Mesaros, Annamaria
+       </p>
+<p style="text-align:left">
+<em>
+         Tampere University
+        </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-harjuLandmark2025" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-harjuLandmark2025" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-harjuLandmark2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Harju_TUNI_task1_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-harjuLandmark2025" class="panel-collapse collapse" id="collapse-harjuLandmark2025" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Landmark-based synchronization for Drifting Audio Recordings
+      </h4>
+<p style="text-align:left">
+<small>
+        Harju, Manu and Mesaros, Annamaria
+       </small>
+<br/>
+<small>
+<em>
+         Tampere University
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report describes our submissions to the multichannel alignment task in the BioDCASE 2025 Challenge. Our system is based on matching and aligning audio landmarks, which are simple structures extracted from the spectrogram representations. Our code and the configuration used is available on GitHub.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-harjuLandmark2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Harju_TUNI_task1_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<div aria-hidden="true" aria-labelledby="bibtex-harjuLandmark2025label" class="modal fade" id="bibtex-harjuLandmark2025" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexharjuLandmark2025label">
+        Landmark-based synchronization for Drifting Audio Recordings
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{harjuLandmark2025,
+    Author = "Harju, Manu and Mesaros, Annamaria",
+    title = "Landmark-based synchronization for Drifting Audio Recordings",
+    institution = "BioDCASE 2025 Challenge",
+    year = "2025",
+    month = "May",
+    abstract = "This technical report describes our submissions to the multichannel alignment task in the BioDCASE 2025 Challenge. Our system is based on matching and aligning audio landmarks, which are simple structures extracted from the spectrogram representations. Our code and the configuration used is available on GitHub."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="nihalBeats2025" style="box-shadow: none">
+<div class="panel-heading" id="heading-nihalBeats2025" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        BEATs with Cross-Attention for Multi-Channel Audio Alignment
+       </h4>
+<p style="text-align:left">
+        Nihal, Ragib Amin and Yen, Benjamin and Ashizawa, Takeshi and Nakadai, Kazuhiro
+       </p>
+<p style="text-align:left">
+<em>
+         Institute of Science Tokyo
+        </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-nihalBeats2025" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-nihalBeats2025" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-nihalBeats2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Nihal_task1_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-nihalBeats2025" class="panel-collapse collapse" id="collapse-nihalBeats2025" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       BEATs with Cross-Attention for Multi-Channel Audio Alignment
+      </h4>
+<p style="text-align:left">
+<small>
+        Nihal, Ragib Amin and Yen, Benjamin and Ashizawa, Takeshi and Nakadai, Kazuhiro
+       </small>
+<br/>
+<small>
+<em>
+         Institute of Science Tokyo
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       We modified the provided BEATs baseline with three main changes. First, we added cross-attention layers that allow audio embeddings from different channels to interact before making alignment predictions. Second, improved the training process with better data sampling, conservative augmentation (amplitude scaling and noise addition), and AdamW optimization with learning rate scheduling. Third, replaced the baseline's binary counting similarity metric with confidence-weighted scoring that uses the full range of model outputs. The system uses the same candidate generation approach as the baseline but processes alignment decisions differently. On validation data, the method achieved MSE of 0.099 for ARU and 0.521 for zebra finch.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-nihalBeats2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Nihal_task1_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<div aria-hidden="true" aria-labelledby="bibtex-nihalBeats2025label" class="modal fade" id="bibtex-nihalBeats2025" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexnihalBeats2025label">
+        BEATs with Cross-Attention for Multi-Channel Audio Alignment
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{nihalBeats2025,
+    Author = "Nihal, Ragib Amin and Yen, Benjamin and Ashizawa, Takeshi and Nakadai, Kazuhiro",
+    title = "BEATs with Cross-Attention for Multi-Channel Audio Alignment",
+    institution = "BioDCASE 2025 Challenge",
+    year = "2025",
+    month = "May",
+    abstract = "We modified the provided BEATs baseline with three main changes. First, we added cross-attention layers that allow audio embeddings from different channels to interact before making alignment predictions. Second, improved the training process with better data sampling, conservative augmentation (amplitude scaling and noise addition), and AdamW optimization with learning rate scheduling. Third, replaced the baseline's binary counting similarity metric with confidence-weighted scoring that uses the full range of model outputs. The system uses the same candidate generation approach as the baseline but processes alignment decisions differently. On validation data, the method achieved MSE of 0.099 for ARU and 0.521 for zebra finch."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script>
+(function($) {
+    $(document).ready(function() {
+        var hash = window.location.hash.substr(1);
+        var anchor = window.location.hash;
+
+        var shiftWindow = function() {
+            var hash = window.location.hash.substr(1);
+            if($('#collapse-'+hash).length){
+                scrollBy(0, -100);
+            }
+        };
+        window.addEventListener("hashchange", shiftWindow);
+
+        if (window.location.hash){
+            window.scrollTo(0, 0);
+            history.replaceState(null, document.title, "#");
+            $('#collapse-'+hash).collapse('show');
+            setTimeout(function(){
+                window.location.hash = anchor;
+                shiftWindow();
+            }, 2000);
+        }
+    });
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/theme.js"></script>
+</body>
+</html>

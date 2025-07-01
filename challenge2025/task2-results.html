@@ -1,0 +1,1125 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Supervised Detection of Strongly-Labelled Whale Calls - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Supervised Detection of Strongly-Labelled Whale Calls - BioDCASE" />
+    <link href="https://biodcase.github.io/favicon.ico" rel="icon">
+    <link rel="canonical" href="https://biodcase.github.io/challenge2025/task2-results">
+    <meta property="og:url" content="https://dcase.community/challenge2025/task2-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/biodcase_preview.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="More details can be found on the task page: Task description page Teams ranking Submission information Rank Dataset metrics Overall metrics Rank Name TechnicalReport Official rank Rank score DDU2021 F-Score Kerguelen2020 F-Score Overall F-Score Overall Recall Overall Precision tiny yolov4 coco Ferguson_task2 7 27.50 27.50 28 …" />
+    <meta name="og:description" content="More details can be found on the task page: Task..." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/dcaseicons/css/dcaseicons.css?v=1.2" type="text/css"/>
+        <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btex.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/static/assets/bioicons/css/bioicons.css" type="text/css"/>
+    <script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="https://biodcase.github.io/" class="navbar-brand hidden-lg hidden-md hidden-sm" ></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="https://biodcase.github.io/"><img class="img img-responsive" src="https://biodcase.github.io//images/logos/biodcase/BioDCASE_header_20px.svg"/></a>
+    </li></ul><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2025" class="dropdown-toggle" data-toggle="dropdown">CHALLENGES&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025">Overview</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/task1">Task 1</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/task2">Task 2</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/task3">Task 3</a>
+    </li>
+        </ul>
+    </li><li class="">
+        <a href="https://biodcase.github.io/workshop2025">WORKSHOP</a>
+    </li><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2025/submission" class="dropdown-toggle" data-toggle="dropdown">SUBMISSION&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/submission">Submit</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/rules">Rules</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Organizing committee">
+        <a href="https://biodcase.github.io/organizers">ORGANIZERS</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div></div>
+</nav>
+<style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .bold{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .subheading {
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+    </style><style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-weight: 400 !important;
+        }
+        header .page-heading .bold{
+            font-weight: 400  !important;
+        }
+    </style><header class="page-top" style="background-image: url(..//images/header/venti-views-3rabTGLccwc-unsplash.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset; overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-bottom:20px;">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="custom_center">
+                <div class="page-heading text-center"><h1 class="thin">Supervised Detection of Strongly-Labelled Whale Calls</h1><hr class="small center thin">
+                        <span class="subheading subheading-secondary">Challenge results</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Venti Views"><i class="fa fa-creative-commons" aria-hidden="true"></i></span></header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#teams-ranking">Teams ranking</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p>More details can be found on the task page:</p>
+<p><a class="btn btn-primary" href="https://biodcase.github.io/challenge2025/task2" style="">Task description page</a></p>
+<h1 id="teams-ranking">Teams ranking</h1>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="rank_team" data-scatter-y="rank_score" data-show-chart="true" data-show-pagination-switch="true" data-show-rank="true" data-sort-name="rank_team" data-sort-order="asc">
+<thead>
+<tr>
+<th></th>
+<th class="sep-left-cell text-center" colspan="2">Submission information</th>
+<th class="sep-left-cell text-center" colspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Dataset metrics</th>
+<th class="sep-left-cell text-center" colspan="3">Overall metrics</th>
+</tr>
+<tr>
+<th class="sep-right-cell" data-rank="true">Rank</th>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="sep-left-cell text-center" data-axis-label="Team rank" data-chartable="true" data-field="rank_team" data-sortable="true" data-value-type="int">
+                Official <br/>rank
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="rank_score" data-sortable="true" data-value-type="float2">
+                Rank <br/>score
+            </th>
+<th class="text-center" data-axis-label="DDU2021 F-score" data-chartable="true" data-field="results_evaluation_set_dataset_wise_DDU2021_F-score" data-sortable="true" data-value-type="float2">
+                DDU2021 F-Score
+            </th>
+<th class="text-center" data-axis-label="Kerguelen2020_F-score" data-chartable="true" data-field="results_evaluation_set_dataset_wise_Kerguelen2020_F-score" data-sortable="true" data-value-type="float2">
+                Kerguelen2020 F-Score
+            </th>
+<th class="text-center" data-axis-label="Overall F-score" data-chartable="true" data-field="results_evaluation_set_overall_F-score" data-sortable="true" data-value-type="float2">
+                Overall F-Score
+            </th>
+<th class="text-center" data-axis-label="overall recall" data-chartable="true" data-field="results_evaluation_set_overall_recall" data-sortable="true" data-value-type="float2">
+                Overall Recall
+            </th>
+<th class="text-center" data-axis-label="overall precision" data-chartable="true" data-field="results_evaluation_set_overall_precision" data-sortable="true" data-value-type="float2">
+                Overall Precision
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr class="info" data-hline="true">
+<td></td>
+<td>tiny yolov4 coco</td>
+<td>Ferguson_task2</td>
+<td>7</td>
+<td>27.50</td>
+<td>27.50</td>
+<td>28.90</td>
+<td>27.50</td>
+<td>17.50</td>
+<td>63.70</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>edge optimised CNN</td>
+<td>vanToor_BO_task2</td>
+<td>13</td>
+<td>4.40</td>
+<td>3.50</td>
+<td>10.60</td>
+<td>4.40</td>
+<td>2.40</td>
+<td>31.90</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>edge optimised CNN</td>
+<td>vanToor_BO_task2</td>
+<td>12</td>
+<td>8.50</td>
+<td>7.60</td>
+<td>14.00</td>
+<td>8.50</td>
+<td>4.80</td>
+<td>35.50</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Swin transformer fusion with softmax</td>
+<td>Marolt_task2</td>
+<td>1</td>
+<td>50.00</td>
+<td>46.40</td>
+<td>50.40</td>
+<td>50.00</td>
+<td>47.70</td>
+<td>52.50</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Swin transformer fusion with softmax</td>
+<td>Marolt_task2</td>
+<td>2</td>
+<td>43.80</td>
+<td>38.80</td>
+<td>53.40</td>
+<td>43.80</td>
+<td>33.80</td>
+<td>62.40</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Enhanced Spectrogram-YOLO</td>
+<td>Nihal_task2_1</td>
+<td>11</td>
+<td>8.60</td>
+<td>7.20</td>
+<td>16.00</td>
+<td>8.60</td>
+<td>4.60</td>
+<td>70.80</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Whale-VAD</td>
+<td>Geldenhuys_SUN_task2</td>
+<td>5</td>
+<td>34.90</td>
+<td>34.20</td>
+<td>32.10</td>
+<td>34.90</td>
+<td>41.40</td>
+<td>30.20</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Whale-VAD</td>
+<td>Geldenhuys_SUN_task2</td>
+<td>6</td>
+<td>33.60</td>
+<td>33.90</td>
+<td>31.90</td>
+<td>33.60</td>
+<td>45.80</td>
+<td>26.60</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Whale-VAD</td>
+<td></td>
+<td>4</td>
+<td>35.70</td>
+<td>33.90</td>
+<td>36.30</td>
+<td>35.70</td>
+<td>38.20</td>
+<td>33.60</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>voxaboxen dv</td>
+<td>Hausler_task2</td>
+<td>8</td>
+<td>19.20</td>
+<td>20.50</td>
+<td>11.20</td>
+<td>19.20</td>
+<td>18.10</td>
+<td>20.60</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>voxaboxen dv</td>
+<td>Hausler_task2</td>
+<td>10</td>
+<td>15.90</td>
+<td>16.40</td>
+<td>13.20</td>
+<td>15.90</td>
+<td>10.80</td>
+<td>29.90</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>voxaboxen dv</td>
+<td>Hausler_task2</td>
+<td>9</td>
+<td>17.80</td>
+<td>18.50</td>
+<td>14.10</td>
+<td>17.80</td>
+<td>13.90</td>
+<td>24.90</td>
+</tr>
+<tr class="info" data-hline="true">
+<td></td>
+<td>Baseline YOLOv11</td>
+<td></td>
+<td>3</td>
+<td>39.20</td>
+<td>39.50</td>
+<td>42.70</td>
+<td>39.20</td>
+<td>33.10</td>
+<td>48.00</td>
+</tr>
+</tbody>
+</table>
+<h1 id="technical-reports">Technical reports</h1>
+<div class="btex" data-source="content/data/challenge2025/technical_reports_task2.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="Alongi2025" style="box-shadow: none">
+<div class="panel-heading" id="heading-Alongi2025" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        BioDCASE Baleen Whale Deep Learning Detection and Classification Network
+       </h4>
+<p style="text-align:left">
+        Gabriela Alongi
+       </p>
+<p style="text-align:left">
+<em>
+         Ocean Science Analytics
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Ferguson_task2</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Alongi2025" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Alongi2025" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Alongi2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Alongi_task2_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Alongi2025" class="panel-collapse collapse" id="collapse-Alongi2025" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       BioDCASE Baleen Whale Deep Learning Detection and Classification Network
+      </h4>
+<p style="text-align:left">
+<small>
+        Gabriela Alongi
+       </small>
+<br/>
+<small>
+<em>
+         Ocean Science Analytics
+        </em>
+</small>
+</p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Alongi2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Alongi_task2_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Alongi2025label" class="modal fade" id="bibtex-Alongi2025" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexAlongi2025label">
+        BioDCASE Baleen Whale Deep Learning Detection and Classification Network
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Alongi2025,
+    Author = "Alongi, Gabriela and Ferguson, Liz and Sugarman, Peter",
+    title = "BioDCASE Baleen Whale Deep Learning Detection and Classification Network",
+    institution = "DCASE2025 Challenge",
+    year = "2025",
+    month = "June",
+    abstract = ""
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Geldenhuys2025" style="box-shadow: none">
+<div class="panel-heading" id="heading-Geldenhuys2025" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        WHALE-VAD: whale vocalization activity detection
+       </h4>
+<p style="text-align:left">
+        Christiaan M. Geldenhuys
+       </p>
+<p style="text-align:left">
+<em>
+         Univeristy of Stellenbosch
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Geldenhuys_SUN_task2</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Geldenhuys2025" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Geldenhuys2025" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Geldenhuys2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Geldenhuys_SUN_task2_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Geldenhuys2025" class="panel-collapse collapse" id="collapse-Geldenhuys2025" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       WHALE-VAD: whale vocalization activity detection
+      </h4>
+<p style="text-align:left">
+<small>
+        Christiaan M. Geldenhuys
+       </small>
+<br/>
+<small>
+<em>
+         Univeristy of Stellenbosch
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       In this work, we present a sound event detection (SED) system fo- cused on whale call detection. We propose a hybrid CNN-BiLSTM architecture adapted from the voice activity detection (VAD) field in order to perform coherent per-frame whale call activity detection. In addition, we investigate the multi-objective regression task of bounding box estimation in conjunction to activity detection. We compare the performance of our system to a baseline mel spec- trogram BiLSTM, and finetuned HuBERT system. As part of the 2025 BioDCASE challenge (Task 2), we also compare our system to ResNet-18 and YOLOVv11 models. Each model has been trained on a subset of the publically available ATBFL dataset. Our model was able to best all models including the top performing YOLOv11 model on developmental results. The final model, trained using the collapsed labels along with phase information, achieved an F1-score of 0.44, across all developmental sets.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         WHALE-VAD
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Geldenhuys2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Geldenhuys_SUN_task2_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Geldenhuys2025label" class="modal fade" id="bibtex-Geldenhuys2025" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexGeldenhuys2025label">
+        WHALE-VAD: whale vocalization activity detection
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Geldenhuys2025,
+    Author = "Geldenhuys, Christiaan M. and Tonitz, Gunther and Niesler, Thomas R.",
+    title = "WHALE-VAD: whale vocalization activity detection",
+    institution = "DCASE2025 Challenge",
+    year = "2025",
+    month = "June",
+    abstract = "In this work, we present a sound event detection (SED) system fo- cused on whale call detection. We propose a hybrid CNN-BiLSTM architecture adapted from the voice activity detection (VAD) field in order to perform coherent per-frame whale call activity detection. In addition, we investigate the multi-objective regression task of bounding box estimation in conjunction to activity detection. We compare the performance of our system to a baseline mel spec- trogram BiLSTM, and finetuned HuBERT system. As part of the 2025 BioDCASE challenge (Task 2), we also compare our system to ResNet-18 and YOLOVv11 models. Each model has been trained on a subset of the publically available ATBFL dataset. Our model was able to best all models including the top performing YOLOv11 model on developmental results. The final model, trained using the collapsed labels along with phase information, achieved an F1-score of 0.44, across all developmental sets."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Hausler2025" style="box-shadow: none">
+<div class="panel-heading" id="heading-Hausler2025" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Deep Voice Below the Surface: Improved Whale Call Detection via Voxaboxen Refinement
+       </h4>
+<p style="text-align:left">
+        Danielle Hausler
+       </p>
+<p style="text-align:left">
+<em>
+         Deep Voice Foundation
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Hausler_task2</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Hausler2025" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Hausler2025" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Hausler2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Hausler_task2_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Hausler2025" class="panel-collapse collapse" id="collapse-Hausler2025" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Deep Voice Below the Surface: Improved Whale Call Detection via Voxaboxen Refinement
+      </h4>
+<p style="text-align:left">
+<small>
+        Danielle Hausler
+       </small>
+<br/>
+<small>
+<em>
+         Deep Voice Foundation
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       We present a solution for Task 2 of the BioDCASE 2025 Challenge—“Supervised detection of strongly-labelled whale calls”—using the Voxaboxen framework. Originally devel- oped for bioacoustic vocalization annotation, Voxaboxen pre- dicts the temporal start and end points of calls and re- gresses their durations. By graph-matching forward predictions (start+duration) with backward predictions (end+duration), tight bounding boxes in the time domain are generated for each detected call. Unlike YOLO-style detectors that propose many candidate boxes and select the best, our method builds each box directly, improving temporal precision and reducing duplicate proposals. We adapt this framework to detect Antarctic blue and fin whale calls in the BioDCASE Task 2 dataset, and evaluate performance on the official evaluation set, demonstrating enhanced overlap accuracy and call localization.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Hausler2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Hausler_task2_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Hausler2025label" class="modal fade" id="bibtex-Hausler2025" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexHausler2025label">
+        Deep Voice Below the Surface: Improved Whale Call Detection via Voxaboxen Refinement
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Hausler2025,
+    Author = "Hausler, Danielle and Michelashvilli, Moshe Michael and Nahshon, Tomer and Gefen, Shai Nahum",
+    title = "Deep Voice Below the Surface: Improved Whale Call Detection via Voxaboxen Refinement",
+    institution = "DCASE2025 Challenge",
+    year = "2025",
+    month = "June",
+    abstract = "We present a solution for Task 2 of the BioDCASE 2025 Challenge—“Supervised detection of strongly-labelled whale calls”—using the Voxaboxen framework. Originally devel- oped for bioacoustic vocalization annotation, Voxaboxen pre- dicts the temporal start and end points of calls and re- gresses their durations. By graph-matching forward predictions (start+duration) with backward predictions (end+duration), tight bounding boxes in the time domain are generated for each detected call. Unlike YOLO-style detectors that propose many candidate boxes and select the best, our method builds each box directly, improving temporal precision and reducing duplicate proposals. We adapt this framework to detect Antarctic blue and fin whale calls in the BioDCASE Task 2 dataset, and evaluate performance on the official evaluation set, demonstrating enhanced overlap accuracy and call localization."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Marolt2025" style="box-shadow: none">
+<div class="panel-heading" id="heading-Marolt2025" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Multi resolution feature fusion for supervised detection of strongly-labelled whale calls
+       </h4>
+<p style="text-align:left">
+        Marolt, Matija and Bones, Eva
+       </p>
+<p style="text-align:left">
+<em>
+         University of Ljubljana, Faculty of Computer and Information Science
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Marolt_task2</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Marolt2025" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Marolt2025" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Marolt2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Marolt_UL_task2_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Marolt2025" class="panel-collapse collapse" id="collapse-Marolt2025" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Multi resolution feature fusion for supervised detection of strongly-labelled whale calls
+      </h4>
+<p style="text-align:left">
+<small>
+        Marolt, Matija and Bones, Eva
+       </small>
+<br/>
+<small>
+<em>
+         University of Ljubljana, Faculty of Computer and Information Science
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       We present the outline of our deep architecture for supervised detection of strongly- labelled whale calls. Our architecture is based on three parallel Swin transformers [1],that process the input audio on multiple time scales. The input audio is windowed into approx. 16 second long normalized chunks, which are processed by the learnable frontend for audio classification - LEAF [2] to obtain a time-frequency representation. Three different representations are calculated, using the same number of frequency channels but different window sizes. Each is processed by a different three-layer Swin transformer (using 4x4 patch sizes with 2x2 stride to obtain initial input patch tokens, and with patch merging between layers [3]). Output feature maps with different time resolutions are upscaled to the same time resolution and fused with a downscaling convolution in feature space. The final feature map is upscaled in time to the original time resolution, followed by the fully-connected classification layer. Trained on the provided training set and evaluated on the validation set, the architecture yields a micro-F1 score of 0.58 and a macro-F1 score of 0.64. To obtain the output for the task, the input context window is shifted by 0.5 seconds along the time axis and the outputs of the model are averaged for the same time instances. Two versions of the model’s output are submitted - one using the softmax activation in the output layer (multi-class ), and another using the sigmoid activation (multi-label) - the latter should result in greater recall with lower precision than the former.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Marolt2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Marolt_UL_task2_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Marolt2025label" class="modal fade" id="bibtex-Marolt2025" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexMarolt2025label">
+        Multi resolution feature fusion for supervised detection of strongly-labelled whale calls
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Marolt2025,
+    Author = "Marolt, Matija and Bones, Eva",
+    title = "Multi resolution feature fusion for supervised detection of strongly-labelled whale calls",
+    institution = "DCASE2025 Challenge",
+    year = "2025",
+    month = "June",
+    abstract = "We present the outline of our deep architecture for supervised detection of strongly- labelled whale calls. Our architecture is based on three parallel Swin transformers [1],that process the input audio on multiple time scales. The input audio is windowed into approx. 16 second long normalized chunks, which are processed by the learnable frontend for audio classification - LEAF [2] to obtain a time-frequency representation. Three different representations are calculated, using the same number of frequency channels but different window sizes. Each is processed by a different three-layer Swin transformer (using 4x4 patch sizes with 2x2 stride to obtain initial input patch tokens, and with patch merging between layers [3]). Output feature maps with different time resolutions are upscaled to the same time resolution and fused with a downscaling convolution in feature space. The final feature map is upscaled in time to the original time resolution, followed by the fully-connected classification layer. Trained on the provided training set and evaluated on the validation set, the architecture yields a micro-F1 score of 0.58 and a macro-F1 score of 0.64. To obtain the output for the task, the input context window is shifted by 0.5 seconds along the time axis and the outputs of the model are averaged for the same time instances. Two versions of the model’s output are submitted - one using the softmax activation in the output layer (multi-class ), and another using the sigmoid activation (multi-label) - the latter should result in greater recall with lower precision than the former."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Nihal2025" style="box-shadow: none">
+<div class="panel-heading" id="heading-Nihal2025" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Enhanced spectrogram processing with temporal sequences for antarctic whale call detection using YOLOv11
+       </h4>
+<p style="text-align:left">
+        Ragib Amin Nihal
+       </p>
+<p style="text-align:left">
+<em>
+         Institute of Science Tokyo
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Nihal_task2_1</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Nihal2025" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Nihal2025" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Nihal2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Nihal_task2_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Nihal2025" class="panel-collapse collapse" id="collapse-Nihal2025" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Enhanced spectrogram processing with temporal sequences for antarctic whale call detection using YOLOv11
+      </h4>
+<p style="text-align:left">
+<small>
+        Ragib Amin Nihal
+       </small>
+<br/>
+<small>
+<em>
+         Institute of Science Tokyo
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       We present a modified spectrogram processing approach combined with temporal sequence analysis for Antarctic whale call detection in the BioDCASE 2025 Challenge Task 2. Building on the base- line YOLO approach, We implement enhanced spectrogram pre- processing through pre-filtering, magnitude inversion, and 98th per- centile normalization. We created temporal awareness by generat- ing 3-frame RGB sequences from consecutive spectrogram frames, allowing a YOLOv11m detector to process temporal information. Class-specific confidence thresholds are applied based on validation performance analysis. On the validation set, the approach achieves 59.45% F1-score, 72.88% precision, and 51.93% recall, represent- ing an improvement over the baseline YOLO performance of 43% F1-score.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Nihal2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Nihal_task2_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Nihal2025label" class="modal fade" id="bibtex-Nihal2025" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexNihal2025label">
+        Enhanced spectrogram processing with temporal sequences for antarctic whale call detection using YOLOv11
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Nihal2025,
+    Author = "Nihal, Ragib Amin and Yen, Benjamin and Ashizawa, Takeshi and Nakadai, Kazuhiro",
+    title = "Enhanced spectrogram processing with temporal sequences for antarctic whale call detection using YOLOv11",
+    institution = "DCASE2025 Challenge",
+    year = "2025",
+    month = "June",
+    abstract = "We present a modified spectrogram processing approach combined with temporal sequence analysis for Antarctic whale call detection in the BioDCASE 2025 Challenge Task 2. Building on the base- line YOLO approach, We implement enhanced spectrogram pre- processing through pre-filtering, magnitude inversion, and 98th per- centile normalization. We created temporal awareness by generat- ing 3-frame RGB sequences from consecutive spectrogram frames, allowing a YOLOv11m detector to process temporal information. Class-specific confidence thresholds are applied based on validation performance analysis. On the validation set, the approach achieves 59.45\% F1-score, 72.88\% precision, and 51.93\% recall, represent- ing an improvement over the baseline YOLO performance of 43\% F1-score."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="VanToor2025" style="box-shadow: none">
+<div class="panel-heading" id="heading-VanToor2025" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        BioDCASE 2025 challenge combo: supervised whale calls on tiny hardware
+       </h4>
+<p style="text-align:left">
+        Astrid Van Toor
+       </p>
+<p style="text-align:left">
+<em>
+         blueOasis
+        </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">vanToor_BO_task2</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-VanToor2025" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-VanToor2025" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-VanToor2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/vanToor_BO_task2_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-VanToor2025" class="panel-collapse collapse" id="collapse-VanToor2025" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       BioDCASE 2025 challenge combo: supervised whale calls on tiny hardware
+      </h4>
+<p style="text-align:left">
+<small>
+        Astrid Van Toor
+       </small>
+<br/>
+<small>
+<em>
+         blueOasis
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report presents an edge-optimised approach to baleen whale call detection for the BioDCASE 2025 challenge - Task 2. Taking inspiration from Task 3, it focuses on deploy- ment constraints of resource-limited hardware. Where common models range in parameter starting from 4 million training pa- rameters [1] with architectures often unsuitable for real-time edge deployment, our model contains just 35,571 training parameters (159KB) and operates efficiently on a 64-bit ARM Cortex-A53 with 512MB RAM. On a detection window basis of 11.8 second frames, the model performs well on two of the three classes; applying a precision-focused approach we detect blue whale ABZ calls at 72% precision and fin whale burst pulse calls at 80% precision, while downsweep predictions lack behind at 18% precision. Applying our temporal head designed for compression into TFLite, we main- tain reasonable precision for ABZ calls at 65%, while downsweep calls rise to 29% precision and burst pulse calls drop significantly to 4%. Acknowledging the difficulties in call-specific identification, this report highlights the feasibility and potential of edge-optimised architectures for baleen whale detection in real-world monitoring scenarios where computational resources and power consumption are severely constrained, while addressing common challenges and next steps to improve the results.
+      </p>
+<h5>
+<strong>
+        System characteristics
+       </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+         Classifier
+        </td>
+<td>
+         TinyHardware
+        </td>
+</tr>
+</table>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-VanToor2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/vanToor_BO_task2_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-VanToor2025label" class="modal fade" id="bibtex-VanToor2025" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexVanToor2025label">
+        BioDCASE 2025 challenge combo: supervised whale calls on tiny hardware
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{VanToor2025,
+    Author = "Van Toor, Astrid",
+    title = "BioDCASE 2025 challenge combo: supervised whale calls on tiny hardware",
+    institution = "DCASE2025 Challenge",
+    year = "2025",
+    month = "June",
+    abstract = "This technical report presents an edge-optimised approach to baleen whale call detection for the BioDCASE 2025 challenge - Task 2. Taking inspiration from Task 3, it focuses on deploy- ment constraints of resource-limited hardware. Where common models range in parameter starting from 4 million training pa- rameters [1] with architectures often unsuitable for real-time edge deployment, our model contains just 35,571 training parameters (159KB) and operates efficiently on a 64-bit ARM Cortex-A53 with 512MB RAM. On a detection window basis of 11.8 second frames, the model performs well on two of the three classes; applying a precision-focused approach we detect blue whale ABZ calls at 72\% precision and fin whale burst pulse calls at 80\% precision, while downsweep predictions lack behind at 18\% precision. Applying our temporal head designed for compression into TFLite, we main- tain reasonable precision for ABZ calls at 65\%, while downsweep calls rise to 29\% precision and burst pulse calls drop significantly to 4\%. Acknowledging the difficulties in call-specific identification, this report highlights the feasibility and potential of edge-optimised architectures for baleen whale detection in real-world monitoring scenarios where computational resources and power consumption are severely constrained, while addressing common challenges and next steps to improve the results."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script>
+(function($) {
+    $(document).ready(function() {
+        var hash = window.location.hash.substr(1);
+        var anchor = window.location.hash;
+
+        var shiftWindow = function() {
+            var hash = window.location.hash.substr(1);
+            if($('#collapse-'+hash).length){
+                scrollBy(0, -100);
+            }
+        };
+        window.addEventListener("hashchange", shiftWindow);
+
+        if (window.location.hash){
+            window.scrollTo(0, 0);
+            history.replaceState(null, document.title, "#");
+            $('#collapse-'+hash).collapse('show');
+            setTimeout(function(){
+                window.location.hash = anchor;
+                shiftWindow();
+            }, 2000);
+        }
+    });
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/theme.js"></script>
+</body>
+</html>
