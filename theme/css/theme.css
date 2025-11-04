@@ -1,6 +1,6 @@
 body {
   position: relative; /* For scrollyspy */
-  padding-top: 45px;  /*Account for fixed navbar */
+  padding-top: 0px;  /*Account for fixed navbar */
   height: 100%;
   width: 100%;
   font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -41,9 +41,19 @@ html {
     justify-content: center;
 }
 
+.container-main {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .custom_center {
-    margin-top: 20px;
-    min-height: 350px;
+    margin-top: 45px;
+    min-height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -193,11 +203,45 @@ a.bg-danger:hover{background-color:#e4b9b9}
     line-height: 1.4;
 }
 /* navbar */
+.navbar-inverse {
+    background-color: #00000000;
+    border-color: #00000000;
+    color: white;
+}
+
+.navbar-inverse .navbar-nav .active a {
+    background-color: #75292900;
+}
+
+.scrolled {
+    transition: background-color 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+@media (max-width: 480px) {
+  .affix-top {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+}
+
+.navbar-inverse .navbar-nav li a {
+    color: rgb(200, 200, 200);
+}
+.navbar-inverse .navbar-nav >.open > a {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.navbar-inverse .navbar-nav >.open > a:focus {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 .navbar-inverse .dropdown-menu {
-    background-color: #222;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.affix .navbar-inverse .dropdown-menu {
+    background-color: #41279928;
 }
 .navbar-inverse .dropdown-menu > li > a{
-    color: #9d9d9d;
+    color: #cdcdcd;
 }
 .navbar-inverse .dropdown-menu > li > a:hover,
 .navbar-inverse .dropdown-menu > li > a:focus {
@@ -206,11 +250,14 @@ a.bg-danger:hover{background-color:#e4b9b9}
 .navbar-inverse .dropdown-menu > li > a:hover,
 .navbar-inverse .dropdown-menu > .active > a,
 .navbar-inverse .dropdown-menu > .active > a:hover {
-    background-color: #444;
+    background-color: #ffffff28;
 }
 .navbar-inverse .dropdown-menu .divider{
-    background-color: #444;
+    background-color: #ffffff28;
     margin: 2px 0;
+}
+.dropdown-menu>li>a {
+    padding: 10px 20px;
 }
 /* modifiers */
 .no-padding {
@@ -252,6 +299,7 @@ a.bg-danger:hover{background-color:#e4b9b9}
 }
 /* page-top */
 .page-top, .article-top {
+  height: 90%;
   text-align: center;
   color: #fff;
   background-color: #808080;

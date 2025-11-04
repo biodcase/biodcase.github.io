@@ -1,6 +1,16 @@
 (function($) {
     "use strict";
 
+    const navbar = document.getElementById('main-nav');
+
+    window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+    });
+
     $(document).on('click', 'a.page-scroll', function(event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
