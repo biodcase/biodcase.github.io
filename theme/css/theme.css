@@ -1538,3 +1538,152 @@ table.table-borderless td,table.table-borderless th{
 .navbar-tighter > .subheader > a {
     padding-left: 0px;
 }
+
+/* Award blocks for social media friendly highlights */
+.award-block {
+    width: 800px;
+    margin: 30px 0;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.award-block::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+}
+
+.award-block-winning {
+    background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+    border: 2px solid #ffd700;
+}
+
+.award-block-winning::before {
+    background: linear-gradient(180deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+}
+
+.award-block-jury {
+    background: linear-gradient(135deg, #e8f4fd 0%, #ffffff 100%);
+    border: 2px solid #4a90e2;
+}
+
+.award-block-jury::before {
+    background: linear-gradient(180deg, #4a90e2 0%, #7ab8f5 50%, #4a90e2 100%);
+}
+
+.award-block-title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 0 15px 0;
+    padding-left: 20px;
+}
+
+.award-block-winning .award-block-title {
+    color: #b8860b;
+}
+
+.award-block-jury .award-block-title {
+    color: #2e5c8a;
+}
+
+.award-block-score {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    padding-left: 20px;
+}
+
+.award-block-winning .award-block-score {
+    color: #8b6914;
+}
+
+.award-block-jury .award-block-score {
+    color: #3a7bc8;
+}
+
+.award-block-authors {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+    padding-left: 20px;
+}
+
+.award-block-institution {
+    font-size: 18px;
+    font-weight: 500;
+    color: #555;
+    margin: 15px 0 15px 0;
+    font-style: italic;
+    padding-left: 20px;
+}
+
+.award-block-system {
+    font-size: 16px;
+    color: #666;
+    margin: 0 0 10px 0;
+    line-height: 1.5;
+    padding-left: 20px;
+}
+
+.award-block-comment {
+    font-size: 15px;
+    color: #666;
+    margin: 15px 0 0 0;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 6px;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.award-block-comment strong {
+    color: #333;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .award-block {
+        padding: 20px 25px;
+        margin: 20px 0;
+    }
+
+    .award-block-title {
+        font-size: 12px;
+        padding-left: 15px;
+    }
+
+    .award-block-score {
+        font-size: 14px;
+        padding-left: 15px;
+    }
+
+    .award-block-authors {
+        font-size: 18px;
+        padding-left: 15px;
+    }
+
+    .award-block-institution {
+        font-size: 16px;
+        padding-left: 15px;
+    }
+
+    .award-block-system {
+        font-size: 14px;
+        padding-left: 15px;
+    }
+
+    .award-block-comment {
+        font-size: 14px;
+        padding: 12px 15px;
+    }
+}
