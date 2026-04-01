@@ -1,0 +1,415 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Task 1: Multichannel Alignment - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Task 1: Multichannel Alignment - BioDCASE" />
+    <link href="https://biodcase.github.io/favicon.ico" rel="icon">
+    <link rel="canonical" href="https://biodcase.github.io/challenge2026/task1">
+    <meta property="og:url" content="https://dcase.community/challenge2026/task1" />
+    <meta property="og:image" content="https://dcase.community/images/logos/biodcase_preview.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="Researchers often deploy multiple audio recorders simultaneously, for example as passive automated recording units (ARUs) or embedded in animal-borne bio-loggers. Analysing sounds captured simultaneously by multiple recorders can provide insights into animal positions and numbers, as well as the dynamics of communication in groups. However, many of these devices are …" />
+    <meta name="og:description" content="Researchers often deploy multiple audio recorders..." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/dcaseicons/css/dcaseicons.css?v=1.2" type="text/css"/>
+        <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/static/assets/bioicons/css/bioicons.css" type="text/css"/>
+    <script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="https://biodcase.github.io/" class="navbar-brand hidden-lg hidden-md hidden-sm" ></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="https://biodcase.github.io/"><img class="img img-responsive" src="https://biodcase.github.io//images/logos/biodcase/BioDCASE_header_20px.svg"/></a>
+    </li></ul><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2025" class="dropdown-toggle" data-toggle="dropdown">CHALLENGES&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026">Challenge 2026</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025">Challenge 2025</a>
+    </li>
+        </ul>
+    </li><li class="">
+        <a href="https://biodcase.github.io/workshop2025">WORKSHOP</a>
+    </li><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2025/submission" class="dropdown-toggle" data-toggle="dropdown">SUBMISSION&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/submission">Submit</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/rules">Rules</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Organising committee">
+        <a href="https://biodcase.github.io/organisers">ORGANISERS</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div></div>
+</nav>
+<style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .bold{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .subheading {
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+    </style><style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-weight: 400 !important;
+        }
+        header .page-heading .bold{
+            font-weight: 400  !important;
+        }
+    </style><header class="page-top " style="background-image: url(..//images/header/tom-bradley-EOiscqXPmkM-unsplash_wide.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-bottom:20px;">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-center"><h1 class="thin">Task 1: Multichannel Alignment</h1><hr class="small center thin">
+                        <span class="subheading subheading-secondary">Task description</span></div>
+            </div>
+        </div>
+    </div>
+<span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Tom Bradley"><i class="fa fa-creative-commons" aria-hidden="true"></i></span></header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Coordinators</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Aditya Bhattacharjee" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/aditya_bhattacharjee.jpeg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Aditya Bhattacharjee</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                Queen Mary University of London
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Lisa Gill" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/lisa_gill.jpeg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Lisa Gill</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.lbv.de/">
+                                Bavarian Society for the Protection of Birds and Nature
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Becky Heath" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/becky_heath.png" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Becky Heath</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                University of Cambridge
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Gagan Narula" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/gagan_narula.jpeg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Gagan Narula</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.earthspecies.org/">
+                                Earth Species Project
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p class="lead">Researchers often deploy multiple audio recorders simultaneously, for example as passive automated recording units (ARUs) or embedded in animal-borne bio-loggers. Analysing sounds captured simultaneously by multiple recorders can provide insights into animal positions and numbers, as well as the dynamics of communication in groups. However, many of these devices are susceptible to desynchronization due to nonlinear clock drift, which can diminish researchers' ability to glean useful insights. Therefore, a reliable post-processing resynchronization method would increase the usability of the collected data.</p>
+<p class="lead">In this challenge, participants will be presented with pairs of temporally desynchronized recordings and asked to design a system to synchronize them in time. In the development phase, participants are provided with audio pairs and a small set of ground-truth synchronization keypoints, such as those that could be produced through manual review of the data. In the evaluation phase, participants' systems are ranked by their ability to synchronize unseen audio pairs.</p>
+<!-- <p class="alert alert-info">
+    <strong>Challenge has ended.</strong> Full results for this task can be found in the <a class="btn btn-default btn-xs" href="{filename}/pages/challenge2024/task_template.results.md">Results <i class="fa fa-caret-right"></i></a> page.
+</p>
+
+<div class="alert alert-info">
+    If you are interested in the task, you can join us on the <strong><a href="https://dcase.slack.com/archives/C01Q1SK5Q73">dedicated slack channel</a></strong>
+</div> -->
+<h1>Description</h1>
+<p>Each dataset consists of a set of stereo audio files. The audio in the two channels of each audio file is not synchronized in time due to nonlinear clock drift. Each audio file has a corresponding set of annotations, <span class="math">\(k_0,\dots,k_{114}\)</span>, called <em>keypoints</em>. Each keypoint <span class="math">\(k_i=(k_{i,0}, k_{i,1})\)</span> consists of a timestamp <span class="math">\(k_{i,0}\)</span> for Channel 0 and a timestamp <span class="math">\(k_{i,1}\)</span> for Channel 1. The timestamps in each channel correspond to the same time in the physical world, but due to clock drift they do not appear at the same time in the recordings. The timestamps <span class="math">\(k_{i,0}\)</span> in Channel 0 occur at 1-second intervals. Timestamps always occur within the actual duration of the audio file, which means that for some files there are repeated timestamps at the beginning (to avoid negative timestamps) or at the end (to avoid exceeding the duration of the audio).</p>
+<figure>
+<div class="row row-centered">
+<div class="col-xs-10 col-md-8 col-centered">
+<img class="img img-responsive" src="https://biodcase.github.io/images/tasks/challenge2025/task1_keypoints.jpg"/>
+<figcaption>Figure 1: Visualization of keypoint-based alignment.</figcaption>
+</div>
+</div>
+</figure>
+<p><br/></p>
+<p>During training, systems have access to keypoints' timestamps in both Channels 0 and 1. During inference, systems have access only to keypoints' timestamps in Channel 0, and must predict the corresponding Channel 1 timestamps. Systems are evaluated based on mean error of their predicted Channel 1 timestamps, compared to ground-truth Channel 1 timestamps. The official validation code reports both mean squared error (MSE, in sec<span class="math">\(^2\)</span>) and mean absolute error (MAE, in ms). In practice, MAE in milliseconds is often easier to interpret.</p>
+<h1>Audio dataset</h1>
+<p><a name="dataset"></a></p>
+<p>The challenge uses two datasets: <code>aru</code> and <code>zebra_finch</code>. The train and validation (val) portions of these datasets, which include audio and ground-truth keypoints, can be found <a href="https://zenodo.org/records/19348371">here</a>. The test portion, which includes only audio, will be provided during the evaluation phase of BioDCASE 2026. The domain shift between train and validation sets reflects the domain shift between train and evaluation sets.</p>
+<p>In both datasets, desynchronization includes a constant time shift between the two channels, as well as nonlinear clock drift within each file. However, the total desynchronization depends on the dataset.</p>
+<ul>
+<li>The <code>aru</code> dataset follows a fine-grained regime and the total desynchronization never exceeds +/- 0.5 seconds.</li>
+<li>The <code>zebra_finch</code> dataset follows a coarse regime, and the total desynchronization never exceeds +/- 5 seconds.</li>
+</ul>
+<p>The directory structure of the formatted datasets is:</p>
+<div class="highlight"><pre><span></span><code>formatted_data
+├── aru
+│   ├── train
+│   │   ├── annotations.csv
+│   │   └── audio
+│   │       └── <span class="gs">*.wav</span>
+<span class="gs">│   └── val</span>
+<span class="gs">│       ├── annotations.csv</span>
+<span class="gs">│       └── audio</span>
+<span class="gs">│           └── *</span>.wav
+└── zebra_finch
+    ├── train
+    │   ├── annotations.csv
+    │   └── audio
+    │       └── <span class="gs">*.wav</span>
+<span class="gs">    └── val</span>
+<span class="gs">        ├── annotations.csv</span>
+<span class="gs">        └── audio</span>
+<span class="gs">            └── *</span>.wav
+</code></pre></div>
+<h2>Evaluation and Baseline System</h2>
+<p>Code for model evaluation, baseline systems, and example usage can be found <a href="https://github.com/chymaera96/biodcase_2026_task1_public">here</a>.</p>
+<p>Baselines included:</p>
+<ul>
+<li><code>nosync</code>, in which no synchronization is performed</li>
+<li><code>gccphat</code>, a signal-processing baseline based on GCC-PHAT</li>
+<li><code>deeplearning</code>, a deep learning system trained on the provided training data.</li>
+</ul>
+<p>For evaluation, model outputs are expected to be in the same format as the provided keypoint annotations, i.e. a <code>.csv</code> file with three columns <code>Filename</code>, <code>Time Channel 0</code>, and <code>Time Channel 1</code>.</p>
+<p>The baseline repository contains separate training and inference scripts, dataset-specific hyperparameter files for <code>aru</code> and <code>zebra_finch</code>, and an example shell script showing how to reproduce the baseline runs. The deep learning baseline additionally requires a BEATs checkpoint, whereas the GCC-PHAT baseline can be run directly from the provided audio and annotations.</p>
+<h2>Deep learning baseline description</h2>
+<h3>Overview</h3>
+<p>The deep learning system is a binary classifier trained to score whether a pair of mono audio windows, one from each channel, is aligned in time. Training is supervised using the annotated keypoints in the development data. At inference time, the model is used within an offset search procedure to predict the Channel 1 timestamp for each Channel 0 keypoint. The baseline is configured separately for the two datasets. For <code>aru</code>, the model operates in a fine-grained regime with a maximum error of <code>0.5</code> seconds. For <code>zebra_finch</code>, it operates in a coarse regime with a maximum error of <code>5.0</code> seconds. These settings reflect the differing alignment scales of the two datasets.</p>
+<h3>Technical details</h3>
+<p>All audio is resampled to <code>16</code> kHz. For each annotated keypoint, the training code extracts a local context window around the Channel 0 timestamp and constructs aligned or misaligned mono clip pairs from the two channels. For each window pair, features are extracted with a pre-trained <a href="https://arxiv.org/abs/2212.09058">BEATs encoder</a>. The resulting embeddings are pooled in time and combined as <span class="math">\([z_0, z_1, |z_0-z_1|]\)</span>, then passed to a lightweight MLP head. </p>
+<p>Positive training pairs are formed from aligned keypoints. Negative pairs are generated by perturbing the Channel 1 start time by a sampled offset within the dataset-specific alignment range. The main objective is binary cross-entropy, with an optional auxiliary contrastive term that encourages stronger agreement among positive pairs within the batch.</p>
+<p>Inference uses an offset search procedure that scores candidate alignments with the trained classifier. In broad terms, the system first evaluates candidate offsets at a coarse level, then refines the final prediction according to the dataset-specific search strategy:</p>
+<ul>
+<li>For a subset of keypoints, score candidate offsets on a coarse grid and select a smooth offset path using dynamic programming.</li>
+<li>Interpolate this coarse path to all keypoints.</li>
+<li>For each keypoint, refine by scoring a fine grid around the interpolated offset.</li>
+</ul>
+<p>In the provided configurations, <code>aru</code> uses a local smooth-search setting with keypoint subsampling and refinement, while <code>zebra_finch</code> uses a broader global affine search with larger offset steps and no final refinement. This difference mirrors the fine versus coarse alignment regimes of the two datasets.</p>
+<h2>Results of baseline systems on validation set</h2>
+<p>We report both MAE (ms) and MSE (sec<span class="math">\(^2\)</span>) on validation sets; lower is better and perfect alignment is achieved when both metrics equal <span class="math">\(0\)</span>.</p>
+<table class="table">
+<thead>
+<tr class="active">
+<td rowspan="2"><strong>Model</strong></td>
+<td colspan="2"><strong>aru</strong></td>
+<td colspan="2"><strong>zebra_finch</strong></td>
+</tr>
+<tr class="active">
+<td><strong>MAE (ms)</strong></td>
+<td><strong>MSE (sec<sup>2</sup>)</strong></td>
+<td><strong>MAE (ms)</strong></td>
+<td><strong>MSE (sec<sup>2</sup>)</strong></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nosync</td>
+<td>116.2</td>
+<td>0.019</td>
+<td>2297.4</td>
+<td>5.734</td>
+</tr>
+<tr>
+<td>gccphat</td>
+<td>122.4</td>
+<td>0.020</td>
+<td>2457.0</td>
+<td>7.995</td>
+</tr>
+<tr>
+<td>deeplearning</td>
+<td>164.3</td>
+<td>0.040</td>
+<td>757.1</td>
+<td>1.218</td>
+</tr>
+</tbody>
+</table>
+<p>We conducted baseline experiments with <code>CUDA=13.0</code> on one H100 GPU. Results are expected to be broadly similar, but they may differ when using different versions of CUDA or different GPU hardware.</p>
+<h1>External Data Resources</h1>
+<p><a name="external-resources"></a></p>
+<p>The use of external resources (data sets, pretrained models) is allowed under the following conditions:</p>
+<ul>
+<li>The external resource must be freely accessible to any other research group in the world. <strong>The resource must be public and freely available before April 1st 2026.</strong></li>
+<li>The list of external resources used in training must be clearly indicated in the technical report.</li>
+</ul>
+<h1>Task Rules</h1>
+<p><a name="task-rules"></a>
+There are general rules valid for all tasks; these, along with information on technical report and submission requirements, can be found <a href="rules">here</a>.</p>
+<p>Task-specific rules:</p>
+<ul>
+<li>Participants may submit predictions for up to <strong>three systems</strong>.</li>
+<li>The models' predictions on both <code>aru</code> and <code>zebra_finch</code> test datasets must be included in the submission.</li>
+</ul>
+<h1>Tools</h1>
+<p><a name="tools"></a></p>
+<p>Baseline systems and official evaluation code can be found <a href="https://github.com/chymaera96/biodcase_2026_task1_public">here</a>. The <code>deeplearning</code> baseline requires weights for the BEATs feature extractor, which can be obtained <a href="https://1drv.ms/u/s!AqeByhGUtINrgcpj8ujXH1YUtxooEg?e=E9Ncea">here</a>.</p>
+<h1>Citation</h1>
+<p>If you use the data provided in a publication, please cite the DOI available <a href="https://zenodo.org/records/19348371">here</a>. If you use the code provided in a publication, please follow the citation format provided in the github repo.</p>
+<h1>Support</h1>
+<p>If you have questions, please use the BioDCASE Google Groups community forum or contact the task organizers at <code>abhattacharjee@qmul.ac.uk</code>.</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/theme.js"></script>
+</body>
+</html>

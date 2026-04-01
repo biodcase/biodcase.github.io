@@ -1,0 +1,1187 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>BioDCASE Challenge - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="BioDCASE Challenge - BioDCASE" />
+    <link href="https://biodcase.github.io/favicon.ico" rel="icon">
+    <link rel="canonical" href="https://biodcase.github.io/challenge2025/index">
+    <meta property="og:url" content="https://dcase.community/challenge2025/index" />
+    <meta property="og:image" content="https://dcase.community/images/logos/biodcase_preview.png" />
+    <meta name="author" content="BioDCASE" />
+    <meta name="description" content="Introduction The first year of the BioDCASE challenge includes three tasks - Multi-channel audio alignment, marine mammal detection and bioacoustics on tiny hardware. More information about the challenges will be released soon. Tasks Multi-Channel Alignment Alignment Task 1 Researchers often deploy multiple audio recorders simultaneously, for example with passive automated recording …" />
+    <meta name="og:description" content="Introduction The first year of the BioDCASE challenge..." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/dcaseicons/css/dcaseicons.css?v=1.2" type="text/css"/>
+        <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/bdates.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/static/assets/bioicons/css/bioicons.css" type="text/css"/>
+    <script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="https://biodcase.github.io/" class="navbar-brand hidden-lg hidden-md hidden-sm" ></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="https://biodcase.github.io/"><img class="img img-responsive" src="https://biodcase.github.io//images/logos/biodcase/BioDCASE_header_20px.svg"/></a>
+    </li></ul><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2025" class="dropdown-toggle" data-toggle="dropdown">CHALLENGES&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026">Challenge 2026</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025">Challenge 2025</a>
+    </li>
+        </ul>
+    </li><li class="">
+        <a href="https://biodcase.github.io/workshop2025">WORKSHOP</a>
+    </li><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2025/submission" class="dropdown-toggle" data-toggle="dropdown">SUBMISSION&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/submission">Submit</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/rules">Rules</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Organising committee">
+        <a href="https://biodcase.github.io/organisers">ORGANISERS</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div></div>
+</nav>
+<style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .bold{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .subheading {
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+    </style><style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-weight: 400 !important;
+        }
+        header .page-heading .bold{
+            font-weight: 400  !important;
+        }
+    </style><header class="page-top " style="background-image: url(..//images/header/nicole_allison_DSC_6936.JPG);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-bottom:20px;">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-center"><h1 class="thin">BioDCASE Challenge</h1><hr class="small center thin">
+                        <span class="subheading subheading-secondary">2025</span></div>
+            </div>
+        </div>
+    </div>
+<span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Nicole Allison"><i class="fa fa-creative-commons" aria-hidden="true"></i></span></header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default hidden-print">
+<div class="panel-heading">
+<h3 class="panel-title">Schedule</h3>
+</div>
+<ul class="bdates-container list-group">
+<a class="list-group-item" href="https://biodcase.github.io/challenge2025/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>14 Feb 2025</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Challenge task descriptions
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="https://biodcase.github.io/challenge2025/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>01 Apr 2025</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Challenge launch
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="https://biodcase.github.io/challenge2025/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>01 Jun 2025</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Release of evaluation datasets
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="https://biodcase.github.io/challenge2025/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>15 Jun 2025</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Challenge deadline
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="https://biodcase.github.io/challenge2025/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>30 Jun 2025</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Challenge results
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="https://biodcase.github.io/challenge2025/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>29 Oct 2025</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        BioDCASE satellite event
+                    
+                    </h5>
+</div>
+</div>
+</a>
+</ul>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#tasks">Tasks</a>
+<ul>
+<li><a href="#multi-channel-alignment">Multi-Channel Alignment</a></li>
+<li><a href="#supervised-detection-of-strongly-labelled-antarctic-blue-and-fin-whale-calls">Supervised detection of strongly-labelled Antarctic blue and fin whale calls</a></li>
+<li><a href="#bioacoustics-for-tiny-hardware">Bioacoustics for Tiny Hardware</a></li>
+</ul>
+</li></ul></div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h1 id="introduction">Introduction</h1>
+<p class="h4">The first year of the BioDCASE challenge includes three tasks - Multi-channel audio alignment, marine mammal detection and bioacoustics on tiny hardware. More information about the challenges will be released soon.</p>
+<!-- # Challenge status
+
+<table class="table" id="status-table">
+    <thead>
+        <tr>
+            <th>Task</th>
+            <th>Task description</th>
+            <th>Development dataset</th> 
+            <th>Baseline system</th>
+            <th>Evaluation dataset</th>
+            <th>Results</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Task 1</strong>, Data-Efficient Low-Complexity Acoustic Scene Classification</td>
+            <td><span class="label label-info">Released</span></td>
+            <td><span class="label label-info">Released</span></td>
+            <td><span class="label label-info">Released</span></td>
+            <td><span class="label label-info">Released</span></td>
+            <td><span class="label label-info">Released</span></td>
+        </tr>
+        <tr>
+            <td><strong>Task 2</strong>, First-Shot Unsupervised Anomalous Sound Detection for Machine Condition Monitoring</td>
+            <td><span class="label label-info">Released</span></td>
+            <td><span class="label label-info">Released</span></td>
+            <td><span class="label label-info">Released</span></td>
+            <td><span class="label label-info">Released</span></td>
+            <td><span class="label label-info">Released</span></td>
+        </tr>
+        <tr>
+            <td><strong>Task 3</strong>, Audio and Audiovisual Sound Event Localization and Detection with Source Distance Estimation</td>
+            <td><span class="label label-info">Released</span></td>
+            <td><span class="label label-info">Released</span></td>
+            <td><span class="label label-info">Released</span></td>
+            <td><span class="label label-info">Released</span></td>
+            <td><span class="label label-info">Released</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<span class="small text-muted pull-right"><em>updated 2025/02/01</em></span>
+<br> -->
+<h1 id="tasks">Tasks</h1>
+<div class="row">
+<div class="col-lg-12" id="task1"><h2 id="multi-channel-alignment">Multi-Channel Alignment</h2></div>
+</div>
+<div class="row">
+<div class="col-md-2 col-xs-top text-center">
+<span class="fa-stack fa-4x">
+<i class="fa fa-square fa-stack-2x text-t1"></i>
+<i class="fa icon-alignment fa-stack-1x fa-inverse"></i>
+<!-- <img src="images/logos/biodcase/test_icon.svg" style="width: 50px; height: 50px; filter: invert(1);"></img> -->
+<strong class="fa-stack-1x dcase-icon-top-text">Alignment</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 1</span>
+</span>
+</div>
+<div class="col-md-10">
+<p>Researchers often deploy multiple audio recorders simultaneously, for example with passive automated recording units (ARU's) or embedded in animal-borne bio-loggers. Analysing sounds simultaneously captured by multiple recorders can provide insights into animal positions and numbers, as well as the dynamics of communication in groups. However, many of these devices are susceptible to desynchronization due to nonlinear clock drift, which can diminish researchers' ability to glean useful insights. Therefore, a reliable, post-processing-based re-synchronization method would increase usability of collected data.</p>
+<p>In this challenge, participants will be presented with pairs of temporally desynchronized recordings and asked to design a system to synchronize them in time. In the development phase, participants will be provided audio pairs and a small set of ground-truth synchronization key points--the likes of which could be produced by a manual review of the data. In the evaluation phase, participants' systems will be ranked by their ability to synchronize unseen audio pairs.</p>
+<h4>Organizers</h4>
+<div class="well well-sm well-light">
+<div class="list-group bpersonnel-container">
+<div class="row" style="display:flex;display:-webkit-flex;flex-wrap:wrap;">
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Benjamin Hoffman" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/benjamin_hoffman.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Benjamin Hoffman</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.earthspecies.org/">
+                                    Earth Species Project
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=VtKL0BAAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Lisa Gill" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/lisa_gill.jpeg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Lisa Gill</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.lbv.de/">
+                                    Bavarian Society for the Protection of Birds and Nature
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.co.uk/citations?user=Uz68DKEAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Becky Heath" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/becky_heath.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Becky Heath</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    University of Cambridge
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Gagan Narula" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/gagan_narula.jpeg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Gagan Narula</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.earthspecies.org/">
+                                    Earth Species Project
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="btn btn-t1" href="https://biodcase.github.io/challenge2025/task1">Task description</a>
+<a class="btn btn-t1" href="/challenge2025/task1-results">Results</a>
+<br/>
+<br/>
+<br/>
+<!-- <br> -->
+</div>
+</div>
+<div class="row">
+<div class="col-md-12" id="task2"><h2 id="supervised-detection-of-strongly-labelled-antarctic-blue-and-fin-whale-calls">Supervised detection of strongly-labelled Antarctic blue and fin whale calls</h2></div>
+</div>
+<div class="row">
+<div class="col-md-2 col-xs-top text-center">
+<span class="fa-stack fa-4x">
+<i class="fa fa-square fa-stack-2x text-t2"></i>
+<i class="fa icon-marine fa-stack-1x fa-inverse"></i>
+<strong class="fa-stack-1x dcase-icon-top-text">Detection</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 2</span>
+</span>
+</div>
+<div class="col-md-10">
+<p>Passive Acoustic Monitoring (PAM) is a technology used to analyze sounds in the Ocean, where our capacity of visual observation is highly limited. It has emerged as a transformative tool for applied ecology, conservation and biodiversity monitoring. In particular, it offers unique opportunities to examine long-term trends in population dynamics, abundance, distribution and behaviour of different whale species. But for this purpose, the automation of PAM data processing, involving the automatic detection of whale calls in long-term recordings, faces two major issues: the scarcity of calls and the variability of soundscapes.</p>
+<p>In this data challenge, a supervised sound event detection task was designed, and applied to the detection of 7 different call types from two emblematic whale species, the Antarctic blue and fin whales. This task aims to improve and assess the ability of models to address the two issues just mentioned, as models will have to deal with whale calls happening only 6 % of the time, and PAM recordings coming from different time periods and sites all around Antarctica that present highly variable soundscapes. The White Continent appeared to be a very exciting playground to start a large-scale evaluation of model generalization capacity, but challenging for sure!</p>
+<h4>Organizers</h4>
+<div class="well well-sm well-light">
+<div class="list-group bpersonnel-container">
+<div class="row" style="display:flex;display:-webkit-flex;flex-wrap:wrap;">
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Dorian Cazau" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/dorian_cazau.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Dorian Cazau</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.ip-paris.fr/">
+                                    ENSTA, Institut Polytechnique de Paris
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://osmose.ifremer.fr/people/1"><i class="fa fa-home"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Olivier Adam" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/olivier_adam.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Olivier Adam</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    Sorbonne Université, LAM
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Paul Carvaillo" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/paul_carvaillo.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Paul Carvaillo</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    France Energies Marines
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Gabriel Dubus" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/gabriel_dubus.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Gabriel Dubus</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    Sorbonne Université, LAM
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=jC8ovUkAAAAJ&amp;hl=fr"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Anatole Gros-Martial" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/anatole_gros-martial.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Anatole Gros-Martial</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    Centre d’Etudes Biologiques de Chizé, GEO-Ocean
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Lucie Jean-Labadye" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/lucie_jean-labadie.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Lucie Jean-Labadye</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    Sorbonne Université, LAM
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Axel Marmoret" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/axel_marmoret.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Axel Marmoret</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    IMT Atlantique
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://ax-le.github.io/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=URDrXqEAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Brian Miller" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/brian_miller.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Brian Miller</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    Australian Antarctic Division
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Ilyass Moummad" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/ilyass_moummad.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Ilyass Moummad</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    INRIA
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=2hA2XZcAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Andrea Napoli" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/andrea_napoli.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Andrea Napoli</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.southampton.ac.uk/about/faculties-schools-departments/school-of-engineering/institute-of-sound-and-vibration-research">
+                                    University of Southampton, Institute of Sound and Vibration Research
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=9e60LxEAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Paul Nguyen Hong Duc" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/paul_nguyen.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Paul Nguyen Hong Duc</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    Curtin University
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Clea Parcerisas" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/clea_parcerisas.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Clea Parcerisas</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="www.vliz.be">
+                                    VLIZ
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://cparcerisas.github.io"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=2wMjeikAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Marie Roch" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/marie_roch.PNG" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Marie Roch</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    San Diego State University, Marine Bioacoustics Research Collaborative
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://roch.sdsu.edu/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=NPI9KUMAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Pierre-Yves le Rolland Raumer" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/pierre_yves.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Pierre-Yves le Rolland Raumer</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    IUEM
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Elena Schall" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/elena_schall.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Elena Schall</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">          
+                                                                    
+                                                
+                                    
+                                    AWI
+                                    
+                                
+                                </p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?hl=en&amp;user=vTdRQHUAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Paul White" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/paul_white.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Paul White</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.southampton.ac.uk/about/faculties-schools-departments/school-of-engineering/institute-of-sound-and-vibration-research">
+                                    University of Southampton, Institute of Sound and Vibration Research
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.co.uk/citations?user=RE5I2hgAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Ellen White" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/ellen_white.jpeg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Ellen White</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.southampton.ac.uk/about/faculties-schools-departments/school-of-engineering/institute-of-sound-and-vibration-research">
+                                    University of Southampton, Institute of Sound and Vibration Research
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="btn btn-t2" href="https://biodcase.github.io/challenge2025/task2">Task description</a>
+<a class="btn btn-t2" href="/challenge2025/task2-results">Results</a>
+<!-- <br> -->
+<br/>
+<br/>
+<br/>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12" id="task3"><h2 id="bioacoustics-for-tiny-hardware">Bioacoustics for Tiny Hardware</h2></div>
+</div>
+<div class="row">
+<div class="col-md-2 col-xs-top text-center">
+<span class="fa-stack fa-4x">
+<i class="fa fa-square fa-stack-2x text-t3"></i>
+<i class="fa icon-tiny_ml fa-stack-1x fa-inverse"></i>
+<!-- <img src="images/logos/biodcase/icons/bird_icon.svg" style="width: 50px; height: 50px; filter: invert(1);"></img> -->
+<strong class="fa-stack-1x dcase-icon-top-text dcase-icon-top-text-sm">Tiny ML</strong>
+<span class="fa-stack-1x dcase-icon-bottom-text">Task 3</span>
+</span>
+</div>
+<div class="col-md-10">
+<p>The next generation of autonomous recording units contains programmable chips, thus offering the opportunity to perform BioDCASE tasks. On-device processing has multiple advantages, such as high durability, low latency, and privacy preservation. However, such “tiny hardware” is limited in terms of memory and compute, which calls for the development of original methods in audio content analysis. In this context, task participants will revisit the well-known problem of automatic detection of birdsong while adjusting their systems so as to meet the specifications of a commercially available microcontroller.</p>
+<h4>Organizers</h4>
+<div class="well well-sm well-light">
+<div class="list-group bpersonnel-container">
+<div class="row" style="display:flex;display:-webkit-flex;flex-wrap:wrap;">
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Stefan Kahl" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/stefan_kahl.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Stefan Kahl</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.birds.cornell.edu/ccb/">
+                                    Cornell University
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://www.birds.cornell.edu/home/staff/stefan-kahl/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=o2blBQQAAAAJ&amp;hl=de"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Giovanni Carmantini" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/giovanni_carmantini.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Giovanni Carmantini</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://eco.fold.ai/">
+                                    Fold Ecosystemics
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://eco.fold.ai/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://www.semanticscholar.org/author/G.-S.-Carmantini/2561621"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Friedrich Förstner" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/friedrich_förstner.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Friedrich Förstner</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.tu-chemnitz.de/informatik/mi/neu/index.md.en">
+                                    TU Chemnitz / fold ecosystemics
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="http://birdnet.tu-chemnitz.de/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://www.semanticscholar.org/author/Friedrich-Forstner/2293836"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Can Isik" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/blank.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Can Isik</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://eco.fold.ai/">
+                                    Fold Ecosystemics
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://eco.fold.ai/"><i class="fa fa-home"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Yasmine Benhamadi" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/yasmine_benhamadi.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Yasmine Benhamadi</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://ls2n.fr">
+                                    CNRS
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://audio.ls2n.fr"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?hl=en&amp;user=PX2EXUwAAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Matthieu Carreau" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/matthieu_carreau.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Matthieu Carreau</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://ls2n.fr">
+                                    CNRS
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://audio.ls2n.fr"><i class="fa fa-home"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Ilaria Morandi" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/ilaria_morandi.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Ilaria Morandi</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://zoo.prf.jcu.cz/?lang=en">
+                                    USB
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://scholar.google.com/citations?user=iF4uwiYAAAAJ&amp;hl=it&amp;oi=sra"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Pavel Linhart" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/pavel_linhart.JPG" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Pavel Linhart</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://zoo.prf.jcu.cz/?lang=en">
+                                    Aarhus University, USB
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://zoo.prf.jcu.cz/index.php/staff-item/rndr-pavel-linhart-ph-d/"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=XtZmsGIAAAAJ&amp;hl=en"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Pierre-Emmanuel Hladik" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/pierre_emmanuel_hladik.png" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Pierre-Emmanuel Hladik</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://ls2n.fr">
+                                    Ecole Centrale de Nantes / LS2N
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://www.ec-nantes.fr/version-francaise/annuaire/pierre-emmanuel-hladik"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.fr/citations?user=RIsZVfIAAAAJ&amp;hl"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="row list-group-item-" style="padding-bottom:0.5em;">
+<div class="col-md-2 col-xs-2">
+<img alt="Vincent Lostanlen" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/vincent_lostanlen.jpg" width="55px"/>
+</div>
+<div class="col-md-8 col-xs-8">
+<div class="row">
+<div class="col-md-12">
+<h4 class="list-group-item-heading">Vincent Lostanlen</h4>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://ls2n.fr">
+                                    CNRS
+                                    </a>
+</p>
+</div>
+</div>
+</div>
+<div class="col-md-2 col-xs-2">
+<a class="icon" href="https://audio.ls2n.fr"><i class="fa fa-home"></i></a>
+<a class="icon" href="https://scholar.google.com/citations?user=t4JImu0AAAAJ"><i class="fa fa-google"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="btn btn-t3" href="https://biodcase.github.io/challenge2025/task3">Task description</a>
+<a class="btn btn-t3" href="/challenge2025/task3-results">Results</a>
+<!-- <br> -->
+<br/>
+<br/>
+<br/>
+</div>
+</div>
+<script>
+(function($) {
+    $(document).ready(function() {
+        var hash = window.location.hash.substr(1);
+        var anchor = window.location.hash;
+
+        var shiftWindow = function() {
+            var hash = window.location.hash.substr(1);
+            scrollBy(0, -50);
+        };
+        window.addEventListener("hashchange", shiftWindow);
+
+        if (window.location.hash){
+            window.scrollTo(0, 0);
+            history.replaceState(null, document.title, "#");
+            setTimeout(function(){
+                window.location.hash = anchor;
+                shiftWindow();
+            }, 1000);
+        }
+    });
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/theme.js"></script>
+</body>
+</html>

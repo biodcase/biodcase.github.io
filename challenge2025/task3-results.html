@@ -1,0 +1,997 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Bioacoustics for Tiny Hardware - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Bioacoustics for Tiny Hardware - BioDCASE" />
+    <link href="https://biodcase.github.io/favicon.ico" rel="icon">
+    <link rel="canonical" href="https://biodcase.github.io/challenge2025/task3-results">
+    <meta property="og:url" content="https://dcase.community/challenge2025/task3-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/biodcase_preview.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="More details can be found on the task page: Task description page Teams results Submission information Performance Size Time Name TechnicalReport Average Precision Model Size (bytes) RAM Usage (bytes) Preprocessing Time (ms) Model Time (ms) Total Time (ms) Londono_enriched Londono2025 0.98 16600.00 26844.00 176.11 …" />
+    <meta name="og:description" content="More details can be found on the task page: Task..." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/dcaseicons/css/dcaseicons.css?v=1.2" type="text/css"/>
+        <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btex.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/static/assets/bioicons/css/bioicons.css" type="text/css"/>
+    <script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="https://biodcase.github.io/" class="navbar-brand hidden-lg hidden-md hidden-sm" ></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="https://biodcase.github.io/"><img class="img img-responsive" src="https://biodcase.github.io//images/logos/biodcase/BioDCASE_header_20px.svg"/></a>
+    </li></ul><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2025" class="dropdown-toggle" data-toggle="dropdown">CHALLENGES&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026">Challenge 2026</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025">Challenge 2025</a>
+    </li>
+        </ul>
+    </li><li class="">
+        <a href="https://biodcase.github.io/workshop2025">WORKSHOP</a>
+    </li><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2025/submission" class="dropdown-toggle" data-toggle="dropdown">SUBMISSION&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/submission">Submit</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/rules">Rules</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Organising committee">
+        <a href="https://biodcase.github.io/organisers">ORGANISERS</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div></div>
+</nav>
+<style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .bold{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .subheading {
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+    </style><style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-weight: 400 !important;
+        }
+        header .page-heading .bold{
+            font-weight: 400  !important;
+        }
+    </style><header class="page-top " style="background-image: url(..//images/header/veriko-dundua-BPKTTohN8wU-unsplash.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-bottom:20px;">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-center"><h1 class="thin">Bioacoustics for Tiny Hardware</h1><hr class="small center thin">
+                        <span class="subheading subheading-secondary">Challenge results</span></div>
+            </div>
+        </div>
+    </div>
+<span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Veriko Dundua"><i class="fa fa-creative-commons" aria-hidden="true"></i></span></header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#teams-results">Teams results</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p>More details can be found on the task page:</p>
+<p><a class="btn btn-primary" href="https://biodcase.github.io/challenge2025/task3" style="">Task description page</a></p>
+<h1 id="teams-results">Teams results</h1>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="code" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="rank_team" data-scatter-y="rank_score" data-show-chart="false" data-show-pagination-switch="true" data-show-rank="false" data-sort-name="rank_team" data-sort-order="asc">
+<thead>
+<tr>
+<th></th>
+<th class="sep-left-cell text-center" colspan="2">Submission information</th>
+<th class="sep-left-cell text-center" colspan="1">Performance</th>
+<th class="sep-left-cell text-center" colspan="2">Size</th>
+<th class="sep-left-cell text-center" colspan="3">Time</th>
+</tr>
+<tr>
+<th class="sm-cell" data-field="name" data-sortable="true">
+                Name
+            </th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+                Technical<br/>Report
+            </th>
+<th class="text-center" data-axis-label="Rank &lt;br&gt;&lt;/br&gt;score" data-chartable="true" data-field="rank_score" data-sortable="true" data-value-type="float2">
+                Average Precision
+            </th>
+<th class="text-center" data-axis-label="Model Size (bytes)" data-chartable="true" data-field="model_size" data-sortable="true" data-value-type="float2">
+                Model Size (bytes)
+            </th>
+<th class="text-center" data-axis-label="RAM Usage (bytes)" data-chartable="true" data-field="ram_usage" data-sortable="true" data-value-type="float2">
+                RAM Usage (bytes)
+            </th>
+<th class="text-center" data-axis-label="Preprocessing Time (ms)" data-chartable="true" data-field="preprocessing_time" data-sortable="true" data-value-type="float2">
+                Preprocessing Time (ms)
+            </th>
+<th class="text-center" data-axis-label="Model Time (ms)" data-chartable="true" data-field="model_time" data-sortable="true" data-value-type="float2">
+                Model Time (ms)
+            </th>
+<th class="text-center" data-axis-label="Total Time (ms)" data-chartable="true" data-field="total_time" data-sortable="true" data-value-type="float2">
+                Total Time (ms)
+            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Londono_enriched</td>
+<td>Londono2025</td>
+<td>0.98</td>
+<td>16600.00</td>
+<td>26844.00</td>
+<td>176.11</td>
+<td>24.42</td>
+<td>200.53</td>
+</tr>
+<tr>
+<td>Londono_non_enriched</td>
+<td>Londono2025</td>
+<td>0.94</td>
+<td>16600.00</td>
+<td>26844.00</td>
+<td>176.22</td>
+<td>24.42</td>
+<td>200.53</td>
+</tr>
+<tr>
+<td>Christian_Walter</td>
+<td>Walter2025</td>
+<td>0.74</td>
+<td>7020.00</td>
+<td>6744.00</td>
+<td>1.62</td>
+<td>16.45</td>
+<td>18.07</td>
+</tr>
+<tr>
+<td>Oguamanam_team</td>
+<td>Oguamanam2025</td>
+<td>0.97</td>
+<td>4192.00</td>
+<td>18354.00</td>
+<td>34.28</td>
+<td>7.39</td>
+<td>41.67</td>
+</tr>
+<tr>
+<td>Oguamanam_team_flux</td>
+<td>Oguamanam2025</td>
+<td>0.97</td>
+<td>1848.00</td>
+<td>780.00</td>
+<td>16.54</td>
+<td>0.18</td>
+<td>16.72</td>
+</tr>
+<tr>
+<td>Toby_Martin</td>
+<td>Martin2025</td>
+<td>0.99</td>
+<td>7776.00</td>
+<td>20924.00</td>
+<td>73.42</td>
+<td>15.16</td>
+<td>88.58</td>
+</tr>
+<tr>
+<td>Naveen_Dhar</td>
+<td>Dhar_1_2025</td>
+<td>0.74</td>
+<td>12920.00</td>
+<td>30328.00</td>
+<td>64.84</td>
+<td>112.78</td>
+<td>177.62</td>
+</tr>
+</tbody>
+</table>
+<h1 id="technical-reports">Technical reports</h1>
+<div class="btex" data-source="content/data/challenge2025/technical_reports_task3.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="Dhar_1_2025" style="box-shadow: none">
+<div class="panel-heading" id="heading-Dhar_1_2025" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Convolutional Gated Recurrent Network with Knowledge Distillation for Resource-Constrained Bioacoustics
+       </h4>
+<p style="text-align:left">
+        Naveen, Dhar
+       </p>
+<p style="text-align:left">
+<em>
+         High Tech High Mesa, San Diego, USA
+        </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Dhar_1_2025" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Dhar_1_2025" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Dhar_1_2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Dhar_task3_1_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Dhar_1_2025" class="panel-collapse collapse" id="collapse-Dhar_1_2025" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Convolutional Gated Recurrent Network with Knowledge Distillation for Resource-Constrained Bioacoustics
+      </h4>
+<p style="text-align:left">
+<small>
+        Naveen, Dhar
+       </small>
+<br/>
+<small>
+<em>
+         High Tech High Mesa, San Diego, USA
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       The shift toward ”tiny” machine learning enables the deployment of sophisticated audio classification models directly on power-efficient hardware, offering numerous benefits: immediate threat detection, lower latency for conservation insight, and vastly increased opera- tional lifetimes in remote environments. However, these advantages come with constraints on memory, computational power, and en- ergy consumption, necessitating unique approaches in both model architecture and feature extraction, in an environment where tra- ditional deep learning methods negate practicality despite accu- racy. A pipeline utilizing knowledge distillation and a custom Con- volutional Recurrent Neural Network (CRNN) was developed for resource-constrained bioacoustics and evaluated on Task 3 of the 2025 BioDCASE challenge: detecting Yellowhammer bunting vo- calizations in near and far-field environments using a lightweight model. The proposed network was built upon the BioDCASE base- line system, utilizing MobileNet convolution and depthwise convo- lution blocks, which preceded a Gated-Recurrent Unit (GRU), giv- ing the name ”MobileGRU”. A larger ”MobileGRU” was used as a teacher, and a smaller version was used as a student during knowl- edge distillation. Due to the nature of the task, ways to improve or maintain performance while maintaining or lowering architecture size, such as data augmentation, weight pruning, and adjustment of feature creation parameters, were given attention. The proposed ”MobileGRU” CRNN achieved a 0.993 average precision on the provided validation dataset and a 34KB file size when quantized, demonstrating the potential for efficient machine learning.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Dhar_1_2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Dhar_task3_1_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Dhar_1_2025label" class="modal fade" id="bibtex-Dhar_1_2025" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexDhar_1_2025label">
+        Convolutional Gated Recurrent Network with Knowledge Distillation for Resource-Constrained Bioacoustics
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Dhar_1_2025,
+    Author = "Naveen, Dhar",
+    title = "Convolutional Gated Recurrent Network with Knowledge Distillation for Resource-Constrained Bioacoustics",
+    institution = "DCASE2025 Challenge",
+    year = "2025",
+    month = "June",
+    abstract = "The shift toward ”tiny” machine learning enables the deployment of sophisticated audio classification models directly on power-efficient hardware, offering numerous benefits: immediate threat detection, lower latency for conservation insight, and vastly increased opera- tional lifetimes in remote environments. However, these advantages come with constraints on memory, computational power, and en- ergy consumption, necessitating unique approaches in both model architecture and feature extraction, in an environment where tra- ditional deep learning methods negate practicality despite accu- racy. A pipeline utilizing knowledge distillation and a custom Con- volutional Recurrent Neural Network (CRNN) was developed for resource-constrained bioacoustics and evaluated on Task 3 of the 2025 BioDCASE challenge: detecting Yellowhammer bunting vo- calizations in near and far-field environments using a lightweight model. The proposed network was built upon the BioDCASE base- line system, utilizing MobileNet convolution and depthwise convo- lution blocks, which preceded a Gated-Recurrent Unit (GRU), giv- ing the name ”MobileGRU”. A larger ”MobileGRU” was used as a teacher, and a smaller version was used as a student during knowl- edge distillation. Due to the nature of the task, ways to improve or maintain performance while maintaining or lowering architecture size, such as data augmentation, weight pruning, and adjustment of feature creation parameters, were given attention. The proposed ”MobileGRU” CRNN achieved a 0.993 average precision on the provided validation dataset and a 34KB file size when quantized, demonstrating the potential for efficient machine learning."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Dhar_2_2025" style="box-shadow: none">
+<div class="panel-heading" id="heading-Dhar_2_2025" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Convolutional Neural Network with Knowledge Distillation for Resource-Constrained Bioacoustics
+       </h4>
+<p style="text-align:left">
+        Naveen, Dhar
+       </p>
+<p style="text-align:left">
+<em>
+         High Tech High Mesa, San Diego, USA
+        </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Dhar_2_2025" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Dhar_2_2025" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Dhar_2_2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Dhar_task3_2_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Dhar_2_2025" class="panel-collapse collapse" id="collapse-Dhar_2_2025" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Convolutional Neural Network with Knowledge Distillation for Resource-Constrained Bioacoustics
+      </h4>
+<p style="text-align:left">
+<small>
+        Naveen, Dhar
+       </small>
+<br/>
+<small>
+<em>
+         High Tech High Mesa, San Diego, USA
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       The shift toward ”tiny” machine learning enables the deployment of sophisticated audio classification models directly on power-efficient hardware, offering numerous benefits: immediate threat detection, lower latency for conservation insight, and vastly increased op- erational lifetimes in remote environments. However, these ad- vantages come with constraints on memory, computational power, and energy consumption, necessitating unique approaches in both model architecture and feature extraction, in an environment where traditional deep learning methods negate practicality despite ac- curacy. A pipeline utilizing knowledge distillation and a custom Convolutional Neural Network (CNN) was developed for resource- constrained bioacoustics and evaluated on Task 3 of the 2025 BioD- CASE challenge: detecting Yellowhammer bunting vocalizations in near and far-field environments using a lightweight model. The proposed network was built upon the BioDCASE baseline system, utilizing MobileNet convolution and depthwise convolution blocks, giving the name ”SlimCNN”. A larger ”SlimCNN” was used as a teacher, and a smaller version was used as a student during knowl- edge distillation. Due to the nature of the task, ways to improve or maintain performance while maintaining or lowering architecture size, such as data augmentation, weight pruning, and adjustment of feature creation parameters, were given attention. The proposed ”SlimCNN” achieved a 0.994 average precision on the provided val- idation dataset and a 13KB file size when quantized, demonstrating the potential for efficient machine learning
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Dhar_2_2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Dhar_task3_2_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Dhar_2_2025label" class="modal fade" id="bibtex-Dhar_2_2025" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexDhar_2_2025label">
+        Convolutional Neural Network with Knowledge Distillation for Resource-Constrained Bioacoustics
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Dhar_2_2025,
+    Author = "Naveen, Dhar",
+    title = "Convolutional Neural Network with Knowledge Distillation for Resource-Constrained Bioacoustics",
+    institution = "DCASE2025 Challenge",
+    year = "2025",
+    month = "June",
+    abstract = "The shift toward ”tiny” machine learning enables the deployment of sophisticated audio classification models directly on power-efficient hardware, offering numerous benefits: immediate threat detection, lower latency for conservation insight, and vastly increased op- erational lifetimes in remote environments. However, these ad- vantages come with constraints on memory, computational power, and energy consumption, necessitating unique approaches in both model architecture and feature extraction, in an environment where traditional deep learning methods negate practicality despite ac- curacy. A pipeline utilizing knowledge distillation and a custom Convolutional Neural Network (CNN) was developed for resource- constrained bioacoustics and evaluated on Task 3 of the 2025 BioD- CASE challenge: detecting Yellowhammer bunting vocalizations in near and far-field environments using a lightweight model. The proposed network was built upon the BioDCASE baseline system, utilizing MobileNet convolution and depthwise convolution blocks, giving the name ”SlimCNN”. A larger ”SlimCNN” was used as a teacher, and a smaller version was used as a student during knowl- edge distillation. Due to the nature of the task, ways to improve or maintain performance while maintaining or lowering architecture size, such as data augmentation, weight pruning, and adjustment of feature creation parameters, were given attention. The proposed ”SlimCNN” achieved a 0.994 average precision on the provided val- idation dataset and a 13KB file size when quantized, demonstrating the potential for efficient machine learning"
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Londono2025" style="box-shadow: none">
+<div class="panel-heading" id="heading-Londono2025" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        BioDCASE Task 3: TinyML Models for Bird Classification
+       </h4>
+<p style="text-align:left">
+        Espitia Londoño, Sebastián
+       </p>
+<p style="text-align:left">
+<em>
+         Human-Environment Research (HER), La Salle Campus Barcelona — Universitat Ramon Llull, Spain
+        </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Londono2025" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Londono2025" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Londono2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Espitia_LSRL_task3_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Londono2025" class="panel-collapse collapse" id="collapse-Londono2025" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       BioDCASE Task 3: TinyML Models for Bird Classification
+      </h4>
+<p style="text-align:left">
+<small>
+        Espitia Londoño, Sebastián
+       </small>
+<br/>
+<small>
+<em>
+         Human-Environment Research (HER), La Salle Campus Barcelona — Universitat Ramon Llull, Spain
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This technical report is given to participate in task 3 BioDCASE 2025. The task consists in identifying Yellowhammer birds, found throughout Europe. This task is tackled with two models, one trained with augmented data and another trained without any aug- mentation data, in this way, we can compare the behavior of both models. The model demonstrates high confidence in its predic- tions, with 95.96% of outputs classified as high-confidence de- cisions. Non-Enriched Model achieves superior feature learning while maintaining high confidence levels, suggesting better balance between certainty and complexity capture. Its enhanced clustering quality, combined with more calibrated uncertainty levels, positions it as the more robust choice for applications requiring both reliable predictions and meaningful internal representations. The trade-off in prediction consistency appears acceptable given the substantial improvements in representation quality.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Londono2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Espitia_LSRL_task3_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Londono2025label" class="modal fade" id="bibtex-Londono2025" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexLondono2025label">
+        BioDCASE Task 3: TinyML Models for Bird Classification
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Londono2025,
+    Author = "Espitia Londoño, Sebastián",
+    title = "BioDCASE Task 3: TinyML Models for Bird Classification",
+    institution = "DCASE2025 Challenge",
+    year = "2025",
+    month = "June",
+    abstract = "This technical report is given to participate in task 3 BioDCASE 2025. The task consists in identifying Yellowhammer birds, found throughout Europe. This task is tackled with two models, one trained with augmented data and another trained without any aug- mentation data, in this way, we can compare the behavior of both models. The model demonstrates high confidence in its predic- tions, with 95.96\% of outputs classified as high-confidence de- cisions. Non-Enriched Model achieves superior feature learning while maintaining high confidence levels, suggesting better balance between certainty and complexity capture. Its enhanced clustering quality, combined with more calibrated uncertainty levels, positions it as the more robust choice for applications requiring both reliable predictions and meaningful internal representations. The trade-off in prediction consistency appears acceptable given the substantial improvements in representation quality."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Martin2025" style="box-shadow: none">
+<div class="panel-heading" id="heading-Martin2025" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        BioDCASE 2025 Challenge Technical Report
+       </h4>
+<p style="text-align:left">
+        Martin, Toby
+       </p>
+<p style="text-align:left">
+<em>
+</em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Martin2025" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Martin2025" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Martin2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Martin_task3_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Martin2025" class="panel-collapse collapse" id="collapse-Martin2025" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       BioDCASE 2025 Challenge Technical Report
+      </h4>
+<p style="text-align:left">
+<small>
+        Martin, Toby
+       </small>
+<br/>
+<small>
+<em>
+</em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       This project focuses on detecting the presence of bird vocalisa- tions, specifically those of the yellowhammer (Emberiza citrinella) . The task is a binary classification problem: each audio clip either contains a bird call or it doesn’t. The initial model architecture was based on a MobileNet-style convolutional neural network (CNN). While it achieved reason- ably high accuracy and was relatively compact, it was still larger than necessary for this domain specific task and not well suited for deployment on resource constrained devices like embedded micro- controllers or edge AI systems. The objective of this exercise was to optimise the model to reduce inference memory and computational requirements, and to main- tain or improve performance on the validation set. This document describes the process undertaken to improve the model, focusing on reducing its size and computational load while either preserving or improving accuracy. The rationale behind each modification is explained, the validation methodology pre- sented, and the results of experiments comparing the original and optimised versions are given.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Martin2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Martin_task3_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Martin2025label" class="modal fade" id="bibtex-Martin2025" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexMartin2025label">
+        BioDCASE 2025 Challenge Technical Report
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Martin2025,
+    Author = "Martin, Toby",
+    title = "BioDCASE 2025 Challenge Technical Report",
+    institution = "DCASE2025 Challenge",
+    year = "2025",
+    month = "June",
+    abstract = "This project focuses on detecting the presence of bird vocalisa- tions, specifically those of the yellowhammer (Emberiza citrinella) . The task is a binary classification problem: each audio clip either contains a bird call or it doesn’t. The initial model architecture was based on a MobileNet-style convolutional neural network (CNN). While it achieved reason- ably high accuracy and was relatively compact, it was still larger than necessary for this domain specific task and not well suited for deployment on resource constrained devices like embedded micro- controllers or edge AI systems. The objective of this exercise was to optimise the model to reduce inference memory and computational requirements, and to main- tain or improve performance on the validation set. This document describes the process undertaken to improve the model, focusing on reducing its size and computational load while either preserving or improving accuracy. The rationale behind each modification is explained, the validation methodology pre- sented, and the results of experiments comparing the original and optimised versions are given."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Oguamanam2025" style="box-shadow: none">
+<div class="panel-heading" id="heading-Oguamanam2025" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Targeted Feature Extraction for Bird Sound Classification Systems
+       </h4>
+<p style="text-align:left">
+        Oguamanam, Ifeanyi and Machowski, Lucas and Simic, Marija and Krishnan, Sri
+       </p>
+<p style="text-align:left">
+<em>
+         Signal Analysis Research (SAR) Group, Dept. Electrical, Computer, and Biomedical Engineering, Toronto Metropolitan University, Canada
+        </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Oguamanam2025" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Oguamanam2025" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Oguamanam2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Oguamanam_task3_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Oguamanam2025" class="panel-collapse collapse" id="collapse-Oguamanam2025" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Targeted Feature Extraction for Bird Sound Classification Systems
+      </h4>
+<p style="text-align:left">
+<small>
+        Oguamanam, Ifeanyi and Machowski, Lucas and Simic, Marija and Krishnan, Sri
+       </small>
+<br/>
+<small>
+<em>
+         Signal Analysis Research (SAR) Group, Dept. Electrical, Computer, and Biomedical Engineering, Toronto Metropolitan University, Canada
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       Convolutional neural networks with small computational footprint are deployed on a tiny hardware for a binary classification task of “yellowhammer” bird sounds. We use a simple network structure to minimize the amount of parameters and computations as much as possible. Our submission model for this task achieved a classifica- tion accuracy of 91.35% on the validation set. Further, the inference time of the deployed model on the tiny hardware including feature extraction was 20.34ms.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Oguamanam2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/Oguamanam_task3_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Oguamanam2025label" class="modal fade" id="bibtex-Oguamanam2025" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexOguamanam2025label">
+        Targeted Feature Extraction for Bird Sound Classification Systems
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Oguamanam2025,
+    Author = "Oguamanam, Ifeanyi and Machowski, Lucas and Simic, Marija and Krishnan, Sri",
+    title = "Targeted Feature Extraction for Bird Sound Classification Systems",
+    institution = "DCASE2025 Challenge",
+    year = "2025",
+    month = "June",
+    abstract = "Convolutional neural networks with small computational footprint are deployed on a tiny hardware for a binary classification task of “yellowhammer” bird sounds. We use a simple network structure to minimize the amount of parameters and computations as much as possible. Our submission model for this task achieved a classifica- tion accuracy of 91.35\% on the validation set. Further, the inference time of the deployed model on the tiny hardware including feature extraction was 20.34ms."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Walter2025" style="box-shadow: none">
+<div class="panel-heading" id="heading-Walter2025" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+        Efficient Convolutional Neural Network for Bioacoustics in Tiny Hardware
+       </h4>
+<p style="text-align:left">
+        Walter, Christian
+       </p>
+<p style="text-align:left">
+<em>
+         Computational Medicine, University of Veterinary Medicine, Vienna, Austria
+        </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Walter2025" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Walter2025" type="button">
+<i class="fa fa-caret-down">
+</i>
+        Details...
+       </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Walter2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+         Bibtex
+        </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/walter_task3_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+         PDF
+        </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Walter2025" class="panel-collapse collapse" id="collapse-Walter2025" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+       Efficient Convolutional Neural Network for Bioacoustics in Tiny Hardware
+      </h4>
+<p style="text-align:left">
+<small>
+        Walter, Christian
+       </small>
+<br/>
+<small>
+<em>
+         Computational Medicine, University of Veterinary Medicine, Vienna, Austria
+        </em>
+</small>
+</p>
+<h5>
+<strong>
+        Abstract
+       </strong>
+</h5>
+<p class="text-justify">
+       Convolutional neural networks with small computational footprint are deployed on a tiny hardware for a binary classification task of “yellowhammer” bird sounds. We use a simple network structure to minimize the amount of parameters and computations as much as possible. Our submission model for this task achieved a classifica- tion accuracy of 91.35% on the validation set. Further, the inference time of the deployed model on the tiny hardware including feature extraction was 20.34ms.
+      </p>
+<div class="btn-group">
+<button class="btn btn-sm btn-danger" data-target="#bibtex-Walter2025" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-sm btn-warning" data-placement="bottom" href="../documents/challenge2025/technical_reports/walter_task3_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:6px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+<div class="btn-group">
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="bibtex-Walter2025label" class="modal fade" id="bibtex-Walter2025" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">
+         ×
+        </span>
+<span class="sr-only">
+         Close
+        </span>
+</button>
+<h4 class="modal-title" id="bibtexWalter2025label">
+        Efficient Convolutional Neural Network for Bioacoustics in Tiny Hardware
+       </h4>
+</div>
+<div class="modal-body">
+<pre>@techreport{Walter2025,
+    Author = "Walter, Christian",
+    title = "Efficient Convolutional Neural Network for Bioacoustics in Tiny Hardware",
+    institution = "DCASE2025 Challenge",
+    year = "2025",
+    month = "June",
+    abstract = "Convolutional neural networks with small computational footprint are deployed on a tiny hardware for a binary classification task of “yellowhammer” bird sounds. We use a simple network structure to minimize the amount of parameters and computations as much as possible. Our submission model for this task achieved a classifica- tion accuracy of 91.35\% on the validation set. Further, the inference time of the deployed model on the tiny hardware including feature extraction was 20.34ms."
+}
+</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-default" data-dismiss="modal" type="button">
+        Close
+       </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br/></p>
+<script>
+(function($) {
+    $(document).ready(function() {
+        var hash = window.location.hash.substr(1);
+        var anchor = window.location.hash;
+
+        var shiftWindow = function() {
+            var hash = window.location.hash.substr(1);
+            if($('#collapse-'+hash).length){
+                scrollBy(0, -100);
+            }
+        };
+        window.addEventListener("hashchange", shiftWindow);
+
+        if (window.location.hash){
+            window.scrollTo(0, 0);
+            history.replaceState(null, document.title, "#");
+            $('#collapse-'+hash).collapse('show');
+            setTimeout(function(){
+                window.location.hash = anchor;
+                shiftWindow();
+            }, 2000);
+        }
+    });
+})(jQuery);
+</script>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/theme.js"></script>
+</body>
+</html>

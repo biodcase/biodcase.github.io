@@ -1,0 +1,729 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Cross-Domain Mosquito Species Classification - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Cross-Domain Mosquito Species Classification - BioDCASE" />
+    <link href="https://biodcase.github.io/favicon.ico" rel="icon">
+    <link rel="canonical" href="https://biodcase.github.io/challenge2026/task5">
+    <meta property="og:url" content="https://dcase.community/challenge2026/task5" />
+    <meta property="og:image" content="https://dcase.community/images/logos/biodcase_preview.png" />
+    <meta name="author" content="Yuanbo Hou" />
+    <meta name="description" content="The Cross-Domain Mosquito Species Classification (CD-MSC) task focuses on mosquito species recognition under domain shift. Participants train systems on recordings collected from multiple source domains and test whether they can still recognise mosquito species when recording conditions change across location, device, or acoustic environment. Description Mosquito-borne diseases affect more than …" />
+    <meta name="og:description" content="The Cross-Domain Mosquito Species Classification (CD-MSC)..." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/dcaseicons/css/dcaseicons.css?v=1.2" type="text/css"/>
+        <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/static/assets/bioicons/css/bioicons.css" type="text/css"/>
+    <script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="https://biodcase.github.io/" class="navbar-brand hidden-lg hidden-md hidden-sm" ></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="https://biodcase.github.io/"><img class="img img-responsive" src="https://biodcase.github.io//images/logos/biodcase/BioDCASE_header_20px.svg"/></a>
+    </li></ul><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2025" class="dropdown-toggle" data-toggle="dropdown">CHALLENGES&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026">Challenge 2026</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025">Challenge 2025</a>
+    </li>
+        </ul>
+    </li><li class="">
+        <a href="https://biodcase.github.io/workshop2025">WORKSHOP</a>
+    </li><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2025/submission" class="dropdown-toggle" data-toggle="dropdown">SUBMISSION&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/submission">Submit</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/rules">Rules</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Organising committee">
+        <a href="https://biodcase.github.io/organisers">ORGANISERS</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div></div>
+</nav>
+<style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .bold{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .subheading {
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+    </style><style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-weight: 400 !important;
+        }
+        header .page-heading .bold{
+            font-weight: 400  !important;
+        }
+    </style><header class="page-top " style="background-image: url(..///images/tasks/challenge2026/icons/Task5.png);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-bottom:20px;">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-center"><h1 class="thin">Cross-Domain Mosquito Species Classification</h1><hr class="small center thin">
+                        <span class="subheading subheading-secondary">Task Description</span></div>
+            </div>
+        </div>
+    </div>
+</header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Coordinators</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Yuanbo Hou" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/yuanbo_hou.png" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Yuanbo Hou</strong>
+<a class="icon" href="mailto:Yuanbo.Hou@eng.ox.ac.uk"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                University of Oxford
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Vanja Zdravkovic" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/vanja_zdravkovic.png" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Vanja Zdravkovic</strong>
+<a class="icon" href="mailto:vanja.zdravkovic@new.ox.ac.uk"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                University of Oxford
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Marianne Sinka" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/marianne_sinka.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Marianne Sinka</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                University of Oxford
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Yunpeng Li" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/yunpeng_li.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Yunpeng Li</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                King’s College London
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Wenwu Wang" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/wenwu_wang.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Wenwu Wang</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                University of Surrey
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Mark Plumbley" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/mark_plumbley.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Mark Plumbley</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                King’s College London
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Kathy Willis" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/kathy_willis.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Kathy Willis</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                University of Oxford
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Stephen Roberts" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/stephen_roberts.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Stephen Roberts</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                University of Oxford
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#description">Description</a></li>
+<li><a href="#development-dataset">Development dataset</a></li>
+<li><a href="#task-setup">Task setup</a></li>
+<li><a href="#evaluation-dataset">Evaluation dataset</a></li>
+<li><a href="#evaluation-metrics">Evaluation metrics</a></li>
+<li><a href="#task-rules">Task Rules</a></li>
+<li><a href="#baseline-system">Baseline system</a></li>
+<li><a href="#citation">Citation</a></li>
+<li><a href="#support">Support</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p>The Cross-Domain Mosquito Species Classification (CD-MSC) task focuses on mosquito species recognition under domain shift. Participants train systems on recordings collected from multiple source domains and test whether they can still recognise mosquito species when recording conditions change across location, device, or acoustic environment. </p>
+<h2 id="description">Description</h2>
+<p>Mosquito-borne diseases affect more than one billion people each year and cause close to one million deaths. Traditional mosquito surveillance relies on traps and manual species identification. That process is slow, labour-intensive, difficult to scale, and can expose field workers to infection risk. Audio-based mosquito monitoring offers a lower-cost and more scalable complement, but robust mosquito species classification remains difficult under real recording conditions.</p>
+<p>Mosquito flight tones are narrow-band, often low in signal-to-noise ratio, and easily masked by background noise. Recordings for several epidemiologically relevant species are also limited. Variation across devices, environments, and collection protocols further increases the difficulty of reliable classification. In practice, a model may perform well under familiar conditions but fail when evaluated on recordings collected in different settings.</p>
+<p>CD-MSC is designed to study this problem directly. In this task, a domain refers to an acquisition condition associated with the recording source, including differences in location, device, or acoustic environment. The task therefore evaluates not only whether a system can recognise mosquito species, but also whether it can generalise across domains.</p>
+<h2 id="development-dataset">Development dataset</h2>
+<p>The released development dataset is provided for the CD-MSC task. It is fully open and supports transparent baseline reproduction, model development, and custom split design.</p>
+<style>
+  :root {
+    --table-font-size: 1.3rem;      /* 表格字体大小 */
+    --table-cell-padding-y: 5px;    /* 单元格上下内边距 */
+    --table-cell-padding-x: 6px;    /* 单元格左右内边距 */
+    --table-header-bg: #f2f2f2;      /* 表头背景色 */
+    --table-row-odd-bg: #ffffff;     /* 奇数行背景色 */
+    --table-row-even-bg: #fafafa;    /* 偶数行背景色 */
+    --table-border-color: #dddddd;   /* 边框颜色 */
+  }
+
+  .dataset-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.8rem 0 1.2rem 0;
+    font-size: var(--table-font-size);
+  }
+
+  .dataset-table th,
+  .dataset-table td {
+    padding: var(--table-cell-padding-y) var(--table-cell-padding-x);
+    border: 1px solid var(--table-border-color);
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .dataset-table thead th {
+    background: var(--table-header-bg);
+    font-weight: 600;
+  }
+
+  .dataset-table tbody tr:nth-child(odd) {
+    background: var(--table-row-odd-bg);
+  }
+
+  .dataset-table tbody tr:nth-child(even) {
+    background: var(--table-row-even-bg);
+  }
+</style>
+<p>Each audio file follows the naming format:</p>
+<div class="highlight"><pre><span></span><code>S_&lt;speciesID&gt;_D_&lt;domainID&gt;_&lt;clipIndex&gt;
+</code></pre></div>
+<p>File Structure: </p>
+<div class="highlight"><pre><span></span><code>Development_data
+├── raw_audio
+│   └── S_&lt;speciesID&gt;_D_&lt;domainID&gt;_&lt;clipIndex&gt;.wav
+└── metadata
+    └── TrainVal_ids.txt
+    └── Training_ids.txt
+    └── Validation_ids.txt
+    └── Test_ids.txt
+    └── split_summary.json
+</code></pre></div>
+<h4>Dataset overview</h4>
+<table class="dataset-table">
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of domains</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Number of species</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Total number of clips</td>
+<td>271380</td>
+</tr>
+<tr>
+<td>Total duration</td>
+<td>218388.40 seconds (60.66 hours)</td>
+</tr>
+</tbody>
+</table>
+<h4>Domain Distribution</h4>
+<table class="dataset-table">
+<thead>
+<tr>
+<th>Domain</th>
+<th>Number of clips</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>4065</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>784</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>679</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>200</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>265652</td>
+</tr>
+</tbody>
+</table>
+<h4>Species Distribution</h4>
+<table class="dataset-table">
+<thead>
+<tr>
+<th>Species</th>
+<th>Species ID</th>
+<th>Number of clips</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><i>Aedes aegypti</i></td>
+<td>1</td>
+<td>81587</td>
+</tr>
+<tr>
+<td><i>Aedes albopictus</i></td>
+<td>2</td>
+<td>18517</td>
+</tr>
+<tr>
+<td><i>Culex quinquefasciatus</i></td>
+<td>3</td>
+<td>72056</td>
+</tr>
+<tr>
+<td><i>Anopheles gambiae</i></td>
+<td>4</td>
+<td>46998</td>
+</tr>
+<tr>
+<td><i>Anopheles arabiensis</i></td>
+<td>5</td>
+<td>21117</td>
+</tr>
+<tr>
+<td><i>Anopheles dirus</i></td>
+<td>6</td>
+<td>127</td>
+</tr>
+<tr>
+<td><i>Culex pipiens</i></td>
+<td>7</td>
+<td>29754</td>
+</tr>
+<tr>
+<td><i>Anopheles minimus</i></td>
+<td>8</td>
+<td>550</td>
+</tr>
+<tr>
+<td><i>Anopheles stephensi</i></td>
+<td>9</td>
+<td>674</td>
+</tr>
+</tbody>
+</table>
+<p>The released development dataset is uneven across both species and domains. Participants are encouraged to consider both class balance and domain balance during model development.</p>
+<h3>Download</h3>
+<div class="download-card">
+<span class="download-icon">📦</span>
+<a href="https://zenodo.org/records/19095788" rel="noopener noreferrer" target="_blank">
+    BioDCASE 2026 CD-MSC Development Dataset on Zenodo
+  </a>
+</div>
+<style>
+  .download-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    background: #fafafa;
+    font-size: 1.5rem;
+  }
+
+  .download-card a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #2c7be5;
+  }
+
+  .download-card a:hover {
+    text-decoration: underline;
+  }
+
+  .download-icon {
+    font-size: 1.1rem;
+  }
+</style>
+<h2 id="task-setup">Task setup</h2>
+<p>The development set is divided into two main partitions: training\validation (trainval) and test. The trainval set is intended for model development and local validation. The test set is used to analyse cross-domain performance under the released development setting.</p>
+<p>Participants are welcome to use the species and domain information encoded in the audio IDs to construct alternative domain-aware development splits.</p>
+<h5>TrainVal set</h5>
+<table class="dataset-table">
+<thead>
+<tr>
+<th>Domain</th>
+<th>Ae.aeg</th>
+<th>Ae.alb</th>
+<th>Cx.qui</th>
+<th>An.gam</th>
+<th>An.ara</th>
+<th>An.dir</th>
+<th>Cx.pip</th>
+<th>An.min</th>
+<th>An.ste</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>D1</td><td>111</td><td>73</td><td>0</td><td>0</td><td>0</td><td>87</td><td>59</td><td>200</td><td>200</td><td>730</td></tr>
+<tr><td>D2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>60</td><td>0</td><td>200</td><td>260</td></tr>
+<tr><td>D3</td><td>0</td><td>17</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>200</td><td>200</td><td>417</td></tr>
+<tr><td>D4</td><td>20</td><td>0</td><td>12</td><td>0</td><td>0</td><td>0</td><td>0</td><td>51</td><td>0</td><td>83</td></tr>
+<tr><td>D5</td><td>73297</td><td>16575</td><td>64838</td><td>42298</td><td>19005</td><td>0</td><td>26660</td><td>0</td><td>0</td><td>242673</td></tr>
+</tbody>
+</table>
+<h5>Test set</h5>
+<table class="dataset-table">
+<thead>
+<tr>
+<th>Domain</th>
+<th>Ae.aeg</th>
+<th>Ae.alb</th>
+<th>Cx.qui</th>
+<th>An.gam</th>
+<th>An.ara</th>
+<th>An.dir</th>
+<th>Cx.pip</th>
+<th>An.min</th>
+<th>An.ste</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>D1</td><td>12</td><td>6</td><td>672</td><td>818</td><td>1820</td><td>0</td><td>7</td><td>0</td><td>0</td><td>3335</td></tr>
+<tr><td>D2</td><td>0</td><td>419</td><td>0</td><td>0</td><td>0</td><td>0</td><td>6</td><td>99</td><td>0</td><td>524</td></tr>
+<tr><td>D3</td><td>192</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>68</td><td>0</td><td>0</td><td>262</td></tr>
+<tr><td>D4</td><td>2</td><td>0</td><td>1</td><td>0</td><td>0</td><td>40</td><td>0</td><td>0</td><td>74</td><td>117</td></tr>
+<tr><td>D5</td><td>7953</td><td>1425</td><td>6533</td><td>3882</td><td>292</td><td>0</td><td>2894</td><td>0</td><td>0</td><td>22979</td></tr>
+</tbody>
+</table>
+<h2 id="evaluation-dataset">Evaluation dataset</h2>
+<p>The evaluation dataset will be released according to the challenge timeline. Please follow the official schedule for updates.</p>
+<h2 id="evaluation-metrics">Evaluation metrics</h2>
+<p>The official evaluation reports:</p>
+<ul>
+<li>BA<sub>seen</sub>: balanced accuracy on clips from seen domains</li>
+<li>BA<sub>unseen</sub>: balanced accuracy on clips from unseen domains</li>
+<li>DSG = |BA<sub>unseen</sub> - BA<sub>seen</sub>|: domain shift gap</li>
+</ul>
+<p>For the baseline development test set, each clip is treated as one sample and produces one species prediction. The main evaluation target is species classification.</p>
+<h2 id="task-rules">Task Rules</h2>
+<ul>
+<li>Participants may use publicly available pre-trained models and representations. However, <strong>external labelled mosquito data are not permitted</strong>.</li>
+<li>Participants may use ensembles of multiple models.</li>
+<li>Participants may define their own development split strategy. The released baseline split is provided only to reproduce the reference baseline and does not restrict participant system development.</li>
+</ul>
+<p>If you have any questions, please contact the organizers.</p>
+<h2 id="baseline-system">Baseline system</h2>
+<h3>System description</h3>
+<p>The released baseline provides a fully open and reproducible reference for the CD-MSC task. It is designed to be lightweight, easy to run, and easy to extend.</p>
+<p>The baseline is built on:</p>
+<ul>
+<li>8 kHz input audio</li>
+<li>64-bin log-mel spectrogram features</li>
+<li>a lightweight <a href="https://github.com/Yuanbo2020/MTRCNN" style="color: #1a73e8;">multitemporal resolution convolutional neural network (MTRCNN)</a> with 0.22 million parameters</li>
+<li>a primary species-classification head</li>
+<li>an auxiliary domain-classification head</li>
+</ul>
+<p>The <a href="https://github.com/Yuanbo2020/MTRCNN" style="color: #1a73e8;">MTRCNN baseline</a> is well-suited to CD-MSC because it can process audio clips of arbitrary length longer than 1.1 s. This makes it particularly convenient for the task, where clip duration may vary across recordings. Variable-length clips are handled through dynamic padding and masking, so participants can work with the released data without enforcing a single fixed clip length at inference time.</p>
+<h3>Source code</h3>
+<p>The baseline is provided as a transparent starting point for participants.</p>
+<div class="download-card">
+<span class="download-icon">💻</span>
+<a href="https://github.com/Yuanbo2020/CD-MSC" rel="noopener noreferrer" target="_blank">
+    Baseline Repository on GitHub
+  </a>
+</div>
+<style>
+  .download-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    background: #fafafa;
+    font-size: 1.5rem;
+  }
+
+  .download-card a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #2c7be5;
+  }
+
+  .download-card a:hover {
+    text-decoration: underline;
+  }
+
+  .download-icon {
+    font-size: 1.1rem;
+  }
+</style>
+<h3>Training Setup</h3>
+<p>The released baseline is trained under a fixed and reproducible default setup:</p>
+<ul>
+<li>optimiser: AdamW</li>
+<li>learning rate: 0.001</li>
+<li>training batch size: 64</li>
+<li>evaluation batch size: 8</li>
+<li>maximum epochs: 100</li>
+<li>early stopping starts after epoch 10</li>
+<li>early stopping patience: 5 epochs</li>
+<li>model selection metric: validation species balanced accuracy</li>
+</ul>
+<p>The released code also supports repeated experiments with fixed random seeds, and the default setup uses 10 seeds.</p>
+<p>Participants are welcome to use the released setup directly or adapt it to develop stronger systems for cross-domain mosquito species classification.</p>
+<h3>Baseline performance</h3>
+<p>Official cross-domain results on the development test split are shown below.</p>
+<table class="dataset-table">
+<thead>
+<tr>
+<th>Checkpoint</th>
+<th>BA<sub>seen</sub></th>
+<th>BA<sub>unseen</sub></th>
+<th>DSG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Best-validation checkpoint</td>
+<td>0.8806 ± 0.0108</td>
+<td>0.1751 ± 0.0197</td>
+<td>0.7055 ± 0.0248</td>
+</tr>
+<tr>
+<td>Final checkpoint</td>
+<td>0.8822 ± 0.0097</td>
+<td>0.1704 ± 0.0180</td>
+<td>0.7118 ± 0.0235</td>
+</tr>
+</tbody>
+</table>
+<p>The released baseline performs strongly on seen domains but degrades markedly on unseen domains. This result shows that cross-domain generalisation remains the central challenge of the CD-MSC task.</p>
+<h2 id="citation">Citation</h2>
+<p>If you use the development dataset, the released baseline, or refer to the BioDCASE 2026 Cross-Domain Mosquito Species Classification task, please cite the following paper.</p>
+<p>BioDCASE 2026 CD-MSC Baseline: <a href="https://arxiv.org/abs/2603.20118" target="_blank">📄 PDF</a></p>
+<div class="highlight"><pre><span></span><code><span class="nc">@misc</span><span class="p">{</span><span class="nl">hou2026biodcase2026challengebaseline</span><span class="p">,</span>
+<span class="w">      </span><span class="na">title</span><span class="p">=</span><span class="s">{BioDCASE 2026 Challenge Baseline for Cross-Domain Mosquito Species Classification}</span><span class="p">,</span><span class="w"> </span>
+<span class="w">      </span><span class="na">author</span><span class="p">=</span><span class="s">{Yuanbo Hou and Vanja Zdravkovic and Marianne Sinka and Yunpeng Li and Wenwu Wang and Mark D. Plumbley and Kathy Willis and Stephen Roberts}</span><span class="p">,</span>
+<span class="w">      </span><span class="na">year</span><span class="p">=</span><span class="s">{2026}</span><span class="p">,</span>
+<span class="w">      </span><span class="na">eprint</span><span class="p">=</span><span class="s">{2603.20118}</span><span class="p">,</span>
+<span class="w">      </span><span class="na">archivePrefix</span><span class="p">=</span><span class="s">{arXiv}</span><span class="p">,</span>
+<span class="w">      </span><span class="na">primaryClass</span><span class="p">=</span><span class="s">{eess.AS}</span><span class="p">,</span>
+<span class="w">      </span><span class="na">url</span><span class="p">=</span><span class="s">{https://arxiv.org/abs/2603.20118}</span><span class="p">,</span><span class="w"> </span>
+<span class="p">}</span>
+</code></pre></div>
+<p>MTRCNN model: <a href="https://doi.org/10.1109/ICASSP49660.2025.10890031" target="_blank">📄 PDF</a></p>
+<div class="highlight"><pre><span></span><code><span class="nc">@INPROCEEDINGS</span><span class="p">{</span><span class="nl">10890031</span><span class="p">,</span>
+<span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Hou, Yuanbo and Ren, Qiaoqiao and Wang, Wenwu and Botteldooren, Dick}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">booktitle</span><span class="p">=</span><span class="s">{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{Sound-Based Recognition of Touch Gestures and Emotions for Enhanced Human-Robot Interaction}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2025}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">pages</span><span class="p">=</span><span class="s">{1-5}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">doi</span><span class="p">=</span><span class="s">{10.1109/ICASSP49660.2025.10890031}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="support">Support</h2>
+<p>For participant questions related to this task, please feel free to contact us. We have a Slack or WeChat group for discussion and support.</p>
+<ul>
+<li><a href="Yuanbo.Hou@eng.ox.ac.uk">Yuanbo Hou</a>, Machine learning research group, University of Oxford, <a href="mailto:Yuanbo.Hou@eng.ox.ac.uk"><i class="fa fa-envelope"></i></a></li>
+<li><a href="vanja.zdravkovic@new.ox.ac.uk">Vanja Zdravkovic</a>, University of Oxford, <a href="mailto:vanja.zdravkovic@new.ox.ac.uk"><i class="fa fa-envelope"></i></a></li>
+</ul>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/theme.js"></script>
+</body>
+</html>

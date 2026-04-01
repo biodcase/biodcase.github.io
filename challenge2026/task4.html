@@ -1,0 +1,850 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Active Learning for Bioacoustics - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Active Learning for Bioacoustics - BioDCASE" />
+    <link href="https://biodcase.github.io/favicon.ico" rel="icon">
+    <link rel="canonical" href="https://biodcase.github.io/challenge2026/task4">
+    <meta property="og:url" content="https://dcase.community/challenge2026/task4" />
+    <meta property="og:image" content="https://dcase.community/images/logos/biodcase_preview.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="Overview A fundamental challenge across bioacoustics domains (terrestrial and marine) is the annotation of unlabelled data. Passive acoustic monitoring systems generate vast amounts of data, but only a small portion can be feasibly annotated by expert human annotators. Since model performance depends heavily on the quality and quantity of labelled …" />
+    <meta name="og:description" content="Overview A fundamental challenge across bioacoustics..." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/dcaseicons/css/dcaseicons.css?v=1.2" type="text/css"/>
+        <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/static/assets/bioicons/css/bioicons.css" type="text/css"/>
+    <script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="https://biodcase.github.io/" class="navbar-brand hidden-lg hidden-md hidden-sm" ></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="https://biodcase.github.io/"><img class="img img-responsive" src="https://biodcase.github.io//images/logos/biodcase/BioDCASE_header_20px.svg"/></a>
+    </li></ul><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2025" class="dropdown-toggle" data-toggle="dropdown">CHALLENGES&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026">Challenge 2026</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025">Challenge 2025</a>
+    </li>
+        </ul>
+    </li><li class="">
+        <a href="https://biodcase.github.io/workshop2025">WORKSHOP</a>
+    </li><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2025/submission" class="dropdown-toggle" data-toggle="dropdown">SUBMISSION&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/submission">Submit</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/rules">Rules</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Organising committee">
+        <a href="https://biodcase.github.io/organisers">ORGANISERS</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div></div>
+</nav>
+<style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .bold{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .subheading {
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+    </style><style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-weight: 400 !important;
+        }
+        header .page-heading .bold{
+            font-weight: 400  !important;
+        }
+    </style><header class="page-top " style="background-image: url(..//images/header/background_task4.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-bottom:20px;">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-center"><div class="pull-left">
+                    <style>.task-icon-col{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}.task-icon-col-title{line-height:1.3}.pull-left:has(.task-icon-col){float:none!important;width:100%;display:flex;justify-content:center;margin-bottom:0px}</style><div class="task-icon-col"><span class="fa-stack fa-4x" style="line-height: 1.9em"><i class="fa fa-square fa-stack-2x text-t4"></i><img src="/images/tasks/challenge2026/icons/task_4_logo.png" alt="Active" style="width: 60px; height: 60px; filter: brightness(0) invert(1);"></span></div>
+                    </div><h1 class="thin">Active Learning for Bioacoustics</h1><hr class="small center thin">
+                        <span class="subheading subheading-secondary">Task 4</span></div>
+            </div>
+        </div>
+    </div>
+<span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Phil Botha"><i class="fa fa-creative-commons" aria-hidden="true"></i></span></header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Coordinators</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Ben McEwen" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/organisers/ben_mcewen.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Ben McEwen</strong>
+<a class="icon" href="mailto:b.j.mcewen@tilburguniversity.edu"><i class="pull-right fa fa-envelope-o"></i></a>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">
+<a class="text" href="https://www.tilburguniversity.edu/">
+                                Tilburg University
+                                </a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Lukas Rauch" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/lukas_rauch.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Lukas Rauch</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                Kassel University
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Marek Herde" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/marek_herde.JPG" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Marek Herde</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                Kassel University
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Shiqi Zhang" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/shiqi_zhang.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Shiqi Zhang</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                Tampere University
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Rupa Kurinchi-Vendhan" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/rupa_kurinchi_vendhan.jfif" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Rupa Kurinchi-Vendhan</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                Massachusetts Institute of Technology
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="John Martinsson" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/john_martinsson.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>John Martinsson</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                Research Institute of Sweden
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Sara Beery" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/sara_beery.jpeg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Sara Beery</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                Massachusetts Institute of Technology
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#overview">Overview</a></li>
+<li><a href="#description">Description</a></li>
+<li><a href="#dataset">Dataset</a></li>
+<li><a href="#baselines">Baselines</a></li>
+<li><a href="#evaluation">Evaluation</a></li>
+<li><a href="#submission">Submission</a></li>
+<li><a href="#citation">Citation</a></li>
+<li><a href="#support">Support</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h2 id="overview">Overview</h2>
+<p>A fundamental challenge across bioacoustics domains (terrestrial and marine) is the annotation of unlabelled data. Passive acoustic monitoring systems generate vast amounts of data, but only a small portion can be feasibly annotated by expert human annotators. Since model performance depends heavily on the quality and quantity of labelled data, this raises the following research question:</p>
+<blockquote>
+<p>Given vast amounts of raw acoustic data and limited annotation resources, which data should be prioritised for labelling?</p>
+</blockquote>
+<p>Active learning (AL) is a critical strategy for scaling bioacoustic monitoring. Rather than annotating data at random, AL iteratively selects the most informative samples for labelling, aiming to maximise model performance within a fixed annotation budget. Participants will design a sampling (acquisition) function that selects which unlabelled samples should be labelled at each AL cycle. Submissions will be evaluated on how efficiently their method improves classification performance across two bioacoustic domains: terrestrial (BirdSet) and marine (ATBFL).</p>
+<h2 id="description">Description</h2>
+<p>You are provided with a pool of "unlabelled" embeddings (labels are hidden), corresponding to audio segments. <strong>Your task is to select which samples should be labelled at each cycle to maximise classification performance within a fixed annotation budget.</strong></p>
+<p>The active learning loop proceeds as follows:</p>
+<ol>
+<li>A pool of pre-generated <code>perch_v2</code> embeddings and a randomly initialised classification head are provided.</li>
+<li>Your sampling function selects a batch of samples from the unlabelled pool.</li>
+<li>Labels are automatically revealed for selected samples (<em>oracle labelling</em>).</li>
+<li>The model is retrained on all labelled samples so far.</li>
+<li>Steps 2–4 repeat until the annotation budget is exhausted.</li>
+</ol>
+<p>(Optional) You can specify a warm-up sampling function and batch size for the first AL cycle.</p>
+<p>Your sampling function receives the current model predictions and embeddings (and optionally metadata) and must return the indices of the next batch of samples to label. You are free to modify the warm-up strategy and batch size. The classification head (<code>model.py</code>) and core AL loop (<code>active_learner.py</code>) are fixed and may not be modified.</p>
+<figure>
+<div class="row row-centered">
+<div class="col-xs-10 col-md-8 col-centered">
+<img class="img img-responsive" src="https://biodcase.github.io/images/tasks/challenge2026/task_4_2026/active_learning_loop.png"/>
+<figcaption>Figure 1: The active learning loop</figcaption>
+</div>
+</div>
+</figure>
+<h3>BaseAL</h3>
+<p><em>BaseAL</em> is the evaluation framework for this task. It provides the AL pipeline, baseline sampling methods, and logging infrastructure. Participants implement their method by editing <code>sampling.py</code> within the framework.</p>
+<p>Setup instruction are available <a href="https://github.com/BenMcEwen1/BaseAL">here</a> and you can find notebooks with example usage in <a href="https://github.com/BenMcEwen1/BaseAL/tree/main/core/docs">docs/</a>. An interactive <a href="https://baseal.up.railway.app/">demo</a> of BaseAL (ESC10 data) is available.</p>
+<p><a href="https://baseal.up.railway.app" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#48789c';" onmouseover="this.style.backgroundColor='#48789c'; this.style.color='#ffffff';" style="display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+            border: 2px solid #48789c;
+            color: #48789c !important;
+            font-size: 14px;
+            border-radius: 20px;
+            text-decoration: none !important;
+            transition: background-color 0.2s ease, color 0.2s ease;">
+    BaseAL Demo <i class="fa fa-long-arrow-right" style="margin-left: 10px;"></i>
+</a></p>
+<h2 id="dataset">Dataset</h2>
+<p>Limited annotation budget is a challenge which spans both terrestrial and marine domains. To evaluate the generalisability of methods across domains both a terrestrial dataset <strong>(BirdSet)</strong> and marine dataset <strong>(ATBFL)</strong> are provided. </p>
+<p>These datasets have been curated for use with <strong>BaseAL</strong>. <em>Perch_v2 embeddings</em> have been pre-generated for 5 second audio segments and these will be the input for training of a classification head. Submissions will be evaluated on held out sets from <strong>BOTH</strong> datasets.</p>
+<p>The <code>max_budget</code> for each data subset is 500 samples, this amounts to average of 5% of samples which can be used for training.</p>
+<h3>Structure</h3>
+<p>The data structure is consistent across both datasets:</p>
+<div class="highlight"><pre><span></span><code>subset
+├── embeddings
+│   ├── perch_v2
+│   │   └── *.npy
+├── labels.csv
+├── metadata.csv
+</code></pre></div>
+<p>In BaseAL, ESC10 demo data is also provided, you can see the current <code>config.yaml</code> configuration and adjust as needed for the development set you are testing on.</p>
+<p>See information for individual datasets and subsets below: </p>
+<h3>BirdSet (AL for Bioacoustics)</h3>
+<p><a href="https://doi.org/10.48550/arXiv.2403.10380">BirdSet</a> is a large-scale benchmark dataset for avian bioacoustics, containing over 6,800 hours of recordings spanning nearly 10,000 species. It includes more than 400 hours across eight strongly-labelled evaluation subsets, each corresponding to a distinct geographic location, making it well-suited for evaluating model generalisation across soundscapes.</p>
+<p>For this task, three of the eight evaluation subsets are provided: HSN, POW and UHH. Each subset contains pre-generated <code>perch_v2</code> embeddings corresponding to 5-second multi-label segments. See details below related to individual subsets.</p>
+<table class="table">
+<tr class="active">
+<th><strong>Subset</strong></th>
+<th><strong>Training segments</strong></th>
+<th><strong>Validation segments</strong></th>
+<th><strong>Classes</strong></th>
+<th><strong>Av. labels per sample</strong></th>
+</tr>
+<tr>
+<td>HSN</td>
+<td>6600</td>
+<td>1800</td>
+<td>19</td>
+<td>0.524</td>
+</tr>
+<tr>
+<td>POW</td>
+<td>2280</td>
+<td>684</td>
+<td>41</td>
+<td>2.833</td>
+</tr>
+<tr>
+<td>UHH</td>
+<td>18319</td>
+<td>7327</td>
+<td>25</td>
+<td>1.058</td>
+</tr>
+<caption>
+    Table 1. Summary statistics on the BirdSet (Task 4) development set.
+  </caption>
+</table>
+<p>The BirdSet (AL for Bioacoustics) development set is available here:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://doi.org/10.5281/zenodo.19191602" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://doi.org/10.5281/zenodo.19191602" target="_blank">
+<span style="font-size:20px;">BioDCASE 2026 Task 4 - BirdSet Dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(225 MB)</span>
+<br/>
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.19191602.svg"/>
+</div>
+</div>
+<h3>ATBFL (AL for Bioacoustics)</h3>
+<p>This dataset is derived from the <em>Acoustic Trends Blue Fin Library (ATBFL)</em>. ATBFL is one of the largest annotated datasets in marine bioacoustics, gathering blue and fin whale recordings around Antarctica from 2005 to 2017.</p>
+<p>The data used in the <em>AL for Bioacoustics</em> task is derived from Task 2 (2025) <a href="https://zenodo.org/records/15092732">development set</a>, containing multi-label annotations across 7 call types from two species. Recordings are organised into site-year subsets (e.g. <code>kerguelen2005</code>, <code>greenwich2015</code>), each representing a distinct deployment. These subsets form the basis of the per-location evaluation. Pre-generated <code>perch_v2</code> embeddings for 5-second segments are provided; see the table below for per-subset details.</p>
+<table class="table">
+<tr class="active">
+<th><strong>Subset</strong></th>
+<th><strong>Training segments</strong></th>
+<th><strong>Validation segments</strong></th>
+<th><strong>Classes</strong></th>
+<th><strong>Av. labels per sample</strong></th>
+</tr>
+<tr>
+<td>elephantisland2014</td>
+<td>2197</td>
+<td>1489</td>
+<td>7</td>
+<td>1.965</td>
+</tr>
+<tr>
+<td>elephantisland2013</td>
+<td>1630</td>
+<td>1092</td>
+<td>7</td>
+<td>2.650</td>
+</tr>
+<tr>
+<td>casey2014</td>
+<td>1282</td>
+<td>782</td>
+<td>7</td>
+<td>2.428</td>
+</tr>
+<tr>
+<td>kerguelen2014</td>
+<td>1154</td>
+<td>748</td>
+<td>7</td>
+<td>2.684</td>
+</tr>
+<tr>
+<td>kerguelen2015</td>
+<td>729</td>
+<td>479</td>
+<td>7</td>
+<td>2.839</td>
+</tr>
+<tr>
+<td>casey2017</td>
+<td>613</td>
+<td>405</td>
+<td>6</td>
+<td>1.858</td>
+</tr>
+<tr>
+<td>maudrise2014</td>
+<td>526</td>
+<td>353</td>
+<td>7</td>
+<td>1.288</td>
+</tr>
+<tr>
+<td>kerguelen2005</td>
+<td>465</td>
+<td>269</td>
+<td>7</td>
+<td>2.176</td>
+</tr>
+<tr>
+<td>ballenyislands2015</td>
+<td>309</td>
+<td>205</td>
+<td>7</td>
+<td>1.875</td>
+</tr>
+<tr>
+<td>greenwich2015</td>
+<td>171</td>
+<td>113</td>
+<td>6</td>
+<td>1.527</td>
+</tr>
+<tr>
+<td>rosssea2014</td>
+<td>10</td>
+<td>8</td>
+<td>1</td>
+<td>0.929</td>
+</tr>
+<caption>
+    Table 2. Summary statistics on the ATBFL (Task 4) development set.
+  </caption>
+</table>
+<p>The task 4 ATBFL (AL for Bioacoustics) development set is available here, including additional information about dataset composition:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="https://doi.org/10.5281/zenodo.19133111" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-success"></i>
+<i class="fa fa-file-audio-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="https://doi.org/10.5281/zenodo.19133111" target="_blank">
+<span style="font-size:20px;">BioDCASE 2026 Task 4 - ATBFL Dataset <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(183 MB)</span>
+<br/>
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.19133111.svg"/>
+</div>
+</div>
+<h2 id="baselines">Baselines</h2>
+<p>The classification head (model) will be randomly initialised during evaluation. The sampling method will be evaluated across <em>5 independent runs</em> and the average performance across all runs used for ranking.</p>
+<ul>
+<li><code>Random</code>: samples are selected randomly, simulating active learning not being applied.</li>
+<li><code>Margin</code> (<a href="https://scikit-activeml.github.io/latest/generated/sphinx_gallery_examples/1-pool-classification/plot-UncertaintySampling-Uncertainty_Sampling_%28US%29_with_Margin.html">link</a>): selects samples where the model is least confident, based on the smallest gap between the top two predicted class probabilities. The uncertainty is aggregated across classes (for multilabel) using the mean uncertainty (<em>Settles 2009</em>).</li>
+<li><code>CoreSet</code> (<a href="https://scikit-activeml.github.io/latest/generated/sphinx_gallery_examples/1-pool-classification/plot-CoreSet-Core_Set.html">link</a>): greedily selects samples that are farthest from the current labelled set in embedding space, maximising coverage without considering model uncertainty (<em>Sener and Savarese 2018</em>).</li>
+<li><code>TypiClust</code> (<a href="https://scikit-activeml.github.io/latest/generated/sphinx_gallery_examples/1-pool-classification/plot-TypiClust-Typical_Clustering_%28TypiClust%29.html">link</a>): Typical clustering selects the most representative unlabelled sample from each of the least-covered regions of the embedding space, balancing diversity with density-based sample quality (<em>Hacohen et al. 2022</em>).</li>
+</ul>
+<p><strong>Baseline configuration:</strong> A fixed batch size of 50 samples, with 10 epochs per AL cycle and a learning rate of 1e<sup>-3</sup> is used for all baselines, up to the <code>max_budget</code> of 500 samples.</p>
+<table class="table">
+<tr class="active">
+<th><strong>Method</strong></th>
+<th><strong>AULC (mAP macro)</strong></th>
+<th style="border-left: 2px solid #ccc;"><strong>Computational cost (relative)</strong></th>
+<th><strong>Computational cost (wall-time (s))</strong></th>
+<th><strong>Annotation cost</strong></th>
+</tr>
+<tr>
+<td>Random</td>
+<td>0.401</td>
+<td style="border-left: 2px solid #ccc;">1.0</td>
+<td>0.00095</td>
+<td>96.75</td>
+</tr>
+<tr>
+<td>Margin</td>
+<td>0.399</td>
+<td style="border-left: 2px solid #ccc;">1.0</td>
+<td>0.00249</td>
+<td>125.50</td>
+</tr>
+<tr>
+<td><strong>CoreSet</strong></td>
+<td><strong>0.42154</strong></td>
+<td style="border-left: 2px solid #ccc;"><strong>1.0</strong></td>
+<td><strong>6.34688</strong></td>
+<td><strong>108.50</strong></td>
+</tr>
+<tr>
+<td>TypiCluster</td>
+<td>0.39080</td>
+<td style="border-left: 2px solid #ccc;">1.0</td>
+<td>25.28352</td>
+<td>98.25</td>
+</tr>
+<caption>
+    Table 3. Summary of baseline method performance aggreagted across development sets.
+  </caption>
+</table>
+<p>The following section explains how these evaluation metrics are computed →</p>
+<h2 id="evaluation">Evaluation</h2>
+<h3>Ranking metric</h3>
+<p><strong>Area Under the Learning Curve (AULC)</strong> for the mAP (macro) across a fixed budget of N samples. This metric will be aggregated across both datasets (and subsets) for the <strong>final ranking</strong>. Hence participants must consider how their sampling method generalises across domains.</p>
+<div class="highlight"><pre><span></span><code>AULC = (1 / N) * Σ mAP(n)   for n = 1, ..., N
+</code></pre></div>
+<h3>Supplementary Metrics</h3>
+<p>Additional metrics will be provided. These will <em>not</em> be used for overall ranking but <em>will</em> inform selection for the <strong>Jury Award</strong>.</p>
+<p><strong>Computational cost (training)</strong>: The computational cost is defined as the relative increase in the number of <code>model_parameters</code>, training epochs <code>epochs</code>, number of active learning cycles within budget <code>AL_cycles</code> compared to the baseline configuration. This metric is therefore the percentage increase (or decrease) in cost.</p>
+<div class="highlight"><pre><span></span><code>cost = model_parameters <span class="gs">* epochs *</span> AL_cycles
+
+relative_cost = cost_method / baseline_cost
+</code></pre></div>
+<!-- <p class="bg-danger">FEEDBACK: I have selected fixed parameters such as epochs and AL cycles because then it is independent of hardware and also  transparent. However this does NOT consider the cost of the sampling method itself.</p> -->
+<p><strong>Computational cost (sampling-cost)</strong>: Time spent in the sampling step averaged across all AL cycles. Penalises computationally expensive sampling methods.</p>
+<div class="highlight"><pre><span></span><code>sampling_cost = (1 / T) * Σ sampling_time(t)   for t = 1, ..., T
+</code></pre></div>
+<!-- <p class="bg-danger">FEEDBACK: This metric considers the cost of the sampling method but is hardware dependent and would need to be evaluated by us.</p> -->
+<p><strong>Annotation cost</strong>: Active learning generally only considers the number of samples selected for annotation, however the cost of annotation for challenging samples is important to consider. <strong>Here the annotation cost is the number of events per selected sample</strong> (e.g. the more multilabel events the higher the cost).</p>
+<div class="highlight"><pre><span></span><code>annotation_cost = Σ events(i)   for i in selected_samples
+</code></pre></div>
+<p><strong>Sub-domain performance</strong>: Both BirdSet and ATBFL are composed of several subsets corresponding to different locations. Performance for each of these locations will be reported.</p>
+<h2 id="submission">Submission</h2>
+<p>General BioDCASE instructions are available <a href="https://biodcase.github.io/challenge2025/submission">here</a>. This specifies submission naming conventions and the final report template. <em>Please note some important differences</em>:</p>
+<ul>
+<li>Participants are <strong>required</strong> to include the edited <code>sampling.py</code> file for reproducibility and final ranking.</li>
+<li>Instead of submitting <em>predictions</em>, participants submit a <code>.yaml</code> file containing metrics (e.g. AULC, computational cost etc).</li>
+</ul>
+<h3>Deliverables</h3>
+<p>Please submit a <code>.zip</code> file containing the following information. Please follow the general BioDCASE naming <a href="https://biodcase.github.io/challenge2025/submission#submission-label">convention</a>.</p>
+<p><strong>Results</strong> (<code>{method}_{dataset}_{lastname}.yaml</code>): containing the sampling performance metrics of your sampling method. <em>Note that if you export these results using the BaseAL <code>learner.export()</code> method, this will already be in the correct format.</em></p>
+<p>Please specify <code>repeat</code> of 5 when generating results, this will compute the mean and SD.</p>
+<div aria-multiselectable="true" class="panel-group" id="metadata-accordion" role="tablist">
+<div class="panel panel-default">
+<div class="panel-heading" id="task1a-example-header" role="tab">
+<h4 class="panel-title">
+<a aria-controls="collapseOne" aria-expanded="true" class="collapsed accordion-toggle" data-parent="#metadata-accordion" data-toggle="collapse" href="#task1-example-collapse" role="button">               
+                   margin_multilabel_ATBFL_BASEAL.yaml
+                </a>
+</h4>
+</div>
+<div aria-labelledby="task1-example-header" class="panel-collapse collapse" id="task1-example-collapse" role="tabpanel">
+<div class="panel-body" style="padding: 0px">
+<pre class="font110" style="padding:0;border:0;border-radius:0;"><code class="yaml">submission_timestamp: '2026-03-22T15:57:31'
+author_lastname: baseline
+institute_abbreviation: BASEAL
+sampling_strategy: margin_multilabel
+dataset: ATBFL_BASEAL
+model: perch_v2
+config:
+  learning_rate: 0.001
+  model_parameters: 2373128
+  n_outer_repeats: 5
+  pretrain_samples: 0
+learning_curve:
+- cycle: 1
+  n_labeled: 50
+  mAP_mean: 0.36654
+  mAP_sd: 0.066797
+  aulc_mAP_mean: 0.18327
+  aulc_mAP_sd: 0.033398
+  annotation_cost: 144
+  sampling_time_s_mean: 0.003362
+  sampling_time_s_sd: 0.000203
+- cycle: 2
+  n_labeled: 100
+  mAP_mean: 0.384691
+  mAP_sd: 0.05046
+  aulc_mAP_mean: 0.279443
+  aulc_mAP_sd: 0.045983
+  annotation_cost: 131
+  sampling_time_s_mean: 0.003424
+  sampling_time_s_sd: 0.00042
+- cycle: 3
+  n_labeled: 150
+  mAP_mean: 0.411882
+  mAP_sd: 0.047491
+  aulc_mAP_mean: 0.319057
+  aulc_mAP_sd: 0.045024
+  annotation_cost: 176
+  sampling_time_s_mean: 0.003471
+  sampling_time_s_sd: 0.000303
+- cycle: 4
+  n_labeled: 200
+  mAP_mean: 0.431502
+  mAP_sd: 0.033669
+  aulc_mAP_mean: 0.344716
+  aulc_mAP_sd: 0.042434
+  annotation_cost: 177
+  sampling_time_s_mean: 0.003403
+  sampling_time_s_sd: 0.000249
+- cycle: 5
+  n_labeled: 250
+  mAP_mean: 0.446552
+  mAP_sd: 0.02969
+  aulc_mAP_mean: 0.363578
+  aulc_mAP_sd: 0.039633
+  annotation_cost: 146
+  sampling_time_s_mean: 0.00334
+  sampling_time_s_sd: 0.000316
+- cycle: 6
+  n_labeled: 300
+  mAP_mean: 0.463594
+  mAP_sd: 0.01702
+  aulc_mAP_mean: 0.378827
+  aulc_mAP_sd: 0.036091
+  annotation_cost: 202
+  sampling_time_s_mean: 0.00332
+  sampling_time_s_sd: 0.0003
+- cycle: 7
+  n_labeled: 350
+  mAP_mean: 0.465332
+  mAP_sd: 0.019022
+  aulc_mAP_mean: 0.391061
+  aulc_mAP_sd: 0.032631
+  annotation_cost: 205
+  sampling_time_s_mean: 0.003468
+  sampling_time_s_sd: 0.000429
+- cycle: 8
+  n_labeled: 400
+  mAP_mean: 0.47003
+  mAP_sd: 0.022713
+  aulc_mAP_mean: 0.400638
+  aulc_mAP_sd: 0.030427
+  annotation_cost: 156
+  sampling_time_s_mean: 0.003332
+  sampling_time_s_sd: 0.000335
+- cycle: 9
+  n_labeled: 450
+  mAP_mean: 0.474832
+  mAP_sd: 0.010245
+  aulc_mAP_mean: 0.408615
+  aulc_mAP_sd: 0.028394
+  annotation_cost: 175
+  sampling_time_s_mean: 0.003634
+  sampling_time_s_sd: 0.000646
+- cycle: 10
+  n_labeled: 500
+  mAP_mean: 0.476957
+  mAP_sd: 0.008449
+  aulc_mAP_mean: 0.415343
+  aulc_mAP_sd: 0.026245
+  annotation_cost: 158
+  sampling_time_s_mean: 0.003644
+  sampling_time_s_sd: 0.000389
+- cycle: 11
+  n_labeled: 550
+  mAP_mean: 0.477933
+  mAP_sd: 0.006941
+  aulc_mAP_mean: 0.420989
+  aulc_mAP_sd: 0.024222
+  annotation_cost: 167
+  sampling_time_s_mean: 0.003398
+  sampling_time_s_sd: 0.000395
+- cycle: 12
+  n_labeled: 600
+  mAP_mean: 0.479481
+  mAP_sd: 0.009083
+  aulc_mAP_mean: 0.425799
+  aulc_mAP_sd: 0.022404
+  annotation_cost: 145
+  sampling_time_s_mean: 0.003368
+  sampling_time_s_sd: 0.00026
+- cycle: 13
+  n_labeled: 650
+  mAP_mean: 0.482552
+  mAP_sd: 0.007105
+  aulc_mAP_mean: 0.430046
+  aulc_mAP_sd: 0.02098
+  annotation_cost: 152
+  sampling_time_s_mean: 0.003418
+  sampling_time_s_sd: 0.000288
+- cycle: 14
+  n_labeled: 700
+  mAP_mean: 0.481459
+  mAP_sd: 0.009624
+  aulc_mAP_mean: 0.433758
+  aulc_mAP_sd: 0.01964
+  annotation_cost: 132
+  sampling_time_s_mean: 0.003404
+  sampling_time_s_sd: 0.000308
+- cycle: 15
+  n_labeled: 750
+  mAP_mean: 0.482672
+  mAP_sd: 0.013172
+  aulc_mAP_mean: 0.436978
+  aulc_mAP_sd: 0.018296
+  annotation_cost: 124
+  sampling_time_s_mean: 0.003383
+  sampling_time_s_sd: 0.000296
+supplementary:
+  n_cycles: 15
+  n_outer_repeats: 5
+  total_annotation_cost_mean: 2270.0
+  total_annotation_cost_sd: 127.54
+  total_sampling_time_s_mean: 0.05137
+  total_sampling_time_s_sd: 0.004374
+  computational_cost:
+    model_parameters: 2373128
+    epochs_per_cycle: 10
+    n_cycles: 15
+    cost_method: 355969200
+    baseline_n_cycles: 15
+    baseline_cost: 355969200
+    relative_cost: 1.0
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Sampling Method</strong>:</p>
+<ul>
+<li><code>sampling.py</code>: sampling method. Follow instructions for setting up <code>_custom</code> sampling method.</li>
+<li><code>requirements.txt</code> (optional): provide additional dependencies that were installed if any.</li>
+<li><code>method_description.ipynb</code> (optional): example usage of your sampling method. <em>Highly recommended</em> if you are using a batch size scheduler.</li>
+</ul>
+<p><strong>Report</strong> (<code>.pdf</code>): final report (see submissions page for <a href="https://biodcase.github.io/challenge2025/submission">details</a>)</p>
+<h3>Leaderboard</h3>
+<p>(Optional) During the development phase, a running leader board will be available on the BaseAL <a href="https://baseal.up.railway.app/#/challenges/biodcase">webpage</a>. If you wish to participate then send the submission package (without report) directly to <a href="benmcewen@outlook.com">Ben McEwen</a>.</p>
+<h3>Rules</h3>
+<ul>
+<li>Participants should <em>not</em> change the classification head (<code>model.py</code>) or core active learning loop (<code>active_learner.py</code>) within <em>BaseAL</em>.</li>
+<li>Dataset specific sampling methods and configurations are <em>not</em> allowed, your method should be generalisable across datasets. </li>
+<li>Making use of dataset specific metadata (e.g. time, location etc) is allowed, however the sampling method should still run on datasets for which this data is not available.</li>
+<li>Sampling methods and configurations should be designed to be run on a single consumer-grade GPU. Please avoid small batch sizes and computationally expensive approaches that require HPC access. Submissions with significant computational overhead are not feasible for bioacoustic monitoring and will not be ranked. </li>
+<li>Labels are provided for <em>oracle labelling</em>, do <em>not</em> use labels within <code>labels.csv</code> for sampling.</li>
+</ul>
+<h2 id="citation">Citation</h2>
+<p>If you use BaseAL or either of the curated datasets in your research please cite as follows.</p>
+<h3>BaseAL</h3>
+<div class="highlight"><pre><span></span><code><span class="nc">@software</span><span class="p">{</span><span class="nl">mcewen_baseal</span><span class="p">,</span>
+<span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{McEwen, Ben and Zhang, Shiqi}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{{BaseAL}: Active Learning Baseline}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2026}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">version</span><span class="p">=</span><span class="s">{v1.1.1}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">publisher</span><span class="p">=</span><span class="s">{Zenodo}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">doi</span><span class="p">=</span><span class="s">{10.5281/zenodo.18467564}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">url</span><span class="p">=</span><span class="s">{https://doi.org/10.5281/zenodo.18467564}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3>BioDCASE 2026 Task 4 - BirdSet Dataset</h3>
+<div class="highlight"><pre><span></span><code><span class="nc">@dataset</span><span class="p">{</span><span class="nl">rauch_2026_19191603</span><span class="p">,</span>
+<span class="w">  </span><span class="na">author</span><span class="w">       </span><span class="p">=</span><span class="w"> </span><span class="s">{Rauch, Lukas and</span>
+<span class="s">                  Herde, Marek and</span>
+<span class="s">                  McEwen, Ben}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">title</span><span class="w">        </span><span class="p">=</span><span class="w"> </span><span class="s">{BioDCASE 2026 Task 4: BirdSet Dataset}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">month</span><span class="w">        </span><span class="p">=</span><span class="w"> </span><span class="nv">mar</span><span class="p">,</span>
+<span class="w">  </span><span class="na">year</span><span class="w">         </span><span class="p">=</span><span class="w"> </span><span class="m">2026</span><span class="p">,</span>
+<span class="w">  </span><span class="na">publisher</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{Zenodo}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">doi</span><span class="w">          </span><span class="p">=</span><span class="w"> </span><span class="s">{10.5281/zenodo.19191602}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">url</span><span class="w">          </span><span class="p">=</span><span class="w"> </span><span class="s">{https://doi.org/10.5281/zenodo.19191602}</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Please cite the original <a href="https://doi.org/10.48550/arXiv.2403.10380">source</a> as well.</p>
+<h3>BioDCASE 2026 Task 4 - ATBFL Dataset</h3>
+<div class="highlight"><pre><span></span><code><span class="nc">@dataset</span><span class="p">{</span><span class="nl">kurinchi_vendhan_2026_19133112</span><span class="p">,</span>
+<span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="w"> </span><span class="s">{Kurinchi-Vendhan, Rupa and</span>
+<span class="s">                  Zhang, Shiqi and</span>
+<span class="s">                  McEwen, Ben}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">title</span><span class="w">        </span><span class="p">=</span><span class="w"> </span><span class="s">{BioDCASE 2026 Task 4: ATBFL Dataset}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">year</span><span class="w">         </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">publisher</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{Zenodo}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">doi</span><span class="w">          </span><span class="p">=</span><span class="w"> </span><span class="s">{10.5281/zenodo.19133111}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">url</span><span class="w">          </span><span class="p">=</span><span class="w"> </span><span class="s">{https://doi.org/10.5281/zenodo.19133111}</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Please cite the original <a href="https://doi.org/10.1038/s41598-020-78995-8">source</a> as well.</p>
+<h2 id="support">Support</h2>
+<p>The <a href="https://aiforconservation.slack.com/archives/C0AE13NEG5U">biodcase-active-learning-community</a> Slack channel on the AI for Conservation workspace will be available for public Q&amp;A and announcements. If you have specific questions, not relevant to other participants, please email <a href="benmcewen@outlook.com">Ben McEwen</a> <a href="mailto:benmcewen@outlook.com"><i class="fa fa-envelope"></i></a>.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/theme.js"></script>
+</body>
+</html>

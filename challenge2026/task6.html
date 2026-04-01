@@ -1,0 +1,441 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Bird Counting - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Bird Counting - BioDCASE" />
+    <link href="https://biodcase.github.io/favicon.ico" rel="icon">
+    <link rel="canonical" href="https://biodcase.github.io/challenge2026/task6">
+    <meta property="og:url" content="https://dcase.community/challenge2026/task6" />
+    <meta property="og:image" content="https://dcase.community/images/logos/biodcase_preview.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="This task is part of the BioDCASE Challenge 2026 and focuses on estimating bird abundance from acoustic recordings collected in zoo aviaries. The goal is to develop robust methods for counting individuals of a target species in realistic, multi-species acoustic environments where ground-truth population sizes are known. The main leaderboard …" />
+    <meta name="og:description" content="This task is part of the BioDCASE Challenge 2026 and..." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/dcaseicons/css/dcaseicons.css?v=1.2" type="text/css"/>
+        <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/static/assets/bioicons/css/bioicons.css" type="text/css"/>
+    <script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="https://biodcase.github.io/" class="navbar-brand hidden-lg hidden-md hidden-sm" ></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="https://biodcase.github.io/"><img class="img img-responsive" src="https://biodcase.github.io//images/logos/biodcase/BioDCASE_header_20px.svg"/></a>
+    </li></ul><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2025" class="dropdown-toggle" data-toggle="dropdown">CHALLENGES&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026">Challenge 2026</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025">Challenge 2025</a>
+    </li>
+        </ul>
+    </li><li class="">
+        <a href="https://biodcase.github.io/workshop2025">WORKSHOP</a>
+    </li><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2025/submission" class="dropdown-toggle" data-toggle="dropdown">SUBMISSION&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/submission">Submit</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/rules">Rules</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Organising committee">
+        <a href="https://biodcase.github.io/organisers">ORGANISERS</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div></div>
+</nav>
+<style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .bold{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .subheading {
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+    </style><style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-weight: 400 !important;
+        }
+        header .page-heading .bold{
+            font-weight: 400  !important;
+        }
+    </style><header class="page-top " style="background-image: url(..//images/header/tom-bradley-EOiscqXPmkM-unsplash_wide.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-bottom:20px;">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-center"><h1 class="thin">Bird Counting</h1><hr class="small center thin">
+                        <span class="subheading subheading-secondary">Task 6 Description</span></div>
+            </div>
+        </div>
+    </div>
+<span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Photo by Tom Bradley"><i class="fa fa-creative-commons" aria-hidden="true"></i></span></header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Coordinators</h3>
+</div>
+<table class="table bpersonnel-container">
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Aki Härmä" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/aki_härmä.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Aki Härmä</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                Maastricht University
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Emre Argın" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/emre_argın.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Emre Argın</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                Maastricht University
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="" style="width: 65px;">
+<img alt="Aysenur Arslan-Dogan" class="img img-circle" src="https://biodcase.github.io/images/person/biodcase/challenge2026/aysenur_arslan_dogan.jpg" width="48px"/>
+</td>
+<td class="">
+<div class="row">
+<div class="col-md-12">
+<strong>Aysenur Arslan-Dogan</strong>
+</div>
+<div class="col-md-12">
+<p class="small text-muted">       
+                                                                
+                                            
+                                
+                                Maastricht University
+                                
+                            
+                            </p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#scientific-context">Scientific Context</a></li>
+<li><a href="#task-description">Task Description</a></li>
+<li><a href="#dataset">Dataset</a>
+<ul>
+<li><a href="#development-set">Development Set</a></li>
+<li><a href="#evaluation-set">Evaluation Set</a></li>
+<li><a href="#baselines">Baselines</a></li>
+<li><a href="#evaluation">Evaluation</a></li>
+<li><a href="#submission">Submission</a></li>
+<li><a href="#citation">Citation</a></li>
+<li><a href="#support">Support</a></li>
+</ul>
+</li></ul></div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p>This task is part of the BioDCASE Challenge 2026 and focuses on estimating bird abundance from acoustic recordings collected in zoo aviaries. The goal is to develop robust methods for counting individuals of a target species in realistic, multi-species acoustic environments where ground-truth population sizes are known.</p>
+<p>The main leaderboard ranks systems based solely on target-species abundance estimation performance. Participants may optionally extend their methods to additional species; a secondary leaderboard showcases generalist systems capable of estimating multiple species simultaneously, but this does not contribute to final rankings.</p>
+<h1 id="scientific-context">Scientific Context</h1>
+<p><a name="scientific_context"></a></p>
+<p>Passive acoustic monitoring (PAM) has transformed biodiversity research by enabling continuous, non-invasive observation of vocalizing animals across vast spatial and temporal scales. Deep learning models such as <a href="https://github.com/kahst/BirdNET-Analyzer">BirdNET</a> and <a href="https://github.com/google-research/perch">PERCH</a> can now reliably detect and classify bird species from audio recordings, achieving performance comparable to expert human listeners. However, a critical gap remains between species detection and population monitoring: knowing which species are present is ecologically valuable, but conservation and management decisions often require knowing <em>how many</em> individuals are present.</p>
+<p>The transition from detection to abundance estimation is methodologically challenging. A single bird may vocalize hundreds of times per hour, while another individual of the same species remains silent. Overlapping calls from multiple individuals can merge into indistinguishable acoustic events. Call rates vary with time of day, breeding stage, weather conditions, and social context. Traditional approaches require either individual identification through acoustic fingerprinting — feasible only for species with highly distinctive individual signatures — or independent estimation of per-capita call rates, which demands substantial additional fieldwork.</p>
+<p>Zoo aviaries offer a unique opportunity to advance this research frontier. Unlike wild populations where true abundance is unknown or estimated with considerable uncertainty, zoo records provide exact population counts that can serve as ground-truth labels. The controlled yet naturalistic aviary environment produces acoustic conditions representative of real-world monitoring scenarios: multiple species vocalizing simultaneously, environmental noise from visitors and infrastructure, and natural behavioral variation across time. This combination of ecological realism and ground-truth availability creates an ideal testbed for developing and validating abundance estimation methods that can subsequently transfer to wild population monitoring.</p>
+<h1 id="task-description">Task Description</h1>
+<p><a name="task_description"> </a>
+Given a collection of audio fragments from an aviary, participants must estimate the number of individuals of each target species present in that aviary. Three target species are designated for evaluation:</p>
+<ul>
+<li><strong>Greater flamingo</strong> (<em>Phoenicopterus roseus</em>) — present in 4 aviaries with populations of 52, 52, 107, and 161 individuals</li>
+<li><strong>Red-billed quelea</strong> (<em>Quelea quelea</em>) — present in 2 aviaries with populations of 61 and 153 individuals</li>
+<li><strong>Hadada ibis</strong> (<em>Bostrychia hagedash</em>) — present in 2 aviaries with populations of 4 and 6 individuals</li>
+</ul>
+<p>Participants receive 6 audio collections, each representing recordings from a distinct aviary with a different number of target-species individuals. Each collection contains 11,000–36,000 short audio fragments (3-second clips at 48 kHz) extracted from continuous recordings spanning 2–3 days. The fragments capture the temporal variation in vocal activity, including dawn choruses, midday lulls, and periods of silence.</p>
+<p>The aviaries contain 2–12 bird species that vocalize concurrently, requiring participants to either explicitly identify the target species or develop methods robust to multi-species acoustic mixtures. The target species were selected based on sufficient vocal activity and presence across multiple aviaries with varying population sizes.</p>
+<p>This task is intentionally open-ended in terms of methodology. The problem does not prescribe a particular machine learning paradigm. Participants may frame it as they see fit — whether as a regression problem, a count prediction task, a clustering problem, a density estimation challenge, or something else entirely. What matters is the final output: an integer estimate of how many individuals are present.</p>
+<p>Species detection accuracy is not evaluated; only the final abundance estimate matters. Participants are free to use pre-trained models (BirdNET, PERCH, etc.) including our provided detection models (<a href="https://pypi.org/project/aria-inference/">ARIA</a>), train custom detectors, or bypass detection entirely.</p>
+<h3>Key challenges</h3>
+<ul>
+<li><strong>Flock-calling species:</strong> Greater flamingos vocalize synchronously in large groups. When many individuals call within the same 3-second window, raw detection counts saturate — the acoustic scene becomes a continuous chorus rather than a sequence of distinguishable events. The per-individual detection rate decreases as population grows.</li>
+<li><strong>Sparse calibration data:</strong> With only 6 aviaries (and 2–4 data points per target species), models must generalize from very few examples. Standard supervised learning approaches with train/test splits are impractical.</li>
+<li><strong>Multi-species environments:</strong> Each aviary contains multiple co-occurring species with overlapping frequency ranges and calling times. Target species detections must be distinguished from acoustically similar co-residents.</li>
+<li><strong>Population range:</strong> Target populations span two orders of magnitude (4 to 161 individuals), requiring methods that work across scales without species-specific tuning.</li>
+</ul>
+<h1 id="dataset">Dataset</h1>
+<p><a name="dataset"> </a></p>
+<h2 id="development-set">Development Set</h2>
+<p>The development dataset contains <strong>140,899 audio files</strong> across <strong>6 aviaries</strong> recorded at European zoos using passive acoustic monitoring equipment during spring and summer. Each aviary was recorded continuously for 7–11 days; the released dataset includes a curated subset of 2–3 representative days per aviary, selected to minimize distributional distortion of key acoustic features while keeping the dataset size manageable.</p>
+<p>All audio files are WAV, 16-bit PCM, sampled at 48 kHz, with a duration of approximately 3 seconds. The files represent consecutive, non-overlapping segments extracted from continuous recordings.</p>
+<div class="highlight"><pre><span></span><code>Aviary         Days   Audio files   Target species                Target population
+------------------------------------------------------------------------------------
+dev_aviary_1     3      12,627      Red-billed quelea             153
+dev_aviary_2     3      25,569      Greater flamingo, Hadada ibis 107, 6
+dev_aviary_3     3      11,879      Red-billed quelea             61
+dev_aviary_4     3      36,340      Greater flamingo, Hadada ibis 161, 4
+dev_aviary_5     2      19,363      Greater flamingo              52
+dev_aviary_6     3      35,121      Greater flamingo              52
+</code></pre></div>
+<p>Table 1. Summary of development set aviaries.</p>
+<p><strong>Note:</strong> dev_aviary_5 and dev_aviary_6 are two separate recording sessions from the same physical location with the same bird population, captured on different dates under different acoustic conditions. They are treated as independent data points.</p>
+<p>Each aviary also contains non-target species (2–12 per aviary, 28 species total). The complete species inventory with population counts is provided in <code>metadata/ground_truth.csv</code>. This information may be useful for systems that model inter-species acoustic interactions or use co-occurrence patterns.</p>
+<p>The development dataset is available on Hugging Face:</p>
+<p><a href="https://huggingface.co/datasets/Emreargin/BioDCASE2026_Bird_Counting">BioDCASE 2026 Task 6 — Bird Counting Dataset</a></p>
+<h2 id="evaluation-set">Evaluation Set</h2>
+<p>To be released on 1 June 2026. Participants will receive audio collections from held-out aviaries without population labels. Systems must output a single integer estimate per (aviary, target species) pair.</p>
+<p>The evaluation aviaries will exhibit the same realistic acoustic complexity as the development set:</p>
+<ul>
+<li><strong> Overlapping vocalizations: </strong> Multiple individuals often call simultaneously</li>
+<li><strong> Variable call rates: </strong> Vocal activity fluctuates across hours and days</li>
+<li><strong> Environmental noise: </strong> Background sounds from aviary infrastructure and ambient sources</li>
+<li><strong> Multi-species mixtures: </strong> Non-target species vocalize concurrently</li>
+</ul>
+<h3>Structure</h3>
+<p>Audio files are organized into aviary directories with chunk subdirectories for file management:</p>
+<div class="highlight"><pre><span></span><code>BioDCASE2026_Bird_Counting/
+├── dev_aviary_1/
+│   ├── chunk_000/
+│   │   ├── rec_d1_00_00_45.750000.wav
+│   │   ├── rec_d1_00_01_49.wav
+│   │   └── ...
+│   ├── chunk_001/
+│   │   └── ...
+│   └── ...
+├── dev_aviary_2/
+│   └── ...
+├── ...
+├── dev_aviary_6/
+│   └── ...
+└── metadata/
+    ├── ground_truth.csv
+    └── recording_info.csv
+</code></pre></div>
+<p>Filenames follow the pattern <code>rec_{day}_{HH}_{MM}_{SS}[.ffffff].wav</code>, where <code>{day}</code> is an anonymized day identifier (d1, d2, d3) and the remainder encodes the time of day. The chunk subdirectories have no acoustic significance — they exist purely for file management, and all chunks within an aviary should be treated as a single collection.</p>
+<h2 id="baselines">Baselines</h2>
+<p>The baseline system implements a two-stage pipeline: species detection followed by detection-count regression. Full code is available in the <a href="https://github.com/ml4biodiversity/biodcase-population-estimation">baseline repository</a>. You can also see the flow of the pipeline in the repository.</p>
+<h3>Stage 1: Species Detection</h3>
+<p>Two detection packages are provided:</p>
+<ul>
+<li><strong>ARIA</strong> — a fusion ensemble combining BirdNET and PERCH v2 foundation models: <code>pip install aria-inference</code></li>
+<li><strong>BirdNET-only</strong> — customized BirdNET detection tailored to this task: <code>pip install aria-inference-birdnet</code></li>
+</ul>
+<p>In the baseline solution repository, the reported <code>birdnet_detections</code> were generated with the default BirdNET model for simplicity, while the <code>ARIA</code> detections were generated with the ARIA inference package. Participants are encouraged to also consider the customized BirdNET-only ARIA package (<code>aria-inference-birdnet</code>), as it has been adapted specifically for this dataset and may provide a stronger starting point than the default BirdNET configuration. For instructions on running the default BirdNET model, please refer to the official <a href="https://github.com/kahst/BirdNET-Analyzer">BirdNET repository</a>.</p>
+<p>Both produce per-segment species detections with confidence scores.</p>
+<h3>Stage 2: Feature Extraction and Population Estimation</h3>
+<p>The feature builder extracts 80+ features per (aviary, target species) pair from the detection output, including detection-count statistics (confidence-weighted rate, bout rate), temporal structure (bout duration, inter-bout gaps, active hours), occupancy metrics, and optionally scikit-maad acoustic indices (ACI, NDSI, nROI, etc.) with positive-minus-background contrast features, flock-calling indicators, and adaptive frequency band selection.</p>
+<p>Five estimation models are provided, each being the best performer for at least one (target species, detection format) combination:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Model</strong></th>
+<th><strong>Best for (ARIA)</strong></th>
+<th><strong>Best for (BirdNET)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>flock_corrected_cwr</code></td>
+<td>Greater flamingo</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>sim_weighted_cwr</code></td>
+<td>—</td>
+<td>Greater flamingo</td>
+</tr>
+<tr>
+<td><code>linear_coeff_bout_rate</code></td>
+<td>Hadada ibis</td>
+<td>Hadada ibis</td>
+</tr>
+<tr>
+<td><code>linear_coeff_cwr</code></td>
+<td>Red-billed quelea</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>adaptive_band_contrast</code></td>
+<td>—</td>
+<td>Red-billed quelea</td>
+</tr>
+</tbody>
+</table>
+<p>Table 2. Baseline models and their best-performing species/detector combinations.</p>
+<p>All models use leave-one-out (LOO) cross-validation. Three models (1, 2, 4) work with detection-only features; two models (3, 5) additionally require acoustic features computed from the original audio.</p>
+<h3>Baseline Results (ARIA detections)</h3>
+<div class="highlight"><pre><span></span><code>Species              Best model               Aviary          True   Predicted   Error
+---------------------------------------------------------------------------------------
+Greater flamingo     flock_corrected_cwr      dev_aviary_2     107      116       +9
+Greater flamingo     flock_corrected_cwr      dev_aviary_4     161       97      -64
+Greater flamingo     flock_corrected_cwr      dev_aviary_5      52       57       +5
+Greater flamingo     flock_corrected_cwr      dev_aviary_6      52       66      +14
+Hadada ibis          linear_coeff_bout_rate   dev_aviary_2       6        6       +0
+Hadada ibis          linear_coeff_bout_rate   dev_aviary_4       4        4       +0
+Red-billed quelea    linear_coeff_cwr         dev_aviary_1     153      153       +0
+Red-billed quelea    linear_coeff_cwr         dev_aviary_3      61       61       +0
+</code></pre></div>
+<p>Table 3. Baseline results with ARIA detections — combined MAE: 11.50, RMSE: 23.45, R²: 0.8279, MAPE: 10.6%.</p>
+<h3>Baseline Results (BirdNET detections)</h3>
+<div class="highlight"><pre><span></span><code>Species              Best model               Aviary          True   Predicted   Error
+---------------------------------------------------------------------------------------
+Greater flamingo     sim_weighted_cwr         dev_aviary_2     107      108       +1
+Greater flamingo     sim_weighted_cwr         dev_aviary_4     161       55      -106
+Greater flamingo     sim_weighted_cwr         dev_aviary_5      52       74      +22
+Greater flamingo     sim_weighted_cwr         dev_aviary_6      52       67      +15
+Hadada ibis          linear_coeff_bout_rate   dev_aviary_2       6        7       +1
+Hadada ibis          linear_coeff_bout_rate   dev_aviary_4       4        3       -1
+Red-billed quelea    adaptive_band_contrast   dev_aviary_1     153      152       -1
+Red-billed quelea    adaptive_band_contrast   dev_aviary_3      61       61       +0
+</code></pre></div>
+<p>Table 4. Baseline results with BirdNET detections — combined MAE: 18.38, RMSE: 38.65, R²: 0.5325, MAPE: 22.5%.</p>
+<p>The baseline performs strongly for Red-billed quelea and Hadada ibis, where detection-derived features remain closely related to true population size. Greater flamingo remains the primary challenge due to flock-calling synchronization, where many individuals vocalize simultaneously within the same detection window, reducing the usefulness of raw detection counts as population increases. Improving flamingo estimation is therefore a key opportunity for participants.</p>
+<h2 id="evaluation">Evaluation</h2>
+<h3>Ranking Metric</h3>
+<p><strong>Mean Absolute Error (MAE)</strong> computed across all (aviary, target species) data points in the evaluation set. Lower is better. Systems are ranked by their MAE on the held-out evaluation aviaries.</p>
+<h3>Supplementary Metrics</h3>
+<p>Additional metrics will be reported alongside MAE but will not be used for ranking:</p>
+<ul>
+<li><strong>Root Mean Squared Error (RMSE):</strong> penalizes large individual errors more heavily than MAE.</li>
+<li><strong>Coefficient of determination (R²):</strong> measures how well predictions track the variance in true population sizes. Note that R² depends on variance in the true values and can be misleading for species with few data points or similar population sizes.</li>
+<li><strong>Mean Absolute Percentage Error (MAPE):</strong> scale-independent error expressed as a percentage of the true count, useful for comparing performance across species with different population scales.</li>
+</ul>
+<h3>Optional Secondary Leaderboard</h3>
+<p>Participants may optionally submit population estimates for non-target species present in each aviary (listed in <code>metadata/ground_truth.csv</code>). A secondary leaderboard will showcase generalist systems but will not contribute to the main ranking.</p>
+<h2 id="submission">Submission</h2>
+<p>General BioDCASE instructions are available <a href="https://biodcase.github.io/challenge2025/submission">here</a>. This specifies submission naming conventions and the final report template.</p>
+<h3>Deliverables</h3>
+<p>Please submit a <code>.zip</code> file containing the following:</p>
+<p><strong>Predictions</strong> (<code>predictions_{lastname}.csv</code>): A CSV file with columns <code>aviary_id</code>, <code>species</code>, <code>predicted_count</code> containing one row per (aviary, target species) pair. Example:</p>
+<div class="highlight"><pre><span></span><code>aviary_id,species,predicted_count
+dev_aviary_1,Red-billed quelea,153
+dev_aviary_2,Greater flamingo,107
+dev_aviary_2,Hadada ibis,6
+dev_aviary_3,Red-billed quelea,61
+dev_aviary_4,Greater flamingo,161
+dev_aviary_4,Hadada ibis,4
+dev_aviary_5,Greater flamingo,52
+dev_aviary_6,Greater flamingo,52
+</code></pre></div>
+<p><strong>Code</strong>: Source code for the submitted system, sufficient to reproduce the results.</p>
+<p><strong>Report</strong> (<code>.pdf</code>): Final report describing the method (see submissions page for <a href="https://biodcase.github.io/challenge2025/submission">details</a>).</p>
+<h2 id="citation">Citation</h2>
+<p>If you use the baseline <strong>biodcase-population-estimation</strong> repository, please cite the baseline software.</p>
+<div class="highlight"><pre><span></span><code><span class="nc">@software</span><span class="p">{</span><span class="nl">ml4biodiversity2026baseline</span><span class="p">,</span>
+<span class="w">  </span><span class="na">author</span><span class="w">       </span><span class="p">=</span><span class="w"> </span><span class="s">{Arg{\i}n, Emre and H{\"a}rm{\"a}, Aki and Arslan-Dogan, Aysenur}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">title</span><span class="w">        </span><span class="p">=</span><span class="w"> </span><span class="s">{{BioDCASE 2026 Bird Counting Baseline: Avian Population Estimation</span>
+<span class="s">                   from Passive Acoustic Recordings}}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">year</span><span class="w">         </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">publisher</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{GitHub}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">url</span><span class="w">          </span><span class="p">=</span><span class="w"> </span><span class="s">{https://github.com/ml4biodiversity/biodcase-population-estimation}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">version</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="s">{1.0.0}</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>If you use the <strong>BioDCASE 2026 Bird Counting</strong> dataset, please also cite the dataset.</p>
+<div class="highlight"><pre><span></span><code><span class="nc">@dataset</span><span class="p">{</span><span class="nl">ml4biodiversity2026dataset</span><span class="p">,</span>
+<span class="w">  </span><span class="na">author</span><span class="w">       </span><span class="p">=</span><span class="w"> </span><span class="s">{Arg{\i}n, Emre and H{\"a}rm{\"a}, Aki and Arslan-Dogan, Aysenur}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">title</span><span class="w">        </span><span class="p">=</span><span class="w"> </span><span class="s">{{BioDCASE 2026 Bird Counting: Avian Population Estimation</span>
+<span class="s">                   from Passive Acoustic Recordings}}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">year</span><span class="w">         </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">publisher</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{Hugging Face}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">url</span><span class="w">          </span><span class="p">=</span><span class="w"> </span><span class="s">{https://huggingface.co/datasets/Emreargin/BioDCASE2026_Bird_Counting}</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>If you use <strong>ARIA</strong> detections or build on the ARIA methodology, please also cite the ARIA paper.</p>
+<div class="highlight"><pre><span></span><code><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">argincosta2026aria</span><span class="p">,</span>
+<span class="w">  </span><span class="na">author</span><span class="w">       </span><span class="p">=</span><span class="w"> </span><span class="s">{Arg{\i}n, Emre and Amado Pereira da Costa, Bernardo and</span>
+<span class="s">                  H{\"a}rm{\"a}, Aki and Arslan-Dogan, Aysenur}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">title</span><span class="w">        </span><span class="p">=</span><span class="w"> </span><span class="s">{{ARIA: Acoustic Recognition for Inventory in Aviaries}}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">booktitle</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="s">{Proceedings of the IEEE World Congress on Computational Intelligence</span>
+<span class="s">                  (WCCI) / International Joint Conference on Neural Networks (IJCNN)}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">year</span><span class="w">         </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">note</span><span class="w">         </span><span class="p">=</span><span class="w"> </span><span class="s">{Accepted, to appear}</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="support">Support</h2>
+<p>If you have questions please use the <a href="https://groups.google.com/g/biodcase-community">BioDCASE Google Groups community forum</a>, or contact the task organizers at: <a href="mailto:aysenur.arslan-dogan@maastrichtuniversity.nl">aysenur.arslan-dogan@maastrichtuniversity.nl</a></p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/theme.js"></script>
+</body>
+</html>

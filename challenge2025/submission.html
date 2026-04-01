@@ -1,0 +1,602 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Submission - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Submission - BioDCASE" />
+    <link href="https://biodcase.github.io/favicon.ico" rel="icon">
+    <link rel="canonical" href="https://biodcase.github.io/challenge2025/submission">
+    <meta property="og:url" content="https://dcase.community/challenge2025/submission" />
+    <meta property="og:image" content="https://dcase.community/images/logos/biodcase_preview.png" />
+    <meta name="author" content="DCASE" />
+    <meta name="description" content="The submission deadline is June 15th 2025 23:59 Anywhere on Earth (AoE) Introduction Challenge submission consists of a submission package (one zip package) containing system outputs, system meta information, and technical report (pdf file). Submission process shortly: Participants run their system with an evaluation dataset, and produce the system …" />
+    <meta name="og:description" content="The submission deadline is June 15th 2025 23:59 Anywhere..." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/dcaseicons/css/dcaseicons.css?v=1.2" type="text/css"/>
+        <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/font-mfizz.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/bdates.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/static/assets/bioicons/css/bioicons.css" type="text/css"/>
+    <script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="https://biodcase.github.io/" class="navbar-brand hidden-lg hidden-md hidden-sm" ></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="https://biodcase.github.io/"><img class="img img-responsive" src="https://biodcase.github.io//images/logos/biodcase/BioDCASE_header_20px.svg"/></a>
+    </li></ul><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2025" class="dropdown-toggle" data-toggle="dropdown">CHALLENGES&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026">Challenge 2026</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025">Challenge 2025</a>
+    </li>
+        </ul>
+    </li><li class="">
+        <a href="https://biodcase.github.io/workshop2025">WORKSHOP</a>
+    </li><li class="btn-group  active">
+        <a href="https://biodcase.github.io/challenge2025/submission" class="dropdown-toggle" data-toggle="dropdown">SUBMISSION&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/submission">Submit</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025/rules">Rules</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Organising committee">
+        <a href="https://biodcase.github.io/organisers">ORGANISERS</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div></div>
+</nav>
+<style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .bold{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .subheading {
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+    </style><style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-weight: 400 !important;
+        }
+        header .page-heading .bold{
+            font-weight: 400  !important;
+        }
+    </style><header class="page-top " style="background-image: url(..//images/header/vincent_kather_VINI2767.JPG);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-bottom:20px;">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-center"><h1 class="thin">Submission</h1><hr class="small center thin">
+                        <span class="subheading subheading-secondary">Instructions</span></div>
+            </div>
+        </div>
+    </div>
+<span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Vincent Kather"><i class="fa fa-creative-commons" aria-hidden="true"></i></span></header><div class="container">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left ">
+ <div class="panel panel-default hidden-print">
+<div class="panel-heading">
+<h3 class="panel-title">Schedule</h3>
+</div>
+<ul class="bdates-container list-group">
+<a class="list-group-item" href="https://biodcase.github.io/challenge2025/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>14 Feb 2025</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Challenge task descriptions
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="https://biodcase.github.io/challenge2025/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>01 Apr 2025</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Challenge launch
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="https://biodcase.github.io/challenge2025/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>01 Jun 2025</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Release of evaluation datasets
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="https://biodcase.github.io/challenge2025/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>15 Jun 2025</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Challenge deadline
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="https://biodcase.github.io/challenge2025/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>30 Jun 2025</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        Challenge results
+                    
+                    </h5>
+</div>
+</div>
+</a>
+<a class="list-group-item" href="https://biodcase.github.io/challenge2025/">
+<div class="row">
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+<strong>29 Oct 2025</strong>
+</h5>
+</div>
+<div class="col-md-12">
+<h5 class="list-group-item-heading text-muted">
+                        BioDCASE satellite event
+                    
+                    </h5>
+</div>
+</div>
+</a>
+</ul>
+</div>
+
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#submission-system">Submission system</a></li>
+<li><a href="#submission-package">Submission package</a>
+<ul>
+<li><a href="#submission-label">Submission label</a></li>
+</ul>
+</li>
+<li><a href="#system-outputs">System outputs</a></li>
+<li><a href="#technical-report">Technical report</a>
+<ul>
+<li><a href="#template">Template</a></li>
+</ul>
+</li></ul></div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <p class="bg-danger">
+<strong>The submission deadline is June 15th 2025 23:59 Anywhere on Earth (AoE)</strong>
+</p>
+<h1 id="introduction">Introduction</h1>
+<p>Challenge submission consists of a <strong>submission package (one zip package)</strong> containing system outputs, system meta information, and <strong>technical report (pdf file)</strong>.</p>
+<p>Submission process shortly:</p>
+<ol>
+<li>Participants run their system with an evaluation dataset, and produce the <strong>system output</strong> in the specified format. Participants are allowed to submit 4 different system outputs per task or subtask.</li>
+<li>Participants create a <strong>meta-information file</strong> to go along the system output to describe the system used to produce this particular output. Meta information file has a predefined format to help the automatic handling of the challenge submissions. Information provided in the meta file will be later used to produce challenge results. Participants should fill in all meta information and make sure meta information file follows defined formatting.</li>
+<li>Participants describe their system in a <strong>technical report</strong> in sufficient detail. A template will be provided for the document.</li>
+<li>Participants prepare the <strong>submission package</strong> (zip-file). The submission package contains system outputs, a maximum of 4 per task, systems meta information, and the technical report.</li>
+<li>Participants submit the submission package and the technical report to BioDCASE2025 Challenge.</li>
+</ol>
+<p class="bg-danger">
+Please read carefully the requirements for the files included in the submission package!
+</p>
+<h1 id="submission-system">Submission system</h1>
+<p class="bg-danger">
+The CMT submission portal is now closed
+</p>
+<p><a class="btn btn-danger" href="https://cmt3.research.microsoft.com/BioDCASE2025/" style="" target="_blank">Submission system</a></p>
+<p>Submission guideline:</p>
+<ul>
+<li>Create a CMT user account and login</li>
+<li>Go to the "All Conferences" tab in the system and type BioDCASE to filter the list</li>
+<li>Select "Evaluation and Benchmarking in Automated Bioacoustics"</li>
+<li>Create a new submission</li>
+</ul>
+<p><strong>The technical report in the submission package must contain at least the title, authors, and abstract. An updated camera-ready version of the technical report can be submitted separately until 22 June 2025 (AOE).</strong></p>
+<p>By submitting to the challenge, participants agree for the system output to be evaluated and to be published together with the results and the technical report on the BioDCASE Challenge website under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY license</a>.</p>
+<h1 id="submission-package">Submission package</h1>
+<p>The submission package for BioDCASE will follow the same structure as previous DCASE challenges. Participants are instructed to pack their system output(s), system meta information, and technical report into one zip-package. An example submission package is provided: </p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="../documents/challenge2025/biodcase_2025_task1_example_submission_package.zip" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="../documents/challenge2025/biodcase_2025_task1_example_submission_package.zip" target="_blank">
+<span style="font-size:20px;">BioDCASE2025 challenge submission example package <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(21.1 MB)</span>
+<br/>
+<span class="text-muted">
+                
+                
+                (.zip)
+                
+                </span>
+</div>
+</div>
+<p><br/> </p>
+<p>Please prepare your submission zip-file as the provided example. Follow the same file structure and fill meta information with a similar structure as the one in <code>*.meta.yaml</code> -files. The zip-file should contain system outputs for all tasks/subtasks, maximum of 4 submissions per task/subtask, separate meta information for each system, and technical report(s) covering all submitted systems.</p>
+<p>If you submit similar systems for multiple tasks, you can describe everything in one technical report. If your approaches for different tasks are significantly different, prepare one technical report for each and include it in the corresponding task folder.</p>
+<p>More detailed instructions for constructing the package can be found in the following sections.
+The technical report template is available <a href="/challenge2025/submission.html#template">here</a>.</p>
+<!-- Scripts for checking the content of the submission package is provided for selected tasks, please validate your submission package accordingly.   
+
+For **task 1**, use validator code from repository <div class="brepository-item" data-source="content/data/challenge2024/repository.yaml" data-item="dcase2024-task1-submission-validator"></div>
+
+For **task 4**, use validator script `task4/validate_submissions.py` from the example submission package <div class="brepository-item" data-source="content/data/challenge2024/repository.yaml" data-item="dcase2024-challenge-submission-example-package"></div>
+
+For **task 3**, you can submit up to 4 systems per one of the two task tracks, up to 4 systems for models using audio-only input, and up to 4 systems for models using audio and video input. To make easier the distinction between the two tracks, please use _task_3a_ for audio-only systems and _task_3b_ for audiovisual systems. If you submit systems of both types, you can describe them in a single report, or even better a separate on systems of each type.
+ -->
+<h2 id="submission-label">Submission label</h2>
+<p>A submission label is used to index all your submissions (systems per tasks). To avoid overlapping labels among all submitted systems, use the following way to form your label:</p>
+<p><code>[Last name of corresponding author]_[Abbreviation of institute of the corresponding author]_task[task number][subtask letter (optional)]_[index number of your submission (1-4)]</code></p>
+<p>For example, the baseline systems would have the following labels:</p>
+<ul>
+<li><code>Schmid_CPJKU_task1_1</code></li>
+<li><code>Nishida_HIT_task2_1</code></li>
+<li><code>Politis_TAU_task3_1</code></li>
+</ul>
+<p>A script for checking the content of the submission package will be provided for selected tasks. In that case, please validate your submission package accordingly.   </p>
+<!-- ## Package structure
+
+Make sure your zip-package follows provided file naming convention and directory structure:
+
+<pre>
+Zip-package root
+│  
+└───task1                                              Task 1 submissions
+│   │   Schmid_CPJKU_task1.technical_report.pdf        Technical report covering all subtasks
+│   │
+│   └───Schmid_CPJKU_task1_1                           System 1 submission files
+│   │       Schmid_CPJKU_task1_1.meta.yaml             System 1 meta information
+│   │       Schmid_CPJKU_task1_1.output.split_5.csv    System 1 output, system trained with split 5 data
+│   │       Schmid_CPJKU_task1_1.output.split_10.csv   System 1 output, system trained with split 10 data
+│   │       Schmid_CPJKU_task1_1.output.split_25.csv   System 1 output, system trained with split 25 data
+│   │       Schmid_CPJKU_task1_1.output.split_50.csv   System 1 output, system trained with split 50 data
+│   │       Schmid_CPJKU_task1_1.output.split_100.csv  System 1 output, system trained with split 100 data
+│   :
+│   └───Schmid_CPJKU_task1_4                           System 4 submission files
+│           Schmid_CPJKU_task1_4.meta.yaml             System 4 meta information
+│           Schmid_CPJKU_task1_4.output.split_5.csv    System 4 output, system trained with split 5 data
+│           Schmid_CPJKU_task1_4.output.split_10.csv   System 4 output, system trained with split 10 data
+│           Schmid_CPJKU_task1_4.output.split_25.csv   System 4 output, system trained with split 25 data
+│           Schmid_CPJKU_task1_4.output.split_50.csv   System 4 output, system trained with split 50 data
+│           Schmid_CPJKU_task1_4.output.split_100.csv  System 4 output, system trained with split 100 data
+│                    
+└───task2                                                  Task 2 submissions
+│   │   Nishida_HIT_task2_1.technical_report.pdf           Technical report                       
+│   │
+│   └───Nishida_HIT_task2_1                                System 1 submission files
+│   │       Nishida_HIT_task2_1.meta.yaml                  System 1 meta information
+│   │       anomaly_score_3DPrinter_section_00_test.csv    System 1 output for each section and domain in the evaluation dataset   
+│   │       anomaly_score_AirCompressor_section_00_test.csv
+│   │       anomaly_score_BrushlessMotor_section_00_test.csv
+│   :       :
+│   │       anomaly_score_ToyCircuit_section_00_test.csv
+│   │       decision_result_3DPrinter_section_00_test.csv
+│   │       decision_result_AirCompressor_section_00_test.csv
+│   │       decision_result_BrushlessMotor_section_00_test.csv
+│   :       :
+│   │       decision_result_ToyCircuit_section_00_test.csv
+│   │
+│   └───Nishida_HIT_task2_4                                System 4 submission files
+│           Nishida_HIT_task2_4.meta.yaml                  System 4 meta information
+│           anomaly_score_3DPrinter_section_00_test.csv    System 4 output for each section and domain in the evaluation dataset   
+│           anomaly_score_AirCompressor_section_00_test.csv        
+│           anomaly_score_BrushlessMotor_section_00_test.csv
+│           :
+│           anomaly_score_ToyCircuit_section_00_test.csv
+│           decision_result_3DPrinter_section_00_test.csv
+│           decision_result_AirCompressor_section_00_test.csv
+│           decision_result_BrushlessMotor_section_00_test.csv
+│           :
+│           decision_result_ToyCircuit_section_00_test.csv
+│   
+└───task3                                              Task 3 submissions
+│   │   Politis-Shimada_TAU-SONY_task3.technical_report.pdf     Technical report
+│   │   Politis_TAU_task3a.technical_report.pdf                  (Optional) Technical report only for audio-only system (Track A)
+│   │   Shimada_SONY_task3b.technical_report.pdf                 (Optional) Technical report only for audiovisual system (Track B)
+│   │
+│   └───Politis_TAU_task3a_1                           Track A (audio-only) System 1 submission files 
+│   │     Politis_TAU_task3_1.meta.yaml                Track A (audio-only) System 1 meta information
+│   └─────Politis_TAU_task3_1                          Track A (audio-only) System 1 output files in a folder
+|   |       mix001.csv
+|   |       ...
+│   :
+│   │
+│   └───Politis_TAU_task3a_4                           Track A (audio-only) System 4 submission files
+│   |     Politis_TAU_task3_4.meta.yaml                Track A (audio-only) System 4 meta information
+│   └─────Politis_TAU_task3_4                          Track A (audio-only) System 4 output files in a folder
+|   |       mix001.csv
+|   |       ...
+|   |
+│   └───Shimada_SONY_task3b_1                          Track B (audiovisual) System 1 submission files
+│   │     Shimada_SONY_task3b_1.meta.yaml              Track B (audiovisual) System 1 meta information
+│   └─────Shimada_SONY_task3b_1                        Track B (audiovisual) System 1 output files in a folder
+|   |       mix001.csv
+|   |       ...
+│   :
+│   │
+│   └───Shimada_SONY_task3b_4                          Track B (audiovisual) System 4 submission files (audiovisual)
+│   |     Shimada_SONY_task3b_4.meta.yaml              Track B (audiovisual) System 4 meta information (audiovisual)
+│   └─────Shimada_SONY_task3b_4                        Track B (audiovisual) System 4 output files in a folder (audiovisual)
+            mix001.csv
+            ...
+
+</pre> -->
+<h1 id="system-outputs">System outputs</h1>
+<p>Participants must submit the results for the provided evaluation datasets.</p>
+<ul>
+<li>
+<p><strong>Follow the system output format specified in the task description.</strong></p>
+</li>
+<li>
+<p><strong>Tasks are independent.</strong> You can participate in a single task or multiple tasks.</p>
+</li>
+<li>
+<p><strong>Multiple submissions for the same task</strong> are allowed (maximum 4 per task). Use a running index in the submission label, and give more detailed names for the submitted systems in the system meta information files. Please mark carefully the connection between the submitted systems and system parameters description in the technical report (for example by referring to the systems by using the submission label or system name given in the system meta information file).</p>
+</li>
+<li>
+<p><strong>Submitted system outputs will be published</strong> online on the BioDCASE2025 website later to allow future evaluations.</p>
+</li>
+</ul>
+<!-- # Meta information
+
+In order to enable fast processing of the submissions and meta analysis of submitted systems, participants should provide meta information presented in a structured and correctly formatted [YAML-file](https://en.wikipedia.org/wiki/YAML). Participants are advised to fill in the meta information carefully while making sure all asked information is correctly provided.  
+
+A complete meta file will help us notice possible errors before officially publishing the results (for example unexpectedly large difference in performance between development and evaluation set) and allow contacting the authors in case we consider it necessary. Please note that task organizers may ask you to update the meta file after the challenge submission deadline.   
+
+See the example meta files below for each baseline system. These examples are also available in the [example submission package](../documents/challenge2024/dcase2024_challenge_submission_package_example.zip). Meta file structure is mostly the same for all tasks, only the metrics collected in `results->development_dataset`-section differ per challenge task.
+
+<div class="panel-group" id="submission-package-example-accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-t1">
+        <div class="panel-heading" role="tab" id="task1-example-header">
+            <h4 class="panel-title">
+                <a class="collapsed accordion-toggle" role="button" data-toggle="collapse"
+                   data-parent="#submission-package-example-accordion" href="#task1-example-collapse"
+                   aria-expanded="true" aria-controls="collapseOne">
+                    <span class="fa-stack fa-1x">                
+                        <i class="fa fa-square fa-stack-2x text-t1"></i>
+                        <i class="fa dc-scene fa-stack-1x fa-inverse"></i>
+                    </span>                   
+                    <strong>Task 1</strong> - Data-Efficient Low-Complexity Acoustic Scene Classification
+                </a>
+            </h4>
+        </div>
+        <div id="task1-example-collapse" class="panel-collapse collapse" role="tabpanel"
+             aria-labelledby="task1-example-header">
+            <div class="panel-body">
+                <p>Example meta information file for Task 1 baseline system <code>task1/Schmid_CPJKU_task1_1/Schmid_CPJKU_task1_1.meta.yaml</code>:
+                </p>
+                <pre class="font110"><code class="yaml"></code></pre>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-t2">
+        <div class="panel-heading" role="tab" id="task2-example-header">
+            <h4 class="panel-title">
+                <a class="collapsed accordion-toggle" role="button" data-toggle="collapse"
+                   data-parent="#submission-package-example-accordion" href="#task2-example-collapse"
+                   aria-expanded="true" aria-controls="collapseOne">
+                    <span class="fa-stack fa-1x">                
+                        <i class="fa fa-square fa-stack-2x text-t2"></i>
+                        <i class="fa dc-large-scale fa-stack-1x fa-inverse"></i>
+                    </span>                   
+                    <strong>Task 2</strong> - First-Shot Unsupervised Anomalous Sound Detection for Machine Condition Monitoring
+                </a>
+            </h4>
+        </div>
+        <div id="task2-example-collapse" class="panel-collapse collapse" role="tabpanel"
+             aria-labelledby="task2-example-header">
+            <div class="panel-body">
+                <p>Example meta information file for Task 2 baseline system <code>task2/Nishida_HIT_task2_1/Nishida_HIT_task2_1.meta.yaml</code>:
+                </p>
+                <pre class="font110"><code class="yaml"></code></pre>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-t3">
+        <div class="panel-heading" role="tab" id="task3-example-header">
+            <h4 class="panel-title">
+                <a class="collapsed accordion-toggle" role="button" data-toggle="collapse"
+                   data-parent="#submission-package-example-accordion" href="#task3-example-collapse"
+                   aria-expanded="true" aria-controls="collapseOne">
+                    <span class="fa-stack fa-1x">                
+                        <i class="fa fa-square fa-stack-2x text-t3"></i>
+                        <i class="fa dc-localization fa-stack-1x fa-inverse"></i>
+                    </span>                   
+                    <strong>Task 3</strong> - Audio and Audiovisual Sound Event Localization and Detection with Source Distance Estimation
+                </a>
+            </h4>
+        </div>
+        <div id="task3-example-collapse" class="panel-collapse collapse" role="tabpanel"
+             aria-labelledby="task3-example-header">
+            <div class="panel-body">
+                <p>Example meta information file for Task 3 baseline system <code>task3/Politis_TAU_task3a_1/Politis_TAU_task3a_1.meta.yaml</code>:
+                </p>
+                <pre class="font110"><code class="yaml"></code></pre>
+            </div>
+        </div>
+    </div>    
+</div>
+
+<br>
+<br> -->
+<h1 id="technical-report">Technical report</h1>
+<p>All participants are expected to submit a technical report about the submitted system, to help the BioDCASE community better understand how the algorithm works.</p>
+<p><strong>Technical reports are not peer-reviewed.</strong> The technical reports will be published on the challenge website together with all other information about the submitted system. For the technical report, it is not necessary to follow closely the scientific publication structure (for example there is no need for extensive literature review). The report should however contain a sufficient description of the system.</p>
+<p>Please report the system performance using the provided cross-validation setup or development set, according to the task. For participants taking part in multiple tasks, one technical report covering all tasks is sufficient, if the systems have only small differences. Describe the task-specific parameters in the report.</p>
+<p class="bg-success">
+Participants can also submit a <strong>scientific paper</strong> to DCASE. In this case, the paper must respect the structure of a scientific publication, and be prepared according to the provided DCASE paper instructions and template.
+</p>
+<h2 id="template">Template</h2>
+<p>Reports are in format <strong>4+1</strong> pages. Papers are maximum 5 pages, including all text, figures, and references, with the 5th page containing only references. The templates for technical report are available here:</p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="../documents/challenge2025/BIODCASE_2025_CHALLENGE_TECHNICAL_REPORTS.zip" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="../documents/challenge2025/BIODCASE_2025_CHALLENGE_TECHNICAL_REPORTS.zip" target="_blank">
+<span style="font-size:20px;">Latex template <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(137 KB)</span>
+<br/>
+<span class="text-muted">
+                
+                version 1.0
+                
+                
+                (.zip)
+                
+                </span>
+</div>
+</div>
+<p><br/> </p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="../documents/challenge2025/biodcase2025_challenge_word_template.docx" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-word-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="../documents/challenge2025/biodcase2025_challenge_word_template.docx" target="_blank">
+<span style="font-size:20px;">Word template <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(37 KB)</span>
+<br/>
+<span class="text-muted">
+                
+                version 1.0
+                
+                
+                (.docx)
+                
+                </span>
+</div>
+</div>
+<p><br/> </p>
+<div class="row">
+<div class="col-md-1">
+<a class="icon" href="../documents/challenge2025/AUTHOR_GUIDELINES_FOR_DCASE_2025_CHALLENGE_TECHNICAL_REPORTS.pdf" target="_blank">
+<span class="fa-stack fa-2x">
+<i class="fa fa-square fa-stack-2x text-muted"></i>
+<i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</div>
+<div class="col-md-11">
+<a href="../documents/challenge2025/AUTHOR_GUIDELINES_FOR_DCASE_2025_CHALLENGE_TECHNICAL_REPORTS.pdf" target="_blank">
+<span style="font-size:20px;">Sample PDF produced with Latex template <i class="fa fa-download"></i></span>
+</a>
+<span class="text-muted">(158 KB)</span>
+<br/>
+<span class="text-muted">
+                
+                version 1.0
+                
+                
+                (.pdf)
+                
+                </span>
+</div>
+</div>
+<p><br/><br/>
+<br/></p>
+<p>The <a href="https://cmt3.research.microsoft.com/">Microsoft CMT service</a> was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/theme.js"></script>
+</body>
+</html>
