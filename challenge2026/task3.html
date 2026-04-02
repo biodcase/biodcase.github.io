@@ -10,17 +10,16 @@
     <meta property="og:url" content="https://dcase.community/challenge2026/task3" />
     <meta property="og:image" content="https://dcase.community/images/logos/biodcase_preview.png" />
     <meta name="author" content="DCASE" />
-    <meta name="description" content="The goal of the bioacoustics on tiny hardware task is to develop an automatic classifier of birdsong that complies with the resource constraints of low-cost and battery-powered autonomous recording units. Description The next generation of autonomous recording units contains programmable chips, thus offering the opportunity the opportunity to perform BioDCASE …" />
-    <meta name="og:description" content="The goal of the bioacoustics on tiny hardware task is to..." />
+    <meta name="description" content="About The goal of the Bioacoustics on Tiny Hardware task is to develop an automatic classifier of birdsong that complies with the resource constraints of low-cost and battery-powered autonomous recording units. Attention: We are still updating this content, so please stay up to date! Description The next generation of autonomous …" />
+    <meta name="og:description" content="About The goal of the Bioacoustics on Tiny Hardware task..." />
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
     <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
     <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
     <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/dcaseicons/css/dcaseicons.css?v=1.2" type="text/css"/>
         <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
-    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/font-mfizz.min.css">
     <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btoc.min.css">
-    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.1" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.2" type="text/css"/>
     <link rel="stylesheet" href="https://biodcase.github.io/static/assets/bioicons/css/bioicons.css" type="text/css"/>
     <script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.min.js"></script>
 </head>
@@ -53,13 +52,13 @@
     </li><li class="">
         <a href="https://biodcase.github.io/workshop2025">WORKSHOP</a>
     </li><li class="btn-group ">
-        <a href="https://biodcase.github.io/challenge2025/submission" class="dropdown-toggle" data-toggle="dropdown">SUBMISSION&nbsp;<b class="caret"></b></a>
+        <a href="https://biodcase.github.io/challenge2026/submission" class="dropdown-toggle" data-toggle="dropdown">SUBMISSION&nbsp;<b class="caret"></b></a>
         <ul class="dropdown-menu" role="menu">
             <li class="">
-        <a href="https://biodcase.github.io/challenge2025/submission">Submit</a>
+        <a href="https://biodcase.github.io/challenge2026/submission">Submit</a>
     </li>
             <li class="">
-        <a href="https://biodcase.github.io/challenge2025/rules">Rules</a>
+        <a href="https://biodcase.github.io/challenge2026/rules">Rules</a>
     </li>
         </ul>
     </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Organising committee">
@@ -324,6 +323,7 @@
 <h3 class="panel-title">Content</h3>
 </div>
 <ul class="nav btoc-nav">
+<li><a href="#about">About</a></li>
 <li><a href="#description">Description</a></li>
 <li><a href="#dataset">Dataset</a></li>
 <li><a href="#evaluation-and-baseline-system">Evaluation and Baseline System</a></li>
@@ -339,8 +339,12 @@
         <div class="col-sm-9 content">
             <section id="content" class="body">
                 <div class="entry-content">
-                    <p>The goal of the bioacoustics on tiny hardware task is to develop an automatic classifier of birdsong that complies with the resource constraints of low-cost and battery-powered autonomous recording units.</p>
+                    <h1 id="about">About</h1>
+<p>The goal of the <strong>Bioacoustics on Tiny Hardware</strong> task is to develop an automatic classifier of birdsong that complies with the resource constraints of low-cost and battery-powered autonomous recording units.</p>
+<p class="bg-danger"><strong>Attention:</strong> We are still updating this content, so please stay up to date!</p>
 <hr/>
+<!-- The evaluation set: -->
+<!-- <div class="brepository-item" data-item="biodcase2026-task3-eval"></div> -->
 <h1 id="description">Description</h1>
 <p>The next generation of autonomous recording units contains programmable chips, thus offering the opportunity the opportunity to perform BioDCASE tasks. On-device processing has multiple advantages, such as high durability, low latency, and privacy preservation. However, such “tiny hardware” is limited in terms of memory and compute, which calls for the development of original methods in audio content analysis.</p>
 <p>In this context, task participants will revisit the well-known problem of automatic detection of birdsong while adjusting their systems to meet the specifications of a commercially available microcontroller. The challenge focuses on detecting the vocalizations of 10 different bird species using the ESP32-S3-Korvo-2 development board.</p>
@@ -357,7 +361,7 @@
 <p>A baseline implementation is provided as a starting point, which participants can modify and improve upon. Solutions will be evaluated based on classification performance, model size, inference time, and memory usage.</p>
 <p><strong>Note:</strong> We encourage participants to buy the ESP32-S3-Korvo-2 development board to test their solutions. The board is available for purchase on various online platforms (e.g, at <a href="https://www.digikey.de/de/products/detail/espressif-systems/ESP32-S3-KORVO-2/15822448">DigiKey</a>). However, the competition can be completed without the board, as the evaluation will be performed on a hidden test set using the baseline system by the organizers.</p>
 <h1 id="dataset">Dataset</h1>
-<p>The BioDCASE-Tiny 2026 competition uses a 10-bird species (+ 1-background urban) dataset of field recordings from Germany:</p>
+<p>The dataset for this year's task uses field recordings from 10 bird species and an additional set of urban backround sounds from Germany:</p>
 <ul>
 <li>11 class labels categorized in folders</li>
 <li>3,300 recordings of 3 seconds each...</li>
@@ -376,12 +380,11 @@
 │   ├── species_1/
 │   ├── species_2/
 </code></pre></div>
-<p>The dataset is available for download on Zenodo:</p>
-<div class="brepository-item" data-item="biodcase2026-task3"></div>
-<p>The evaluation set is now available <a href="https://zenodo.org/records/15577086">here</a></p>
+<!-- <div class="brepository-item" data-item="biodcase2026-task3"></div> -->
+<p class="bg-danger"><strong>Note:</strong> The dataset will be available for download on Zenodo soon!</p>
 <h1 id="evaluation-and-baseline-system">Evaluation and Baseline System</h1>
 <p>We provide a baseline system that includes a complete pipeline for audio processing, feature extraction, model training, and deployment to the ESP32-S3-Korvo-2 development board. The baseline system is designed to be easily adaptable for participants to build upon.</p>
-<p>You can find the baseline system in the GitHub repository: <a href="https://github.com/birdnet-team/BioDCASE-Tiny-2026">BioDCASE-Tiny 2026 Baseline System</a></p>
+<p>You can find the baseline system in the GitHub repository: <a href="https://github.com/birdnet-team/BioDCASE-Tiny-2026"><strong>BioDCASE-Tiny 2026 Baseline System</strong></a></p>
 <p>Submissions will be evaluated based on both classification performance and resource efficiency:</p>
 <h3>Classification Performance</h3>
 <ul>
@@ -399,33 +402,39 @@
 <h1 id="external-data-resources">External Data Resources</h1>
 <p>The competition focuses on the provided 10-bird species dataset. External data use may be regulated according to the <a href="https://biodcase.github.io/challenge2026/rules">official competition rules</a></p>
 <h1 id="rules-and-submissions">Rules and Submissions</h1>
-<ol>
-<li>Solutions must be deployable on the ESP32-S3-Korvo-2 development board</li>
-<li>Models must process audio from the onboard microphone array in real-time</li>
-<li>Submissions must include .h5 model files, pipeline_config.yaml and monitor_report.yaml in a zip file</li>
-<li>Solutions will be evaluated on a hidden test set using the baseline system</li>
-<li>Participants must cite the competition framework and dataset in any publications</li>
-</ol>
-<p>A complete YAML metadata file with submission details should be provided. Here is an example <code>Lastname_task3_1.meta.yaml</code>:</p>
-<div aria-multiselectable="true" class="panel-group" id="metadata-accordion" role="tablist">
-<div class="panel panel-default">
-<div class="panel-heading" id="task3-example-header" role="tab">
-<h4 class="panel-title">
-<a aria-controls="collapseOne" aria-expanded="true" class="collapsed accordion-toggle" data-parent="#metadata-accordion" data-toggle="collapse" href="#task3-example-collapse" role="button">               
+<p class="bg-danger"><strong>Note:</strong> The submission rules are still in development but will be available in time, so stay up to date!</p>
+<!-- 1. Solutions must be deployable on the ESP32-S3-Korvo-2 development board
+2. Models must process audio from the onboard microphone array in real-time
+3. Submissions must include .h5 model files, pipeline_config.yaml and monitor_report.yaml in a zip file
+4. Solutions will be evaluated on a hidden test set using the baseline system
+5. Participants must cite the competition framework and dataset in any publications
+
+A complete YAML metadata file with submission details should be provided. Here is an example <code>Lastname_task3_1.meta.yaml</code>:
+
+<div class="panel-group" id="metadata-accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="task3-example-header">
+            <h4 class="panel-title">
+                <a class="collapsed accordion-toggle" role="button" data-toggle="collapse"
+                   data-parent="#metadata-accordion" href="#task3-example-collapse"
+                   aria-expanded="true" aria-controls="collapseOne">               
                    Metadata
                 </a>
-</h4>
-</div>
-<div aria-labelledby="task3-example-header" class="panel-collapse collapse" id="task3-example-collapse" role="tabpanel">
-<div class="panel-body" style="padding: 0px">
-<pre class="font110" style="padding:0;border:0;border-radius:0;"><code class="yaml"></code></pre>
-</div>
-</div>
-</div>
-</div>
+            </h4>
+        </div>
+        <div id="task3-example-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="task3-example-header">
+            <div class="panel-body" style="padding: 0px">
+                <pre class="font110" style="padding:0;border:0;border-radius:0;"><code class="yaml"></code></pre>
+            </div>
+        </div>
+    </div>
+</div> -->
 <h1 id="citation">Citation</h1>
 <p>If you use the BioDCASE-Tiny framework or dataset in your research, please cite the following:</p>
-<h3>Framework Citation</h3>
+<p class="bg-danger"><strong>Note:</strong> Still to be anounced!</p>
+<!-- ### Framework Citation
+
+
 <div class="highlight"><pre><span></span><code><span class="nc">@misc</span><span class="p">{</span><span class="nl">biodcase_tiny_2026_repo</span><span class="p">,</span>
 <span class="w">  </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{tba}</span><span class="p">,</span>
 <span class="w">  </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{tba}</span><span class="p">,</span>
@@ -437,18 +446,23 @@
 <span class="w">  </span><span class="na">howpublished</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{\url{https://github.com/birdnet-team/BioDCASE-Tiny-2026}}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3>Dataset Citation</h3>
-<div class="highlight"><pre><span></span><code><span class="nc">@dataset</span><span class="p">{</span><span class="nl">biodcase_tiny_2026_dataset</span><span class="p">,</span>
-<span class="w">  </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{tba}</span><span class="p">,</span>
-<span class="w">  </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{BioDCASE 2026 Task 3: Bioacoustics for Tiny Hardware Development Set}</span><span class="p">,</span>
-<span class="w">  </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
-<span class="w">  </span><span class="na">publisher</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Zenodo}</span><span class="p">,</span>
-<span class="w">  </span><span class="na">doi</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{tba}</span><span class="p">,</span>
-<span class="w">  </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{tba}</span>
-<span class="p">}</span>
-</code></pre></div>
+
+
+
+### Dataset Citation
+
+```bibtex
+@dataset{biodcase_tiny_2026_dataset,
+  author = {tba},
+  title = {BioDCASE 2026 Task 3: Bioacoustics for Tiny Hardware Development Set},
+  year = {2026},
+  publisher = {Zenodo},
+  doi = {tba},
+  url = {tba}
+}
+``` -->
 <h1 id="support">Support</h1>
-<p>If you have questions please use the <a href="https://groups.google.com/g/biodcase-community">BioDCASE Google Groups community forum</a>, or contact the task organizers at: <a href="mailto:stefan.kahl@cornell.edu">stefan.kahl@cornell.edu</a></p>
+<p>If you have questions please use the <a href="https://groups.google.com/g/biodcase-community">BioDCASE Google Groups community forum</a> or create an issue in the Github baseline repo: <a href="https://github.com/birdnet-team/BioDCASE-Tiny-2026">BioDCASE-Tiny 2026 Baseline System</a></p>
                 </div>
             </section>
         </div>
