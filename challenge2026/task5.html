@@ -577,14 +577,17 @@
 <li>BA<sub>unseen</sub>: balanced accuracy on clips from unseen domains</li>
 <li>DSG = |BA<sub>unseen</sub> - BA<sub>seen</sub>|: domain shift gap</li>
 </ul>
-<p>For the baseline development test set, each clip is treated as one sample and produces one species prediction. The main evaluation target is species classification.</p>
+<p>The official ranking is determined primarily by BA<sub>unseen</sub>, since the main goal of the challenge is cross-domain generalisation. DSG is used as the secondary ranking metric, with smaller values preferred. BA<sub>seen</sub> will also be reported for reference, but it will not be used for the official ranking.</p>
+<p>For the baseline development test set, each clip is treated as one sample and produces one species prediction. The main evaluation target is species classification. </p>
 <h2 id="task-rules">Task Rules</h2>
 <ul>
 <li>Participants may use publicly available pre-trained models and representations. However, <strong>external labelled mosquito data are not permitted</strong>.</li>
 <li>Participants may use ensembles of multiple models.</li>
 <li>Participants may define their own development split strategy. The released baseline split is provided only to reproduce the reference baseline and does not restrict participant system development.</li>
+<li>Participants do not need to submit source code or model checkpoints. Final submission only consists of prediction files in TXT (<code>.txt</code>) format.</li>
+<li>Each team may make up to 5 final submissions. All submitted runs will be evaluated, and the best-performing result will be taken as the official submission.</li>
 </ul>
-<p>If you have any questions, please contact the organizers.</p>
+<p>If you have any questions, please contact the organizers. </p>
 <h2 id="baseline-system">Baseline system</h2>
 <h3>System description</h3>
 <p>The released baseline provides a fully open and reproducible reference for the CD-MSC task. It is designed to be lightweight, easy to run, and easy to extend.</p>
@@ -683,6 +686,14 @@
 <span class="w">      </span><span class="na">archivePrefix</span><span class="p">=</span><span class="s">{arXiv}</span><span class="p">,</span>
 <span class="w">      </span><span class="na">primaryClass</span><span class="p">=</span><span class="s">{eess.AS}</span><span class="p">,</span>
 <span class="w">      </span><span class="na">url</span><span class="p">=</span><span class="s">{https://arxiv.org/abs/2603.20118}</span><span class="p">,</span><span class="w"> </span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nc">@INPROCEEDINGS</span><span class="p">{</span><span class="nl">BioL</span><span class="p">,</span>
+<span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Hou, Yuanbo and Liu, Zhaoyi and Shen, Xin and Roberts, Stephen}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">booktitle</span><span class="p">=</span><span class="s">{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{Learning Domain-Robust Bioacoustic Representations for Mosquito Species Classification with Contrastive Learning and Distribution Alignment}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2026}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">pages</span><span class="p">=</span><span class="s">{1-5}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>MTRCNN model: <a href="https://doi.org/10.1109/ICASSP49660.2025.10890031" target="_blank">📄 PDF</a></p>
