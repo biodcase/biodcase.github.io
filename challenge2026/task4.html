@@ -310,7 +310,7 @@
 </figure>
 <h3>BaseAL</h3>
 <p><em>BaseAL</em> is the evaluation framework for this task. It provides the AL pipeline, baseline sampling methods, and logging infrastructure. Participants implement their method by editing <code>sampling.py</code> within the framework.</p>
-<p>Setup instruction are available <a href="https://github.com/BenMcEwen1/BaseAL">here</a> and you can find notebooks with example usage in <a href="https://github.com/BenMcEwen1/BaseAL/tree/main/core/docs">docs/</a>. An interactive <a href="https://baseal.up.railway.app/">demo</a> of BaseAL (ESC10 data) is available.</p>
+<p>Setup instruction are available <a href="https://github.com/BenMcEwen1/BaseAL">here</a> and you can find notebooks with example usage in <a href="https://github.com/BenMcEwen1/BaseAL/tree/main/core/docs">docs/</a>. The notebook <code>biodcase_example.ipynb</code> contains everything you need to get started and is the recommended starting point. An interactive <a href="https://baseal.up.railway.app/">demo</a> of BaseAL (ESC10 data) is available.</p>
 <p><a href="https://baseal.up.railway.app" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#48789c';" onmouseover="this.style.backgroundColor='#48789c'; this.style.color='#ffffff';" style="display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -512,7 +512,7 @@
 <li><code>CoreSet</code> (<a href="https://scikit-activeml.github.io/latest/generated/sphinx_gallery_examples/1-pool-classification/plot-CoreSet-Core_Set.html">link</a>): greedily selects samples that are farthest from the current labelled set in embedding space, maximising coverage without considering model uncertainty (<em>Sener and Savarese 2018</em>).</li>
 <li><code>TypiClust</code> (<a href="https://scikit-activeml.github.io/latest/generated/sphinx_gallery_examples/1-pool-classification/plot-TypiClust-Typical_Clustering_%28TypiClust%29.html">link</a>): Typical clustering selects the most representative unlabelled sample from each of the least-covered regions of the embedding space, balancing diversity with density-based sample quality (<em>Hacohen et al. 2022</em>).</li>
 </ul>
-<p><strong>Baseline configuration:</strong> A fixed batch size of 50 samples, with 10 epochs per AL cycle and a learning rate of 1e<sup>-3</sup> is used for all baselines, up to the <code>max_budget</code> of 500 samples.</p>
+<p><strong>Baseline configuration:</strong> A fixed batch size of 50 samples, with 10 model training epochs per AL cycle and a learning rate of 1e<sup>-3</sup> is used for all baselines, up to the <code>max_budget</code> of 500 samples.</p>
 <table class="table">
 <tr class="active">
 <th><strong>Method</strong></th>
@@ -556,8 +556,8 @@
 <p>The following section explains how these evaluation metrics are computed →</p>
 <h2 id="evaluation">Evaluation</h2>
 <h3>Ranking metric</h3>
-<p><strong>Area Under the Learning Curve (AULC)</strong> for the mAP (macro) across a fixed budget of N samples. This metric will be aggregated across both datasets (and subsets) for the <strong>final ranking</strong>. Hence participants must consider how their sampling method generalises across domains.</p>
-<div class="highlight"><pre><span></span><code>AULC = (1 / N) * Σ mAP(n)   for n = 1, ..., N
+<p><strong>Area Under the Learning Curve (AULC)</strong> for the mAP (macro) up to the <code>max_budget</code> of 500 samples. This metric will be aggregated across both datasets (and subsets) for the <strong>final ranking</strong>. Hence participants must consider how their sampling method generalises across domains.</p>
+<div class="highlight"><pre><span></span><code>AULC = (1 / max_budget) * Σ mAP(n)   for n = 1, ..., max_budget
 </code></pre></div>
 <h3>Supplementary Metrics</h3>
 <p>Additional metrics will be provided. These will <em>not</em> be used for overall ranking but <em>will</em> inform selection for the <strong>Jury Award</strong>.</p>
@@ -583,6 +583,7 @@ relative_cost = cost_method / baseline_cost
 </ul>
 <h3>Deliverables</h3>
 <p>Please submit a <code>.zip</code> file containing the following information. Please follow the general BioDCASE naming <a href="https://biodcase.github.io/challenge2025/submission#submission-label">convention</a>.</p>
+<p>It is recommended that participant start within the notebook <code>biodcase_example.ipynb</code> in <code>docs/</code>. This notebook contains example usage and exports results in the correct format for submission.</p>
 <p><strong>Results</strong> (<code>{method}_{dataset}_{lastname}.yaml</code>): containing the sampling performance metrics of your sampling method. <em>Note that if you export these results using the BaseAL <code>learner.export()</code> method, this will already be in the correct format.</em></p>
 <p>Please specify <code>repeat</code> of 5 when generating results, this will compute the mean and SD.</p>
 <div aria-multiselectable="true" class="panel-group" id="metadata-accordion" role="tablist">
@@ -767,7 +768,7 @@ supplementary:
 <ul>
 <li><code>sampling.py</code>: sampling method. Follow instructions for setting up <code>_custom</code> sampling method.</li>
 <li><code>requirements.txt</code> (optional): provide additional dependencies that were installed if any.</li>
-<li><code>method_description.ipynb</code> (optional): example usage of your sampling method. <em>Highly recommended</em> if you are using a batch size scheduler.</li>
+<li><code>method_description.ipynb</code> (optional): example usage of your sampling method. <em>Highly recommended</em> if you are using a batch size scheduler. </li>
 </ul>
 <p><strong>Report</strong> (<code>.pdf</code>): final report (see submissions page for <a href="https://biodcase.github.io/challenge2025/submission">details</a>)</p>
 <h3>Leaderboard</h3>
