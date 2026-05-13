@@ -511,7 +511,8 @@
 <li>A few inconsistencies in the development dataset have been fixed (see the section Dataset version control
  of the <a href="https://zenodo.org/records/18832958">Zenodo page</a> for details) ;</li>
 <li>Some metadata have been added for dataset description (see <a href="https://docs.google.com/spreadsheets/d/1uPw5jm1Aip5CV88SzH1Ky7VZfBlvg5ejL2tf_73aoPY/edit?usp=sharing">metadata table</a>) ;</li>
-<li>The list of allowed datasets has been updated, with clearer guidance toward unlabeled data from the same scientific program.</li>
+<li>The list of allowed datasets has been updated, with clearer guidance toward unlabeled data from the same scientific program ;</li>
+<li>Our YOLO baseline was initially overestimated, as we evaluated it only on the background segments of positive files (i.e., those containing an event). We have now corrected this bias, and all code and results have been updated accordingly. While performance dropped slightly under the fairer evaluation, the baseline still holds a strong 3rd place in the overall model ranking!</li>
 </ul>
 <h1 id="scientific-context">Scientific context</h1>
 <p><a name="scientific_context"></a></p>
@@ -813,9 +814,9 @@ system:
     # In case of ensemble approaches, add up parameters for all subsystems.
     total_parameters: 9,428,953    # note that for simple template matching, the "parameters"==the pixel count of the templates, plus 1 for each param such as thresholding. 
     # Approximate training time followed by the hardware used
-    trainining_time: 10h 40min
+    trainining_time: 16h 39min
     # Model size in MB
-    model_size: 22
+    model_size: 18.7
 
 
   # URL to the source code of the system [optional, highly recommended]
@@ -837,24 +838,24 @@ results:
   # If you cannot provide all result details, also incomplete results can be reported.
   validation_set:
     overall:
-      F1: 0.43 # 0 to 1
-      precision: 0.67
-      recall: 0.32 
+      F1: 0.44 # 0 to 1
+      precision: 0.39
+      recall: 0.50
 
     # Per-dataset
     dataset_wise:
       Casey2017: 
-        F1: 0.55 # 0 to 1
-        precision: 0.7
-        recall: 0.46
+        F1: 0.51 # 0 to 1
+        precision: 0.5
+        recall: 0.52
       Kerguelen2014:
-        F1: 0.38 # 0 to 1
-        precision: 0.66
-        recall: 0.29
+        F1: 0.45 # 0 to 1
+        precision: 0.61
+        recall: 0.36
       Kerguelen2015:
         F1: 0.40 # 0 to 1
-        precision: 0.67
-        recall: 0.32
+        precision: 0.38
+        recall: 0.43
 
 
 </code></pre>
@@ -880,7 +881,7 @@ results:
 <td>YOLOv11</td>
 <td>0.32</td>
 <td>0.67</td>
-<td>0.43</td>
+<td>0.44</td>
 </tr>
 <tr>
 <td>ResNet18</td>
@@ -892,7 +893,7 @@ results:
     Table 2. Baseline performance on the validation set.
   </caption>
 </tbody></table>
-<p>See more detailed results per class and per dataset <a href="https://drive.google.com/file/d/17hX3S9woRBmTw2tUHsS__vgn42dB8OMf/view?usp=sharing">here</a>.</p>
+<p>See result details per class and per dataset for the YOLO baseline on the validation set <a href="https://docs.google.com/spreadsheets/d/1S4_d1iBgdRckenLEk7GWuCWPsf6hn03Inq6Y0OaumUk/edit?usp=sharing">here</a></p>
 <p>See baseline details and download codes on <a href="https://github.com/marinebioCASE/task2_2025_2026/tree/main/baselines">Github</a>.</p>
 <h1 id="support">Support</h1>
 <p>If you have questions please use the BioDCASE Google Groups <a href="https://groups.google.com/g/biodcase-community">community forum</a>, or directly contact task coordinators <a href="mailto:dorian.cazau@ensta.fr">dorian.cazau@ensta.fr</a>.</p>
