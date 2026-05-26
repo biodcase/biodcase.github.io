@@ -361,9 +361,10 @@
     background: var(--table-row-even-bg);
   }
 </style>
-<p>Each audio file follows the naming format:</p>
+<p>Each development audio file follows the naming format:</p>
 <div class="highlight"><pre><span></span><code>S_&lt;speciesID&gt;_D_&lt;domainID&gt;_&lt;clipIndex&gt;
 </code></pre></div>
+<p>The domain ID is included in development file names to make the dataset structure transparent for analysis and method development. Final evaluation file names will be randomised and will not contain domain identifiers.</p>
 <p>File Structure: </p>
 <div class="highlight"><pre><span></span><code>Development_data
 ├── raw_audio
@@ -579,6 +580,10 @@
 </table>
 <h2 id="evaluation-dataset">Evaluation dataset</h2>
 <p>The evaluation dataset will be released according to the challenge timeline. Please follow the official schedule for updates.</p>
+<p>The final evaluation follows a closed-set mosquito species classification setting. No species outside the development species list will appear in the evaluation set.</p>
+<p>The evaluation set contains both seen-domain and unseen-domain samples. Here, "unseen domain" means that, for a given species, some evaluation recordings may come from a domain not present for that species in the provided development training split. However, all domains remain within the challenge domain pool {D1, D2, D3, D4, D5}.</p>
+<p>For example, if the development training split contains <em>Aedes aegypti</em> from {D1, D4, D5}, then <em>Aedes aegypti</em> recordings from D3 in the evaluation set are considered unseen-domain samples for that species.</p>
+<p>Final evaluation file names will be randomised and will not contain domain identifiers or other explicit source information. This is intentional to prevent leakage of domain information during evaluation.</p>
 <h2 id="evaluation-metrics">Evaluation metrics</h2>
 <p>The official evaluation reports:</p>
 <ul>
@@ -587,6 +592,7 @@
 <li>DSG = |BA<sub>unseen</sub> - BA<sub>seen</sub>|: domain shift gap</li>
 </ul>
 <p>The official ranking is determined primarily by BA<sub>unseen</sub>, since the main goal of the challenge is cross-domain generalisation. DSG is used as the secondary ranking metric, with smaller values preferred. BA<sub>seen</sub> will also be reported for reference, but it will not be used for the official ranking.</p>
+<p>Participants only need to submit species predictions for the evaluation clips. Seen-domain and unseen-domain partitioning will be handled internally by the organisers during official evaluation.</p>
 <p>For the baseline development test set, each clip is treated as one sample and produces one species prediction. The main evaluation target is species classification. </p>
 <h2 id="task-rules">Task Rules</h2>
 <ul>
@@ -699,11 +705,13 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nc">@INPROCEEDINGS</span><span class="p">{</span><span class="nl">BioL</span><span class="p">,</span>
 <span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Hou, Yuanbo and Liu, Zhaoyi and Shen, Xin and Roberts, Stephen}</span><span class="p">,</span>
-<span class="w">  </span><span class="na">booktitle</span><span class="p">=</span><span class="s">{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}</span><span class="p">,</span>
-<span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{Learning Domain-Robust Bioacoustic Representations for Mosquito Species Classification with Contrastive Learning and Distribution Alignment}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">booktitle</span><span class="p">=</span><span class="s">{ICASSP 2026 - 2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{Learning Domain-Robust Bioacoustic Representations for Mosquito Species Classification with Contrastive Learning and Distribution Alignment}</span><span class="p">,</span><span class="w"> </span>
 <span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2026}</span><span class="p">,</span>
-<span class="w">  </span><span class="na">pages</span><span class="p">=</span><span class="s">{1-5}</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="na">volume</span><span class="p">=</span><span class="s">{}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">number</span><span class="p">=</span><span class="s">{}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">pages</span><span class="p">=</span><span class="s">{15207-15211}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">doi</span><span class="p">=</span><span class="s">{10.1109/ICASSP55912.2026.11464393}</span><span class="p">}</span>
 </code></pre></div>
 <p>MTRCNN model: <a href="https://doi.org/10.1109/ICASSP49660.2025.10890031" target="_blank">📄 PDF</a></p>
 <div class="highlight"><pre><span></span><code><span class="nc">@INPROCEEDINGS</span><span class="p">{</span><span class="nl">10890031</span><span class="p">,</span>

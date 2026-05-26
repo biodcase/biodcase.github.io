@@ -564,6 +564,7 @@
 </table>
 <p>The following section explains how these evaluation metrics are computed →</p>
 <h2 id="evaluation">Evaluation</h2>
+<p class="bg-danger"><strong>Evaluation Dataset</strong> - Please note that a separate evaluation set <strong>will not</strong> be released for this task. Please follow the instructions below to submit your development results and method. Your method will then be run on the held out evaluation set which will inform the final ranking. A tentative ranking for the development set is open and available <a href="{https://baseal.up.railway.app/#/challenges/biodcase}">here</a> and will be updated as submissions come in.</p>
 <h3>Ranking metric</h3>
 <p><strong>Area Under the Learning Curve (AULC)</strong> for the mAP (macro) up to the <code>max_budget</code> of 500 samples. This metric will be aggregated across both datasets (and subsets) for the <strong>final ranking</strong>. Hence participants must consider how their sampling method generalises across domains.</p>
 <div class="highlight"><pre><span></span><code>AULC = (1 / max_budget) * Σ mAP(n)   for n = 1, ..., max_budget
