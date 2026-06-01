@@ -299,9 +299,11 @@
 </div>
 <ul class="nav btoc-nav">
 <li><a href="#description">Description</a></li>
+<li><a href="#challenge-timeline">Challenge timeline</a></li>
 <li><a href="#development-dataset">Development dataset</a></li>
 <li><a href="#task-setup">Task setup</a></li>
 <li><a href="#evaluation-dataset">Evaluation dataset</a></li>
+<li><a href="#submission-format">Submission format</a></li>
 <li><a href="#evaluation-metrics">Evaluation metrics</a></li>
 <li><a href="#task-rules">Task Rules</a></li>
 <li><a href="#baseline-system">Baseline system</a></li>
@@ -320,6 +322,37 @@
 <p>Mosquito-borne diseases affect more than one billion people each year and cause close to one million deaths. Traditional mosquito surveillance relies on traps and manual species identification. That process is slow, labour-intensive, difficult to scale, and can expose field workers to infection risk. Audio-based mosquito monitoring offers a lower-cost and more scalable complement, but robust mosquito species classification remains difficult under real recording conditions.</p>
 <p>Mosquito flight tones are narrow-band, often low in signal-to-noise ratio, and easily masked by background noise. Recordings for several epidemiologically relevant species are also limited. Variation across devices, environments, and collection protocols further increases the difficulty of reliable classification. In practice, a model may perform well under familiar conditions but fail when evaluated on recordings collected in different settings.</p>
 <p>CD-MSC is designed to study this problem directly. In this task, a domain refers to an acquisition condition associated with the recording source, including differences in location, device, or acoustic environment. The task therefore evaluates not only whether a system can recognise mosquito species, but also whether it can generalise across domains.</p>
+<div style="padding: 12px 16px; border-left: 5px solid #d73a49; background: #fff5f5; margin: 1rem 0;">
+<strong style="color:#d73a49;">NEWS:</strong>
+  The evaluation set has been released. Participants can now download the evaluation audio files and submit species predictions through the <a href="https://biodcase.github.io/challenge2026/submission">official submission system</a>.
+</div>
+<h2 id="challenge-timeline">Challenge timeline</h2>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Milestone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><del>01 Apr 2026</del></td>
+<td><del>Challenge opening; datasets and baseline methods published</del></td>
+</tr>
+<tr>
+<td><strong>01 Jun 2026</strong></td>
+<td><strong>Evaluation set release</strong></td>
+</tr>
+<tr>
+<td>15 Jun 2026</td>
+<td>Challenge submission deadline</td>
+</tr>
+<tr>
+<td>30 Jun 2026</td>
+<td>Challenge results published</td>
+</tr>
+</tbody>
+</table>
 <h2 id="development-dataset">Development dataset</h2>
 <p>The released development dataset is provided for the CD-MSC task. It is fully open and supports transparent baseline reproduction, model development, and custom split design.</p>
 <style>
@@ -495,8 +528,8 @@
 <h3>Download</h3>
 <div class="download-card">
 <span class="download-icon">📦</span>
-<a href="https://zenodo.org/records/19095788" rel="noopener noreferrer" target="_blank">
-    BioDCASE 2026 CD-MSC Development Dataset on Zenodo
+<a href="https://zenodo.org/records/20478577" rel="noopener noreferrer" target="_blank">
+    BioDCASE 2026 CD-MSC Development Dataset
   </a>
 </div>
 <style>
@@ -579,11 +612,25 @@
 </tbody>
 </table>
 <h2 id="evaluation-dataset">Evaluation dataset</h2>
-<p>The evaluation dataset will be released according to the challenge timeline. Please follow the official schedule for updates.</p>
+<h3>Download</h3>
+<div class="download-card">
+<span class="download-icon">📦</span>
+<a href="https://zenodo.org/records/20478577" rel="noopener noreferrer" target="_blank">
+    BioDCASE 2026 CD-MSC Evaluation Dataset
+  </a>
+</div>
 <p>The final evaluation follows a closed-set mosquito species classification setting. No species outside the development species list will appear in the evaluation set.</p>
 <p>The evaluation set contains both seen-domain and unseen-domain samples. Here, "unseen domain" means that, for a given species, some evaluation recordings may come from a domain not present for that species in the provided development training split. However, all domains remain within the challenge domain pool {D1, D2, D3, D4, D5}.</p>
 <p>For example, if the development training split contains <em>Aedes aegypti</em> from {D1, D4, D5}, then <em>Aedes aegypti</em> recordings from D3 in the evaluation set are considered unseen-domain samples for that species.</p>
-<p>Final evaluation file names will be randomised and will not contain domain identifiers or other explicit source information. This is intentional to prevent leakage of domain information during evaluation.</p>
+<p>Evaluation file names are randomised and do not contain domain identifiers or other explicit source information.</p>
+<h2 id="submission-format">Submission format</h2>
+<p>Participants should submit one prediction file in TXT (<code>.txt</code>) format. The file should contain one row per evaluation clip, using the released <code>file_id</code> values and the predicted species ID.</p>
+<div class="highlight"><pre><span></span><code>file_id,predicted_species_id
+CDMSC2026_EVAL_000001,1
+CDMSC2026_EVAL_000002,3
+...
+</code></pre></div>
+<p><strong>Official submission system</strong>: <a href="https://biodcase.github.io/challenge2026/submission">Challenge submission</a></p>
 <h2 id="evaluation-metrics">Evaluation metrics</h2>
 <p>The official evaluation reports:</p>
 <ul>
