@@ -626,7 +626,7 @@ ballenyislands2015,2015-02-20T00-00-00_000.wav,bma,nieukirk,22.7,27.3,2015-02-20
 <p>The evaluation metrics used is a 1D IoU (standing for Intersection over Union) over the temporal axis, which basically looks at all the time when the predicted event overlaps with the ground truth event, divided by the total time spanning from the minimum start time to the maximum end time. To emphasize the importance of estimating an accurate number of calls (for example, for a downstream task of population density estimation), this metrics was customized to penalize model outputs with several detections overlapping with one single ground truth. For example, if 3 predicted sound events overlap with one single ground truth event, only one of the predicted sound events will be marked as a True Positive (TP) and assigned as correct, and the rest will be marked as False Positives (FP). TP are then computed counting all the prediction events which have been marked as correct. FP are all the prediction events which were not assigned to a ground truth. FN are all the ground truth events which have not been assigned any prediction. Recall, Precision and f1-score are then computed per-class and per-dataset. </p>
 <p>See more details on <a href="https://github.com/marinebioCASE/task2_2025_2026/tree/main/evaluation">Github</a>.</p>
 <h2 id="download-1">Download</h2>
-<p>The evaluation set for this task will be released on June 1, 2026. </p>
+<p>Raw audio recordings of the 4 site-year datasets of the evaluation set can be downloaded from this <a href="https://zenodo.org/records/20485251">Zenodo repository</a>.</p>
 <h2 id="rules-and-submission">Rules and submission</h2>
 <p><a name="rules_submission"></a></p>
 <p>Official challenge submission consists of:</p>
