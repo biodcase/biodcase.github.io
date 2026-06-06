@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
     <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/dcaseicons/css/dcaseicons.css?v=1.2" type="text/css"/>
         <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btoc.min.css">
     <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.2" type="text/css"/>
     <link rel="stylesheet" href="https://biodcase.github.io/static/assets/bioicons/css/bioicons.css" type="text/css"/>
     <script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.min.js"></script>
@@ -195,6 +196,29 @@
 </table>
 </div>
 
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#description">Description</a></li>
+<li><a href="#audio-dataset">Audio dataset</a>
+<ul>
+<li><a href="#evaluation-and-baseline-system">Evaluation and Baseline System</a></li>
+<li><a href="#deep-learning-baseline-description">Deep learning baseline description</a></li>
+<li><a href="#results-of-baseline-systems-on-validation-set">Results of baseline systems on validation set</a></li>
+</ul>
+</li>
+<li><a href="#external-data-resources">External Data Resources</a></li>
+<li><a href="#task-rules">Task Rules</a></li>
+<li><a href="#tools">Tools</a></li>
+<li><a href="#citation">Citation</a></li>
+<li><a href="#support">Support</a></li>
+</ul>
+</div>
+</div>
+
         </div>
         <div class="col-sm-9 content">
             <section id="content" class="body">
@@ -208,7 +232,7 @@
 <div class="alert alert-info">
     If you are interested in the task, you can join us on the <strong><a href="https://dcase.slack.com/archives/C01Q1SK5Q73">dedicated slack channel</a></strong>
 </div> -->
-<h1>Description</h1>
+<h1 id="description">Description</h1>
 <p>Each dataset consists of a set of stereo audio files. The audio in the two channels of each audio file is not synchronized in time due to nonlinear clock drift. Each audio file has a corresponding set of annotations, <span class="math">\(k_0,\dots,k_{114}\)</span>, called <em>keypoints</em>. Each keypoint <span class="math">\(k_i=(k_{i,0}, k_{i,1})\)</span> consists of a timestamp <span class="math">\(k_{i,0}\)</span> for Channel 0 and a timestamp <span class="math">\(k_{i,1}\)</span> for Channel 1. The timestamps in each channel correspond to the same time in the physical world, but due to clock drift they do not appear at the same time in the recordings. The timestamps <span class="math">\(k_{i,0}\)</span> in Channel 0 occur at 1-second intervals. Timestamps always occur within the actual duration of the audio file, which means that for some files there are repeated timestamps at the beginning (to avoid negative timestamps) or at the end (to avoid exceeding the duration of the audio).</p>
 <figure>
 <div class="row row-centered">
@@ -220,9 +244,9 @@
 </figure>
 <p><br/></p>
 <p>During training, systems have access to keypoints' timestamps in both Channels 0 and 1. During inference, systems have access only to keypoints' timestamps in Channel 0, and must predict the corresponding Channel 1 timestamps. Systems are evaluated based on mean error of their predicted Channel 1 timestamps, compared to ground-truth Channel 1 timestamps. The official validation code reports both mean squared error (MSE, in sec<span class="math">\(^2\)</span>) and mean absolute error (MAE, in ms). In practice, MAE in milliseconds is often easier to interpret.</p>
-<h1>Audio dataset</h1>
+<h1 id="audio-dataset">Audio dataset</h1>
 <p><a name="dataset"></a></p>
-<p>The challenge uses two datasets: <code>aru</code> and <code>zebra_finch</code>. The train and validation (val) portions of these datasets, which include audio and ground-truth keypoints, can be found <a href="https://zenodo.org/records/19348371">here</a>. The test portion, which includes only audio, will be provided during the evaluation phase of BioDCASE 2026. The domain shift between train and validation sets reflects the domain shift between train and evaluation sets.</p>
+<p>The challenge uses two datasets: <code>aru</code> and <code>zebra_finch</code>. The train and validation (val) splits of these datasets include audio and ground-truth keypoints, whereas the test split includes only audio. All the splits can now  be found <strong><a href="https://zenodo.org/records/20534578">here</a></strong>. The domain shift between train and validation sets reflects the domain shift between train and evaluation sets.</p>
 <p>In both datasets, desynchronization includes a constant time shift between the two channels, as well as nonlinear clock drift within each file. However, the total desynchronization depends on the dataset.</p>
 <ul>
 <li>The <code>aru</code> dataset follows a fine-grained regime and the total desynchronization never exceeds +/- 0.5 seconds.</li>
@@ -249,7 +273,7 @@
 <span class="gs">        └── audio</span>
 <span class="gs">            └── *</span>.wav
 </code></pre></div>
-<h2>Evaluation and Baseline System</h2>
+<h2 id="evaluation-and-baseline-system">Evaluation and Baseline System</h2>
 <p>Code for model evaluation, baseline systems, and example usage can be found <a href="https://github.com/chymaera96/biodcase_2026_task1_public">here</a>.</p>
 <p>Baselines included:</p>
 <ul>
@@ -259,7 +283,7 @@
 </ul>
 <p>For evaluation, model outputs are expected to be in the same format as the provided keypoint annotations, i.e. a <code>.csv</code> file with three columns <code>Filename</code>, <code>Time Channel 0</code>, and <code>Time Channel 1</code>.</p>
 <p>The baseline repository contains separate training and inference scripts, dataset-specific hyperparameter files for <code>aru</code> and <code>zebra_finch</code>, and an example shell script showing how to reproduce the baseline runs. The deep learning baseline additionally requires a BEATs checkpoint, whereas the GCC-PHAT baseline can be run directly from the provided audio and annotations.</p>
-<h2>Deep learning baseline description</h2>
+<h2 id="deep-learning-baseline-description">Deep learning baseline description</h2>
 <h3>Overview</h3>
 <p>The deep learning system is a binary classifier trained to score whether a pair of mono audio windows, one from each channel, is aligned in time. Training is supervised using the annotated keypoints in the development data. At inference time, the model is used within an offset search procedure to predict the Channel 1 timestamp for each Channel 0 keypoint. The baseline is configured separately for the two datasets. For <code>aru</code>, the model operates in a fine-grained regime with a maximum error of <code>0.5</code> seconds. For <code>zebra_finch</code>, it operates in a coarse regime with a maximum error of <code>5.0</code> seconds. These settings reflect the differing alignment scales of the two datasets.</p>
 <h3>Technical details</h3>
@@ -272,7 +296,7 @@
 <li>For each keypoint, refine by scoring a fine grid around the interpolated offset.</li>
 </ul>
 <p>In the provided configurations, <code>aru</code> uses a local smooth-search setting with keypoint subsampling and refinement, while <code>zebra_finch</code> uses a broader global affine search with larger offset steps and no final refinement. This difference mirrors the fine versus coarse alignment regimes of the two datasets.</p>
-<h2>Results of baseline systems on validation set</h2>
+<h2 id="results-of-baseline-systems-on-validation-set">Results of baseline systems on validation set</h2>
 <p>We report both MAE (ms) and MSE (sec<span class="math">\(^2\)</span>) on validation sets; lower is better and perfect alignment is achieved when both metrics equal <span class="math">\(0\)</span>.</p>
 <table class="table">
 <thead>
@@ -313,14 +337,14 @@
 </tbody>
 </table>
 <p>We conducted baseline experiments with <code>CUDA=13.0</code> on one H100 GPU. Results are expected to be broadly similar, but they may differ when using different versions of CUDA or different GPU hardware.</p>
-<h1>External Data Resources</h1>
+<h1 id="external-data-resources">External Data Resources</h1>
 <p><a name="external-resources"></a></p>
 <p>The use of external resources (data sets, pretrained models) is allowed under the following conditions:</p>
 <ul>
 <li>The external resource must be freely accessible to any other research group in the world. <strong>The resource must be public and freely available before April 1st 2026.</strong></li>
 <li>The list of external resources used in training must be clearly indicated in the technical report.</li>
 </ul>
-<h1>Task Rules</h1>
+<h1 id="task-rules">Task Rules</h1>
 <p><a name="task-rules"></a>
 There are general rules valid for all tasks; these, along with information on technical report and submission requirements, can be found <a href="rules">here</a>.</p>
 <p>Task-specific rules:</p>
@@ -328,12 +352,12 @@ There are general rules valid for all tasks; these, along with information on te
 <li>Participants may submit predictions for up to <strong>three systems</strong>.</li>
 <li>The models' predictions on both <code>aru</code> and <code>zebra_finch</code> test datasets must be included in the submission.</li>
 </ul>
-<h1>Tools</h1>
+<h1 id="tools">Tools</h1>
 <p><a name="tools"></a></p>
 <p>Baseline systems and official evaluation code can be found <a href="https://github.com/chymaera96/biodcase_2026_task1_public">here</a>. The <code>deeplearning</code> baseline requires weights for the BEATs feature extractor, which can be obtained <a href="https://1drv.ms/u/s!AqeByhGUtINrgcpj8ujXH1YUtxooEg?e=E9Ncea">here</a>.</p>
-<h1>Citation</h1>
+<h1 id="citation">Citation</h1>
 <p>If you use the data provided in a publication, please cite the DOI available <a href="https://zenodo.org/records/19348371">here</a>. If you use the code provided in a publication, please follow the citation format provided in the github repo.</p>
-<h1>Support</h1>
+<h1 id="support">Support</h1>
 <p>If you have questions, please use the BioDCASE Google Groups community forum or contact the task organizers at <code>abhattacharjee@qmul.ac.uk</code>.</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
@@ -419,6 +443,7 @@ There are general rules valid for all tasks; these, along with information on te
     hljs.initHighlightingOnLoad();
 </script>
 <script type="text/javascript" src="https://biodcase.github.io/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btoc.min.js"></script>
 <script type="text/javascript" src="https://biodcase.github.io/theme/js/theme.js"></script>
 </body>
 </html>
