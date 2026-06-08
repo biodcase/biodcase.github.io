@@ -214,11 +214,15 @@
 <p>Zoo aviaries offer a unique opportunity to advance this research frontier. Unlike wild populations where true abundance is unknown or estimated with considerable uncertainty, zoo records provide exact population counts that can serve as ground-truth labels. The controlled yet naturalistic aviary environment produces acoustic conditions representative of real-world monitoring scenarios: multiple species vocalizing simultaneously, environmental noise from visitors and infrastructure, and natural behavioral variation across time. This combination of ecological realism and ground-truth availability creates an ideal testbed for developing and validating abundance estimation methods that can subsequently transfer to wild population monitoring.</p>
 <h1 id="task-description">Task Description</h1>
 <p><a name="task_description"> </a>
-Given a collection of audio fragments from an aviary, participants must estimate the number of individuals of each target species present in that aviary. Three target species are designated for evaluation:</p>
+Given a collection of audio fragments from an aviary, participants must estimate the number of individuals of each target species present in that aviary. Three target species are designated for the main leaderboard:</p>
 <ul>
 <li><strong>Greater flamingo</strong> (<em>Phoenicopterus roseus</em>) — present in 4 aviaries with populations of 52, 52, 107, and 161 individuals</li>
 <li><strong>Red-billed quelea</strong> (<em>Quelea quelea</em>) — present in 2 aviaries with populations of 61 and 153 individuals</li>
 <li><strong>Hadada ibis</strong> (<em>Bostrychia hagedash</em>) — present in 2 aviaries with populations of 4 and 6 individuals</li>
+</ul>
+<p>Additionally, for BioDCASE 2026 we introduce an <strong>optional fourth target species</strong>:</p>
+<ul>
+<li><strong>Pied avocet</strong> (<em>Recurvirostra avosetta</em>) — present in 4 evaluation aviaries (not in the development set). Pied avocets produce distinctive, well-articulated calls that contrast with flock-calling species, making them an interesting test case for methods exploiting individual call structure. Pied avocet predictions are <strong>optional</strong>: they contribute to the secondary generalist leaderboard only and do not affect the main ranking.</li>
 </ul>
 <p>Participants receive 6 audio collections, each representing recordings from a distinct aviary with a different number of target-species individuals. Each collection contains 11,000–36,000 short audio fragments (3-second clips at 48 kHz) extracted from continuous recordings spanning 2–3 days. The fragments capture the temporal variation in vocal activity, including dawn choruses, midday lulls, and periods of silence.</p>
 <p>The aviaries contain 2–12 bird species that vocalize concurrently, requiring participants to either explicitly identify the target species or develop methods robust to multi-species acoustic mixtures. The target species were selected based on sufficient vocal activity and presence across multiple aviaries with varying population sizes.</p>
@@ -251,35 +255,65 @@ dev_aviary_6     3      35,121      Greater flamingo              52
 <p>The development dataset is available on Hugging Face:</p>
 <p><a href="https://huggingface.co/datasets/Emreargin/BioDCASE2026_Bird_Counting">BioDCASE 2026 Task 6 — Bird Counting Dataset</a></p>
 <h2 id="evaluation-set">Evaluation Set</h2>
-<p>To be released on 1 June 2026. Participants will receive audio collections from held-out aviaries without population labels. Systems must output a single integer estimate per (aviary, target species) pair.</p>
-<p>The evaluation aviaries will exhibit the same realistic acoustic complexity as the development set:</p>
-<ul>
-<li><strong> Overlapping vocalizations: </strong> Multiple individuals often call simultaneously</li>
-<li><strong> Variable call rates: </strong> Vocal activity fluctuates across hours and days</li>
-<li><strong> Environmental noise: </strong> Background sounds from aviary infrastructure and ambient sources</li>
-<li><strong> Multi-species mixtures: </strong> Non-target species vocalize concurrently</li>
-</ul>
+<p><strong>Released on 1 June 2026.</strong> The evaluation dataset is now live on Hugging Face under the same repository as the development set:</p>
+<p><a href="https://huggingface.co/datasets/Emreargin/BioDCASE2026_Bird_Counting">BioDCASE 2026 Task 6 — Bird Counting Dataset</a></p>
+<p>The evaluation set contains <strong>~380,000 audio files</strong> across <strong>10 held-out aviaries</strong> recorded at European zoos using the same passive acoustic monitoring setup as the development set. Each aviary was recorded for 5–10 days. All audio files are WAV, 16-bit PCM, sampled at 48 kHz, with a duration of approximately 3 seconds — identical format to the development set.</p>
+<div class="highlight"><pre><span></span><code>Aviary            Days   Audio files   Target species in this aviary
+---------------------------------------------------------------------
+eval_aviary_1      5       21,190      Red-billed quelea
+eval_aviary_2      5       15,268      Red-billed quelea
+eval_aviary_3      8       50,901      Pied avocet*
+eval_aviary_4      8       46,728      Greater flamingo
+eval_aviary_5     10       56,092      Pied avocet*
+eval_aviary_6      8       36,020      Hadada ibis
+eval_aviary_7      8       46,066      Hadada ibis
+eval_aviary_8      8       64,196      Greater flamingo
+eval_aviary_9      7       16,658      Pied avocet*
+eval_aviary_10     7       26,296      Pied avocet*
+</code></pre></div>
+<p>Table 5. Summary of evaluation set aviaries. *Pied avocet is an additional optional target species — see <a href="#pied-avocet">§ New optional target species</a> below.</p>
+<p>Each row tells participants the <strong>target species</strong> that needs an integer count for that aviary. Each aviary also contains additional non-target species; the per-aviary non-target composition is held private until the challenge concludes.</p>
+<h3>New optional target species: Pied avocet <a name="pied-avocet"></a></h3>
+<p>For BioDCASE 2026 we introduce <strong>Pied avocet</strong> (<em>Recurvirostra avosetta</em>) as an additional optional target species. Pied avocets produce distinctive, well-articulated calls that contrast sharply — making them an interesting test case for methods that exploit individual call structure for abundance estimation. Four evaluation aviaries contain Pied avocet populations of varying sizes.</p>
+<p>Pied avocet predictions are <strong>not part of the main leaderboard</strong> and will not affect main rankings. They will contribute to the <strong>secondary generalist leaderboard</strong> alongside non-target species predictions. Participants who only target the original three species (Greater flamingo, Red-billed quelea, Hadada ibis) are unaffected and can ignore Pied avocet entirely.</p>
+<h3>Species inventory</h3>
+<p>Some evaluation aviaries are continuations of development-set aviaries (recorded on different days). Publishing the full per-aviary species composition would therefore reveal which evaluation aviaries correspond to which development aviaries, compromising the held-out nature of the data. Instead, we publish a single combined species inventory listing every species that appears <em>somewhere</em> in the evaluation set, without specifying which aviary each species belongs to:</p>
+<p><a href="https://huggingface.co/datasets/Emreargin/BioDCASE2026_Bird_Counting/blob/main/metadata/eval_species_list.csv"><code>metadata/eval_species_list.csv</code></a> — <strong>67 species</strong> total: 3 main target species, 1 optional target species, and 63 non-target species.</p>
+<p>Participants are guaranteed that <strong>no other zoo species outside this list appears anywhere in the evaluation audio</strong>. The inventory is therefore the safe and tight superset to use when running pre-trained detectors with a species-filter list. The per-aviary <code>target_species</code> column in <code>eval_recording_info.csv</code> (and in the table above) tells participants which species needs to be counted for each aviary; the remaining per-aviary species composition stays private until challenge results are published.</p>
 <h3>Structure</h3>
-<p>Audio files are organized into aviary directories with chunk subdirectories for file management:</p>
+<p>Audio files are organized identically to the development set, with chunk subdirectories used purely for Hugging Face's per-directory file-count limits:</p>
 <div class="highlight"><pre><span></span><code>BioDCASE2026_Bird_Counting/
-├── dev_aviary_1/
+├── dev_aviary_1/              # ─── development set (unchanged) ───
+│   └── ...
+├── dev_aviary_6/
+│   └── ...
+├── eval_aviary_1/             # ─── evaluation set ───
 │   ├── chunk_000/
 │   │   ├── rec_d1_00_00_45.750000.wav
 │   │   ├── rec_d1_00_01_49.wav
 │   │   └── ...
 │   ├── chunk_001/
-│   │   └── ...
 │   └── ...
-├── dev_aviary_2/
+├── eval_aviary_2/
 │   └── ...
 ├── ...
-├── dev_aviary_6/
+├── eval_aviary_10/
 │   └── ...
 └── metadata/
-    ├── ground_truth.csv
-    └── recording_info.csv
+    ├── ground_truth.csv             # development set only
+    ├── recording_info.csv           # development set
+    ├── eval_recording_info.csv      # eval: aviary_id, n_days, n_files, n_chunks, target_species
+    └── eval_species_list.csv        # eval: 67-species combined inventory
 </code></pre></div>
-<p>Filenames follow the pattern <code>rec_{day}_{HH}_{MM}_{SS}[.ffffff].wav</code>, where <code>{day}</code> is an anonymized day identifier (d1, d2, d3) and the remainder encodes the time of day. The chunk subdirectories have no acoustic significance — they exist purely for file management, and all chunks within an aviary should be treated as a single collection.</p>
+<p>Filenames follow the same <code>rec_{day}_{HH}_{MM}_{SS}[.ffffff].wav</code> pattern as the development set. The day index <code>d1, d2, ...</code> is local to each aviary and unrelated to the development-set day numbering. Chunk subdirectories have no acoustic significance — all chunks within an <code>eval_aviary_N</code> directory should be treated as a single continuous collection.</p>
+<h3>Realistic acoustic complexity</h3>
+<p>The evaluation aviaries exhibit the same realistic acoustic complexity as the development set:</p>
+<ul>
+<li><strong> Overlapping vocalizations: </strong> Multiple individuals often call simultaneously</li>
+<li><strong> Variable call rates: </strong> Vocal activity fluctuates across hours and days</li>
+<li><strong> Environmental noise: </strong> Background sounds from aviary infrastructure and ambient sources</li>
+<li><strong> Multi-species mixtures: </strong> Non-target species vocalize concurrently in every aviary</li>
+</ul>
 <h2 id="baselines">Baselines</h2>
 <p>The baseline system implements a two-stage pipeline: species detection followed by detection-count regression. Full code is available in the <a href="https://github.com/ml4biodiversity/biodcase-population-estimation">baseline repository</a>. You can also see the flow of the pipeline in the repository.</p>
 <h3>Stage 1: Species Detection</h3>
@@ -369,21 +403,30 @@ Red-billed quelea    adaptive_band_contrast   dev_aviary_3      61       61     
 <li><strong>Mean Absolute Percentage Error (MAPE):</strong> scale-independent error expressed as a percentage of the true count, useful for comparing performance across species with different population scales.</li>
 </ul>
 <h3>Optional Secondary Leaderboard</h3>
-<p>Participants may optionally submit population estimates for non-target species present in each aviary (listed in <code>metadata/ground_truth.csv</code>). A secondary leaderboard will showcase generalist systems but will not contribute to the main ranking.</p>
+<p>Participants may optionally submit population estimates for two additional categories:</p>
+<ul>
+<li><strong>Pied avocet</strong> (<em>Recurvirostra avosetta</em>) — present in 4 evaluation aviaries. Distinctive, well-articulated calls; an interesting target for methods that exploit individual call structure.</li>
+<li><strong>Non-target species</strong> — any species listed in the development set's <code>ground_truth.csv</code> or the evaluation set's <code>eval_species_list.csv</code>.</li>
+</ul>
+<p>These predictions contribute to the secondary generalist leaderboard, which showcases systems capable of estimating multiple species simultaneously. They do <strong>not</strong> affect the main ranking.</p>
 <h2 id="submission">Submission</h2>
 <p>General BioDCASE instructions are available <a href="https://biodcase.github.io/challenge2025/submission">here</a>. This specifies submission naming conventions and the final report template.</p>
 <h3>Deliverables</h3>
 <p>Please submit a <code>.zip</code> file containing the following:</p>
-<p><strong>Predictions</strong> (<code>predictions_{lastname}.csv</code>): A CSV file with columns <code>aviary_id</code>, <code>species</code>, <code>predicted_count</code> containing one row per (aviary, target species) pair. Example:</p>
+<p><strong>Predictions</strong> (<code>predictions_{lastname}.csv</code>): A CSV file with columns <code>aviary_id</code>, <code>species</code>, <code>predicted_count</code> containing one row per (aviary, target species) pair from the <strong>evaluation set</strong>. Predictions for the eight main-target rows below are required. Predictions for Pied avocet aviaries and any non-target species are optional and contribute only to the secondary leaderboard. Main-target rows:</p>
 <div class="highlight"><pre><span></span><code>aviary_id,species,predicted_count
-dev_aviary_1,Red-billed quelea,153
-dev_aviary_2,Greater flamingo,107
-dev_aviary_2,Hadada ibis,6
-dev_aviary_3,Red-billed quelea,61
-dev_aviary_4,Greater flamingo,161
-dev_aviary_4,Hadada ibis,4
-dev_aviary_5,Greater flamingo,52
-dev_aviary_6,Greater flamingo,52
+eval_aviary_1,Red-billed quelea,100
+eval_aviary_2,Red-billed quelea,48
+eval_aviary_4,Greater flamingo,32
+eval_aviary_6,Hadada ibis,10
+eval_aviary_7,Hadada ibis,6
+eval_aviary_8,Greater flamingo,180
+</code></pre></div>
+<p>Optional rows:</p>
+<div class="highlight"><pre><span></span><code>eval_aviary_3,Pied avocet,7
+eval_aviary_5,Pied avocet,20
+eval_aviary_9,Pied avocet,34
+eval_aviary_10,Pied avocet,12
 </code></pre></div>
 <p><strong>Code</strong>: Source code for the submitted system, sufficient to reproduce the results.</p>
 <p><strong>Report</strong> (<code>.pdf</code>): Final report describing the method (see submissions page for <a href="https://biodcase.github.io/challenge2025/submission">details</a>).</p>
