@@ -1,0 +1,646 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Bird Counting - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Bird Counting - BioDCASE" />
+    <link href="https://biodcase.github.io/favicon.ico" rel="icon">
+    <link rel="canonical" href="https://biodcase.github.io/challenge2026/task6-results">
+    <meta property="og:url" content="https://dcase.community/challenge2026/task6-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/biodcase_preview.png" />
+    <meta name="author" content="BioDCASE" />
+    <meta name="description" content="Task description This task is part of the BioDCASE Challenge 2026 and focuses on estimating bird abundance from acoustic recordings collected in zoo aviaries. The goal is to develop robust methods for counting individuals of a target species in realistic, multi-species acoustic environments where ground-truth population sizes are known. The …" />
+    <meta name="og:description" content="Task description This task is part of the BioDCASE..." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/dcaseicons/css/dcaseicons.css?v=1.2" type="text/css"/>
+        <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btex.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.2" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/static/assets/bioicons/css/bioicons.css" type="text/css"/>
+    <script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="https://biodcase.github.io/" class="navbar-brand hidden-lg hidden-md hidden-sm" ></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="https://biodcase.github.io/"><img class="img img-responsive" src="https://biodcase.github.io//images/logos/biodcase/BioDCASE_header_20px.svg"/></a>
+    </li></ul><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2026" class="dropdown-toggle" data-toggle="dropdown">CHALLENGES&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026">Challenge 2026</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025">Challenge 2025</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="https://biodcase.github.io/workshop2025" class="dropdown-toggle" data-toggle="dropdown">WORKSHOP&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/workshop2026">Workshop 2026</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/workshop2025">Workshop 2025</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2026/submission" class="dropdown-toggle" data-toggle="dropdown">SUBMISSION&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026/submission">Submit</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026/rules">Rules</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Organising committee">
+        <a href="https://biodcase.github.io/organisers">ORGANISERS</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div></div>
+</nav>
+<style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .bold{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .subheading {
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+    </style><style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-weight: 400 !important;
+        }
+        header .page-heading .bold{
+            font-weight: 400  !important;
+        }
+    </style><header class="page-top " style="background-image: url(..//images/header/biodcase2026_task6.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-bottom:20px;">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-center"><h1 class="thin">Bird Counting</h1><hr class="small center thin">
+                        <span class="subheading subheading-secondary">Challenge results</span></div>
+            </div>
+        </div>
+    </div>
+<span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="BioDCASE 2026 Task 6"><i class="fa fa-creative-commons" aria-hidden="true"></i></span></header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#task-description">Task description</a></li>
+<li><a href="#awards">Awards</a></li>
+<li><a href="#submission-ranking">Submission ranking</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h1 id="task-description">Task description</h1>
+<p>This task is part of the BioDCASE Challenge 2026 and focuses on estimating bird abundance from acoustic recordings collected in zoo aviaries. The goal is to develop robust methods for counting individuals of a target species in realistic, multi-species acoustic environments where ground-truth population sizes are known. The main leaderboard ranks systems based solely on target-species abundance estimation performance.</p>
+<p><a class="btn btn-primary" href="https://biodcase.github.io/challenge2026/task6" style="">Task description page</a></p>
+<h1 id="awards">Awards</h1>
+<p>The official winning submission is determined by the official evaluation ranking. The Jury Award is selected by the task organisers based on the submitted systems and technical reports.</p>
+<h3>Official winning submission</h3>
+<div class="award-block award-block-winning">
+<div class="award-block-authors"><strong>Yang, Jing and Li, Siyi and Zheng, Zihan and Zhang, Heng and Ni, Youran and Wang, Yuzhu and Huang, Gongping</strong></div>
+<div class="award-block-institution">Wuhan University; Beijing Jiaotong University; Tampere University</div>
+<div class="award-block-system">A Two-Stage CRNN Regression Framework for Bird Counting</div>
+</div>
+<h3>Jury award</h3>
+<div class="award-block award-block-jury">
+<div class="award-block-authors"><strong>Leon Rojas, Yuneva E. and Frery, Alejandro C. and Colonna, Juan G.</strong></div>
+<div class="award-block-institution">Universidade Federal do Amazonas; Victoria University of Wellington</div>
+<div class="award-block-system">Acoustic Bird Abundance Estimation Using Morphological Features of the Spectrogram</div>
+<div class="award-block-comment">Awarded for the band-filtered stochastic ratio, an original and detector-independent morphological feature that directly measures flamingo acoustic saturation (r = 0.9978), delivered as a fully open-source, reproducible pipeline that also placed 2nd.</div>
+</div>
+<h1 id="submission-ranking">Submission ranking</h1>
+<p>The official submission ranking is based on the average MAE across each of the test sets. Individual performance on each test set is reported below. </p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-id-field="submission_name" data-pagination="true" data-row-highlighting="true" data-scatter-x="rank_team" data-scatter-y="ba_unseen" data-show-chart="true" data-show-pagination-switch="true" data-sort-name="rank_team" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-axis-label="Team rank" data-chartable="true" data-field="rank_team" data-sortable="true" data-value-type="int">Team<br/>rank</th>
+<th data-field="anchor" data-sortable="true">Submission</th>
+<th class="sm-cell" data-field="name" data-sortable="true">System name</th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">Technical<br/>report</th>
+<th class="text-center" data-axis-label="System rank" data-chartable="true" data-field="rank_score" data-sortable="true" data-value-type="float2">Rank<br/>Score</th>
+<th class="text-center" data-axis-label="System rank" data-chartable="true" data-field="mae_flamingo_test" data-sortable="true" data-value-type="float2">MAE Flamingo (test)</th>
+<th class="text-center" data-axis-label="System rank" data-chartable="true" data-field="mae_quelea_test" data-sortable="true" data-value-type="float2">MAE Quelea (test)</th>
+<th class="text-center" data-axis-label="System rank" data-chartable="true" data-field="mae_ibis_test" data-sortable="true" data-value-type="float2">MAE Ibis (test)</th>
+<th class="text-center" data-axis-label="System rank" data-chartable="true" data-field="rmse_test" data-sortable="true" data-value-type="float2">RMSE (test)</th>
+<th class="text-center" data-axis-label="System rank" data-chartable="true" data-field="r2_test" data-sortable="true" data-value-type="float2">R<sup>2</sup> (test)</th>
+<th class="text-center" data-axis-label="System rank" data-chartable="true" data-field="mape_test" data-sortable="true" data-value-type="float2">MAPE (test)</th>
+<th class="text-center" data-axis-label="System rank" data-chartable="true" data-field="dev_mae_avg" data-sortable="true" data-value-type="float2">Average MAE (dev)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Yang_WHU_task6_1</td>
+<td>Two-Stage CRNN Regression Framework</td>
+<td>yangCRNN2026</td>
+<td>9.17</td>
+<td>20.00</td>
+<td>4.50</td>
+<td>3.00</td>
+<td>13.04</td>
+<td>0.97</td>
+<td>71.68</td>
+<td>0.75</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Leon_UFAM_task6_3</td>
+<td>ARIA fCWR x Stochastic Band Ratio (linear)</td>
+<td>leonMorphology2026</td>
+<td>13.33</td>
+<td>23.50</td>
+<td>6.00</td>
+<td>10.50</td>
+<td>18.02</td>
+<td>0.94</td>
+<td>103.98</td>
+<td>2.25</td>
+</tr>
+<tr>
+<td>3</td>
+<td>You_PKU_task6_2</td>
+<td>Low-Parameter Detector Ensemble (stacked flamingo)</td>
+<td>youDetector2026</td>
+<td>22.67</td>
+<td>61.50</td>
+<td>3.50</td>
+<td>3.00</td>
+<td>48.69</td>
+<td>0.59</td>
+<td>207.23</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>4</td>
+<td>official_aria_baseline</td>
+<td>Official ARIA Baseline (flock_corrected_cwr)</td>
+<td>arginBaseline2026</td>
+<td>24.50</td>
+<td>69.00</td>
+<td>1.50</td>
+<td>3.00</td>
+<td>51.35</td>
+<td>0.55</td>
+<td>56.20</td>
+<td>11.50</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Zhong_NJU_task6_1</td>
+<td>Validation-Gated Sampling-Based ARIA Counting</td>
+<td>zhongARIA2026</td>
+<td>46.67</td>
+<td>83.00</td>
+<td>40.50</td>
+<td>16.50</td>
+<td>58.99</td>
+<td>0.40</td>
+<td>234.95</td>
+<td>11.50</td>
+</tr>
+</tbody>
+</table>
+<!-- anchor: Yang_WHU_task6_1
+  bibtex_key: yangCRNN2026
+  external_anchor: task6/#yangCRNN2026
+  code: CRNN-Count
+  name: Two-Stage CRNN Regression Framework
+  title: A Two-Stage CRNN Regression Framework for Bird Counting
+  github: !!null   # code + weights included in submission package; no public repo
+
+  rank_team: 1
+  rank_score: 9.167
+
+  mae_avg_test: 9.167
+  mae_flamingo_test: 20.000
+  mae_quelea_test: 4.500
+  mae_ibis_test: 3.000
+
+  rmse_test: 13.045
+  r2_test: 0.9706
+  mape_test: 71.68
+
+  dev_mae_avg: 0.75
+
+  corresponding_author: Jing Yang
+  corresponding_affiliation: Wuhan University -->
+<h1 id="technical-reports">Technical reports</h1>
+<div class="btex" data-source="content/data/challenge2026/technical_reports_task6.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="leonMorphology2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-leonMorphology2026" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Acoustic Bird Abundance Estimation Using Morphological Features of the Spectrogram
+      </h4>
+<p style="text-align:left">
+       Leon Rojas, Yuneva E. and Frery, Alejandro C. and Colonna, Juan G.
+      </p>
+<p style="text-align:left">
+<em>
+        Universidade Federal do Amazonas; Victoria University of Wellington
+       </em>
+</p>
+<p style="text-align:left">
+       Source code: https://github.com/Yunevda/biodcase2026-population-estimation
+      </p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-leonMorphology2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-leonMorphology2026" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-leonMorphology2026" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Leon_UFAM_task6_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-leonMorphology2026" class="panel-collapse collapse" id="collapse-leonMorphology2026" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Acoustic Bird Abundance Estimation Using Morphological Features of the Spectrogram
+     </h4>
+<p style="text-align:left">
+<small>
+       Leon Rojas, Yuneva E. and Frery, Alejandro C. and Colonna, Juan G.
+      </small>
+<br/>
+<small>
+<em>
+        Universidade Federal do Amazonas; Victoria University of Wellington
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        flock-corrected CWR; band-filtered stochastic ratio (mathematical morphology)
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        least-squares linear regression on fCWR x stochastic band ratio
+       </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="yangCRNN2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-yangCRNN2026" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       A Two-Stage CRNN Regression Framework for Bird Counting
+      </h4>
+<p style="text-align:left">
+       Yang, Jing and Li, Siyi and Zheng, Zihan and Zhang, Heng and Ni, Youran and Wang, Yuzhu and Huang, Gongping
+      </p>
+<p style="text-align:left">
+<em>
+        Wuhan University; Beijing Jiaotong University; Tampere University
+       </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-yangCRNN2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-yangCRNN2026" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-yangCRNN2026" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Yang_task6_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-yangCRNN2026" class="panel-collapse collapse" id="collapse-yangCRNN2026" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      A Two-Stage CRNN Regression Framework for Bird Counting
+     </h4>
+<p style="text-align:left">
+<small>
+       Yang, Jing and Li, Siyi and Zheng, Zihan and Zhang, Heng and Ni, Youran and Wang, Yuzhu and Huang, Gongping
+      </small>
+<br/>
+<small>
+<em>
+        Wuhan University; Beijing Jiaotong University; Tampere University
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        log-mel spectrogram (128-band)
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Training or augmentation
+       </td>
+<td>
+        SpecAugment; synthetic data mixing
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        fragment-level CRNN regression + aviary-level linear aggregation
+       </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="youDetector2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-youDetector2026" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Low-Parameter Detector Ensembles for Bird Counting
+      </h4>
+<p style="text-align:left">
+       You, Yuhuan
+      </p>
+<p style="text-align:left">
+<em>
+        Peking University
+       </em>
+</p>
+<p style="text-align:left">
+       No source code submitted.
+      </p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-youDetector2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-youDetector2026" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-youDetector2026" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/You_PKU_task6_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-youDetector2026" class="panel-collapse collapse" id="collapse-youDetector2026" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Low-Parameter Detector Ensembles for Bird Counting
+     </h4>
+<p style="text-align:left">
+<small>
+       You, Yuhuan
+      </small>
+<br/>
+<small>
+<em>
+        Peking University
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        detection rate; confidence-weighted rate; bout statistics; MAAD acoustic indices
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Embeddings
+       </td>
+<td>
+        BirdNET; ARIA
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        species-specific low-parameter regression
+       </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="zhongARIA2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-zhongARIA2026" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Validation-Gated Sampling-Based ARIA Counting System
+      </h4>
+<p style="text-align:left">
+       Zhong, Chongyang
+      </p>
+<p style="text-align:left">
+<em>
+        Nanjing University
+       </em>
+</p>
+<p style="text-align:left">
+       Code included in submission package.
+      </p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-zhongARIA2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-zhongARIA2026" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-zhongARIA2026" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Zhong_NJU_task6_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-zhongARIA2026" class="panel-collapse collapse" id="collapse-zhongARIA2026" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Validation-Gated Sampling-Based ARIA Counting System
+     </h4>
+<p style="text-align:left">
+<small>
+       Zhong, Chongyang
+      </small>
+<br/>
+<small>
+<em>
+        Nanjing University
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        confidence-weighted detection rate
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        stratified sampling + linear calibration + species-wise validation gating
+       </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,1133 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Active Learning for Bioacoustics - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Active Learning for Bioacoustics - BioDCASE" />
+    <link href="https://biodcase.github.io/favicon.ico" rel="icon">
+    <link rel="canonical" href="https://biodcase.github.io/challenge2026/task4-results">
+    <meta property="og:url" content="https://dcase.community/challenge2026/task4-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/biodcase_preview.png" />
+    <meta name="author" content="BioDCASE" />
+    <meta name="description" content="Task description Task 4 challenges participants to develop an active learning sampling strategy for bioacoustic classification. Participants implement a sampling function within the BaseAL framework, which iteratively selects batches of samples, reveals their labels via oracle labelling, and retrains a classification head on the growing labelled set. Submissions are evaluated …" />
+    <meta name="og:description" content="Task description Task 4 challenges participants to develop..." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/dcaseicons/css/dcaseicons.css?v=1.2" type="text/css"/>
+        <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btex.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.2" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/static/assets/bioicons/css/bioicons.css" type="text/css"/>
+    <script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="https://biodcase.github.io/" class="navbar-brand hidden-lg hidden-md hidden-sm" ></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="https://biodcase.github.io/"><img class="img img-responsive" src="https://biodcase.github.io//images/logos/biodcase/BioDCASE_header_20px.svg"/></a>
+    </li></ul><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2026" class="dropdown-toggle" data-toggle="dropdown">CHALLENGES&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026">Challenge 2026</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025">Challenge 2025</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="https://biodcase.github.io/workshop2025" class="dropdown-toggle" data-toggle="dropdown">WORKSHOP&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/workshop2026">Workshop 2026</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/workshop2025">Workshop 2025</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2026/submission" class="dropdown-toggle" data-toggle="dropdown">SUBMISSION&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026/submission">Submit</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026/rules">Rules</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Organising committee">
+        <a href="https://biodcase.github.io/organisers">ORGANISERS</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div></div>
+</nav>
+<style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .bold{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .subheading {
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+    </style><style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-weight: 400 !important;
+        }
+        header .page-heading .bold{
+            font-weight: 400  !important;
+        }
+    </style><header class="page-top " style="background-image: url(..//images/header/biodcase2026_task4.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-bottom:20px;">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-center"><h1 class="thin">Active Learning for Bioacoustics</h1><hr class="small center thin">
+                        <span class="subheading subheading-secondary">Challenge results</span></div>
+            </div>
+        </div>
+    </div>
+<span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="BioDCASE 2026 Task 4"><i class="fa fa-creative-commons" aria-hidden="true"></i></span></header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#task-description">Task description</a></li>
+<li><a href="#awards">Awards</a></li>
+<li><a href="#submission-ranking">Submission ranking</a></li>
+<li><a href="#subsets">Subsets</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h1 id="task-description">Task description</h1>
+<p>Task 4 challenges participants to develop an active learning sampling strategy for bioacoustic classification. Participants implement a sampling function within the BaseAL framework, which iteratively selects batches of samples, reveals their labels via oracle labelling, and retrains a classification head on the growing labelled set. Submissions are evaluated using the Area Under the Learning Curve (AULC) of mean average precision (mAP), aggregated across both a terrestrial dataset (BirdSet) and a marine dataset (ATBFL), requiring methods to generalise across domains.</p>
+<p><a class="btn btn-primary" href="https://biodcase.github.io/challenge2026/task4" style="">Task description page</a></p>
+<h1 id="awards">Awards</h1>
+<p>The official winning submission is determined by the official evaluation ranking. The Jury Award is selected by the task organisers based on the submitted systems and technical reports.</p>
+<h3>Official winning submission</h3>
+<div class="award-block award-block-winning">
+<div class="award-block-authors"><strong>Gabriel Dubus, Hugo Magaldi and Anatole Gros-Martial</strong></div>
+<div class="award-block-institution">Eco-Anthropologie, Mus\'eum National d'Histoire Naturelle, UMR7206, CNRS, Paris, France; Centre d'Etudes Biologiques de Chiz\'e, UMR 7372, CNRS, La Rochelle Universit\'e, France</div>
+<div class="award-block-system">Adaptive Diversity-Uncertainty Active Learning with Redundancy Control for Bioacoustic Event Classification</div>
+</div>
+<h3>Jury award</h3>
+<div class="award-block award-block-jury">
+<div class="award-block-authors"><strong></strong></div>
+<div class="award-block-institution"></div>
+<div class="award-block-system"></div>
+<div class="award-block-comment"></div>
+</div>
+<h1 id="submission-ranking">Submission ranking</h1>
+<p>Submissions are ranked on the averaged AULC (mAP) across each of the data subsets. Supplementary metrics for computational and annotation efficiency are reported as well, but not used for ranking.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="submission_name" data-pagination="true" data-row-highlighting="true" data-scatter-x="rank_team" data-scatter-y="rank_score" data-show-chart="true" data-show-pagination-switch="true" data-sort-name="rank_team" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-axis-label="Team rank" data-chartable="true" data-field="rank_team" data-sortable="true" data-value-type="int">Team<br/>rank</th>
+<th data-field="corresponding_author" data-sortable="true">Corresponding Author</th>
+<th class="sm-cell" data-field="name" data-sortable="true">System name</th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">Technical<br/>report</th>
+<th .="" class="text-center" data-axis-label="System rank" data-chartable="true" data-field="rank_score" data-sortable="true" data-value-type="float2">Rank<br/>Score</th>
+<th class="text-center" data-axis-label="System rank" data-chartable="true" data-field="computational_cost_relative" data-sortable="true" data-value-type="float2">Computational Cost (Relative)</th>
+<th class="text-center" data-axis-label="System rank" data-chartable="true" data-field="sampling_time_s" data-sortable="true" data-value-type="float2">Sampling Time (s)</th>
+<th class="text-center" data-axis-label="Annotation Cost" data-chartable="true" data-field="annotation_cost" data-sortable="true" data-value-type="float2">Annotation Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Gabriel Dubus</td>
+<td>ADU-MMR</td>
+<td>dubusAdaptive2026</td>
+<td>0.51</td>
+<td>2.00</td>
+<td>1.01</td>
+<td>1026.70</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Hugo Magaldi</td>
+<td>CARE-DPP</td>
+<td>magaldiCARE2026</td>
+<td>0.50</td>
+<td>1.10</td>
+<td>0.22</td>
+<td>1124.55</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Haoyu Wang</td>
+<td>PB-MFS</td>
+<td>wangPBMFS2026</td>
+<td>0.50</td>
+<td>1.60</td>
+<td>0.49</td>
+<td>1109.90</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Wayne Yang</td>
+<td>Safe Rarity</td>
+<td>yangSafeRarity2026</td>
+<td>0.49</td>
+<td>1.00</td>
+<td>0.38</td>
+<td>1116.00</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Md Ragib Amin Nihal</td>
+<td>Capped Rarity K-Center</td>
+<td>nihalRarity2026</td>
+<td>0.48</td>
+<td>0.90</td>
+<td>0.13</td>
+<td>1134.45</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Jaqueline Garcia-Yi</td>
+<td>AFL</td>
+<td>garciaYiAFL2026</td>
+<td>0.48</td>
+<td>1.60</td>
+<td>1.33</td>
+<td>1031.80</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Clea Parcerisas</td>
+<td>Coreset KMeans</td>
+<td>parcerisasQuantiles2026</td>
+<td>0.47</td>
+<td>1.00</td>
+<td>4.09</td>
+<td>1012.25</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Baseline</td>
+<td>Coreset (Baseline)</td>
+<td>biodcase2026T4</td>
+<td>0.46</td>
+<td>1.00</td>
+<td>5.84</td>
+<td>1023.60</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Clea Parcerisas</td>
+<td>Coreset Eigenvalues</td>
+<td>parcerisasQuantiles2026</td>
+<td>0.43</td>
+<td>0.80</td>
+<td>7.80</td>
+<td>1010.60</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Baseline</td>
+<td>TypiClust (Baseline)</td>
+<td>biodcase2026T4</td>
+<td>0.42</td>
+<td>1.00</td>
+<td>5.08</td>
+<td>958.95</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Baseline</td>
+<td>Margin Multilabel (Baseline)</td>
+<td>biodcase2026T4</td>
+<td>0.41</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>1263.65</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Baseline</td>
+<td>Random (Baseline)</td>
+<td>biodcase2026T4</td>
+<td>0.40</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>966.05</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Clea Parcerisas</td>
+<td>All Quantiles KMeans</td>
+<td>parcerisasQuantiles2026</td>
+<td>0.40</td>
+<td>1.00</td>
+<td>0.33</td>
+<td>992.05</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Clea Parcerisas</td>
+<td>Balance Class by Clusters (Eigenvalues)</td>
+<td>parcerisasQuantiles2026</td>
+<td>0.39</td>
+<td>0.80</td>
+<td>0.11</td>
+<td>1039.00</td>
+</tr>
+</tbody>
+</table>
+<h1 id="subsets">Subsets</h1>
+<p>Team ranking across the four data subsets: ATBFL, HSN, POW, UHH. Showing the AULC (mAP).</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="submission_name" data-pagination="true" data-row-highlighting="true" data-scatter-x="rank_team" data-scatter-y="rank_score" data-show-chart="false" data-show-pagination-switch="true" data-sort-name="rank_team" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-axis-label="Team rank" data-chartable="true" data-field="rank_team" data-sortable="true" data-value-type="int">Team<br/>rank</th>
+<th data-field="corresponding_author" data-sortable="true">Corresponding Author</th>
+<th class="sm-cell" data-field="name" data-sortable="true">System name</th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">Technical<br/>report</th>
+<th .="" class="text-center" data-axis-label="System rank" data-chartable="true" data-field="rank_score" data-sortable="true" data-value-type="float2">Rank<br/>Score</th>
+<th class="text-center" data-axis-label="System rank" data-chartable="true" data-field="aulc_map_atbfl" data-sortable="true" data-value-type="float2">ATBFL</th>
+<th class="text-center" data-axis-label="System rank" data-chartable="true" data-field="aulc_map_hsn" data-sortable="true" data-value-type="float2">HSN</th>
+<th class="text-center" data-axis-label="Annotation Cost" data-chartable="true" data-field="aulc_map_pow" data-sortable="true" data-value-type="float2">POW</th>
+<th class="text-center" data-axis-label="Annotation Cost" data-chartable="true" data-field="aulc_map_uhh" data-sortable="true" data-value-type="float2">UHH</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Gabriel Dubus</td>
+<td>ADU-MMR</td>
+<td>dubusAdaptive2026</td>
+<td>0.51</td>
+<td>0.50</td>
+<td>0.62</td>
+<td>0.48</td>
+<td>0.42</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Hugo Magaldi</td>
+<td>CARE-DPP</td>
+<td>magaldiCARE2026</td>
+<td>0.50</td>
+<td>0.50</td>
+<td>0.60</td>
+<td>0.49</td>
+<td>0.43</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Haoyu Wang</td>
+<td>PB-MFS</td>
+<td>wangPBMFS2026</td>
+<td>0.50</td>
+<td>0.49</td>
+<td>0.60</td>
+<td>0.48</td>
+<td>0.42</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Wayne Yang</td>
+<td>Safe Rarity</td>
+<td>yangSafeRarity2026</td>
+<td>0.49</td>
+<td>0.49</td>
+<td>0.59</td>
+<td>0.47</td>
+<td>0.41</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Md Ragib Amin Nihal</td>
+<td>Capped Rarity K-Center</td>
+<td>nihalRarity2026</td>
+<td>0.48</td>
+<td>0.49</td>
+<td>0.57</td>
+<td>0.47</td>
+<td>0.39</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Jaqueline Garcia-Yi</td>
+<td>AFL</td>
+<td>garciaYiAFL2026</td>
+<td>0.48</td>
+<td>0.48</td>
+<td>0.55</td>
+<td>0.46</td>
+<td>0.41</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Clea Parcerisas</td>
+<td>Coreset KMeans</td>
+<td>parcerisasQuantiles2026</td>
+<td>0.47</td>
+<td>0.50</td>
+<td>0.55</td>
+<td>0.44</td>
+<td>0.39</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Baseline</td>
+<td>Coreset (Baseline)</td>
+<td>biodcase2026T4</td>
+<td>0.46</td>
+<td>0.48</td>
+<td>0.53</td>
+<td>0.45</td>
+<td>0.39</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Clea Parcerisas</td>
+<td>Coreset Eigenvalues</td>
+<td>parcerisasQuantiles2026</td>
+<td>0.43</td>
+<td>0.46</td>
+<td>0.48</td>
+<td>0.43</td>
+<td>0.36</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Baseline</td>
+<td>TypiClust (Baseline)</td>
+<td>biodcase2026T4</td>
+<td>0.42</td>
+<td>0.48</td>
+<td>0.43</td>
+<td>0.42</td>
+<td>0.36</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Baseline</td>
+<td>Margin Multilabel (Baseline)</td>
+<td>biodcase2026T4</td>
+<td>0.41</td>
+<td>0.46</td>
+<td>0.44</td>
+<td>0.42</td>
+<td>0.32</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Baseline</td>
+<td>Random (Baseline)</td>
+<td>biodcase2026T4</td>
+<td>0.40</td>
+<td>0.47</td>
+<td>0.37</td>
+<td>0.43</td>
+<td>0.33</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Clea Parcerisas</td>
+<td>All Quantiles KMeans</td>
+<td>parcerisasQuantiles2026</td>
+<td>0.40</td>
+<td>0.46</td>
+<td>0.40</td>
+<td>0.39</td>
+<td>0.33</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Clea Parcerisas</td>
+<td>Balance Class by Clusters (Eigenvalues)</td>
+<td>parcerisasQuantiles2026</td>
+<td>0.39</td>
+<td>0.45</td>
+<td>0.39</td>
+<td>0.41</td>
+<td>0.33</td>
+</tr>
+</tbody>
+</table>
+<h1 id="technical-reports">Technical reports</h1>
+<div class="btex" data-source="content/data/challenge2026/technical_reports_task4.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="dubusAdaptive2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-dubusAdaptive2026" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Adaptive Diversity-Uncertainty Active Learning with Redundancy Control for Bioacoustic Event Classification
+      </h4>
+<p style="text-align:left">
+       Dubus, Gabriel and Magaldi, Hugo and Gros-Martial, Anatole
+      </p>
+<p style="text-align:left">
+<em>
+        Eco-Anthropologie, Mus\'eum National d'Histoire Naturelle, UMR7206, CNRS, Paris, France; Centre d'Etudes Biologiques de Chiz\'e, UMR 7372, CNRS, La Rochelle Universit\'e, France
+       </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-dubusAdaptive2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-dubusAdaptive2026" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-dubusAdaptive2026" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../core/baselines/evaluation/submissions/Gabriel Dubus/REPORT_Dubus_MNHN_task4_1.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-dubusAdaptive2026" class="panel-collapse collapse" id="collapse-dubusAdaptive2026" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Adaptive Diversity-Uncertainty Active Learning with Redundancy Control for Bioacoustic Event Classification
+     </h4>
+<p style="text-align:left">
+<small>
+       Dubus, Gabriel and Magaldi, Hugo and Gros-Martial, Anatole
+      </small>
+<br/>
+<small>
+<em>
+        Eco-Anthropologie, Mus\'eum National d'Histoire Naturelle, UMR7206, CNRS, Paris, France; Centre d'Etudes Biologiques de Chiz\'e, UMR 7372, CNRS, La Rochelle Universit\'e, France
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Embeddings
+       </td>
+<td>
+        PerchV2
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        global-confidence adaptive uncertainty-diversity weighting + greedy Maximum Marginal Relevance batch selection
+       </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="garciaYiAFL2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-garciaYiAFL2026" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Adaptive Frontloaded Learning
+      </h4>
+<p style="text-align:left">
+       Garcia-Yi, Jaqueline
+      </p>
+<p style="text-align:left">
+<em>
+        Ecosonus
+       </em>
+</p>
+<p style="text-align:left">
+       No standalone technical report submitted; method documented in the submitted Jupyter notebook (AFL_active_learning_final.ipynb).
+      </p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-garciaYiAFL2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-garciaYiAFL2026" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-garciaYiAFL2026" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../core/baselines/evaluation/submissions/Jaqueline Garcia-Yi/AFL_active_learning_final.ipynb" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-garciaYiAFL2026" class="panel-collapse collapse" id="collapse-garciaYiAFL2026" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Adaptive Frontloaded Learning
+     </h4>
+<p style="text-align:left">
+<small>
+       Garcia-Yi, Jaqueline
+      </small>
+<br/>
+<small>
+<em>
+        Ecosonus
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        swarm-optimised (PSO-style) diversity/coverage/density warm start
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Embeddings
+       </td>
+<td>
+        PerchV2
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        swarm-based warm start + margin-based sampling with a front-loaded, budget-aware acquisition schedule
+       </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="magaldiCARE2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-magaldiCARE2026" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Determinantal Point Process Sampling for Bioacoustic Active Learning
+      </h4>
+<p style="text-align:left">
+       Magaldi, Hugo and Dubus, Gabriel
+      </p>
+<p style="text-align:left">
+<em>
+        Eco-Anthropologie, Mus\'eum National d'Histoire Naturelle, UMR7206, CNRS, Paris, France
+       </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-magaldiCARE2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-magaldiCARE2026" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-magaldiCARE2026" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../core/baselines/evaluation/submissions/Hugo Magaldi/Technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-magaldiCARE2026" class="panel-collapse collapse" id="collapse-magaldiCARE2026" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Determinantal Point Process Sampling for Bioacoustic Active Learning
+     </h4>
+<p style="text-align:left">
+<small>
+       Magaldi, Hugo and Dubus, Gabriel
+      </small>
+<br/>
+<small>
+<em>
+        Eco-Anthropologie, Mus\'eum National d'Histoire Naturelle, UMR7206, CNRS, Paris, France
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Embeddings
+       </td>
+<td>
+        Perch v2
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        annealed uncertainty-novelty weighting + DPP-based batch diversification with candidate-pool exploration and adaptive acquisition batch sizing
+       </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="nihalRarity2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-nihalRarity2026" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       A Density-Gated Coverage Sampler for Cross-Domain Active Learning in Bioacoustics
+      </h4>
+<p style="text-align:left">
+       Nihal, Ragib Amin and Yen, Benjamin and Ashizawa, Takeshi and Nakadai, Kazuhiro
+      </p>
+<p style="text-align:left">
+<em>
+        Institute of Science Tokyo, Department of Systems and Control Engineering, Tokyo, Japan
+       </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-nihalRarity2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-nihalRarity2026" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-nihalRarity2026" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../core/baselines/evaluation/submissions/Md Ragib Amin Nihal/BioDCASE_task4_technicalreport_abstract.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-nihalRarity2026" class="panel-collapse collapse" id="collapse-nihalRarity2026" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      A Density-Gated Coverage Sampler for Cross-Domain Active Learning in Bioacoustics
+     </h4>
+<p style="text-align:left">
+<small>
+       Nihal, Ragib Amin and Yen, Benjamin and Ashizawa, Takeshi and Nakadai, Kazuhiro
+      </small>
+<br/>
+<small>
+<em>
+        Institute of Science Tokyo, Department of Systems and Control Engineering, Tokyo, Japan
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        capped class-deficit rarity; budget-ramped mean-margin uncertainty (kNN label surrogate); metadata-only location stratification
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Embeddings
+       </td>
+<td>
+        Perch v2 (cached PCA-128 projection)
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        density-gated greedy k-center (farthest-first) coverage, gated by average labels-per-sample
+       </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="parcerisasQuantiles2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-parcerisasQuantiles2026" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Are Whales Too Big to Fly?
+      </h4>
+<p style="text-align:left">
+       Bordoux, Valentin and Cuyx, Bram and Parcerisas, Clea and Schall, Elena
+      </p>
+<p style="text-align:left">
+<em>
+        Wageningen University \&amp; Research (WUR); Flanders Marine Institute (VLIZ); Alfred Wegener Institute (AWI)
+       </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-parcerisasQuantiles2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-parcerisasQuantiles2026" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-parcerisasQuantiles2026" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../core/baselines/evaluation/submissions/Clea Parcerisas/biodcase_active_learning_AWI-WUR-VLIZ.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-parcerisasQuantiles2026" class="panel-collapse collapse" id="collapse-parcerisasQuantiles2026" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Are Whales Too Big to Fly?
+     </h4>
+<p style="text-align:left">
+<small>
+       Bordoux, Valentin and Cuyx, Bram and Parcerisas, Clea and Schall, Elena
+      </small>
+<br/>
+<small>
+<em>
+        Wageningen University \&amp; Research (WUR); Flanders Marine Institute (VLIZ); Alfred Wegener Institute (AWI)
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        quantile-based class-confidence sampling; class-balancing by cluster/confidence; coreset (k-means / eigenvalue warm-up variants)
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Embeddings
+       </td>
+<td>
+        Perch 2.0
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        feature-space coverage / diversity sampling (best: scikit-learn coreset with k-means or eigenvector-based warm-up)
+       </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="wangPBMFS2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-wangPBMFS2026" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       PB-MFS: Multi-Funnel Selection with Pareto-Balanced Uncertainty and Diversity for Bioacoustic Active Learning
+      </h4>
+<p style="text-align:left">
+       Wang, Haoyu and Dou, Han and Chen, Hui and Du, Yushan and Tu, Liushi and Pan, Ningning and Zhang, Hao and Wu, Jingyao and Li, Gang and Huang, Gongping
+      </p>
+<p style="text-align:left">
+<em>
+        Southwestern University of Finance and Economics, China; MiLM Plus, Xiaomi Inc.; IASP Lab, Wuhan University, China; Massachusetts Institute of Technology, USA
+       </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-wangPBMFS2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-wangPBMFS2026" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-wangPBMFS2026" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../core/baselines/evaluation/submissions/Haoyu Wang/Huang_task4.technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-wangPBMFS2026" class="panel-collapse collapse" id="collapse-wangPBMFS2026" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      PB-MFS: Multi-Funnel Selection with Pareto-Balanced Uncertainty and Diversity for Bioacoustic Active Learning
+     </h4>
+<p style="text-align:left">
+<small>
+       Wang, Haoyu and Dou, Han and Chen, Hui and Du, Yushan and Tu, Liushi and Pan, Ningning and Zhang, Hao and Wu, Jingyao and Li, Gang and Huang, Gongping
+      </small>
+<br/>
+<small>
+<em>
+        Southwestern University of Finance and Economics, China; MiLM Plus, Xiaomi Inc.; IASP Lab, Wuhan University, China; Massachusetts Institute of Technology, USA
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        multi-funnel candidate filtering (CF, MM, LCB, NC, LCI criteria); PCA-based farthest-first cold start
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Embeddings
+       </td>
+<td>
+        perch_v2
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        Pareto-balanced uncertainty-diversity greedy batch selection over multi-funnel survivor set
+       </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="yangSafeRarity2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-yangSafeRarity2026" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Safe Rarity-Aware k-Center Active Learning for Bioacoustic Classification
+      </h4>
+<p style="text-align:left">
+       Yang, Xiangwen (Wayne)
+      </p>
+<p style="text-align:left">
+<em>
+        Monash University, Melbourne, Australia
+       </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-yangSafeRarity2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-yangSafeRarity2026" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-yangSafeRarity2026" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../core/baselines/evaluation/submissions/Wayne Yang/Yang_MonashUni_task4_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-yangSafeRarity2026" class="panel-collapse collapse" id="collapse-yangSafeRarity2026" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Safe Rarity-Aware k-Center Active Learning for Bioacoustic Classification
+     </h4>
+<p style="text-align:left">
+<small>
+       Yang, Xiangwen (Wayne)
+      </small>
+<br/>
+<small>
+<em>
+        Monash University, Melbourne, Australia
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        top-k binary entropy uncertainty; k-center diversity; predicted-prevalence rarity
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Embeddings
+       </td>
+<td>
+        Perch v2
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        adaptive gamma-gated uncertainty-diversity-rarity score mixing + greedy score-plus-diversity candidate pool selection
+       </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/theme.js"></script>
+</body>
+</html>

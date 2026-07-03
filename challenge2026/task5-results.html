@@ -1,0 +1,3192 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Cross-Domain Mosquito Species Classification - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Cross-Domain Mosquito Species Classification - BioDCASE" />
+    <link href="https://biodcase.github.io/favicon.ico" rel="icon">
+    <link rel="canonical" href="https://biodcase.github.io/challenge2026/task5-results">
+    <meta property="og:url" content="https://dcase.community/challenge2026/task5-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/biodcase_preview.png" />
+    <meta name="author" content="BioDCASE" />
+    <meta name="description" content="Task description Task 5 evaluates cross-domain mosquito species classification. The evaluation set contains clips from seen and unseen recording domains. More details can be found on the task description page: Task description page Awards The recognitions below are highlighted separately from the numerical rankings. The official winning submission is determined …" />
+    <meta name="og:description" content="Task description Task 5 evaluates cross-domain mosquito..." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/dcaseicons/css/dcaseicons.css?v=1.2" type="text/css"/>
+        <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btex.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.2" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/static/assets/bioicons/css/bioicons.css" type="text/css"/>
+    <script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="https://biodcase.github.io/" class="navbar-brand hidden-lg hidden-md hidden-sm" ></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="https://biodcase.github.io/"><img class="img img-responsive" src="https://biodcase.github.io//images/logos/biodcase/BioDCASE_header_20px.svg"/></a>
+    </li></ul><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2026" class="dropdown-toggle" data-toggle="dropdown">CHALLENGES&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026">Challenge 2026</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025">Challenge 2025</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="https://biodcase.github.io/workshop2025" class="dropdown-toggle" data-toggle="dropdown">WORKSHOP&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/workshop2026">Workshop 2026</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/workshop2025">Workshop 2025</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2026/submission" class="dropdown-toggle" data-toggle="dropdown">SUBMISSION&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026/submission">Submit</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026/rules">Rules</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Organising committee">
+        <a href="https://biodcase.github.io/organisers">ORGANISERS</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div></div>
+</nav>
+<style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .bold{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .subheading {
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+    </style><style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-weight: 400 !important;
+        }
+        header .page-heading .bold{
+            font-weight: 400  !important;
+        }
+    </style><header class="page-top " style="background-image: url(..//images/header/biodcase2026_task5.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-bottom:20px;">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-center"><h1 class="thin">Cross-Domain Mosquito Species Classification</h1><hr class="small center thin">
+                        <span class="subheading subheading-secondary">Challenge results</span></div>
+            </div>
+        </div>
+    </div>
+<span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="BioDCASE 2026 Task 5"><i class="fa fa-creative-commons" aria-hidden="true"></i></span></header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#task-description">Task description</a></li>
+<li><a href="#awards">Awards</a></li>
+<li><a href="#teams-ranking">Teams ranking</a></li>
+<li><a href="#systems-ranking">Systems ranking</a></li>
+<li><a href="#cross-domain-performance">Cross-domain performance</a></li>
+<li><a href="#metric-specific-rankings">Metric-specific rankings</a></li>
+<li><a href="#method-summary">Method summary</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h1 id="task-description">Task description</h1>
+<p>Task 5 evaluates cross-domain mosquito species classification. The evaluation set contains clips from seen and unseen recording domains.
+More details can be found on the task description page:</p>
+<p><a class="btn btn-primary" href="https://biodcase.github.io/challenge2026/task5" style="">Task description page</a></p>
+<h1 id="awards">Awards</h1>
+<p>The recognitions below are highlighted separately from the numerical rankings. The official winning submission is determined by the official evaluation ranking. The Jury Award and special recognitions are selected by the task organisers based on the submitted systems and technical reports.</p>
+<h3>Official winning submission</h3>
+<div class="award-block award-block-winning">
+<div class="award-block-authors"><strong>Oliver Gstöttenbauer, Andrii Ushakov, Artem Shestakov</strong></div>
+<div class="award-block-institution">Johannes Kepler University Linz, Austria</div>
+</div>
+<h3>Jury award</h3>
+<div class="award-block award-block-jury">
+<div class="award-block-authors"><strong>Tianyan Deng, Wanchuan Chen, Jiahao Du, Rui Gao, Yanxiong Li</strong></div>
+<div class="award-block-institution">South China University of Technology, China</div>
+<div class="award-block-system">"Domain-Balanced Representation Learning and Multi-Prototype Mahalanobis Inference for Cross-Domain Mosquito Classification"</div>
+<div class="award-block-comment">Selected for the quality of the proposed system and technical report, especially the analysis of species-domain imbalance, targeted class-conditional domain alignment, and multi-prototype inference for unseen-domain generalisation.</div>
+</div>
+<h3>Best robust system</h3>
+<div class="award-block award-block-jury">
+<div class="award-block-authors"><strong>Shuanglin Li, Ruxiao Qian</strong></div>
+<div class="award-block-institution">XiangJiang Laboratory, China</div>
+<div class="award-block-system">"Reliability-Guided Distillation for Cross-Domain Mosquito Species Classification"</div>
+<div class="award-block-comment">Recognised for its species-domain held-out validation protocol, reliability-guided distillation strategy, and guarded ensemble design for unseen-domain robustness and domain-gap reduction.</div>
+</div>
+<h3>Special Mention for Comprehensive System Integration</h3>
+<div class="award-block award-block-jury">
+<div class="award-block-authors"><strong>Meiting Lyu, Ruicheng Liu, Xu Shen, Zongye Chen, Jiatong Wu, Ziyu Wang, Wei Liu, Gongping Huang</strong></div>
+<div class="award-block-institution">Wuhan University, China; Waseda University, Japan</div>
+<div class="award-block-system">"Addressing Class Imbalance in Cross-Domain Mosquito Bioacoustic Species Classification with Balanced Multi-Task Learning"</div>
+<div class="award-block-comment">Recognised for a comprehensive engineering system combining class-balanced data preparation, domain-generalised representation learning, multi-task objectives, and confidence-gated model fusion.</div>
+</div>
+<h1 id="teams-ranking">Teams ranking</h1>
+<p>The teams ranking assigns one official rank to each team. The official team entry is the system with the highest BA<sub>unseen</sub>; ties are resolved using the smaller DSG. All systems from the same team are listed so that every submitted system remains visible and traceable.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-id-field="submission_name" data-pagination="true" data-row-highlighting="true" data-scatter-x="rank_team" data-scatter-y="ba_unseen" data-show-chart="true" data-show-pagination-switch="true" data-sort-name="rank_team" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-axis-label="Team rank" data-chartable="true" data-field="rank_team" data-sortable="true" data-value-type="int">Team<br/>rank</th>
+<th data-field="team_name" data-sortable="true">Team</th>
+<th data-field="submission_name" data-sortable="true">Submission</th>
+<th class="sm-cell" data-field="name" data-sortable="true">System name</th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">Technical<br/>report</th>
+<th class="sep-left-cell text-center" data-axis-label="Within-team rank" data-chartable="true" data-field="rank_submission_within_team" data-sortable="true" data-value-type="int">Within-team<br/>rank</th>
+<th class="text-center" data-axis-label="System rank" data-chartable="true" data-field="rank_system" data-sortable="true" data-value-type="int">System<br/>rank</th>
+<th class="sep-left-cell text-center" data-axis-label="BA unseen" data-chartable="true" data-field="ba_unseen" data-sortable="true" data-value-type="float3">BA<sub>unseen</sub></th>
+<th class="text-center" data-axis-label="DSG" data-chartable="true" data-field="dsg" data-reversed="true" data-sortable="true" data-value-type="float3">DSG</th>
+<th class="text-center" data-axis-label="BA seen" data-chartable="true" data-field="ba_seen" data-sortable="true" data-value-type="float3">BA<sub>seen</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Shestakov_JKU</td>
+<td>Shestakov_JKU_Task5_2</td>
+<td>FG-harmonic agreement-gate ensemble</td>
+<td>shestakovJKUTask5</td>
+<td>1</td>
+<td>1</td>
+<td>0.313</td>
+<td>0.338</td>
+<td>0.651</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Shestakov_JKU</td>
+<td>Shestakov_JKU_Task5_1</td>
+<td>Perch agreement-gate ensemble</td>
+<td>shestakovJKUTask5</td>
+<td>2</td>
+<td>2</td>
+<td>0.312</td>
+<td>0.340</td>
+<td>0.652</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Shestakov_JKU</td>
+<td>Shestakov_JKU_Task5_3</td>
+<td>2-voter agreement-gate ensemble</td>
+<td>shestakovJKUTask5</td>
+<td>3</td>
+<td>3</td>
+<td>0.308</td>
+<td>0.341</td>
+<td>0.649</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Deng_SCUT</td>
+<td>Deng_SCUT_Task5_4</td>
+<td>Domain-Class Mahalanobis</td>
+<td>dengSCUTTask5</td>
+<td>1</td>
+<td>4</td>
+<td>0.274</td>
+<td>0.492</td>
+<td>0.766</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Eva_UL</td>
+<td>Eva_UL_Task5_2</td>
+<td>Domain-adversarial AST</td>
+<td>evaULTask5</td>
+<td>1</td>
+<td>5</td>
+<td>0.268</td>
+<td>0.224</td>
+<td>0.491</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Deng_SCUT</td>
+<td>Deng_SCUT_Task5_2</td>
+<td>Single-Prototype Mahalanobis</td>
+<td>dengSCUTTask5</td>
+<td>2</td>
+<td>6</td>
+<td>0.268</td>
+<td>0.570</td>
+<td>0.837</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Zhou_UB</td>
+<td>Zhou_UB_Task5_4</td>
+<td>Domain-bucket PANNs/AST best-overall fusion</td>
+<td>zhouUBTask5</td>
+<td>1</td>
+<td>7</td>
+<td>0.260</td>
+<td>0.511</td>
+<td>0.772</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Song_HHU</td>
+<td>Song_HHU_Task5_1</td>
+<td>AudioTransformer_Mosquito</td>
+<td>songHHUTask5</td>
+<td>1</td>
+<td>8</td>
+<td>0.255</td>
+<td>0.216</td>
+<td>0.471</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Deng_SCUT</td>
+<td>Deng_SCUT_Task5_3</td>
+<td>Mahalanobis (other seed)</td>
+<td>dengSCUTTask5</td>
+<td>3</td>
+<td>9</td>
+<td>0.248</td>
+<td>0.602</td>
+<td>0.850</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Deng_SCUT</td>
+<td>Deng_SCUT_Task5_1</td>
+<td>Multi-Prototype Mahalanobis</td>
+<td>dengSCUTTask5</td>
+<td>4</td>
+<td>10</td>
+<td>0.240</td>
+<td>0.550</td>
+<td>0.789</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Gupta_AP</td>
+<td>Gupta_AP_Task5_3</td>
+<td>CRNN-AST fusion with fixed species-9 calibration hedge</td>
+<td>guptaAPTask5</td>
+<td>1</td>
+<td>11</td>
+<td>0.238</td>
+<td>0.282</td>
+<td>0.520</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Zhou_UB</td>
+<td>Zhou_UB_Task5_3</td>
+<td>Domain-bucket PANNs/AST best-unseen fusion</td>
+<td>zhouUBTask5</td>
+<td>2</td>
+<td>12</td>
+<td>0.237</td>
+<td>0.520</td>
+<td>0.757</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Eva_UL</td>
+<td>Eva_UL_Task5_1</td>
+<td>pYIN pitch-statistics Random Forest</td>
+<td>evaULTask5</td>
+<td>2</td>
+<td>13</td>
+<td>0.237</td>
+<td>0.192</td>
+<td>0.428</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Gupta_AP</td>
+<td>Gupta_AP_Task5_2</td>
+<td>CRNN shift-TTA with AST auxiliary logit fusion</td>
+<td>guptaAPTask5</td>
+<td>2</td>
+<td>14</td>
+<td>0.236</td>
+<td>0.284</td>
+<td>0.521</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Zhou_UB</td>
+<td>Zhou_UB_Task5_2</td>
+<td>Sliding mean-prob domain conditional</td>
+<td>zhouUBTask5</td>
+<td>3</td>
+<td>15</td>
+<td>0.228</td>
+<td>0.380</td>
+<td>0.607</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Zhou_UB</td>
+<td>Zhou_UB_Task5_1</td>
+<td>Domain-bucket ensemble</td>
+<td>zhouUBTask5</td>
+<td>4</td>
+<td>16</td>
+<td>0.227</td>
+<td>0.398</td>
+<td>0.625</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Gupta_AP</td>
+<td>Gupta_AP_Task5_1</td>
+<td>CRNN with domain-adversarial training and shift TTA</td>
+<td>guptaAPTask5</td>
+<td>3</td>
+<td>17</td>
+<td>0.216</td>
+<td>0.268</td>
+<td>0.484</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Lyu_WHU</td>
+<td>Lyu_WHU_Task5_1</td>
+<td>DenseNet121 with Domain-Adversarial Training and CosFace Metric Learning</td>
+<td>lyuWHUTask5</td>
+<td>1</td>
+<td>18</td>
+<td>0.205</td>
+<td>0.431</td>
+<td>0.636</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Gupta_AP</td>
+<td>Gupta_AP_Task5_4</td>
+<td>Domain-Style CRNN and Mild SupCon Fusion</td>
+<td>guptaAPTask5</td>
+<td>4</td>
+<td>19</td>
+<td>0.190</td>
+<td>0.230</td>
+<td>0.420</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Shestakov_JKU</td>
+<td>Shestakov_JKU_Task5_4</td>
+<td>MTRCNN contrastive</td>
+<td>shestakovJKUTask5</td>
+<td>4</td>
+<td>20</td>
+<td>0.180</td>
+<td>0.304</td>
+<td>0.484</td>
+</tr>
+<tr>
+<td>8</td>
+<td>You_PKU</td>
+<td>You_PKU_Task5_4</td>
+<td>TrainVal harmonic summary SGD margin-gated prior calibrated</td>
+<td>youPKUTask5</td>
+<td>1</td>
+<td>21</td>
+<td>0.174</td>
+<td>0.265</td>
+<td>0.440</td>
+</tr>
+<tr>
+<td>8</td>
+<td>You_PKU</td>
+<td>You_PKU_Task5_3</td>
+<td>TrainVal harmonic summary SGD prior calibrated</td>
+<td>youPKUTask5</td>
+<td>2</td>
+<td>22</td>
+<td>0.174</td>
+<td>0.289</td>
+<td>0.464</td>
+</tr>
+<tr>
+<td>8</td>
+<td>You_PKU</td>
+<td>You_PKU_Task5_2</td>
+<td>TrainVal harmonic summary SGD sqrt-prior calibrated</td>
+<td>youPKUTask5</td>
+<td>3</td>
+<td>23</td>
+<td>0.174</td>
+<td>0.297</td>
+<td>0.472</td>
+</tr>
+<tr>
+<td>8</td>
+<td>You_PKU</td>
+<td>You_PKU_Task5_1</td>
+<td>TrainVal harmonic summary SGD baseline</td>
+<td>youPKUTask5</td>
+<td>4</td>
+<td>24</td>
+<td>0.174</td>
+<td>0.304</td>
+<td>0.478</td>
+</tr>
+<tr data-hline="true">
+<td>9</td>
+<td>Baseline</td>
+<td>Baseline</td>
+<td>Baseline</td>
+<td>biodcase2026Task5Baseline</td>
+<td>1</td>
+<td>25</td>
+<td>0.172</td>
+<td>0.409</td>
+<td>0.582</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Lyu_WHU</td>
+<td>Lyu_WHU_Task5_3</td>
+<td>DenseNet121 with Domain-Adversarial Training and CosFace Metric Learning</td>
+<td>lyuWHUTask5</td>
+<td>2</td>
+<td>26</td>
+<td>0.170</td>
+<td>0.516</td>
+<td>0.686</td>
+</tr>
+<tr>
+<td>10</td>
+<td>LeCallet_PolytechNantes</td>
+<td>LeCallet_PolytechNantes_Task5_1</td>
+<td>LeCallet PolytechNantes task5 1 report</td>
+<td>lecalletPolytechNantesTask5</td>
+<td>1</td>
+<td>27</td>
+<td>0.163</td>
+<td>0.358</td>
+<td>0.521</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Li_XJLAB</td>
+<td>Li_XJLAB_Task5_4</td>
+<td>Low-DSG guarded ensemble</td>
+<td>liXJLABTask5</td>
+<td>1</td>
+<td>28</td>
+<td>0.157</td>
+<td>0.379</td>
+<td>0.535</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Li_XJLAB</td>
+<td>Li_XJLAB_Task5_2</td>
+<td>GRL-KD stable ensemble</td>
+<td>liXJLABTask5</td>
+<td>2</td>
+<td>29</td>
+<td>0.151</td>
+<td>0.365</td>
+<td>0.515</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Lyu_WHU</td>
+<td>Lyu_WHU_Task5_4</td>
+<td>DenseNet121 with Domain-Adversarial Training and CosFace Metric Learning</td>
+<td>lyuWHUTask5</td>
+<td>3</td>
+<td>30</td>
+<td>0.141</td>
+<td>0.499</td>
+<td>0.639</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Li_XJLAB</td>
+<td>Li_XJLAB_Task5_3</td>
+<td>GRL-KD guarded logit ensemble</td>
+<td>liXJLABTask5</td>
+<td>3</td>
+<td>31</td>
+<td>0.135</td>
+<td>0.370</td>
+<td>0.504</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Li_XJLAB</td>
+<td>Li_XJLAB_Task5_1</td>
+<td>GRL-KD diverse guarded ensemble</td>
+<td>liXJLABTask5</td>
+<td>4</td>
+<td>32</td>
+<td>0.118</td>
+<td>0.394</td>
+<td>0.513</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Wang_HHU</td>
+<td>Wang_HHU_Task5_1</td>
+<td>Baseline-style CNN</td>
+<td></td>
+<td>1</td>
+<td>33</td>
+<td>0.111</td>
+<td>0.000</td>
+<td>0.111</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Lyu_WHU</td>
+<td>Lyu_WHU_Task5_2</td>
+<td>DenseNet121 with Domain-Adversarial Training and CosFace Metric Learning</td>
+<td>lyuWHUTask5</td>
+<td>4</td>
+<td>34</td>
+<td>0.067</td>
+<td>0.582</td>
+<td>0.649</td>
+</tr>
+</tbody>
+</table>
+<h1 id="systems-ranking">Systems ranking</h1>
+<p>The systems ranking lists every independently submitted system and the baseline reference. This table is sorted by the official system ranking score, which is BA<sub>unseen</sub> with DSG as the tie-breaker.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="submission_name" data-pagination="true" data-row-highlighting="true" data-scatter-x="rank_score_rank" data-scatter-y="ba_unseen" data-show-chart="true" data-show-pagination-switch="true" data-sort-name="rank_score_rank" data-sort-order="asc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-axis-label="System rank" data-chartable="true" data-field="rank_score_rank" data-sortable="true" data-value-type="int">System<br/>rank</th>
+<th data-field="team_name" data-sortable="true">Team</th>
+<th data-field="submission_name" data-sortable="true">Submission</th>
+<th class="sm-cell" data-field="name" data-sortable="true">System name</th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">Technical<br/>report</th>
+<th class="sep-left-cell text-center" data-axis-label="Team rank" data-chartable="true" data-field="rank_team" data-sortable="true" data-value-type="int">Team<br/>rank</th>
+<th class="text-center" data-axis-label="Within-team rank" data-chartable="true" data-field="rank_submission_within_team" data-sortable="true" data-value-type="int">Within-team<br/>rank</th>
+<th class="sep-left-cell text-center" data-axis-label="BA unseen" data-chartable="true" data-field="ba_unseen" data-sortable="true" data-value-type="float3">BA<sub>unseen</sub></th>
+<th class="text-center" data-axis-label="DSG" data-chartable="true" data-field="dsg" data-reversed="true" data-sortable="true" data-value-type="float3">DSG</th>
+<th class="text-center" data-axis-label="BA seen" data-chartable="true" data-field="ba_seen" data-sortable="true" data-value-type="float3">BA<sub>seen</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Shestakov_JKU</td>
+<td>Shestakov_JKU_Task5_2</td>
+<td>FG-harmonic agreement-gate ensemble</td>
+<td>shestakovJKUTask5</td>
+<td>1</td>
+<td>1</td>
+<td>0.313</td>
+<td>0.338</td>
+<td>0.651</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Shestakov_JKU</td>
+<td>Shestakov_JKU_Task5_1</td>
+<td>Perch agreement-gate ensemble</td>
+<td>shestakovJKUTask5</td>
+<td>1</td>
+<td>2</td>
+<td>0.312</td>
+<td>0.340</td>
+<td>0.652</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Shestakov_JKU</td>
+<td>Shestakov_JKU_Task5_3</td>
+<td>2-voter agreement-gate ensemble</td>
+<td>shestakovJKUTask5</td>
+<td>1</td>
+<td>3</td>
+<td>0.308</td>
+<td>0.341</td>
+<td>0.649</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Deng_SCUT</td>
+<td>Deng_SCUT_Task5_4</td>
+<td>Domain-Class Mahalanobis</td>
+<td>dengSCUTTask5</td>
+<td>2</td>
+<td>1</td>
+<td>0.274</td>
+<td>0.492</td>
+<td>0.766</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Eva_UL</td>
+<td>Eva_UL_Task5_2</td>
+<td>Domain-adversarial AST</td>
+<td>evaULTask5</td>
+<td>3</td>
+<td>1</td>
+<td>0.268</td>
+<td>0.224</td>
+<td>0.491</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Deng_SCUT</td>
+<td>Deng_SCUT_Task5_2</td>
+<td>Single-Prototype Mahalanobis</td>
+<td>dengSCUTTask5</td>
+<td>2</td>
+<td>2</td>
+<td>0.268</td>
+<td>0.570</td>
+<td>0.837</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Zhou_UB</td>
+<td>Zhou_UB_Task5_4</td>
+<td>Domain-bucket PANNs/AST best-overall fusion</td>
+<td>zhouUBTask5</td>
+<td>4</td>
+<td>1</td>
+<td>0.260</td>
+<td>0.511</td>
+<td>0.772</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Song_HHU</td>
+<td>Song_HHU_Task5_1</td>
+<td>AudioTransformer_Mosquito</td>
+<td>songHHUTask5</td>
+<td>5</td>
+<td>1</td>
+<td>0.255</td>
+<td>0.216</td>
+<td>0.471</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Deng_SCUT</td>
+<td>Deng_SCUT_Task5_3</td>
+<td>Mahalanobis (other seed)</td>
+<td>dengSCUTTask5</td>
+<td>2</td>
+<td>3</td>
+<td>0.248</td>
+<td>0.602</td>
+<td>0.850</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Deng_SCUT</td>
+<td>Deng_SCUT_Task5_1</td>
+<td>Multi-Prototype Mahalanobis</td>
+<td>dengSCUTTask5</td>
+<td>2</td>
+<td>4</td>
+<td>0.240</td>
+<td>0.550</td>
+<td>0.789</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Gupta_AP</td>
+<td>Gupta_AP_Task5_3</td>
+<td>CRNN-AST fusion with fixed species-9 calibration hedge</td>
+<td>guptaAPTask5</td>
+<td>6</td>
+<td>1</td>
+<td>0.238</td>
+<td>0.282</td>
+<td>0.520</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Zhou_UB</td>
+<td>Zhou_UB_Task5_3</td>
+<td>Domain-bucket PANNs/AST best-unseen fusion</td>
+<td>zhouUBTask5</td>
+<td>4</td>
+<td>2</td>
+<td>0.237</td>
+<td>0.520</td>
+<td>0.757</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Eva_UL</td>
+<td>Eva_UL_Task5_1</td>
+<td>pYIN pitch-statistics Random Forest</td>
+<td>evaULTask5</td>
+<td>3</td>
+<td>2</td>
+<td>0.237</td>
+<td>0.192</td>
+<td>0.428</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Gupta_AP</td>
+<td>Gupta_AP_Task5_2</td>
+<td>CRNN shift-TTA with AST auxiliary logit fusion</td>
+<td>guptaAPTask5</td>
+<td>6</td>
+<td>2</td>
+<td>0.236</td>
+<td>0.284</td>
+<td>0.521</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Zhou_UB</td>
+<td>Zhou_UB_Task5_2</td>
+<td>Sliding mean-prob domain conditional</td>
+<td>zhouUBTask5</td>
+<td>4</td>
+<td>3</td>
+<td>0.228</td>
+<td>0.380</td>
+<td>0.607</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Zhou_UB</td>
+<td>Zhou_UB_Task5_1</td>
+<td>Domain-bucket ensemble</td>
+<td>zhouUBTask5</td>
+<td>4</td>
+<td>4</td>
+<td>0.227</td>
+<td>0.398</td>
+<td>0.625</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Gupta_AP</td>
+<td>Gupta_AP_Task5_1</td>
+<td>CRNN with domain-adversarial training and shift TTA</td>
+<td>guptaAPTask5</td>
+<td>6</td>
+<td>3</td>
+<td>0.216</td>
+<td>0.268</td>
+<td>0.484</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Lyu_WHU</td>
+<td>Lyu_WHU_Task5_1</td>
+<td>DenseNet121 with Domain-Adversarial Training and CosFace Metric Learning</td>
+<td>lyuWHUTask5</td>
+<td>7</td>
+<td>1</td>
+<td>0.205</td>
+<td>0.431</td>
+<td>0.636</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Gupta_AP</td>
+<td>Gupta_AP_Task5_4</td>
+<td>Domain-Style CRNN and Mild SupCon Fusion</td>
+<td>guptaAPTask5</td>
+<td>6</td>
+<td>4</td>
+<td>0.190</td>
+<td>0.230</td>
+<td>0.420</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Shestakov_JKU</td>
+<td>Shestakov_JKU_Task5_4</td>
+<td>MTRCNN contrastive</td>
+<td>shestakovJKUTask5</td>
+<td>1</td>
+<td>4</td>
+<td>0.180</td>
+<td>0.304</td>
+<td>0.484</td>
+</tr>
+<tr>
+<td>21</td>
+<td>You_PKU</td>
+<td>You_PKU_Task5_4</td>
+<td>TrainVal harmonic summary SGD margin-gated prior calibrated</td>
+<td>youPKUTask5</td>
+<td>8</td>
+<td>1</td>
+<td>0.174</td>
+<td>0.265</td>
+<td>0.440</td>
+</tr>
+<tr>
+<td>22</td>
+<td>You_PKU</td>
+<td>You_PKU_Task5_3</td>
+<td>TrainVal harmonic summary SGD prior calibrated</td>
+<td>youPKUTask5</td>
+<td>8</td>
+<td>2</td>
+<td>0.174</td>
+<td>0.289</td>
+<td>0.464</td>
+</tr>
+<tr>
+<td>23</td>
+<td>You_PKU</td>
+<td>You_PKU_Task5_2</td>
+<td>TrainVal harmonic summary SGD sqrt-prior calibrated</td>
+<td>youPKUTask5</td>
+<td>8</td>
+<td>3</td>
+<td>0.174</td>
+<td>0.297</td>
+<td>0.472</td>
+</tr>
+<tr>
+<td>24</td>
+<td>You_PKU</td>
+<td>You_PKU_Task5_1</td>
+<td>TrainVal harmonic summary SGD baseline</td>
+<td>youPKUTask5</td>
+<td>8</td>
+<td>4</td>
+<td>0.174</td>
+<td>0.304</td>
+<td>0.478</td>
+</tr>
+<tr data-hline="true">
+<td>25</td>
+<td>Baseline</td>
+<td>Baseline</td>
+<td>Baseline</td>
+<td>biodcase2026Task5Baseline</td>
+<td>9</td>
+<td>1</td>
+<td>0.172</td>
+<td>0.409</td>
+<td>0.582</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Lyu_WHU</td>
+<td>Lyu_WHU_Task5_3</td>
+<td>DenseNet121 with Domain-Adversarial Training and CosFace Metric Learning</td>
+<td>lyuWHUTask5</td>
+<td>7</td>
+<td>2</td>
+<td>0.170</td>
+<td>0.516</td>
+<td>0.686</td>
+</tr>
+<tr>
+<td>27</td>
+<td>LeCallet_PolytechNantes</td>
+<td>LeCallet_PolytechNantes_Task5_1</td>
+<td>LeCallet PolytechNantes task5 1 report</td>
+<td>lecalletPolytechNantesTask5</td>
+<td>10</td>
+<td>1</td>
+<td>0.163</td>
+<td>0.358</td>
+<td>0.521</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Li_XJLAB</td>
+<td>Li_XJLAB_Task5_4</td>
+<td>Low-DSG guarded ensemble</td>
+<td>liXJLABTask5</td>
+<td>11</td>
+<td>1</td>
+<td>0.157</td>
+<td>0.379</td>
+<td>0.535</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Li_XJLAB</td>
+<td>Li_XJLAB_Task5_2</td>
+<td>GRL-KD stable ensemble</td>
+<td>liXJLABTask5</td>
+<td>11</td>
+<td>2</td>
+<td>0.151</td>
+<td>0.365</td>
+<td>0.515</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Lyu_WHU</td>
+<td>Lyu_WHU_Task5_4</td>
+<td>DenseNet121 with Domain-Adversarial Training and CosFace Metric Learning</td>
+<td>lyuWHUTask5</td>
+<td>7</td>
+<td>3</td>
+<td>0.141</td>
+<td>0.499</td>
+<td>0.639</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Li_XJLAB</td>
+<td>Li_XJLAB_Task5_3</td>
+<td>GRL-KD guarded logit ensemble</td>
+<td>liXJLABTask5</td>
+<td>11</td>
+<td>3</td>
+<td>0.135</td>
+<td>0.370</td>
+<td>0.504</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Li_XJLAB</td>
+<td>Li_XJLAB_Task5_1</td>
+<td>GRL-KD diverse guarded ensemble</td>
+<td>liXJLABTask5</td>
+<td>11</td>
+<td>4</td>
+<td>0.118</td>
+<td>0.394</td>
+<td>0.513</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Wang_HHU</td>
+<td>Wang_HHU_Task5_1</td>
+<td>Baseline-style CNN</td>
+<td></td>
+<td>12</td>
+<td>1</td>
+<td>0.111</td>
+<td>0.000</td>
+<td>0.111</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Lyu_WHU</td>
+<td>Lyu_WHU_Task5_2</td>
+<td>DenseNet121 with Domain-Adversarial Training and CosFace Metric Learning</td>
+<td>lyuWHUTask5</td>
+<td>7</td>
+<td>4</td>
+<td>0.067</td>
+<td>0.582</td>
+<td>0.649</td>
+</tr>
+</tbody>
+</table>
+<h1 id="cross-domain-performance">Cross-domain performance</h1>
+<p>This view compares seen-domain and unseen-domain balanced accuracy. Points closer to the diagonal have a smaller discrepancy between seen-domain and unseen-domain performance, but the official ranking still prioritises BA<sub>unseen</sub>.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-chart-default-mode="scatter" data-chart-modes="bar,scatter,comparison" data-chart-tooltip-fields="submission_name" data-comparison-a-row="Baseline" data-comparison-active-set="Seen and unseen balanced accuracy" data-comparison-b-row="Shestakov_JKU_Task5_2" data-comparison-row-id-field="submission_name" data-comparison-sets-json='[
+        {"title": "Seen and unseen balanced accuracy",
+         "data_axis_title": "Balanced accuracy",
+         "fields": ["ba_seen", "ba_unseen"]
+        },
+        {"title": "Domain-shift metrics",
+         "data_axis_title": "Score",
+         "fields": ["ba_unseen", "dsg"]
+        }]' data-id-field="submission_name" data-pagination="true" data-row-highlighting="true" data-scatter-x="ba_seen" data-scatter-y="ba_unseen" data-show-chart="true" data-show-pagination-switch="true" data-sort-name="ba_unseen" data-sort-order="desc">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-axis-label="System rank" data-chartable="true" data-field="rank_score_rank" data-sortable="true" data-value-type="int">System<br/>rank</th>
+<th data-field="submission_name" data-sortable="true">Submission</th>
+<th data-field="team_name" data-sortable="true">Team</th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">Technical<br/>report</th>
+<th class="sep-left-cell text-center" data-axis-label="BA unseen" data-chartable="true" data-field="ba_unseen" data-sortable="true" data-value-type="float3">BA<sub>unseen</sub></th>
+<th class="text-center" data-axis-label="BA seen" data-chartable="true" data-field="ba_seen" data-sortable="true" data-value-type="float3">BA<sub>seen</sub></th>
+<th class="text-center" data-axis-label="DSG" data-chartable="true" data-field="dsg" data-reversed="true" data-sortable="true" data-value-type="float3">DSG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Shestakov_JKU_Task5_2</td>
+<td>Shestakov_JKU</td>
+<td>shestakovJKUTask5</td>
+<td>0.313</td>
+<td>0.651</td>
+<td>0.338</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Shestakov_JKU_Task5_1</td>
+<td>Shestakov_JKU</td>
+<td>shestakovJKUTask5</td>
+<td>0.312</td>
+<td>0.652</td>
+<td>0.340</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Shestakov_JKU_Task5_3</td>
+<td>Shestakov_JKU</td>
+<td>shestakovJKUTask5</td>
+<td>0.308</td>
+<td>0.649</td>
+<td>0.341</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Deng_SCUT_Task5_4</td>
+<td>Deng_SCUT</td>
+<td>dengSCUTTask5</td>
+<td>0.274</td>
+<td>0.766</td>
+<td>0.492</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Eva_UL_Task5_2</td>
+<td>Eva_UL</td>
+<td>evaULTask5</td>
+<td>0.268</td>
+<td>0.491</td>
+<td>0.224</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Deng_SCUT_Task5_2</td>
+<td>Deng_SCUT</td>
+<td>dengSCUTTask5</td>
+<td>0.268</td>
+<td>0.837</td>
+<td>0.570</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Zhou_UB_Task5_4</td>
+<td>Zhou_UB</td>
+<td>zhouUBTask5</td>
+<td>0.260</td>
+<td>0.772</td>
+<td>0.511</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Song_HHU_Task5_1</td>
+<td>Song_HHU</td>
+<td>songHHUTask5</td>
+<td>0.255</td>
+<td>0.471</td>
+<td>0.216</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Deng_SCUT_Task5_3</td>
+<td>Deng_SCUT</td>
+<td>dengSCUTTask5</td>
+<td>0.248</td>
+<td>0.850</td>
+<td>0.602</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Deng_SCUT_Task5_1</td>
+<td>Deng_SCUT</td>
+<td>dengSCUTTask5</td>
+<td>0.240</td>
+<td>0.789</td>
+<td>0.550</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Gupta_AP_Task5_3</td>
+<td>Gupta_AP</td>
+<td>guptaAPTask5</td>
+<td>0.238</td>
+<td>0.520</td>
+<td>0.282</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Zhou_UB_Task5_3</td>
+<td>Zhou_UB</td>
+<td>zhouUBTask5</td>
+<td>0.237</td>
+<td>0.757</td>
+<td>0.520</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Eva_UL_Task5_1</td>
+<td>Eva_UL</td>
+<td>evaULTask5</td>
+<td>0.237</td>
+<td>0.428</td>
+<td>0.192</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Gupta_AP_Task5_2</td>
+<td>Gupta_AP</td>
+<td>guptaAPTask5</td>
+<td>0.236</td>
+<td>0.521</td>
+<td>0.284</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Zhou_UB_Task5_2</td>
+<td>Zhou_UB</td>
+<td>zhouUBTask5</td>
+<td>0.228</td>
+<td>0.607</td>
+<td>0.380</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Zhou_UB_Task5_1</td>
+<td>Zhou_UB</td>
+<td>zhouUBTask5</td>
+<td>0.227</td>
+<td>0.625</td>
+<td>0.398</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Gupta_AP_Task5_1</td>
+<td>Gupta_AP</td>
+<td>guptaAPTask5</td>
+<td>0.216</td>
+<td>0.484</td>
+<td>0.268</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Lyu_WHU_Task5_1</td>
+<td>Lyu_WHU</td>
+<td>lyuWHUTask5</td>
+<td>0.205</td>
+<td>0.636</td>
+<td>0.431</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Gupta_AP_Task5_4</td>
+<td>Gupta_AP</td>
+<td>guptaAPTask5</td>
+<td>0.190</td>
+<td>0.420</td>
+<td>0.230</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Shestakov_JKU_Task5_4</td>
+<td>Shestakov_JKU</td>
+<td>shestakovJKUTask5</td>
+<td>0.180</td>
+<td>0.484</td>
+<td>0.304</td>
+</tr>
+<tr>
+<td>21</td>
+<td>You_PKU_Task5_4</td>
+<td>You_PKU</td>
+<td>youPKUTask5</td>
+<td>0.174</td>
+<td>0.440</td>
+<td>0.265</td>
+</tr>
+<tr>
+<td>22</td>
+<td>You_PKU_Task5_3</td>
+<td>You_PKU</td>
+<td>youPKUTask5</td>
+<td>0.174</td>
+<td>0.464</td>
+<td>0.289</td>
+</tr>
+<tr>
+<td>23</td>
+<td>You_PKU_Task5_2</td>
+<td>You_PKU</td>
+<td>youPKUTask5</td>
+<td>0.174</td>
+<td>0.472</td>
+<td>0.297</td>
+</tr>
+<tr>
+<td>24</td>
+<td>You_PKU_Task5_1</td>
+<td>You_PKU</td>
+<td>youPKUTask5</td>
+<td>0.174</td>
+<td>0.478</td>
+<td>0.304</td>
+</tr>
+<tr data-hline="true">
+<td>25</td>
+<td>Baseline</td>
+<td>Baseline</td>
+<td>biodcase2026Task5Baseline</td>
+<td>0.172</td>
+<td>0.582</td>
+<td>0.409</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Lyu_WHU_Task5_3</td>
+<td>Lyu_WHU</td>
+<td>lyuWHUTask5</td>
+<td>0.170</td>
+<td>0.686</td>
+<td>0.516</td>
+</tr>
+<tr>
+<td>27</td>
+<td>LeCallet_PolytechNantes_Task5_1</td>
+<td>LeCallet_PolytechNantes</td>
+<td>lecalletPolytechNantesTask5</td>
+<td>0.163</td>
+<td>0.521</td>
+<td>0.358</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Li_XJLAB_Task5_4</td>
+<td>Li_XJLAB</td>
+<td>liXJLABTask5</td>
+<td>0.157</td>
+<td>0.535</td>
+<td>0.379</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Li_XJLAB_Task5_2</td>
+<td>Li_XJLAB</td>
+<td>liXJLABTask5</td>
+<td>0.151</td>
+<td>0.515</td>
+<td>0.365</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Lyu_WHU_Task5_4</td>
+<td>Lyu_WHU</td>
+<td>lyuWHUTask5</td>
+<td>0.141</td>
+<td>0.639</td>
+<td>0.499</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Li_XJLAB_Task5_3</td>
+<td>Li_XJLAB</td>
+<td>liXJLABTask5</td>
+<td>0.135</td>
+<td>0.504</td>
+<td>0.370</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Li_XJLAB_Task5_1</td>
+<td>Li_XJLAB</td>
+<td>liXJLABTask5</td>
+<td>0.118</td>
+<td>0.513</td>
+<td>0.394</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Wang_HHU_Task5_1</td>
+<td>Wang_HHU</td>
+<td></td>
+<td>0.111</td>
+<td>0.111</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Lyu_WHU_Task5_2</td>
+<td>Lyu_WHU</td>
+<td>lyuWHUTask5</td>
+<td>0.067</td>
+<td>0.649</td>
+<td>0.582</td>
+</tr>
+</tbody>
+</table>
+<h1 id="metric-specific-rankings">Metric-specific rankings</h1>
+<p>This table makes the ranking fields explicit. BA<sub>unseen</sub> rank corresponds to the primary metric, DSG rank corresponds to the secondary metric, and BA<sub>seen</sub> rank is reported for reference.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-id-field="submission_name" data-pagination="true" data-row-highlighting="true" data-scatter-x="rank_ba_unseen" data-scatter-y="rank_dsg" data-show-chart="true" data-show-pagination-switch="true" data-sort-name="rank_score_rank" data-sort-order="asc">
+<thead>
+<tr>
+<th data-field="submission_name" data-sortable="true">Submission</th>
+<th data-field="team_name" data-sortable="true">Team</th>
+<th class="sep-left-cell text-center" data-axis-label="BA unseen rank" data-chartable="true" data-field="rank_ba_unseen" data-sortable="true" data-value-type="int">BA<sub>unseen</sub><br/>rank</th>
+<th class="text-center" data-axis-label="BA unseen" data-chartable="true" data-field="ba_unseen" data-sortable="true" data-value-type="float3">BA<sub>unseen</sub></th>
+<th class="sep-left-cell text-center" data-axis-label="DSG rank" data-chartable="true" data-field="rank_dsg" data-sortable="true" data-value-type="int">DSG<br/>rank</th>
+<th class="text-center" data-axis-label="DSG" data-chartable="true" data-field="dsg" data-reversed="true" data-sortable="true" data-value-type="float3">DSG</th>
+<th class="sep-left-cell text-center" data-axis-label="BA seen rank" data-chartable="true" data-field="rank_ba_seen" data-sortable="true" data-value-type="int">BA<sub>seen</sub><br/>rank</th>
+<th class="text-center" data-axis-label="BA seen" data-chartable="true" data-field="ba_seen" data-sortable="true" data-value-type="float3">BA<sub>seen</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shestakov_JKU_Task5_2</td>
+<td>Shestakov_JKU</td>
+<td>1</td>
+<td>0.313</td>
+<td>14</td>
+<td>0.338</td>
+<td>9</td>
+<td>0.651</td>
+</tr>
+<tr>
+<td>Shestakov_JKU_Task5_1</td>
+<td>Shestakov_JKU</td>
+<td>2</td>
+<td>0.312</td>
+<td>15</td>
+<td>0.340</td>
+<td>8</td>
+<td>0.652</td>
+</tr>
+<tr>
+<td>Shestakov_JKU_Task5_3</td>
+<td>Shestakov_JKU</td>
+<td>3</td>
+<td>0.308</td>
+<td>16</td>
+<td>0.341</td>
+<td>10</td>
+<td>0.649</td>
+</tr>
+<tr>
+<td>Deng_SCUT_Task5_4</td>
+<td>Deng_SCUT</td>
+<td>4</td>
+<td>0.274</td>
+<td>26</td>
+<td>0.492</td>
+<td>5</td>
+<td>0.766</td>
+</tr>
+<tr>
+<td>Eva_UL_Task5_2</td>
+<td>Eva_UL</td>
+<td>5</td>
+<td>0.268</td>
+<td>4</td>
+<td>0.224</td>
+<td>24</td>
+<td>0.491</td>
+</tr>
+<tr>
+<td>Deng_SCUT_Task5_2</td>
+<td>Deng_SCUT</td>
+<td>6</td>
+<td>0.268</td>
+<td>32</td>
+<td>0.570</td>
+<td>2</td>
+<td>0.837</td>
+</tr>
+<tr>
+<td>Zhou_UB_Task5_4</td>
+<td>Zhou_UB</td>
+<td>7</td>
+<td>0.260</td>
+<td>28</td>
+<td>0.511</td>
+<td>4</td>
+<td>0.772</td>
+</tr>
+<tr>
+<td>Song_HHU_Task5_1</td>
+<td>Song_HHU</td>
+<td>8</td>
+<td>0.255</td>
+<td>3</td>
+<td>0.216</td>
+<td>29</td>
+<td>0.471</td>
+</tr>
+<tr>
+<td>Deng_SCUT_Task5_3</td>
+<td>Deng_SCUT</td>
+<td>9</td>
+<td>0.248</td>
+<td>34</td>
+<td>0.602</td>
+<td>1</td>
+<td>0.850</td>
+</tr>
+<tr>
+<td>Deng_SCUT_Task5_1</td>
+<td>Deng_SCUT</td>
+<td>10</td>
+<td>0.240</td>
+<td>31</td>
+<td>0.550</td>
+<td>3</td>
+<td>0.789</td>
+</tr>
+<tr>
+<td>Gupta_AP_Task5_3</td>
+<td>Gupta_AP</td>
+<td>11</td>
+<td>0.238</td>
+<td>8</td>
+<td>0.282</td>
+<td>20</td>
+<td>0.520</td>
+</tr>
+<tr>
+<td>Zhou_UB_Task5_3</td>
+<td>Zhou_UB</td>
+<td>12</td>
+<td>0.237</td>
+<td>30</td>
+<td>0.520</td>
+<td>6</td>
+<td>0.757</td>
+</tr>
+<tr>
+<td>Eva_UL_Task5_1</td>
+<td>Eva_UL</td>
+<td>13</td>
+<td>0.237</td>
+<td>2</td>
+<td>0.192</td>
+<td>32</td>
+<td>0.428</td>
+</tr>
+<tr>
+<td>Gupta_AP_Task5_2</td>
+<td>Gupta_AP</td>
+<td>14</td>
+<td>0.236</td>
+<td>9</td>
+<td>0.284</td>
+<td>19</td>
+<td>0.521</td>
+</tr>
+<tr>
+<td>Zhou_UB_Task5_2</td>
+<td>Zhou_UB</td>
+<td>15</td>
+<td>0.228</td>
+<td>21</td>
+<td>0.380</td>
+<td>15</td>
+<td>0.607</td>
+</tr>
+<tr>
+<td>Zhou_UB_Task5_1</td>
+<td>Zhou_UB</td>
+<td>16</td>
+<td>0.227</td>
+<td>23</td>
+<td>0.398</td>
+<td>14</td>
+<td>0.625</td>
+</tr>
+<tr>
+<td>Gupta_AP_Task5_1</td>
+<td>Gupta_AP</td>
+<td>17</td>
+<td>0.216</td>
+<td>7</td>
+<td>0.268</td>
+<td>26</td>
+<td>0.484</td>
+</tr>
+<tr>
+<td>Lyu_WHU_Task5_1</td>
+<td>Lyu_WHU</td>
+<td>18</td>
+<td>0.205</td>
+<td>25</td>
+<td>0.431</td>
+<td>13</td>
+<td>0.636</td>
+</tr>
+<tr>
+<td>Gupta_AP_Task5_4</td>
+<td>Gupta_AP</td>
+<td>19</td>
+<td>0.190</td>
+<td>5</td>
+<td>0.230</td>
+<td>33</td>
+<td>0.420</td>
+</tr>
+<tr>
+<td>Shestakov_JKU_Task5_4</td>
+<td>Shestakov_JKU</td>
+<td>20</td>
+<td>0.180</td>
+<td>13</td>
+<td>0.304</td>
+<td>25</td>
+<td>0.484</td>
+</tr>
+<tr>
+<td>You_PKU_Task5_4</td>
+<td>You_PKU</td>
+<td>21</td>
+<td>0.174</td>
+<td>6</td>
+<td>0.265</td>
+<td>31</td>
+<td>0.440</td>
+</tr>
+<tr>
+<td>You_PKU_Task5_3</td>
+<td>You_PKU</td>
+<td>22</td>
+<td>0.174</td>
+<td>10</td>
+<td>0.289</td>
+<td>30</td>
+<td>0.464</td>
+</tr>
+<tr>
+<td>You_PKU_Task5_2</td>
+<td>You_PKU</td>
+<td>23</td>
+<td>0.174</td>
+<td>11</td>
+<td>0.297</td>
+<td>28</td>
+<td>0.472</td>
+</tr>
+<tr>
+<td>You_PKU_Task5_1</td>
+<td>You_PKU</td>
+<td>24</td>
+<td>0.174</td>
+<td>12</td>
+<td>0.304</td>
+<td>27</td>
+<td>0.478</td>
+</tr>
+<tr data-hline="true">
+<td>Baseline</td>
+<td>Baseline</td>
+<td>25</td>
+<td>0.172</td>
+<td>24</td>
+<td>0.409</td>
+<td>16</td>
+<td>0.582</td>
+</tr>
+<tr>
+<td>Lyu_WHU_Task5_3</td>
+<td>Lyu_WHU</td>
+<td>26</td>
+<td>0.170</td>
+<td>29</td>
+<td>0.516</td>
+<td>7</td>
+<td>0.686</td>
+</tr>
+<tr>
+<td>LeCallet_PolytechNantes_Task5_1</td>
+<td>LeCallet_PolytechNantes</td>
+<td>27</td>
+<td>0.163</td>
+<td>17</td>
+<td>0.358</td>
+<td>18</td>
+<td>0.521</td>
+</tr>
+<tr>
+<td>Li_XJLAB_Task5_4</td>
+<td>Li_XJLAB</td>
+<td>28</td>
+<td>0.157</td>
+<td>20</td>
+<td>0.379</td>
+<td>17</td>
+<td>0.535</td>
+</tr>
+<tr>
+<td>Li_XJLAB_Task5_2</td>
+<td>Li_XJLAB</td>
+<td>29</td>
+<td>0.151</td>
+<td>18</td>
+<td>0.365</td>
+<td>21</td>
+<td>0.515</td>
+</tr>
+<tr>
+<td>Lyu_WHU_Task5_4</td>
+<td>Lyu_WHU</td>
+<td>30</td>
+<td>0.141</td>
+<td>27</td>
+<td>0.499</td>
+<td>12</td>
+<td>0.639</td>
+</tr>
+<tr>
+<td>Li_XJLAB_Task5_3</td>
+<td>Li_XJLAB</td>
+<td>31</td>
+<td>0.135</td>
+<td>19</td>
+<td>0.370</td>
+<td>23</td>
+<td>0.504</td>
+</tr>
+<tr>
+<td>Li_XJLAB_Task5_1</td>
+<td>Li_XJLAB</td>
+<td>32</td>
+<td>0.118</td>
+<td>22</td>
+<td>0.394</td>
+<td>22</td>
+<td>0.513</td>
+</tr>
+<tr>
+<td>Wang_HHU_Task5_1</td>
+<td>Wang_HHU</td>
+<td>33</td>
+<td>0.111</td>
+<td>1</td>
+<td>0.000</td>
+<td>34</td>
+<td>0.111</td>
+</tr>
+<tr>
+<td>Lyu_WHU_Task5_2</td>
+<td>Lyu_WHU</td>
+<td>34</td>
+<td>0.067</td>
+<td>33</td>
+<td>0.582</td>
+<td>11</td>
+<td>0.649</td>
+</tr>
+</tbody>
+</table>
+<h1 id="method-summary">Method summary</h1>
+<p>The following compact method summary is extracted from the submitted reports and metadata when available. Empty cells indicate information that was not available in a machine-readable or reliably extractable form.</p>
+<table class="datatable table table-hover table-condensed" data-filter-control="true" data-filter-show-clear="true" data-id-field="submission_name" data-pagination="true" data-row-highlighting="true" data-show-pagination-switch="true" data-sort-name="rank_score_rank" data-sort-order="asc" data-striped="true">
+<thead>
+<tr>
+<th class="sep-right-cell text-center" data-field="rank_score_rank" data-sortable="true" data-value-type="int">System<br/>rank</th>
+<th data-field="submission_name" data-sortable="true">Submission</th>
+<th data-field="team_name" data-sortable="true">Team</th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">Technical<br/>report</th>
+<th class="sep-left-cell text-center" data-field="ba_unseen" data-sortable="true" data-value-type="float3">BA<sub>unseen</sub></th>
+<th class="sep-left-cell text-center narrow-col" data-field="system_features" data-filter-control="input" data-sortable="true">Features</th>
+<th class="text-center narrow-col" data-field="system_embeddings" data-filter-control="input" data-sortable="true">Embeddings</th>
+<th class="text-center narrow-col" data-field="system_data_augmentation" data-filter-control="input" data-sortable="true">Training or augmentation</th>
+<th class="text-center narrow-col" data-field="system_decision_making" data-filter-control="input" data-sortable="true">Decision rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Shestakov_JKU_Task5_2</td>
+<td>Shestakov_JKU</td>
+<td>shestakovJKUTask5</td>
+<td>0.313</td>
+<td>foreground-harmonic liftered-cepstrum (102-d) + background-whitened log-spectrum (257-d)</td>
+<td>Perch 2.0 (1536-d) + Bird-MAE-Large (1024-d)</td>
+<td>probe-level feature Gaussian noise + channel dropout</td>
+<td>softmax-mean seed ensemble + unanimous-3 agreement gate (foreground-harmonic voter)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Shestakov_JKU_Task5_1</td>
+<td>Shestakov_JKU</td>
+<td>shestakovJKUTask5</td>
+<td>0.312</td>
+<td>harmonic liftered-cepstrum (102-d) + background-whitened log-spectrum (257-d)</td>
+<td>Perch 2.0 (1536-d) + Bird-MAE-Large (1024-d)</td>
+<td>probe-level feature Gaussian noise + channel dropout</td>
+<td>softmax-mean seed ensemble + unanimous-3 agreement gate</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Shestakov_JKU_Task5_3</td>
+<td>Shestakov_JKU</td>
+<td>shestakovJKUTask5</td>
+<td>0.308</td>
+<td>harmonic liftered-cepstrum (102-d)</td>
+<td>Perch 2.0 (1536-d) + Bird-MAE-Large (1024-d)</td>
+<td>probe-level feature Gaussian noise + channel dropout</td>
+<td>softmax-mean seed ensemble + 2-voter agreement gate</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Deng_SCUT_Task5_4</td>
+<td>Deng_SCUT</td>
+<td>dengSCUTTask5</td>
+<td>0.274</td>
+<td>log-mel spectrogram</td>
+<td>L2-normalized, 32-dim, single prototype, Mahalanobis distance with global covariance (shrinkage=0.1), Bayesian correction (m=10.0), domain-class balanced sampling</td>
+<td>FourierMix, MixStyle</td>
+<td>mahalanobis_global_bayesian (shrinkage=0.1, Bayesian prior=10.0)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Eva_UL_Task5_2</td>
+<td>Eva_UL</td>
+<td>evaULTask5</td>
+<td>0.268</td>
+<td>log-mel spectrogram</td>
+<td>pre-trained Audio Spectrogram Transformer backbone</td>
+<td>SpecAugment, log-mel gain jitter, circular random time shifts</td>
+<td>DANN-AST species prediction</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Deng_SCUT_Task5_2</td>
+<td>Deng_SCUT</td>
+<td>dengSCUTTask5</td>
+<td>0.268</td>
+<td>log-mel spectrogram</td>
+<td>L2-normalized, 32-dim, single prototype, Mahalanobis distance with global covariance (shrinkage=0.1), Bayesian correction (m=10.0)</td>
+<td>FourierMix, MixStyle</td>
+<td>mahalanobis_global_bayesian (shrinkage=0.1, Bayesian prior=10.0)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Zhou_UB_Task5_4</td>
+<td>Zhou_UB</td>
+<td>zhouUBTask5</td>
+<td>0.260</td>
+<td>8 kHz log-mel MTRCNN output, PANNs CNN14 embeddings/probabilities, AST AudioSet embeddings/probabilities</td>
+<td>PANNs CNN14 / AST AudioSet pretrained representations when used by this run; otherwise not used</td>
+<td>FreqMix and DIR-like training for MTRCNN; pretrained audio representation fusion</td>
+<td>weighted probability fusion with weights base=0.32, PANNs=0.56, AST=0.12 selected on development test balanced accuracy</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Song_HHU_Task5_1</td>
+<td>Song_HHU</td>
+<td>songHHUTask5</td>
+<td>0.255</td>
+<td>LogMelSpectrogram</td>
+<td></td>
+<td></td>
+<td>argmax</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Deng_SCUT_Task5_3</td>
+<td>Deng_SCUT</td>
+<td>dengSCUTTask5</td>
+<td>0.248</td>
+<td>log-mel spectrogram</td>
+<td>L2-normalized, 32-dim, single prototype, Mahalanobis distance with global covariance (shrinkage=0.1), Bayesian correction (m=10.0), alternative initialization seed=2024</td>
+<td>FourierMix, MixStyle</td>
+<td>mahalanobis_global_bayesian (shrinkage=0.1, Bayesian prior=10.0)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Deng_SCUT_Task5_1</td>
+<td>Deng_SCUT</td>
+<td>dengSCUTTask5</td>
+<td>0.240</td>
+<td>log-mel spectrogram</td>
+<td>L2-normalized, 32-dim, K-means sub-prototypes (K=10), soft-weighted Mahalanobis distance with global covariance (shrinkage=0.72), Bayesian correction (m=2.0), temperature 3.0</td>
+<td>FourierMix, MixStyle</td>
+<td>mahalanobis_global_bayesian_multi_soft (shrinkage=0.72, Bayesian prior=2.0, temperature=3.0)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Gupta_AP_Task5_3</td>
+<td>Gupta_AP</td>
+<td>guptaAPTask5</td>
+<td>0.238</td>
+<td>64-bin log-mel spectrogram for CRNN</td>
+<td>MIT/ast-finetuned-audioset-10-10-0.4593</td>
+<td>CRNN training augmentation</td>
+<td>fixed development-selected probability fusion using 0.85 CRNN</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Zhou_UB_Task5_3</td>
+<td>Zhou_UB</td>
+<td>zhouUBTask5</td>
+<td>0.237</td>
+<td>8 kHz log-mel MTRCNN output, PANNs CNN14 embeddings/probabilities, AST AudioSet embeddings/probabilities</td>
+<td>PANNs CNN14 / AST AudioSet pretrained representations when used by this run; otherwise not used</td>
+<td>FreqMix and DIR-like training for MTRCNN; pretrained audio representation fusion</td>
+<td>weighted probability fusion with weights base=0.38, PANNs=0.62, AST=0.00 selected on development test BA_unseen</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Eva_UL_Task5_1</td>
+<td>Eva_UL</td>
+<td>evaULTask5</td>
+<td>0.237</td>
+<td>pYIN fundamental-frequency contour statistics after band-pass filtering and HPSS</td>
+<td></td>
+<td></td>
+<td>Random Forest species prediction from high-confidence pitch statistics</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Gupta_AP_Task5_2</td>
+<td>Gupta_AP</td>
+<td>guptaAPTask5</td>
+<td>0.236</td>
+<td>64-bin log-mel spectrogram for CRNN</td>
+<td>MIT/ast-finetuned-audioset-10-10-0.4593</td>
+<td>CRNN training augmentation</td>
+<td>fixed development-selected probability fusion using 0.85 CRNN epoch 6 shift-TTA and 0.15 AST auxiliary classifier, followed by argmax species selection</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Zhou_UB_Task5_2</td>
+<td>Zhou_UB</td>
+<td>zhouUBTask5</td>
+<td>0.228</td>
+<td>8 kHz log-mel spectrogram, sliding-window MTRCNN probabilities, tabular log-mel domain classifier</td>
+<td>PANNs CNN14 / AST AudioSet pretrained representations when used by this run; otherwise not used</td>
+<td>FreqMix and DIR-like domain robust training augmentation</td>
+<td>multi-window mean probability aggregation followed by trained domain-conditional adjustment</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Zhou_UB_Task5_1</td>
+<td>Zhou_UB</td>
+<td>zhouUBTask5</td>
+<td>0.227</td>
+<td>8 kHz log-mel spectrogram, MTRCNN probabilities, predicted-domain conditional routing</td>
+<td>PANNs CNN14 / AST AudioSet pretrained representations when used by this run; otherwise not used</td>
+<td>FreqMix and DIR-like domain robust training augmentation</td>
+<td>per-file model inference with domain-bucket ensemble weights selected on development data</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Gupta_AP_Task5_1</td>
+<td>Gupta_AP</td>
+<td>guptaAPTask5</td>
+<td>0.216</td>
+<td>64-bin log-mel spectrogram</td>
+<td></td>
+<td>SpecAugment</td>
+<td>softmax prediction averaging over temporal shifts [-8, 0, 8],</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Lyu_WHU_Task5_1</td>
+<td>Lyu_WHU</td>
+<td>lyuWHUTask5</td>
+<td>0.205</td>
+<td>log-mel spectrogram</td>
+<td>DenseNet121 ImageNet-pretrained weights (conv0 adapted to single-channel input)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>Gupta_AP_Task5_4</td>
+<td>Gupta_AP</td>
+<td>guptaAPTask5</td>
+<td>0.190</td>
+<td>64-bin log-mel spectrogram</td>
+<td></td>
+<td>domain-style transfer during development training</td>
+<td>fixed 0.70 domain-style epoch-3 and 0.30 mild-SupCon epoch-3 probability fusion with shifts [-8, 0, 8]</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Shestakov_JKU_Task5_4</td>
+<td>Shestakov_JKU</td>
+<td>shestakovJKUTask5</td>
+<td>0.180</td>
+<td>log-mel spectrogram (64 mels, 0-4 kHz)</td>
+<td></td>
+<td>random 2 s crop (training only)</td>
+<td>argmax over MTRCNN species logits (single model, last-epoch checkpoint)</td>
+</tr>
+<tr>
+<td>21</td>
+<td>You_PKU_Task5_4</td>
+<td>You_PKU</td>
+<td>youPKUTask5</td>
+<td>0.174</td>
+<td>340-dimensional harmonic summary flight-tone features</td>
+<td></td>
+<td></td>
+<td>Raw argmax except low-margin clips use stronger inverse-prior</td>
+</tr>
+<tr>
+<td>22</td>
+<td>You_PKU_Task5_3</td>
+<td>You_PKU</td>
+<td>youPKUTask5</td>
+<td>0.174</td>
+<td>340-dimensional harmonic summary flight-tone features</td>
+<td></td>
+<td></td>
+<td>Argmax after adding a mild inverse TrainVal class-prior bias.</td>
+</tr>
+<tr>
+<td>23</td>
+<td>You_PKU_Task5_2</td>
+<td>You_PKU</td>
+<td>youPKUTask5</td>
+<td>0.174</td>
+<td>340-dimensional harmonic summary flight-tone features</td>
+<td></td>
+<td></td>
+<td>Argmax after adding a mild square-root inverse TrainVal class-prior</td>
+</tr>
+<tr>
+<td>24</td>
+<td>You_PKU_Task5_1</td>
+<td>You_PKU</td>
+<td>youPKUTask5</td>
+<td>0.174</td>
+<td>340-dimensional harmonic summary flight-tone features</td>
+<td></td>
+<td></td>
+<td>Raw classifier argmax.</td>
+</tr>
+<tr data-hline="true">
+<td>25</td>
+<td>Baseline</td>
+<td>Baseline</td>
+<td>biodcase2026Task5Baseline</td>
+<td>0.172</td>
+<td>64-bin log-mel spectrogram</td>
+<td></td>
+<td>random 2 s crop during training</td>
+<td>species argmax from MTRCNN classifier</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Lyu_WHU_Task5_3</td>
+<td>Lyu_WHU</td>
+<td>lyuWHUTask5</td>
+<td>0.170</td>
+<td>log-mel spectrogram</td>
+<td>DenseNet121 ImageNet-pretrained weights (conv0 adapted to single-channel input)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td>LeCallet_PolytechNantes_Task5_1</td>
+<td>LeCallet_PolytechNantes</td>
+<td>lecalletPolytechNantesTask5</td>
+<td>0.163</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td>Li_XJLAB_Task5_4</td>
+<td>Li_XJLAB</td>
+<td>liXJLABTask5</td>
+<td>0.157</td>
+<td>CQT</td>
+<td></td>
+<td>random 2-second training crops; full-clip inference without test-time crop truncation</td>
+<td>full-clip species prediction followed by logit-level weighted ensemble</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Li_XJLAB_Task5_2</td>
+<td>Li_XJLAB</td>
+<td>liXJLABTask5</td>
+<td>0.151</td>
+<td>CQT</td>
+<td></td>
+<td>random 2-second training crops; full-clip inference without test-time crop truncation</td>
+<td>full-clip species prediction followed by probability-level weighted ensemble</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Lyu_WHU_Task5_4</td>
+<td>Lyu_WHU</td>
+<td>lyuWHUTask5</td>
+<td>0.141</td>
+<td>log-mel spectrogram</td>
+<td>DenseNet121 ImageNet-pretrained weights (conv0 adapted to single-channel input)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>31</td>
+<td>Li_XJLAB_Task5_3</td>
+<td>Li_XJLAB</td>
+<td>liXJLABTask5</td>
+<td>0.135</td>
+<td>CQT</td>
+<td></td>
+<td>random 2-second training crops; full-clip inference without test-time crop truncation</td>
+<td>full-clip species prediction followed by logit-level weighted ensemble</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Li_XJLAB_Task5_1</td>
+<td>Li_XJLAB</td>
+<td>liXJLABTask5</td>
+<td>0.118</td>
+<td>CQT</td>
+<td></td>
+<td>random 2-second training crops; full-clip inference without test-time crop truncation</td>
+<td>full-clip species prediction followed by logit-level weighted ensemble</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Wang_HHU_Task5_1</td>
+<td>Wang_HHU</td>
+<td></td>
+<td>0.111</td>
+<td>128-bin log-mel spectrogram</td>
+<td></td>
+<td></td>
+<td>argmax species prediction</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Lyu_WHU_Task5_2</td>
+<td>Lyu_WHU</td>
+<td>lyuWHUTask5</td>
+<td>0.067</td>
+<td>log-mel spectrogram</td>
+<td>DenseNet121 ImageNet-pretrained weights (conv0 adapted to single-channel input)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="technical-reports">Technical reports</h1>
+<div class="btex" data-source="content/data/challenge2026/technical_reports_task5.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="biodcase2026Task5Baseline" style="box-shadow: none">
+<div class="panel-heading" id="heading-biodcase2026Task5Baseline" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       BioDCASE 2026 Challenge Baseline for Cross-Domain Mosquito Species Classification
+      </h4>
+<p style="text-align:left">
+       Yuanbo Hou, Vanja Zdravkovic, Marianne Sinka, Yunpeng Li, Wenwu Wang, Mark D. Plumbley, Kathy Willis, Stephen Roberts
+      </p>
+<p style="text-align:left">
+<em>
+        BioDCASE 2026 CD-MSC organising team
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Baseline</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-biodcase2026Task5Baseline" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-biodcase2026Task5Baseline" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-biodcase2026Task5Baseline" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="https://arxiv.org/pdf/2603.20118" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="https://github.com/Yuanbo2020/CD-MSC" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-biodcase2026Task5Baseline" class="panel-collapse collapse" id="collapse-biodcase2026Task5Baseline" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      BioDCASE 2026 Challenge Baseline for Cross-Domain Mosquito Species Classification
+     </h4>
+<p style="text-align:left">
+<small>
+       Yuanbo Hou, Vanja Zdravkovic, Marianne Sinka, Yunpeng Li, Wenwu Wang, Mark D. Plumbley, Kathy Willis, Stephen Roberts
+      </small>
+<br/>
+<small>
+<em>
+        BioDCASE 2026 CD-MSC organising team
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        64-bin log-mel spectrogram
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Training or augmentation
+       </td>
+<td>
+        random 2 s crop during training
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        species argmax from MTRCNN classifier
+       </td>
+</tr>
+</table>
+<h5>
+<strong>
+       Code
+      </strong>
+</h5>
+<a class="btn btn-xs btn-success" href="https://github.com/Yuanbo2020/CD-MSC">
+<i class="fa fa-file-code-o">
+</i>
+      Source code
+     </a>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="dengSCUTTask5" style="box-shadow: none">
+<div class="panel-heading" id="heading-dengSCUTTask5" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Domain-Balanced Representation Learning and Multi-Prototype Mahalanobis Inference for Cross-Domain Mosquito Classification
+      </h4>
+<p style="text-align:left">
+       Tianyan Deng, Wanchuan Chen, Jiahao Du, Rui Gao, Yanxiong Li
+      </p>
+<p style="text-align:left">
+<em>
+        South China University of Technology
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Deng_SCUT_Task5_4</span> <span class="label label-primary">Deng_SCUT_Task5_2</span> <span class="label label-primary">Deng_SCUT_Task5_3</span> <span class="label label-primary">Deng_SCUT_Task5_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-dengSCUTTask5" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-dengSCUTTask5" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-dengSCUTTask5" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="20260628_DCASE2026-Task5-submissions/Deng_SCUT/Deng_task5.technical_report.pdf.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-dengSCUTTask5" class="panel-collapse collapse" id="collapse-dengSCUTTask5" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Domain-Balanced Representation Learning and Multi-Prototype Mahalanobis Inference for Cross-Domain Mosquito Classification
+     </h4>
+<p style="text-align:left">
+<small>
+       Tianyan Deng, Wanchuan Chen, Jiahao Du, Rui Gao, Yanxiong Li
+      </small>
+<br/>
+<small>
+<em>
+        South China University of Technology
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        log-mel spectrogram
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Embeddings
+       </td>
+<td>
+        L2-normalized, 32-dim, single prototype, Mahalanobis distance with global covariance (shrinkage=0.1), Bayesian correction (m=10.0), domain-class balanced sampling
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Training or augmentation
+       </td>
+<td>
+        FourierMix, MixStyle
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        mahalanobis_global_bayesian (shrinkage=0.1, Bayesian prior=10.0)
+       </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="evaULTask5" style="box-shadow: none">
+<div class="panel-heading" id="heading-evaULTask5" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Mosquito Species Classification via Domain-Adversarial Fine-Tuning of the Audio Spectrogram Transformer
+      </h4>
+<p style="text-align:left">
+       Eva Bones, Matija Marolt
+      </p>
+<p style="text-align:left">
+<em>
+        University of Ljubljana, Faculty of Computer and Information Science
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Eva_UL_Task5_2</span> <span class="label label-primary">Eva_UL_Task5_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-evaULTask5" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-evaULTask5" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-evaULTask5" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="20260628_DCASE2026-Task5-submissions/Eva_UL/BioDCASE_2026_Mosquitos.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-evaULTask5" class="panel-collapse collapse" id="collapse-evaULTask5" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Mosquito Species Classification via Domain-Adversarial Fine-Tuning of the Audio Spectrogram Transformer
+     </h4>
+<p style="text-align:left">
+<small>
+       Eva Bones, Matija Marolt
+      </small>
+<br/>
+<small>
+<em>
+        University of Ljubljana, Faculty of Computer and Information Science
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        pYIN F0 contour statistics; log-mel spectrogram
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Embeddings
+       </td>
+<td>
+        pre-trained Audio Spectrogram Transformer backbone for System 2
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Training or augmentation
+       </td>
+<td>
+        SpecAugment, log-mel gain jitter, circular random time shifts for the AST system
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        System 1: Random Forest pitch-statistics classifier; System 2: DANN-AST species prediction
+       </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="guptaAPTask5" style="box-shadow: none">
+<div class="panel-heading" id="heading-guptaAPTask5" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       CRNN-AST fusion with fixed species-9 calibration hedge
+      </h4>
+<p style="text-align:left">
+       Anant Gupta, Gourav Gupta, Aditya Gupta
+      </p>
+<p style="text-align:left">
+<em>
+        Arogya Pandit
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Gupta_AP_Task5_3</span> <span class="label label-primary">Gupta_AP_Task5_2</span> <span class="label label-primary">Gupta_AP_Task5_1</span> <span class="label label-primary">Gupta_AP_Task5_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-guptaAPTask5" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-guptaAPTask5" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-guptaAPTask5" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="20260628_DCASE2026-Task5-submissions/Gupta_AP/Gupta_AP_task5_3_submission_package/Gupta_AP_task5.technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="https://github.com/AnantGp/mosquito-proj" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-guptaAPTask5" class="panel-collapse collapse" id="collapse-guptaAPTask5" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      CRNN-AST fusion with fixed species-9 calibration hedge
+     </h4>
+<p style="text-align:left">
+<small>
+       Anant Gupta, Gourav Gupta, Aditya Gupta
+      </small>
+<br/>
+<small>
+<em>
+        Arogya Pandit
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        64-bin log-mel spectrogram for CRNN
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Embeddings
+       </td>
+<td>
+        MIT/ast-finetuned-audioset-10-10-0.4593
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Training or augmentation
+       </td>
+<td>
+        CRNN training augmentation
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        fixed development-selected probability fusion using 0.85 CRNN
+       </td>
+</tr>
+</table>
+<h5>
+<strong>
+       Code
+      </strong>
+</h5>
+<a class="btn btn-xs btn-success" href="https://github.com/AnantGp/mosquito-proj">
+<i class="fa fa-file-code-o">
+</i>
+      Source code
+     </a>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="lecalletPolytechNantesTask5" style="box-shadow: none">
+<div class="panel-heading" id="heading-lecalletPolytechNantesTask5" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Cross-Domain Mosquito Species Classification with Input-Level Mixup
+      </h4>
+<p style="text-align:left">
+       Ewen Le Callet
+      </p>
+<p style="text-align:left">
+<em>
+        Polytech Nantes
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">LeCallet_PolytechNantes_Task5_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-lecalletPolytechNantesTask5" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-lecalletPolytechNantesTask5" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-lecalletPolytechNantesTask5" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="20260628_DCASE2026-Task5-submissions/LeCallet_PolytechNantes/LeCallet_PolytechNantes_task5_1_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-lecalletPolytechNantesTask5" class="panel-collapse collapse" id="collapse-lecalletPolytechNantesTask5" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Cross-Domain Mosquito Species Classification with Input-Level Mixup
+     </h4>
+<p style="text-align:left">
+<small>
+       Ewen Le Callet
+      </small>
+<br/>
+<small>
+<em>
+        Polytech Nantes
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="liXJLABTask5" style="box-shadow: none">
+<div class="panel-heading" id="heading-liXJLABTask5" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Reliability-Guided Distillation for Cross-Domain Mosquito Species Classification
+      </h4>
+<p style="text-align:left">
+       Shuanglin Li, Ruxiao Qian
+      </p>
+<p style="text-align:left">
+<em>
+        Xiangjiang Laboratory
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Li_XJLAB_Task5_4</span> <span class="label label-primary">Li_XJLAB_Task5_2</span> <span class="label label-primary">Li_XJLAB_Task5_3</span> <span class="label label-primary">Li_XJLAB_Task5_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-liXJLABTask5" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-liXJLABTask5" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-liXJLABTask5" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="20260628_DCASE2026-Task5-submissions/Li_XJLAB/Li_XJLAB_task5.technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-liXJLABTask5" class="panel-collapse collapse" id="collapse-liXJLABTask5" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Reliability-Guided Distillation for Cross-Domain Mosquito Species Classification
+     </h4>
+<p style="text-align:left">
+<small>
+       Shuanglin Li, Ruxiao Qian
+      </small>
+<br/>
+<small>
+<em>
+        Xiangjiang Laboratory
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        CQT
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Training or augmentation
+       </td>
+<td>
+        random 2-second training crops; full-clip inference without test-time crop truncation
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        full-clip species prediction followed by logit-level weighted ensemble
+       </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="lyuWHUTask5" style="box-shadow: none">
+<div class="panel-heading" id="heading-lyuWHUTask5" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Addressing Class Imbalance in Cross-Domain Mosquito Bioacoustic Species Classification with Balanced Multi-Task Learning
+      </h4>
+<p style="text-align:left">
+       Meiting Lyu, Ruicheng Liu, Xu Shen, Zongye Chen, Jiatong Wu, Ziyu Wang, Wei Liu, Gongping Huang
+      </p>
+<p style="text-align:left">
+<em>
+        Wuhan University; Waseda University
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Lyu_WHU_Task5_1</span> <span class="label label-primary">Lyu_WHU_Task5_3</span> <span class="label label-primary">Lyu_WHU_Task5_4</span> <span class="label label-primary">Lyu_WHU_Task5_2</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-lyuWHUTask5" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-lyuWHUTask5" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-lyuWHUTask5" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="20260628_DCASE2026-Task5-submissions/Lyu_WHU/Addressing_Class_Imbalance_Cross_Domain_Mosquito_Bioacoustic_Species_Classification_Balanced_Multi_Task_Learning.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-lyuWHUTask5" class="panel-collapse collapse" id="collapse-lyuWHUTask5" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Addressing Class Imbalance in Cross-Domain Mosquito Bioacoustic Species Classification with Balanced Multi-Task Learning
+     </h4>
+<p style="text-align:left">
+<small>
+       Meiting Lyu, Ruicheng Liu, Xu Shen, Zongye Chen, Jiatong Wu, Ziyu Wang, Wei Liu, Gongping Huang
+      </small>
+<br/>
+<small>
+<em>
+        Wuhan University; Waseda University
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        log-mel spectrogram
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Embeddings
+       </td>
+<td>
+        DenseNet121 ImageNet-pretrained weights (conv0 adapted to single-channel input)
+       </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="shestakovJKUTask5" style="box-shadow: none">
+<div class="panel-heading" id="heading-shestakovJKUTask5" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       FG-harmonic agreement-gate ensemble
+      </h4>
+<p style="text-align:left">
+       Oliver Gstoettenbauer, Andrii Ushakov, Artem Shestakov
+      </p>
+<p style="text-align:left">
+<em>
+        Johannes Kepler University Linz
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Shestakov_JKU_Task5_2</span> <span class="label label-primary">Shestakov_JKU_Task5_1</span> <span class="label label-primary">Shestakov_JKU_Task5_3</span> <span class="label label-primary">Shestakov_JKU_Task5_4</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-shestakovJKUTask5" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-shestakovJKUTask5" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-shestakovJKUTask5" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="20260628_DCASE2026-Task5-submissions/Shestakov_JKU/Shestakov_task5.technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="https://github.com/aptemvs/Cross-Domain-Mosquito-Species-Classification" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-shestakovJKUTask5" class="panel-collapse collapse" id="collapse-shestakovJKUTask5" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      FG-harmonic agreement-gate ensemble
+     </h4>
+<p style="text-align:left">
+<small>
+       Oliver Gstoettenbauer, Andrii Ushakov, Artem Shestakov
+      </small>
+<br/>
+<small>
+<em>
+        Johannes Kepler University Linz
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        foreground-harmonic liftered-cepstrum (102-d) + background-whitened log-spectrum (257-d)
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Embeddings
+       </td>
+<td>
+        Perch 2.0 (1536-d) + Bird-MAE-Large (1024-d)
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Training or augmentation
+       </td>
+<td>
+        probe-level feature Gaussian noise + channel dropout
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        softmax-mean seed ensemble + unanimous-3 agreement gate (foreground-harmonic voter)
+       </td>
+</tr>
+</table>
+<h5>
+<strong>
+       Code
+      </strong>
+</h5>
+<a class="btn btn-xs btn-success" href="https://github.com/aptemvs/Cross-Domain-Mosquito-Species-Classification">
+<i class="fa fa-file-code-o">
+</i>
+      Source code
+     </a>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="songHHUTask5" style="box-shadow: none">
+<div class="panel-heading" id="heading-songHHUTask5" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       AudioTransformer_Mosquito
+      </h4>
+<p style="text-align:left">
+       Hangyu Song
+      </p>
+<p style="text-align:left">
+<em>
+        Hohai University
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Song_HHU_Task5_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-songHHUTask5" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-songHHUTask5" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-songHHUTask5" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="20260628_DCASE2026-Task5-submissions/Song_HHU/CD-MSC2026_TechnicalReport_SongHangyu.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-songHHUTask5" class="panel-collapse collapse" id="collapse-songHHUTask5" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      AudioTransformer_Mosquito
+     </h4>
+<p style="text-align:left">
+<small>
+       Hangyu Song
+      </small>
+<br/>
+<small>
+<em>
+        Hohai University
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        LogMelSpectrogram
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        argmax
+       </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="youPKUTask5" style="box-shadow: none">
+<div class="panel-heading" id="heading-youPKUTask5" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       TrainVal harmonic summary SGD margin-gated prior calibrated
+      </h4>
+<p style="text-align:left">
+       Yuhuan You
+      </p>
+<p style="text-align:left">
+<em>
+        Peking University
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">You_PKU_Task5_4</span> <span class="label label-primary">You_PKU_Task5_3</span> <span class="label label-primary">You_PKU_Task5_2</span> <span class="label label-primary">You_PKU_Task5_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-youPKUTask5" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-youPKUTask5" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-youPKUTask5" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="20260628_DCASE2026-Task5-submissions/You_PKU/You_PKU_task5.technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-youPKUTask5" class="panel-collapse collapse" id="collapse-youPKUTask5" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      TrainVal harmonic summary SGD margin-gated prior calibrated
+     </h4>
+<p style="text-align:left">
+<small>
+       Yuhuan You
+      </small>
+<br/>
+<small>
+<em>
+        Peking University
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        340-dimensional harmonic summary flight-tone features
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        Raw argmax except low-margin clips use stronger inverse-prior
+       </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="zhouUBTask5" style="box-shadow: none">
+<div class="panel-heading" id="heading-zhouUBTask5" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Domain-bucket PANNs/AST best-overall fusion
+      </h4>
+<p style="text-align:left">
+       Haoyang Zhou
+      </p>
+<p style="text-align:left">
+<em>
+        University of Bremen
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Zhou_UB_Task5_4</span> <span class="label label-primary">Zhou_UB_Task5_3</span> <span class="label label-primary">Zhou_UB_Task5_2</span> <span class="label label-primary">Zhou_UB_Task5_1</span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-zhouUBTask5" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-zhouUBTask5" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-zhouUBTask5" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="20260628_DCASE2026-Task5-submissions/Zhou_UB/Zhou_UB_task5.technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+<a class="btn btn-xs btn-success" data-placement="bottom" href="https://github.com/Yuanbo2020/CD-MSC" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Source code">
+<i class="fa fa-file-code-o">
+</i>
+        Code
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-zhouUBTask5" class="panel-collapse collapse" id="collapse-zhouUBTask5" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Domain-bucket PANNs/AST best-overall fusion
+     </h4>
+<p style="text-align:left">
+<small>
+       Haoyang Zhou
+      </small>
+<br/>
+<small>
+<em>
+        University of Bremen
+       </em>
+</small>
+</p>
+<h5>
+<strong>
+       Method summary
+      </strong>
+</h5>
+<table class="table table-condensed">
+<tr>
+<td class="col-md-3">
+        Features
+       </td>
+<td>
+        8 kHz log-mel MTRCNN output, PANNs CNN14 embeddings/probabilities, AST AudioSet embeddings/probabilities
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Embeddings
+       </td>
+<td>
+        PANNs CNN14 / AST AudioSet pretrained representations when used by this run; otherwise not used
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Training or augmentation
+       </td>
+<td>
+        FreqMix and DIR-like training for MTRCNN; pretrained audio representation fusion
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Decision rule
+       </td>
+<td>
+        weighted probability fusion with weights base=0.32, PANNs=0.56, AST=0.12 selected on development test balanced accuracy
+       </td>
+</tr>
+</table>
+<h5>
+<strong>
+       Code
+      </strong>
+</h5>
+<a class="btn btn-xs btn-success" href="https://github.com/Yuanbo2020/CD-MSC">
+<i class="fa fa-file-code-o">
+</i>
+      Source code
+     </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/theme.js"></script>
+</body>
+</html>
