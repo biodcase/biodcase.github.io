@@ -1,0 +1,1719 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>Supervised Detection of Strongly-Labelled Whale Calls - BioDCASE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Supervised Detection of Strongly-Labelled Whale Calls - BioDCASE" />
+    <link href="https://biodcase.github.io/favicon.ico" rel="icon">
+    <link rel="canonical" href="https://biodcase.github.io/challenge2026/task2-results">
+    <meta property="og:url" content="https://dcase.community/challenge2026/task2-results" />
+    <meta property="og:image" content="https://dcase.community/images/logos/biodcase_preview.png" />
+    <meta name="author" content="BioDCASE" />
+    <meta name="description" content="Task description Supervised sound event detection of 7 different call types from the blue whale and the fin whale. Models must handle calls that occur only ~6% of the time and generalise across PAM recordings from different time periods and sites around Antarctica with highly variable soundscapes. Submissions are evaluated …" />
+    <meta name="og:description" content="Task description Supervised sound event detection of 7..." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/dcaseicons/css/dcaseicons.css?v=1.2" type="text/css"/>
+        <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btex.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btoc.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.2" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/static/assets/bioicons/css/bioicons.css" type="text/css"/>
+    <script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.min.js"></script>
+</head>
+<body>
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="https://biodcase.github.io/" class="navbar-brand hidden-lg hidden-md hidden-sm" ></a>
+            </div>
+            <div id="navbar-main" class="navbar-collapse collapse"><ul class="nav navbar-nav" id="menuitem-list-main"><li class="" data-toggle="tooltip" data-placement="bottom" title="Frontpage">
+        <a href="https://biodcase.github.io/"><img class="img img-responsive" src="https://biodcase.github.io//images/logos/biodcase/BioDCASE_header_20px.svg"/></a>
+    </li></ul><ul class="nav navbar-nav navbar-right" id="menuitem-list"><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2026" class="dropdown-toggle" data-toggle="dropdown">CHALLENGES&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026">Challenge 2026</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026/task1">T1 - Multichannel Alignment</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026/task2">T2 - Whale Detection</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026/task3">T3 - Tiny Hardware</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026/task4">T4 - Active Learning</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026/task5">T5 - Mosquito Classification</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026/task6">T6 - Bird Counting</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2025">Challenge 2025</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="https://biodcase.github.io/workshop2025" class="dropdown-toggle" data-toggle="dropdown">WORKSHOP&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/workshop2026">Workshop 2026</a>
+    </li>
+            <li class="divider" role="presentation"></li>
+            <li class="">
+        <a href="https://biodcase.github.io/workshop2025">Workshop 2025</a>
+    </li>
+        </ul>
+    </li><li class="btn-group ">
+        <a href="https://biodcase.github.io/challenge2026/submission" class="dropdown-toggle" data-toggle="dropdown">SUBMISSION&nbsp;<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu">
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026/submission">Submit</a>
+    </li>
+            <li class="">
+        <a href="https://biodcase.github.io/challenge2026/rules">Rules</a>
+    </li>
+        </ul>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Organising committee">
+        <a href="https://biodcase.github.io/organisers">ORGANISERS</a>
+    </li><li class="" data-toggle="tooltip" data-placement="bottom" title="Google discussions for the BioDCASE Community">
+        <a href="https://groups.google.com/g/biodcase-community" target="_blank" ><i class="fa fa-comments fa-1x fa-fw"></i>&nbsp;</a>
+    </li>                </ul>            </div>
+        </div></div>
+</nav>
+<style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .bold{
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+        header .page-heading .subheading {
+            font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif  !important;
+        }
+    </style><style>
+        header .page-heading h1, header .page-heading-portal h1{
+            font-weight: 400 !important;
+        }
+        header .page-heading .bold{
+            font-weight: 400  !important;
+        }
+    </style><header class="page-top " style="background-image: url(..//images/header/biodcase2026_task2.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-bottom:20px;">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-center"><h1 class="thin">Supervised Detection of Strongly-Labelled Whale Calls</h1><hr class="small center thin">
+                        <span class="subheading subheading-secondary">Results</span></div>
+            </div>
+        </div>
+    </div>
+<span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="BioDCASE 2026 Task 2"><i class="fa fa-creative-commons" aria-hidden="true"></i></span></header><div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 sidecolumn-left">
+ <div class="btoc-container hidden-print" role="complementary">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Content</h3>
+</div>
+<ul class="nav btoc-nav">
+<li><a href="#task-description">Task description</a></li>
+<li><a href="#awards">Awards</a></li>
+<li><a href="#submission-ranking">Submission ranking</a></li>
+<li><a href="#subsets">Subsets</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
+</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col-sm-9 content">
+            <section id="content" class="body">
+                <div class="entry-content">
+                    <h1 id="task-description">Task description</h1>
+<p>Supervised sound event detection of 7 different call types from the blue whale and the fin whale. Models must handle calls that occur only ~6% of the time and generalise across PAM recordings from different time periods and sites around Antarctica with highly variable soundscapes. Submissions are evaluated using macro F1-score (IoU ≥ 0.3) on four held-out recording sites.</p>
+<p><a class="btn btn-primary" href="https://biodcase.github.io/challenge2026/task2" style="">Task description page</a></p>
+<h1 id="awards">Awards</h1>
+<p>The official winning submission is determined by the official evaluation ranking. The Jury Award is selected by the task organisers based on the submitted systems and technical reports.</p>
+<h3>Official winning submission</h3>
+<div class="award-block award-block-winning">
+<div class="award-block-authors"><strong>Ye, Tong and Liu, Hongning and Xiao, Feiyang and Zhu, Qiaoxi and Guan, Jian</strong></div>
+<div class="award-block-institution">Group of Intelligent Signal Processing, Harbin Engineering University</div>
+<div class="award-block-system">GISP@HEU's submission for task 2: a consensus-ensemble YOLO system for temporal detection of Antarctic whale calls</div>
+</div>
+<h3>Jury award</h3>
+<div class="award-block award-block-jury">
+<div class="award-block-authors"><strong></strong></div>
+<div class="award-block-institution"></div>
+<div class="award-block-system"></div>
+<div class="award-block-comment"></div>
+</div>
+<h1 id="submission-ranking">Submission ranking</h1>
+<p>Submissions are ranked on the overall macro F1-score (IoU ≥ 0.3) across the four evaluation sites. Precision and recall are reported as supplementary metrics.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="anchor" data-pagination="true" data-row-highlighting="true" data-scatter-x="rank_team" data-scatter-y="rank_score" data-show-chart="true" data-show-pagination-switch="true" data-sort-name="rank_team" data-sort-order="asc">
+<thead>
+<tr>
+<th class="text-center" colspan="3">Submission information</th>
+<th class="sep-left-cell text-center" colspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="2">Metrics</th>
+</tr>
+<tr>
+<th data-field="corresponding_author" data-sortable="true">Corresponding Author</th>
+<th class="sm-cell" data-field="name" data-sortable="true">System name</th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">Technical<br/>report</th>
+<th class="sep-left-cell text-center" data-axis-label="Team rank" data-chartable="true" data-field="rank_team" data-sortable="true" data-value-type="int">Official<br/>rank</th>
+<th class="text-center" data-axis-label="F-score (%)" data-chartable="true" data-field="rank_score" data-sortable="true" data-value-type="float1">F-score<br/>(%)</th>
+<th class="sep-left-cell text-center" data-axis-label="Precision (%)" data-chartable="true" data-field="results_evaluation_set_overall_precision" data-sortable="true" data-value-type="float1">Precision<br/>(%)</th>
+<th class="text-center" data-axis-label="Recall (%)" data-chartable="true" data-field="results_evaluation_set_overall_recall" data-sortable="true" data-value-type="float1">Recall<br/>(%)</th>
+</tr>
+</thead>
+<tbody>
+<tr data-hline="true">
+<td>Yongyi Deng</td>
+<td>Deng_WHU_1</td>
+<td>Deng_WHU</td>
+<td>8</td>
+<td>46.6</td>
+<td>50.8</td>
+<td>43.0</td>
+</tr>
+<tr data-hline="true">
+<td>Yongyi Deng</td>
+<td>Deng_WHU_2</td>
+<td>Deng_WHU</td>
+<td>9</td>
+<td>46.0</td>
+<td>47.5</td>
+<td>44.7</td>
+</tr>
+<tr data-hline="true">
+<td>Gherasim, George-Daniel</td>
+<td>Gherasim_ENSTA_1</td>
+<td>Gherasim_ENSTA</td>
+<td>10</td>
+<td>45.5</td>
+<td>53.9</td>
+<td>39.4</td>
+</tr>
+<tr data-hline="true">
+<td>Gherasim, George-Daniel</td>
+<td>Gherasim_ENSTA_2</td>
+<td>Gherasim_ENSTA</td>
+<td>5</td>
+<td>47.6</td>
+<td>56.0</td>
+<td>41.4</td>
+</tr>
+<tr data-hline="true">
+<td>Jian Guan</td>
+<td>Guan_GISP_HEU_1</td>
+<td>Guan_GISP_HEU</td>
+<td>1</td>
+<td>49.9</td>
+<td>47.5</td>
+<td>52.5</td>
+</tr>
+<tr data-hline="true">
+<td>Jian Guan</td>
+<td>Guan_GISP_HEU_2</td>
+<td>Guan_GISP_HEU</td>
+<td>17</td>
+<td>39.2</td>
+<td>51.6</td>
+<td>31.6</td>
+</tr>
+<tr data-hline="true">
+<td>Jian Guan</td>
+<td>Guan_GISP_HEU_3</td>
+<td>Guan_GISP_HEU</td>
+<td>24</td>
+<td>34.6</td>
+<td>41.7</td>
+<td>29.6</td>
+</tr>
+<tr data-hline="true">
+<td>Jian Guan</td>
+<td>Guan_GISP_HEU_4</td>
+<td>Guan_GISP_HEU</td>
+<td>31</td>
+<td>7.4</td>
+<td>14.7</td>
+<td>4.9</td>
+</tr>
+<tr data-hline="true">
+<td>Isoda, Daito</td>
+<td>Isoda_UT</td>
+<td>Isoda_UT</td>
+<td>22</td>
+<td>35.6</td>
+<td>34.7</td>
+<td>36.6</td>
+</tr>
+<tr data-hline="true">
+<td>Hugo Magaldi</td>
+<td>Magaldi_MNHN</td>
+<td>Magaldi_MNHN</td>
+<td>26</td>
+<td>27.1</td>
+<td>26.5</td>
+<td>27.6</td>
+</tr>
+<tr data-hline="true">
+<td>Marolt, Matija and Bones, Eva</td>
+<td>Marolt_UL_1</td>
+<td>Marolt_UL</td>
+<td>18</td>
+<td>38.4</td>
+<td>54.7</td>
+<td>29.6</td>
+</tr>
+<tr data-hline="true">
+<td>Marolt, Matija and Bones, Eva</td>
+<td>Marolt_UL_2</td>
+<td>Marolt_UL</td>
+<td>7</td>
+<td>46.7</td>
+<td>51.2</td>
+<td>43.0</td>
+</tr>
+<tr data-hline="true">
+<td>Marolt, Matija and Bones, Eva</td>
+<td>Marolt_UL_3</td>
+<td>Marolt_UL</td>
+<td>13</td>
+<td>40.5</td>
+<td>55.7</td>
+<td>31.8</td>
+</tr>
+<tr data-hline="true">
+<td>Marolt, Matija and Bones, Eva</td>
+<td>Marolt_UL_4</td>
+<td>Marolt_UL</td>
+<td>30</td>
+<td>15.4</td>
+<td>27.7</td>
+<td>10.6</td>
+</tr>
+<tr data-hline="true">
+<td>Matthias Nagl</td>
+<td>Nagl_JKU</td>
+<td>Nagl_JKU</td>
+<td>16</td>
+<td>39.3</td>
+<td>54.4</td>
+<td>30.7</td>
+</tr>
+<tr data-hline="true">
+<td>Matthias Nagl</td>
+<td>Nagl_JKU_NAVE</td>
+<td>Nagl_JKU_NAVE</td>
+<td>21</td>
+<td>36.1</td>
+<td>35.9</td>
+<td>36.4</td>
+</tr>
+<tr data-hline="true">
+<td>Ragib Amin Nihal</td>
+<td>Nihal_ScienceTokyo_1</td>
+<td>Nihal_ScienceTokyo</td>
+<td>14</td>
+<td>39.9</td>
+<td>54.9</td>
+<td>31.3</td>
+</tr>
+<tr data-hline="true">
+<td>Ragib Amin Nihal</td>
+<td>Nihal_ScienceTokyo_2</td>
+<td>Nihal_ScienceTokyo</td>
+<td>11</td>
+<td>43.3</td>
+<td>51.7</td>
+<td>37.2</td>
+</tr>
+<tr data-hline="true">
+<td>Ragib Amin Nihal</td>
+<td>Nihal_ScienceTokyo_3</td>
+<td>Nihal_ScienceTokyo</td>
+<td>15</td>
+<td>39.4</td>
+<td>55.0</td>
+<td>30.7</td>
+</tr>
+<tr data-hline="true">
+<td>Ragib Amin Nihal</td>
+<td>Nihal_ScienceTokyo_4</td>
+<td>Nihal_ScienceTokyo</td>
+<td>23</td>
+<td>35.1</td>
+<td>56.6</td>
+<td>25.4</td>
+</tr>
+<tr data-hline="true">
+<td>Liz Ferguson</td>
+<td>Ferguson_OSA</td>
+<td>Ferguson_OSA</td>
+<td>28</td>
+<td>22.7</td>
+<td>57.3</td>
+<td>14.2</td>
+</tr>
+<tr data-hline="true">
+<td>Saeed,  Maaz</td>
+<td>SMT_IDMT_1</td>
+<td>Saeed_SMT_IDMT</td>
+<td>25</td>
+<td>27.6</td>
+<td>25.2</td>
+<td>30.5</td>
+</tr>
+<tr data-hline="true">
+<td>Saeed,  Maaz</td>
+<td>SMT_IDMT_2</td>
+<td>Saeed_SMT_IDMT</td>
+<td>20</td>
+<td>37.6</td>
+<td>30.6</td>
+<td>48.6</td>
+</tr>
+<tr data-hline="true">
+<td>Saeed,  Maaz</td>
+<td>SMT_IDMT_3</td>
+<td>Saeed_SMT_IDMT</td>
+<td>29</td>
+<td>16.6</td>
+<td>11.2</td>
+<td>32.0</td>
+</tr>
+<tr data-hline="true">
+<td>Vogler, Marie</td>
+<td>Vogler_AWI</td>
+<td>Vogler_AWI</td>
+<td>27</td>
+<td>22.9</td>
+<td>16.9</td>
+<td>35.6</td>
+</tr>
+<tr data-hline="true">
+<td>Michelashvili, Michael Moshe</td>
+<td>Yochai_DV_1</td>
+<td>Yochai_DV</td>
+<td>6</td>
+<td>46.9</td>
+<td>51.7</td>
+<td>42.8</td>
+</tr>
+<tr data-hline="true">
+<td>Michelashvili, Michael Moshe</td>
+<td>Yochai_DV_2</td>
+<td>Yochai_DV</td>
+<td>3</td>
+<td>48.5</td>
+<td>53.3</td>
+<td>44.5</td>
+</tr>
+<tr data-hline="true">
+<td>Michelashvili, Michael Moshe</td>
+<td>Yochai_DV_3</td>
+<td>Yochai_DV</td>
+<td>2</td>
+<td>48.6</td>
+<td>51.1</td>
+<td>46.4</td>
+</tr>
+<tr data-hline="true">
+<td>Michelashvili, Michael Moshe</td>
+<td>Yochai_DV_4</td>
+<td>Yochai_DV</td>
+<td>12</td>
+<td>42.1</td>
+<td>59.7</td>
+<td>32.5</td>
+</tr>
+<tr data-hline="true">
+<td>Xixin Zhang</td>
+<td>Zhang_SDSU</td>
+<td>Zhang_SDSU</td>
+<td>4</td>
+<td>48.3</td>
+<td>52.0</td>
+<td>45.1</td>
+</tr>
+<tr data-hline="true">
+<td>Liz Ferguson</td>
+<td>yolo_baseline</td>
+<td>Ferguson2025</td>
+<td>19</td>
+<td>37.6</td>
+<td>38.4</td>
+<td>36.8</td>
+</tr>
+</tbody>
+</table>
+<h1 id="subsets">Subsets</h1>
+<p>Submission ranking across the four evaluation sites: DDU2021, Kerguelen2020, DDU2019, Kerguelen2019. Showing the macro F1-score (%).</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="anchor" data-pagination="true" data-row-highlighting="true" data-scatter-x="rank_team" data-scatter-y="rank_score" data-show-chart="false" data-show-pagination-switch="true" data-sort-name="rank_team" data-sort-order="asc">
+<thead>
+<tr>
+<th class="text-center" colspan="3">Submission information</th>
+<th class="sep-left-cell text-center" colspan="2">Rank</th>
+<th class="sep-left-cell text-center" colspan="4">Sites (F-score %)</th>
+</tr>
+<tr>
+<th data-field="corresponding_author" data-sortable="true">Corresponding Author</th>
+<th class="sm-cell" data-field="name" data-sortable="true">System name</th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">Technical<br/>report</th>
+<th class="sep-left-cell text-center" data-axis-label="Team rank" data-chartable="true" data-field="rank_team" data-sortable="true" data-value-type="int">Official<br/>rank</th>
+<th class="text-center" data-axis-label="F-score (%)" data-chartable="true" data-field="rank_score" data-sortable="true" data-value-type="float1">F-score<br/>(%)</th>
+<th class="sep-left-cell text-center" data-axis-label="DDU2021 F-score (%)" data-chartable="true" data-field="results_evaluation_set_dataset_wise_DDU2021_F-score" data-sortable="true" data-value-type="float1">DDU2021</th>
+<th class="text-center" data-axis-label="Kerguelen2020 F-score (%)" data-chartable="true" data-field="results_evaluation_set_dataset_wise_Kerguelen2020_F-score" data-sortable="true" data-value-type="float1">Kerguelen2020</th>
+<th class="text-center" data-axis-label="DDU2019 F-score (%)" data-chartable="true" data-field="results_evaluation_set_dataset_wise_DDU2019_F-score" data-sortable="true" data-value-type="float1">DDU2019</th>
+<th class="text-center" data-axis-label="Kerguelen2019 F-score (%)" data-chartable="true" data-field="results_evaluation_set_dataset_wise_Kerguelen2019_F-score" data-sortable="true" data-value-type="float1">Kerguelen2019</th>
+</tr>
+</thead>
+<tbody>
+<tr data-hline="true">
+<td>Yongyi Deng</td>
+<td>Deng_WHU_1</td>
+<td>Deng_WHU</td>
+<td>8</td>
+<td>46.6</td>
+<td>51.4</td>
+<td>43.1</td>
+<td>44.0</td>
+<td>34.6</td>
+</tr>
+<tr data-hline="true">
+<td>Yongyi Deng</td>
+<td>Deng_WHU_2</td>
+<td>Deng_WHU</td>
+<td>9</td>
+<td>46.0</td>
+<td>51.5</td>
+<td>39.2</td>
+<td>47.0</td>
+<td>34.8</td>
+</tr>
+<tr data-hline="true">
+<td>Gherasim, George-Daniel</td>
+<td>Gherasim_ENSTA_1</td>
+<td>Gherasim_ENSTA</td>
+<td>10</td>
+<td>45.5</td>
+<td>47.4</td>
+<td>45.9</td>
+<td>43.2</td>
+<td>36.0</td>
+</tr>
+<tr data-hline="true">
+<td>Gherasim, George-Daniel</td>
+<td>Gherasim_ENSTA_2</td>
+<td>Gherasim_ENSTA</td>
+<td>5</td>
+<td>47.6</td>
+<td>49.3</td>
+<td>50.0</td>
+<td>45.1</td>
+<td>38.6</td>
+</tr>
+<tr data-hline="true">
+<td>Jian Guan</td>
+<td>Guan_GISP_HEU_1</td>
+<td>Guan_GISP_HEU</td>
+<td>1</td>
+<td>49.9</td>
+<td>50.4</td>
+<td>40.8</td>
+<td>47.9</td>
+<td>34.2</td>
+</tr>
+<tr data-hline="true">
+<td>Jian Guan</td>
+<td>Guan_GISP_HEU_2</td>
+<td>Guan_GISP_HEU</td>
+<td>17</td>
+<td>39.2</td>
+<td>40.9</td>
+<td>55.4</td>
+<td>41.5</td>
+<td>29.4</td>
+</tr>
+<tr data-hline="true">
+<td>Jian Guan</td>
+<td>Guan_GISP_HEU_3</td>
+<td>Guan_GISP_HEU</td>
+<td>24</td>
+<td>34.6</td>
+<td>nan</td>
+<td>40.4</td>
+<td>47.1</td>
+<td>34.9</td>
+</tr>
+<tr data-hline="true">
+<td>Jian Guan</td>
+<td>Guan_GISP_HEU_4</td>
+<td>Guan_GISP_HEU</td>
+<td>31</td>
+<td>7.4</td>
+<td>nan</td>
+<td>37.4</td>
+<td>0.1</td>
+<td>1.0</td>
+</tr>
+<tr data-hline="true">
+<td>Isoda, Daito</td>
+<td>Isoda_UT</td>
+<td>Isoda_UT</td>
+<td>22</td>
+<td>35.6</td>
+<td>34.7</td>
+<td>38.6</td>
+<td>33.0</td>
+<td>25.8</td>
+</tr>
+<tr data-hline="true">
+<td>Hugo Magaldi</td>
+<td>Magaldi_MNHN</td>
+<td>Magaldi_MNHN</td>
+<td>26</td>
+<td>27.1</td>
+<td>21.6</td>
+<td>29.0</td>
+<td>33.3</td>
+<td>30.0</td>
+</tr>
+<tr data-hline="true">
+<td>Marolt, Matija and Bones, Eva</td>
+<td>Marolt_UL_1</td>
+<td>Marolt_UL</td>
+<td>18</td>
+<td>38.4</td>
+<td>38.5</td>
+<td>50.0</td>
+<td>37.4</td>
+<td>28.9</td>
+</tr>
+<tr data-hline="true">
+<td>Marolt, Matija and Bones, Eva</td>
+<td>Marolt_UL_2</td>
+<td>Marolt_UL</td>
+<td>7</td>
+<td>46.7</td>
+<td>48.8</td>
+<td>46.3</td>
+<td>47.0</td>
+<td>39.4</td>
+</tr>
+<tr data-hline="true">
+<td>Marolt, Matija and Bones, Eva</td>
+<td>Marolt_UL_3</td>
+<td>Marolt_UL</td>
+<td>13</td>
+<td>40.5</td>
+<td>42.0</td>
+<td>51.5</td>
+<td>38.1</td>
+<td>27.3</td>
+</tr>
+<tr data-hline="true">
+<td>Marolt, Matija and Bones, Eva</td>
+<td>Marolt_UL_4</td>
+<td>Marolt_UL</td>
+<td>30</td>
+<td>15.4</td>
+<td>13.6</td>
+<td>23.6</td>
+<td>14.1</td>
+<td>10.9</td>
+</tr>
+<tr data-hline="true">
+<td>Matthias Nagl</td>
+<td>Nagl_JKU</td>
+<td>Nagl_JKU</td>
+<td>16</td>
+<td>39.3</td>
+<td>39.8</td>
+<td>47.9</td>
+<td>36.3</td>
+<td>33.7</td>
+</tr>
+<tr data-hline="true">
+<td>Matthias Nagl</td>
+<td>Nagl_JKU_NAVE</td>
+<td>Nagl_JKU_NAVE</td>
+<td>21</td>
+<td>36.1</td>
+<td>30.1</td>
+<td>34.4</td>
+<td>30.6</td>
+<td>30.2</td>
+</tr>
+<tr data-hline="true">
+<td>Ragib Amin Nihal</td>
+<td>Nihal_ScienceTokyo_1</td>
+<td>Nihal_ScienceTokyo</td>
+<td>14</td>
+<td>39.9</td>
+<td>42.5</td>
+<td>52.4</td>
+<td>31.5</td>
+<td>24.9</td>
+</tr>
+<tr data-hline="true">
+<td>Ragib Amin Nihal</td>
+<td>Nihal_ScienceTokyo_2</td>
+<td>Nihal_ScienceTokyo</td>
+<td>11</td>
+<td>43.3</td>
+<td>45.8</td>
+<td>49.9</td>
+<td>37.3</td>
+<td>29.1</td>
+</tr>
+<tr data-hline="true">
+<td>Ragib Amin Nihal</td>
+<td>Nihal_ScienceTokyo_3</td>
+<td>Nihal_ScienceTokyo</td>
+<td>15</td>
+<td>39.4</td>
+<td>42.4</td>
+<td>52.6</td>
+<td>30.5</td>
+<td>24.2</td>
+</tr>
+<tr data-hline="true">
+<td>Ragib Amin Nihal</td>
+<td>Nihal_ScienceTokyo_4</td>
+<td>Nihal_ScienceTokyo</td>
+<td>23</td>
+<td>35.1</td>
+<td>38.3</td>
+<td>52.3</td>
+<td>25.2</td>
+<td>20.2</td>
+</tr>
+<tr data-hline="true">
+<td>Liz Ferguson</td>
+<td>Ferguson_OSA</td>
+<td>Ferguson_OSA</td>
+<td>28</td>
+<td>22.7</td>
+<td>16.9</td>
+<td>32.9</td>
+<td>11.1</td>
+<td>14.7</td>
+</tr>
+<tr data-hline="true">
+<td>Saeed,  Maaz</td>
+<td>SMT_IDMT_1</td>
+<td>Saeed_SMT_IDMT</td>
+<td>25</td>
+<td>27.6</td>
+<td>50.9</td>
+<td>34.7</td>
+<td>0.6</td>
+<td>1.4</td>
+</tr>
+<tr data-hline="true">
+<td>Saeed,  Maaz</td>
+<td>SMT_IDMT_2</td>
+<td>Saeed_SMT_IDMT</td>
+<td>20</td>
+<td>37.6</td>
+<td>43.6</td>
+<td>26.5</td>
+<td>31.0</td>
+<td>30.5</td>
+</tr>
+<tr data-hline="true">
+<td>Saeed,  Maaz</td>
+<td>SMT_IDMT_3</td>
+<td>Saeed_SMT_IDMT</td>
+<td>29</td>
+<td>16.6</td>
+<td>32.1</td>
+<td>16.3</td>
+<td>1.2</td>
+<td>1.3</td>
+</tr>
+<tr data-hline="true">
+<td>Vogler, Marie</td>
+<td>Vogler_AWI</td>
+<td>Vogler_AWI</td>
+<td>27</td>
+<td>22.9</td>
+<td>22.1</td>
+<td>21.9</td>
+<td>16.0</td>
+<td>16.0</td>
+</tr>
+<tr data-hline="true">
+<td>Michelashvili, Michael Moshe</td>
+<td>Yochai_DV_1</td>
+<td>Yochai_DV</td>
+<td>6</td>
+<td>46.9</td>
+<td>52.4</td>
+<td>45.3</td>
+<td>50.1</td>
+<td>35.1</td>
+</tr>
+<tr data-hline="true">
+<td>Michelashvili, Michael Moshe</td>
+<td>Yochai_DV_2</td>
+<td>Yochai_DV</td>
+<td>3</td>
+<td>48.5</td>
+<td>54.7</td>
+<td>45.9</td>
+<td>44.4</td>
+<td>30.2</td>
+</tr>
+<tr data-hline="true">
+<td>Michelashvili, Michael Moshe</td>
+<td>Yochai_DV_3</td>
+<td>Yochai_DV</td>
+<td>2</td>
+<td>48.6</td>
+<td>54.8</td>
+<td>43.6</td>
+<td>44.8</td>
+<td>30.9</td>
+</tr>
+<tr data-hline="true">
+<td>Michelashvili, Michael Moshe</td>
+<td>Yochai_DV_4</td>
+<td>Yochai_DV</td>
+<td>12</td>
+<td>42.1</td>
+<td>42.4</td>
+<td>46.0</td>
+<td>31.0</td>
+<td>23.5</td>
+</tr>
+<tr data-hline="true">
+<td>Xixin Zhang</td>
+<td>Zhang_SDSU</td>
+<td>Zhang_SDSU</td>
+<td>4</td>
+<td>48.3</td>
+<td>50.2</td>
+<td>46.0</td>
+<td>36.0</td>
+<td>35.1</td>
+</tr>
+<tr data-hline="true">
+<td>Liz Ferguson</td>
+<td>yolo_baseline</td>
+<td>Ferguson2025</td>
+<td>19</td>
+<td>37.6</td>
+<td>31.2</td>
+<td>32.0</td>
+<td>36.0</td>
+<td>30.0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="technical-reports">Technical reports</h1>
+<div class="btex" data-source="content/data/challenge2026/technical_reports_task2.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="Deng_WHU" style="box-shadow: none">
+<div class="panel-heading" id="heading-Deng_WHU" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Class-aware heterogeneous spectrogram detectors for biodcase 2026 whale call event detection
+      </h4>
+<p style="text-align:left">
+       Deng, Yongyi
+      </p>
+<p style="text-align:left">
+<em>
+        Wuhan University, Tampere University, Northwestern Polytechnical University, Waseda University
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Deng_WHU</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Deng_WHU" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Deng_WHU" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Deng_WHU" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Deng_WHU.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Deng_WHU" class="panel-collapse collapse" id="collapse-Deng_WHU" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Class-aware heterogeneous spectrogram detectors for biodcase 2026 whale call event detection
+     </h4>
+<p style="text-align:left">
+<small>
+       Deng, Yongyi
+      </small>
+<br/>
+<small>
+<em>
+        Wuhan University, Tampere University, Northwestern Polytechnical University, Waseda University
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Ferguson_OSA" style="box-shadow: none">
+<div class="panel-heading" id="heading-Ferguson_OSA" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Baleen Whale Deep Learning Detection and Classification Network
+      </h4>
+<p style="text-align:left">
+       Ferguson, Liz and Alongi, Gabriela
+      </p>
+<p style="text-align:left">
+<em>
+        Ocean Science Analytics
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Ferguson_OSA</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Ferguson_OSA" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Ferguson_OSA" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Ferguson_OSA" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Ferguson_OSA.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Ferguson_OSA" class="panel-collapse collapse" id="collapse-Ferguson_OSA" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Baleen Whale Deep Learning Detection and Classification Network
+     </h4>
+<p style="text-align:left">
+<small>
+       Ferguson, Liz and Alongi, Gabriela
+      </small>
+<br/>
+<small>
+<em>
+        Ocean Science Analytics
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Gherasim_ENSTA" style="box-shadow: none">
+<div class="panel-heading" id="heading-Gherasim_ENSTA" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       A three-channel physics-informed TCN for cross-site Antarctic blue and fin whale call detection
+      </h4>
+<p style="text-align:left">
+       Gherasim, George-Daniel
+      </p>
+<p style="text-align:left">
+<em>
+        ENSTA, Institut Polytechnique de Paris
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Gherasim_ENSTA</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Gherasim_ENSTA" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Gherasim_ENSTA" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Gherasim_ENSTA" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Gherasim_ENSTA.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Gherasim_ENSTA" class="panel-collapse collapse" id="collapse-Gherasim_ENSTA" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      A three-channel physics-informed TCN for cross-site Antarctic blue and fin whale call detection
+     </h4>
+<p style="text-align:left">
+<small>
+       Gherasim, George-Daniel
+      </small>
+<br/>
+<small>
+<em>
+        ENSTA, Institut Polytechnique de Paris
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Guan_GISP_HEU" style="box-shadow: none">
+<div class="panel-heading" id="heading-Guan_GISP_HEU" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       GISP@HEU’s submission for task 2: a consensus-ensemble yolo system for temporal detection of antarctic whale calls
+      </h4>
+<p style="text-align:left">
+       Ye, Tong and Liu, Hongning and Xiao, Feiyang and Zhu, Qiaoxi and Guan, Jian
+      </p>
+<p style="text-align:left">
+<em>
+        Group of Intelligent Signal Processing, Harbin Engineering University
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Guan_GISP_HEU</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Guan_GISP_HEU" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Guan_GISP_HEU" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Guan_GISP_HEU" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Guan_GISP_HEU.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Guan_GISP_HEU" class="panel-collapse collapse" id="collapse-Guan_GISP_HEU" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      GISP@HEU’s submission for task 2: a consensus-ensemble yolo system for temporal detection of antarctic whale calls
+     </h4>
+<p style="text-align:left">
+<small>
+       Ye, Tong and Liu, Hongning and Xiao, Feiyang and Zhu, Qiaoxi and Guan, Jian
+      </small>
+<br/>
+<small>
+<em>
+        Group of Intelligent Signal Processing, Harbin Engineering University
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Isoda_UT" style="box-shadow: none">
+<div class="panel-heading" id="heading-Isoda_UT" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Joint whale call detection and recording location classification using multitask learning for biodcase challnege 2026 task 2
+      </h4>
+<p style="text-align:left">
+       Isoda, Daito and Arita, Ryoko and Okamoto, Yuki and Tonami, Noriyuki and Saito, Yuki and Saruwatari, Hiroshi
+      </p>
+<p style="text-align:left">
+<em>
+        University of Tokyo, NEC Corporation
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Isoda_UT</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Isoda_UT" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Isoda_UT" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Isoda_UT" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Isoda_UT.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Isoda_UT" class="panel-collapse collapse" id="collapse-Isoda_UT" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Joint whale call detection and recording location classification using multitask learning for biodcase challnege 2026 task 2
+     </h4>
+<p style="text-align:left">
+<small>
+       Isoda, Daito and Arita, Ryoko and Okamoto, Yuki and Tonami, Noriyuki and Saito, Yuki and Saruwatari, Hiroshi
+      </small>
+<br/>
+<small>
+<em>
+        University of Tokyo, NEC Corporation
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Magaldi_MNHN" style="box-shadow: none">
+<div class="panel-heading" id="heading-Magaldi_MNHN" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       SwinWaveD: multi-resolution whale-call detection with calibration and wavelet-ridge verification
+      </h4>
+<p style="text-align:left">
+       Magaldi, Hugo
+      </p>
+<p style="text-align:left">
+<em>
+        Muséum National d’Histoire Naturelle
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Magaldi_MNHN</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Magaldi_MNHN" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Magaldi_MNHN" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Magaldi_MNHN" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Magaldi_MNHN.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Magaldi_MNHN" class="panel-collapse collapse" id="collapse-Magaldi_MNHN" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      SwinWaveD: multi-resolution whale-call detection with calibration and wavelet-ridge verification
+     </h4>
+<p style="text-align:left">
+<small>
+       Magaldi, Hugo
+      </small>
+<br/>
+<small>
+<em>
+        Muséum National d’Histoire Naturelle
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Marolt_UL" style="box-shadow: none">
+<div class="panel-heading" id="heading-Marolt_UL" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       A multi-resolution HTS-AT transformer with feature-pyramid fusion for Antarctic blue and fin whale call detection
+      </h4>
+<p style="text-align:left">
+       Marolt, Matija and Bones, Eva
+      </p>
+<p style="text-align:left">
+<em>
+        University of Ljubljana, Faculty of Computer and Information Science
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Marolt_UL</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Marolt_UL" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Marolt_UL" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Marolt_UL" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Marolt_UL.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Marolt_UL" class="panel-collapse collapse" id="collapse-Marolt_UL" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      A multi-resolution HTS-AT transformer with feature-pyramid fusion for Antarctic blue and fin whale call detection
+     </h4>
+<p style="text-align:left">
+<small>
+       Marolt, Matija and Bones, Eva
+      </small>
+<br/>
+<small>
+<em>
+        University of Ljubljana, Faculty of Computer and Information Science
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Nagl_JKU" style="box-shadow: none">
+<div class="panel-heading" id="heading-Nagl_JKU" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Hard-negative mining, mean-teacher, and class-specialist ensembling for antarctic baleen whale call detection
+      </h4>
+<p style="text-align:left">
+       Matthias Nagl
+      </p>
+<p style="text-align:left">
+<em>
+        Johannes Kepler University Linz
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Nagl_JKU</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Nagl_JKU" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Nagl_JKU" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Nagl_JKU" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Nagl_JKU.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Nagl_JKU" class="panel-collapse collapse" id="collapse-Nagl_JKU" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Hard-negative mining, mean-teacher, and class-specialist ensembling for antarctic baleen whale call detection
+     </h4>
+<p style="text-align:left">
+<small>
+       Matthias Nagl
+      </small>
+<br/>
+<small>
+<em>
+        Johannes Kepler University Linz
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Nagl_JKU_NAVE" style="box-shadow: none">
+<div class="panel-heading" id="heading-Nagl_JKU_NAVE" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       NAVE: a normalized, adaptive conformer for antarctic whale vocalization-event detection
+      </h4>
+<p style="text-align:left">
+       Matthias Nagl
+      </p>
+<p style="text-align:left">
+<em>
+        Johannes Kepler University Linz
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Nagl_JKU_NAVE</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Nagl_JKU_NAVE" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Nagl_JKU_NAVE" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Nagl_JKU_NAVE" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Nagl_JKU_NAVE.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Nagl_JKU_NAVE" class="panel-collapse collapse" id="collapse-Nagl_JKU_NAVE" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      NAVE: a normalized, adaptive conformer for antarctic whale vocalization-event detection
+     </h4>
+<p style="text-align:left">
+<small>
+       Matthias Nagl
+      </small>
+<br/>
+<small>
+<em>
+        Johannes Kepler University Linz
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Nihal_ScienceTokyo" style="box-shadow: none">
+<div class="panel-heading" id="heading-Nihal_ScienceTokyo" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Whale call detection with a frequency-dynamic CRNN ensemble
+      </h4>
+<p style="text-align:left">
+       Ragib Amin Nihal
+      </p>
+<p style="text-align:left">
+<em>
+        Institute of Science Tokyo
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Nihal_ScienceTokyo</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Nihal_ScienceTokyo" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Nihal_ScienceTokyo" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Nihal_ScienceTokyo" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Nihal_ScienceTokyo.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Nihal_ScienceTokyo" class="panel-collapse collapse" id="collapse-Nihal_ScienceTokyo" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Whale call detection with a frequency-dynamic CRNN ensemble
+     </h4>
+<p style="text-align:left">
+<small>
+       Ragib Amin Nihal
+      </small>
+<br/>
+<small>
+<em>
+        Institute of Science Tokyo
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Saeed_SMT_IDMT" style="box-shadow: none">
+<div class="panel-heading" id="heading-Saeed_SMT_IDMT" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Comparison of vision-based object detectors and an audio transformer for whale sound event detection
+      </h4>
+<p style="text-align:left">
+       Saeed, Maaz and Bidarouni, Amir Latifi and Lukashevich, Hanna and Abeßer, Jakob
+      </p>
+<p style="text-align:left">
+<em>
+        Semantic Media Technologies, Fraunhofer IDMT
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Guan_GISP_HEU</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Saeed_SMT_IDMT" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Saeed_SMT_IDMT" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Saeed_SMT_IDMT" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Saeed_SMTU.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Saeed_SMT_IDMT" class="panel-collapse collapse" id="collapse-Saeed_SMT_IDMT" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Comparison of vision-based object detectors and an audio transformer for whale sound event detection
+     </h4>
+<p style="text-align:left">
+<small>
+       Saeed, Maaz and Bidarouni, Amir Latifi and Lukashevich, Hanna and Abeßer, Jakob
+      </small>
+<br/>
+<small>
+<em>
+        Semantic Media Technologies, Fraunhofer IDMT
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Vogler_AWI" style="box-shadow: none">
+<div class="panel-heading" id="heading-Vogler_AWI" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       YOLOv11-Based Detection of Blue Whale and Fin Whale Vocalizations via Spectrogram Object Detection
+      </h4>
+<p style="text-align:left">
+       Vogler, Marie and Savchik, Alex
+      </p>
+<p style="text-align:left">
+<em>
+        University of Hamburg, Alfred Wegener Institute of Polar and Marine Research
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Vogler_AWI</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Vogler_AWI" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Vogler_AWI" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Vogler_AWI" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Vogler_AWI.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Vogler_AWI" class="panel-collapse collapse" id="collapse-Vogler_AWI" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      YOLOv11-Based Detection of Blue Whale and Fin Whale Vocalizations via Spectrogram Object Detection
+     </h4>
+<p style="text-align:left">
+<small>
+       Vogler, Marie and Savchik, Alex
+      </small>
+<br/>
+<small>
+<em>
+        University of Hamburg, Alfred Wegener Institute of Polar and Marine Research
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Yochai_DV" style="box-shadow: none">
+<div class="panel-heading" id="heading-Yochai_DV" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Drawing boxes in the deep: spectrogram object detection for Antarctic whale calls
+      </h4>
+<p style="text-align:left">
+       Michelashvili, Michael Moshe and Hausler, Danielle and Galor, Amit and Gefen, Shai Nahum and Nachshon, Tomer and Mendelson, Yuval and Yochai, Naama
+      </p>
+<p style="text-align:left">
+<em>
+        Deep Voice Foundation
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Yochai_DV</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Yochai_DV" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Yochai_DV" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Yochai_DV" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Yochai_DV.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Yochai_DV" class="panel-collapse collapse" id="collapse-Yochai_DV" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Drawing boxes in the deep: spectrogram object detection for Antarctic whale calls
+     </h4>
+<p style="text-align:left">
+<small>
+       Michelashvili, Michael Moshe and Hausler, Danielle and Galor, Amit and Gefen, Shai Nahum and Nachshon, Tomer and Mendelson, Yuval and Yochai, Naama
+      </small>
+<br/>
+<small>
+<em>
+        Deep Voice Foundation
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="Zhang_SDSU" style="box-shadow: none">
+<div class="panel-heading" id="heading-Zhang_SDSU" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Transformer object detection on spectrograms for antarctic blue and fin whale call detection
+      </h4>
+<p style="text-align:left">
+       Xixin Zhang
+      </p>
+<p style="text-align:left">
+<em>
+        San Diego State University
+       </em>
+</p>
+<p style="text-align:left">
+<span class="label label-primary">Zhang_SDSU</span> <span class="clearfix"></span>
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-Zhang_SDSU" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-Zhang_SDSU" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-Zhang_SDSU" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Zhang_SDSU.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-Zhang_SDSU" class="panel-collapse collapse" id="collapse-Zhang_SDSU" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Transformer object detection on spectrograms for antarctic blue and fin whale call detection
+     </h4>
+<p style="text-align:left">
+<small>
+       Xixin Zhang
+      </small>
+<br/>
+<small>
+<em>
+        San Diego State University
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>    
+<br><br>
+<ul class="nav pull-right scroll-top">
+  <li>
+    <a title="Scroll to top" href="#" class="page-scroll-top">
+      <i class="glyphicon glyphicon-chevron-up"></i>
+    </a>
+  </li>
+</ul><script type="text/javascript" src="https://biodcase.github.io/theme/assets/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/scrollreveal/scrollreveal.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/setup.scrollreveal.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/assets/highlight/highlight.pack.js"></script>
+<script type="text/javascript">
+    document.querySelectorAll('pre code:not([class])').forEach(function($) {$.className = 'no-highlight';});
+    hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/datatable.bundle.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btoc.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/theme.js"></script>
+</body>
+</html>

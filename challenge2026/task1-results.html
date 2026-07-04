@@ -1,17 +1,17 @@
 <!DOCTYPE html><html lang="en">
 <head>
-    <title>Bird Counting - BioDCASE</title>
+    <title>Multichannel Alignment - BioDCASE</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Bird Counting - BioDCASE" />
+    <meta property="og:title" content="Multichannel Alignment - BioDCASE" />
     <link href="https://biodcase.github.io/favicon.ico" rel="icon">
-    <link rel="canonical" href="https://biodcase.github.io/challenge2026/task6-results">
-    <meta property="og:url" content="https://dcase.community/challenge2026/task6-results" />
+    <link rel="canonical" href="https://biodcase.github.io/challenge2026/task1-results">
+    <meta property="og:url" content="https://dcase.community/challenge2026/task1-results" />
     <meta property="og:image" content="https://dcase.community/images/logos/biodcase_preview.png" />
     <meta name="author" content="BioDCASE" />
-    <meta name="description" content="Task description This task is part of the BioDCASE Challenge 2026 and focuses on estimating bird abundance from acoustic recordings collected in zoo aviaries. The goal is to develop robust methods for counting individuals of a target species in realistic, multi-species acoustic environments where ground-truth population sizes are known. The …" />
-    <meta name="og:description" content="Task description This task is part of the BioDCASE..." />
+    <meta name="description" content="Task description Task 1 challenges participants to synchronise pairs of temporally desynchronised multi-channel audio recordings. Given pairs of recordings from autonomous recording units (ARUs) or animal-borne bio-loggers and a small set of ground-truth synchronisation keypoints, participants design systems to estimate inter-channel time offsets. Submissions are evaluated by Mean Absolute Error …" />
+    <meta name="og:description" content="Task description Task 1 challenges participants to..." />
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:500" rel="stylesheet">
     <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/bootstrap/css/bootstrap.min.css" type="text/css"/>
@@ -115,16 +115,16 @@
         header .page-heading .bold{
             font-weight: 400  !important;
         }
-    </style><header class="page-top " style="background-image: url(..//images/header/biodcase2026_task6.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
+    </style><header class="page-top " style="background-image: url(..//images/header/biodcase2026_task1.jpg);box-shadow: 0px 1000px rgba(18, 52, 18, 0.65) inset;overflow:hidden;position:relative">
     <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;;height:100%;padding-bottom:20px;">
         <div class="row">
             <div class="col-lg-12 col-md-12">
-                <div class="page-heading text-center"><h1 class="thin">Bird Counting</h1><hr class="small center thin">
+                <div class="page-heading text-center"><h1 class="thin">Multichannel Alignment</h1><hr class="small center thin">
                         <span class="subheading subheading-secondary">Results</span></div>
             </div>
         </div>
     </div>
-<span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="BioDCASE 2026 Task 6"><i class="fa fa-creative-commons" aria-hidden="true"></i></span></header><div class="container-fluid">
+<span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="BioDCASE 2026 Task 1"><i class="fa fa-creative-commons" aria-hidden="true"></i></span></header><div class="container-fluid">
     <div class="row">
         <div class="col-sm-3 sidecolumn-left">
  <div class="btoc-container hidden-print" role="complementary">
@@ -146,169 +146,215 @@
             <section id="content" class="body">
                 <div class="entry-content">
                     <h1 id="task-description">Task description</h1>
-<p>This task is part of the BioDCASE Challenge 2026 and focuses on estimating bird abundance from acoustic recordings collected in zoo aviaries. The goal is to develop robust methods for counting individuals of a target species in realistic, multi-species acoustic environments where ground-truth population sizes are known. The main leaderboard ranks systems based solely on target-species abundance estimation performance.</p>
-<p><a class="btn btn-primary" href="https://biodcase.github.io/challenge2026/task6" style="">Task description page</a></p>
+<p>Task 1 challenges participants to synchronise pairs of temporally desynchronised multi-channel audio recordings. Given pairs of recordings from autonomous recording units (ARUs) or animal-borne bio-loggers and a small set of ground-truth synchronisation keypoints, participants design systems to estimate inter-channel time offsets. Submissions are evaluated by Mean Absolute Error (MAE) of the predicted keypoint timestamps, averaged across two data subsets: ARU recordings and zebra finch bio-logger recordings.</p>
+<p><a class="btn btn-primary" href="https://biodcase.github.io/challenge2026/task1" style="">Task description page</a></p>
 <h1 id="awards">Awards</h1>
 <p>The official winning submission is determined by the official evaluation ranking. The Jury Award is selected by the task organisers based on the submitted systems and technical reports.</p>
 <h3>Official winning submission</h3>
+<!-- Xin Guo, Xusen Yu, Chunrui Zhao, Shanzheng Guan and Gongping Huang -->
 <div class="award-block award-block-winning">
-<div class="award-block-authors"><strong>Yang, Jing and Li, Siyi and Zheng, Zihan and Zhang, Heng and Ni, Youran and Wang, Yuzhu and Huang, Gongping</strong></div>
-<div class="award-block-institution">Wuhan University; Beijing Jiaotong University; Tampere University</div>
-<div class="award-block-system">A Two-Stage CRNN Regression Framework for Bird Counting</div>
+<div class="award-block-authors"><strong>Xin Guo, Xusen Yu, Chunrui Zhao, Shanzheng Guan and Gongping Huang</strong></div>
+<div class="award-block-institution">Wuhan University; Yichang Testing Technique R&amp;D Institute</div>
+<div class="award-block-system">Confidence-routed hybrid GCC-PHAT and CV-Peak-BLSTM</div>
 </div>
 <h3>Jury award</h3>
 <div class="award-block award-block-jury">
-<div class="award-block-authors"><strong>Leon Rojas, Yuneva E. and Frery, Alejandro C. and Colonna, Juan G.</strong></div>
-<div class="award-block-institution">Universidade Federal do Amazonas; Victoria University of Wellington</div>
-<div class="award-block-system">Acoustic Bird Abundance Estimation Using Morphological Features of the Spectrogram</div>
-<div class="award-block-comment">Awarded for the band-filtered stochastic ratio, an original and detector-independent morphological feature that directly measures flamingo acoustic saturation (r = 0.9978), delivered as a fully open-source, reproducible pipeline that also placed 2nd.</div>
+<div class="award-block-authors"><strong></strong></div>
+<div class="award-block-institution"></div>
+<div class="award-block-system"></div>
+<div class="award-block-comment"></div>
 </div>
 <h1 id="submission-ranking">Submission ranking</h1>
-<p>The official submission ranking is based on the average MAE across each of the test sets. Individual performance on each test set is reported below. </p>
-<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-chart-default-mode="bar" data-chart-modes="bar,scatter" data-id-field="submission_name" data-pagination="true" data-row-highlighting="true" data-scatter-x="rank_team" data-scatter-y="ba_unseen" data-show-chart="true" data-show-pagination-switch="true" data-sort-name="rank_team" data-sort-order="asc">
+<p>Submissions are ranked on the average MAE (mean absolute error) across the two data subsets: ARU and zebra finch. Lower values indicate better performance. </p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="anchor" data-pagination="true" data-row-highlighting="true" data-scatter-x="rank_team" data-scatter-y="rank_score" data-show-chart="true" data-show-pagination-switch="true" data-sort-name="rank_team" data-sort-order="asc">
 <thead>
 <tr>
 <th class="text-center" colspan="3">Submission information</th>
 <th class="sep-left-cell text-center" colspan="2">Rank</th>
 <th class="sep-left-cell text-center" colspan="6">Test set</th>
-<th class="sep-left-cell text-center" colspan="1">Dev set</th>
 </tr>
 <tr>
-<th data-field="anchor" data-sortable="true">Submission</th>
+<th data-field="corresponding_author" data-sortable="true">Corresponding Author</th>
 <th class="sm-cell" data-field="name" data-sortable="true">System name</th>
 <th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">Technical<br/>report</th>
 <th class="sep-left-cell text-center" data-axis-label="Team rank" data-chartable="true" data-field="rank_team" data-sortable="true" data-value-type="int">Official<br/>rank</th>
-<th class="text-center" data-axis-label="Rank score" data-chartable="true" data-field="rank_score" data-sortable="true" data-value-type="float2">Rank<br/>score</th>
-<th class="sep-left-cell text-center" data-axis-label="MAE Flamingo (test)" data-chartable="true" data-field="mae_flamingo_test" data-sortable="true" data-value-type="float2">MAE Flamingo</th>
-<th class="text-center" data-axis-label="MAE Quelea (test)" data-chartable="true" data-field="mae_quelea_test" data-sortable="true" data-value-type="float2">MAE Quelea</th>
-<th class="text-center" data-axis-label="MAE Ibis (test)" data-chartable="true" data-field="mae_ibis_test" data-sortable="true" data-value-type="float2">MAE Ibis</th>
-<th class="text-center" data-axis-label="RMSE (test)" data-chartable="true" data-field="rmse_test" data-sortable="true" data-value-type="float2">RMSE</th>
-<th class="text-center" data-axis-label="R² (test)" data-chartable="true" data-field="r2_test" data-sortable="true" data-value-type="float2">R<sup>2</sup></th>
-<th class="text-center" data-axis-label="MAPE (test)" data-chartable="true" data-field="mape_test" data-sortable="true" data-value-type="float2">MAPE</th>
-<th class="sep-left-cell text-center" data-axis-label="Average MAE (dev)" data-chartable="true" data-field="dev_mae_avg" data-sortable="true" data-value-type="float2">Avg MAE<br/>(dev)</th>
+<th class="text-center" data-axis-label="Rank score" data-chartable="true" data-field="rank_score" data-sortable="true" data-value-type="float2">MAE avg (ms)</th>
+<th class="sep-left-cell text-center" data-axis-label="MSE avg" data-chartable="true" data-field="mse_avg_test" data-sortable="true" data-value-type="float4">MSE avg</th>
+<th class="text-center" data-axis-label="MSE ARU" data-chartable="true" data-field="mse_aru_test" data-sortable="true" data-value-type="float4">MSE ARU</th>
+<th class="text-center" data-axis-label="MSE Zebra finch" data-chartable="true" data-field="mse_zebra_finch_test" data-sortable="true" data-value-type="float4">MSE Zebra<br/>finch</th>
+<th class="text-center" data-axis-label="MAE avg (ms)" data-chartable="true" data-field="mae_avg_test" data-sortable="true" data-value-type="float2">MAE avg<br/>(ms)</th>
+<th class="text-center" data-axis-label="MAE ARU (ms)" data-chartable="true" data-field="mae_aru_test" data-sortable="true" data-value-type="float2">MAE ARU<br/>(ms)</th>
+<th class="text-center" data-axis-label="MAE Zebra finch (ms)" data-chartable="true" data-field="mae_zebra_finch_test" data-sortable="true" data-value-type="float2">MAE Zebra<br/>finch (ms)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Yang_WHU_task6_1</td>
-<td>Two-Stage CRNN Regression Framework</td>
-<td>yangCRNN2026</td>
+<td>Gongping Huang</td>
+<td>Confidence-routed hybrid GCC-PHAT and CV-Peak-BLSTM</td>
+<td>huangConfidenceRouted2026</td>
 <td>1</td>
-<td>9.17</td>
-<td>20.00</td>
-<td>4.50</td>
-<td>3.00</td>
-<td>13.04</td>
-<td>0.97</td>
-<td>71.68</td>
-<td>0.75</td>
+<td>309.68</td>
+<td>0.3023</td>
+<td>0.0001</td>
+<td>0.6046</td>
+<td>309.68</td>
+<td>0.63</td>
+<td>618.74</td>
 </tr>
 <tr>
-<td>Leon_UFAM_task6_3</td>
-<td>ARIA fCWR x Stochastic Band Ratio (linear)</td>
-<td>leonMorphology2026</td>
+<td>Gongping Huang</td>
+<td>Confidence-routed hybrid GCC-PHAT and CV-Peak-BLSTM</td>
+<td>huangConfidenceRouted2026</td>
 <td>2</td>
-<td>13.33</td>
-<td>23.50</td>
-<td>6.00</td>
-<td>10.50</td>
-<td>18.02</td>
-<td>0.94</td>
-<td>103.98</td>
-<td>2.25</td>
+<td>313.49</td>
+<td>0.3055</td>
+<td>0.0001</td>
+<td>0.6110</td>
+<td>313.49</td>
+<td>0.63</td>
+<td>626.36</td>
 </tr>
 <tr>
-<td>You_PKU_task6_2</td>
-<td>Low-Parameter Detector Ensemble (stacked flamingo)</td>
-<td>youDetector2026</td>
+<td>Yuhuan You</td>
+<td>Cross-protocol audio-refined curve hybrid</td>
+<td>youCurveHybrid2026</td>
 <td>3</td>
-<td>22.67</td>
-<td>61.50</td>
-<td>3.50</td>
-<td>3.00</td>
-<td>48.69</td>
-<td>0.59</td>
-<td>207.23</td>
-<td>0.00</td>
+<td>330.37</td>
+<td>0.2688</td>
+<td>0.0217</td>
+<td>0.5159</td>
+<td>330.37</td>
+<td>74.33</td>
+<td>586.40</td>
 </tr>
 <tr>
-<td>official_aria_baseline</td>
-<td>Official ARIA Baseline (flock_corrected_cwr)</td>
-<td>arginBaseline2026</td>
+<td>Yuhuan You</td>
+<td>Release-posgate audio-refined curve hybrid</td>
+<td>youCurveHybrid2026</td>
 <td>4</td>
-<td>24.50</td>
-<td>69.00</td>
-<td>1.50</td>
-<td>3.00</td>
-<td>51.35</td>
-<td>0.55</td>
-<td>56.20</td>
-<td>11.50</td>
+<td>334.10</td>
+<td>0.2738</td>
+<td>0.0217</td>
+<td>0.5258</td>
+<td>334.10</td>
+<td>74.33</td>
+<td>593.86</td>
 </tr>
 <tr>
-<td>Zhong_NJU_task6_1</td>
-<td>Validation-Gated Sampling-Based ARIA Counting</td>
-<td>zhongARIA2026</td>
+<td>Yuhuan You</td>
+<td>Group-tail late-suffix curve hybrid prior</td>
+<td>youCurveHybrid2026</td>
 <td>5</td>
-<td>46.67</td>
-<td>83.00</td>
-<td>40.50</td>
-<td>16.50</td>
-<td>58.99</td>
-<td>0.40</td>
-<td>234.95</td>
-<td>11.50</td>
+<td>367.68</td>
+<td>0.2740</td>
+<td>0.0323</td>
+<td>0.5156</td>
+<td>367.68</td>
+<td>150.94</td>
+<td>584.42</td>
+</tr>
+<tr>
+<td>Ragib Amin Nihal</td>
+<td>Clock-Drift-Constrained Structured Regression for Multi-Channel Alignment</td>
+<td>nihalStructuredRegression2026</td>
+<td>6</td>
+<td>368.14</td>
+<td>0.2853</td>
+<td>0.0224</td>
+<td>0.5483</td>
+<td>368.14</td>
+<td>126.23</td>
+<td>610.05</td>
+</tr>
+<tr>
+<td>Ragib Amin Nihal</td>
+<td>Clock-Drift-Constrained Structured Regression for Multi-Channel Alignment</td>
+<td>nihalStructuredRegression2026</td>
+<td>7</td>
+<td>368.63</td>
+<td>0.2827</td>
+<td>0.0229</td>
+<td>0.5426</td>
+<td>368.63</td>
+<td>133.25</td>
+<td>604.01</td>
+</tr>
+<tr>
+<td>Gongping Huang</td>
+<td>Confidence-routed hybrid GCC-PHAT and CV-Peak-BLSTM</td>
+<td>huangConfidenceRouted2026</td>
+<td>8</td>
+<td>369.82</td>
+<td>0.3140</td>
+<td>0.0171</td>
+<td>0.6110</td>
+<td>369.82</td>
+<td>113.27</td>
+<td>626.36</td>
+</tr>
+<tr>
+<td>Benjamin Hoffman</td>
+<td>Deep Learning Baseline</td>
+<td>biodcase2026Task1</td>
+<td>9</td>
+<td>540.17</td>
+<td>1.2374</td>
+<td>0.0226</td>
+<td>2.4522</td>
+<td>540.17</td>
+<td>116.71</td>
+<td>963.64</td>
+</tr>
+<tr>
+<td>Benjamin Hoffman</td>
+<td>Nosync Baseline</td>
+<td>biodcase2026Task1</td>
+<td>10</td>
+<td>1171.94</td>
+<td>2.8078</td>
+<td>0.0161</td>
+<td>5.5996</td>
+<td>1171.94</td>
+<td>110.12</td>
+<td>2233.76</td>
+</tr>
+<tr>
+<td>Benjamin Hoffman</td>
+<td>GCC-PHAT Baseline</td>
+<td>biodcase2026Task1</td>
+<td>11</td>
+<td>1242.40</td>
+<td>3.8018</td>
+<td>0.0180</td>
+<td>7.5856</td>
+<td>1242.40</td>
+<td>120.42</td>
+<td>2364.37</td>
 </tr>
 </tbody>
 </table>
-<!-- anchor: Yang_WHU_task6_1
-  bibtex_key: yangCRNN2026
-  external_anchor: task6/#yangCRNN2026
-  code: CRNN-Count
-  name: Two-Stage CRNN Regression Framework
-  title: A Two-Stage CRNN Regression Framework for Bird Counting
-  github: !!null   # code + weights included in submission package; no public repo
-
-  rank_team: 1
-  rank_score: 9.167
-
-  mae_avg_test: 9.167
-  mae_flamingo_test: 20.000
-  mae_quelea_test: 4.500
-  mae_ibis_test: 3.000
-
-  rmse_test: 13.045
-  r2_test: 0.9706
-  mape_test: 71.68
-
-  dev_mae_avg: 0.75
-
-  corresponding_author: Jing Yang
-  corresponding_affiliation: Wuhan University -->
 <h1 id="technical-reports">Technical reports</h1>
-<div class="btex" data-source="content/data/challenge2026/technical_reports_task6.bib" data-stats="true">
+<div class="btex" data-source="content/data/challenge2026/technical_reports_task1.bib" data-stats="true">
 <div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
-<div class="panel publication-item" id="leonMorphology2026" style="box-shadow: none">
-<div class="panel-heading" id="heading-leonMorphology2026" role="tab">
+<div class="panel publication-item" id="biodcase2026Task1" style="box-shadow: none">
+<div class="panel-heading" id="heading-biodcase2026Task1" role="tab">
 <div class="row">
 <div class="col-xs-9">
 <h4>
-       Acoustic Bird Abundance Estimation Using Morphological Features of the Spectrogram
+       BioDCASE 2026 Task 1 Baselines
       </h4>
 <p style="text-align:left">
-       Leon Rojas, Yuneva E. and Frery, Alejandro C. and Colonna, Juan G.
+       Bhattacharjee, Aditya and Gill, Lisa and Heath, Becky, and Narula, Gagan
       </p>
 <p style="text-align:left">
 <em>
-        Universidade Federal do Amazonas; Victoria University of Wellington
-       </em>
+</em>
 </p>
 <p style="text-align:left">
-       Source code: https://github.com/Yunevda/biodcase2026-population-estimation
-      </p>
+</p>
 <p style="text-align:left">
 </p>
-<button aria-controls="collapse-leonMorphology2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-leonMorphology2026" type="button">
+<button aria-controls="collapse-biodcase2026Task1" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-biodcase2026Task1" type="button">
 <i class="fa fa-caret-down">
 </i>
        Details...
@@ -316,12 +362,66 @@
 </div>
 <div class="col-xs-3">
 <div class="btn-group">
-<button class="btn btn-xs btn-danger" data-target="#bibtex-leonMorphology2026" data-toggle="modal" type="button">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-biodcase2026Task1" data-toggle="modal" type="button">
 <i class="fa fa-file-text-o">
 </i>
         Bibtex
        </button>
-<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Leon_UFAM_task6_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-biodcase2026Task1" class="panel-collapse collapse" id="collapse-biodcase2026Task1" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      BioDCASE 2026 Task 1 Baselines
+     </h4>
+<p style="text-align:left">
+<small>
+       Bhattacharjee, Aditya and Gill, Lisa and Heath, Becky, and Narula, Gagan
+      </small>
+<br/>
+<small>
+<em>
+</em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="huangConfidenceRouted2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-huangConfidenceRouted2026" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Confidence-routed hybrid GCC-PHAT and CV-Peak-BLSTM
+      </h4>
+<p style="text-align:left">
+       Guo, Xin and Yu, Xusen and Zhao, Chunrui and Guan, Shanzheng and Huang, Gongping
+      </p>
+<p style="text-align:left">
+<em>
+        Wuhan University; Yichang Testing Technique R&amp;D Institute
+       </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-huangConfidenceRouted2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-huangConfidenceRouted2026" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-huangConfidenceRouted2026" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Huang_WHU_task1_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
 <i class="fa fa-file-pdf-o fa-1x">
 </i>
         PDF
@@ -330,19 +430,19 @@
 </div>
 </div>
 </div>
-<div aria-labelledby="heading-leonMorphology2026" class="panel-collapse collapse" id="collapse-leonMorphology2026" role="tabpanel">
+<div aria-labelledby="heading-huangConfidenceRouted2026" class="panel-collapse collapse" id="collapse-huangConfidenceRouted2026" role="tabpanel">
 <div class="panel-body well well-sm">
 <h4>
-      Acoustic Bird Abundance Estimation Using Morphological Features of the Spectrogram
+      Confidence-routed hybrid GCC-PHAT and CV-Peak-BLSTM
      </h4>
 <p style="text-align:left">
 <small>
-       Leon Rojas, Yuneva E. and Frery, Alejandro C. and Colonna, Juan G.
+       Guo, Xin and Yu, Xusen and Zhao, Chunrui and Guan, Shanzheng and Huang, Gongping
       </small>
 <br/>
 <small>
 <em>
-        Universidade Federal do Amazonas; Victoria University of Wellington
+        Wuhan University; Yichang Testing Technique R&amp;D Institute
        </em>
 </small>
 </p>
@@ -357,7 +457,7 @@
         Features
        </td>
 <td>
-        flock-corrected CWR; band-filtered stochastic ratio (mathematical morphology)
+        spectrogram
        </td>
 </tr>
 <tr>
@@ -365,33 +465,33 @@
         Decision rule
        </td>
 <td>
-        least-squares linear regression on fCWR x stochastic band ratio
+        confidence routing over GCC-PHAT and CV-Peak-BLSTM delay trajectories
        </td>
 </tr>
 </table>
 </div>
 </div>
 </div>
-<div class="panel publication-item" id="yangCRNN2026" style="box-shadow: none">
-<div class="panel-heading" id="heading-yangCRNN2026" role="tab">
+<div class="panel publication-item" id="nihalStructuredRegression2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-nihalStructuredRegression2026" role="tab">
 <div class="row">
 <div class="col-xs-9">
 <h4>
-       A Two-Stage CRNN Regression Framework for Bird Counting
+       Clock-Drift-Constrained Structured Regression for Multi-Channel Alignment
       </h4>
 <p style="text-align:left">
-       Yang, Jing and Li, Siyi and Zheng, Zihan and Zhang, Heng and Ni, Youran and Wang, Yuzhu and Huang, Gongping
+       Nihal, Ragib Amin and Yen, Benjamin and Ashizawa, Takeshi and Nakadai, Kazuhiro
       </p>
 <p style="text-align:left">
 <em>
-        Wuhan University; Beijing Jiaotong University; Tampere University
+        Institute of Science Tokyo
        </em>
 </p>
 <p style="text-align:left">
 </p>
 <p style="text-align:left">
 </p>
-<button aria-controls="collapse-yangCRNN2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-yangCRNN2026" type="button">
+<button aria-controls="collapse-nihalStructuredRegression2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-nihalStructuredRegression2026" type="button">
 <i class="fa fa-caret-down">
 </i>
        Details...
@@ -399,12 +499,12 @@
 </div>
 <div class="col-xs-3">
 <div class="btn-group">
-<button class="btn btn-xs btn-danger" data-target="#bibtex-yangCRNN2026" data-toggle="modal" type="button">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-nihalStructuredRegression2026" data-toggle="modal" type="button">
 <i class="fa fa-file-text-o">
 </i>
         Bibtex
        </button>
-<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Yang_task6_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Nihal_IST_task1_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
 <i class="fa fa-file-pdf-o fa-1x">
 </i>
         PDF
@@ -413,19 +513,19 @@
 </div>
 </div>
 </div>
-<div aria-labelledby="heading-yangCRNN2026" class="panel-collapse collapse" id="collapse-yangCRNN2026" role="tabpanel">
+<div aria-labelledby="heading-nihalStructuredRegression2026" class="panel-collapse collapse" id="collapse-nihalStructuredRegression2026" role="tabpanel">
 <div class="panel-body well well-sm">
 <h4>
-      A Two-Stage CRNN Regression Framework for Bird Counting
+      Clock-Drift-Constrained Structured Regression for Multi-Channel Alignment
      </h4>
 <p style="text-align:left">
 <small>
-       Yang, Jing and Li, Siyi and Zheng, Zihan and Zhang, Heng and Ni, Youran and Wang, Yuzhu and Huang, Gongping
+       Nihal, Ragib Amin and Yen, Benjamin and Ashizawa, Takeshi and Nakadai, Kazuhiro
       </small>
 <br/>
 <small>
 <em>
-        Wuhan University; Beijing Jiaotong University; Tampere University
+        Institute of Science Tokyo
        </em>
 </small>
 </p>
@@ -440,99 +540,7 @@
         Features
        </td>
 <td>
-        log-mel spectrogram (128-band)
-       </td>
-</tr>
-<tr>
-<td class="col-md-3">
-        Training or augmentation
-       </td>
-<td>
-        SpecAugment; synthetic data mixing
-       </td>
-</tr>
-<tr>
-<td class="col-md-3">
-        Decision rule
-       </td>
-<td>
-        fragment-level CRNN regression + aviary-level linear aggregation
-       </td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="panel publication-item" id="youDetector2026" style="box-shadow: none">
-<div class="panel-heading" id="heading-youDetector2026" role="tab">
-<div class="row">
-<div class="col-xs-9">
-<h4>
-       Low-Parameter Detector Ensembles for Bird Counting
-      </h4>
-<p style="text-align:left">
-       You, Yuhuan
-      </p>
-<p style="text-align:left">
-<em>
-        Peking University
-       </em>
-</p>
-<p style="text-align:left">
-       No source code submitted.
-      </p>
-<p style="text-align:left">
-</p>
-<button aria-controls="collapse-youDetector2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-youDetector2026" type="button">
-<i class="fa fa-caret-down">
-</i>
-       Details...
-      </button>
-</div>
-<div class="col-xs-3">
-<div class="btn-group">
-<button class="btn btn-xs btn-danger" data-target="#bibtex-youDetector2026" data-toggle="modal" type="button">
-<i class="fa fa-file-text-o">
-</i>
-        Bibtex
-       </button>
-<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/You_PKU_task6_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
-<i class="fa fa-file-pdf-o fa-1x">
-</i>
-        PDF
-       </a>
-</div>
-</div>
-</div>
-</div>
-<div aria-labelledby="heading-youDetector2026" class="panel-collapse collapse" id="collapse-youDetector2026" role="tabpanel">
-<div class="panel-body well well-sm">
-<h4>
-      Low-Parameter Detector Ensembles for Bird Counting
-     </h4>
-<p style="text-align:left">
-<small>
-       You, Yuhuan
-      </small>
-<br/>
-<small>
-<em>
-        Peking University
-       </em>
-</small>
-</p>
-<h5>
-<strong>
-       Method summary
-      </strong>
-</h5>
-<table class="table table-condensed">
-<tr>
-<td class="col-md-3">
-        Features
-       </td>
-<td>
-        detection rate; confidence-weighted rate; bout statistics; MAAD acoustic indices
+        learned embeddings
        </td>
 </tr>
 <tr>
@@ -540,7 +548,15 @@
         Embeddings
        </td>
 <td>
-        BirdNET; ARIA
+        BEATs
+       </td>
+</tr>
+<tr>
+<td class="col-md-3">
+        Training or augmentation
+       </td>
+<td>
+        synthetic-drift augmentation (zebra finch only; none on aru)
        </td>
 </tr>
 <tr>
@@ -548,34 +564,33 @@
         Decision rule
        </td>
 <td>
-        species-specific low-parameter regression
+        structured affine-drift regression
        </td>
 </tr>
 </table>
 </div>
 </div>
 </div>
-<div class="panel publication-item" id="zhongARIA2026" style="box-shadow: none">
-<div class="panel-heading" id="heading-zhongARIA2026" role="tab">
+<div class="panel publication-item" id="youCurveHybrid2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-youCurveHybrid2026" role="tab">
 <div class="row">
 <div class="col-xs-9">
 <h4>
-       Validation-Gated Sampling-Based ARIA Counting System
+       Curve Hybrid Priors for Multi-Channel Audio Alignment
       </h4>
 <p style="text-align:left">
-       Zhong, Chongyang
+       You, Yuhuan
       </p>
 <p style="text-align:left">
 <em>
-        Nanjing University
+        Peking University
        </em>
 </p>
 <p style="text-align:left">
-       Code included in submission package.
-      </p>
+</p>
 <p style="text-align:left">
 </p>
-<button aria-controls="collapse-zhongARIA2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-zhongARIA2026" type="button">
+<button aria-controls="collapse-youCurveHybrid2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-youCurveHybrid2026" type="button">
 <i class="fa fa-caret-down">
 </i>
        Details...
@@ -583,12 +598,12 @@
 </div>
 <div class="col-xs-3">
 <div class="btn-group">
-<button class="btn btn-xs btn-danger" data-target="#bibtex-zhongARIA2026" data-toggle="modal" type="button">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-youCurveHybrid2026" data-toggle="modal" type="button">
 <i class="fa fa-file-text-o">
 </i>
         Bibtex
        </button>
-<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Zhong_NJU_task6_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/You_PKU_task1_technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
 <i class="fa fa-file-pdf-o fa-1x">
 </i>
         PDF
@@ -597,19 +612,19 @@
 </div>
 </div>
 </div>
-<div aria-labelledby="heading-zhongARIA2026" class="panel-collapse collapse" id="collapse-zhongARIA2026" role="tabpanel">
+<div aria-labelledby="heading-youCurveHybrid2026" class="panel-collapse collapse" id="collapse-youCurveHybrid2026" role="tabpanel">
 <div class="panel-body well well-sm">
 <h4>
-      Validation-Gated Sampling-Based ARIA Counting System
+      Curve Hybrid Priors for Multi-Channel Audio Alignment
      </h4>
 <p style="text-align:left">
 <small>
-       Zhong, Chongyang
+       You, Yuhuan
       </small>
 <br/>
 <small>
 <em>
-        Nanjing University
+        Peking University
        </em>
 </small>
 </p>
@@ -624,7 +639,7 @@
         Features
        </td>
 <td>
-        confidence-weighted detection rate
+        timestamp candidates and public annotation-derived offset statistics
        </td>
 </tr>
 <tr>
@@ -632,7 +647,7 @@
         Decision rule
        </td>
 <td>
-        stratified sampling + linear calibration + species-wise validation gating
+        ARU: same-group previous-file median Channel-1 offset prior fitted from public ARU development annotations; zebra_finch: position-gated same-group blend prior: zebra-finch public-validation positions use a 75/25 tail9-public-curve and tail28-late-curve blend, while later suffix positions reduce to the tail28 affine-residual curve
        </td>
 </tr>
 </table>
