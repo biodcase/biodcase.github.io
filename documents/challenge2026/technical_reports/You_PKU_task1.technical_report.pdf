@@ -1,0 +1,321 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Length 3561 >>
+stream
+BT
+/F1 9 Tf
+50 748 Td
+12 TL
+() Tj
+T*
+(Task 1 Technical Report) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(Team and Contact) Tj
+T*
+() Tj
+T*
+(Team identifier: You_PKU. Corresponding author: Yuhuan You. Contact email:) Tj
+T*
+(yuhuan.you@pku.edu.cn. Affiliation: Peking University, Beijing, China. Institution abbreviation:) Tj
+T*
+(PKU.) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(Abstract) Tj
+T*
+() Tj
+T*
+(We submit three predeclared systems for BioDCASE 2026 Task 1, the multichannel alignment) Tj
+T*
+(challenge. The systems predict the Channel 1 timestamp for each official Channel 0 keypoint in) Tj
+T*
+(the ARU and zebra_finch evaluation recordings. The submitted family is fixed before evaluation) Tj
+T*
+(release and combines a late-suffix filename-group structure prior, one robust cross-protocol) Tj
+T*
+(stereo-audio envelope residual-correction system, and one release-position-gated structure/audio) Tj
+T*
+(residual-correction system. The residual correction is deterministic, uses only the official) Tj
+T*
+(evaluation audio and Channel 0 keypoint times at inference, and uses no evaluation labels,) Tj
+T*
+(subjective judgments, or post-release model selection.) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(Task Objective) Tj
+T*
+() Tj
+T*
+(BioDCASE 2026 Task 1 evaluates time-of-arrival estimation for animal acoustic recordings. The) Tj
+T*
+(system outputs one timing prediction for each official Channel 0 keypoint in the ARU and) Tj
+T*
+(zebra_finch datasets. Our development selection tracks mean squared timing error as the primary) Tj
+T*
+(squared-error criterion, while mean absolute timing error is reported alongside it as a) Tj
+T*
+(stability diagnostic.) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(System Overview) Tj
+T*
+() Tj
+T*
+(The submitted package contains one public-development structure system and two audio-refined) Tj
+T*
+(systems. All systems fit their base prediction rules only from the official BioDCASE 2026 public) Tj
+T*
+(train and validation annotations. The audio-refined systems first apply the same predeclared) Tj
+T*
+(group-tail curve prior, then estimate a small file-level residual time correction from local) Tj
+T*
+(stereo-audio envelope similarity around each predicted keypoint. No pretrained audio embeddings,) Tj
+T*
+(private annotations, external animal-call labels, or evaluation labels are used.) Tj
+T*
+() Tj
+T*
+(The first system uses the late-suffix filename-group curve hybrid structure prior, preserving a) Tj
+T*
+(no-audio hedge for the expected zebra_finch suffix positions. The second system uses the robust) Tj
+T*
+(cross-protocol audio setting selected because it improved both the honest public train-to-val) Tj
+T*
+(proxy and the release-runner public validation simulation. The third system is a deliberate) Tj
+T*
+(release-position-gated hedge selected by a public-only residual audit; it keeps the same ARU) Tj
+T*
+(release-ultrafine audio setting, uses the zebra_finch structure prior for file_id modulo 45) Tj
+T*
+(positions 28 and 29, and uses the zebra_finch release-ultrafine audio setting elsewhere. This) Tj
+T*
+(third system is included as a predeclared candidate, not chosen from evaluation statistics.) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(System Labels And Outputs) Tj
+T*
+() Tj
+T*
+(Submission label | ARU method | zebra_finch method | Role) Tj
+T*
+(You_PKU_task1_1 | same_tail1_median | same_tail9_curvepublic_tail28_curveaffine_blend25latecurve | late-suffix) Tj
+T*
+(structure prior) Tj
+T*
+(You_PKU_task1_2 | same_tail1_median plus envelope residual correction |) Tj
+T*
+(same_tail9_curvepublic_tail28_curveaffine_blend25latecurve plus robust envelope residual correction | robust) Tj
+T*
+ET
+endstream
+endobj
+3 0 obj
+<< /Type /Page /Parent 8 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 2 0 R >>
+endobj
+4 0 obj
+<< /Length 3603 >>
+stream
+BT
+/F1 9 Tf
+50 748 Td
+12 TL
+(cross-protocol audio-refined prior) Tj
+T*
+(You_PKU_task1_3 | same_tail1_median plus release-ultrafine envelope residual correction | position-gated) Tj
+T*
+(same_tail9_mean_medianagg for group positions 28 and 29, otherwise) Tj
+T*
+(same_tail9_curvepublic_tail28_curveaffine_blend25latecurve plus release-ultrafine envelope residual correction |) Tj
+T*
+(release-position-gated audio-refined hedge) Tj
+T*
+() Tj
+T*
+(Each system includes outputs for both official Task 1 datasets. The submitted CSV files use the) Tj
+T*
+(required columns `Filename`, `Time Channel 0`, and `Time Channel 1`.) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(Development Evidence) Tj
+T*
+() Tj
+T*
+(System | Public validation MSE | Role) Tj
+T*
+(late_suffix_structure_prior | 0.188887 | late-suffix no-audio structure hedge) Tj
+T*
+(robust_audio_refined | 0.159284 | cross-protocol robust audio-refined system) Tj
+T*
+(release_posgate_audio_refined | 0.140354 | release-position-gated audio-refined hedge) Tj
+T*
+() Tj
+T*
+(The public-development evidence supports using inference-time stereo-audio envelope residual) Tj
+T*
+(correction as the strongest manual route. The release-position-gated system improves both the) Tj
+T*
+(release-runner public validation simulation and the train-only proxy by using the structure) Tj
+T*
+(prior for zebra_finch group positions 28 and 29 and release-ultrafine audio refinement) Tj
+T*
+(elsewhere. A full prior-year evaluation-shaped no-label audio-path smoke test confirmed that) Tj
+T*
+(this candidate set can produce complete ARU and zebra_finch outputs without relying on) Tj
+T*
+(validation annotation files.) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(Evaluation Runner) Tj
+T*
+() Tj
+T*
+(Latest release check time: 2026-06-04T13:22:26.700569+00:00. Release detected: True. Predeclared) Tj
+T*
+(candidate set: audio_refined_release_posgate_suffix_frontier. Candidate-set record reason:) Tj
+T*
+(explicit --candidate-set override) Tj
+T*
+() Tj
+T*
+(The release-gated final evaluation package has been generated and validated for submission. The) Tj
+T*
+(package readiness flag is True in the package manifest and matching preflight checks.) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(Reproducibility) Tj
+T*
+() Tj
+T*
+(The evaluation command is `scripts/task1_run_eval_release_pipeline.sh --root) Tj
+T*
+(/home/user/BioDCASE/Task1 --candidate-set audio_refined_release_posgate_suffix_frontier) Tj
+T*
+(--technical-report-pdf) Tj
+T*
+(/home/user/BioDCASE/Task1/outputs/task1_report_final/You_PKU_task1.technical_report.pdf`. The) Tj
+T*
+(command checks the official release source, unpacks the evaluation data, runs the predeclared) Tj
+T*
+(candidate family, generates the prediction CSV files, validates the package layout, and runs the) Tj
+T*
+(submission preflight checks.) Tj
+T*
+() Tj
+T*
+(Source code availability: Provided through the official submission package.) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(External Resources) Tj
+T*
+() Tj
+T*
+(The submitted systems fit prediction parameters only from the official BioDCASE 2026 public) Tj
+T*
+(development annotations. A public BioDCASE 2025 Task 1 public evaluation audio layout from) Tj
+T*
+(Zenodo record 15492592, published on 29 May 2025 under CC-BY-4.0, was used before release only) Tj
+T*
+(as a no-label operational and filename-layout audit, not external labels or supervised training) Tj
+T*
+(data, and no 2026 hidden evaluation data was used. The audio-refined systems use the official) Tj
+T*
+(Task 1 evaluation audio itself at inference time for stereo-envelope residual correction, which) Tj
+T*
+(is part of the allowed test-time input; no external labels, manual listening judgments, or) Tj
+T*
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 8 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 592 >>
+stream
+BT
+/F1 9 Tf
+50 748 Td
+12 TL
+(organizer-private resources are used.) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(Compliance Statement) Tj
+T*
+() Tj
+T*
+(The submitted candidate family is fixed before evaluation release. The first system uses) Tj
+T*
+(predeclared filename-group rules, and the audio-refined systems use predeclared local) Tj
+T*
+(stereo-envelope residual-correction parameters. Evaluation files are not used for post-release) Tj
+T*
+(model selection. The package validator checks CSV presence, row counts, metadata, report) Tj
+T*
+(attachment, and submission readiness before upload.) Tj
+T*
+() Tj
+T*
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 8 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R] /Count 3 >>
+endobj
+9 0 obj
+<< /Type /Catalog /Pages 8 0 R >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000015 00000 n 
+0000000085 00000 n 
+0000003698 00000 n 
+0000003824 00000 n 
+0000007479 00000 n 
+0000007605 00000 n 
+0000008248 00000 n 
+0000008374 00000 n 
+0000008443 00000 n 
+trailer
+<< /Size 10 /Root 9 0 R >>
+startxref
+8492
+%%EOF
