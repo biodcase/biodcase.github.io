@@ -1283,6 +1283,11 @@ header .page-heading .bold{
 header .page-heading h1.thin{
     font-size: 70px;
 }
+@media only screen and (max-width: 767px) {
+  header .page-heading h1.thin {
+    font-size: 40px;
+  }
+}
 header .page-heading .thin{
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 300;
@@ -1488,6 +1493,12 @@ a.text:hover{
 
 .publication-item a.btn {
     border: 1px solid transparent;
+}
+.publication-item .btn-group > .btn + .btn,
+.publication-item .btn-group > a + a,
+.publication-item .btn-group > a + button,
+.publication-item .btn-group > button + a {
+    margin-left: 4px;
 }
 
 .sep-left {
