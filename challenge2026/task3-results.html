@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
     <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/dcaseicons/css/dcaseicons.css?v=1.2" type="text/css"/>
         <link rel="stylesheet" href="https://biodcase.github.io/theme/assets/highlight/styles/monokai-sublime.css" type="text/css"/>
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btex.min.css">
+    <link rel="stylesheet" href="https://biodcase.github.io/theme/css/datatable.bundle.min.css">
     <link rel="stylesheet" href="https://biodcase.github.io/theme/css/btoc.min.css">
     <link rel="stylesheet" href="https://biodcase.github.io/theme/css/theme.css?v=1.3" type="text/css"/>
     <link rel="stylesheet" href="https://biodcase.github.io/static/assets/bioicons/css/bioicons.css" type="text/css"/>
@@ -134,6 +136,7 @@
 <li><a href="#task-description">Task description</a></li>
 <li><a href="#awards">Awards</a></li>
 <li><a href="#submission-ranking">Submission ranking</a></li>
+<li><a href="#technical-reports">Technical reports</a></li>
 </ul>
 </div>
 </div>
@@ -149,9 +152,9 @@
 <p>The official winning submission is determined by the official evaluation ranking. The Jury Award is selected by the task organisers based on the submitted systems and technical reports.</p>
 <h3>Official winning submission</h3>
 <div class="award-block award-block-winning">
-<div class="award-block-authors"><strong>Coming Soon!</strong></div>
-<div class="award-block-institution"></div>
-<div class="award-block-system"></div>
+<div class="award-block-authors"><strong>Xin Hai, Menghang Yin, Xingyue Li, Jinzhe Wang, Gongping Huang, Yuzhu Wang</strong></div>
+<div class="award-block-institution">Wuhan University; Tampere University</div>
+<div class="award-block-system">WHU-IASP MobileNetV2-lite system 1</div>
 </div>
 <h3>Jury award</h3>
 <div class="award-block award-block-jury">
@@ -161,40 +164,556 @@
 <div class="award-block-comment"></div>
 </div>
 <h1 id="submission-ranking">Submission ranking</h1>
-<p>Coming Soon!</p>
-<!-- Brief description of how ranking is determined -->
-<!-- <table class="datatable table table-hover table-condensed"
-       data-yaml="content/data/challenge2026/results_task3_entries.yaml"
-       data-id-field="anchor"
-       data-sort-name="rank_team"
-       data-sort-order="asc"
-       data-pagination="true"
-       data-show-pagination-switch="true"
-       data-show-chart="true"
-       data-chart-modes="bar,scatter"
-       data-chart-default-mode="scatter"
-       data-row-highlighting="true"
-       data-bar-hline="true"
-       data-bar-show-xaxis="false"
-       data-bar-tooltip-position="top"
-       data-scatter-x="rank_team"
-       data-scatter-y="rank_score"> 
-    <thead>
-        <tr>
-            <th class="sep-right-cell text-center"
-                data-field="rank_team"
-                data-sortable="true"
-                data-chartable="true"
-                data-value-type="int"
-                data-axis-label="Team rank">Team<br></br>rank</th>
-            <th data-field="corresponding_author" data-sortable="true">Corresponding Author</th>
-            <th class="sm-cell" data-field="name" data-sortable="true">System name</th>
-            <th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">Technical<br></br>report</th>
-        </tr>
-    </thead>
+<p>Submissions are ranked by a composite score that balances classification accuracy on the hidden test set and embedded performance metrics (model size, memory usage, and inference time) on the ESP32-S3 microcontroller. Higher values indicate better performance.</p>
+<table class="datatable table table-hover table-condensed" data-bar-hline="true" data-bar-horizontal-indicator-linewidth="2" data-bar-show-horizontal-indicator="true" data-bar-show-vertical-indicator="true" data-bar-show-xaxis="false" data-bar-tooltip-position="top" data-bar-vertical-indicator-linewidth="2" data-chart-default-mode="scatter" data-chart-modes="bar,scatter" data-id-field="name" data-pagination="true" data-rank-mode="grouped_muted" data-row-highlighting="true" data-scatter-x="rank_team" data-scatter-y="rank_score" data-show-chart="false" data-show-pagination-switch="true" data-show-rank="false" data-sort-name="rank_team" data-sort-order="asc">
+<thead>
+<tr>
+<th class="text-center" colspan="1"></th>
+<th class="sep-left-cell text-center" colspan="4">Submission information</th>
+<th class="sep-left-cell text-center" colspan="4">Inference Model</th>
+<th class="sep-left-cell text-center" colspan="4">Embedding Model (.tflite)</th>
+<th class="sep-left-cell text-center" colspan="5">Embedded Performance on ESP32-S3</th>
+<th class="sep-left-cell" colspan="1"></th>
+</tr>
+<tr>
+<th class="text-center" data-axis-label="Team rank" data-chartable="true" data-field="rank_team" data-sortable="true" data-value-type="int">
+          Rank
+      </th>
+<th class="sep-left-cell" data-field="name" data-sortable="true">
+        Solution Label
+      </th>
+<th data-field="abbreviation" data-sortable="true">
+        Abbreviation
+      </th>
+<th class="sm-cell" data-field="name_long" data-sortable="true">
+        Solution Full Name
+      </th>
+<th class="text-center" data-field="bibtex_key" data-sortable="false" data-value-type="anchor">
+        Technical<br/>Report
+      </th>
+<th class="sep-left-cell text-center" data-axis-label="Acc. inf." data-chartable="true" data-field="accuracy_inference" data-sortable="true" data-value-type="float4">
+        Acc.
+      </th>
+<th class="text-center" data-axis-label="ROC-AUC inf." data-chartable="true" data-field="roc_auc_inference" data-sortable="true" data-value-type="float4">
+        ROC-AUC
+      </th>
+<th class="text-center" data-axis-label="Model Size inf. [Bytes]" data-chartable="true" data-field="model_size_inference_bytes" data-sortable="true" data-value-type="int">
+        Model Size [Bytes]
+      </th>
+<th class="text-center" data-axis-label="MACs inf." data-chartable="true" data-field="macs_inference" data-sortable="true" data-value-type="int">
+        MACs
+      </th>
+<th class="sep-left-cell text-center" data-axis-label="Acc. tfl." data-chartable="true" data-field="accuracy_tflite" data-sortable="true" data-value-type="float4">
+        Acc.
+      </th>
+<th class="text-center" data-axis-label="ROC-AUC tfl." data-chartable="true" data-field="roc_auc_tflite" data-sortable="true" data-value-type="float4">
+        ROC-AUC
+      </th>
+<th class="text-center" data-axis-label="Model Size tfl. [Bytes]" data-chartable="true" data-field="model_size_tflite_bytes" data-sortable="true" data-value-type="int">
+        Model Size [Bytes]
+      </th>
+<th class="text-center" data-axis-label="MACs tfl." data-chartable="true" data-field="macs_tflite" data-sortable="true" data-value-type="int">
+        MACs
+      </th>
+<th class="sep-left-cell text-center" data-axis-label="RAM Usage [Bytes]" data-chartable="true" data-field="embedded_ram_usage_bytes" data-sortable="true" data-value-type="int">
+        RAM Usage [Bytes]
+      </th>
+<th class="text-center" data-axis-label="Time Setup [ms]" data-chartable="true" data-field="embedded_time_ms_setup" data-sortable="true" data-value-type="float3">
+        Time Setup [ms]
+      </th>
+<th class="text-center" data-axis-label="Time Preproc. [ms]" data-chartable="true" data-field="embedded_time_ms_preprocessing" data-sortable="true" data-value-type="float3">
+        Time Preproc. [ms]
+      </th>
+<th class="text-center" data-axis-label="Time Model [ms]" data-chartable="true" data-field="embedded_time_ms_model" data-sortable="true" data-value-type="float3">
+        Time Model [ms]
+      </th>
+<th class="text-center" data-axis-label="Time Total [ms]" data-chartable="true" data-field="embedded_time_ms_total" data-sortable="true" data-value-type="float3">
+        Time Total [ms]
+      </th>
+<th class="sep-left-cell text-center" data-axis-label="Rank Score" data-chartable="true" data-field="rank_score" data-sortable="true" data-value-type="float2">
+        Rank Score
+      </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Hai_task3_1</td>
+<td>MNV2Lite-S1</td>
+<td>WHU-IASP MobileNetV2-lite system 1</td>
+<td>hai2026</td>
+<td></td>
+<td></td>
+<td>357292</td>
+<td>N/A</td>
+<td>0.7382</td>
+<td>0.9578</td>
+<td>78392</td>
+<td>5382064</td>
+<td>95900</td>
+<td>7.890</td>
+<td>294.730</td>
+<td>361.740</td>
+<td>664.360</td>
+<td>3.73</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Hai_task3_2</td>
+<td>MNV2Lite-HardFT</td>
+<td>WHU-IASP MobileNetV2-lite hard fine-tuned</td>
+<td>hai2026</td>
+<td></td>
+<td></td>
+<td>357292</td>
+<td>N/A</td>
+<td>0.7400</td>
+<td>0.9503</td>
+<td>78392</td>
+<td>5382064</td>
+<td>95900</td>
+<td>7.880</td>
+<td>294.730</td>
+<td>361.740</td>
+<td>664.350</td>
+<td>3.69</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Hai_task3_3</td>
+<td>DSCNN-s20k</td>
+<td>WHU-IASP DS-CNN conv-first s20k system</td>
+<td>hai2026</td>
+<td></td>
+<td></td>
+<td>213197</td>
+<td>N/A</td>
+<td>0.7218</td>
+<td>0.9487</td>
+<td>42232</td>
+<td>3911888</td>
+<td>167948</td>
+<td>5.060</td>
+<td>308.560</td>
+<td>287.530</td>
+<td>601.150</td>
+<td>3.59</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Hai_task3_4</td>
+<td>MNV2Lite-stemB</td>
+<td>WHU-IASP MobileNetV2-lite stemB hard fine-tuned</td>
+<td>hai2026</td>
+<td></td>
+<td></td>
+<td>379807</td>
+<td>N/A</td>
+<td>0.7345</td>
+<td>0.9555</td>
+<td>84320</td>
+<td>5810224</td>
+<td>144044</td>
+<td>7.670</td>
+<td>300.310</td>
+<td>437.290</td>
+<td>745.270</td>
+<td>3.63</td>
+</tr>
+<tr>
+<td>8</td>
+<td>guimaraes_task3_1</td>
+<td>FreqTimeN</td>
+<td>FreqTimeNet (freq/time-separated CNN, PCEN + Perch distillation)</td>
+<td>guimaraes2026</td>
+<td>0.7782</td>
+<td>0.9593</td>
+<td>336408</td>
+<td>114559499</td>
+<td>0.7709</td>
+<td>0.9559</td>
+<td>156960</td>
+<td>114917472</td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>3.38</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Mannini_FBK_task3_1</td>
+<td>MNNWAVE1</td>
+<td>Waveform Frozen Frontend WrenNet</td>
+<td>mannini_fbk2026</td>
+<td>0.6600</td>
+<td>0.9254</td>
+<td>346725</td>
+<td>N/A</td>
+<td>0.6600</td>
+<td>0.9254</td>
+<td>4755032</td>
+<td>324283506</td>
+<td>263528</td>
+<td>21.530</td>
+<td>477.460</td>
+<td>3961.890</td>
+<td>4460.880</td>
+<td>1.75</td>
+</tr>
+<tr>
+<td>5</td>
+<td>You_PKU_task3_1</td>
+<td>TVLow8423</td>
+<td>TrainVal Mid-Feature Low-8423 Ensemble</td>
+<td>you_pku2026</td>
+<td>0.7636</td>
+<td>0.9655</td>
+<td>923225</td>
+<td>119602017</td>
+<td>0.7636</td>
+<td>0.9655</td>
+<td>894364</td>
+<td>121567233</td>
+<td>2874184</td>
+<td>6.360</td>
+<td>248.380</td>
+<td>28206.990</td>
+<td>28461.730</td>
+<td>3.61</td>
+</tr>
+<tr>
+<td>2</td>
+<td>You_PKU_task3_2</td>
+<td>TV8414</td>
+<td>TrainVal Mid-Feature Single BalancedDSCNN</td>
+<td>you_pku2026</td>
+<td>0.7545</td>
+<td>0.9581</td>
+<td>307962</td>
+<td>39867339</td>
+<td>0.7545</td>
+<td>0.9581</td>
+<td>293912</td>
+<td>40522400</td>
+<td>2816872</td>
+<td>2.900</td>
+<td>241.120</td>
+<td>9407.610</td>
+<td>9651.630</td>
+<td>3.70</td>
+</tr>
+<tr>
+<td>7</td>
+<td>You_PKU_task3_3</td>
+<td>TVLow8424</td>
+<td>TrainVal Mid-Feature Low-8424 Backup Ensemble</td>
+<td>you_pku2026</td>
+<td>0.7636</td>
+<td>0.9657</td>
+<td>1232126</td>
+<td>159469356</td>
+<td>0.7636</td>
+<td>0.9657</td>
+<td>1192924</td>
+<td>162089644</td>
+<td>2885000</td>
+<td>8.330</td>
+<td>246.190</td>
+<td>37603.960</td>
+<td>37858.480</td>
+<td>3.50</td>
+</tr>
+<tr>
+<td>10</td>
+<td>You_PKU_task3_4</td>
+<td>CleanP14</td>
+<td>Clean Validation Mid-Feature Pruned-14 Ensemble</td>
+<td>you_pku2026</td>
+<td>0.7745</td>
+<td>0.9677</td>
+<td>4286089</td>
+<td>558142746</td>
+<td>0.7745</td>
+<td>0.9677</td>
+<td>4178756</td>
+<td>567313754</td>
+<td>N/A</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>2.49</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Baseline</td>
+<td>Base</td>
+<td>Baseline Pytorch</td>
+<td>none</td>
+<td>0.5647</td>
+<td>0.8921</td>
+<td>393109</td>
+<td>23326923</td>
+<td>0.5628</td>
+<td>0.8923</td>
+<td>111408</td>
+<td>23315232</td>
+<td>202556</td>
+<td>4.440</td>
+<td>413.630</td>
+<td>330.360</td>
+<td>743.990</td>
+<td>2.61</td>
+</tr>
+</tbody>
 </table>
-
-<!-- # Technical reports (placeholder — add technical_reports_task3.bib to content/data/challenge2026/ to enable) -->
+<h1 id="technical-reports">Technical reports</h1>
+<div class="btex" data-source="content/data/challenge2026/technical_reports_task3.bib" data-stats="true">
+<div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist">
+<div class="panel publication-item" id="guimaraes2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-guimaraes2026" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       BioDCASE Task 3: Efficient Bird Sound Recognition with Signal-processing Priors and Knowledge Distillation
+      </h4>
+<p style="text-align:left">
+       Heitor R. Guimarães and Tiago H. Falk
+      </p>
+<p style="text-align:left">
+<em>
+        INRS-EMT, Université du Québec
+       </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-guimaraes2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-guimaraes2026" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-guimaraes2026" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/guimaraes_task3.technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-guimaraes2026" class="panel-collapse collapse" id="collapse-guimaraes2026" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      BioDCASE Task 3: Efficient Bird Sound Recognition with Signal-processing Priors and Knowledge Distillation
+     </h4>
+<p style="text-align:left">
+<small>
+       Heitor R. Guimarães and Tiago H. Falk
+      </small>
+<br/>
+<small>
+<em>
+        INRS-EMT, Université du Québec
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="hai2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-hai2026" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       Hardware-aware MobileNetV2-lite with Teacher-pool Distillation for BioDCASE-tiny 2026 Task 3
+      </h4>
+<p style="text-align:left">
+       Xin Hai and Menghang Yin and Xingyue Li and Jinzhe Wang and Gongping Huang and Yuzhu Wang
+      </p>
+<p style="text-align:left">
+<em>
+        Wuhan University; Tampere University
+       </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-hai2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-hai2026" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-hai2026" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/hai_task3.technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-hai2026" class="panel-collapse collapse" id="collapse-hai2026" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      Hardware-aware MobileNetV2-lite with Teacher-pool Distillation for BioDCASE-tiny 2026 Task 3
+     </h4>
+<p style="text-align:left">
+<small>
+       Xin Hai and Menghang Yin and Xingyue Li and Jinzhe Wang and Gongping Huang and Yuzhu Wang
+      </small>
+<br/>
+<small>
+<em>
+        Wuhan University; Tampere University
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="mannini_fbk2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-mannini_fbk2026" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       WrenNet For BioDCASE-tiny 2026 Task 3
+      </h4>
+<p style="text-align:left">
+       Leonardo Mannini and Stefano Ciapponi and Elisabetta Farella
+      </p>
+<p style="text-align:left">
+<em>
+        Fondazione Bruno Kessler
+       </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-mannini_fbk2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-mannini_fbk2026" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-mannini_fbk2026" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/Mannini_FBK_task3.technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-mannini_fbk2026" class="panel-collapse collapse" id="collapse-mannini_fbk2026" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      WrenNet For BioDCASE-tiny 2026 Task 3
+     </h4>
+<p style="text-align:left">
+<small>
+       Leonardo Mannini and Stefano Ciapponi and Elisabetta Farella
+      </small>
+<br/>
+<small>
+<em>
+        Fondazione Bruno Kessler
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+<div class="panel publication-item" id="you_pku2026" style="box-shadow: none">
+<div class="panel-heading" id="heading-you_pku2026" role="tab">
+<div class="row">
+<div class="col-xs-9">
+<h4>
+       BioDCASE 2026 Task 3 Technical Report: Mid-Frequency Log-Mel BalancedDSCNN Ensembles for Tiny Bird Audio Recognition
+      </h4>
+<p style="text-align:left">
+       Yuhuan You
+      </p>
+<p style="text-align:left">
+<em>
+        Peking University
+       </em>
+</p>
+<p style="text-align:left">
+</p>
+<p style="text-align:left">
+</p>
+<button aria-controls="collapse-you_pku2026" aria-expanded="true" class="btn btn-default btn-xs" data-parent="#accordion" data-toggle="collapse" href="#collapse-you_pku2026" type="button">
+<i class="fa fa-caret-down">
+</i>
+       Details...
+      </button>
+</div>
+<div class="col-xs-3">
+<div class="btn-group">
+<button class="btn btn-xs btn-danger" data-target="#bibtex-you_pku2026" data-toggle="modal" type="button">
+<i class="fa fa-file-text-o">
+</i>
+        Bibtex
+       </button>
+<a class="btn btn-xs btn-warning" data-placement="bottom" href="../documents/challenge2026/technical_reports/You_PKU_task3.technical_report.pdf" rel="tooltip" style="text-decoration:none;border-bottom:0;padding-bottom:2px" title="Download pdf">
+<i class="fa fa-file-pdf-o fa-1x">
+</i>
+        PDF
+       </a>
+</div>
+</div>
+</div>
+</div>
+<div aria-labelledby="heading-you_pku2026" class="panel-collapse collapse" id="collapse-you_pku2026" role="tabpanel">
+<div class="panel-body well well-sm">
+<h4>
+      BioDCASE 2026 Task 3 Technical Report: Mid-Frequency Log-Mel BalancedDSCNN Ensembles for Tiny Bird Audio Recognition
+     </h4>
+<p style="text-align:left">
+<small>
+       Yuhuan You
+      </small>
+<br/>
+<small>
+<em>
+        Peking University
+       </em>
+</small>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
                 </div>
             </section>
         </div>
@@ -217,6 +736,8 @@
     hljs.initHighlightingOnLoad();
 </script>
 <script type="text/javascript" src="https://biodcase.github.io/theme/js/respond.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/btex.min.js"></script>
+<script type="text/javascript" src="https://biodcase.github.io/theme/js/datatable.bundle.min.js"></script>
 <script type="text/javascript" src="https://biodcase.github.io/theme/js/btoc.min.js"></script>
 <script type="text/javascript" src="https://biodcase.github.io/theme/js/theme.js"></script>
 </body>
